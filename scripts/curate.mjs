@@ -1,10 +1,10 @@
-// 云端 AI 改写：调用 GitHub Models（GITHUB_TOKEN 免费额度）筛选并改写新闻，更新 data.json
+// 云端 AI 改写：调用 OpenAI 兼容接口（DeepSeek/智谱等，key 放仓库 Secret LLM_API_KEY）
 // 容错策略：LLM 调用失败时跳过改写，仅做旧闻清理，保证站点不挂
 import fs from "node:fs";
 
-const MODEL = process.env.LLM_MODEL || "openai/gpt-4o-mini";
-const TOKEN = process.env.GITHUB_TOKEN || "";
-const ENDPOINT = "https://models.github.ai/inference/chat/completions";
+const BASE = (process.env.LLM_BASE_URL || "").replace(/\/$/, "");
+const MODEL = process.env.LLM_MODEL || "";
+const KEY = process.env.LLM_API_KEY || "";
 const TODAY = new Date().toISOString().slice(0, 10);
 const CATS = { model: "大模型", agent: "Agent与编程", industry: "产业动态", career: "求职风向" };
 
@@ -12,9 +12,9 @@ function load(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }
 function save(p, v) { fs.writeFileSync(p, JSON.stringify(v, null, 1), "utf8"); }
 
 async function chat(messages, maxTokens = 4000) {
-  const r = await fetch(ENDPOINT, {
+  const r = await fetch(`${BASE}/chat/completions`, {
     method: "POST",
-    headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
+    headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({ model: MODEL, messages, temperature: 0.4, max_tokens: maxTokens, response_format: { type: "json_object" } }),
   });
   if (!r.ok) throw new Error(`LLM http ${r.status}: ${(await r.text()).slice(0, 200)}`);
@@ -56,7 +56,7 @@ log.push(`candidates=${cands.length}/${raw.length}`);
 
 /* 2. LLM 改写 3-6 条 */
 let fresh = [];
-if (cands.length && TOKEN) {
+if (cands.length && KEY && BASE) {
   const todayDow = "星期" + "日一二三四五六"[new Date().getDay()];
   try {
     const sys = `你是面向中国大学生的 AI 求职资讯网站「AI 风向标」的编辑。今天是 ${TODAY} ${todayDow}。内容方针（最高优先级）：帮学生找工作、了解行业，优先收录贴近岗位与就业的内容（校招/实习/社招动态、岗位需求变化、就业政策、薪资报告、重大融资/组织变动）。纯海外技术新闻最多选 2 条。绝不编造事实与数字，改写必须基于给定的标题和摘要，未知信息不写。所有输出必须是简体中文（英文条目标 lang=en 并给 origTitle）。严格输出 JSON。`;
@@ -82,7 +82,7 @@ ${JSON.stringify(cands, null, 1)}
   } catch (e) {
     log.push(`LLM-NEWS FAIL ${String(e.message || e).slice(0, 160)}`);
   }
-} else log.push(`skip llm-news (cands=${cands.length}, token=${!!TOKEN})`);
+} else log.push(`skip llm-news (cands=${cands.length}, key=${!!KEY && !!BASE})`);
 
 /* 3. 合并：编号接续、插最前、featured 给最热新条目、总量卡 50 */
 let maxId = Math.max(...data.news.map((n) => parseInt((n.id || "a0").slice(1)) || 0), 0);
@@ -101,7 +101,7 @@ data.news = [...newItems, ...data.news].slice(0, 50);
 log.push(`added=${newItems.length} ids=${newItems.map((n) => n.id).join(",")} total=${data.news.length}`);
 
 /* 4. LLM 更新 Agent 热度榜（失败则保留旧榜） */
-if (TOKEN) {
+if (KEY && BASE) {
   try {
     const sys = `你是 AI 编程 Agent 领域的观察员。今天是 ${TODAY}。基于你的知识更新 8 个热门 Agent/编程工具的热度榜，score 0-100 递减，delta 为相对上周变化，trend 为 up/down/flat，note 用中文 1 句概括近况。可参考当前榜单微调。输出 JSON {"heat":[8 项: name,vendor,score,delta,trend,note]}。`;
     const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: "当前榜单：" + JSON.stringify(data.agentHeat, null, 1) }], 2500));
@@ -110,7 +110,7 @@ if (TOKEN) {
 }
 
 /* 5. 岗位保守清理：让 LLM 仅判断哪些岗位已明确超期（deadline 明显早于今天才删） */
-if (TOKEN && data.jobs.length) {
+if (KEY && BASE && data.jobs.length) {
   try {
     const sys = `今天是 ${TODAY}。以下是招聘岗位列表 JSON。只删除明确已超期失效的（截止时间明确早于今天且无"长期/持续"字样）。输出 JSON {"remove":["j3",...]}，不确定就输出空数组。`;
     const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: JSON.stringify(data.jobs.map((j) => ({ id: j.id, company: j.company, deadline: j.deadline || "" })), null, 1) }], 1500));
