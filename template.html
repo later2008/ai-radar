@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 风向标 AI Radar — AI 资讯与 AI 求职情报站（大学生公益项目）</title>
+<meta name="description" content="面向大学生的公益 AI 资讯与求职情报站：每日更新国内 AI 校招、实习、社招岗位，大模型行业动态，Agent 热度榜，英文报道附中文翻译，全部内容附原文链接。">
+<meta name="keywords" content="AI求职,AI校招,大模型岗位,算法岗,AI实习,AI新闻,Agent,人工智能就业">
+<style>
+:root {
+  --bg: #f5f7fb; --card: #ffffff; --border: #e4e9f2; --text: #17203a;
+  --muted: #64748b; --accent: #2563eb; --accent2: #7c3aed;
+  --up: #dc2626; --down: #16a34a; --flat: #94a3b8;
+  --radius: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 顶栏 ===== */
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.topbar-inner { max-width: 1180px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 24px; }
+.logo { font-size: 20px; font-weight: 800; letter-spacing: .5px; }
+.logo .radar { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.logo-sub { font-size: 11px; color: var(--muted); font-weight: 400; margin-left: 8px; }
+.nav { display: flex; gap: 4px; flex: 1; }
+.nav button { border: none; background: transparent; padding: 8px 18px; font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer; border-radius: 10px; transition: all .2s; font-family: inherit; }
+.nav button:hover { color: var(--accent); background: #eff4ff; }
+.nav button.active { color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+.clock { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.5; }
+
+/* ===== 快讯条 ===== */
+.ticker { background: #fff; border-bottom: 1px solid var(--border); overflow: hidden; }
+.ticker-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; }
+.ticker-label { flex-shrink: 0; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 0 12px 12px 0; margin: 6px 10px 6px 0; }
+.ticker-track { flex: 1; overflow: hidden; position: relative; }
+.ticker-content { display: inline-block; white-space: nowrap; font-size: 13px; color: var(--text); padding-left: 100%; }
+.ticker-track:hover .ticker-content { animation-play-state: paused; }
+.ticker-content b { color: var(--accent); }
+@keyframes scroll { to { transform: translateX(-200%); } }
+
+/* ===== 布局 ===== */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 20px; }
+.hero { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 30px; margin-bottom: 20px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(37,99,235,.07), rgba(124,58,237,.06) 60%, transparent); pointer-events: none; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--accent); background: #eff4ff; border: 1px solid #d7e3ff; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
+.hero h1 { font-size: 26px; line-height: 1.35; margin-bottom: 10px; position: relative; }
+.hero p { color: var(--muted); font-size: 14.5px; line-height: 1.75; max-width: 860px; position: relative; }
+.hero-meta { margin-top: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); position: relative; }
+.tag { font-size: 11.5px; background: #f1f5f9; color: #475569; padding: 3px 10px; border-radius: 6px; }
+
+.layout { display: grid; grid-template-columns: 1fr 330px; gap: 20px; align-items: start; }
+.side { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 76px; }
+
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.panel-head { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.panel-title { font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.panel-title .dot { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+
+/* ===== 筛选 ===== */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 0; }
+.chip { border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: all .15s; font-family: inherit; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.active { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
+
+/* ===== 新闻卡片 ===== */
+.news-list { display: flex; flex-direction: column; gap: 12px; }
+.news-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; cursor: pointer; transition: transform .2s ease, box-shadow .2s, border-color .2s; display: flex; gap: 16px; }
+.news-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
+.nc-cover { flex-shrink: 0; width: 208px; height: 132px; border-radius: 10px; overflow: hidden; position: relative; }
+.nc-cover svg, .nc-cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
+/* 无图时用来源/公司 Logo 占位 */
+.logo-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #fff; background: linear-gradient(135deg, #3B82F6, #7AA9FF); }
+.logo-tile .lt-mark { font-size: 42px; font-weight: 800; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,.22); font-family: Georgia, "Microsoft YaHei", serif; display: inline-block; transition: transform .3s ease; }
+.news-card:hover .lt-mark { transform: scale(1.15) rotate(-5deg); }
+.nc-cover img { transition: transform .35s ease; }
+.news-card:hover .nc-cover img { transform: scale(1.05); }
+.logo-tile .lt-name { font-size: 12px; font-weight: 600; opacity: .92; letter-spacing: 1px; max-width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.job-logo { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 800; text-shadow: 0 1px 4px rgba(0,0,0,.2); font-family: Georgia, "Microsoft YaHei", serif; }
+.job-co-wrap { display: flex; align-items: center; gap: 12px; }
+.nc-main { flex: 1; min-width: 0; }
+.nc-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 8px; flex-wrap: wrap; }
+.nc-src { font-weight: 700; color: var(--accent); }
+.nc-title { font-size: 16.5px; font-weight: 700; line-height: 1.45; }
+.nc-title-en { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 4px; font-style: italic; }
+.nc-summary { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
+.nc-detail { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+.news-card.open .nc-detail { display: block; }
+.nc-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
+.nc-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 6px; }
+.nc-detail ul { list-style: none; }
+.nc-detail li { font-size: 13px; color: #475569; line-height: 1.8; padding-left: 16px; position: relative; }
+.nc-detail li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.nc-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-size: 12.5px; font-weight: 600; background: #eff4ff; border: 1px solid #d7e3ff; padding: 6px 14px; border-radius: 8px; }
+.badge-en { font-size: 11px; font-weight: 700; color: var(--accent2); background: #f5f0ff; border: 1px solid #e6d9ff; padding: 2px 8px; border-radius: 5px; }
+.badge-hot { font-size: 11px; font-weight: 700; color: #dc2626; background: #fef1f1; border: 1px solid #fbd5d5; padding: 2px 8px; border-radius: 5px; animation: pulseHot 2.2s ease-in-out infinite; }
+
+/* ===== 分页 ===== */
+.pager { display: flex; gap: 6px; justify-content: center; align-items: center; padding: 20px 0 4px; flex-wrap: wrap; }
+.pager button { border: 1px solid var(--border); background: #fff; color: var(--muted); min-width: 36px; height: 34px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all .15s; }
+.pager button:hover:not(:disabled):not(.cur) { border-color: var(--accent); color: var(--accent); }
+.pager button.cur { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
+.pager button:disabled { opacity: .35; cursor: default; }
+.pager .pg-info { font-size: 12px; color: var(--muted); margin: 0 8px; }
+
+/* ===== Agent 热度榜 ===== */
+.heat-item { display: flex; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+.heat-item:last-child { border-bottom: none; }
+.heat-rank { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; background: #f1f5f9; color: #64748b; }
+.heat-item:nth-child(1) .heat-rank { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; }
+.heat-item:nth-child(2) .heat-rank { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+.heat-item:nth-child(3) .heat-rank { background: linear-gradient(135deg, #64748b, #94a3b8); color: #fff; }
+.heat-body { flex: 1; min-width: 0; }
+.heat-name { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.heat-vendor { font-size: 11px; color: var(--muted); font-weight: 400; }
+.heat-delta { font-size: 12px; font-weight: 800; }
+.heat-delta.up { color: var(--up); } .heat-delta.down { color: var(--down); } .heat-delta.flat { color: var(--flat); }
+.heat-bar { height: 5px; background: #f1f5f9; border-radius: 3px; margin: 7px 0 6px; overflow: hidden; }
+.heat-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform-origin: left; animation: heatGrow .9s cubic-bezier(.22,1,.36,1) backwards; }
+.heat-note { font-size: 11.5px; color: var(--muted); line-height: 1.6; }
+
+/* ===== 求职速览 ===== */
+.stat-item { padding: 14px 18px; border-bottom: 1px solid #f1f5f9; }
+.stat-item:last-child { border-bottom: none; }
+.stat-num { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat-label { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+
+/* ===== 岗位卡片 ===== */
+.job-list { display: flex; flex-direction: column; gap: 12px; }
+.job-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: transform .2s ease, box-shadow .2s, border-color .2s; }
+.job-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
+.job-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+.job-title { font-size: 16px; font-weight: 700; line-height: 1.45; }
+.job-title-en { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 3px; font-style: italic; }
+.job-co { font-size: 13px; font-weight: 700; color: var(--accent); margin-top: 5px; }
+.job-salary { font-size: 14px; font-weight: 800; color: #ea580c; white-space: nowrap; }
+.job-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: var(--muted); align-items: center; }
+.type-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+.type-实习 { background: #fef9c3; color: #a16207; } .type-校招 { background: #dcfce7; color: #15803d; }
+.type-社招 { background: #dbeafe; color: #1d4ed8; } .type-远程 { background: #ede9fe; color: #6d28d9; }
+.job-summary { font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 10px; }
+.job-positions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.job-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-size: 12.5px; font-weight: 600; background: #eff4ff; border: 1px solid #d7e3ff; padding: 6px 14px; border-radius: 8px; }
+.job-tip { background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius); padding: 16px 20px; margin-bottom: 16px; font-size: 13px; line-height: 1.8; color: #713f12; }
+.job-tip b { color: #b45309; }
+
+/* ===== 小动画 ===== */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulseHot { 0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,.28); } 50% { box-shadow: 0 0 0 5px rgba(220,38,38,0); } }
+@keyframes heatGrow { from { transform: scaleX(0); } }
+.anim-in { animation: fadeUp .5s ease-out backwards; }
+/* 页面区块依次入场 */
+.hero.anim-in { animation-delay: 0s; }
+#view-news .panel.anim-in { animation-delay: .08s; }
+.side .panel:nth-child(1) { animation: fadeUp .5s ease-out .15s backwards; }
+.side .panel:nth-child(2) { animation: fadeUp .5s ease-out .25s backwards; }
+/* 按钮按压反馈 */
+.chip:active, .pager button:active, .nav button:active { transform: scale(.94); }
+.chip, .pager button, .nav button { will-change: auto; }
+.chip { transition: all .15s, transform .12s; }
+.pager button { transition: all .15s, transform .12s; }
+/* 展开详情内容淡入 */
+.news-card .nc-detail { animation: fadeUp .3s ease-out; }
+/* 板块切换淡入 */
+#view-news:not(.hidden), #view-jobs:not(.hidden) { animation: fadeUp .35s ease-out; }
+/* 用户偏好减弱动态时全部关闭 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .ticker-content { animation: none !important; }
+}
+
+/* ===== 页脚 ===== */
+.footer { border-top: 1px solid var(--border); margin-top: 30px; background: #fff; }
+.footer-inner { max-width: 1180px; margin: 0 auto; padding: 24px 20px; font-size: 12.5px; color: var(--muted); line-height: 2; }
+.footer b { color: var(--text); }
+
+.hero-flex { display: flex; gap: 26px; align-items: flex-start; position: relative; }
+.hero-body { flex: 1; min-width: 0; }
+.hero-cover { flex-shrink: 0; width: 330px; height: 186px; border-radius: 12px; overflow: hidden; }
+.hero-cover svg { width: 100%; height: 100%; display: block; }
+.empty { text-align: center; color: var(--muted); padding: 50px 0; font-size: 14px; }
+@media (max-width: 720px) { .news-card { flex-direction: column; } .nc-cover { width: 100%; height: 160px; } .hero-flex { flex-direction: column; } .hero-cover { width: 100%; height: 170px; } }
+.hidden { display: none !important; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .side { position: static; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">AI 风向标<span class="radar"> AI Radar</span><span class="logo-sub">大学生 AI 资讯与求职情报站</span></div>
+    <nav class="nav">
+      <button id="tab-news" class="active" onclick="switchTab('news')">📰 AI 资讯</button>
+      <button id="tab-jobs" onclick="switchTab('jobs')">💼 AI 求职</button>
+    </nav>
+    <div class="clock"><span id="clock-time">--:--:--</span><br>更新于 __UPDATED__</div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-label">⚡ 快讯</span>
+    <div class="ticker-track"><div class="ticker-content" id="ticker-content"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- 头条 -->
+  <div class="hero anim-in" id="hero"></div>
+
+  <div class="layout">
+    <!-- ===== 主栏 ===== -->
+    <main>
+      <!-- AI 资讯 -->
+      <section id="view-news">
+        <div class="chips anim-in" id="news-chips" style="animation-delay:.08s"></div>
+        <div class="chips hidden" id="jobtype-chips" style="padding-top: 0"></div>
+        <div class="news-list" id="news-list"></div>
+        <div class="pager" id="pager"></div>
+      </section>
+
+      <!-- AI 求职 -->
+      <section id="view-jobs" class="hidden">
+        <div class="job-tip anim-in">
+          <b>🧭 怎么用这个板块：</b>本站岗位<strong>全部来自国内</strong>——大厂 2027 届校招官方入口（腾讯 join.qq.com、字节 jobs.bytedance.com、阿里 talent.alibaba.com、百度 talent.baidu.com、小米 hr.xiaomi.com、京东 campus.jd.com）、科研院所与 AI 公司实习/社招的真实在招页面，每条都附官方投递链接。<b>投递提醒：</b>秋招黄金窗口为 8-10 月，越早投递机会越多；谨防任何「付费内推 / 付费实习」诈骗，投递一律走官网渠道。更多国内渠道：实习僧 shixiseng.com、BOSS直聘 zhipin.com、国家大学生就业服务平台 ncss.cn。
+        </div>
+        <div class="chips" id="job-chips"></div>
+        <div class="job-list" id="job-list"></div>
+      </section>
+    </main>
+
+    <!-- ===== 侧栏 ===== -->
+    <aside class="side">
+      <div class="panel">
+        <div class="panel-head"><span class="panel-title"><span class="dot"></span>🔥 Agent 热度榜</span><span style="font-size:11px;color:var(--muted)">按社区讨论热度</span></div>
+        <div id="heat-list"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><span class="panel-title"><span class="dot"></span>📊 求职速览</span></div>
+        <div id="stats-list"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <b>AI 风向标 AI Radar</b> — 面向大学生的 AI 资讯与求职情报聚合站 · 非营利公益项目<br>
+    资讯来源：量子位 · 爱范儿 · InfoQ中文 · 钛媒体 · 极客公园 · 少数派 · Solidot · TechCrunch AI · The Verge · Ars Technica · IEEE Spectrum · MIT 科技评论 ｜ 国内就业政策与校招情报经全网搜索核实后收录<br>
+    岗位来源：腾讯 / 字节跳动 / 阿里巴巴 / 百度 / 小米 / 京东等官方校招渠道 · 上海AI实验室 · MiniMax · 智谱AI · 实习僧 · 高校人才网 · 高校就业信息网 ｜ 英文内容均附中文翻译与原文链接<br>
+    本站不收取任何费用；所有内容版权归原作者及原发布机构所有，如有侵权请联系删除；投递请以企业官方渠道为准，谨防求职诈骗。
+  </div>
+</footer>
+
+<script>
+const DATA = __DATA__;
+
+const CATS = { model: "大模型", agent: "Agent 与编程", industry: "产业动态", career: "求职风向" };
+const $ = (s) => document.querySelector(s);
+
+/* 时钟 */
+function tick() {
+  const d = new Date();
+  $("#clock-time").textContent = d.toLocaleTimeString("zh-CN", { hour12: false });
+}
+setInterval(tick, 1000); tick();
+
+/* 快讯：全部新闻 + 热榜要点，速度按内容长度自适应（约 0.45 秒/字），悬停暂停 */
+(function () {
+  const parts = DATA.news.map((n) => `<b>【${n.source}】</b>${n.title}`);
+  parts.push(`<b>【🔥 Agent 热度榜】</b>` + DATA.agentHeat.slice(0, 4).map((a) => `${a.name}（${a.vendor}）热度 ${a.score}`).join(" · "));
+  parts.push(`<b>【💼 国内在招】</b>` + DATA.jobs.slice(0, 8).map((j) => `${j.company}${j.type}·${(j.positions || [])[0] || ""}`).join(" · "));
+  const html = parts.join("　　●　　");
+  const el = $("#ticker-content");
+  el.innerHTML = html;
+  const textLen = html.replace(/<[^>]+>/g, "").length;
+  el.style.animation = `scroll ${Math.max(120, Math.round(textLen * 0.3))}s linear infinite`;
+})();
+
+/* ===== 封面：只使用从原文页面截取的真实配图，无图则用来源/公司 Logo 占位 ===== */
+const SRC_LOGOS = [
+  ["量子位", "量", "#1E6FEB", "#5AA2FF"],
+  ["TechCrunch", "TC", "#0A9E01", "#33C41F"],
+  ["Ars Technica", "A", "#E84B0C", "#FF7A3D"],
+  ["Solidot", "S", "#2F9E44", "#5DBE6A"],
+  ["InfoQ", "Q", "#0F5FC2", "#3D8BFF"],
+  ["The Verge", "V", "#5100FF", "#8A4DFF"],
+  ["爱范儿", "爱", "#2B2B2B", "#5A5A5A"],
+  ["钛媒体", "钛", "#D93025", "#F2643C"],
+  ["极客公园", "极", "#00B96B", "#3DDC97"],
+  ["少数派", "少", "#F5A623", "#FFC94D"],
+  ["网经社", "网", "#7A3FF2", "#A97BFF"],
+  ["脉脉", "脉", "#29A9E0", "#63C6F5"],
+  ["前程无忧", "前", "#FF6A00", "#FF9B4D"],
+  ["中国新闻网", "新", "#B31E22", "#D9484C"],
+  ["凤凰网", "凤", "#E23C2D", "#F06B5F"],
+  ["北京大学", "北", "#8C1515", "#B84A4A"],
+  ["对外经济贸易大学", "贸", "#00548B", "#3D82B8"],
+  ["腾讯", "腾", "#1456F0", "#4A83FF"],
+  ["字节跳动", "字", "#1F1F1F", "#4D4D4D"],
+  ["阿里巴巴", "阿", "#FF6A00", "#FF9B4D"],
+  ["百度", "百", "#2932E1", "#5A63F0"],
+  ["小米", "MI", "#FF6900", "#FF9552"],
+  ["京东", "京", "#E1251B", "#F25B52"],
+  ["寒武纪", "寒", "#C2185B", "#E05B8B"],
+  ["商汤", "商", "#2C3E8F", "#5C6BC0"],
+  ["中移", "中", "#0F6BAE", "#3D93D6"],
+  ["上海人工智能实验室", "沪AI", "#0E7490", "#38A3B8"],
+  ["脑科学", "脑", "#5B21B6", "#8B5CF6"],
+  ["MiniMax", "M", "#0EA5E9", "#4FC3F7"],
+  ["智谱", "智", "#3B5BDB", "#6E8BFF"],
+  ["群核", "群", "#0D9488", "#3FC1B5"],
+  ["墨泊可士", "墨", "#37474F", "#607D8B"],
+];
+const _PALETTE = [["#3B82F6", "#7AA9FF"], ["#10B981", "#4FD6A6"], ["#F59E0B", "#FBC65D"], ["#8B5CF6", "#B18CFF"], ["#EF4444", "#F87F7F"], ["#0EA5E9", "#57C2F5"]];
+function logoOf(name) {
+  const s = name || "";
+  for (const [k, mark, c1, c2] of SRC_LOGOS) if (s.includes(k)) return { mark, c1, c2 };
+  let h = 0;
+  for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  const p = _PALETTE[h % _PALETTE.length];
+  return { mark: (s.trim()[0] || "AI").toUpperCase(), c1: p[0], c2: p[1] };
+}
+function logoTileHTML(name) {
+  const L = logoOf(name);
+  return `<div class="nc-cover logo-tile" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${name}</span></div>`;
+}
+function heroImgFail(el, name) {
+  const a = el.closest(".hero-cover");
+  if (!a) return;
+  const L = logoOf(name);
+  a.classList.add("logo-tile");
+  a.style.background = `linear-gradient(135deg,${L.c1},${L.c2})`;
+  a.innerHTML = `<span class="lt-mark">${L.mark}</span><span class="lt-name">${name}</span>`;
+}
+function logoSquareHTML(name) {
+  const L = logoOf(name);
+  return `<div class="job-logo" style="background:linear-gradient(135deg,${L.c1},${L.c2})">${L.mark}</div>`;
+}
+function coverOf(n) {
+  if (!n.cover) return logoTileHTML(n.source);
+  return `<div class="nc-cover"><img src="${n.cover}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=logoTileHTML('${(n.source || "").replace(/'/g, "")}')"></div>`;
+}
+
+/* 头条 */
+(function () {
+  const h = DATA.news.find((n) => n.featured) || DATA.news[0];
+  $("#hero").innerHTML = `
+    <div class="hero-flex">
+      <div class="hero-body">
+        <span class="hero-badge">📌 今日头条 · 热度 ${h.heat}</span>
+        <h1>${h.title}</h1>
+        <p>${h.summary}</p>
+        <div class="hero-meta">
+          <span class="nc-src">${h.source}</span><span>${h.date}</span>
+          ${(h.tags || []).map((t) => `<span class="tag"># ${t}</span>`).join("")}
+          <span style="flex:1"></span>
+          <a class="nc-link" href="${h.link}" target="_blank" rel="noopener">阅读原文 ↗</a>
+        </div>
+      </div>
+      ${h.cover
+        ? `<a class="hero-cover" href="${h.link}" target="_blank" rel="noopener"><img src="${h.cover}" alt="" referrerpolicy="no-referrer" onerror="heroImgFail(this,'${(h.source || "").replace(/'/g, "")}')"></a>`
+        : `<a class="hero-cover logo-tile" href="${h.link}" target="_blank" rel="noopener" style="background:linear-gradient(135deg,${logoOf(h.source).c1},${logoOf(h.source).c2})"><span class="lt-mark">${logoOf(h.source).mark}</span><span class="lt-name">${h.source}</span></a>`}
+    </div>`;
+})();
+
+/* 新闻列表（分页 + 岗位类型子筛选） */
+const PAGE_SIZE = 10;
+const NEWS_JOB_TYPES = ["实习", "校招", "社招"];
+let curCat = "all";
+let curPage = 1;
+let curJobType = "all";
+let lastTotal = 0;
+
+function renderChips() {
+  const counts = { all: DATA.news.length };
+  DATA.news.forEach((n) => { counts[n.cat] = (counts[n.cat] || 0) + 1; });
+  $("#news-chips").innerHTML = ["all", ...Object.keys(CATS)]
+    .map((c) => `<button class="chip ${curCat === c ? "active" : ""}" onclick="setCat('${c}')">${c === "all" ? "全部" : CATS[c]} · ${counts[c] || 0}</button>`).join("");
+}
+function setCat(c) { curCat = c; curPage = 1; curJobType = "all"; renderChips(); renderJobTypeChips(); renderNews(); }
+function renderJobTypeChips() {
+  const el = $("#jobtype-chips");
+  if (curCat !== "career") { el.innerHTML = ""; el.classList.add("hidden"); return; }
+  el.classList.remove("hidden");
+  const pool = DATA.news.filter((n) => n.cat === "career");
+  const counts = { all: pool.length };
+  pool.forEach((n) => (n.jobType || []).forEach((t) => { counts[t] = (counts[t] || 0) + 1; }));
+  el.innerHTML = `<span style="font-size:12px;color:var(--muted);font-weight:600;align-self:center;margin-right:2px">岗位类型：</span>` +
+    ["all", ...NEWS_JOB_TYPES]
+      .filter((t) => t === "all" || counts[t])
+      .map((t) => `<button class="chip ${curJobType === t ? "active" : ""}" style="padding:5px 13px;font-size:12px" onclick="setJobType('${t}')">${t === "all" ? "不限" : t} · ${counts[t] || 0}</button>`).join("");
+}
+function setJobType(t) { curJobType = t; curPage = 1; renderJobTypeChips(); renderNews(); }
+function filteredNews() {
+  let list = DATA.news.filter((n) => curCat === "all" || n.cat === curCat);
+  if (curCat === "career" && curJobType !== "all") list = list.filter((n) => (n.jobType || []).includes(curJobType));
+  return list;
+}
+function renderNews() {
+  const list = filteredNews();
+  lastTotal = list.length;
+  const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  if (curPage > totalPages) curPage = totalPages;
+  const pageItems = list.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
+  if (!pageItems.length) { $("#news-list").innerHTML = `<div class="empty">该分类暂无内容</div>`; $("#pager").innerHTML = ""; return; }
+  $("#news-list").innerHTML = pageItems.map((n, i) => `
+    <article class="news-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+      ${coverOf(n)}
+      <div class="nc-main">
+        <div class="nc-head">
+          <span class="nc-src">${n.source}</span><span>${n.date}</span>
+          <span class="tag">${CATS[n.cat] || n.cat}</span>
+          ${(n.jobType || []).map((t) => `<span class="type-pill type-${t}">${t}</span>`).join("")}
+          ${n.lang === "en" ? `<span class="badge-en">译文 · 附原文</span>` : ""}
+          ${n.heat >= 85 ? `<span class="badge-hot">🔥 热度 ${n.heat}</span>` : ""}
+        </div>
+        <div class="nc-title">${n.title}</div>
+        ${n.lang === "en" && n.origTitle ? `<div class="nc-title-en">Original: ${n.origTitle}</div>` : ""}
+        <div class="nc-summary">${n.summary}</div>
+        <div class="nc-detail">
+          <p>${n.content}</p>
+          <h4>编辑速读</h4>
+          <ul>${(n.brief || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+          <a class="nc-link" href="${n.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 原文链接${n.lang === "en" ? "（英文，正文已译）" : ""} ↗</a>
+        </div>
+      </div>
+    </article>`).join("");
+  renderPager(totalPages);
+}
+function renderPager(totalPages) {
+  if (totalPages <= 1) { $("#pager").innerHTML = `<div class="pg-info">共 ${lastTotal} 篇</div>`; return; }
+  let html = `<button ${curPage === 1 ? "disabled" : ""} onclick="goPage(${curPage - 1})">‹ 上一页</button>`;
+  for (let p = 1; p <= totalPages; p++) html += `<button class="${p === curPage ? "cur" : ""}" onclick="goPage(${p})">${p}</button>`;
+  html += `<button ${curPage === totalPages ? "disabled" : ""} onclick="goPage(${curPage + 1})">下一页 ›</button>`;
+  html += `<span class="pg-info">第 ${curPage} / ${totalPages} 页 · 共 ${lastTotal} 篇</span>`;
+  $("#pager").innerHTML = html;
+}
+function goPage(p) {
+  curPage = p;
+  renderNews();
+  try {
+    const anchor = $("#news-chips");
+    if (anchor) window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+  } catch (e) { /* 老浏览器/无头环境忽略 */ }
+}
+renderChips(); renderJobTypeChips(); renderNews();
+
+/* Agent 热度榜 */
+$("#heat-list").innerHTML = DATA.agentHeat.map((a, i) => `
+  <div class="heat-item anim-in" style="animation-delay:${i * 60}ms">
+    <div class="heat-rank">${i + 1}</div>
+    <div class="heat-body">
+      <div class="heat-name">${a.name} <span class="heat-vendor">${a.vendor}</span>
+        <span class="heat-delta ${a.trend}">${a.trend === "up" ? "▲" : a.trend === "down" ? "▼" : "—"} ${Math.abs(a.delta)}</span>
+      </div>
+      <div class="heat-bar"><div class="heat-bar-fill" style="width:${a.score}%;animation-delay:${200 + i * 90}ms"></div></div>
+      <div class="heat-note">${a.note}</div>
+    </div>
+  </div>`).join("");
+
+/* 求职速览（数字滚动动画：纯数字/百分比才滚，其余原样显示） */
+$("#stats-list").innerHTML = DATA.stats.map((s) => `
+  <div class="stat-item"><div class="stat-num">${s.num}</div><div class="stat-label">${s.label}</div></div>`).join("");
+document.querySelectorAll("#stats-list .stat-num").forEach((el, idx) => {
+  const m = el.textContent.match(/^([\d.,]+)(.*)$/);
+  if (!m) return;
+  const end = parseFloat(m[1].replace(/,/g, ""));
+  if (!isFinite(end)) return;
+  const dec = (m[1].split(".")[1] || "").length;
+  const dur = 1000, start = performance.now() + 300 + idx * 100;
+  const ease = (p) => 1 - Math.pow(1 - p, 3);
+  const step = (now) => {
+    const p = Math.max(0, Math.min(1, (now - start) / dur));
+    el.textContent = (end * ease(p)).toFixed(dec) + m[2];
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+});
+
+/* 岗位列表（国内岗位：校招 / 实习 / 社招） */
+const JOB_TYPES = ["all", "校招", "实习", "社招"];
+let curType = "all";
+function renderJobChips() {
+  const counts = { all: DATA.jobs.length };
+  DATA.jobs.forEach((j) => { counts[j.type] = (counts[j.type] || 0) + 1; });
+  $("#job-chips").innerHTML = JOB_TYPES
+    .map((t) => `<button class="chip ${curType === t ? "active" : ""}" onclick="setType('${t}')">${t === "all" ? "全部岗位" : t} · ${counts[t] || 0}</button>`).join("");
+}
+function setType(t) { curType = t; renderJobChips(); renderJobs(); }
+function renderJobs() {
+  const list = DATA.jobs.filter((j) => curType === "all" || j.type === curType);
+  if (!list.length) { $("#job-list").innerHTML = `<div class="empty">该类型暂无岗位，明天更新会补充</div>`; return; }
+  $("#job-list").innerHTML = list.map((j, i) => `
+    <article class="job-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms">
+      <div class="job-top">
+        <div class="job-co-wrap">
+          ${logoSquareHTML(j.company)}
+          <div>
+            <div class="job-title">${j.title}</div>
+            <div class="job-co">${j.company}</div>
+          </div>
+        </div>
+        ${j.salary ? `<div class="job-salary">${j.salary}</div>` : ""}
+      </div>
+      <div class="job-meta">
+        <span class="type-pill type-${j.type}">${j.type}</span>
+        <span>📍 ${j.loc}</span>
+        <span>⏳ ${j.deadline || "长期有效"}</span>
+        <span>·</span><span>${j.source}</span><span>·</span><span>${j.date}</span>
+      </div>
+      ${(j.positions || []).length ? `<div class="job-positions">${j.positions.map((p) => `<span class="tag">${p}</span>`).join("")}</div>` : ""}
+      <div class="job-summary">${j.summary}</div>
+      <a class="job-link" href="${j.link}" target="_blank" rel="noopener">官方投递入口 ↗</a>
+    </article>`).join("");
+}
+renderJobChips(); renderJobs();
+
+/* Tab 切换 */
+function switchTab(t) {
+  $("#tab-news").classList.toggle("active", t === "news");
+  $("#tab-jobs").classList.toggle("active", t === "jobs");
+  $("#view-news").classList.toggle("hidden", t !== "news");
+  $("#view-jobs").classList.toggle("hidden", t !== "jobs");
+}
+</script>
+</body>
+</html>

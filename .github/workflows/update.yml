@@ -1,0 +1,63 @@
+name: daily-update
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # UTC 00:00 = 北京时间 08:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch RSS
+        run: node scripts/fetch_rss.mjs
+
+      - name: AI curate & merge
+        run: node scripts/curate.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_MODEL: openai/gpt-4o-mini
+
+      - name: Fetch covers
+        run: node scripts/covers.mjs
+
+      - name: Build site
+        run: node build.js
+
+      - name: Commit updated data
+        run: |
+          git config user.name "ai-radar-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --cached --quiet || (git commit -m "daily update $(date -u +%F)" && git push)
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
