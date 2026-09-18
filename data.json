@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-18 22:15",
+ "updatedAt": "2026-09-18 14:26",
  "news": [
   {
    "id": "a51",
@@ -27,7 +27,8 @@
     "传已启动科创板上市筹备，越早加入期权空间越大"
    ],
    "buzz": [],
-   "link": "https://www.tmtpost.com/8138480.html"
+   "link": "https://www.tmtpost.com/8138480.html",
+   "cover": "https://images.tmtpost.com/uploads/images/2024/05/20240513235257136.png"
   },
   {
    "id": "a52",
@@ -109,7 +110,8 @@
     "本站岗位板块可直达智谱在招岗位"
    ],
    "buzz": [],
-   "link": "https://www.tmtpost.com/8138516.html"
+   "link": "https://www.tmtpost.com/8138516.html",
+   "cover": "https://images.tmtpost.com/uploads/images/2024/05/20240513235257136.png"
   },
   {
    "id": "a55",
@@ -940,7 +942,8 @@
    "lang": "en",
    "origTitle": "I spent $4,000 on a robot dog from China",
    "link": "https://arstechnica.com/gadgets/2026/09/i-spent-4000-on-a-robot-dog-from-china/",
-   "heat": 66
+   "heat": 66,
+   "cover": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/80276b2c-6940-443f-adf2-2aabe4d1e838_2048x1365-1152x648.jpg"
   },
   {
    "id": "a9",
@@ -1019,7 +1022,8 @@
    "lang": "en",
    "origTitle": "Claude users found ways around safeguards for bioweapons research",
    "link": "https://arstechnica.com/ai/2026/09/claude-users-found-ways-around-safeguards-for-bioweapons-research/",
-   "heat": 78
+   "heat": 78,
+   "cover": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/claude-app-1152x648.jpg"
   },
   {
    "id": "a24",
@@ -1219,7 +1223,8 @@
    "lang": "en",
    "origTitle": "ChatGPT-using lawyer punished for citing fake testimony from made-up witnesses",
    "link": "https://arstechnica.com/tech-policy/2026/09/chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses/",
-   "heat": 64
+   "heat": 64,
+   "cover": "https://cdn.arstechnica.net/wp-content/uploads/2016/05/j.brodkin-11_2.jpg"
   },
   {
    "id": "a38",
@@ -1268,7 +1273,8 @@
    "lang": "en",
    "origTitle": "Panic builds over bankrupt Spirit's looming data sale to Google",
    "link": "https://arstechnica.com/tech-policy/2026/09/panic-builds-over-bankrupt-spirits-looming-data-sale-to-google/",
-   "heat": 60
+   "heat": 60,
+   "cover": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/GettyImages-2271644469-1024x648.jpg"
   },
   {
    "id": "a43",
@@ -1293,7 +1299,8 @@
    "lang": "en",
    "origTitle": "Man told ChatGPT he was feeling delusional. ChatGPT insisted he was Jesus.",
    "link": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
-   "heat": 63
+   "heat": 63,
+   "cover": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/chatgpt-jesus2-1-1152x648.jpg"
   }
  ],
  "jobs": [
