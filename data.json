@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-19 02:40",
+ "updatedAt": "2026-09-19 01:26",
  "news": [
   {
    "id": "b3",
@@ -36,7 +36,7 @@
    "courses": "Web 安全、计算机网络、数据库",
    "get": "CSDN 文章免费阅读，按考点清单逐条复现到本地靶场（DVWA）",
    "link": "https://blog.csdn.net/msbcsdn/article/details/162700523",
-   "featured": true
+   "featured": false
   },
   {
    "id": "a53",
@@ -99,7 +99,8 @@
    ],
    "stack": [],
    "value": "DeepSeek 只招工程岗、0 研究岗——**应用开发能力比论文更值钱**，把项目做扎实比卷学历更直接",
-   "courses": "Java 全栈 / Web 前端课程 + 数据库"
+   "courses": "Java 全栈 / Web 前端课程 + 数据库",
+   "cover": "https://images.tmtpost.com/uploads/images/2024/05/20240513235257136.png"
   },
   {
    "id": "a52",
@@ -622,7 +623,7 @@
     "工业软件"
    ],
    "stack": [],
-   "featured": true,
+   "featured": false,
    "heat": 92,
    "title": "工信部发布《「人工智能+软件」专项行动实施方案》：编码执行权重下降，人机协同成必备技能",
    "summary": "官方回应「AI 替代程序员」担忧：需求理解、架构设计、质量安全控制能力要求上升；人社部新增工业软件设计员、生成式 AI 系统测试员等新工种。",
