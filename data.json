@@ -1,6 +1,269 @@
 {
- "updatedAt": "2026-09-19 00:45",
+ "updatedAt": "2026-09-19 16:50",
  "news": [
+  {
+   "id": "a66",
+   "title": "零基础Web渗透测试8节课：Nmap/BurpSuite/SQL注入/蚁剑全流程实操",
+   "summary": "90分钟8节课把主流渗透工具走一遍，从信息收集到漏洞利用，跟着做就能上手。",
+   "content": "信息安全与管理专业的同学，课本上讲SQL注入、XSS原理，但真让你拿工具打一遍靶场可能就卡壳了。这套教程按渗透流程组织：先Nmap做信息收集，再用BurpSuite抓包改包，然后逐个过SQL注入、XSS、文件上传、接口漏洞，最后用Metasploit和蚁剑收尾。建议配合学校《Web安全》《渗透测试》课程同步练，在自建靶场（DVWA、Pikachu）里做，别碰任何未授权目标——《网络安全法》不是开玩笑的。练完这套，简历上「熟悉常见Web漏洞原理与利用」才算有底气。",
+   "source": "B站·安全极客说",
+   "date": "2026-09-17",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "BurpSuite",
+    "Nmap"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**把课本上的漏洞原理变成手上能跑的工具链，是信安专业从「会背」到「会打」的关键一步。**",
+   "courses": "对应《Web安全》《渗透测试》课程，用靶场实操巩固SQL注入、XSS等漏洞利用流程。",
+   "tags": [
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "8节课覆盖Nmap、BurpSuite、SQL注入、XSS、文件上传、Metasploit、蚁剑",
+    "按真实渗透流程组织，不是零散知识点堆砌",
+    "必须在自建靶场或授权环境操作，合规第一",
+    "配合《Web安全》《渗透测试》课程同步练效果最好"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV13Heg6BEQ1"
+  },
+  {
+   "id": "a67",
+   "title": "AI黑客智能体暗网开售：渗透周期从两周压缩到2.8天",
+   "summary": "首个AI黑客智能体在暗网售卖，自动化渗透效率提升数倍，攻防节奏正在被改写。",
+   "content": "这条对信息安全专业的同学是明确的信号：攻击侧的自动化程度在快速提升。以前一次完整渗透要两周，现在AI智能体2.8天就能跑完——意味着防守方（也就是未来你可能去的甲方安全岗）面对的攻击频率和规模都会上一个量级。你该关注的是：这类智能体的能力边界在哪、它依赖哪些工具链、防守端怎么检测和阻断。建议结合《入侵检测》《安全运营》课程思考，把「AI辅助攻防」当成一个值得深入的方向，而不是只当新闻看。",
+   "source": "安全客",
+   "date": "2026-09-18",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**攻击侧已经用AI提速，防守侧的你更需要理解AI攻防的节奏变化。**",
+   "courses": "结合《入侵检测》《安全运营》课程，思考AI辅助攻击的检测与阻断策略。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "首个AI黑客智能体暗网开售，渗透周期从两周缩至2.8天",
+    "攻击自动化提速意味着防守端压力成倍增加",
+    "值得关注智能体的能力边界与检测阻断思路",
+    "可作为《入侵检测》《安全运营》课程的延伸思考素材"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316114",
+   "cover": "https://aikerworld.com/static/uploads/1/52103e9a50914767a9ea9411377061ff.jpg"
+  },
+  {
+   "id": "a68",
+   "title": "一个月68个CVE、91.8%没有OAuth：你的AI工具层正在裸奔",
+   "summary": "AI工具层安全漏洞集中爆发，绝大多数缺乏认证机制，是信安方向的新战场。",
+   "content": "AI工具链（各种MCP服务、Agent插件、模型网关）正在成为新的攻击面。一个月68个CVE、91.8%没有OAuth认证——这个数据说明大部分AI工具层根本没做基本的访问控制。对信息安全专业的同学，这是个很好的切入点：传统Web安全的认证授权、最小权限、输入校验那套方法论，在AI工具层同样适用，只是很多人还没意识到。建议拿一个开源MCP服务读它的代码，看看有没有未授权访问、命令注入的问题，这比刷十道CTF题更能体现你的安全思维。",
+   "source": "安全客",
+   "date": "2026-09-19",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "OAuth"
+   ],
+   "value": "**AI工具层是信安专业最值得提前布局的新战场，传统安全方法论在这里依然管用。**",
+   "courses": "对应《Web安全》《安全开发》课程，把认证授权知识迁移到AI工具层审计。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "AI工具层一个月爆出68个CVE，91.8%缺乏OAuth认证",
+    "MCP服务、Agent插件、模型网关是新兴攻击面",
+    "传统认证授权、最小权限原则在AI工具层同样适用",
+    "建议审计一个开源MCP服务，积累AI安全实战经验"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316121",
+   "cover": "https://p0.ssl.qhimg.com/sdm/28_28_100/t01e29062a5dcd13c10.png"
+  },
+  {
+   "id": "a69",
+   "title": "别让Agent裸连数据库：MCP+语义网关解决NL2SQL幻觉与权限失控",
+   "summary": "给AI Agent接数据库不能直连，用MCP加语义网关解决语义幻觉和权限失控两个核心问题。",
+   "content": "很多同学做课设或练手项目时，喜欢让大模型直接连数据库查数据，图省事。但真实业务里会撞两堵墙：一是大模型不懂企业表结构，生成的SQL语义错得离谱；二是权限完全失控，Agent能查到不该查的数据。文章给的方案是MCP协议加语义网关——用MCP规范Agent和数据库之间的交互，用语义网关做表结构映射和权限过滤。这个思路对软件工程和工业软件方向都有参考价值：以后你做的系统如果要接AI能力，数据访问层怎么设计是绕不开的问题。",
+   "source": "开源中国",
+   "date": "2026-09-18",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "MCP",
+    "NL2SQL"
+   ],
+   "value": "**学会用MCP+语义网关给AI Agent做安全的数据访问层，是AI应用开发绕不开的工程能力。**",
+   "courses": "对应《数据库原理》《软件架构》课程，把数据访问层设计知识用到AI集成场景。",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "Agent直连数据库会撞上语义幻觉和权限失控两堵墙",
+    "方案是MCP协议+语义网关，做表结构映射与权限过滤",
+    "对做课设、练手项目的同学有直接参考价值",
+    "工业软件方向做AI集成时，数据访问层设计同样适用"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502591"
+  },
+  {
+   "id": "a70",
+   "title": "Docker重构虚拟化层：性能提升与开发体验改善",
+   "summary": "Docker推出完全重构的虚拟化层，性能和开发体验都有提升，值得关注对日常开发的影响。",
+   "content": "Docker几乎是现在开发和部署的标配，你课设部署后端、跑数据库、搭微服务都离不开它。这次重构虚拟化层，核心是提升容器启动和运行性能，同时改善开发体验。对学生的实际意义：如果你在做Java Web课设或工业软件项目，用新版Docker跑容器会更顺，尤其是多容器编排场景。建议关注一下你本机Docker版本，升级后对比一下构建和启动速度。不用深究底层实现，但要知道「容器运行时在演进」这件事，面试聊到部署相关话题时不至于只答得出docker run。",
+   "source": "InfoQ中文",
+   "date": "2026-09-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**Docker是开发和部署的基本功，跟上它的演进能让你在课设和面试中都更从容。**",
+   "courses": "对应《软件工程》《云计算》课程，用Docker部署课设项目时体验新版性能提升。",
+   "tags": [
+    "通用开发",
+    "Java全栈"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Docker完全重构虚拟化层，提升性能并改善开发体验",
+    "对课设部署、微服务编排等场景有实际提速",
+    "建议升级本机Docker版本，对比构建启动速度",
+    "面试聊部署话题时，了解容器运行时演进是加分项"
+   ],
+   "buzz": [],
+   "link": "https://infoq.cn/article/AXtfCFx09aNmpWgLkqhN",
+   "cover": "https://static001.infoq.cn/resource/image/c2/24/c252f82e6d77470aa268489b032a3324.jpg"
+  },
+  {
+   "id": "a71",
+   "title": "GitHub把Copilot运行时迁移到80万行Rust，全程用Copilot辅助",
+   "summary": "GitHub用Copilot辅助把Copilot运行时重写成80万行生产级Rust代码，是一次大规模AI辅助工程实践。",
+   "content": "这条对软件工程专业的同学有两个看点。第一，80万行Rust的重写规模，说明大型系统迁移是真实存在的工程挑战，涉及模块拆分、接口兼容、性能验证，不是写个小项目能体会的。第二，全程用Copilot辅助——这展示了AI编程工具在大型重构中的实际能力边界。你不需要现在就去学Rust，但可以思考：如果让你参与一个大型代码库的迁移，你会怎么规划？建议在课设里试着用AI工具辅助重构一个模块，体会一下「AI能帮到什么程度、哪些还得人来判断」。",
+   "source": "GitHub Blog",
+   "date": "2026-09-17",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "value": "**了解大型系统迁移的真实工程挑战，以及AI编程工具在其中的能力边界。**",
+   "courses": "对应《软件工程》《程序设计》课程，思考大型代码库重构的工程方法论。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "GitHub把Copilot运行时重写为80万行生产级Rust代码",
+    "全程用Copilot辅助，展示AI编程工具在大型重构中的能力边界",
+    "大型系统迁移涉及模块拆分、接口兼容、性能验证等工程挑战",
+    "建议在课设中尝试用AI辅助重构模块，积累实际经验"
+   ],
+   "buzz": [],
+   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
+   "cover": "https://github.blog/wp-content/uploads/2024/06/AI-DarkMode-4.png?resize=800%2C425"
+  },
+  {
+   "id": "a72",
+   "title": "从Rust转Zig是什么体验：两种系统级语言的取舍",
+   "summary": "一篇从Rust转向Zig的开发者体验分享，对比两种系统级语言的设计哲学与使用感受。",
+   "content": "如果你对系统级编程感兴趣，或者以后想往工业软件底层、高性能计算方向走，Rust和Zig是绕不开的两个名字。这篇文章不是教程，是一个开发者的真实体验：Rust的所有权模型、借用检查器让你安全但有时写起来别扭；Zig更接近C的直白，编译期计算和手动内存管理给你更多控制权但也更多责任。对本科生的意义：不用急着选边站，但要知道「内存安全」和「手动控制」是系统编程的核心权衡。工业软件实验班的同学尤其值得一读，CAD/CAE内核这类场景对性能和内存控制要求极高。",
+   "source": "Hacker News",
+   "date": "2026-09-19",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "Zig"
+   ],
+   "value": "**理解系统级语言的内存安全与手动控制权衡，对工业软件底层开发方向有启发。**",
+   "courses": "对应《程序设计》《操作系统》课程，延伸了解系统级语言的设计取舍。",
+   "tags": [
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "从Rust转Zig的开发者体验分享，对比两种系统级语言",
+    "Rust强调内存安全但学习曲线陡，Zig更接近C的直白控制",
+    "核心权衡是「内存安全」vs「手动控制」",
+    "工业软件底层开发对性能和内存控制要求高，值得关注"
+   ],
+   "buzz": [],
+   "link": "https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/"
+  },
+  {
+   "id": "a73",
+   "title": "智谱ZCode被曝静默上传完整Git历史：AI编程工具的数据安全警示",
+   "summary": "智谱AI编程工具ZCode被曝登录后静默打包上传工作区完整Git历史到云端，引发数据安全担忧。",
+   "content": "这条对所有用AI编程工具的同学都是警示。取证博客指出，ZCode登录后会在后台把整个工作区——包括完整.git历史、LFS大文件、reflog和全局配置——打包加密上传。这意味着你的代码、提交记录、甚至可能包含的密钥和配置都可能离开本机。建议：第一，用任何AI编程工具前先看隐私政策和网络行为；第二，敏感项目用隔离环境或虚拟机；第三，养成检查.gitignore和密钥管理的习惯。信息安全专业的同学可以把这当成一次真实的供应链安全案例来分析。",
+   "source": "开源中国",
+   "date": "2026-09-18",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "value": "**AI编程工具的数据安全风险真实存在，养成隔离环境和密钥管理习惯是基本素养。**",
+   "courses": "对应《信息安全》《软件工程》课程，作为供应链安全和开发规范的现实案例。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "ZCode被曝登录后静默上传工作区完整Git历史到云端",
+    "上传内容包括.git历史、LFS缓存、reflog和全局配置",
+    "用AI编程工具前应检查隐私政策和网络行为",
+    "敏感项目建议用隔离环境，养成密钥管理和.gitignore习惯"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502589"
+  },
   {
    "id": "a57",
    "title": "四大AI编码Agent曝0-Click RCE漏洞Plugin4Shell，两款至今无补丁",
@@ -25,7 +288,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "四款主流AI编码Agent存在0-Click RCE漏洞，无需用户操作即可被利用",
@@ -101,7 +364,8 @@
     "AI安全对抗是未来3-5年的增量就业方向"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316114"
+   "link": "https://www.anquanke.com/post/id/316114",
+   "cover": "https://aikerworld.com/static/uploads/1/52103e9a50914767a9ea9411377061ff.jpg"
   },
   {
    "id": "a60",
@@ -302,7 +566,8 @@
     "对应课程中的容器化部署环节"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/c2/24/c252f82e6d77470aa268489b032a3324.jpg"
   },
   {
    "id": "a54",
@@ -333,7 +598,8 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/97/ce/977a6015af9d3d6cbefb8314236b66ce.jpg"
   },
   {
    "id": "a55",
@@ -365,7 +631,8 @@
     "工业软件方向可关注其模块化设计与可靠性保障机制"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/93/f0/93ddeeac2bb60ede028758f70dd44ff0.jpg"
   },
   {
    "id": "a56",
@@ -397,7 +664,8 @@
     "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html"
+   "link": "https://www.qbitai.com/2026/09/491711.html",
+   "cover": "https://i.qbitai.com/wp-content/uploads/2026/09/67013cae86fb09d73fe7b0d52c770cea.png"
   },
   {
    "id": "b3",
@@ -497,7 +765,8 @@
    ],
    "stack": [],
    "value": "DeepSeek 只招工程岗、0 研究岗——**应用开发能力比论文更值钱**，把项目做扎实比卷学历更直接",
-   "courses": "Java 全栈 / Web 前端课程 + 数据库"
+   "courses": "Java 全栈 / Web 前端课程 + 数据库",
+   "cover": "https://images.tmtpost.com/uploads/images/2024/05/20240513235257136.png"
   },
   {
    "id": "a52",
@@ -1042,7 +1311,8 @@
    "lang": "zh",
    "value": "工信部官方定调：**单纯写代码的权重在下降，会指挥 AI 干活、懂架构和质量的人才值钱**",
    "courses": "软件工程（需求分析/架构）、软件测试、信息安全导论",
-   "link": "https://www.cinn.cn/bw/2026/09-11/vrbqJ3a1.html"
+   "link": "https://www.cinn.cn/bw/2026/09-11/vrbqJ3a1.html",
+   "cover": "https://static.cinn.cn/canna/custom/pc/1750735520//assets/images/datebase.png"
   },
   {
    "id": "a50",
@@ -1140,6 +1410,38 @@
   }
  ],
  "jobs": [
+  {
+   "id": "j27",
+   "company": "同花顺",
+   "title": "同花顺 2027届实习生招募计划",
+   "type": "实习",
+   "loc": "见公告",
+   "deadline": "公众号入口投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "实习生（详见公告）"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-19",
+   "summary": "同花顺面向2027届学生开放实习生招募计划，具体岗位与地点见官方公告。金融科技方向，适合对量化/后端/数据感兴趣的同学。",
+   "cls": "软件工程类",
+   "plain": "金融科技公司实习，适合想接触数据与后端开发的信工学生。",
+   "courses": "数据结构、数据库、Java/Python程序设计",
+   "hardReq": [
+    "2027届在校生"
+   ],
+   "plusReq": [
+    "有金融或数据相关项目",
+    "熟悉一门后端语言"
+   ],
+   "selfLearn": [
+    "复习数据结构与数据库",
+    "了解金融数据处理基础"
+   ],
+   "fitWho": "对金融科技、数据开发感兴趣的2027届学生",
+   "tips": "通过公众号入口查看具体岗位后针对性投递。"
+  },
   {
    "id": "j26",
    "company": "WorkMaster高校招聘日历",
