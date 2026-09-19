@@ -1,6 +1,158 @@
 {
- "updatedAt": "2026-09-19 00:04",
+ "updatedAt": "2026-09-19 16:10",
  "news": [
+  {
+   "id": "a57",
+   "title": "Docker 重构虚拟化层：容器启动更快、开发体验更好，值得你升级试试",
+   "summary": "Docker 推出完全重构的虚拟化层，显著提升容器性能并改善开发者本地开发体验。",
+   "content": "Docker 这次不是小修小补，而是把底层虚拟化层整个重写了。对软工同学来说，最直接的影响是：本地 docker run 启动更快、资源占用更低，跑多容器课设（比如 Spring Boot + MySQL + Redis）时风扇不会狂转。如果你正在学《软件工程》或做 Web 课设，建议把 Docker Desktop 升级到最新版，感受一下启动速度差异；顺便用 docker stats 对比重构前后的 CPU/内存占用，写进实验报告就是现成的性能测试素材。工业软件实验班同学也可以关注它对嵌入式交叉编译环境的支持改进。",
+   "source": "InfoQ中文",
+   "date": "2026-09-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**容器性能提升直接改善你本地开发课设的效率，升级即用**",
+   "courses": "《软件工程》课设环境搭建、《操作系统》虚拟化实验",
+   "tags": [],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Docker 虚拟化层完全重构，容器启动和运行性能提升",
+    "本地多容器课设环境更轻量，适合 Spring Boot + MySQL 组合",
+    "升级后可用 docker stats 做性能对比实验"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/c2/24/c252f82e6d77470aa268489b032a3324.jpg"
+  },
+  {
+   "id": "a58",
+   "title": "微软单月用 AI 修补超千个安全漏洞：安全专业学生该关注什么",
+   "summary": "微软借助 AI 在单月内修补超过一千个安全漏洞，AI 辅助漏洞挖掘与修复正成为行业标配。",
+   "content": "微软一个月用 AI 修了 1000+ 漏洞，这个数字背后是安全岗位工作方式的转变。对信息安全与管理专业的同学，这意味着：只会手工挖洞不够了，你得懂 AI 辅助的漏洞扫描与修复流程。建议在《网络安全》课程实验里，尝试用开源工具（如 Semgrep、CodeQL）做自动化代码审计，理解 AI 如何辅助定位漏洞。求职时，简历上写「熟悉 AI 辅助安全工具链」会比只写「了解 OWASP Top 10」更有竞争力。工业软件方向的同学也要注意，工控系统的漏洞修复同样在向自动化靠拢。",
+   "source": "InfoQ中文",
+   "date": "2026-09-18",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "CodeQL",
+    "Semgrep"
+   ],
+   "value": "**AI 辅助漏洞修复已成大厂标配，安全专业学生需提前掌握自动化审计工具**",
+   "courses": "《网络安全》实验课、毕业设计安全方向",
+   "tags": [],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "微软单月 AI 修补超千个漏洞，安全运维进入 AI 辅助时代",
+    "建议在网络安全实验中使用 Semgrep/CodeQL 做自动化审计",
+    "求职简历可突出 AI 辅助安全工具链经验"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/97/ce/977a6015af9d3d6cbefb8314236b66ce.jpg"
+  },
+  {
+   "id": "a59",
+   "title": "Qwen 27B 模型分分钟交付网页：前端生成能力实测与课设用法",
+   "summary": "Qwen 3.8 27B 模型可快速生成完整网页前端，设计加前端一气呵成，但后端仍需人工补齐。",
+   "content": "量子位实测 Qwen 3.8 27B 能分分钟生成网页前端，设计稿到 HTML/CSS/JS 一步到位。对软件工程同学，这是课设利器：做《Web 开发》大作业时，用 Qwen 生成页面骨架和样式，你专注写后端逻辑和数据库设计，效率翻倍。但注意——它后端「没来上班」，接口和业务逻辑还得自己写。建议在课设中把 Qwen 当「前端外包」，自己把控整体架构。工业软件实验班同学可以试试让它生成数据看板页面，再对接你的 C++/Java 后端。",
+   "source": "量子位",
+   "date": "2026-09-19",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Qwen"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用 Qwen 生成前端骨架，把课设时间省下来写核心后端逻辑**",
+   "courses": "《Web 开发技术》课设、《人机交互》原型设计",
+   "tags": [],
+   "featured": true,
+   "heat": 85,
+   "brief": [
+    "Qwen 27B 可快速生成完整前端页面，适合课设快速原型",
+    "后端逻辑仍需自己实现，建议作为前端辅助工具",
+    "适合 Web 开发课设、数据看板页面生成"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/492573.html",
+   "cover": "https://i.qbitai.com/wp-content/uploads/2026/09/db6188df771770465348392b5c5e23fa.jpeg"
+  },
+  {
+   "id": "a60",
+   "title": "Grab 开源 LLM-Kit 智能体框架：Java/Python 开发者可参考的生产级 Agent 架构",
+   "summary": "Grab 开源 LLM-Kit 框架，用于加速 AI 智能体从原型到生产部署，架构设计值得后端开发者学习。",
+   "content": "Grab 开源的 LLM-Kit 是一个生产级 Agent 框架，解决了智能体从 demo 到上线的工程化问题。对 Java 方向同学，它的分层架构（工具注册、上下文管理、执行编排）是很好的学习材料——你可以在《软件体系结构》课程中分析它的设计模式。对想往 AI 应用开发走的同学，建议 clone 下来跑通 example，理解 Agent 如何调用外部工具、管理对话状态。工业软件实验班可以思考：能否用类似框架把工业设备的诊断流程 Agent 化？",
+   "source": "InfoQ中文",
+   "date": "2026-09-18",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "LLM-Kit"
+   ],
+   "value": "**生产级 Agent 框架的架构设计，是后端开发者向 AI 应用转型的优质参考**",
+   "courses": "《软件体系结构》案例分析、毕业设计 AI 应用方向",
+   "tags": [],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "Grab 开源 LLM-Kit，提供生产级 Agent 工程化方案",
+    "Java 开发者可学习其工具注册与执行编排架构",
+    "适合作为软件体系结构课程的分析案例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/93/f0/93ddeeac2bb60ede028758f70dd44ff0.jpg"
+  },
+  {
+   "id": "a61",
+   "title": "Solaris 转门机制仍在 Go、WebKit、Rust 中运行：操作系统课经典案例",
+   "summary": "Solaris 虽已淡出，但其「转门」同步机制仍被 Go、WebKit 和 Rust 等现代系统沿用。",
+   "content": "Solaris 死了，但它的「转门」（Turnstile）同步机制还活在 Go 调度器、WebKit 和 Rust 运行时里。对软工同学，这是《操作系统》课程里「进程同步与阻塞唤醒」的绝佳现实案例——课本讲信号量、条件变量，而转门是工业级实现。建议在学「同步互斥」章节时读这篇文章，理解理论机制如何演变成生产系统代码。信息安全方向同学也可关注：同步机制的设计缺陷往往是竞态漏洞的根源。",
+   "source": "InfoQ中文",
+   "date": "2026-09-19",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Go",
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把操作系统课本里的同步机制和真实系统代码对上号，理解更深一层**",
+   "courses": "《操作系统》进程同步章节、《系统编程》",
+   "tags": [],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "Solaris 转门机制仍存在于 Go、WebKit、Rust 等现代系统",
+    "操作系统课程中进程同步章节的工业级案例",
+    "理解同步机制有助于分析竞态条件类安全漏洞"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/87/f5/87b9b38b30862f97f4caf9f7aff03ef5.jpg"
+  },
   {
    "id": "a54",
    "title": "微软单月用AI修补超千个安全漏洞：AI辅助漏洞挖掘与修复的工程化落地",
@@ -21,7 +173,7 @@
    "value": "**AI辅助漏洞修复已规模化落地，信安学生应尽早掌握'自动化+LLM'的漏洞分析流水线思维**",
    "courses": "《网络攻防实践》——在漏洞挖掘实验中引入LLM辅助CVE分类与补丁验证",
    "tags": [],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "微软单月AI辅助修复漏洞超1000个，覆盖发现、分类、补丁生成全流程",
@@ -30,7 +182,8 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/97/ce/977a6015af9d3d6cbefb8314236b66ce.jpg"
   },
   {
    "id": "a55",
@@ -62,7 +215,8 @@
     "工业软件方向可关注其模块化设计与可靠性保障机制"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/93/f0/93ddeeac2bb60ede028758f70dd44ff0.jpg"
   },
   {
    "id": "a56",
@@ -94,7 +248,8 @@
     "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html"
+   "link": "https://www.qbitai.com/2026/09/491711.html",
+   "cover": "https://i.qbitai.com/wp-content/uploads/2026/09/67013cae86fb09d73fe7b0d52c770cea.png"
   },
   {
    "id": "b3",
@@ -194,7 +349,8 @@
    ],
    "stack": [],
    "value": "DeepSeek 只招工程岗、0 研究岗——**应用开发能力比论文更值钱**，把项目做扎实比卷学历更直接",
-   "courses": "Java 全栈 / Web 前端课程 + 数据库"
+   "courses": "Java 全栈 / Web 前端课程 + 数据库",
+   "cover": "https://images.tmtpost.com/uploads/images/2024/05/20240513235257136.png"
   },
   {
    "id": "a52",
