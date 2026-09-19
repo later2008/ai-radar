@@ -1,6 +1,158 @@
 {
- "updatedAt": "2026-09-19 16:10",
+ "updatedAt": "2026-09-19 16:23",
  "news": [
+  {
+   "id": "a62",
+   "title": "Docker 重构虚拟化层：容器启动更快、开发体验升级",
+   "summary": "Docker 推出完全重构的虚拟化层，重点提升性能并改善开发者日常使用体验，对本地开发与 CI 流程都有直接影响。",
+   "content": "Docker 这次不是小修小补，而是把底层虚拟化层重写了一遍，目标很明确：让容器跑得更快、开发时更少卡顿。对软件工程和信息安全的学生来说，Docker 早就是绕不开的工具——课设部署、CTF 环境复现、微服务实验都靠它。这次重构意味着你本地 build 和 run 的等待时间可能明显缩短，CI 流水线也更省资源。建议在《软件工程》《操作系统》或《信息安全实训》里，用新版 Docker 跑一遍你熟悉的镜像，对比启动耗时和内存占用，把结果写进实验报告，既真实又有说服力。",
+   "source": "InfoQ中文",
+   "date": "2026-09-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**掌握 Docker 新版特性，能让你的课设部署和 CTF 环境搭建快人一步。**",
+   "courses": "《操作系统》《软件工程》——用 Docker 做环境隔离与部署实验",
+   "tags": [],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Docker 重构虚拟化层，核心收益是性能与开发体验",
+    "本地 build/run 更快，CI 资源消耗更低",
+    "适合在课设、CTF 环境复现中直接验证"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/c2/24/c252f82e6d77470aa268489b032a3324.jpg"
+  },
+  {
+   "id": "a63",
+   "title": "微软单月用 AI 修补超千个安全漏洞：安全岗要会看 AI 报告",
+   "summary": "微软借助 AI 在单月内修补超过一千个安全漏洞，说明 AI 辅助漏洞发现与修复已进入大规模生产阶段。",
+   "content": "微软一个月用 AI 修了上千个漏洞，这个数字背后是安全工程流程的变化：漏洞发现、优先级排序、补丁生成都在被 AI 加速。对信息安全与管理专业的学生，这意味着未来安全岗的日常不再是纯手工挖洞，而是「看 AI 报告 + 验证 + 写修复方案」。建议在《网络安全》《漏洞挖掘》课程中，主动用 AI 工具辅助分析靶场漏洞，练习从告警到修复的完整闭环，并记录误报率。简历上写「熟悉 AI 辅助漏洞管理流程」会比只写「会 Burp Suite」更有区分度。",
+   "source": "InfoQ中文",
+   "date": "2026-09-18",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI 辅助漏洞修复已是生产现实，安全专业学生应尽早熟悉这套流程。**",
+   "courses": "《网络安全》《漏洞挖掘》——用 AI 工具辅助靶场漏洞分析与修复",
+   "tags": [],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "微软单月 AI 修补漏洞超千个，规模化落地",
+    "安全岗重心转向验证 AI 报告与修复闭环",
+    "建议在靶场练习 AI 辅助漏洞分析并记录误报"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/97/ce/977a6015af9d3d6cbefb8314236b66ce.jpg"
+  },
+  {
+   "id": "a64",
+   "title": "Qwen 27B 模型分分钟交付网页：前端生成能力实测",
+   "summary": "Qwen 3.8 的 27B 模型能快速生成完整网页，设计和前端一口气完成，但后端仍需人工补齐。",
+   "content": "量子位实测 Qwen 3.8 的 27B 模型，输入需求就能分分钟吐出可用的网页代码，设计稿和前端实现一步到位，但后端接口没跟上。对软件工程和工业软件实验班的学生，这是很好的「前端加速器」：课设里用 AI 生成页面骨架，你专注调交互和接后端，效率翻倍。建议在《Web 开发》《人机交互》课程中，用 Qwen 生成一个管理后台页面，再手动接入 Flask/Spring Boot 接口，对比纯手写的时间差。注意：AI 生成的代码要过一遍 ESLint 和可访问性检查，别直接交作业。",
+   "source": "量子位",
+   "date": "2026-09-19",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Qwen"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用 Qwen 生成前端骨架，能把课设时间省下来花在真正难的后端逻辑上。**",
+   "courses": "《Web 开发》《人机交互》——AI 生成页面后手动接入后端接口",
+   "tags": [],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Qwen 27B 可快速生成完整网页前端",
+    "后端仍需人工补齐，适合做前端加速",
+    "建议在 Web 课设中对比 AI 生成与手写效率"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/492573.html",
+   "cover": "https://i.qbitai.com/wp-content/uploads/2026/09/db6188df771770465348392b5c5e23fa.jpeg"
+  },
+  {
+   "id": "a65",
+   "title": "Solaris 的「转门」还在 Go、WebKit 和 Rust 里：并发面试常考点",
+   "summary": "Solaris 虽已淡出，但其「转门」同步机制仍存在于 Go、WebKit 和 Rust 的底层实现中，是理解并发的一把钥匙。",
+   "content": "Solaris 早就没人用了，但它发明的「转门」机制还活在 Go runtime、WebKit 和 Rust 的底层里。转门是一种比互斥锁更细粒度的同步原语，理解它能帮你看懂 Go 调度器和 Rust 异步运行时的行为。对软件工程学生，这是《操作系统》《并发编程》里「锁与调度」章节的绝佳延伸案例。建议在学 Go 的 sync 包或 Rust 的 tokio 时，顺带读一下转门的设计，面试被问到「Go 的 mutex 怎么实现」时，你能从转门讲到 futex，深度直接拉开差距。",
+   "source": "InfoQ中文",
+   "date": "2026-09-19",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Go",
+    "Rust"
+   ],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**搞懂转门机制，能让你在并发面试中从「会用锁」升级到「懂锁怎么实现」。**",
+   "courses": "《操作系统》《并发编程》——锁与调度章节的延伸阅读",
+   "tags": [],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Solaris 转门机制仍存在于 Go、WebKit、Rust 底层",
+    "是理解并发与锁实现的绝佳案例",
+    "面试讲清转门到 futex 的演进能拉开深度"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/87/f5/87b9b38b30862f97f4caf9f7aff03ef5.jpg"
+  },
+  {
+   "id": "a66",
+   "title": "Grab 开源 LLM-Kit 智能体框架：加速 AI Agent 生产部署",
+   "summary": "Grab 开源 LLM-Kit 框架，用于加速 AI 智能体从开发到生产部署的流程，适合做 Agent 方向课设的学生参考。",
+   "content": "Grab 开源的 LLM-Kit 是一个面向生产环境的智能体框架，重点解决 Agent 从原型到上线的工程化问题。对软件工程和工业软件实验班的学生，如果你想做「AI 助手」「自动化工作流」类课设或毕业设计，这个框架提供了现成的编排、工具调用和状态管理方案，不用从零造轮子。建议在《软件工程》《人工智能导论》课程中，用 LLM-Kit 搭一个「课表查询 + 作业提醒」的校园 Agent，跑通工具调用链路，把架构图写进报告，比纯调 API 更有工程含量。",
+   "source": "InfoQ中文",
+   "date": "2026-09-18",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM-Kit"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**用 LLM-Kit 搭一个校园 Agent，能让你的课设从「调 API」升级到「有工程架构」。**",
+   "courses": "《软件工程》《人工智能导论》——Agent 编排与工具调用实践",
+   "tags": [],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Grab 开源 LLM-Kit，面向生产级 Agent 部署",
+    "提供编排、工具调用、状态管理现成方案",
+    "适合做校园 Agent 类课设或毕业设计"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
+   "cover": "https://static001.infoq.cn/resource/image/93/f0/93ddeeac2bb60ede028758f70dd44ff0.jpg"
+  },
   {
    "id": "a57",
    "title": "Docker 重构虚拟化层：容器启动更快、开发体验更好，值得你升级试试",
@@ -81,7 +233,7 @@
    "value": "**用 Qwen 生成前端骨架，把课设时间省下来写核心后端逻辑**",
    "courses": "《Web 开发技术》课设、《人机交互》原型设计",
    "tags": [],
-   "featured": true,
+   "featured": false,
    "heat": 85,
    "brief": [
     "Qwen 27B 可快速生成完整前端页面，适合课设快速原型",
