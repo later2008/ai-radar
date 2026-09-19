@@ -2,7 +2,9 @@ name: daily-update
 
 on:
   schedule:
-    - cron: "0 0 * * *" # UTC 00:00 = 北京时间 08:00
+    - cron: "0 0 * * *"  # UTC 00:00 = 北京时间 08:00
+    - cron: "0 6 * * *"  # UTC 06:00 = 北京时间 14:00
+    - cron: "0 10 * * *" # UTC 10:00 = 北京时间 20:00
   workflow_dispatch: {}
 
 permissions:
@@ -26,6 +28,15 @@ jobs:
 
       - name: Fetch RSS
         run: node scripts/fetch_rss.mjs
+
+      - name: Fetch GitHub trending
+        run: node scripts/fetch_github.mjs
+
+      - name: Fetch Bilibili
+        run: node scripts/fetch_bilibili.mjs
+
+      - name: Fetch jobs
+        run: node scripts/fetch_jobs.mjs
 
       - name: AI curate & merge
         run: node scripts/curate.mjs

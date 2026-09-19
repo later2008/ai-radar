@@ -9,7 +9,9 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const CATS = { tool: "开箱工具与项目", tut: "提效实战教程", stack: "技术栈更新", industry: "行业动态·就业相关" };
 const TRACKS = ["前端", "Java", "通用开发", "工业软件", "信息安全"];
 // ❌ 排除关键词（规范）：命中即不采集
-const EXCLUDE = /融资|上市|IPO|财报|创始人|八卦|综艺|量子计算|芯片制造|学术论文|考研|考公/;
+const EXCLUDE = /融资|上市|IPO|财报|创始人|八卦|综艺|量子计算|芯片制造|学术论文|考研|考公|课程售卖|直播回放|剧情|段子|开黑|培训机构广告/;
+// ✅ 专业标签池：每条内容 LLM 必打 1-3 个
+const TAGS = ["前端开发", "Java全栈", "通用开发", "工业软件", "信息安全", "求职就业", "AI工具", "行业动态"];
 
 function load(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }
 function save(p, v) { fs.writeFileSync(p, JSON.stringify(v, null, 1), "utf8"); }
@@ -78,6 +80,7 @@ if (cands.length && KEY && BASE) {
 - scene：适合场景（仅 tool/tut 类，如"课设/练手/简历加分/求职准备"）
 - value：一句话价值总结，**重点加粗**
 - courses：对应学校课程/怎么用（一句）
+- tags：${JSON.stringify(TAGS)} 的子集（1-3 个，必打）
 - heat：0-100 热度评分
 - lang：zh 或 en；en 时给 origTitle
 - link、source、date：沿用候选原值，不得修改
@@ -104,7 +107,7 @@ const newItems = fresh.map((n) => ({
   ...(n.diff ? { diff: n.diff } : {}),
   ...(n.scene ? { scene: n.scene } : {}),
   value: n.value || "", courses: n.courses || "",
-  tags: n.tags || [], featured: false, heat: Math.min(99, Math.max(1, n.heat || 60)),
+  tags: (n.tags || []).filter((t) => TAGS.includes(t)).slice(0, 3), featured: false, heat: Math.min(99, Math.max(1, n.heat || 60)),
   brief: n.brief || [], buzz: [],
   ...(n.lang === "en" ? { lang: "en", origTitle: n.origTitle || "" } : {}),
   link: n.link,
@@ -127,6 +130,51 @@ if (KEY && BASE && data.jobs.length) {
     if (rm.size) { data.jobs = data.jobs.filter((j) => !rm.has(j.id)); log.push(`jobs removed=${[...rm].join(",")}`); }
   } catch (e) { log.push(`LLM-JOBS FAIL ${String(e.message || e).slice(0, 160)}`); }
 }
+
+/* 4.5 岗位新增：_raw_jobs.json 候选 → LLM 提取加工成七件套 → 入库（去重、上限24） */
+const rawJobs = fs.existsSync("_raw_jobs.json") ? load("_raw_jobs.json") : [];
+if (KEY && BASE && rawJobs.length) {
+  const existJobKeys = new Set(data.jobs.map((j) => ((j.company || "") + (j.title || "")).replace(/\s/g, "").slice(0, 12)));
+  try {
+    const sys = `今天是 ${TODAY}。你是「广职大信工学院AI雷达站」的就业信息编辑。下面是来自开源校招汇总仓库的原始行文本候选。提取出信息足够明确的岗位/校招/实习条目（面向本科可投的应届生或在校生优先），每条输出：
+- company：公司/单位名；title：一句话标题（含批次如 2027届/秋招/实习）
+- type：校招/实习/内推 之一；loc：工作地点（未知填"见公告"）；deadline：投递方式/截止（未知填"尽快投递"）
+- positions：岗位名数组（1-5个）；salary：薪资（未知填""）
+- link：候选里的仓库链接；source：候选里的来源；date：候选里的日期
+- summary：2句概述（招谁、什么方向）；cls：软件工程类/信息安全类/通用技术类 之一
+- plain：一句"对本专业学生的意义"；courses：对应课程（一句）
+- hardReq：基本要求（数组1-3条）；plusReq：加分项（数组0-2条）
+- selfLearn：自学建议（数组0-2条）；fitWho：适合谁（一句）；tips：投递建议（一句）
+最高原则：信息模糊、纯广告、培训机构推广、明确只招硕博且无软件/安全岗的一律不选。宁缺毋滥，最多6条。
+输出 JSON：{"add":[...]}。`;
+    const usr2 = "候选行文本：\n" + JSON.stringify(rawJobs.slice(0, 30), null, 1);
+    const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: usr2 }], 6000));
+    let maxJ = Math.max(...data.jobs.map((j) => parseInt((j.id || "j0").slice(1)) || 0), 0);
+    const adds = (out.add || [])
+      .filter((j) => j.company && j.title)
+      .filter((j) => !existJobKeys.has(((j.company) + (j.title)).replace(/\s/g, "").slice(0, 12)))
+      .slice(0, 6);
+    for (const j of adds) {
+      data.jobs.unshift({
+        id: "j" + (++maxJ),
+        company: j.company, title: j.title, type: j.type || "校招",
+        loc: j.loc || "见公告", deadline: j.deadline || "尽快投递",
+        salary: j.salary || "", positions: (j.positions || []).slice(0, 5),
+        link: j.link || "", source: j.source || "开源校招汇总", date: j.date || TODAY,
+        summary: j.summary || "", cls: j.cls || "通用技术类", plain: j.plain || "",
+        courses: j.courses || "", hardReq: j.hardReq || [], plusReq: j.plusReq || [],
+        selfLearn: j.selfLearn || [], fitWho: j.fitWho || "", tips: j.tips || "",
+      });
+    }
+    if (adds.length) {
+      // 上限 24 条：保最新，旧的靠清理段淘汰
+      if (data.jobs.length > 24) data.jobs = data.jobs.slice(0, 24);
+      log.push(`jobs added=${adds.length} ids=${adds.map((_, i) => "j" + (maxJ - adds.length + 1 + i)).join(",")} total=${data.jobs.length}`);
+    } else log.push("jobs added=0");
+  } catch (e) {
+    log.push(`LLM-JOBS-ADD FAIL ${String(e.message || e).slice(0, 160)}`);
+  }
+} else if (rawJobs.length) log.push("skip jobs-add (no key)");
 
 data.updatedAt = TODAY + " " + new Date().toTimeString().slice(0, 5);
 save("data.json", data);

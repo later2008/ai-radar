@@ -16,6 +16,20 @@ const NEWS_FEEDS = {
   arstechnica: { url: "https://arstechnica.com/ai/feed/", source: "Ars Technica AI", lang: "en" },
   ieee: { url: "https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss", source: "IEEE Spectrum AI", lang: "en" },
   mittr: { url: "https://www.technologyreview.com/feed/", source: "MIT 科技评论", lang: "en" },
+  // —— 扩充：开发社区与技术栈 ——
+  juejin: { url: "https://juejin.cn/rss", source: "掘金", lang: "zh" },
+  v2ex: { url: "https://www.v2ex.com/index.xml", source: "V2EX", lang: "zh" },
+  oschina: { url: "https://www.oschina.net/news/rss", source: "开源中国", lang: "zh" },
+  ruanyifeng: { url: "http://www.ruanyifeng.com/blog/atom.xml", source: "阮一峰周刊", lang: "zh" },
+  github_blog: { url: "https://github.blog/feed/", source: "GitHub Blog", lang: "en" },
+  // —— 扩充：信息安全 ——
+  freebuf: { url: "https://www.freebuf.com/feed", source: "FreeBuf", lang: "zh" },
+  anquanke: { url: "https://api.anquanke.com/data/v1/rss", source: "安全客", lang: "zh" },
+  xinzhi: { url: "https://xz.aliyun.com/feed", source: "先知社区", lang: "zh" },
+  // —— 扩充：英文开发者社区 ——
+  hnrss: { url: "https://hnrss.org/frontpage", source: "Hacker News", lang: "en" },
+  devto: { url: "https://dev.to/feed/", source: "DEV Community", lang: "en" },
+  fcc: { url: "https://www.freecodecamp.org/news/rss/", source: "freeCodeCamp", lang: "en" },
 };
 
 function pick(s, tag) {
