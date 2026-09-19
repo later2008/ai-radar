@@ -63,6 +63,8 @@ a:hover { text-decoration: underline; }
 .chip { border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: all .15s; font-family: inherit; }
 .chip:hover { border-color: var(--accent); color: var(--accent); }
 .chip.active { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
+.tag-row-label { font-size: 13px; font-weight: 700; color: var(--muted); align-self: center; white-space: nowrap; }
+.chip-tag { font-size: 12.5px; padding: 6px 13px; }
 
 /* ===== 新闻卡片 ===== */
 .news-list { display: flex; flex-direction: column; gap: 12px; }
@@ -253,6 +255,7 @@ a:hover { text-decoration: underline; }
       <!-- AI 资讯 -->
       <section id="view-news">
         <div class="chips anim-in" id="news-chips" style="animation-delay:.08s"></div>
+        <div class="chips anim-in" id="tag-chips" style="animation-delay:.12s"></div>
         <div class="news-list" id="news-list"></div>
         <div class="pager" id="pager"></div>
       </section>
@@ -434,18 +437,34 @@ document.addEventListener("touchstart", (e) => { const t = e.target.closest(".gm
 /* 新闻列表（分页） */
 const PAGE_SIZE = 10;
 let curCat = "all";
+let curTag = "all";
 let curPage = 1;
 let lastTotal = 0;
 
+const TAG_LIST = ["前端开发", "Java全栈", "通用开发", "工业软件", "信息安全", "求职就业", "AI工具", "行业动态"];
 function renderChips() {
   const counts = { all: DATA.news.length };
   DATA.news.forEach((n) => { counts[n.cat] = (counts[n.cat] || 0) + 1; });
   $("#news-chips").innerHTML = ["all", ...Object.keys(CATS)]
     .map((c) => `<button class="chip ${curCat === c ? "active" : ""}" onclick="setCat('${c}')">${c === "all" ? "全部" : CATS[c]} · ${counts[c] || 0}</button>`).join("");
+  const tc = { all: 0 };
+  DATA.news.forEach((n) => {
+    const ts = (n.tags || []).filter((t) => TAG_LIST.includes(t));
+    if (!ts.length) return;
+    tc.all++;
+    ts.forEach((t) => (tc[t] = (tc[t] || 0) + 1));
+  });
+  $("#tag-chips").innerHTML =
+    '<span class="tag-row-label">按专业方向：</span>' +
+    ["all", ...TAG_LIST]
+      .filter((t) => t === "all" || tc[t])
+      .map((t) => `<button class="chip chip-tag ${curTag === t ? "active" : ""}" onclick="setTag('${t}')">${t === "all" ? "不限" : t} · ${tc[t] || 0}</button>`)
+      .join("");
 }
 function setCat(c) { curCat = c; curPage = 1; renderChips(); renderNews(); }
+function setTag(t) { curTag = t; curPage = 1; renderChips(); renderNews(); }
 function filteredNews() {
-  return DATA.news.filter((n) => curCat === "all" || n.cat === curCat);
+  return DATA.news.filter((n) => (curCat === "all" || n.cat === curCat) && (curTag === "all" || (n.tags || []).includes(curTag)));
 }
 function trackPill(t) {
   const c = TRACK_COLORS[t] || ["#64748b", "#f1f5f9", "#334155"];
