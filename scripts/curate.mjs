@@ -82,6 +82,7 @@ if (cands.length && KEY && BASE) {
 - lang：zh 或 en；en 时给 origTitle
 - link、source、date：沿用候选原值，不得修改
 输出 JSON：{"items":[...]}，按 heat 从高到低排序。`;
+    const usr = "候选新闻 JSON：\n" + JSON.stringify(cands, null, 1) + "\n请按规则选出并改写，宁缺毋滥。";
     const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: usr }], 5000));
     fresh = (out.items || []).filter((n) => n.title && n.link && CATS[n.cat]);
     log.push(`llm items=${fresh.length}`);
