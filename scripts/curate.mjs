@@ -38,16 +38,20 @@ function parseJSON(s) {
 const data = load("data.json");
 let log = [`run ${TODAY} model=${MODEL}`];
 
-/* 1. 预筛候选：48h 内、去重、按求职相关性排序 */
+/* 1. 预筛候选：时效（日常48h/回填半年）、去重（标题+链接）、按求职相关性排序 */
+const BACKFILL = !!process.env.BACKFILL;
+const MAX_AGE_DAYS = BACKFILL ? 183 : 3;
 const raw = fs.existsSync("_raw_news.json") ? load("_raw_news.json") : [];
 const existTitles = new Set(data.news.map((n) => (n.title || "").replace(/\s/g, "").slice(0, 18)));
+const existLinks = new Set(data.news.map((n) => (n.link || "").split("?")[0]));
 const norm = (t) => (t || "").replace(/\s|【|】|｜|\|/g, "");
 const CAND_MAX = 26;
 const cands = raw
   .filter((x) => x.title && x.link && !x.error)
-  .filter((x) => { const days = (Date.now() - new Date(x.date || 0)) / 864e5; return x.date && days <= 3; })
+  .filter((x) => { const days = (Date.now() - new Date(x.date || 0)) / 864e5; return x.date && days <= MAX_AGE_DAYS; })
   .filter((x) => !EXCLUDE.test(x.title))
   .filter((x) => !existTitles.has(norm(x.title).slice(0, 18)))
+  .filter((x) => !existLinks.has((x.link || "").split("?")[0]))
   .map((x) => ({
     x,
     score:
@@ -112,7 +116,7 @@ const newItems = fresh.map((n) => ({
   ...(n.lang === "en" ? { lang: "en", origTitle: n.origTitle || "" } : {}),
   link: n.link,
 }));
-data.news = [...newItems, ...data.news].slice(0, 50);
+data.news = [...newItems, ...data.news].slice(0, 120);
 // featured 给最新的高热条目
 if (newItems.length) {
   const f = newItems.reduce((a, b) => (b.heat > (a.heat || 0) ? b : a));
@@ -133,7 +137,7 @@ if (KEY && BASE && data.jobs.length) {
 
 /* 4.5 岗位新增：_raw_jobs.json 候选 → LLM 提取加工成七件套 → 入库（去重、上限24） */
 const rawJobs = fs.existsSync("_raw_jobs.json") ? load("_raw_jobs.json") : [];
-if (KEY && BASE && rawJobs.length) {
+if (KEY && BASE && rawJobs.length && !process.env.SKIP_JOBS) {
   const existJobKeys = new Set(data.jobs.map((j) => ((j.company || "") + (j.title || "")).replace(/\s/g, "").slice(0, 12)));
   try {
     const sys = `今天是 ${TODAY}。你是「广职大信工学院AI雷达站」的就业信息编辑。下面是来自开源校招汇总仓库的原始行文本候选。提取出信息足够明确的岗位/校招/实习条目（面向本科可投的应届生或在校生优先），每条输出：
