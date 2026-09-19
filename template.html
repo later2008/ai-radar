@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 风向标 AI Radar — AI 资讯与 AI 求职情报站（大学生公益项目）</title>
-<meta name="description" content="面向大学生的公益 AI 资讯与求职情报站：每日更新国内 AI 校招、实习、社招岗位，大模型行业动态，Agent 热度榜，英文报道附中文翻译，全部内容附原文链接。">
-<meta name="keywords" content="AI求职,AI校招,大模型岗位,算法岗,AI实习,AI新闻,Agent,人工智能就业">
+<title>广职大信工学院 · AI 雷达站 — AI 实战信息与信工求职指南（学生公益项目）</title>
+<meta name="description" content="面向广州职业技术大学信息工程学院学生（软件工程、信息安全与管理专业）的公益 AI 资讯与求职站：开箱工具与项目、AI 提效实战教程、技术栈更新、就业动态，岗位全部标注对应课程与准备建议，附官方投递链接。">
+<meta name="keywords" content="广职大,信息工程学院,软件工程,信息安全,校招,实习,前端,Java,渗透测试,等保,工业软件,AI编程">
 <style>
 :root {
   --bg: #f5f7fb; --card: #ffffff; --border: #e4e9f2; --text: #17203a;
@@ -145,6 +145,39 @@ a:hover { text-decoration: underline; }
 .job-tip { background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius); padding: 16px 20px; margin-bottom: 16px; font-size: 13px; line-height: 1.8; color: #713f12; }
 .job-tip b { color: #b45309; }
 
+/* ===== 信工版新增组件 ===== */
+.tag-stack { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+.nc-value { font-size: 13.5px; line-height: 1.7; margin-top: 7px; color: #1e3a8a; background: #f0f6ff; border-left: 3px solid var(--accent); padding: 7px 12px; border-radius: 0 8px 8px 0; }
+.nc-value b { color: var(--accent); }
+.nc-use { font-size: 13px; color: #475569; line-height: 1.8; }
+.nc-foot { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
+.track-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid transparent; }
+.diff-tag, .scene-tag { font-size: 11.5px; color: var(--muted); background: #f8fafc; border: 1px solid var(--border); padding: 2px 9px; border-radius: 6px; }
+.cls-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+.cls-se { background: #dbeafe; color: #1d4ed8; }
+.cls-sec { background: #fee2e2; color: #b91c1c; }
+.job-card .job-detail { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); animation: fadeUp .3s ease-out; }
+.job-card.open .job-detail { display: block; }
+.job-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 5px; }
+.job-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
+.job-detail ul { list-style: none; }
+.job-detail li { font-size: 13px; color: #475569; line-height: 1.8; padding-left: 16px; position: relative; }
+.job-detail li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.job-detail li::before { content: "▸"; }
+.job-two { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+.job-two b { color: #334155; }
+.job-tips { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; line-height: 1.7; color: #713f12; }
+.job-tips b { color: #b45309; }
+.job-actions { display: flex; align-items: center; gap: 12px; }
+.job-more { font-size: 12px; color: var(--muted); cursor: pointer; user-select: none; }
+.job-card.open .job-more { color: var(--accent); }
+.guide-group { padding: 12px 18px; border-bottom: 1px solid #f1f5f9; }
+.guide-group:last-child { border-bottom: none; }
+.guide-name { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.guide-group ul { list-style: none; }
+.guide-group li { font-size: 12px; color: #475569; line-height: 1.75; padding-left: 14px; position: relative; }
+.guide-group li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 800; }
+
 /* ===== 小动画 ===== */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes pulseHot { 0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,.28); } 50% { box-shadow: 0 0 0 5px rgba(220,38,38,0); } }
@@ -189,10 +222,10 @@ a:hover { text-decoration: underline; }
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo">AI 风向标<span class="radar"> AI Radar</span><span class="logo-sub">大学生 AI 资讯与求职情报站</span></div>
+    <div class="logo">信工<span class="radar"> AI 雷达站</span><span class="logo-sub">广职大信息工程学院 · 学生公益项目</span></div>
     <nav class="nav">
-      <button id="tab-news" class="active" onclick="switchTab('news')">📰 AI 资讯</button>
-      <button id="tab-jobs" onclick="switchTab('jobs')">💼 AI 求职</button>
+      <button id="tab-news" class="active" onclick="switchTab('news')">🧰 AI 实战信息</button>
+      <button id="tab-jobs" onclick="switchTab('jobs')">💼 信工求职指南</button>
     </nav>
     <div class="clock"><span id="clock-time">--:--:--</span><br>更新于 __UPDATED__</div>
   </div>
@@ -215,7 +248,6 @@ a:hover { text-decoration: underline; }
       <!-- AI 资讯 -->
       <section id="view-news">
         <div class="chips anim-in" id="news-chips" style="animation-delay:.08s"></div>
-        <div class="chips hidden" id="jobtype-chips" style="padding-top: 0"></div>
         <div class="news-list" id="news-list"></div>
         <div class="pager" id="pager"></div>
       </section>
@@ -223,9 +255,10 @@ a:hover { text-decoration: underline; }
       <!-- AI 求职 -->
       <section id="view-jobs" class="hidden">
         <div class="job-tip anim-in">
-          <b>🧭 怎么用这个板块：</b>本站岗位<strong>全部来自国内</strong>——大厂 2027 届校招官方入口（腾讯 join.qq.com、字节 jobs.bytedance.com、阿里 talent.alibaba.com、百度 talent.baidu.com、小米 hr.xiaomi.com、京东 campus.jd.com）、科研院所与 AI 公司实习/社招的真实在招页面，每条都附官方投递链接。<b>投递提醒：</b>秋招黄金窗口为 8-10 月，越早投递机会越多；谨防任何「付费内推 / 付费实习」诈骗，投递一律走官网渠道。更多国内渠道：实习僧 shixiseng.com、BOSS直聘 zhipin.com、国家大学生就业服务平台 ncss.cn。
+          <b>🧭 怎么用这个板块：</b>岗位<strong>全部匹配学院两个专业的就业方向</strong>（软件工程类 / 信息安全类），覆盖全国实习、27 届校招与提前批。每条岗位都做了<strong>大白话解读</strong>：日常干什么、对应学校哪门课、硬性要求与加分项、适合大几的你、怎么准备——点开卡片就能看。<b>投递提醒：</b>秋招黄金窗口为 8-10 月，越早投递机会越多；谨防任何「付费内推 / 付费实习」诈骗，一律走官方渠道。常用渠道：实习僧 shixiseng.com、BOSS直聘 zhipin.com、国家大学生就业服务平台 ncss.cn。
         </div>
         <div class="chips" id="job-chips"></div>
+        <div class="chips hidden" id="jobtype-chips" style="padding-top:0"></div>
         <div class="job-list" id="job-list"></div>
       </section>
     </main>
@@ -233,8 +266,8 @@ a:hover { text-decoration: underline; }
     <!-- ===== 侧栏 ===== -->
     <aside class="side">
       <div class="panel">
-        <div class="panel-head"><span class="panel-title"><span class="dot"></span>🔥 Agent 热度榜</span><span style="font-size:11px;color:var(--muted)">按社区讨论热度</span></div>
-        <div id="heat-list"></div>
+        <div class="panel-head"><span class="panel-title"><span class="dot"></span>📚 求职干货速览</span><span style="font-size:11px;color:var(--muted)">按方向准备</span></div>
+        <div id="guide-list"></div>
       </div>
       <div class="panel">
         <div class="panel-head"><span class="panel-title"><span class="dot"></span>📊 求职速览</span></div>
@@ -246,17 +279,20 @@ a:hover { text-decoration: underline; }
 
 <footer class="footer">
   <div class="footer-inner">
-    <b>AI 风向标 AI Radar</b> — 面向大学生的 AI 资讯与求职情报聚合站 · 非营利公益项目<br>
-    资讯来源：量子位 · 爱范儿 · InfoQ中文 · 钛媒体 · 极客公园 · 少数派 · Solidot · TechCrunch AI · The Verge · Ars Technica · IEEE Spectrum · MIT 科技评论 ｜ 国内就业政策与校招情报经全网搜索核实后收录<br>
-    岗位来源：腾讯 / 字节跳动 / 阿里巴巴 / 百度 / 小米 / 京东等官方校招渠道 · 上海AI实验室 · MiniMax · 智谱AI · 实习僧 · 高校人才网 · 高校就业信息网 ｜ 英文内容均附中文翻译与原文链接<br>
-    本站不收取任何费用；所有内容版权归原作者及原发布机构所有，如有侵权请联系删除；投递请以企业官方渠道为准，谨防求职诈骗。
+    <b>广职大信工学院 · AI 雷达站</b> — 面向软件工程（含工业软件实验班）、信息安全与管理专业学生的公益资讯与求职站<br>
+    内容原则：<b>专业对口 · 实用为先 · 宁缺毋滥</b>——每条内容回答「对我有什么用、对应什么课、怎么用」；无新内容不硬凑日更<br>
+    资讯来源：量子位 · 爱范儿 · InfoQ中文 · 钛媒体 · CSDN · 新华网 · 工业新闻网等公开渠道 ｜ 岗位来源：企业官方校招页、高校就业信息网，投递以官方渠道为准<br>
+    本站为学生公益项目，不收取任何费用；所有内容版权归原作者及原发布机构所有，如有侵权请联系删除；谨防求职诈骗。
   </div>
 </footer>
 
 <script>
 const DATA = __DATA__;
 
-const CATS = { model: "大模型", agent: "Agent 与编程", industry: "产业动态", career: "求职风向" };
+const CATS = { tool: "开箱工具与项目", tut: "提效实战教程", stack: "技术栈更新", industry: "行业动态·就业相关" };
+const TRACKS = ["前端", "Java", "通用开发", "工业软件", "信息安全"];
+const TRACK_COLORS = { "前端": ["#0ea5e9", "#e0f2fe", "#0369a1"], "Java": ["#f97316", "#ffedd5", "#c2410c"], "通用开发": ["#6366f1", "#e0e7ff", "#4338ca"], "工业软件": ["#14b8a6", "#ccfbf1", "#0f766e"], "信息安全": ["#ef4444", "#fee2e2", "#b91c1c"] };
+const DIFF_TXT = { 1: "简单", 2: "中等", 3: "困难" };
 const $ = (s) => document.querySelector(s);
 
 /* 时钟 */
@@ -269,8 +305,7 @@ setInterval(tick, 1000); tick();
 /* 快讯：全部新闻 + 热榜要点，速度按内容长度自适应（约 0.45 秒/字），悬停暂停 */
 (function () {
   const parts = DATA.news.map((n) => `<b>【${n.source}】</b>${n.title}`);
-  parts.push(`<b>【🔥 Agent 热度榜】</b>` + DATA.agentHeat.slice(0, 4).map((a) => `${a.name}（${a.vendor}）热度 ${a.score}`).join(" · "));
-  parts.push(`<b>【💼 国内在招】</b>` + DATA.jobs.slice(0, 8).map((j) => `${j.company}${j.type}·${(j.positions || [])[0] || ""}`).join(" · "));
+  parts.push(`<b>【💼 在招岗位】</b>` + DATA.jobs.slice(0, 10).map((j) => `${j.company}·${(j.positions || [])[0] || j.title}`).join(" · "));
   const html = parts.join("　　●　　");
   const el = $("#ticker-content");
   el.innerHTML = html;
@@ -365,12 +400,10 @@ function coverOf(n) {
     </div>`;
 })();
 
-/* 新闻列表（分页 + 岗位类型子筛选） */
+/* 新闻列表（分页） */
 const PAGE_SIZE = 10;
-const NEWS_JOB_TYPES = ["实习", "校招", "社招"];
 let curCat = "all";
 let curPage = 1;
-let curJobType = "all";
 let lastTotal = 0;
 
 function renderChips() {
@@ -379,24 +412,13 @@ function renderChips() {
   $("#news-chips").innerHTML = ["all", ...Object.keys(CATS)]
     .map((c) => `<button class="chip ${curCat === c ? "active" : ""}" onclick="setCat('${c}')">${c === "all" ? "全部" : CATS[c]} · ${counts[c] || 0}</button>`).join("");
 }
-function setCat(c) { curCat = c; curPage = 1; curJobType = "all"; renderChips(); renderJobTypeChips(); renderNews(); }
-function renderJobTypeChips() {
-  const el = $("#jobtype-chips");
-  if (curCat !== "career") { el.innerHTML = ""; el.classList.add("hidden"); return; }
-  el.classList.remove("hidden");
-  const pool = DATA.news.filter((n) => n.cat === "career");
-  const counts = { all: pool.length };
-  pool.forEach((n) => (n.jobType || []).forEach((t) => { counts[t] = (counts[t] || 0) + 1; }));
-  el.innerHTML = `<span style="font-size:12px;color:var(--muted);font-weight:600;align-self:center;margin-right:2px">岗位类型：</span>` +
-    ["all", ...NEWS_JOB_TYPES]
-      .filter((t) => t === "all" || counts[t])
-      .map((t) => `<button class="chip ${curJobType === t ? "active" : ""}" style="padding:5px 13px;font-size:12px" onclick="setJobType('${t}')">${t === "all" ? "不限" : t} · ${counts[t] || 0}</button>`).join("");
-}
-function setJobType(t) { curJobType = t; curPage = 1; renderJobTypeChips(); renderNews(); }
+function setCat(c) { curCat = c; curPage = 1; renderChips(); renderNews(); }
 function filteredNews() {
-  let list = DATA.news.filter((n) => curCat === "all" || n.cat === curCat);
-  if (curCat === "career" && curJobType !== "all") list = list.filter((n) => (n.jobType || []).includes(curJobType));
-  return list;
+  return DATA.news.filter((n) => curCat === "all" || n.cat === curCat);
+}
+function trackPill(t) {
+  const c = TRACK_COLORS[t] || ["#64748b", "#f1f5f9", "#334155"];
+  return `<span class="track-pill" style="background:${c[1]};color:${c[2]};border-color:${c[0]}33">${t}</span>`;
 }
 function renderNews() {
   const list = filteredNews();
@@ -412,18 +434,23 @@ function renderNews() {
         <div class="nc-head">
           <span class="nc-src">${n.source}</span><span>${n.date}</span>
           <span class="tag">${CATS[n.cat] || n.cat}</span>
-          ${(n.jobType || []).map((t) => `<span class="type-pill type-${t}">${t}</span>`).join("")}
+          ${(n.stack || []).slice(0, 2).map((s) => `<span class="tag tag-stack">${s}</span>`).join("")}
           ${n.lang === "en" ? `<span class="badge-en">译文 · 附原文</span>` : ""}
           ${n.heat >= 85 ? `<span class="badge-hot">🔥 热度 ${n.heat}</span>` : ""}
         </div>
         <div class="nc-title">${n.title}</div>
-        ${n.lang === "en" && n.origTitle ? `<div class="nc-title-en">Original: ${n.origTitle}</div>` : ""}
+        ${n.value ? `<div class="nc-value">💡 ${n.value}</div>` : ""}
         <div class="nc-summary">${n.summary}</div>
         <div class="nc-detail">
-          <p>${n.content}</p>
-          <h4>编辑速读</h4>
-          <ul>${(n.brief || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+          ${n.content ? `<p>${n.content}</p>` : ""}
+          ${(n.brief || []).length ? `<h4>要点速读</h4><ul>${n.brief.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+          ${n.courses && n.courses !== "—" ? `<h4>📚 对应课程 / 怎么用</h4><p class="nc-use">${n.courses}${n.get ? ` ｜ 获取方式：${n.get}` : ""}</p>` : (n.get ? `<p class="nc-use">获取方式：${n.get}</p>` : "")}
           <a class="nc-link" href="${n.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 原文链接${n.lang === "en" ? "（英文，正文已译）" : ""} ↗</a>
+        </div>
+        <div class="nc-foot">
+          ${(n.tracks || []).map((t) => trackPill(t)).join("")}
+          ${n.diff ? `<span class="diff-tag">⭐ 上手难度：${DIFF_TXT[n.diff] || "中等"}</span>` : ""}
+          ${n.scene ? `<span class="scene-tag">🎯 适合：${n.scene}</span>` : ""}
         </div>
       </div>
     </article>`).join("");
@@ -445,19 +472,13 @@ function goPage(p) {
     if (anchor) window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
   } catch (e) { /* 老浏览器/无头环境忽略 */ }
 }
-renderChips(); renderJobTypeChips(); renderNews();
+renderChips(); renderNews();
 
-/* Agent 热度榜 */
-$("#heat-list").innerHTML = DATA.agentHeat.map((a, i) => `
-  <div class="heat-item anim-in" style="animation-delay:${i * 60}ms">
-    <div class="heat-rank">${i + 1}</div>
-    <div class="heat-body">
-      <div class="heat-name">${a.name} <span class="heat-vendor">${a.vendor}</span>
-        <span class="heat-delta ${a.trend}">${a.trend === "up" ? "▲" : a.trend === "down" ? "▼" : "—"} ${Math.abs(a.delta)}</span>
-      </div>
-      <div class="heat-bar"><div class="heat-bar-fill" style="width:${a.score}%;animation-delay:${200 + i * 90}ms"></div></div>
-      <div class="heat-note">${a.note}</div>
-    </div>
+/* 求职干货速览 */
+$("#guide-list").innerHTML = DATA.guides.map((g, gi) => `
+  <div class="guide-group anim-in" style="animation-delay:${gi * 80}ms">
+    <div class="guide-name">${g.name}</div>
+    <ul>${g.items.map((it) => `<li>${it}</li>`).join("")}</ul>
   </div>`).join("");
 
 /* 求职速览（数字滚动动画：纯数字/百分比才滚，其余原样显示） */
@@ -479,40 +500,69 @@ document.querySelectorAll("#stats-list .stat-num").forEach((el, idx) => {
   requestAnimationFrame(step);
 });
 
-/* 岗位列表（国内岗位：校招 / 实习 / 社招） */
+/* 岗位列表（软件工程类 / 信息安全类 + 实习/校招/社招子筛选） */
+const JOB_CLASSES = ["all", "软件工程类", "信息安全类"];
 const JOB_TYPES = ["all", "校招", "实习", "社招"];
+let curCls = "all";
 let curType = "all";
 function renderJobChips() {
   const counts = { all: DATA.jobs.length };
-  DATA.jobs.forEach((j) => { counts[j.type] = (counts[j.type] || 0) + 1; });
-  $("#job-chips").innerHTML = JOB_TYPES
-    .map((t) => `<button class="chip ${curType === t ? "active" : ""}" onclick="setType('${t}')">${t === "all" ? "全部岗位" : t} · ${counts[t] || 0}</button>`).join("");
+  DATA.jobs.forEach((j) => { counts[j.cls] = (counts[j.cls] || 0) + 1; });
+  $("#job-chips").innerHTML = JOB_CLASSES
+    .map((c) => `<button class="chip ${curCls === c ? "active" : ""}" onclick="setCls('${c}')">${c === "all" ? "全部岗位" : c} · ${counts[c] || 0}</button>`).join("");
+  const typeEl = $("#jobtype-chips");
+  if (curCls === "all") { typeEl.innerHTML = ""; typeEl.classList.add("hidden"); }
+  else {
+    typeEl.classList.remove("hidden");
+    const pool = DATA.jobs.filter((j) => j.cls === curCls);
+    const tc = { all: pool.length };
+    pool.forEach((j) => { tc[j.type] = (tc[j.type] || 0) + 1; });
+    typeEl.innerHTML = ["all", ...JOB_TYPES.slice(1)]
+      .filter((t) => t === "all" || tc[t])
+      .map((t) => `<button class="chip ${curType === t ? "active" : ""}" style="padding:5px 13px;font-size:12px" onclick="setType('${t}')">${t === "all" ? "不限类型" : t} · ${tc[t] || 0}</button>`).join("");
+  }
 }
+function setCls(c) { curCls = c; curType = "all"; renderJobChips(); renderJobs(); }
 function setType(t) { curType = t; renderJobChips(); renderJobs(); }
 function renderJobs() {
-  const list = DATA.jobs.filter((j) => curType === "all" || j.type === curType);
+  const list = DATA.jobs.filter((j) => (curCls === "all" || j.cls === curCls) && (curType === "all" || curCls === "all" || j.type === curType));
   if (!list.length) { $("#job-list").innerHTML = `<div class="empty">该类型暂无岗位，明天更新会补充</div>`; return; }
   $("#job-list").innerHTML = list.map((j, i) => `
-    <article class="job-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms">
+    <article class="job-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
       <div class="job-top">
         <div class="job-co-wrap">
           ${logoSquareHTML(j.company)}
           <div>
-            <div class="job-title">${j.title}</div>
+            <div class="job-title">${j.title || (j.positions || [])[0]}</div>
             <div class="job-co">${j.company}</div>
           </div>
         </div>
         ${j.salary ? `<div class="job-salary">${j.salary}</div>` : ""}
       </div>
       <div class="job-meta">
+        <span class="cls-pill ${j.cls === "信息安全类" ? "cls-sec" : "cls-se"}">${j.cls === "信息安全类" ? "🛡 信息安全类" : "⌨ 软件工程类"}</span>
         <span class="type-pill type-${j.type}">${j.type}</span>
         <span>📍 ${j.loc}</span>
         <span>⏳ ${j.deadline || "长期有效"}</span>
-        <span>·</span><span>${j.source}</span><span>·</span><span>${j.date}</span>
       </div>
       ${(j.positions || []).length ? `<div class="job-positions">${j.positions.map((p) => `<span class="tag">${p}</span>`).join("")}</div>` : ""}
       <div class="job-summary">${j.summary}</div>
-      <a class="job-link" href="${j.link}" target="_blank" rel="noopener">官方投递入口 ↗</a>
+      <div class="job-detail">
+        <h4>💬 岗位大白话</h4><p>${j.plain || j.summary}</p>
+        ${j.courses ? `<h4>📚 对应课程</h4><p>${j.courses}</p>` : ""}
+        ${(j.hardReq || []).length ? `<h4>✅ 硬性要求</h4><ul>${j.hardReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+        ${(j.plusReq || []).length ? `<h4>⭐ 加分项</h4><ul>${j.plusReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+        ${(j.selfLearn || []).length ? `<h4>🔧 需要自学补充</h4><ul>${j.selfLearn.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+        <div class="job-two">
+          ${j.fitWho ? `<div><b>🎯 适配人群：</b>${j.fitWho}</div>` : ""}
+          <div><b>🕒 发布：</b>${j.date || "—"}　<b>来源：</b>${j.source || "官方渠道"}</div>
+        </div>
+        ${j.tips ? `<p class="job-tips"><b>💡 准备建议：</b>${j.tips}</p>` : ""}
+      </div>
+      <div class="job-actions">
+        <a class="job-link" href="${j.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">官方投递入口 ↗</a>
+        <span class="job-more">展开岗位解读 ▾</span>
+      </div>
     </article>`).join("");
 }
 renderJobChips(); renderJobs();

@@ -6,7 +6,10 @@ const BASE = (process.env.LLM_BASE_URL || "").replace(/\/$/, "");
 const MODEL = process.env.LLM_MODEL || "";
 const KEY = process.env.LLM_API_KEY || "";
 const TODAY = new Date().toISOString().slice(0, 10);
-const CATS = { model: "大模型", agent: "Agent与编程", industry: "产业动态", career: "求职风向" };
+const CATS = { tool: "开箱工具与项目", tut: "提效实战教程", stack: "技术栈更新", industry: "行业动态·就业相关" };
+const TRACKS = ["前端", "Java", "通用开发", "工业软件", "信息安全"];
+// ❌ 排除关键词（规范）：命中即不采集
+const EXCLUDE = /融资|上市|IPO|财报|创始人|八卦|综艺|量子计算|芯片制造|学术论文|考研|考公/;
 
 function load(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }
 function save(p, v) { fs.writeFileSync(p, JSON.stringify(v, null, 1), "utf8"); }
@@ -41,12 +44,14 @@ const CAND_MAX = 26;
 const cands = raw
   .filter((x) => x.title && x.link && !x.error)
   .filter((x) => { const days = (Date.now() - new Date(x.date || 0)) / 864e5; return x.date && days <= 3; })
+  .filter((x) => !EXCLUDE.test(x.title))
   .filter((x) => !existTitles.has(norm(x.title).slice(0, 18)))
   .map((x) => ({
     x,
     score:
-      (/校招|招聘|就业|扩招|岗位|薪资|offer|实习|人才|秋招|裁员|求职|人社|就业率/.test(x.title) ? 40 : 0) +
-      (/AI|大模型|智能体|Agent|算力|芯片/.test(x.title) ? 15 : 0) +
+      (/校招|招聘|就业|扩招|岗位|实习|秋招|求职|安全工程师|渗透|等保|安全运维|工业软件|CAD|软件测试/.test(x.title) ? 45 : 0) +
+      (/AI编程|Cursor|Copilot|Claude Code|通义灵码|Agent|开源项目|工具|教程|框架|版本发布|Spring|Vue|React|Java|Rust|Docker/.test(x.title) ? 30 : 0) +
+      (/网络安全|漏洞|攻防|数据安全|风险评估|应急响应/.test(x.title) ? 30 : 0) +
       (x.lang === "zh" ? 10 : 0),
   }))
   .sort((a, b) => b.score - a.score)
@@ -59,22 +64,23 @@ let fresh = [];
 if (cands.length && KEY && BASE) {
   const todayDow = "星期" + "日一二三四五六"[new Date().getDay()];
   try {
-    const sys = `你是面向中国大学生的 AI 求职资讯网站「AI 风向标」的编辑。今天是 ${TODAY} ${todayDow}。内容方针（最高优先级）：帮学生找工作、了解行业，优先收录贴近岗位与就业的内容（校招/实习/社招动态、岗位需求变化、就业政策、薪资报告、重大融资/组织变动）。纯海外技术新闻最多选 2 条。绝不编造事实与数字，改写必须基于给定的标题和摘要，未知信息不写。所有输出必须是简体中文（英文条目标 lang=en 并给 origTitle）。严格输出 JSON。`;
-    const usr = `候选新闻列表（JSON）：
-${JSON.stringify(cands, null, 1)}
-
-从中挑选 3-6 条最有价值的新闻改写为本站条目。每条输出字段：
+    const sys = `你是「广职大信工学院 AI 雷达站」的编辑。受众：广州职业技术大学信息工程学院软件工程（含工业软件实验班）、信息安全与管理专业本科生。今天是 ${TODAY}。
+最高原则：专业对口、实用为先、宁缺毋滥——每条内容必须回答「对我有什么用、对应什么课、怎么用」。与两个专业就业无关的内容（纯融资、八卦、学术、消费电子、具身智能等）一律不选。没有合格候选就少选或不选，禁止凑数。
+选出的每条输出字段：
 - title：改写后的中文标题（信息量足，可含关键数字）
 - summary：1-2 句摘要
-- content：150-300 字正文，必须回答「对找工作的学生意味着什么/怎么准备」，基于候选信息合理展开但不编造
+- content：150-300 字正文，学生视角，拒绝空泛
 - brief：2-4 条要点（字符串数组）
-- tags：2-4 个标签
-- cat：仅限 ${JSON.stringify(Object.keys(CATS))} 之一（求职相关用 career）
-- jobType：cat 为 career 时必须给 ["实习","校招","社招"] 的子集，否则给 []
+- cat：仅限 ${JSON.stringify(Object.keys(CATS))} 之一
+- tracks：${JSON.stringify(TRACKS)} 的子集（1-2 个）
+- stack：技术栈关键词数组（0-2 个）
+- diff：上手难度 1-3（1=简单 2=中等 3=困难，仅 tool/tut 类必给）
+- scene：适合场景（仅 tool/tut 类，如"课设/练手/简历加分/求职准备"）
+- value：一句话价值总结，**重点加粗**
+- courses：对应学校课程/怎么用（一句）
 - heat：0-100 热度评分
-- lang：zh 或 en；en 时给 origTitle（原标题）
+- lang：zh 或 en；en 时给 origTitle
 - link、source、date：沿用候选原值，不得修改
-
 输出 JSON：{"items":[...]}，按 heat 从高到低排序。`;
     const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: usr }], 5000));
     fresh = (out.items || []).filter((n) => n.title && n.link && CATS[n.cat]);
@@ -88,28 +94,30 @@ ${JSON.stringify(cands, null, 1)}
 let maxId = Math.max(...data.news.map((n) => parseInt((n.id || "a0").slice(1)) || 0), 0);
 const featuredId = fresh.length ? fresh.reduce((a, b) => (b.heat > (a.heat || 0) ? b : a)) : null;
 data.news.forEach((n) => { if (n.featured) n.featured = false; });
-const newItems = fresh.map((n, i) => ({
+const newItems = fresh.map((n) => ({
   id: "a" + (++maxId),
   title: n.title, summary: n.summary, content: n.content,
   source: n.source, date: n.date || TODAY, cat: n.cat,
-  tags: n.tags || [], featured: featuredId === n, heat: Math.min(99, Math.max(1, n.heat || 60)),
-  jobType: n.jobType || [], brief: n.brief || [], buzz: [],
+  tracks: (n.tracks || []).filter((t) => TRACKS.includes(t)),
+  stack: n.stack || [],
+  ...(n.diff ? { diff: n.diff } : {}),
+  ...(n.scene ? { scene: n.scene } : {}),
+  value: n.value || "", courses: n.courses || "",
+  tags: n.tags || [], featured: false, heat: Math.min(99, Math.max(1, n.heat || 60)),
+  brief: n.brief || [], buzz: [],
   ...(n.lang === "en" ? { lang: "en", origTitle: n.origTitle || "" } : {}),
   link: n.link,
 }));
 data.news = [...newItems, ...data.news].slice(0, 50);
+// featured 给最新的高热条目
+if (newItems.length) {
+  const f = newItems.reduce((a, b) => (b.heat > (a.heat || 0) ? b : a));
+  data.news.forEach((n) => { if (n.featured) n.featured = false; });
+  f.featured = true;
+}
 log.push(`added=${newItems.length} ids=${newItems.map((n) => n.id).join(",")} total=${data.news.length}`);
 
-/* 4. LLM 更新 Agent 热度榜（失败则保留旧榜） */
-if (KEY && BASE) {
-  try {
-    const sys = `你是 AI 编程 Agent 领域的观察员。今天是 ${TODAY}。基于你的知识更新 8 个热门 Agent/编程工具的热度榜，score 0-100 递减，delta 为相对上周变化，trend 为 up/down/flat，note 用中文 1 句概括近况。可参考当前榜单微调。输出 JSON {"heat":[8 项: name,vendor,score,delta,trend,note]}。`;
-    const out = parseJSON(await chat([{ role: "system", content: sys }, { role: "user", content: "当前榜单：" + JSON.stringify(data.agentHeat, null, 1) }], 2500));
-    if (Array.isArray(out.heat) && out.heat.length >= 6) { data.agentHeat = out.heat.slice(0, 8); log.push("heat updated"); }
-  } catch (e) { log.push(`LLM-HEAT FAIL ${String(e.message || e).slice(0, 160)}`); }
-}
-
-/* 5. 岗位保守清理：让 LLM 仅判断哪些岗位已明确超期（deadline 明显早于今天才删） */
+/* 4. 岗位保守清理：让 LLM 仅判断哪些岗位已明确超期（deadline 明显早于今天才删） */
 if (KEY && BASE && data.jobs.length) {
   try {
     const sys = `今天是 ${TODAY}。以下是招聘岗位列表 JSON。只删除明确已超期失效的（截止时间明确早于今天且无"长期/持续"字样）。输出 JSON {"remove":["j3",...]}，不确定就输出空数组。`;
