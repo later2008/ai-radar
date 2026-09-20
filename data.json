@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-19 01:08",
+ "updatedAt": "2026-09-20 08:56",
  "news": [
   {
    "id": "a116",
@@ -25,7 +25,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "AL2027 预览开放，核心争议点是能否原地升级",
@@ -608,7 +608,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide"
+   "link": "https://github.com/Snailclimb/JavaGuide",
+   "cover": "img/a94.png"
   },
   {
    "id": "a95",
@@ -2373,6 +2374,39 @@
   }
  ],
  "jobs": [
+  {
+   "id": "j27",
+   "company": "同花顺",
+   "title": "同花顺 2027届实习生招募计划",
+   "type": "实习",
+   "loc": "见公告",
+   "deadline": "公众号入口投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "实习生（技术/产品等方向）"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-19",
+   "summary": "同花顺面向2027届开放实习生招募，金融科技方向，涉及技术、产品等岗位。适合对金融数据与量化方向感兴趣的本科生。",
+   "cls": "软件工程类",
+   "plain": "金融科技实习机会，适合想结合编程与金融数据方向的学生。",
+   "courses": "数据结构、数据库、Python程序设计",
+   "hardReq": [
+    "2027届在校生",
+    "具备编程或产品基础"
+   ],
+   "plusReq": [
+    "了解金融/证券基础知识",
+    "有数据分析项目经历"
+   ],
+   "selfLearn": [
+    "学习Python数据处理与SQL",
+    "了解量化与金融数据接口"
+   ],
+   "fitWho": "对金融科技感兴趣的2027届本科生",
+   "tips": "通过公众号入口查看岗位并尽早投递。"
+  },
   {
    "id": "j26",
    "company": "WorkMaster高校招聘日历",
