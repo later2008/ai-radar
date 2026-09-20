@@ -104,10 +104,8 @@ await Promise.all(Array.from({ length: 6 }, async function worker() {
     let src = n.cover && /^https?:/i.test(n.cover) ? n.cover : "";
     if (!src) src = await fetchArticleImg(n.link);
     if (!src) {
-      const fname = n.id + ".svg";
-      fs.writeFileSync(path.join(IMG_DIR, fname), genFallbackSvg(n));
-      n.cover = "img/" + fname; svggen++;
-      log.push(`${n.id} SVG`);
+      delete n.cover; missing++;
+      log.push(`${n.id} NOIMG`);
       continue;
     }
     const ac = new AbortController();
@@ -119,10 +117,8 @@ await Promise.all(Array.from({ length: 6 }, async function worker() {
       const buf = Buffer.from(await head.arrayBuffer());
       clearTimeout(t);
       if (!ct.startsWith("image/") || ct.includes("svg") || buf.length < 3000 || buf.length > 6 * 1024 * 1024) {
-        const fname = n.id + ".svg";
-        fs.writeFileSync(path.join(IMG_DIR, fname), genFallbackSvg(n));
-        n.cover = "img/" + fname; svggen++;
-        log.push(`${n.id} REJECT->SVG ${ct} ${buf.length}b`);
+        delete n.cover; missing++;
+        log.push(`${n.id} REJECT ${ct} ${buf.length}b`);
         continue;
       }
       const fname = n.id + (EXT[ct] || ".jpg");
@@ -132,9 +128,7 @@ await Promise.all(Array.from({ length: 6 }, async function worker() {
       log.push(`${n.id} OK ${fname}`);
     } catch (e) {
       clearTimeout(t);
-      const fname = n.id + ".svg";
-      try { fs.writeFileSync(path.join(IMG_DIR, fname), genFallbackSvg(n)); n.cover = "img/" + fname; svggen++; log.push(`${n.id} FAIL->SVG`); }
-      catch (e2) { delete n.cover; missing++; log.push(`${n.id} FAIL ${String(e.message || e).slice(0, 40)}`); }
+      delete n.cover; missing++; log.push(`${n.id} FAIL ${String(e.message || e).slice(0, 40)}`);
     }
   }
 }));

@@ -458,7 +458,7 @@ document.addEventListener("touchstart", (e) => { const t = e.target.closest(".gm
 
 /* 头条 */
 (function () {
-  const h = DATA.news.find((n) => n.featured) || DATA.news[0];
+  const h = DATA.news.find((n) => n.featured && n.cover && !/\.svg$/i.test(n.cover)) || DATA.news.find((n) => n.cover && !/\.svg$/i.test(n.cover)) || DATA.news[0];
   $("#hero").innerHTML = `
     <div class="hero-flex">
       <div class="hero-body">

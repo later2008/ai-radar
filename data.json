@@ -1,246 +1,6 @@
 {
- "updatedAt": "2026-09-20 08:38",
+ "updatedAt": "2026-09-19 01:08",
  "news": [
-  {
-   "id": "a121",
-   "title": "《网络安全人才实战能力报告—AI赋能篇》发布：AI进业务深水区，安全岗要补哪些技能",
-   "summary": "9月18日第一届中国网络空间安全大会上发布该报告，聚焦AI赋能下的安全人才实战能力缺口。",
-   "content": "报告指出，随着AI进入业务深水区，安全岗位的能力要求从传统防火墙、渗透测试，扩展到模型安全、数据合规、AI系统风险评估。对信息安全与管理专业的同学来说，这意味着：1）传统安全基础（网络协议、攻防、等保）仍是底座；2）新增考点在提示注入、模型越权、训练数据泄露等AI特有风险；3）企业更看重能落地安全方案而非背概念。建议在课程项目里主动加入一次AI应用的安全评估环节，比如给一个RAG问答系统做越权测试，写进简历比空谈'了解AI安全'有说服力。",
-   "source": "量子位",
-   "date": "2026-09-20",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**信息安全专业最直接的对口行业信号，帮你判断该补哪些AI安全技能**",
-   "courses": "对应《网络安全》《信息安全管理》课程，可把报告中的能力项作为课程论文或实训选题方向",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": true,
-   "heat": 88,
-   "brief": [
-    "报告在国家级安全大会发布，权威性高，可作为求职谈资",
-    "AI安全能力要求：模型安全、数据合规、AI系统风险评估",
-    "传统安全基础仍是底座，AI是增量而非替代",
-    "建议在课设中实操一次AI应用安全评估"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492849.html",
-   "cover": "img/a121.svg"
-  },
-  {
-   "id": "a122",
-   "title": "Spring Boot + Calcite 实现跨库查询：一个能写进简历的数据集成实战",
-   "summary": "用 Apache Calcite 在 Spring Boot 中实现跨不同数据库的 SQL 查询，适合作为工业软件方向的数据集成练手项目。",
-   "content": "Calcite 是 Apache 的动态数据管理框架，不存数据、不处理数据，只做 SQL 解析、优化和跨源查询规划。文章演示了在 Spring Boot 中接入 Calcite，把 MySQL、PostgreSQL 等不同库的表统一成一张逻辑视图来查。对软件工程（工业软件实验班）的同学，这个技术点很实用：工业场景里数据常散落在 MES、ERP、时序库中，跨库查询是刚需。建议动手跑通 demo，理解 Calcite 的 Schema 适配和查询下推机制，面试聊数据集成时能讲出具体实现而不是只提'用过 MyBatis'。",
-   "source": "掘金",
-   "date": "2026-09-20",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Apache Calcite"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**掌握跨库查询能让你在工业软件数据集成类岗位面试中有具体项目可讲**",
-   "courses": "对应《数据库原理》《企业级应用开发》，可作为课程设计的数据集成模块",
-   "tags": [
-    "Java全栈",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Calcite 做 SQL 解析与跨源查询规划，不存储数据",
-    "Spring Boot 集成后可统一查询多个异构数据库",
-    "工业软件场景中数据分散在 MES/ERP/时序库，跨库查询是刚需",
-    "建议跑通 demo 并理解 Schema 适配与查询下推"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7687200013802209315",
-   "cover": "img/a122.svg"
-  },
-  {
-   "id": "a123",
-   "title": "mica-voice 1.0.2 发布：Java 一行代码接入 ASR/TTS/声纹/VAD 等 7 项语音能力",
-   "summary": "基于 sherpa-onnx 的 Java 声音 AI 全家桶，提供 Spring Boot Starter，纯 Java 门面统一封装语音识别、合成、声纹等能力。",
-   "content": "mica-voice 把 ASR、TTS、声纹识别、VAD、说话人分离、关键词唤醒、降噪 7 项能力封装成纯 Java 接口，已发布 Maven Central，支持 Spring Boot Starter 和 Solon。对 Java 方向的同学，这意味着不用碰 Python 环境就能在 Spring Boot 项目里加语音功能。实用场景：给课设加一个语音输入模块、做工业设备的语音指令控制 demo。建议先跑通官方示例，理解 VAD 和 ASR 的调用链路，再考虑集成到自己的项目里。注意模型文件体积和推理性能，别在答辩现场卡住。",
-   "source": "开源中国",
-   "date": "2026-09-20",
-   "cat": "tool",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Spring Boot",
-    "sherpa-onnx"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**让 Java 项目快速获得语音能力，课设差异化竞争的现成工具**",
-   "courses": "对应《Java 程序设计》《企业级应用开发》，可作为课程项目的功能扩展模块",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "7 项语音能力统一 Java 接口，Maven 直接引入",
-    "提供 Spring Boot Starter，集成成本低",
-    "适合给课设加语音输入/指令控制模块",
-    "注意模型体积与推理性能，提前压测"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502596",
-   "cover": "img/a123.svg"
-  },
-  {
-   "id": "a124",
-   "title": "mica-ppocr v1.2.3 发布：Java 8 兼容的 PP-OCRv6 纯 ONNX 推理，内置 10 类证件票据解析",
-   "summary": "PP-OCRv6 的 Java 移植版，纯 ONNX Runtime 推理、零 PaddlePaddle 依赖，内置身份证、发票等 10 类结构化解析。",
-   "content": "这个项目把 PaddleOCR 的文字检测识别流水线完整移植到 Java，用 ONNX Runtime 推理，不需要装 PaddlePaddle，Java 8 就能跑。内置 10 类证件和票据的结构化解析，输出直接是字段而不是一堆文本框。对工业软件方向的同学很实用：工厂里的工单、质检单据、设备铭牌识别，都是 OCR 落地场景。建议用它做一个'拍照识别工单并入库'的小 demo，把 OCR 结果接到数据库，这个完整链路在面试时比单纯说'会调 API'有说服力。",
-   "source": "开源中国",
-   "date": "2026-09-20",
-   "cat": "tool",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "ONNX Runtime",
-    "PP-OCRv6"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**Java 项目做 OCR 的最省事方案，工业软件方向简历加分项**",
-   "courses": "对应《Java 程序设计》《工业软件概论》，可作为课程项目的图像识别模块",
-   "tags": [
-    "Java全栈",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "纯 Java + ONNX Runtime，零 PaddlePaddle 依赖，Java 8 兼容",
-    "内置 10 类证件/票据结构化解析，输出字段而非文本框",
-    "工业场景：工单、质检单据、设备铭牌识别",
-    "建议做'OCR 识别→数据库入库'完整链路 demo"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502595",
-   "cover": "img/a124.svg"
-  },
-  {
-   "id": "a125",
-   "title": "9 款主流 AI Agent CLI 对比：Claude Code、Codex 等安装与升级命令速查",
-   "summary": "汇总 Claude Code、Codex、OpenClaw 等九款 AI Agent CLI 的定位、官网、安装、版本查询与升级命令。",
-   "content": "现在 AI 编程工具从 IDE 插件转向 CLI Agent，这篇文章把 9 款主流工具的安装和升级命令整理成速查表。对软件工程的同学，CLI Agent 的价值在于：能在终端里直接读写代码、跑测试、改配置，比聊天窗口更贴近真实开发流。建议选 1-2 款装到自己的开发环境里，用课程项目练手，比如让 Agent 帮你重构一个模块或补单元测试。注意：工具只是效率杠杆，代码逻辑还得自己看懂，面试被追问实现细节时不能露馅。",
-   "source": "掘金",
-   "date": "2026-09-20",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**快速选型 AI 编程 CLI 工具，把 Agent 用进日常开发流**",
-   "courses": "对应《软件工程》《程序设计》课程，可用于课程项目的开发效率提升",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "9 款 AI Agent CLI 的安装/升级命令速查",
-    "CLI Agent 能直接读写代码、跑测试，贴近真实开发流",
-    "建议选 1-2 款用课程项目练手",
-    "工具提效但代码逻辑仍需自己掌握，面试会追问"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7687436260063477795",
-   "cover": "img/a125.svg"
-  },
-  {
-   "id": "a126",
-   "title": "AI Agent 为什么总是失忆？一篇讲透 Agent Memory 机制",
-   "summary": "系统讲解 AI Agent 的记忆机制，解释为什么 Agent 会'失忆'以及如何设计记忆方案。",
-   "content": "Agent 失忆的本质是上下文窗口有限加上没有持久化记忆设计。文章拆解了短期记忆（对话上下文）、长期记忆（向量库/数据库）、工作记忆（任务状态）的区别和实现方式。对软件工程同学，这是理解 Agent 应用架构的好材料：如果你要做课设里的智能问答或自动化流程，记忆设计直接决定体验好坏。建议结合一个具体场景思考——比如做一个课程答疑 Agent，怎么让它记住学生之前问过什么、哪些知识点已掌握。这个思路写进项目文档，比堆功能更能体现架构能力。",
-   "source": "掘金",
-   "date": "2026-09-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**理解 Agent 记忆机制，让你的 AI 课设从'能跑'升级到'好用'**",
-   "courses": "对应《软件工程》《人工智能导论》，可作为课程项目的架构设计参考",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Agent 失忆源于上下文窗口限制 + 无持久化记忆",
-    "区分短期/长期/工作记忆的设计思路",
-    "课设做智能问答或自动化流程时记忆设计是关键",
-    "结合具体场景思考记忆方案，体现架构能力"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7687377634816294912",
-   "cover": "img/a126.svg"
-  },
-  {
-   "id": "a127",
-   "title": "Java 25 灵活构造函数体：告别静态工厂做参数校验的臃肿写法",
-   "summary": "Java 25 引入 Flexible Constructor Bodies，允许在 super() 调用前写校验逻辑，不再需要静态工厂方法绕路。",
-   "content": "以前 Java 要求在构造函数第一行调用 super()，导致想在初始化前做参数校验只能写静态工厂方法，代码臃肿。Java 25 的灵活构造函数体允许在 super() 之前写语句，校验逻辑可以直接放在构造函数里。对 Java 方向的同学，这是语言层面的实用改进：领域模型类的校验代码会更干净。建议在课程项目里试一下这个特性，对比旧写法体会差异。面试聊 Java 新特性时，能说出'为什么这个改动解决了什么痛点'比只背版本号强。",
-   "source": "DEV Community",
-   "date": "2026-09-20",
-   "cat": "tut",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Java 25"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**Java 新特性实用改进，让领域模型代码更干净，面试有料可聊**",
-   "courses": "对应《Java 程序设计》《面向对象程序设计》，可在课程项目中实践新语法",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Java 25 允许在 super() 前写校验逻辑",
-    "替代静态工厂方法做参数校验的臃肿模式",
-    "领域模型类代码更干净",
-    "面试聊新特性要讲清解决了什么痛点"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/machinecodingmaster/stop-polluting-your-domain-with-static-factories-clean-validation-with-java-25-flexible-276a",
-   "cover": "img/a127.webp"
-  },
   {
    "id": "a116",
    "title": "亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级",
@@ -265,7 +25,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": false,
+   "featured": true,
    "heat": 62,
    "brief": [
     "AL2027 预览开放，核心争议点是能否原地升级",
@@ -776,8 +536,7 @@
     "工业软件实验班可关注国产化替代方向的就业机会"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492476.html",
-   "cover": "img/a104.svg"
+   "link": "https://www.qbitai.com/2026/09/492476.html"
   },
   {
    "id": "a105",
@@ -849,8 +608,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide",
-   "cover": "img/a94.svg"
+   "link": "https://github.com/Snailclimb/JavaGuide"
   },
   {
    "id": "a95",
@@ -959,8 +717,7 @@
     "国产化 + 分布式调度是工业软件方向的长期红利"
    ],
    "buzz": [],
-   "link": "https://www.oschina.net/news/502586/hc-agentic-infra-industry-ai",
-   "cover": "img/a97.svg"
+   "link": "https://www.oschina.net/news/502586/hc-agentic-infra-industry-ai"
   },
   {
    "id": "a98",
@@ -1029,8 +786,7 @@
     "工业软件 Web 组态界面的实时数据对接同样无法被替代"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492573.html",
-   "cover": "img/a99.svg"
+   "link": "https://www.qbitai.com/2026/09/492573.html"
   },
   {
    "id": "a83",
@@ -1176,8 +932,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "What Zig felt like, coming from Rust",
-   "link": "https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/",
-   "cover": "img/a86.svg"
+   "link": "https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/"
   },
   {
    "id": "a87",
@@ -1312,8 +1067,7 @@
     "底层原理课（OS/网络）比工具熟练度更重要"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316072",
-   "cover": "img/a78.svg"
+   "link": "https://www.anquanke.com/post/id/316072"
   },
   {
    "id": "a66",
@@ -1348,8 +1102,7 @@
     "对照OWASP API Top 10排查自己的工具调用链"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316121",
-   "cover": "img/a66.svg"
+   "link": "https://www.anquanke.com/post/id/316121"
   },
   {
    "id": "a67",
@@ -1383,8 +1136,7 @@
     "检查LiteLLM版本，把AI网关安全配置写进简历"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316075",
-   "cover": "img/a67.svg"
+   "link": "https://www.anquanke.com/post/id/316075"
   },
   {
    "id": "a68",
@@ -1452,8 +1204,7 @@
     "在课设中实现简化版网关可作为项目亮点"
    ],
    "buzz": [],
-   "link": "https://www.oschina.net/news/502591",
-   "cover": "img/a69.svg"
+   "link": "https://www.oschina.net/news/502591"
   },
   {
    "id": "a70",
@@ -1486,8 +1237,7 @@
     "可结合并行计算、空间索引、数值稳定性知识"
    ],
    "buzz": [],
-   "link": "https://www.oschina.net/news/502583",
-   "cover": "img/a70.svg"
+   "link": "https://www.oschina.net/news/502583"
   },
   {
    "id": "a73",
@@ -1549,8 +1299,7 @@
     "关注模型越狱、提示注入、数据泄露的防护要求"
    ],
    "buzz": [],
-   "link": "https://www.freebuf.com/articles/501784.html",
-   "cover": "img/a74.svg"
+   "link": "https://www.freebuf.com/articles/501784.html"
   },
   {
    "id": "a57",
@@ -1585,8 +1334,7 @@
     "建议给AI编码工具配置最小权限，隔离敏感凭证"
    ],
    "buzz": [],
-   "link": "https://www.freebuf.com/articles/ai-security/501731.html",
-   "cover": "img/a57.svg"
+   "link": "https://www.freebuf.com/articles/ai-security/501731.html"
   },
   {
    "id": "a58",
@@ -1621,8 +1369,7 @@
     "建议检查AI编程工具的隐私政策和数据上传行为"
    ],
    "buzz": [],
-   "link": "https://www.oschina.net/news/502589",
-   "cover": "img/a58.svg"
+   "link": "https://www.oschina.net/news/502589"
   },
   {
    "id": "a59",
@@ -1687,8 +1434,7 @@
     "建议在掌握单点漏洞后练习组合利用思路"
    ],
    "buzz": [],
-   "link": "https://www.freebuf.com/news/501978.html",
-   "cover": "img/a62.svg"
+   "link": "https://www.freebuf.com/news/501978.html"
   },
   {
    "id": "a63",
@@ -1721,8 +1467,7 @@
     "相关漏洞已部分修复，需及时升级浏览器"
    ],
    "buzz": [],
-   "link": "https://www.freebuf.com/articles/ai-security/501930.html",
-   "cover": "img/a63.svg"
+   "link": "https://www.freebuf.com/articles/ai-security/501930.html"
   },
   {
    "id": "a64",
@@ -1755,8 +1500,7 @@
     "修复方式为升级内核版本，运维和安全岗均需掌握"
    ],
    "buzz": [],
-   "link": "https://www.freebuf.com/articles/system/501893.html",
-   "cover": "img/a64.svg"
+   "link": "https://www.freebuf.com/articles/system/501893.html"
   },
   {
    "id": "a65",
@@ -1887,8 +1631,7 @@
     "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html",
-   "cover": "img/a56.svg"
+   "link": "https://www.qbitai.com/2026/09/491711.html"
   },
   {
    "id": "b3",
@@ -1958,8 +1701,7 @@
    ],
    "stack": [],
    "value": "事业单位性质的 EDA 软件开发岗——**工业软件实验班最对口的校招**，应届博士最高 100 万",
-   "courses": "C++、算法设计、软件工程",
-   "cover": "img/a53.svg"
+   "courses": "C++、算法设计、软件工程"
   },
   {
    "id": "a51",
@@ -2025,8 +1767,7 @@
    ],
    "stack": [],
    "value": "阿里笔试新增 AI Coding 题型——**笔试前必须练「用 AI 辅助完成小型系统」**",
-   "courses": "数据结构、软件工程、数据库",
-   "cover": "img/a52.svg"
+   "courses": "数据结构、软件工程、数据库"
   },
   {
    "id": "a8",
@@ -2056,8 +1797,7 @@
    ],
    "stack": [],
    "value": "专升本工程师做到 GitHub 三榜第一——**起点不决定上限，作品集决定**",
-   "courses": "开源协作（Git）、任一主方向课程",
-   "cover": "img/a8.svg"
+   "courses": "开源协作（Git）、任一主方向课程"
   },
   {
    "id": "a16",
@@ -2088,8 +1828,7 @@
    ],
    "stack": [],
    "value": "大厂 2027 校招全景：AI 岗占比最高超九成、技术岗扩招 40%——**秋招窗口就这两个月**",
-   "courses": "按目标岗位准备：前端/Java/测试路线",
-   "cover": "img/a16.svg"
+   "courses": "按目标岗位准备：前端/Java/测试路线"
   },
   {
    "id": "a17",
@@ -2118,8 +1857,7 @@
    ],
    "stack": [],
    "value": "AI 岗薪资报告——**给自己定薪资预期用**，同时注意报告口径是全行业均值",
-   "courses": "—",
-   "cover": "img/a17.svg"
+   "courses": "—"
   },
   {
    "id": "a28",
@@ -2222,8 +1960,7 @@
     "长上下文"
    ],
    "value": "Kimi K2.8 百万上下文全员开放——**课设里读长文档/做摘要可以直接用**",
-   "courses": "任一 Web 开发课（调 API 做功能）",
-   "cover": "img/a2.svg"
+   "courses": "任一 Web 开发课（调 API 做功能）"
   },
   {
    "id": "a3",
@@ -2404,8 +2141,7 @@
    ],
    "stack": [],
    "value": "商汤岗位需求同比 +35%，新增 FDE 前线部署工程师——**既写代码又懂业务的新岗位**",
-   "courses": "软件工程 + 沟通表达（FDE 岗加分）",
-   "cover": "img/a49.svg"
+   "courses": "软件工程 + 沟通表达（FDE 岗加分）"
   },
   {
    "id": "a9",
@@ -2470,8 +2206,7 @@
     "C++"
    ],
    "value": "Rust 成微软一级支持语言——**想做系统/游戏底层的同学多一门备选语言**",
-   "courses": "C++ 课学完再上手 Rust 顺滑很多",
-   "cover": "img/a27.svg"
+   "courses": "C++ 课学完再上手 Rust 顺滑很多"
   },
   {
    "id": "a33",
@@ -2541,8 +2276,7 @@
    "lang": "zh",
    "value": "工信部官方定调：**单纯写代码的权重在下降，会指挥 AI 干活、懂架构和质量的人才值钱**",
    "courses": "软件工程（需求分析/架构）、软件测试、信息安全导论",
-   "link": "https://www.cinn.cn/bw/2026/09-11/vrbqJ3a1.html",
-   "cover": "img/b1.svg"
+   "link": "https://www.cinn.cn/bw/2026/09-11/vrbqJ3a1.html"
   },
   {
    "id": "a50",
@@ -2606,8 +2340,7 @@
    ],
    "stack": [],
    "value": "AI 纳入新职业培训清单——**跟着政策列技能清单**，考证/培训方向有了官方参考",
-   "courses": "任选一门主语言课 + AI 应用开发自学",
-   "cover": "img/a47.svg"
+   "courses": "任选一门主语言课 + AI 应用开发自学"
   },
   {
    "id": "b2",
@@ -2636,80 +2369,10 @@
    "lang": "zh",
    "value": "官方紧缺人才目录点名：**网络安全攻防、工业 CAD/CAE 软件需求爆发**——信安和工业软件方向吃定心丸",
    "courses": "网络安全、CAD/CAE 原理（工业软件方向）",
-   "link": "http://www.cq.xinhuanet.com/20260725/99408ba4df2143e7bafdf46d7c699254/c.html",
-   "cover": "img/b2.svg"
+   "link": "http://www.cq.xinhuanet.com/20260725/99408ba4df2143e7bafdf46d7c699254/c.html"
   }
  ],
  "jobs": [
-  {
-   "id": "j28",
-   "company": "同花顺",
-   "title": "同花顺 2027届实习生招募计划",
-   "type": "实习",
-   "loc": "见公告",
-   "deadline": "公众号入口投递，尽快投递",
-   "salary": "",
-   "positions": [
-    "实习生（技术/产品/数据方向）"
-   ],
-   "link": "https://github.com/xixicc186/xixicc2027",
-   "source": "GitHub·xixicc2027",
-   "date": "2026-09-19",
-   "summary": "同花顺面向 2027 届开放实习生招募计划，属金融科技方向。适合对量化、金融数据与后端开发感兴趣的学生。",
-   "cls": "软件工程类",
-   "plain": "金融科技实习，可积累高并发与金融数据处理经验，对后端/数据方向学生友好。",
-   "courses": "数据结构、数据库原理、Java/Python 程序设计",
-   "hardReq": [
-    "2027届在校生",
-    "掌握至少一门编程语言"
-   ],
-   "plusReq": [
-    "了解金融或量化基础知识",
-    "有数据处理项目经历"
-   ],
-   "selfLearn": [
-    "补 SQL 与 Python 数据分析",
-    "了解行情数据与量化基础概念"
-   ],
-   "fitWho": "对金融科技、后端或数据方向感兴趣的 2027 届学生",
-   "tips": "通过公众号入口投递，简历突出编程与数据项目"
-  },
-  {
-   "id": "j27",
-   "company": "京东",
-   "title": "京东技术行 实习（AI/大模型、云计算大数据、搜推广告、安全）",
-   "type": "实习",
-   "loc": "北京",
-   "deadline": "搜索官方公众号投递，尽快投递",
-   "salary": "",
-   "positions": [
-    "AI/大模型类",
-    "云计算/大数据类",
-    "搜索推荐广告类",
-    "安全类"
-   ],
-   "link": "https://github.com/xixicc186/xixicc2027",
-   "source": "GitHub·xixicc2027",
-   "date": "2026-09-19",
-   "summary": "京东技术行实习不限年级，方向含 AI/大模型、云计算大数据、搜索推荐广告与安全类，地点北京。安全类岗位对信息安全方向学生尤其对口。",
-   "cls": "信息安全类",
-   "plain": "安全类实习岗位明确开放，是信安方向学生进入大厂安全团队的实战入口。",
-   "courses": "计算机网络、操作系统、网络安全、密码学",
-   "hardReq": [
-    "在校生，年级不限",
-    "计算机/信息安全相关基础"
-   ],
-   "plusReq": [
-    "有 CTF 或安全实习经历",
-    "熟悉云平台或大数据组件"
-   ],
-   "selfLearn": [
-    "系统学习 Web 安全与渗透基础",
-    "了解云安全与数据合规常识"
-   ],
-   "fitWho": "想进大厂安全或云计算方向的在校生",
-   "tips": "按方向分别准备简历，安全岗突出 CTF 与漏洞挖掘经历"
-  },
   {
    "id": "j26",
    "company": "WorkMaster高校招聘日历",
@@ -3410,6 +3073,39 @@
    ],
    "fitWho": "大三/大四，方向未定可先投技术类",
    "tips": "不确定方向的可以先投技术大类，入职后内部转岗也有空间。"
+  },
+  {
+   "id": "j4",
+   "company": "百度",
+   "title": "百度 2027 校园招聘（AI 岗占比超九成，74 个细分职位）",
+   "type": "校招",
+   "loc": "北京/上海/深圳/广州/杭州/成都等",
+   "deadline": "全年开放投递",
+   "positions": [
+    "大模型算法工程师 30-50K",
+    "智能体开发",
+    "多模态",
+    "AI Infra",
+    "自动驾驶"
+   ],
+   "link": "https://talent.baidu.com/jobs/campus",
+   "source": "百度招聘官网",
+   "date": "2026-07-09",
+   "summary": "本届校招 AI 相关岗位占比超 90%，覆盖大模型、智能体、多模态、AI Infra、自动驾驶等赛道；大模型算法岗月薪 30-50K，顶会论文/开源贡献者优先。",
+   "cls": "软件工程类",
+   "plain": "智能体开发岗做 Agent 工作流编排与业务落地，写代码为主；大模型算法岗要求硕士起步。",
+   "courses": "Java/Python 后端、数据库、AI 应用开发",
+   "hardReq": [
+    "应届生；算法岗硕士以上"
+   ],
+   "plusReq": [
+    "了解 LangChain 类 Agent 框架"
+   ],
+   "selfLearn": [
+    "Agent 开发（工具调用、流程编排）"
+   ],
+   "fitWho": "本科主投工程/智能体方向，大三起",
+   "tips": "AI 相关岗位占比超 90%，但看清岗位门槛——算法类多要求硕博。"
   }
  ],
  "stats": [
