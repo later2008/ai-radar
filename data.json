@@ -1,6 +1,208 @@
 {
- "updatedAt": "2026-09-20 08:56",
+ "updatedAt": "2026-09-20 09:19",
  "news": [
+  {
+   "id": "a121",
+   "title": "Java 声音 AI 全家桶 mica-voice 1.0.2：一行代码接入 ASR/TTS/声纹/VAD",
+   "summary": "mica-voice 基于 sherpa-onnx 全平台 fat jar，统一封装语音识别、合成、声纹、VAD、说话人分离、关键词唤醒、降噪 7 大能力，提供纯 Java 门面与 Spring Boot Starter。",
+   "content": "很多同学做课设想加语音功能，第一反应是调 Python 或云 API，但 Java 后端项目里集成起来很别扭。mica-voice 把 sherpa-onnx 打包成了 Maven 依赖，纯 Java 调用，不用装 PaddlePaddle、不用起 Python 服务。七个能力里，ASR 和 TTS 最适合拿来练手：比如给工业软件实验班的设备巡检系统加一句语音播报，或者给信息安全的日志审计工具加语音告警。Spring Boot Starter 意味着你只要在 pom 里加依赖、配几行 yaml 就能跑通。注意模型文件要单独下载，首次跑通建议先用官方 demo 验证环境。",
+   "source": "开源中国",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**Java 后端项目想加语音能力，不用再绕道 Python，一个 Maven 依赖就能跑通。**",
+   "courses": "《Java 程序设计》《软件工程课程设计》——把语音播报/识别作为课设的加分模块。",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "纯 Java 调用，Maven 依赖，无需 Python 环境",
+    "覆盖 ASR/TTS/声纹/VAD/说话人分离/KWS/降噪 7 类能力",
+    "提供 Spring Boot Starter，适合后端项目快速集成",
+    "模型文件需单独下载，建议先跑官方 demo 验证"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502596"
+  },
+  {
+   "id": "a122",
+   "title": "Java 8 兼容的 PP-OCRv6 纯 ONNX 推理引擎 mica-ppocr v1.2.3，内置证件票据结构化解析",
+   "summary": "mica-ppocr 把 PP-OCRv6 文字检测识别流水线移植到 Java，纯 ONNX Runtime 推理、零 PaddlePaddle 依赖，与 Python 参考实现 bit-exact，内置 10 类证件/票据结构化解析。",
+   "content": "做工业软件或企业信息系统的同学，迟早会遇到「把纸质单据/证件扫描件转成结构化数据」的需求。以前要么调云 OCR（贵、有网络依赖），要么在服务器上再养一套 Python。mica-ppocr 用纯 ONNX Runtime 在 Java 里复现了 PP-OCRv6 的完整流水线，包括 DB 后处理、CTC 解码、多边形 unclip，官方说和 Python 版 bit-exact。内置 10 类证件票据解析，意味着身份证、发票这类常见场景可以直接用。Java 8 兼容这点对很多还在用老版本 JDK 的企业项目很关键。建议先拿一张发票图片跑通检测+识别，再试结构化字段。",
+   "source": "开源中国",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "Java",
+    "ONNX Runtime"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**Java 项目做 OCR 不用再调云 API 或养 Python 服务，本地纯 ONNX 推理就能跑通票据识别。**",
+   "courses": "《Java 程序设计》《软件工程课程设计》——给工业软件类课设加一个单据识别模块。",
+   "tags": [
+    "Java全栈",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "纯 ONNX Runtime 推理，零 PaddlePaddle 依赖，Java 8 兼容",
+    "完整复现 PP-OCRv6 预处理/后处理，与 Python 版 bit-exact",
+    "内置 10 类证件/票据结构化解析，开箱可用",
+    "适合企业信息系统、工业软件中的单据数字化场景"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502595"
+  },
+  {
+   "id": "a123",
+   "title": "别再手写 cron 表达式了：用 Java 库构建和解析定时任务",
+   "summary": "一篇 DEV 教程介绍如何用 Java 库构建和解析 cron 表达式，避免手写易错的 cron 字符串，文中以「每月最后一个周五 18 点」为例演示。",
+   "content": "「0 0 18 ? * FRIL」——你能一眼看出这是每月最后一个周五 18 点吗？手写 cron 是后端开发里最容易埋坑的地方之一，写错了要么任务不跑，要么跑得比预期频繁。这篇教程用 Java 库把 cron 的构建和解析代码化：用 API 拼出表达式，而不是靠记忆和猜。对软件工程专业的同学来说，定时任务是课设和实习里绕不开的东西——数据同步、日志清理、报表生成都要用。建议把文章里的例子在本地跑一遍，重点看「解析一个已有表达式并输出人类可读描述」这个能力，排查线上问题时很实用。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/求职准备",
+   "value": "**cron 表达式不用再靠背和猜，用 Java API 构建和解析，少埋定时任务的坑。**",
+   "courses": "《Java 程序设计》《Web 应用开发》——课设里的定时任务模块可以直接用。",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "用 Java API 构建 cron 表达式，避免手写字符串出错",
+    "支持解析已有表达式并输出人类可读描述",
+    "定时任务是后端课设和实习中的高频需求",
+    "建议本地跑通「每月最后一个周五」这个例子"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Stop hand-writing cron: build and parse it in Java",
+   "link": "https://dev.to/paganini2008/stop-hand-writing-cron-build-and-parse-it-in-java-3gkj",
+   "cover": "img/a123.webp"
+  },
+  {
+   "id": "a124",
+   "title": "《网络安全人才实战能力报告-AI赋能篇》发布：AI 进入业务深水区，安全人才缺口在哪",
+   "summary": "在第一届中国网络空间安全大会上发布的报告指出，AI 进入业务深水区后，安全人才实战能力面临新要求，报告聚焦 AI 赋能安全的路径。",
+   "content": "信息安全与管理专业的同学，这份报告值得花时间看。核心信号是：AI 正在从「安全工具」变成「安全业务的一部分」——模型本身的安全、AI 驱动的攻击面、以及用 AI 做威胁检测，都在变成岗位要求。报告标题里的「实战能力」四个字很关键，说明企业招人时看的不再是你会不会背等保条款，而是能不能在真实场景里用工具解决问题。建议对照报告里提到的能力项，检查自己缺什么：如果只会理论，就去补一门实操课或打一次 CTF；如果已经在学 AI，就想想怎么把它和安全场景结合。",
+   "source": "量子位",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**信息安全岗位的能力标准正在被 AI 改写，这份报告帮你定位自己缺的是理论还是实战。**",
+   "courses": "《信息安全导论》《网络攻防实践》——对照报告梳理自己的技能树和求职方向。",
+   "tags": [
+    "信息安全",
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "AI 进入业务深水区，安全人才实战能力要求升级",
+    "模型安全、AI 驱动攻击面、AI 威胁检测成为新方向",
+    "企业招聘更看重真实场景下的工具使用能力",
+    "建议对照报告能力项自查，补实操或 CTF 经历"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/492849.html"
+  },
+  {
+   "id": "a125",
+   "title": "React Native 的黄金时代在 AI 手里结束了？跨端开发格局生变",
+   "summary": "InfoQ 文章讨论 AI 对 React Native 生态的冲击，认为 AI 辅助开发正在改变跨端框架的竞争格局。",
+   "content": "前端方向的同学可能会关心：React Native 还值不值得学？这篇文章的观点是，AI 让「写跨端代码」这件事的门槛大幅降低，原本 RN 靠「一套代码跑两端」建立的优势被削弱了。但别急着下结论——对本科生来说，真正有用的信息是：无论框架怎么变，组件化思维、状态管理、原生桥接这些底层能力不会过时。如果你正在做课设选型，建议先想清楚目标是「快速出活」还是「学原理」：前者可以试试 AI 辅助的跨端方案，后者还是老老实实把 React 或原生 Android 的基础打牢。",
+   "source": "InfoQ中文",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React Native"
+   ],
+   "value": "**框架会变，但组件化和状态管理的基本功不会贬值，选型前先想清楚你要的是速度还是深度。**",
+   "courses": "《Web 前端开发》《移动应用开发》——课设选型时参考，别盲目追框架。",
+   "tags": [
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "AI 辅助开发削弱了 React Native 的跨端优势",
+    "组件化、状态管理、原生桥接等底层能力不会过时",
+    "课设选型先明确目标是快速出活还是学原理",
+    "前端方向建议把 React 或原生基础打牢"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/wKbZ8JlwJX26gTsW8r2o?utm_source=rss&utm_medium=article",
+   "cover": "img/a125.png"
+  },
+  {
+   "id": "a126",
+   "title": "鸿蒙 HarmonyOS 7 全面转向 Agent 架构：意图即服务，底层重构",
+   "summary": "华为全联接大会宣布 HarmonyOS 7 向 Agent 架构演进，交互逻辑从「人找服务」变为「意图即服务」，系统可自行规划调度完成任务。",
+   "content": "这条对软件工程专业的同学有实际参考价值：操作系统层面的交互范式正在从「点按钮」转向「说意图」，意味着未来应用开发可能要适配 Agent 调用接口，而不是只做 UI。HarmonyOS 7 提出「Agent 亲和系统」，底层做了重构。如果你在考虑移动开发方向，鸿蒙生态的岗位需求在增长，但要注意：现在学的是「怎么把应用做成 Agent 可调度的服务」，而不是传统的 Activity 跳转。建议关注鸿蒙的开发者文档里关于意图声明和 Agent 调度的部分，课设如果做鸿蒙应用，可以试着把功能封装成可被系统调度的能力。",
+   "source": "开源中国",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "HarmonyOS"
+   ],
+   "value": "**操作系统交互范式在变，移动开发者的技能树也要跟着从「做界面」转向「做可被调度的服务」。**",
+   "courses": "《移动应用开发》《操作系统》——理解 Agent 架构对应用层开发的影响。",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "HarmonyOS 7 从「人找服务」转向「意图即服务」",
+    "应用开发可能需适配 Agent 调用接口，而非只做 UI",
+    "鸿蒙生态岗位需求增长，但技能要求在变化",
+    "建议关注意图声明和 Agent 调度的开发者文档"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502597/hc2026-agentic-era-harmonyos"
+  },
   {
    "id": "a116",
    "title": "亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级",
