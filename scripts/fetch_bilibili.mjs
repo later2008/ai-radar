@@ -6,6 +6,7 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 const RAW = "_raw_news.json";
 const EXCLUDE = /融资|上市|IPO|财报|八卦|综艺|剧情|段子|广告|课程售卖|游戏|开黑|娱乐/;
 const PER_QUERY = 3;
+const MIN_PLAY = 20000; // 播放量门槛：低于2万的视频不收录
 
 // 白名单UP主（豆包方案表）+ 搜索补量关键词
 const UPMASTERS = ["秋知2046", "黑马程序员", "码农高天", "青空の霞光", "硬核编码师Rico", "方格Fango", "宇哥在学习", "陈鑫杰", "安全极客说", "教网络安全的一叶老师", "漏洞银行BUGBANK", "林粒粒呀", "量子位", "隔壁的程序员老王", "程序员鱼皮", "AfterShip"];
@@ -53,6 +54,7 @@ for (const kw of [...UPMASTERS, ...KEYWORDS]) {
       const sec = durToSec(v.duration);
       if (!title || !v.bvid || seen.has(link)) continue;
       if (sec && sec < 180) continue;              // <3分钟丢弃
+      if ((v.play || 0) < MIN_PLAY) continue;    // 播放量过低丢弃
       if (EXCLUDE.test(title)) continue;
       const date = v.pubdate ? new Date(v.pubdate * 1000).toISOString().slice(0, 10) : "";
       const days = (Date.now() - new Date(date || 0)) / 864e5;
