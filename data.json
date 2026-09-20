@@ -1,6 +1,297 @@
 {
- "updatedAt": "2026-09-20 06:14",
+ "updatedAt": "2026-09-20 08:12",
  "news": [
+  {
+   "id": "a142",
+   "title": "Vue 一万条数据改深层属性卡 2 秒：2026 前端面试高频题的排查与优化思路",
+   "summary": "B站 4 分钟面试题讲解：Vue 中万级列表修改深层属性导致 2 秒卡顿，如何定位瓶颈并优化。",
+   "content": "这道题几乎是 2026 年前端面试的「必问项」：一万条数据、改深层属性、卡 2 秒，面试官想听的不是背答案，而是你的排查路径。建议按这个顺序答：先用 Performance 面板确认是 JS 执行慢还是渲染慢；再判断是不是 Vue 的响应式在深层对象上做了全量递归代理（Vue 3 的 reactive 深层代理、Vue 2 的 defineProperty 递归）；然后给出优化方案——用 shallowRef/shallowReactive 减少代理层级、把大列表拆成虚拟滚动、用 Object.freeze 冻结只读数据、把深层修改改成不可变替换触发精准更新。看完视频后，建议自己用 1 万条 mock 数据复现一遍，把 Performance 截图写进简历项目描述里。",
+   "source": "B站·小冰同桌",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue",
+    "Performance"
+   ],
+   "diff": 2,
+   "scene": "求职准备/简历加分",
+   "value": "**把一道面试题变成你简历上的性能优化实战案例，比背八股有说服力得多。**",
+   "courses": "对应《Web前端开发》《软件工程综合实践》，可把优化过程写成课设的性能章节。",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "面试高频题：Vue 万级数据深层修改卡顿的完整排查链路",
+    "核心考点：响应式代理层级、虚拟滚动、不可变更新",
+    "建议动手复现并用 Performance 面板留证",
+    "可写进简历：性能优化实战案例"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1atev66Epi",
+   "cover": "img/a142.svg"
+  },
+  {
+   "id": "a143",
+   "title": "Java 25 灵活构造器：不用再为参数校验写一堆静态工厂方法",
+   "summary": "Java 25 的 Flexible Constructor Bodies 允许在 super() 之前写校验逻辑，告别臃肿的静态工厂。",
+   "content": "以前在 Java 里想在调用 super() 之前校验参数，只能写静态工厂方法绕过去，代码又臭又长。Java 25 的 Flexible Constructor Bodies（JEP 513）正式放开了这个限制：你可以在构造器里、super() 调用之前写校验和预处理语句。对软件工程专业的同学来说，这是写领域模型时最实用的语法糖之一——订单金额不能为负、ID 不能为空，直接在构造器里抛异常，领域对象天然就是合法的。建议结合你课设里的实体类改造一遍，对比改造前后代码行数，面试聊到「如何保证领域对象合法性」时这就是现成素材。注意确认你项目用的 JDK 版本是否支持。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java 25"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**一个语法新特性就能让你的领域模型代码少一半，还能在面试里讲出设计思路。**",
+   "courses": "对应《Java程序设计》《面向对象分析与设计》，用于重构课设实体类的构造逻辑。",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "Java 25 新特性：构造器中 super() 之前可写校验逻辑",
+    "替代臃肿的静态工厂方法，领域模型更干净",
+    "适合改造课设中的实体类做对比实验",
+    "面试可聊「领域对象合法性保障」"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Stop Polluting Your Domain with Static Factories: Clean Validation with Java 25 Flexible Constructor Bodies",
+   "link": "https://dev.to/machinecodingmaster/stop-polluting-your-domain-with-static-factories-clean-validation-with-java-25-flexible-276a",
+   "cover": "img/a143.webp"
+  },
+  {
+   "id": "a144",
+   "title": "Spring Boot Starter 实战：用幂等设计解决重复下单请求",
+   "summary": "作者开源了一个 Spring Boot Starter，专门处理客户端重试导致的重复 API 请求问题。",
+   "content": "场景很真实：客户端发请求创建订单，服务端处理完了但响应丢了，客户端重试，结果多出一笔订单。这是后端面试和实际项目里都绕不开的幂等性问题。作者把它做成了一个 Spring Boot Starter，思路值得学：用请求唯一标识（如业务 ID + 幂等键）配合 Redis 或本地缓存做去重，在切面层拦截重复请求直接返回上次结果。对软件工程和工业软件方向的同学来说，这类「可复用的基础设施组件」比写 CRUD 更能体现工程能力。建议读源码搞懂它的拦截时机和并发处理，然后在你自己的课设项目里手写一个简化版，面试时讲清楚「为什么用幂等键而不是数据库唯一索引」。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Redis"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**幂等性是后端面试必问，这个开源 Starter 给你一套能讲清楚、能落地的完整方案。**",
+   "courses": "对应《Java Web开发》《软件工程综合实践》，可把幂等组件作为课设的后端亮点模块。",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "真实痛点：网络重试导致的重复下单/重复提交",
+    "方案：幂等键 + 缓存去重 + 切面拦截",
+    "建议手写简化版并理解并发场景",
+    "面试高频：幂等性设计怎么答"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I Built a Spring Boot Starter to Handle Duplicate API Requests",
+   "link": "https://dev.to/irosh-perera/i-built-a-spring-boot-starter-to-handle-duplicate-api-requests-2m4j",
+   "cover": "img/a144.webp"
+  },
+  {
+   "id": "a145",
+   "title": "200 集 Web 渗透测试系统教程：从零到能打靶场的完整路径",
+   "summary": "B站 200 集、约 86 小时的网络安全教程，覆盖 Web 渗透测试核心知识体系。",
+   "content": "信息安全与管理专业的同学，如果还没系统学过 Web 渗透，这套 200 集的教程可以作为主线教材。它覆盖的是渗透测试的标准知识链：信息收集、SQL 注入、XSS、CSRF、文件上传/包含、越权、SSRF，以及配套的靶场实战。建议不要从头到尾被动看，而是按「学一个漏洞 → 在 DVWA 或 Pikachu 靶场复现 → 写一份漏洞报告」的节奏推进，这样既练了技术，也攒了可以放进简历的实战文档。注意：所有练习必须在本地靶场或授权环境进行，未经授权的渗透测试是违法行为，这条底线必须清楚。",
+   "source": "B站·网络安全特训营",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Web安全",
+    "渗透测试"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**一套成体系的渗透教程 + 靶场实战 + 漏洞报告，是信安方向求职最扎实的准备路径。**",
+   "courses": "对应《网络安全技术》《Web安全与渗透测试》，可作为课程实验的补充实操材料。",
+   "tags": [
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "200 集系统覆盖 Web 渗透测试完整知识链",
+    "建议配合 DVWA/Pikachu 靶场边学边打",
+    "每学一个漏洞输出一份漏洞报告，可作简历素材",
+    "红线提醒：只在授权环境练习"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1uBeq6kEfz",
+   "cover": "img/a145.svg"
+  },
+  {
+   "id": "a146",
+   "title": "LangChain 零基础到企业级 AI Agent 开发全套教程（约 18 小时）",
+   "summary": "B站 LangChain 全流程教程，从基础概念到企业级 AI Agent 实战开发。",
+   "content": "LangChain 是目前做 AI 应用开发最主流的框架之一，对软件工程专业来说，它正在变成一项「会写代码就该会一点」的技能。这套教程从零讲到企业级 Agent，核心内容包括：Prompt 模板、Chain 编排、Memory 记忆、Tool 调用、RAG 检索增强、Agent 决策循环。建议的学习方式不是看完就完，而是选一个自己熟悉的场景做小项目——比如给学院课程资料做一个「课程问答助手」，用 RAG 把 PDF 课件灌进向量库，再套一层 Agent 做多轮问答。这个项目做出来，既能在课设里用，也能作为 AI 应用方向的求职作品。",
+   "source": "B站·AI应用开发-",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LangChain",
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把 LangChain 学成能交付一个 RAG 问答项目的程度，就是当下软件工程学生最实用的 AI 技能。**",
+   "courses": "对应《人工智能导论》《软件工程综合实践》，可把 RAG 问答助手作为综合实践项目选题。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "覆盖 LangChain 核心：Chain/Memory/Tool/RAG/Agent",
+    "建议落地一个「课程问答助手」小项目",
+    "AI 应用开发正成为软件工程新技能点",
+    "项目可同时用于课设和求职作品集"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1HMev6WE19",
+   "cover": "img/a146.svg"
+  },
+  {
+   "id": "a147",
+   "title": "AI Agent 智能体搭建 + 私有知识库全套入门教程（约 32 小时）",
+   "summary": "从零搭建 AI Agent 与私有知识库的完整教程，面向零基础学习者。",
+   "content": "这套教程和 LangChain 那套可以互补：它更偏「从零把东西搭起来」，重点是 Agent 的整体架构和私有知识库的落地。对工业软件实验班的同学尤其值得看——工业场景里大量存在「设备手册、工艺文档、故障案例」这类私有资料，做成可检索的知识库 Agent 是很实际的落地方向。建议关注三个技术点：文档切分策略（chunk 怎么切直接影响检索质量）、向量化与检索召回、Agent 的工具调用编排。学完后可以试着把某门专业课的教材和实验指导书做成一个私有知识库，这个项目在工业软件方向的面试里会很有话题性。",
+   "source": "B站·京东架构师诸葛",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "AI Agent",
+    "向量数据库"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**私有知识库 + Agent 是工业软件方向最容易落地的 AI 应用，做出来就是差异化竞争力。**",
+   "courses": "对应《软件工程综合实践》《工业软件导论》，可作为工业场景 AI 应用的选题参考。",
+   "tags": [
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "重点：Agent 架构 + 私有知识库落地",
+    "工业软件场景：设备手册/工艺文档知识库",
+    "关键点：文档切分、向量检索、工具编排",
+    "可做成专业课资料问答项目"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV19KeB6HE9Y",
+   "cover": "img/a147.svg"
+  },
+  {
+   "id": "a148",
+   "title": "Claude Code 多会话编排：用「幕僚长模式」管理多个编码 Agent",
+   "summary": "一篇讲如何用 Chief of Staff 模式编排多个 Claude Code 会话的工程实践文章。",
+   "content": "当 AI 编码工具从「一个对话」变成「多个并行 Agent」时，新的问题出现了：谁来决定任务怎么拆、结果怎么合并、冲突怎么处理。这篇文章提出的 Chief of Staff 模式，本质上是给多个编码 Agent 加一个「调度层」——由主会话负责拆解任务、分发给子会话、汇总结果。对软件工程学生来说，这背后的思路其实是老问题的新形态：任务分解、接口约定、结果集成，和你在《软件工程》课上学的一样。建议读完后思考：如果让你给一个课设项目设计「人 + 多 Agent」的协作流程，你会怎么划分任务边界？这个问题在 AI 相关岗位面试里越来越常见。",
+   "source": "Hacker News",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code",
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "简历加分/求职准备",
+   "value": "**多 Agent 编排正在成为新的工程能力，理解调度模式比会用工具更重要。**",
+   "courses": "对应《软件工程》《软件项目管理》，可结合任务分解与协作流程设计来理解。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "多 Agent 协作的调度模式：主会话拆解分发、子会话执行",
+    "本质是任务分解与集成，软件工程老问题的新形态",
+    "思考题：如何设计人 + 多 Agent 的协作流程",
+    "AI 岗位面试新话题"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Orchestrating Claude Code Agents: The Chief of Staff Pattern",
+   "link": "https://asyncdot.com/blog/chief-of-staff-pattern-orchestrating-claude-code-sessions/",
+   "cover": "img/a148.png"
+  },
+  {
+   "id": "a149",
+   "title": "relay：面向编码 Agent 的基础设施开源项目（845★）",
+   "summary": "TypeScript 编写的编码 Agent 基础设施项目，近 7 日仍在更新。",
+   "content": "relay 是一个用 TypeScript 写的「编码 Agent 基础设施」，目前 845 星、仍在活跃更新。对前端和通用开发方向的同学来说，它的价值在于：你可以直接读源码看一个真实的 Agent 基础设施是怎么组织的——任务队列、会话管理、工具注册、状态流转这些模块怎么拆分。建议的用法不是直接拿来用，而是带着问题读：它的模块边界怎么划的？状态管理用的什么模式？如果让你用 Node.js 重写一个简化版，你会保留哪些设计？这类「读一个中等规模开源项目」的训练，比刷十道算法题更能提升工程视野，也能在面试里聊出深度。",
+   "source": "GitHub",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Node.js"
+   ],
+   "diff": 3,
+   "scene": "简历加分/练手",
+   "value": "**读一个活跃的 Agent 基础设施源码，比刷题更能让你在面试里讲出工程深度。**",
+   "courses": "对应《Web前端开发》《软件工程综合实践》，可作为开源项目阅读与源码分析训练。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "TypeScript 编码 Agent 基础设施，845★ 活跃项目",
+    "适合带着问题读源码：模块拆分、状态管理、工具注册",
+    "建议尝试写简化版加深理解",
+    "读开源项目是提升工程视野的有效方式"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AgentWorkforce/relay",
+   "link": "https://github.com/AgentWorkforce/relay",
+   "cover": "img/a149.png"
+  },
   {
    "id": "a134",
    "title": "Spring AI 2 实战：手把手跑通 filesystem MCP Server（SSE/stdio + 真调工具）",
@@ -26,7 +317,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "MCP 统一了大模型发现与调用外部能力的协议，Server 声明 tools 供 Client 按名调用",
@@ -3790,6 +4081,42 @@
  ],
  "jobs": [
   {
+   "id": "j31",
+   "company": "京东",
+   "title": "京东技术行 实习招聘（AI/大模型、云计算大数据、搜推广告、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-19",
+   "summary": "京东技术行实习项目，不限届别，方向涵盖AI大模型、云计算大数据、搜索推荐广告与安全。工作地点北京，适合技术方向在校生积累大厂经验。",
+   "cls": "信息安全类",
+   "plain": "含安全类岗位，是信工学院信息安全方向学生进入大厂实习的少有机会。",
+   "courses": "计算机网络、操作系统、信息安全导论、数据库",
+   "hardReq": [
+    "在校生，技术基础扎实",
+    "能到北京实习"
+   ],
+   "plusReq": [
+    "有安全竞赛或CTF经历",
+    "有云计算/大数据相关项目"
+   ],
+   "selfLearn": [
+    "复习网络与系统安全基础，练习CTF题目",
+    "了解云原生与大数据组件基本用法"
+   ],
+   "fitWho": "想进大厂做安全或云计算方向实习的在校生",
+   "tips": "按方向分别准备简历，安全岗突出CTF与漏洞挖掘经历"
+  },
+  {
    "id": "j30",
    "company": "拼多多",
    "title": "拼多多 27届校招（云弧计划）",
@@ -4540,23 +4867,6 @@
    ],
    "fitWho": "大三/大四",
    "tips": "别只投算法类——软件研发类名额更多、对本科更友好。"
-  },
-  {
-   "id": "j19",
-   "cls": "信息安全类",
-   "type": "校招",
-   "company": "浪潮软件集团",
-   "title": "27 届校招 · 安全测试工程师",
-   "salary": "面议",
-   "loc": "济南",
-   "deadline": "2027 应届生（秋招）",
-   "source": "央国企岗位库",
-   "date": "2026-08-05",
-   "positions": [
-    "安全测试工程师"
-   ],
-   "summary": "国企软件集团安全测试岗：Web/App/小程序渗透测试、安全产品运维；要求掌握 OWASP Top10。",
-   "link": "https://vip.gangweiku.com/wap/index.php?a=comapply&c=job&id=370806"
   }
  ],
  "stats": [
