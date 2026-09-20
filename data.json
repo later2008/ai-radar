@@ -1,6 +1,288 @@
 {
- "updatedAt": "2026-09-20 00:09",
+ "updatedAt": "2026-09-20 06:14",
  "news": [
+  {
+   "id": "a134",
+   "title": "Spring AI 2 实战：手把手跑通 filesystem MCP Server（SSE/stdio + 真调工具）",
+   "summary": "用 Spring AI 2 接入 MCP 协议，让 Java 后端把本地文件系统能力暴露给大模型调用，含 SSE 与 stdio 两种传输方式的完整配置。",
+   "content": "MCP（Model Context Protocol）正在成为大模型调用外部能力的统一标准：Server 端声明 tools/resources/prompts，Client 按名调用。这篇教程用 Spring AI 2 从零跑通 filesystem MCP Server，覆盖 SSE 和 stdio 两种传输方式，并演示真实触发工具调用而不是只打印配置。对 Java 方向的同学来说，这是把「会写 Spring Boot」升级成「会写 AI 应用后端」的捷径——企业里越来越多的 Agent 平台就是这套架构。建议边看边动手：先本地起 Server，再用 Spring AI 的 ChatClient 挂上工具，观察模型如何自主决定读哪个文件。踩一遍坑，比看十篇概念文有用。",
+   "source": "掘金",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/练手、简历加分",
+   "value": "**Java 后端接 AI 的最实用入口：把 Spring Boot 技能直接迁移到 Agent 开发岗**",
+   "courses": "对应《Java Web 开发》《软件体系结构》，可把 MCP Server 作为课程设计后端模块",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "MCP 统一了大模型发现与调用外部能力的协议，Server 声明 tools 供 Client 按名调用",
+    "覆盖 SSE 与 stdio 两种传输方式，含真实工具调用而非仅配置演示",
+    "Spring AI 2 是 Java 生态接入大模型的主流方案，企业 Agent 平台常用架构"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7687000830378868776",
+   "cover": "img/a134.svg"
+  },
+  {
+   "id": "a135",
+   "title": "用 Java 内置 HttpClient + Jackson 写一个 REST API 客户端",
+   "summary": "不引入第三方 HTTP 库，用 JDK 自带 HttpClient 配合 Jackson 完成请求发送与 JSON 反序列化，适合打牢基础。",
+   "content": "很多同学写接口调用第一反应是加 OkHttp 或 Retrofit 依赖，其实 JDK 11 起自带的 java.net.http.HttpClient 已经够用：支持同步/异步、HTTP/2、连接池。这篇教程把它和 Jackson 组合，演示如何发 GET/POST、处理状态码、把 JSON 映射成 Java 对象。看似基础，但面试常问「HttpClient 和 RestTemplate 区别」「Jackson 怎么处理泛型反序列化」，答不上来很吃亏。建议拿它改写你课设里手写的 URLConnection 代码，顺便练一下超时、重试、异常处理这些工程细节。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java HttpClient",
+    "Jackson"
+   ],
+   "diff": 1,
+   "scene": "课设/练手、求职准备",
+   "value": "**把课设里手写的网络请求换成标准写法，面试八股和工程能力一起补**",
+   "courses": "对应《Java 程序设计》《Web 应用开发》，可直接用于课设的接口调用层",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "JDK 11+ 自带 HttpClient 支持同步/异步与 HTTP/2，无需第三方依赖",
+    "Jackson 负责 JSON 与 Java 对象互转，注意泛型反序列化写法",
+    "面试高频：HttpClient 与 RestTemplate/WebClient 的取舍"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building a REST API Client with Java HttpClient + Jackson",
+   "link": "https://dev.to/deividas-strole/building-a-rest-api-client-with-java-httpclient-jackson-p8m",
+   "cover": "img/a135.webp"
+  },
+  {
+   "id": "a136",
+   "title": "mica-ppocr v1.2.3：Java 8 兼容的 PP-OCRv6 纯 ONNX 推理，内置 10 类证件票据结构化解析",
+   "summary": "纯 Java + ONNX Runtime 复现 PP-OCRv6 文字检测识别流水线，零 PaddlePaddle 依赖，与 Python 版 bit-exact，内置身份证/发票等结构化解析。",
+   "content": "工业软件和政企项目里，OCR 是高频需求，但 Python 服务部署麻烦、跨语言调用成本高。mica-ppocr 把 PP-OCRv6 完整移植到 Java：纯 ONNX Runtime 推理，零 PaddlePaddle 依赖，预处理/后处理（DB 后处理、CTC 解码、多边形 unclip）全部复现，且与 Python 参考实现 bit-exact。兼容 Java 8，意味着老项目也能直接上。内置 10 类证件/票据结构化解析，拿来就能做发票识别、证件录入这类功能。对工业软件实验班的同学，这是「Java 也能做 AI 推理」的现成范例，值得读源码学一遍前后处理逻辑。",
+   "source": "开源中国",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "ONNX Runtime",
+    "PP-OCRv6"
+   ],
+   "diff": 2,
+   "scene": "课设/练手、简历加分",
+   "value": "**Java 项目里做 OCR 的现成方案，工业软件方向简历上的差异化亮点**",
+   "courses": "对应《人工智能导论》《工业软件实训》，可作为智能录入模块的技术选型",
+   "tags": [
+    "Java全栈",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "纯 ONNX Runtime 推理，零 PaddlePaddle 依赖，Java 8 兼容",
+    "完整复现 DB 后处理、CTC 解码、多边形 unclip，与 Python 版 bit-exact",
+    "内置 10 类证件/票据结构化解析，可直接用于发票、证件录入场景"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502595",
+   "cover": "img/a136.svg"
+  },
+  {
+   "id": "a137",
+   "title": "《网络安全人才实战能力报告—AI赋能篇》发布：AI 进业务深水区，安全能力怎么补",
+   "summary": "中国网络空间安全大会发布报告，聚焦 AI 赋能下的网络安全人才实战能力缺口与培养方向。",
+   "content": "报告在 9 月 18 日第一届中国网络空间安全大会上发布，核心议题是：当 AI 深入业务系统，安全从业者需要补哪些实战能力。对信息安全与管理专业的同学，这类报告的价值在于「校准方向」——它反映的是用人单位对安全岗位的真实能力期待，而不是课本目录。建议重点看报告里提到的能力项（如 AI 系统自身的安全评估、AI 辅助攻防、数据合规），对照自己的课程和项目查漏。求职时如果能在简历里体现「了解 AI 场景下的安全风险」，比只写「熟悉渗透测试」更有辨识度。",
+   "source": "量子位",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**用行业报告校准安全专业的学习重点，避免只学课本脱离岗位需求**",
+   "courses": "对应《网络空间安全导论》《信息安全管理》，可作为课程论文或职业规划参考",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "报告聚焦 AI 进入业务深水区后，安全人才实战能力的缺口与培养方向",
+    "反映用人单位对安全岗位的真实能力期待，可用于校准学习方向",
+    "AI 系统安全评估、AI 辅助攻防、数据合规是值得关注的能力项"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/492849.html",
+   "cover": "img/a137.svg"
+  },
+  {
+   "id": "a138",
+   "title": "Agent 为什么莫名烧钱？循环调用的兜底方案与 Token 成本控制",
+   "summary": "拆解 AI Agent 因模型幻觉、工具异常、终止条件缺失陷入死循环导致 Token 暴增的问题，给出可落地的兜底策略。",
+   "content": "Agent 靠多轮思考和工具调用完成任务，但只要模型幻觉、工具返回异常、终止条件没写严，就会陷入无意义循环，反复请求大模型，Token 消耗短时间内陡增。这篇讲的是工程兜底：最大轮次限制、重复调用检测、工具异常熔断、成本监控告警。做 AI 应用开发的同学迟早要面对这个问题——Demo 阶段没人管成本，上线后老板第一个问的就是账单。建议在自己的 Agent 练手项目里先把「最大迭代次数 + 超时 + 异常退出」三件套加上，这既是工程素养，也是面试时能讲出细节的加分项。",
+   "source": "掘金",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手、简历加分",
+   "value": "**写 Agent 项目前先学会控制成本，避免 Demo 跑一晚烧掉一个月生活费**",
+   "courses": "对应《软件工程》《人工智能应用开发》，可作为 Agent 项目的工程规范参考",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Agent 死循环的三大诱因：模型幻觉、工具返回异常、终止条件缺失",
+    "兜底手段包括最大轮次限制、重复调用检测、异常熔断与成本告警",
+    "上线后 Token 成本是必答题，练手项目就该先加保护机制"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7687099663544287232",
+   "cover": "img/a138.svg"
+  },
+  {
+   "id": "a139",
+   "title": "mica-voice 1.0.2：Java 声音 AI 全家桶，一行代码接入 ASR/TTS/声纹/VAD",
+   "summary": "基于 sherpa-onnx 的纯 Java 语音 AI 封装，统一提供 ASR、TTS、声纹识别、VAD、说话人分离、关键词唤醒、降噪七大能力，含 Spring Boot Starter。",
+   "content": "语音能力过去基本是 Python 的天下，Java 项目要接就得跨服务调用。mica-voice 基于 mica-sherpa-onnx（已发布 Maven Central 的全平台 fat jar），把 ASR、TTS、声纹识别、VAD、说话人分离、KWS 关键词唤醒、音频降噪七项能力统一封装，提供纯 Java 门面和 Spring Boot Starter，一行代码接入。对做工业软件或政企系统的同学，这意味着语音指令、语音播报、声纹登录这些功能可以直接在 Java 后端实现，不用再维护一套 Python 服务。建议先跑通 ASR + TTS 两个最常用的，再按需扩展。",
+   "source": "开源中国",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "sherpa-onnx",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/练手、简历加分",
+   "value": "**Java 项目做语音交互的省事方案，工业软件人机交互模块可直接复用**",
+   "courses": "对应《Java Web 开发》《人机交互》，可用于智能语音模块的课程设计",
+   "tags": [
+    "Java全栈",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "基于 sherpa-onnx 全平台 fat jar，已发布 Maven Central，纯 Java 调用",
+    "统一封装 ASR/TTS/声纹/VAD/说话人分离/KWS/降噪七大能力",
+    "提供 Spring Boot Starter，Java 后端可一行代码接入语音功能"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502596",
+   "cover": "img/a139.svg"
+  },
+  {
+   "id": "a140",
+   "title": "央国企面试 Java/AI/Spring/MySQL/Redis 八股清单（22 分钟视频）",
+   "summary": "面向央国企技术岗的面试准备视频，梳理 Java、AI、Spring、MySQL、Redis 等高频考点。",
+   "content": "央国企技术岗的面试风格和互联网大厂不同：更看重基础扎实、知识面完整，八股问得细但不刁钻。这个 22 分钟的视频把 Java、AI、Spring、MySQL、Redis 的常考点过了一遍，适合用来做复习清单而不是唯一资料。建议用法：先自己按模块列一遍能答上来的点，再看视频补漏，重点补 Spring 生命周期、MySQL 索引与事务、Redis 缓存穿透/击穿/雪崩这几个必问项。AI 部分现在央国企也在问，别跳过。信息安全的同学同样适用，很多考点是共通的。",
+   "source": "B站·程序员小Dan",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring",
+    "MySQL",
+    "Redis"
+   ],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**央国企方向求职的复习清单，按模块自测比盲目刷题效率高**",
+   "courses": "对应《数据库原理》《Java Web 开发》，可作为求职季的复习索引",
+   "tags": [
+    "求职就业",
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "央国企技术岗面试偏重基础扎实与知识面完整，八股问得细",
+    "覆盖 Java、AI、Spring、MySQL、Redis 等高频模块",
+    "建议先自测再补漏，重点补 Spring 生命周期、MySQL 事务、Redis 缓存三问"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1ESeY6mEU3",
+   "cover": "img/a140.svg"
+  },
+  {
+   "id": "a141",
+   "title": "Orca：并行运行多个 AI 编码 Agent 的开发环境",
+   "summary": "解决终端里同时跑多个 AI 编码 Agent 时分支切换、暂存冲突、开五个终端窗口的痛点。",
+   "content": "用 Claude Code、Codex 这类终端 AI 编码 Agent 的人都会撞上同一堵墙：一个 Agent 正在跑任务，你想同时开第二个，结果就是切分支、stash 改动、开五个终端窗口来回跳。Orca 把这个流程做成了专门的开发环境，让多个 Agent 并行工作而不互相踩脚。对经常用 AI 辅助写代码的同学，这类工具能明显提升效率，尤其是同时改多个模块的时候。建议先在小项目上试，观察它怎么隔离各 Agent 的工作区，理解「并行 Agent 的上下文隔离」这个设计思路，比工具本身更有价值。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Coding Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手、简历加分",
+   "value": "**同时用多个 AI 编码助手时的效率工具，理解并行 Agent 隔离设计**",
+   "courses": "对应《软件工程》《软件开发工具》，可用于多人协作或大作业场景",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "解决多 AI 编码 Agent 并行时的分支切换、暂存冲突、终端窗口混乱问题",
+    "为 Claude Code、Codex 等终端 Agent 提供隔离的并行工作环境",
+    "核心设计思路是并行 Agent 的上下文与工作区隔离"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Orca: The Agent Development Environment for Running AI Coding Agents in Parallel",
+   "link": "https://dev.to/arshtechpro/orca-explained-the-agent-development-environment-for-running-ai-coding-agents-in-parallel-440n",
+   "cover": "img/a141.webp"
+  },
   {
    "id": "a130",
    "title": "B站49分钟实战：用VS Code AI Agent从零搭一个智能体",
@@ -25,7 +307,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "49分钟完整演示 VS Code 中开发 AI Agent 的全流程",
@@ -3508,6 +3790,73 @@
  ],
  "jobs": [
   {
+   "id": "j30",
+   "company": "拼多多",
+   "title": "拼多多 27届校招（云弧计划）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "见官方公告，尽快投递",
+   "salary": "",
+   "positions": [
+    "技术类岗位",
+    "产品岗"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-20",
+   "summary": "拼多多 27 届校招云弧计划正在招聘，含技术类与产品类岗位。适合希望进入电商大厂的 2027 届应届生。",
+   "cls": "软件工程类",
+   "plain": "电商大厂校招通道，技术岗对编程与系统能力要求明确，适合本科应届生投递。",
+   "courses": "数据结构与算法、数据库原理、计算机网络",
+   "hardReq": [
+    "2027届应届生（本科可投）",
+    "具备岗位对应的技术或产品基础"
+   ],
+   "plusReq": [
+    "有电商或高并发相关项目经验",
+    "有实习经历"
+   ],
+   "selfLearn": [
+    "复习算法与计算机基础八股",
+    "准备项目中的技术难点讲解"
+   ],
+   "fitWho": "目标电商大厂、准备充分的 2027 届应届生",
+   "tips": "关注官方公告确认岗位与截止时间，尽早完成网申。"
+  },
+  {
+   "id": "j29",
+   "company": "快手",
+   "title": "快手 27届快Star技术项目（技术天才计划）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "见官方公告，尽快投递",
+   "salary": "",
+   "positions": [
+    "技术类岗位"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-20",
+   "summary": "快手 27 届快 Star 技术项目处于在招状态，属面向技术方向的高潜人才计划。适合技术能力突出的 2027 届学生挑战。",
+   "cls": "软件工程类",
+   "plain": "头部短视频大厂的技术专项计划，对算法与工程能力要求高，是冲刺大厂的高价值机会。",
+   "courses": "数据结构与算法、操作系统、计算机网络",
+   "hardReq": [
+    "2027届学生（本科可投）",
+    "技术基础扎实，能通过高难度技术面试"
+   ],
+   "plusReq": [
+    "有竞赛获奖或顶会/开源成果",
+    "有大厂实习经历"
+   ],
+   "selfLearn": [
+    "高强度刷算法题并复盘",
+    "准备一个能讲深的技术项目"
+   ],
+   "fitWho": "技术拔尖、目标头部大厂的 2027 届学生",
+   "tips": "提前准备高难度面试，关注官方公告确认批次与截止时间。"
+  },
+  {
    "id": "j28",
    "company": "同花顺",
    "title": "同花顺 2027届实习生招募计划",
@@ -4208,75 +4557,6 @@
    ],
    "summary": "国企软件集团安全测试岗：Web/App/小程序渗透测试、安全产品运维；要求掌握 OWASP Top10。",
    "link": "https://vip.gangweiku.com/wap/index.php?a=comapply&c=job&id=370806"
-  },
-  {
-   "id": "j2",
-   "company": "字节跳动",
-   "title": "字节跳动 2027 校园招聘（重点加大 AI 人才储备）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/杭州/广州/成都",
-   "deadline": "2027 年 5 月 31 日截止",
-   "positions": [
-    "研发类",
-    "Seed大模型算法",
-    "多模态算法",
-    "产品类",
-    "运营类",
-    "游戏策划"
-   ],
-   "link": "https://jobs.bytedance.com/campus",
-   "source": "字节跳动招聘官网",
-   "date": "2026-08-03",
-   "summary": "面向 2026 年 9 月至 2027 年 8 月毕业的应届生，研发/产品等八大类岗位；官方明确看重 AI Native 思维，会针对 AI 岗提供行业领先薪酬，实习转正通道通畅。",
-   "cls": "软件工程类",
-   "plain": "研发类岗写业务代码和基础组件；算法岗跑实验调模型、读论文复现。官方明确看重 AI Coding 能力。",
-   "courses": "数据结构与算法、操作系统、计算机网络、数据库",
-   "hardReq": [
-    "2026.9-2027.8 毕业的应届生"
-   ],
-   "plusReq": [
-    "ACM/蓝桥杯等竞赛获奖",
-    "大厂实习经历"
-   ],
-   "selfLearn": [
-    "刷算法题（字节笔试强度大）",
-    "熟练使用 AI Coding 工具并能讲清工作流"
-   ],
-   "fitWho": "大三起可投；算法岗适合硕士，本科主投研发类",
-   "tips": "笔试面试主动展示「用 AI 提效 + 校验产出」的工作流，正好对上官方偏好。"
-  },
-  {
-   "id": "j6",
-   "company": "京东",
-   "title": "京东 2027 校园招聘 · JDS 新星计划",
-   "type": "校招",
-   "loc": "北京/上海/广州/深圳/成都/武汉/杭州",
-   "deadline": "网申 8 月 3 日 - 11 月 30 日",
-   "positions": [
-    "技术方向",
-    "AI算法",
-    "产品方向",
-    "采销方向",
-    "物流方向"
-   ],
-   "link": "https://campus.jd.com",
-   "source": "京东校招官网",
-   "date": "2026-08-03",
-   "summary": "面向 2027 届本硕博毕业生，技术/采销/物流/产品等多元方向；TET 管培生与 JD YOUNG 实习生计划同步开放，校招与实习投递流程可并行。",
-   "cls": "软件工程类",
-   "plain": "技术方向覆盖后端/前端/测试等传统软件岗；TET 管培生有轮岗培养机制。",
-   "courses": "按投递方向准备：前端三件套或 Java 全栈、软件测试",
-   "hardReq": [
-    "2027 届本硕博毕业生"
-   ],
-   "plusReq": [
-    "管培生项目看重综合表达与领导力"
-   ],
-   "selfLearn": [
-    "对应岗位的基础功（测试岗练自动化测试）"
-   ],
-   "fitWho": "大三/大四，方向未定可先投技术类",
-   "tips": "不确定方向的可以先投技术大类，入职后内部转岗也有空间。"
   }
  ],
  "stats": [
