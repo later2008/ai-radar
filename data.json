@@ -1,6 +1,151 @@
 {
- "updatedAt": "2026-09-19 17:29",
+ "updatedAt": "2026-09-20 00:09",
  "news": [
+  {
+   "id": "a130",
+   "title": "B站49分钟实战：用VS Code AI Agent从零搭一个智能体",
+   "summary": "一条49分钟的实操视频，演示如何在 VS Code 中开发并调试 AI Agent，覆盖工具调用、上下文管理等核心环节。",
+   "content": "AI Agent 已经从概念走向工程落地，而 VS Code 是目前最顺手的开发环境之一。这条视频用 49 分钟带你走完一个 Agent 的完整开发流程：配置环境、接入模型、写工具函数、让模型自主决定调用哪个工具、处理多轮上下文。对软件工程专业的同学来说，这是把「大模型」从聊天框变成可编程组件的入门课。建议边看边敲，把示例改造成自己的课设小助手，比如自动查课表、自动整理实验报告。注意视频源在 YouTube，需要自备网络环境。",
+   "source": "B站·必要时我会逐帧学习",
+   "date": "2026-09-19",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "VS Code",
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一小时把大模型变成你能调用的编程组件，是当下最实用的加分技能。**",
+   "courses": "对应《人工智能导论》或《软件工程》课程设计，可把 Agent 作为课设创新点。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "49分钟完整演示 VS Code 中开发 AI Agent 的全流程",
+    "涵盖工具调用、上下文管理、多轮对话等关键机制",
+    "适合把大模型能力接入自己的课设或小工具",
+    "需要自备访问 YouTube 的网络环境"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1xUe86DEjx",
+   "cover": "img/a130.svg"
+  },
+  {
+   "id": "a131",
+   "title": "AI人才中间层开始掉价：软件工程学生该往哪端站？",
+   "summary": "钛媒体分析指出 AI 人才价值正向两端集中，中间层稀缺性消退，对即将求职的本科生有直接参考意义。",
+   "content": "这篇文章的判断很直接：AI 人才市场正在「哑铃化」——顶端是能定义模型和架构的少数人，底端是能把 AI 能力落地到具体业务的人，而只会调 API、写提示词的中间层正在贬值。对信工学院的同学来说，这意味着两件事：第一，别把「会用 ChatGPT」当核心竞争力；第二，往一端扎——要么深入算法和系统，要么把 AI 和工业软件、信息安全这类垂直领域结合。工业软件实验班的同学尤其要注意，懂工艺又懂 AI 落地的人，恰恰是底端最稀缺的那类。",
+   "source": "钛媒体",
+   "date": "2026-09-19",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**看清人才市场的哑铃结构，才能避免毕业即被替代。**",
+   "courses": "结合《大学生职业生涯规划》与专业方向课，提前规划纵深或垂直路线。",
+   "tags": [
+    "求职就业",
+    "行业动态",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "AI 人才价值向两端集中，中间层稀缺性消退",
+    "只会调 API、写提示词难以构成竞争力",
+    "建议往算法纵深或垂直行业落地两个方向扎",
+    "工业软件+AI、安全+AI 是稀缺组合"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8145649.html",
+   "cover": "img/a131.png"
+  },
+  {
+   "id": "a132",
+   "title": "React Native 读写 NFC 标签完全手册：iOS 端从读到锁",
+   "summary": "freeCodeCamp 发布 iOS NFC 开发手册，用 React Native 实现标签的读取、写入与锁定，含完整代码。",
+   "content": "NFC 不只是刷公交卡，它是移动端和物理世界交互最便宜的方式——一颗标签成本约两毛钱。这份手册用 React Native 带你实现三件事：读取标签内容、写入自定义数据、把标签永久锁定为只读。对前端方向的同学，这是少见的「移动端+硬件」实战，能写进简历；对信息安全方向的同学，NFC 标签的克隆与锁定机制本身就是很好的安全议题切入点。建议先跑通读取，再研究锁定后不可篡改的原理。",
+   "source": "freeCodeCamp",
+   "date": "2026-09-19",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "React Native",
+    "NFC"
+   ],
+   "diff": 3,
+   "scene": "课设/练手/简历加分",
+   "value": "**把手机变成硬件读写器，是前端简历里少见的差异化项目。**",
+   "courses": "对应《移动应用开发》课程，可作为课程设计或毕业设计选题。",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "用 React Native 实现 iOS NFC 标签读取、写入与锁定",
+    "涵盖 Core NFC 权限配置与完整代码示例",
+    "前端方向可借此补上移动端+硬件交互经验",
+    "安全方向可延伸研究标签克隆与防篡改"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The iOS NFC Handbook: How to Read, Write and Lock NFC Tags with React Native",
+   "link": "https://www.freecodecamp.org/news/the-ios-nfc-handbook-how-to-read-write-and-lock-nfc-tags-with-react-native/",
+   "cover": "img/a132.png"
+  },
+  {
+   "id": "a133",
+   "title": "AI Agent 把问句当命令执行了：一个值得警惕的工程教训",
+   "summary": "开发者复盘自己的 AI Agent 因字符串匹配误把提问和引用当成指令执行，暴露了 Agent 设计的经典陷阱。",
+   "content": "作者做了一个小交互项目，让模型的历史回复决定后续行为，结果 Agent 把记录里的问句和引用文本当成了要执行的指令。问题的本质是：代码用「子串匹配」判断意图，而自然语言里问句、引用、假设都不是命令。这对做 AI 应用的同学是极好的反面教材——意图识别不能靠字符串包含，要么用结构化输出（如 function calling 的 JSON schema），要么加显式的动作确认。信息安全方向的同学还可以想想：如果 Agent 能执行指令，提示注入攻击的后果会有多严重。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一个真实翻车案例，帮你避开 AI 应用开发中最常见的意图识别坑。**",
+   "courses": "对应《软件工程》需求与设计环节，以及《信息安全》中的输入验证与注入防护。",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Agent 因字符串匹配误把问句、引用当指令执行",
+    "意图识别应依赖结构化输出而非子串匹配",
+    "关键动作需加显式确认，避免误触发",
+    "延伸思考：可执行 Agent 面临的提示注入风险"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "A Substring Is Not a Speech Act: My AI Agent Executed Questions and Quotes",
+   "link": "https://dev.to/hexisteme/a-substring-is-not-a-speech-act-my-ai-agent-executed-questions-and-quotes-27n5",
+   "cover": "img/a133.webp"
+  },
   {
    "id": "a125",
    "title": "企业级 Agent Memory 选型指南：如何构建可扩展的 Memory Service？",
@@ -26,7 +171,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "讲清 Agent Memory 的存储、检索、调度三层架构",
