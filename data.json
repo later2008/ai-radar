@@ -1,6 +1,225 @@
 {
- "updatedAt": "2026-09-20 10:13",
+ "updatedAt": "2026-09-21 00:09",
  "news": [
+  {
+   "id": "a132",
+   "title": "Java 27 正式发布：后量子密码学（PQC）API 落地，值类（Value Class）继续延期",
+   "summary": "Java 27 带来后量子密码学标准 API 的早期落地，值类特性再次推迟。对 Java 学习者而言，这是理解未来加密迁移与语言演进方向的重要节点。",
+   "content": "Java 27 已发布，最值得软件工程与信息安全方向同学关注的是后量子密码学（PQC）相关 API 的落地。这意味着未来 Java 应用在密钥交换、数字签名等环节将逐步支持抗量子算法，传统的 RSA/ECC 迁移路径开始有官方标准可循。对信息安全专业来说，这是「密码学」课程从理论走向工程实践的直接案例：你可以尝试用 JDK 27 的 PQC API 写一个密钥封装（KEM）或签名验证的小 demo，对比传统算法的性能差异。值类（Value Class）继续延期，说明 JVM 在保持兼容性上的谨慎，也提醒我们语言特性演进需要长期权衡。建议在「Java 程序设计」课程之外，把 PQC 作为课程设计或毕业设计的选题方向。",
+   "source": "InfoQ中文",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Java",
+    "PQC"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**Java 27 的 PQC API 是信息安全与 Java 开发交叉的最佳切入点，直接对应密码学课程与未来求职方向。**",
+   "courses": "对应《密码学》《Java 程序设计》，可用 JDK 27 做 PQC 密钥封装/签名实验",
+   "tags": [
+    "Java全栈",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "Java 27 落地后量子密码学（PQC）标准 API，传统 RSA/ECC 面临迁移",
+    "值类（Value Class）再次延期，JVM 兼容性优先",
+    "信息安全方向可结合「密码学」课程做 PQC 迁移 demo",
+    "Java 方向需关注 JDK 新版本对现有项目的兼容影响"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0U1ZEhoNPAP8pGMktGiy?utm_source=rss&utm_medium=article",
+   "cover": "img/a132.jpg"
+  },
+  {
+   "id": "a133",
+   "title": "智谱 ZCode 被曝「偷传代码」：企业发函追责，AI 编程工具的数据安全红线在哪？",
+   "summary": "智谱 ZCode 因涉嫌未经授权上传用户代码被企业追责，事件升级。对信息安全专业学生而言，这是理解 AI 工具供应链风险与代码资产保护的鲜活案例。",
+   "content": "智谱 ZCode 被曝在用户不知情的情况下将代码上传至服务器，已有企业发函追责。这件事对信息安全与管理专业的同学来说，是一堂真实的「数据安全与合规」课。核心问题有三：一是 AI 编程工具的隐私政策是否明确告知数据用途；二是企业代码资产在接入第三方 AI 工具时的边界如何界定；三是作为未来的安全从业者，如何评估和审计这类工具的流量与权限。建议在「网络安全」「数据安全」课程中，把此事件作为案例分析，练习用抓包工具（如 Wireshark）分析 AI 插件的网络行为，并撰写一份工具安全评估报告。这也是简历上「安全合规意识」的加分素材。",
+   "source": "InfoQ中文",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI工具"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI 编程工具的数据安全风险是信息安全专业必须掌握的实战案例，直接关联企业合规与代码资产保护。**",
+   "courses": "对应《网络安全》《数据安全》，可用 Wireshark 分析 AI 插件网络行为并写评估报告",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "智谱 ZCode 被指未经授权上传用户代码，企业发函追责",
+    "涉及 AI 编程工具的数据合规与供应链安全风险",
+    "信息安全专业可结合「网络安全」课程做流量审计与工具评估",
+    "企业代码资产保护成为 AI 工具选型的核心考量"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/huOiZyyH32MpRwTFkoNe?utm_source=rss&utm_medium=article",
+   "cover": "img/a133.jpg"
+  },
+  {
+   "id": "a134",
+   "title": "LangChain.js Agent Memory 实战：从内存对话到 Milvus 长期记忆（上下篇）",
+   "summary": "两篇实战教程完整讲解 LangChain.js 的 Agent 记忆系统：短期内存、文件持久化、截断摘要，以及用 Milvus 构建可检索的长期语义记忆。",
+   "content": "这套上下篇教程非常适合前端或全栈方向的同学练手 AI 应用开发。上篇从大模型无状态问题出发，用 LangChain.js 实现内存会话、文件持久化、消息截断与摘要压缩，讲清了 Token 预算和上下文管理的关键细节。下篇进一步用 Milvus 向量数据库实现对话向量化、相似度搜索、上下文注入与新记忆回写，把短期历史、摘要和长期语义记忆串起来。对软件工程专业来说，这是「Web 开发」「数据库」课程知识的综合应用：前端用 React/Next.js 调用 LangChain.js，后端接 Milvus，完整跑通一个带记忆的 AI 助手。建议作为课程设计或简历项目，代码可直接参考。",
+   "source": "掘金",
+   "date": "2026-09-20",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "LangChain.js",
+    "Milvus"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**LangChain.js + Milvus 的 Agent 记忆实战是前端/全栈学生切入 AI 应用开发的最佳练手项目，直接对应 Web 与数据库课程。**",
+   "courses": "对应《Web 开发》《数据库原理》，可综合实现带记忆的 AI 助手作为课程设计",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "上篇：LangChain.js 实现内存会话、文件持久化、截断与摘要",
+    "下篇：用 Milvus 构建可检索的长期语义记忆",
+    "涉及 Token 预算、上下文管理、向量化与相似度搜索",
+    "适合作为课程设计或简历项目，前后端全栈练手"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7687441604430086171"
+  },
+  {
+   "id": "a135",
+   "title": "CopilotKit：37k Star 的前端 Agent 与生成式 UI 框架（React/Angular/移动端）",
+   "summary": "CopilotKit 是当前最火的前端 Agent 框架之一，支持 React、Angular、移动端和 Slack，并主导 AG-UI 协议。适合前端方向学生做 AI 交互项目。",
+   "content": "CopilotKit 在 GitHub 已有 37k+ Star，定位是「Agent 与生成式 UI 的前端技术栈」。它让前端开发者能快速在 React/Angular 应用中嵌入 AI 助手、生成式 UI 组件和 Agent 交互能力，同时维护 AG-UI 协议（Agent-User Interaction Protocol）。对软件工程（含工业软件实验班）的同学来说，这是把「前端开发」课程知识延伸到 AI 应用层的好工具：你可以用它做一个带 AI 助手的工业参数配置界面，或者一个能自然语言查询数据的仪表盘。建议先跑官方示例，理解 Agent 与前端组件的通信机制，再结合自己的课设改造。工业软件方向尤其值得关注，因为生成式 UI 在复杂参数配置场景很有潜力。",
+   "source": "GitHub",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "React",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**CopilotKit 是前端学生切入 AI 交互与生成式 UI 的高性价比框架，工业软件方向可用来做智能化参数配置界面。**",
+   "courses": "对应《Web 前端开发》，可用 CopilotKit 做带 AI 助手的课设项目",
+   "tags": [
+    "前端开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "CopilotKit 是 37k Star 的前端 Agent 与生成式 UI 框架",
+    "支持 React、Angular、移动端、Slack，主导 AG-UI 协议",
+    "适合前端方向做 AI 助手、生成式 UI 交互项目",
+    "工业软件方向可用于复杂参数配置界面的智能化改造"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "CopilotKit/CopilotKit（37432★）",
+   "link": "https://github.com/CopilotKit/CopilotKit",
+   "cover": "img/a135.png"
+  },
+  {
+   "id": "a136",
+   "title": "Agent Loop：让 AI 编程 Agent 从「会写代码」到「闭环交付」的开源 Skill",
+   "summary": "Agent Loop 是一个开源 Skill，适配 Claude Code、Codex、Kimi Code CLI 等主流 AI 编程 Agent，目标是让 Agent 完成从写代码到测试、交付的闭环。",
+   "content": "现在 AI 编程 Agent 写代码能力已经很强，但缺的是「闭环」——写完不测试、不验证、不交付。Agent Loop 这个开源 Skill 就是来解决这个问题的，它适配国内外主流 Code Agent（Claude Code、Codex、Kimi Code CLI、OpenCode 等）。对软件工程专业的同学来说，这直接对应「软件工程」「软件测试」课程里的持续集成与交付流程。你可以把它接入自己的开发环境，观察 Agent 如何自动跑测试、修 bug、提交代码，理解自动化闭环的工程价值。建议在课程设计或团队项目中试用，把「AI 辅助开发流程」写进项目文档，也是求职时展示工程化思维的好素材。",
+   "source": "掘金",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**Agent Loop 把 AI 编程从「写代码」推进到「闭环交付」，是软件工程学生理解自动化开发流程的实用工具。**",
+   "courses": "对应《软件工程》《软件测试》，可在课程设计中试用并记录 AI 闭环交付流程",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Agent Loop 是让 AI 编程 Agent 实现闭环交付的开源 Skill",
+    "适配 Claude Code、Codex、Kimi Code CLI、OpenCode 等",
+    "涉及自动测试、修 bug、提交代码的工程闭环",
+    "适合在课程设计或团队项目中试用，展示工程化思维"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7687497325234225152"
+  },
+  {
+   "id": "a137",
+   "title": "Linux PataOS：面向工程与 CAD 的定制 Debian 发行版",
+   "summary": "一位 CAD 设计师兼 Python 开发者发布基于 Debian 的定制发行版 PataOS，专为工程计算与 CAD 工作流优化。对工业软件方向学生有参考价值。",
+   "content": "PataOS 是一个基于 Debian 的定制 Linux 发行版，作者是 CAD 设计师兼 Python 开发者，目标是打造一个高度优化的工程与 CAD 工作环境，用于 3D 机械设计、结构计算和自研工具 PatCADME。对工业软件实验班的同学来说，这个项目值得关注两点：一是它展示了「工程软件 + 脚本语言」的集成思路，Python 在 CAD 自动化中的角色；二是定制发行版本身涉及系统裁剪、依赖管理、桌面环境配置，是「操作系统」「Linux 基础」课程知识的综合实践。你可以下载体验，或者在虚拟机里复现它的构建流程，理解工业软件运行环境是如何被定制和优化的。",
+   "source": "DEV Community",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [
+    "Linux",
+    "Python"
+   ],
+   "diff": 3,
+   "scene": "练手",
+   "value": "**PataOS 展示了工程软件与 Linux 定制环境的结合方式，工业软件方向学生可借此理解 CAD 运行环境的构建与优化。**",
+   "courses": "对应《操作系统》《Linux 基础》，可在虚拟机中复现其构建流程",
+   "tags": [
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "PataOS 是基于 Debian 的工程与 CAD 定制发行版",
+    "作者用 Python 开发自研 CAD 工具 PatCADME",
+    "涉及系统裁剪、依赖管理、桌面环境配置",
+    "工业软件方向可参考其工程软件集成与运行环境优化思路"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Introducing Linux PataOS: A Custom Debian-Based Distro for Engineering & CAD",
+   "link": "https://dev.to/alessandropatane/introducing-linux-pataos-a-custom-debian-based-distro-for-engineering-cad-311",
+   "cover": "img/a137.webp"
+  },
   {
    "id": "a127",
    "title": "React 脱围机制（二）：重新理解 useEffect——它不是生命周期，而是同步外部系统",
@@ -24,7 +243,7 @@
     "前端开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "useEffect 是同步外部系统，不是 componentDidMount 的替代品",
@@ -1443,7 +1662,8 @@
     "底层原理课（OS/网络）比工具熟练度更重要"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316072"
+   "link": "https://www.anquanke.com/post/id/316072",
+   "cover": "img/a78.jpg"
   },
   {
    "id": "a66",
