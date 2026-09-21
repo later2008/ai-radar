@@ -1,6 +1,151 @@
 {
- "updatedAt": "2026-09-21 00:09",
+ "updatedAt": "2026-09-21 00:48",
  "news": [
+  {
+   "id": "a138",
+   "title": "FreeCAD 官方源码仓库（33.6k★）：工业软件实验班的开源 CAD 实战样本",
+   "summary": "FreeCAD 是跨平台开源参数化 3D 建模器，C++ 编写、近 7 日仍在更新，是学习工业软件架构与几何内核的优质开源项目。",
+   "content": "FreeCAD 用 C++ 实现参数化建模，支持草图约束、特征建模、装配与 Python 脚本二次开发，代码规模大但模块划分清晰（几何内核、GUI、工作台插件）。对工业软件实验班的同学，这是少见的「能完整读源码」的国产替代级 CAD 项目：可以从 Workbench 插件机制入手，看一个功能如何从 UI 命令映射到几何算法；也可以直接用 Python 控制台写脚本建模，理解参数化数据模型。建议先跑通编译，再挑一个简单工作台读代码，比空看设计模式有用得多。",
+   "source": "GitHub",
+   "date": "2026-09-21",
+   "cat": "stack",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "C++",
+    "Python"
+   ],
+   "diff": 3,
+   "scene": "课设/练手/简历加分",
+   "value": "**想进工业软件方向，读一个真实 CAD 项目的源码比刷十道算法题更能写进简历。**",
+   "courses": "对应《软件工程》《面向对象程序设计》，可把 FreeCAD 插件机制作为课程设计案例拆解。",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "C++ 跨平台参数化 CAD，33.6k star 且持续更新",
+    "插件式 Workbench 架构，适合拆解工业软件分层设计",
+    "内置 Python 脚本接口，可做二次开发练手",
+    "源码可编译，适合作为课程设计/毕设选题来源"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "FreeCAD/FreeCAD",
+   "link": "https://github.com/FreeCAD/FreeCAD",
+   "cover": "img/a138.png"
+  },
+  {
+   "id": "a139",
+   "title": "Google 开源 Agentic 编排器 Agent Executor：Agent 工作流怎么落地",
+   "summary": "Google 开源的 Agent 编排框架，用于把多步任务拆解、调度与执行串成可复用工作流，HN 讨论热度 121 分。",
+   "content": "Agent Executor 解决的是「Agent 不只回答，还要完成任务」的编排问题：任务分解、工具调用、状态传递、失败重试。对软件工程专业来说，它的价值不在模型本身，而在工程结构——如何用一套可扩展的抽象把 LLM 调用、外部工具、执行循环解耦。建议用它做一个课设级小项目，比如「自动整理课程资料并生成摘要」的本地 Agent，重点体会编排层与工具层的接口设计。信息安全方向的同学可顺带关注其工具调用的权限边界问题。",
+   "source": "Hacker News",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**Agent 是当下最缺工程人才的赛道，先动手跑通一个编排器比只看论文有用。**",
+   "courses": "对应《软件工程》《人工智能导论》，可作为综合实践项目的技术选型。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Google 开源的 Agent 任务编排框架",
+    "核心是任务分解、工具调用与执行循环的工程抽象",
+    "适合做课设级 Agent 小项目，理解编排层设计",
+    "可延伸思考工具调用的权限与安全边界"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Google's Open Agentic Orchestrator",
+   "link": "https://agentexecutor.io"
+  },
+  {
+   "id": "a140",
+   "title": "用 React Native 读写 iOS NFC 标签：前端也能碰硬件",
+   "summary": "freeCodeCamp 教程，讲清如何在 iOS 上用 React Native 读取、写入和锁定 NFC 标签，含完整代码流程。",
+   "content": "教程从 iPhone 靠近标签触发说起，覆盖权限申请、NDEF 数据格式、读写与锁定流程，全部用 React Native 实现。对前端方向的同学，这是少见的「前端代码直接操作硬件」场景：NFC 数据本质是二进制记录，需要理解字节序、记录类型和编码，正好把《计算机组成》《计算机网络》里抽象的概念落到手上。可做的练手项目：校园卡信息读取 Demo、设备巡检打卡 App。注意 iOS 对 NFC 有系统限制，真机调试是必须的。",
+   "source": "freeCodeCamp",
+   "date": "2026-09-19",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "React Native"
+   ],
+   "diff": 2,
+   "scene": "练手/课设/简历加分",
+   "value": "**前端不止写页面，能操作硬件的移动端项目在简历里辨识度很高。**",
+   "courses": "对应《移动应用开发》《计算机网络》，可把 NFC 通信作为课程设计选题。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "React Native 实现 iOS NFC 读、写、锁定全流程",
+    "涉及 NDEF 二进制数据格式与权限处理",
+    "适合做打卡/巡检类 App 练手项目",
+    "需真机调试，模拟器无法验证"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The iOS NFC Handbook: How to Read, Write and Lock NFC Tags with React Native",
+   "link": "https://www.freecodecamp.org/news/the-ios-nfc-handbook-how-to-read-write-and-lock-nfc-tags-with-react-native/",
+   "cover": "img/a140.png"
+  },
+  {
+   "id": "a141",
+   "title": "国产旗舰模型主打 AI 编程，单次成本仅 Opus 5 的 1/8",
+   "summary": "一款国产旗舰模型瞄准 AI 编程与金融场景，成本大幅低于同类，跻身 AA 榜单全球前三。",
+   "content": "这条对软件工程学生的直接意义是：AI 编程助手的成本正在快速下降，意味着你未来在企业里「用 AI 写代码」会变成默认工作方式，而不是加分项。成本降到 1/8，团队才敢把模型接进 CI、代码审查、批量重构这类高频场景。建议现在就开始练「如何给 AI 写清楚需求、如何审查 AI 生成的代码」——这两项能力比记住某个 API 更保值。信息安全方向可关注模型接入企业内网时的数据留存与合规问题。",
+   "source": "InfoQ中文",
+   "date": "2026-09-20",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**AI 编程从「玩具」变「基础设施」，会审查 AI 代码的人更值钱。**",
+   "courses": "对应《软件工程》《软件测试》，可结合课程项目实践 AI 辅助编码与评审流程。",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "国产模型主攻 AI 编程场景，成本显著低于国际同类",
+    "成本下降会推动 AI 进入 CI、代码审查等高频工程环节",
+    "学生应提前练需求描述与 AI 代码审查能力",
+    "企业接入需关注数据留存与合规"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/9jw1St7ULZijG8XNCWkW?utm_source=rss&utm_medium=article",
+   "cover": "img/a141.jpg"
+  },
   {
    "id": "a132",
    "title": "Java 27 正式发布：后量子密码学（PQC）API 落地，值类（Value Class）继续延期",
@@ -26,7 +171,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Java 27 落地后量子密码学（PQC）标准 API，传统 RSA/ECC 面临迁移",
@@ -1662,8 +1807,7 @@
     "底层原理课（OS/网络）比工具熟练度更重要"
    ],
    "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316072",
-   "cover": "img/a78.jpg"
+   "link": "https://www.anquanke.com/post/id/316072"
   },
   {
    "id": "a66",
