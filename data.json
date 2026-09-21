@@ -1,6 +1,186 @@
 {
- "updatedAt": "2026-09-21 07:50",
+ "updatedAt": "2026-09-21 10:14",
  "news": [
+  {
+   "id": "a163",
+   "title": "微软用AI把43万行TS重写成80万行Rust：Copilot运行时提速15.9倍，只花12万美元",
+   "summary": "微软用AI Agent将GitHub Copilot运行时从TypeScript迁移到Rust，代码量翻倍但性能提升15.9倍，成本仅12万美元token费加一个工程师三周。",
+   "content": "这件事对软件工程专业学生的启示不在「AI多强」，而在「工程决策怎么做」。43万行TS重写成80万行Rust，代码量几乎翻倍，但换来15.9倍性能——这说明语言选型、运行时架构对系统性能的影响是数量级的。Copilot运行时支撑CLI、App、SDK，属于典型的高并发基础设施。你可以关注三点：一是AI辅助大规模代码迁移的可行性边界；二是Rust在性能敏感场景替代TS/Node的实际收益；三是「AI写代码+人做架构决策」这种新分工模式。建议在课程设计或毕业设计中，尝试用AI辅助做一次小规模语言迁移实验，体会工程权衡。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Rust",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**理解语言选型与运行时架构对系统性能的数量级影响，以及AI辅助大规模代码迁移的真实边界。**",
+   "courses": "对应《软件工程》《系统程序设计》，可在课程设计或毕设中做小规模语言迁移实验。",
+   "tags": [
+    "通用开发",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "43万行TS→80万行Rust，性能提升15.9倍，成本12万美元",
+    "AI Agent完成迁移，工程师仅用三周做架构决策",
+    "反映「AI写代码+人做决策」的新工程分工模式",
+    "Rust在高性能基础设施场景替代Node/TS的典型案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502646/ms-agentically-ports-copilot-runtime-to-rust-for-120k"
+  },
+  {
+   "id": "a164",
+   "title": "OceanBase登顶国际Data Agent榜单：国产数据库的AI新能力值得关注",
+   "summary": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark，展示国产数据库在AI数据智能方向的竞争力。",
+   "content": "Data Agent是让AI直接操作数据库、理解数据语义、自动完成查询与分析任务的技术方向。OceanBase登顶这个国际基准，说明国产数据库在「AI+数据」赛道有实际突破。对软件工程和信息安全专业的学生来说，值得关注两点：一是数据库+AI的融合趋势，未来企业级应用会越来越多地要求开发者理解数据智能体如何与数据库交互；二是OceanBase本身是国产分布式数据库，在信创和工业软件场景中有实际部署需求。建议在《数据库原理》课程之外，了解分布式数据库的基本架构和AI数据智能体的工作方式，这对求职工业软件或信创方向有加分。",
+   "source": "量子位",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "OceanBase"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**了解数据库+AI融合趋势和国产数据库在信创场景的实际需求，为工业软件方向求职储备认知。**",
+   "courses": "对应《数据库原理》，可在课程外了解分布式数据库架构和AI数据智能体工作方式。",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "OceanBase的Data Agent方案登顶国际Data Agent Benchmark",
+    "Data Agent让AI直接操作数据库、自动完成查询分析",
+    "国产分布式数据库在AI+数据赛道有实际突破",
+    "信创和工业软件场景对国产数据库有实际部署需求"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/493231.html",
+   "cover": "img/a164.jpg"
+  },
+  {
+   "id": "a165",
+   "title": "Elastic Agent 9.5如何追踪小于1KiB的日志文件：小文件日志采集的工程细节",
+   "summary": "Elastic Agent 9.5利用已获取的字节构建小型日志文件身份信息，随文件增长超过1024字节后重新关联，解决小文件日志采集丢失问题。",
+   "content": "日志采集是运维和安全监控的基础环节，但小文件（低于1KiB）的日志追踪一直是个工程难题——文件太小，标识信息不足，容易丢失或重复采集。Elastic Agent 9.5的做法是：先用已获取的字节构建文件身份，等文件增长超过1024字节阈值后再重新关联。这个思路对信息安全专业学生有直接参考价值：日志采集是安全审计和入侵检测的数据源头，理解采集端的工程细节能帮你排查「为什么日志丢了」这类实际问题。建议在《信息安全》或《操作系统》课程实验中，用Elastic Agent或Filebeat搭建一次日志采集链路，观察小文件场景下的行为。",
+   "source": "掘金",
+   "date": "2026-09-20",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Elastic Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**掌握日志采集端的工程细节，为安全审计和运维监控实验打下实操基础。**",
+   "courses": "对应《信息安全》《操作系统》，可在课程实验中用Elastic Agent搭建日志采集链路。",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "Elastic Agent 9.5解决小文件日志采集的身份识别问题",
+    "先用已获取字节构建身份，超1024字节后重新关联",
+    "日志采集是安全审计和入侵检测的数据源头",
+    "理解采集端细节有助于排查日志丢失问题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7687150052315594778"
+  },
+  {
+   "id": "a166",
+   "title": "从零构建生产级多Agent AI系统：三个真实Bug的踩坑记录",
+   "summary": "作者分享构建生产级多Agent编排系统的经历，重点讲述三个在真实场景中暴露的Bug及其教训。",
+   "content": "多Agent系统在Demo阶段往往运行良好，但一到生产环境就暴露各种问题。这篇文章的价值在于作者坦诚分享了三个真实Bug——不是理论推演，是实际踩过的坑。对软件工程专业学生来说，多Agent编排是当前AI应用开发的热门方向，但课堂上很少涉及生产环境的复杂性。你可以从中学到：Agent之间的通信失败如何处理、状态不一致怎么排查、异常路径的测试怎么做。建议在做AI相关课程设计时，不要只跑通happy path，刻意测试异常场景，这会让你的项目在简历上更有说服力。",
+   "source": "DEV Community",
+   "date": "2026-09-21",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Multi-Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/练手",
+   "value": "**通过真实踩坑案例理解多Agent系统从Demo到生产的鸿沟，提升课程设计的工程深度。**",
+   "courses": "对应《软件工程》，可在AI相关课程设计中参考异常场景测试思路。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "生产级多Agent系统的三个真实Bug及教训",
+    "Demo正常但生产环境暴露的典型问题",
+    "涉及Agent通信失败、状态不一致、异常路径测试",
+    "建议课程设计刻意测试异常场景而非只跑happy path"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How I Built (and Broke) a Production Multi-Agent AI System",
+   "link": "https://dev.to/gauravstack/how-i-built-and-broke-a-production-multi-agent-ai-system-4b2i",
+   "cover": "img/a166.webp"
+  },
+  {
+   "id": "a167",
+   "title": "Lambda SnapStart支持容器镜像：Java冷启动优化的新选择",
+   "summary": "AWS Lambda SnapStart现已支持容器镜像部署方式，Java函数冷启动问题有了新的优化路径。",
+   "content": "Java冷启动一直是Serverless场景的痛点，SnapStart通过快照机制大幅缩短启动时间。现在它支持容器镜像，意味着你可以用自定义运行时和依赖打包，同时享受快照加速。对Java方向的学生来说，这是一个值得关注的工程优化手段：如果你在课程设计或实习中接触Serverless架构，SnapStart可以帮你解决Java函数响应慢的问题。建议了解SnapStart的工作原理（快照恢复 vs 冷启动），以及在容器镜像模式下有哪些限制（如快照后状态恢复的注意事项）。这些细节在面试中被问到Serverless优化时能体现你的深度。",
+   "source": "InfoQ中文",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "AWS Lambda",
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**掌握Java Serverless冷启动优化的实际手段，为面试和实习中的架构问题储备方案。**",
+   "courses": "对应《Java程序设计》《云计算》，可在课程设计中尝试Serverless部署与优化。",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "Lambda SnapStart支持容器镜像部署，Java冷启动优化新路径",
+    "快照机制大幅缩短Java函数启动时间",
+    "容器镜像模式支持自定义运行时和依赖打包",
+    "面试中被问Serverless优化时可体现深度"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/CIMVueKAjDLqU6zy54Os?utm_source=rss&utm_medium=article",
+   "cover": "img/a167.jpg"
+  },
   {
    "id": "a157",
    "title": "你的AI编程工具可能在偷偷上传整个代码库：ZCode被逆向出无差别打包.git历史",
@@ -25,7 +205,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "登录态下无差别打包工作区，含.git历史、LFS缓存、reflog",
@@ -34,7 +214,8 @@
     "敏感项目应做物理隔离而非只靠.gitignore"
    ],
    "buzz": [],
-   "link": "https://juejin.cn/post/7687543954778374186"
+   "link": "https://juejin.cn/post/7687543954778374186",
+   "cover": "img/a157.png"
   },
   {
    "id": "a158",
@@ -2091,8 +2272,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide",
-   "cover": "img/a94.png"
+   "link": "https://github.com/Snailclimb/JavaGuide"
   },
   {
    "id": "a95",
