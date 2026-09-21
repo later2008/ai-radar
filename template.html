@@ -30,15 +30,30 @@ a:hover { text-decoration: underline; }
 .nav button.active { color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
 .clock { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.5; }
 
-/* ===== 快讯条 ===== */
-.ticker { background: #fff; border-bottom: 1px solid var(--border); overflow: hidden; }
-.ticker-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; }
-.ticker-label { flex-shrink: 0; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 0 12px 12px 0; margin: 6px 10px 6px 0; }
-.ticker-track { flex: 1; overflow: hidden; position: relative; }
-.ticker-content { display: inline-block; white-space: nowrap; font-size: 13px; color: var(--text); padding-left: 100%; }
-.ticker-track:hover .ticker-content { animation-play-state: paused; }
-.ticker-content b { color: var(--accent); }
-@keyframes scroll { to { transform: translateX(-200%); } }
+/* ===== 今日上新栏（点击展开汇总） ===== */
+.ticker { background: #fff; border-bottom: 1px solid var(--border); position: relative; z-index: 40; }
+.ticker-inner { max-width: 1180px; margin: 0 auto; }
+.ticker-bar { display: flex; align-items: center; gap: 12px; width: 100%; border: none; background: transparent; cursor: pointer; padding: 0; font-family: inherit; text-align: left; }
+.ticker-label { flex-shrink: 0; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 0 12px 12px 0; margin: 6px 0; }
+.ticker-summary { flex: 1; min-width: 0; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ticker-summary b { color: var(--accent); }
+.ticker-summary .ts-hint { color: #94a3b8; font-size: 12px; }
+.ticker-caret { flex-shrink: 0; margin-right: 14px; color: var(--muted); font-size: 13px; transition: transform .25s; }
+.ticker.open .ticker-caret { transform: rotate(180deg); }
+.ticker-panel { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.ticker.open .ticker-panel { max-height: 72vh; overflow-y: auto; border-top: 1px dashed var(--border); }
+.ticker-panel-inner { max-width: 1180px; margin: 0 auto; padding: 14px 20px 18px; }
+.digest-note { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
+.digest-group { margin-bottom: 14px; }
+.digest-group:last-child { margin-bottom: 2px; }
+.digest-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); background: #eff4ff; border: 1px solid #d7e3ff; padding: 3px 12px; border-radius: 999px; margin-bottom: 6px; }
+.digest-item { display: flex; align-items: baseline; gap: 10px; padding: 7px 6px; border-bottom: 1px dashed #eef2f8; cursor: pointer; border-radius: 6px; }
+.digest-item:hover { background: #f6f9ff; }
+.digest-item:last-child { border-bottom: none; }
+.digest-item .di-title { flex: 1; min-width: 0; font-size: 13.5px; color: var(--text); line-height: 1.55; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.digest-item:hover .di-title { color: var(--accent); }
+.digest-item .di-src { flex-shrink: 0; font-size: 11.5px; color: var(--muted); }
+.digest-group-jobs .digest-tag { color: #ea580c; background: #fff7ed; border-color: #fed7aa; }
 
 /* ===== 布局 ===== */
 .wrap { max-width: 1180px; margin: 0 auto; padding: 20px; }
@@ -73,6 +88,9 @@ main { min-width: 0; }
 .news-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
 .nc-cover { flex-shrink: 0; width: 208px; height: 132px; border-radius: 10px; overflow: hidden; position: relative; }
 .nc-cover svg, .nc-cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
+/* 封面图：加载完成前显示来源 Logo 占位，加载完成后淡入，失败自动移除露出占位 */
+.cover-img { position: absolute; inset: 0; z-index: 2; opacity: 0; transition: opacity .4s ease; }
+.cover-img.ok { opacity: 1; }
 /* 无图时用来源/公司 Logo 占位 */
 .logo-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #fff; background: linear-gradient(135deg, #3B82F6, #7AA9FF); }
 .logo-tile .lt-mark { font-size: 42px; font-weight: 800; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,.22); font-family: Georgia, "Microsoft YaHei", serif; display: inline-block; transition: transform .3s ease; }
@@ -203,7 +221,6 @@ main { min-width: 0; }
 /* 用户偏好减弱动态时全部关闭 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .ticker-content { animation: none !important; }
 }
 
 /* ===== 页脚 ===== */
@@ -213,8 +230,10 @@ main { min-width: 0; }
 
 .hero-flex { display: flex; gap: 26px; align-items: flex-start; position: relative; }
 .hero-body { flex: 1; min-width: 0; }
-.hero-cover { flex-shrink: 0; width: 330px; height: 186px; border-radius: 12px; overflow: hidden; }
+.hero-cover { flex-shrink: 0; width: 330px; height: 186px; border-radius: 12px; overflow: hidden; position: relative; }
 .hero-cover svg { width: 100%; height: 100%; display: block; }
+/* 从汇总跳转过来时的高亮 */
+.news-card.flash, .job-card.flash { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37, 99, 235, .22); }
 .empty { text-align: center; color: var(--muted); padding: 50px 0; font-size: 14px; }
 /* ===== 移动端适配层 ===== */
 #back-top { display: none; position: fixed; right: 14px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; border-radius: 50%; border: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-size: 20px; font-weight: 700; box-shadow: 0 6px 18px rgba(37, 99, 235, .35); cursor: pointer; z-index: 99; opacity: 0; pointer-events: none; transition: opacity .25s; }
@@ -230,8 +249,15 @@ main { min-width: 0; }
   .logo-sub, .clock { display: none; }
   .nav { display: flex; flex: 1 1 100%; gap: 6px; order: 3; }
   .nav button { flex: 1; padding: 9px 4px; font-size: 13.5px; border-radius: 8px; }
-  /* 跑马灯为装饰性信息，移动端收起 */
-  .ticker { display: none; }
+  /* 今日上新栏：全版本保留，点击展开汇总，移动端紧凑化 */
+  .ticker-label { font-size: 11.5px; padding: 7px 10px; margin: 5px 0; }
+  .ticker-summary { font-size: 12.5px; }
+  .ticker-summary .ts-hint { display: none; }
+  .ticker-caret { margin-right: 12px; }
+  .ticker.open .ticker-panel { max-height: 68vh; }
+  .ticker-panel-inner { padding: 12px 14px 16px; }
+  .digest-item { padding: 8px 4px; }
+  .digest-item .di-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 13px; }
   /* 主栏节奏 */
   .wrap { padding: 12px 14px 46px; }
   /* 头条：压缩为一条重点内容，不占满首屏 */
@@ -292,10 +318,16 @@ main { min-width: 0; }
   </div>
 </header>
 
-<div class="ticker">
+<div class="ticker" id="ticker">
   <div class="ticker-inner">
-    <span class="ticker-label">⚡ 快讯</span>
-    <div class="ticker-track"><div class="ticker-content" id="ticker-content"></div></div>
+    <button class="ticker-bar" id="ticker-bar" onclick="toggleDigest()" aria-expanded="false">
+      <span class="ticker-label">⚡ 今日上新</span>
+      <span class="ticker-summary" id="ticker-summary"></span>
+      <span class="ticker-caret">▾</span>
+    </button>
+  </div>
+  <div class="ticker-panel" id="ticker-panel">
+    <div class="ticker-panel-inner" id="ticker-panel-inner"></div>
   </div>
 </div>
 
@@ -353,6 +385,7 @@ main { min-width: 0; }
 const DATA = __DATA__;
 
 const CATS = { tool: "开箱工具与项目", tut: "提效实战教程", stack: "技术栈更新", industry: "行业动态·就业相关" };
+const TAG_LIST = ["前端开发", "Java全栈", "通用开发", "工业软件", "信息安全", "求职就业", "AI工具", "行业动态"];
 const TRACKS = ["前端", "Java", "通用开发", "工业软件", "信息安全"];
 const TRACK_COLORS = { "前端": ["#0ea5e9", "#e0f2fe", "#0369a1"], "Java": ["#f97316", "#ffedd5", "#c2410c"], "通用开发": ["#6366f1", "#e0e7ff", "#4338ca"], "工业软件": ["#14b8a6", "#ccfbf1", "#0f766e"], "信息安全": ["#ef4444", "#fee2e2", "#b91c1c"] };
 const DIFF_TXT = { 1: "简单", 2: "中等", 3: "困难" };
@@ -365,16 +398,70 @@ function tick() {
 }
 setInterval(tick, 1000); tick();
 
-/* 快讯：全部新闻 + 热榜要点，速度按内容长度自适应（约 0.45 秒/字），悬停暂停 */
-(function () {
-  const parts = DATA.news.map((n) => `<b>【${n.source}】</b>${n.title}`);
-  parts.push(`<b>【💼 在招岗位】</b>` + DATA.jobs.slice(0, 10).map((j) => `${j.company}·${(j.positions || [])[0] || j.title}`).join(" · "));
-  const html = parts.join("　　●　　");
-  const el = $("#ticker-content");
-  el.innerHTML = html;
-  const textLen = html.replace(/<[^>]+>/g, "").length;
-  el.style.animation = `scroll ${Math.max(120, Math.round(textLen * 0.3))}s linear infinite`;
+/* 今日上新：取最新一批更新（date 最晚的一批），按专业方向标签分组汇总；点击展开，点条目直达卡片 */
+function latestBatch(list) {
+  const ds = list.map((x) => x.date).filter(Boolean).sort();
+  const latest = ds[ds.length - 1];
+  return { latest, items: list.filter((x) => x.date === latest) };
+}
+function fmtDay(s) { const p = (s || "").split("-"); return p.length === 3 ? `${+p[1]}月${+p[2]}日` : s; }
+(function buildDigest() {
+  const nb = latestBatch(DATA.news);
+  const jb = latestBatch(DATA.jobs);
+  $("#ticker-summary").innerHTML = `<b>${fmtDay(nb.latest)}更新</b>　${nb.items.length} 条新资讯 · ${jb.items.length} 个新岗位 <span class="ts-hint">· 点击展开汇总</span>`;
+  const buckets = new Map();
+  nb.items.forEach((n) => {
+    const ts = (n.tags || []).filter((t) => TAG_LIST.includes(t));
+    (ts.length ? ts : ["综合"]).forEach((t) => {
+      if (!buckets.has(t)) buckets.set(t, []);
+      if (!buckets.get(t).includes(n)) buckets.get(t).push(n);
+    });
+  });
+  const order = [...TAG_LIST, "综合"].filter((t) => buckets.has(t));
+  let html = `<div class="digest-note">📌 ${fmtDay(nb.latest)} 上新汇总：按专业方向分组，点击任意条目直达对应卡片</div>`;
+  html += order.map((t) => `
+    <div class="digest-group">
+      <span class="digest-tag"># ${t} · ${buckets.get(t).length}</span>
+      ${buckets.get(t).map((n) => `<div class="digest-item" onclick="jumpToNews('${n.id}')"><span class="di-title">${n.title}</span><span class="di-src">${n.source}</span></div>`).join("")}
+    </div>`).join("");
+  html += `<div class="digest-group digest-group-jobs">
+      <span class="digest-tag">💼 新岗位 · ${jb.items.length}</span>
+      ${jb.items.map((j) => `<div class="digest-item" onclick="jumpToJob('${j.id}')"><span class="di-title">${j.company} · ${j.title || (j.positions || [])[0] || ""}${j.salary ? `（${j.salary}）` : ""}</span><span class="di-src">${j.type} · ${j.loc}</span></div>`).join("")}
+    </div>`;
+  $("#ticker-panel-inner").innerHTML = html;
 })();
+function toggleDigest() {
+  const t = $("#ticker");
+  t.classList.toggle("open");
+  $("#ticker-bar").setAttribute("aria-expanded", t.classList.contains("open") ? "true" : "false");
+}
+function jumpToNews(id) {
+  switchTab("news");
+  curCat = "all"; curTag = "all";
+  const idx = DATA.news.findIndex((n) => n.id === id);
+  if (idx < 0) return;
+  curPage = Math.floor(idx / PAGE_SIZE) + 1;
+  renderChips(); renderNews();
+  $("#ticker").classList.remove("open");
+  setTimeout(() => {
+    const el = document.querySelector(`[data-nid="${id}"]`);
+    if (!el) return;
+    el.classList.add("open", "flash");
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => el.classList.remove("flash"), 2400);
+  }, 420);
+}
+function jumpToJob(id) {
+  switchTab("jobs");
+  $("#ticker").classList.remove("open");
+  setTimeout(() => {
+    const el = document.querySelector(`[data-jid="${id}"]`);
+    if (!el) return;
+    el.classList.add("open", "flash");
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => el.classList.remove("flash"), 2400);
+  }, 420);
+}
 
 /* ===== 封面：只使用从原文页面截取的真实配图，无图则用来源/公司 Logo 占位 ===== */
 const SRC_LOGOS = [
@@ -424,21 +511,14 @@ function logoTileHTML(name) {
   const L = logoOf(name);
   return `<div class="nc-cover logo-tile" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${name}</span></div>`;
 }
-function heroImgFail(el, name) {
-  const a = el.closest(".hero-cover");
-  if (!a) return;
-  const L = logoOf(name);
-  a.classList.add("logo-tile");
-  a.style.background = `linear-gradient(135deg,${L.c1},${L.c2})`;
-  a.innerHTML = `<span class="lt-mark">${L.mark}</span><span class="lt-name">${name}</span>`;
-}
 function logoSquareHTML(name) {
   const L = logoOf(name);
   return `<div class="job-logo" style="background:linear-gradient(135deg,${L.c1},${L.c2})">${L.mark}</div>`;
 }
 function coverOf(n) {
   if (!n.cover) return logoTileHTML(n.source);
-  return `<div class="nc-cover"><img src="${n.cover}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=logoTileHTML('${(n.source || "").replace(/'/g, "")}')"></div>`;
+  const L = logoOf(n.source);
+  return `<div class="nc-cover logo-tile" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${n.source}</span><img class="cover-img" src="${n.cover}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="this.remove()"></div>`;
 }
 
 /* 专业术语高亮：给正文里的术语加悬浮解释 */
@@ -487,7 +567,7 @@ document.addEventListener("touchstart", (e) => { const t = e.target.closest(".gm
         </div>
       </div>
       ${h.cover
-        ? `<a class="hero-cover" href="${h.link}" target="_blank" rel="noopener"><img src="${h.cover}" alt="" referrerpolicy="no-referrer" onerror="heroImgFail(this,'${(h.source || "").replace(/'/g, "")}')"></a>`
+        ? (() => { const L = logoOf(h.source); return `<a class="hero-cover logo-tile" href="${h.link}" target="_blank" rel="noopener" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${h.source}</span><img class="cover-img" src="${h.cover}" alt="" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="this.remove()"></a>`; })()
         : `<a class="hero-cover logo-tile" href="${h.link}" target="_blank" rel="noopener" style="background:linear-gradient(135deg,${logoOf(h.source).c1},${logoOf(h.source).c2})"><span class="lt-mark">${logoOf(h.source).mark}</span><span class="lt-name">${h.source}</span></a>`}
     </div>`;
 })();
@@ -499,7 +579,6 @@ let curTag = "all";
 let curPage = 1;
 let lastTotal = 0;
 
-const TAG_LIST = ["前端开发", "Java全栈", "通用开发", "工业软件", "信息安全", "求职就业", "AI工具", "行业动态"];
 function renderChips() {
   const counts = { all: DATA.news.length };
   DATA.news.forEach((n) => { counts[n.cat] = (counts[n.cat] || 0) + 1; });
@@ -536,7 +615,7 @@ function renderNews() {
   const pageItems = list.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
   if (!pageItems.length) { $("#news-list").innerHTML = `<div class="empty">该分类暂无内容</div>`; $("#pager").innerHTML = ""; return; }
   $("#news-list").innerHTML = pageItems.map((n, i) => `
-    <article class="news-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+    <article class="news-card anim-in" data-nid="${n.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
       <div class="nc-main">
         <div class="nc-head">
           <span class="nc-src">${n.source}</span><span>${n.date}</span>
@@ -635,7 +714,7 @@ function renderJobs() {
   const list = DATA.jobs.filter((j) => (curCls === "all" || j.cls === curCls) && (curType === "all" || curCls === "all" || j.type === curType));
   if (!list.length) { $("#job-list").innerHTML = `<div class="empty">该类型暂无岗位，明天更新会补充</div>`; return; }
   $("#job-list").innerHTML = list.map((j, i) => `
-    <article class="job-card anim-in" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+    <article class="job-card anim-in" data-jid="${j.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
       <div class="job-top">
         <div class="job-co-wrap">
           ${logoSquareHTML(j.company)}
