@@ -86,19 +86,32 @@ main { min-width: 0; }
 .news-list { display: flex; flex-direction: column; gap: 12px; }
 .news-card { min-width: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; cursor: pointer; transition: transform .2s ease, box-shadow .2s, border-color .2s; display: block; }
 .news-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
-.nc-cover { flex-shrink: 0; width: 208px; height: 132px; border-radius: 10px; overflow: hidden; position: relative; }
-.nc-cover svg, .nc-cover img { width: 100%; height: 100%; display: block; object-fit: cover; }
-/* 封面图：加载完成前显示来源 Logo 占位，加载完成后淡入，失败自动移除露出占位 */
-.cover-img { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .4s ease; }
-.cover-img.ok { opacity: 1; }
-/* 无图时用来源/公司 Logo 占位 */
-.logo-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #fff; background: linear-gradient(135deg, #3B82F6, #7AA9FF); }
-.logo-tile .lt-mark { font-size: 42px; font-weight: 800; line-height: 1; text-shadow: 0 2px 8px rgba(0,0,0,.22); font-family: Georgia, "Microsoft YaHei", serif; display: inline-block; transition: transform .3s ease; }
-.news-card:hover .lt-mark { transform: scale(1.15) rotate(-5deg); }
-.nc-cover img { transition: transform .35s ease; }
-.news-card:hover .nc-cover img { transform: scale(1.05); }
-.logo-tile .lt-name { font-size: 12px; font-weight: 600; opacity: .92; letter-spacing: 1px; max-width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.job-logo { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 800; text-shadow: 0 1px 4px rgba(0,0,0,.2); font-family: Georgia, "Microsoft YaHei", serif; }
+/* ===== 统一封面系统：16:9 容器，原文图/视频封面/生成封面同一设计语言 ===== */
+.cover { width: 100%; aspect-ratio: 16 / 9; border-radius: 11px; overflow: hidden; position: relative; background: #eef2f7; flex-shrink: 0; }
+.cover img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 1; }
+/* 生成封面垫底：img 加载失败 onerror 自动移除，露出此层，无空洞无跳动 */
+.gen-cover { position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; gap: 11px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+.gen-cover::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 20px 20px; }
+.gen-cover .badge { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 17px; font-weight: 800; z-index: 1; font-family: Georgia, "Microsoft YaHei", serif; }
+.gen-cover .name { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .5px; z-index: 1; max-width: 70%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 底部渐变压暗 + 来源 chip：有图无图都有，视觉结构一致 */
+.cover::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, transparent 55%, rgba(15,23,42,.28)); pointer-events: none; }
+.src-chip { position: absolute; left: 9px; bottom: 8px; z-index: 3; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; color: #fff; background: rgba(15,23,42,.42); padding: 2px 8px; border-radius: 999px; }
+/* 分类配色（CSS 变量，生成封面与后续来源 logo 共用） */
+[data-cat="tech"]     { --c1: #1d4ed8; --c2: #38bdf8; }  /* 技术栈更新 */
+[data-cat="industry"] { --c1: #0e7490; --c2: #22d3ee; }  /* 行业动态 */
+[data-cat="tutorial"] { --c1: #6d28d9; --c2: #a78bfa; }  /* 提效实战教程/开箱工具 */
+[data-cat="security"] { --c1: #0f766e; --c2: #2dd4bf; }  /* 信息安全 */
+[data-cat="job"]      { --c1: #c2410c; --c2: #fbbf24; }  /* 求职就业 */
+[data-cat="video"]    { --c1: #be185d; --c2: #f472b6; }  /* 视频 */
+/* 列表卡：桌面封面在左（272px、16:9），移动端封面置顶通栏 */
+.news-card .cover, .job-card .cover { width: 272px; }
+.news-card { display: flex; gap: 18px; align-items: flex-start; }
+.news-card .nc-main { flex: 1; min-width: 0; }
+.job-card { display: flex; gap: 18px; align-items: flex-start; }
+.job-card .job-main { flex: 1; min-width: 0; }
+.news-card:hover .cover img { transform: scale(1.04); }
+.cover img { transition: transform .35s ease; }
 .job-co-wrap { display: flex; align-items: center; gap: 12px; }
 .nc-main { flex: 1; min-width: 0; }
 .nc-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 8px; flex-wrap: wrap; }
@@ -231,8 +244,7 @@ main { min-width: 0; }
 
 .hero-flex { display: flex; gap: 26px; align-items: flex-start; position: relative; }
 .hero-body { flex: 1; min-width: 0; }
-.hero-cover { flex-shrink: 0; width: 330px; height: 186px; border-radius: 12px; overflow: hidden; position: relative; }
-.hero-cover svg { width: 100%; height: 100%; display: block; }
+.hero-cover { flex-shrink: 0; width: 330px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; position: relative; display: block; }
 /* 从汇总跳转过来时的高亮 */
 .news-card.flash, .job-card.flash { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37, 99, 235, .22); }
 .empty { text-align: center; color: var(--muted); padding: 50px 0; font-size: 14px; }
@@ -288,6 +300,10 @@ main { min-width: 0; }
   .news-card:last-child { border-bottom: none; }
   .news-card.anim-in { animation: none; }
   .news-card:active { background: #f8fafc; }
+  /* 移动端：卡片纵向，封面 16:9 通栏置顶 */
+  .news-card, .job-card { display: block; }
+  .news-card .cover, .job-card .cover { width: 100%; margin-bottom: 8px; }
+  .news-card:hover .cover img { transform: none; }
   .nc-top { margin: 0; padding: 0; background: none; border-bottom: none; }
   .news-card.open .nc-top { background: none; }
   .nc-head { gap: 4px 8px; font-size: 12.5px; margin-bottom: 5px; align-items: center; }
@@ -483,6 +499,8 @@ const TRACKS = ["前端", "Java", "通用开发", "工业软件", "信息安全"
 const TRACK_COLORS = { "前端": ["#0ea5e9", "#e0f2fe", "#0369a1"], "Java": ["#f97316", "#ffedd5", "#c2410c"], "通用开发": ["#6366f1", "#e0e7ff", "#4338ca"], "工业软件": ["#14b8a6", "#ccfbf1", "#0f766e"], "信息安全": ["#ef4444", "#fee2e2", "#b91c1c"] };
 const DIFF_TXT = { 1: "简单", 2: "中等", 3: "困难" };
 const $ = (s) => document.querySelector(s);
+/* rAF 兜底：极老内核/无头环境缺失时降级为 setTimeout，避免单点异常中断整页脚本 */
+if (!window.requestAnimationFrame) window.requestAnimationFrame = (f) => setTimeout(() => f(performance.now()), 16);
 
 /* 时钟 */
 function tick() {
@@ -556,62 +574,37 @@ function jumpToJob(id) {
   }, 420);
 }
 
-/* ===== 封面：只使用从原文页面截取的真实配图，无图则用来源/公司 Logo 占位 ===== */
-const SRC_LOGOS = [
-  ["量子位", "量", "#1E6FEB", "#5AA2FF"],
-  ["TechCrunch", "TC", "#0A9E01", "#33C41F"],
-  ["Ars Technica", "A", "#E84B0C", "#FF7A3D"],
-  ["Solidot", "S", "#2F9E44", "#5DBE6A"],
-  ["InfoQ", "Q", "#0F5FC2", "#3D8BFF"],
-  ["The Verge", "V", "#5100FF", "#8A4DFF"],
-  ["爱范儿", "爱", "#2B2B2B", "#5A5A5A"],
-  ["钛媒体", "钛", "#D93025", "#F2643C"],
-  ["极客公园", "极", "#00B96B", "#3DDC97"],
-  ["少数派", "少", "#F5A623", "#FFC94D"],
-  ["网经社", "网", "#7A3FF2", "#A97BFF"],
-  ["脉脉", "脉", "#29A9E0", "#63C6F5"],
-  ["前程无忧", "前", "#FF6A00", "#FF9B4D"],
-  ["中国新闻网", "新", "#B31E22", "#D9484C"],
-  ["凤凰网", "凤", "#E23C2D", "#F06B5F"],
-  ["北京大学", "北", "#8C1515", "#B84A4A"],
-  ["对外经济贸易大学", "贸", "#00548B", "#3D82B8"],
-  ["腾讯", "腾", "#1456F0", "#4A83FF"],
-  ["字节跳动", "字", "#1F1F1F", "#4D4D4D"],
-  ["阿里巴巴", "阿", "#FF6A00", "#FF9B4D"],
-  ["百度", "百", "#2932E1", "#5A63F0"],
-  ["小米", "MI", "#FF6900", "#FF9552"],
-  ["京东", "京", "#E1251B", "#F25B52"],
-  ["寒武纪", "寒", "#C2185B", "#E05B8B"],
-  ["商汤", "商", "#2C3E8F", "#5C6BC0"],
-  ["中移", "中", "#0F6BAE", "#3D93D6"],
-  ["上海人工智能实验室", "沪AI", "#0E7490", "#38A3B8"],
-  ["脑科学", "脑", "#5B21B6", "#8B5CF6"],
-  ["MiniMax", "M", "#0EA5E9", "#4FC3F7"],
-  ["智谱", "智", "#3B5BDB", "#6E8BFF"],
-  ["群核", "群", "#0D9488", "#3FC1B5"],
-  ["墨泊可士", "墨", "#37474F", "#607D8B"],
-];
-const _PALETTE = [["#3B82F6", "#7AA9FF"], ["#10B981", "#4FD6A6"], ["#F59E0B", "#FBC65D"], ["#8B5CF6", "#B18CFF"], ["#EF4444", "#F87F7F"], ["#0EA5E9", "#57C2F5"]];
-function logoOf(name) {
+/* ===== 封面数据层：三类封面（原文图 og / 视频封面 video / 生成封面 generated）同一套设计语言 ===== */
+const SLUGS = [["量子位","qbitai"],["InfoQ","infoq"],["安全客","anquanke"],["FreeBuf","freebuf"],["开源中国","oschina"],["爱范儿","ifanr"],["CSDN","csdn"],["钛媒体","tmtpost"],["Solidot","solidot"],["DEV Community","dev"],["GitHub","github"],["freeCodeCamp","freecodecamp"],["Hacker News","hackernews"],["IEEE Spectrum","ieee"],["B站","bilibili"],["新华网","xinhua"],["中国新闻网","chinanews"],["工业新闻网","industrial-news"],["凤凰网","ifeng"],["腾讯","tencent"],["字节跳动","bytedance"],["阿里巴巴","alibaba"],["百度","baidu"],["小米","xiaomi"],["京东","jd"],["北京大学","pku"],["对外经济贸易大学","uibe"],["上海人工智能实验室","shailab"],["高校人才网","gaoxiaojob"],["应届生","yingjiesheng"],["央国企","yangguoqi"],["网经社","100ec"],["脉脉","maimai"],["前程无忧","51job"],["群核","manycore"],["MiniMax","minimax"],["时代财经","tmtpost-post"],["猎聘","liepin"],["爱企查","aiqicha"]];
+function sourceSlug(name) {
   const s = name || "";
-  for (const [k, mark, c1, c2] of SRC_LOGOS) if (s.includes(k)) return { mark, c1, c2 };
+  for (const [k, v] of SLUGS) if (s.includes(k)) return v;
   let h = 0;
   for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  const p = _PALETTE[h % _PALETTE.length];
-  return { mark: (s.trim()[0] || "AI").toUpperCase(), c1: p[0], c2: p[1] };
+  return "src-" + h.toString(36);
 }
-function logoTileHTML(name) {
-  const L = logoOf(name);
-  return `<div class="nc-cover logo-tile" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${name}</span></div>`;
+/* 分类配色映射：视频源 > 信息安全标签 > 资讯分类 > 岗位 */
+function catClassOf(n) {
+  if ((n.source || "").startsWith("B站")) return "video";
+  if ((n.tags || []).includes("信息安全")) return "security";
+  return ({ stack: "tech", industry: "industry", tut: "tutorial", tool: "tutorial" })[n.cat] || "tech";
 }
-function logoSquareHTML(name) {
-  const L = logoOf(name);
-  return `<div class="job-logo" style="background:linear-gradient(135deg,${L.c1},${L.c2})">${L.mark}</div>`;
+function coverKindOf(n) { return n.cover ? ((n.source || "").startsWith("B站") ? "video" : "og") : "generated"; }
+/* 生成封面徽标字符 = 来源名首字，英文取首字母大写（InfoQ → I） */
+function badgeChar(name) {
+  const s = (name || "").trim();
+  return s ? s[0].toUpperCase() : "AI";
 }
-function coverOf(n) {
-  if (!n.cover) return logoTileHTML(n.source);
-  const L = logoOf(n.source);
-  return `<div class="nc-cover logo-tile" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${n.source}</span><img class="cover-img" src="${n.cover}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="this.remove()"></div>`;
+function coverHTML(n, opts) {
+  const o = opts || {};
+  const cat = o.cat || n._cat || catClassOf(n);
+  const kind = coverKindOf(n);
+  const name = n.source || "";
+  const gen = `<div class="gen-cover"><span class="badge">${badgeChar(name)}</span><span class="name">${name}</span></div>`;
+  const img = n.cover ? `<img src="${n.cover}" alt="" ${o.eager ? 'loading="eager" ' : 'loading="lazy" '}decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+  const inner = `${gen}${img}<span class="src-chip">${name}</span>`;
+  if (o.tag === "a") return `<a class="cover${o.cls ? " " + o.cls : ""}" href="${o.href}" target="_blank" rel="noopener" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</a>`;
+  return `<div class="cover" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</div>`;
 }
 
 /* 专业术语高亮：给正文里的术语加悬浮解释 */
@@ -659,9 +652,7 @@ document.addEventListener("touchstart", (e) => { const t = e.target.closest(".gm
           <a class="nc-link" href="${h.link}" target="_blank" rel="noopener">阅读原文 ↗</a>
         </div>
       </div>
-      ${h.cover
-        ? (() => { const L = logoOf(h.source); return `<a class="hero-cover logo-tile" href="${h.link}" target="_blank" rel="noopener" style="background:linear-gradient(135deg,${L.c1},${L.c2})"><span class="lt-mark">${L.mark}</span><span class="lt-name">${h.source}</span><img class="cover-img" src="${h.cover}" alt="" loading="eager" decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('ok')" onerror="this.remove()"></a>`; })()
-        : `<a class="hero-cover logo-tile" href="${h.link}" target="_blank" rel="noopener" style="background:linear-gradient(135deg,${logoOf(h.source).c1},${logoOf(h.source).c2})"><span class="lt-mark">${logoOf(h.source).mark}</span><span class="lt-name">${h.source}</span></a>`}
+      ${coverHTML(h, { tag: "a", cls: "hero-cover", href: h.link, eager: true, cat: catClassOf(h) })}
     </div>`;
 })();
 
@@ -710,6 +701,7 @@ function renderNews() {
   if (!pageItems.length) { $("#news-list").innerHTML = `<div class="empty">该分类暂无内容</div>`; $("#pager").innerHTML = ""; return; }
   $("#news-list").innerHTML = pageItems.map((n, i) => `
     <article class="news-card anim-in" data-nid="${n.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+      ${coverHTML(n)}
       <div class="nc-main">
         <div class="nc-top">
           <div class="nc-head">
@@ -811,9 +803,10 @@ function renderJobs() {
   if (!list.length) { $("#job-list").innerHTML = `<div class="empty">该类型暂无岗位，明天更新会补充</div>`; return; }
   $("#job-list").innerHTML = list.map((j, i) => `
     <article class="job-card anim-in" data-jid="${j.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+      ${coverHTML({ cover: j.cover, source: j.company, tags: [], cat: "" }, { cat: "job" })}
+      <div class="job-main">
       <div class="job-top">
         <div class="job-co-wrap">
-          ${logoSquareHTML(j.company)}
           <div>
             <div class="job-title">${j.title || (j.positions || [])[0]}</div>
             <div class="job-co">${j.company}</div>
@@ -844,6 +837,7 @@ function renderJobs() {
       <div class="job-actions">
         <a class="job-link" href="${j.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">官方投递入口 ↗</a>
         <span class="job-more">展开岗位解读 ▾</span>
+      </div>
       </div>
     </article>`).join("");
 }
