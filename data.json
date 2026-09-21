@@ -1,6 +1,185 @@
 {
- "updatedAt": "2026-09-21 06:16",
+ "updatedAt": "2026-09-21 07:21",
  "news": [
+  {
+   "id": "a152",
+   "title": "Google 开源 AX：用 YAML 声明式编排集群里的 Agent 任务",
+   "summary": "Google 低调开源声明式 Agent 编排器 AX，任务与工作区都是 ax.io/v1alpha1 的 YAML manifest，ax apply 提交、ax watch 看状态、ax ssh 进沙箱调试。",
+   "content": "如果你写过 Kubernetes 的 Deployment，AX 几乎零学习成本：一个 Agent 任务就是一份 YAML，字段是 ax.io/v1alpha1，提交用 ax apply，观察用 ax watch，想钻进沙箱看 Agent 到底在干嘛就 ax ssh。它把 Agent 当成集群工作负载来调度，宣称能跑「几十亿个」自主任务。对信工学院的同学来说，这是把「容器编排」和「AI Agent」两门知识缝在一起的好素材：课设里如果要做多 Agent 协作，不必自己写调度循环，直接照 K8s 那套心智模型套上去。建议先用 minikube 或单机 Docker 跑通官方 quickstart，再读它的 CRD 定义，理解声明式与命令式的差别。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Kubernetes",
+    "YAML"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**用你已经会的 K8s 思路去编排 AI Agent，是简历上少见的交叉技能点。**",
+   "courses": "对应《云计算与容器技术》《分布式系统》，课设可用 AX 替代自研调度器。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "任务/工作区均为 ax.io/v1alpha1 的 YAML manifest，ax apply 提交、ax watch 观察",
+    "ax ssh 可直接进入 Agent 沙箱排查运行状态",
+    "把 Agent 当集群工作负载调度，复用 K8s 心智模型",
+    "适合做多 Agent 协作类课设的编排底座"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502639/google-ax"
+  },
+  {
+   "id": "a153",
+   "title": "Jev 判断模型刷屏：不生成文本，专做 Agent 的决策层",
+   "summary": "Jev 是一个不产出文本的「判断模型」，用 Choice/Noul/Score 做 Agent 判断层，改造 Codex、BrowserUse 后速度明显提升，GitHub 相关项目数天破万星。",
+   "content": "大模型负责「说」，Jev 负责「选」。它不生成文本，只输出判断结果，典型用法是嵌在 Agent 循环里做分支决策：下一步调哪个工具、这条结果要不要采纳、置信度多少。对软件工程和信息安全专业的同学，这有两层价值：一是工程上，把「决策」从「生成」里拆出来，能显著降低延迟和 token 成本，做课设里的 Agent 时可以直接替换掉原来的 if-else 或二次 LLM 调用；二是安全上，判断层是天然的可审计点——所有决策都过一遍打分，异常行为更容易被拦。建议先跑通官方 demo，再把它接到你现有的 Agent 项目里对比耗时。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会把 Agent 的决策层单独抽出来，是当前 Agent 工程里最实用的架构技巧之一。**",
+   "courses": "对应《人工智能导论》《软件体系结构》，课设可将其作为 Agent 决策模块。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "不生成文本，只输出 Choice/Noul/Score 等判断结果",
+    "嵌入 Agent 循环做工具选择与结果采纳决策",
+    "拆分「决策」与「生成」可降低延迟和 token 开销",
+    "判断层是安全审计与行为拦截的天然切入点"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502633"
+  },
+  {
+   "id": "a154",
+   "title": "开源项目让 Apple Silicon 跑起完整 iOS 27 虚拟化",
+   "summary": "有开源项目在 Apple Silicon 上实现了完整的 iOS 27 虚拟化能力，Mac 上可直接跑 iOS 系统环境。",
+   "content": "这条对信息安全方向的同学尤其值得关注：虚拟化是移动安全研究的基础设施。过去在 Mac 上分析 iOS 应用行为、做动态调试、观察 App 的沙箱与权限调用，要么依赖真机，要么受限于不完整的模拟环境。完整虚拟化意味着可以在隔离环境里跑真实 iOS 系统，做恶意样本行为观察、隐私合规检测、越权调用验证。软件工程方向则可以借它做跨端测试环境的搭建。建议先确认自己机器的芯片型号与系统版本是否在支持列表内，再按仓库 README 走一遍安装流程；如果打算做安全方向的毕设或大创，这是一个能明显降低硬件成本的选择。",
+   "source": "InfoQ中文",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "虚拟化"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**移动安全研究不再必须依赖真机，虚拟化环境让 iOS 分析变得可复现。**",
+   "courses": "对应《移动应用安全》《操作系统》，可用于安全方向课设与毕设环境搭建。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "在 Apple Silicon 上实现完整 iOS 27 虚拟化",
+    "为 iOS 应用动态分析提供隔离运行环境",
+    "可用于恶意样本行为观察与隐私合规检测",
+    "需先核对芯片型号与系统版本支持情况"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/VqzNwHg56aUUjh9PvVCW?utm_source=rss&utm_medium=article",
+   "cover": "img/a154.jpg"
+  },
+  {
+   "id": "a155",
+   "title": "qKnow v3.1.4：Agent 编排资产可导入复用、可迁移",
+   "summary": "qKnow 专业版 v3.1.4 围绕 Agent 对话记忆管控、编排资产导入复用、思考过程展示开关三项能力更新，解决智能体从试用到交付的落地问题。",
+   "content": "企业做 Agent 最痛的不是模型不够强，而是编排逻辑没法复用：换个项目就得从头拖一遍流程。这次更新把 Agent 与工作流的编排资产做成可导入、可迁移的形态，同时加了对话记忆管控和思考过程展示开关。对工业软件实验班的同学，这正好对应「软件复用」和「配置管理」两个老话题在新场景下的落地：编排资产本质上是可版本化的工程产物，和你们在《软件工程》里学的构件复用是同一套逻辑。建议拿它做一个「同一套编排迁移到两个不同业务」的对比实验，写进课设报告里，比单纯调 API 有说服力。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "value": "**理解「编排资产可复用」是 Agent 从 demo 走向交付的关键工程能力。**",
+   "courses": "对应《软件工程》构件复用与配置管理章节，可作为课设案例。",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Agent/工作流编排资产支持导入复用与迁移",
+    "新增对话记忆管控与思考过程展示开关",
+    "解决智能体从试用走向交付时的复用与管控问题",
+    "编排资产本质是可版本化的工程构件"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502632"
+  },
+  {
+   "id": "a156",
+   "title": "用 Amazon Bedrock AgentCore Memory 让语音与聊天 Agent 共享长期记忆",
+   "summary": "DEV 教程演示如何用 Bedrock AgentCore Memory、Strands 与 Amplify Gen 2，在语音 Agent 和聊天 Agent 之间共享同一份长期记忆。",
+   "content": "同一个用户，先在电话里说了需求，转头打开 App 又得重讲一遍——这是全渠道 Agent 最典型的体验断裂。这篇教程用 Amazon Bedrock AgentCore Memory 做统一记忆层，Strands 写 Agent 逻辑，Amplify Gen 2 搭前端，把语音和聊天两条通道的记忆打通。对软件工程专业来说，这是一个完整的「后端记忆服务 + 前端接入」全栈练习：你会接触到会话状态管理、记忆的写入与检索策略、以及多端身份对齐。建议不要照抄，而是先想清楚「哪些信息值得长期记、哪些该过期」，这是设计记忆层时最容易翻车的地方。",
+   "source": "DEV Community",
+   "date": "2026-09-21",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "AWS",
+    "AI Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**全栈 + Agent 记忆层的组合练习，比单纯调 API 更能体现工程能力。**",
+   "courses": "对应《Web 应用开发》《软件工程》，可作为全栈课设的进阶选题。",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "用 AgentCore Memory 做语音与聊天 Agent 的统一记忆层",
+    "Strands 负责 Agent 逻辑，Amplify Gen 2 负责前端接入",
+    "涉及会话状态管理、记忆写入与检索策略",
+    "多端身份对齐是共享记忆的前置问题"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Omnichannel AI agents: sharing long-term memory between a voice and a chat agent with Amazon Bedrock AgentCore Memory, Strands and Amplify Gen 2",
+   "link": "https://dev.to/aws-builders/omnichannel-ai-agents-sharing-long-term-memory-between-a-voice-and-a-chat-agent-with-amazon-4003",
+   "cover": "img/a156.webp"
+  },
   {
    "id": "a146",
    "title": "AI编程工具ZCode被曝上传完整.git历史：本地代码隐私怎么守",
@@ -25,7 +204,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "AI编程IDE可能上传完整.git历史，删除过的密钥仍在对象库中",
@@ -252,8 +431,7 @@
     "用课设练手，积累面试可讲的实战经验"
    ],
    "buzz": [],
-   "link": "https://juejin.cn/post/7687571303131234355",
-   "cover": "img/a142.png"
+   "link": "https://juejin.cn/post/7687571303131234355"
   },
   {
    "id": "a143",
@@ -1703,8 +1881,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide",
-   "cover": "img/a94.png"
+   "link": "https://github.com/Snailclimb/JavaGuide"
   },
   {
    "id": "a95",
