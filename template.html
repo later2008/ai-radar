@@ -281,7 +281,7 @@ main { min-width: 0; }
   .chip-tag.active { color: var(--accent); }
   /* 新闻列表：卡片堆 → 单列分隔线信息流（去每卡圆角/边框/阴影/入场动画） */
   .news-list { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; gap: 0; }
-  .news-card { border: none; border-bottom: 1px solid #eef2f7; border-radius: 0; padding: 13px 14px; box-shadow: none; transform: none; }
+  .news-card { border: none; border-bottom: 8px solid #eef2f7; border-radius: 0; padding: 13px 14px; box-shadow: none; transform: none; }
   .news-card:last-child { border-bottom: none; }
   .news-card.anim-in { animation: none; }
   .news-card:active { background: #f8fafc; }
@@ -290,6 +290,9 @@ main { min-width: 0; }
   .nc-head .tag-stack, .nc-head .badge-hot { display: none; }
   .nc-src { font-size: 12px; }
   .nc-title { font-size: 16px; line-height: 1.42; }
+  /* 标题区（来源行+标题）蓝色底，突出每条信息的开头 */
+  .nc-top { margin: -13px -14px 10px; padding: 10px 14px 9px; background: linear-gradient(180deg, #e3efff, #dbe9fd); border-bottom: 1px solid #cfe1f9; }
+  .news-card.open .nc-top { background: linear-gradient(180deg, #dbe9fd, #d3e4fc); }
   .nc-value { font-size: 12.5px; line-height: 1.6; margin-top: 7px; padding: 5px 10px; background: #f8fafc; border-left: 2px solid #cbd5e1; color: #475569; }
   .nc-value b { color: #334155; }
   .gm { color: inherit; border-bottom: none; cursor: default; }
@@ -297,10 +300,13 @@ main { min-width: 0; }
   .nc-foot { gap: 4px 6px; margin-top: 8px; }
   /* 岗位列表：同样分隔线化 */
   .job-list { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; gap: 0; }
-  .job-card { border: none; border-bottom: 1px solid #eef2f7; border-radius: 0; padding: 13px 14px; box-shadow: none; transform: none; }
+  .job-card { border: none; border-bottom: 8px solid #eef2f7; border-radius: 0; padding: 13px 14px; box-shadow: none; transform: none; }
   .job-card:last-child { border-bottom: none; }
   .job-card.anim-in { animation: none; }
   .job-title { font-size: 15.5px; }
+  /* 岗位卡标题区同样蓝色底 */
+  .job-top { margin: -13px -14px 10px; padding: 12px 14px; background: linear-gradient(180deg, #e3efff, #dbe9fd); border-bottom: 1px solid #cfe1f9; }
+  .job-card.open .job-top { background: linear-gradient(180deg, #dbe9fd, #d3e4fc); }
   /* 板块说明：移动端直接用精简短句（.jt-full/.jt-short 切换），不做折叠 */
   .job-tip { padding: 12px 14px; }
   .jt-full { display: none; }
@@ -638,14 +644,16 @@ function renderNews() {
   $("#news-list").innerHTML = pageItems.map((n, i) => `
     <article class="news-card anim-in" data-nid="${n.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
       <div class="nc-main">
-        <div class="nc-head">
-          <span class="nc-src">${n.source}</span><span>${n.date}</span>
-          <span class="tag">${CATS[n.cat] || n.cat}</span>
-          ${(n.stack || []).slice(0, 2).map((s) => `<span class="tag tag-stack">${s}</span>`).join("")}
-          ${n.lang === "en" ? `<span class="badge-en">译文 · 附原文</span>` : ""}
-          ${n.heat >= 85 ? `<span class="badge-hot">🔥 热度 ${n.heat}</span>` : ""}
+        <div class="nc-top">
+          <div class="nc-head">
+            <span class="nc-src">${n.source}</span><span>${n.date}</span>
+            <span class="tag">${CATS[n.cat] || n.cat}</span>
+            ${(n.stack || []).slice(0, 2).map((s) => `<span class="tag tag-stack">${s}</span>`).join("")}
+            ${n.lang === "en" ? `<span class="badge-en">译文 · 附原文</span>` : ""}
+            ${n.heat >= 85 ? `<span class="badge-hot">🔥 热度 ${n.heat}</span>` : ""}
+          </div>
+          <div class="nc-title">${termify(n.title)}</div>
         </div>
-        <div class="nc-title">${termify(n.title)}</div>
         ${n.value ? `<div class="nc-value">💡 ${fmtValue(n.value)}</div>` : ""}
         <div class="nc-summary">${termify(n.summary)}</div>
         <div class="nc-detail">
