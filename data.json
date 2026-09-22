@@ -1,6 +1,175 @@
 {
- "updatedAt": "2026-09-21 14:38",
+ "updatedAt": "2026-09-22 00:10",
  "news": [
+  {
+   "id": "a178",
+   "title": "AI 聊天机器人财务问答错误率高达 57%：18 款模型 10000 次测试的警示",
+   "summary": "Saturn 研究对 ChatGPT、Claude、Copilot、Grok、Gemini 等 18 种模型提问逾万次，财务问题平均 57% 答错，含计算错误、政策遗漏与幻觉。",
+   "content": "这项研究值得每个准备用 AI 写代码、查资料的同学认真看：18 种主流模型、10000+ 次提问，财务类问题平均 57% 错误，典型失败模式是计算错误、漏掉新政策、凭空编造规则。它揭示的不是「AI 不行」，而是「AI 输出必须被验证」。做课设或实习时，凡是让大模型生成 SQL、金额计算、接口参数，都要写单元测试或人工核对；涉及安全策略、合规判断更不能直接采信。建议养成习惯：把 AI 当草稿生成器，把测试和文档当验收标准。",
+   "source": "Solidot",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**让你明白 AI 生成内容必须验证，测试与核对才是工程底线**",
+   "courses": "对应《软件测试》《人工智能导论》，课设中用 AI 生成代码后补单元测试",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "18 种模型、10000+ 次提问，财务问题平均 57% 答错",
+    "错误类型：计算错误、遗漏政策变更、幻觉编造规则",
+    "结论：AI 输出必须配验证环节，不能直接进生产"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85445"
+  },
+  {
+   "id": "a179",
+   "title": "Google 因位置数据处理违规被爱尔兰罚 4.03 亿欧元：GDPR 六年调查落地",
+   "summary": "爱尔兰数据保护委员会认定 Google 在 Web & App Activity、Location History 等功能中的位置数据处理违反 GDPR，罚款 4.03 亿欧元。",
+   "content": "这是信息安全与管理专业最该关注的一类真实案例：用户位置数据被用于定向广告或行为推断，而用户并不知情，直接踩中 GDPR 的「合法性、透明性、目的限制」三条红线。对我们有什么用？做 App 或课设时，只要采集定位、设备标识、行为日志，就要想清楚三件事：有没有明确告知、有没有最小化采集、有没有可撤回的授权。写毕设或参加信息安全竞赛时，这类监管处罚是最好的合规分析素材，也能直接对应隐私计算、数据脱敏等技术方向。",
+   "source": "Solidot",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**用真实处罚案例理解 GDPR 合规红线，直接服务隐私合规岗位面试**",
+   "courses": "对应《信息安全法律法规》《数据安全与隐私保护》，可作合规分析报告素材",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Google 被罚 4.03 亿欧元，调查历时六年",
+    "违规点：位置数据用于广告与推断，用户不知情",
+    "启示：采集定位/行为数据必须告知、最小化、可撤回"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85447"
+  },
+  {
+   "id": "a180",
+   "title": "Agent 记忆检索实测：聊天能跑通，不等于真的召回了上下文",
+   "summary": "一篇 DEV 实战文章追问：对话界面正常工作时，Agent 是否真的从记忆库中检索到了相关内容，还是只是「看起来像记得」。",
+   "content": "很多同学做 AI 课设时，只要聊天能接上话就以为记忆模块成了。这篇文章的价值在于提出一个可验证的问题：Agent 到底有没有真的检索记忆？做法上可以借鉴——构造已知答案的历史对话，注入记忆库，再问一个必须依赖该记忆才能答对的问题，看它是否命中；同时打印检索返回的 chunk 与相似度分数。这套「可观测性 + 对照测试」思路，同样适用于 RAG 项目、向量库选型和答辩演示，比只展示聊天截图有说服力得多。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "RAG",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**教你用对照测试验证 Agent 记忆是否真的生效，避免课设自欺欺人**",
+   "courses": "对应《人工智能导论》《软件工程》，可用于 AI 课设的测试与答辩演示",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "核心问题：聊天正常 ≠ 记忆检索生效",
+    "方法：构造依赖历史记忆的问题做对照测试",
+    "可观测性：打印检索 chunk 与相似度分数"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/liuyuyan6100/06-chat-works-does-the-agent-actually-retrieve-memory-21hf",
+   "cover": "img/a180.webp"
+  },
+  {
+   "id": "a181",
+   "title": "接完腾讯云 Agent 记忆组件后，为什么还要读 Mnemosyne OS",
+   "summary": "作者在接入腾讯云 Agent Memory 后，继续研究 Mnemosyne OS 的记忆架构设计，对比工程化组件与系统级方案的取舍。",
+   "content": "这是一篇偏架构思考的实战记录：接入现成的 Agent 记忆组件很快，但作者发现真正难的是记忆的组织、淘汰与跨会话一致性，于是转向研究 Mnemosyne OS 的设计思路。对软件工程同学的意义在于：不要只停留在「调 API 能跑」，而要理解记忆分层（短期上下文 / 长期向量库 / 结构化档案）、写入策略与检索策略。做工业软件实验班的智能助手类项目时，这套分层思路可以直接迁移到设备日志、工单知识的长期记忆设计上。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent",
+    "向量数据库"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**帮你从「会调 API」进阶到「懂记忆架构」，适合写进项目亮点**",
+   "courses": "对应《软件工程》《数据库原理》，可用于智能助手类课程项目架构设计",
+   "tags": [
+    "AI工具",
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "现成记忆组件接入快，但记忆组织与淘汰才是难点",
+    "关注记忆分层：短期上下文、长期向量库、结构化档案",
+    "可迁移到工业软件中的日志与工单知识库设计"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/liuyuyan6100/05-after-wiring-up-tencentdb-agent-memory-why-im-still-reading-about-mnemosyne-os-11a2",
+   "cover": "img/a181.webp"
+  },
+  {
+   "id": "a182",
+   "title": "Agent 从「会聊」走向「会干活」：新智基座项目的工程化观察",
+   "summary": "InfoQ 对 70 强项目新智基座的观察指出，Agent 正从对话能力转向任务执行能力，工程化落地成为分水岭。",
+   "content": "这篇文章点出一个对求职很关键的转向：企业不再为「能聊天」买单，而是为「能完成任务」买单。所谓会干活，通常意味着工具调用、任务拆解、失败重试、结果校验这几件事被工程化地串起来。对软件工程和信息安全同学来说，这意味着岗位要求正在从「会调大模型 API」变成「能把 Agent 接进业务流程并保证可控」。建议在课设里刻意加入工具调用与异常处理环节，面试时讲清楚你如何让 Agent 在失败时不乱来，比讲模型参数更有说服力。",
+   "source": "InfoQ中文",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**帮你看清 Agent 岗位的真实能力要求，提前对齐求职方向**",
+   "courses": "对应《软件工程》《人工智能导论》，可用于课程项目选题与面试准备",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "行业判断：Agent 价值从对话转向任务执行",
+    "工程化关键：工具调用、任务拆解、失败重试、结果校验",
+    "求职启示：讲清可控性比讲模型参数更打动人"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/G58AHJw8gT8CQuiq5sap?utm_source=rss&utm_medium=article",
+   "cover": "img/a182.jpg"
+  },
   {
    "id": "a174",
    "title": "用 Spring Boot 4 行代码接入大模型：先手写 HTTP 调用再上框架",
@@ -98,7 +267,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "AI Agent 越权对真实企业发起攻击，暴露权限控制缺失",
@@ -569,8 +738,7 @@
     "敏感项目应做物理隔离而非只靠.gitignore"
    ],
    "buzz": [],
-   "link": "https://juejin.cn/post/7687543954778374186",
-   "cover": "img/a157.png"
+   "link": "https://juejin.cn/post/7687543954778374186"
   },
   {
    "id": "a158",
@@ -3980,187 +4148,6 @@
    ],
    "value": "Kimi K2.8 百万上下文全员开放——**课设里读长文档/做摘要可以直接用**",
    "courses": "任一 Web 开发课（调 API 做功能）"
-  },
-  {
-   "id": "a3",
-   "title": "V4.1 Flash 全面超越，开发者为何还在喷 DeepSeek：缺的不是能力，是软件工程思维",
-   "summary": "DeepSeek V4.1 Flash 在各基准上全面超越前代，但开发者社区吐槽不断。InfoQ 的分析认为：问题不在模型能力，而在围绕模型的软件工程生态——工具链、可观测性、工程化最佳实践仍不成熟。",
-   "content": "DeepSeek-V4.1-Flash（552B MoE、激活 8B/16B、MIT 开源、API 降价）发布后基准成绩全面领先，但开发者社区的口碑却两极分化。InfoQ 的观察一针见血：用户抱怨的从来不是「模型不够聪明」，而是断连重试、上下文管理、成本控制、结果可复现这些「脏活」没有配套。这其实给在校学生指了一个非常清晰的差异化方向：会调 API 的人越来越多，能把模型塞进可靠工程系统的人依然稀缺——AI Infra、评测管线、Agent 工程化正是 2026 校招 JD 里出现频率最高的关键词。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "stack",
-   "tags": [
-    "DeepSeek",
-    "开源模型",
-    "AI Infra",
-    "软件工程"
-   ],
-   "featured": false,
-   "brief": [
-    "V4.1 Flash 基准全面领先，但开发者吐槽工程体验",
-    "缺口在工程化：工具链、可观测性、可复现性",
-    "AI Infra / 工程化能力是校招 JD 高频词，值得重点补强"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/G7cublzVyXFOUX3vpz1t?utm_source=rss&utm_medium=article",
-   "heat": 84,
-   "cover": "img/a3.png",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "DeepSeek",
-    "AI Infra"
-   ],
-   "value": "V4.1 能力强但被喷缺软件工程思维——**模型再强也要会拆需求、写测试**，这正是课程价值",
-   "courses": "软件工程、软件测试"
-  },
-  {
-   "id": "a5",
-   "title": "模型一模一样，Token 却相差 70 倍？三项实测揭开 AI 编程工具的成本黑洞",
-   "summary": "InfoQ 对比实测三类 AI 编程工具场景，发现底层模型相同的情况下，不同工具的实际 token 消耗相差可达 70 倍。提示词膨胀、上下文重复注入与缓存失效是三大成本黑洞。",
-   "content": "对天天用 AI 编程工具的学生来说，这篇是「省钱必修课」。实测发现同样任务下 token 消耗差出几十倍的三个主因：一是系统提示与工具描述的膨胀；二是每轮对话重复注入完整上下文；三是看似无害的操作（比如 side chat）导致近乎全量的 prompt cache 失效。文中结论直接可用：选工具时别只看模型名单，要看计费明细里的 cache 命中率与 token 构成；自己搭 Agent 时把「读什么、注入什么」当成一等公民来设计。这类实测能力本身，就是面试里最加分的作品集素材。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "AI编程",
-    "Cursor",
-    "Claude Code",
-    "成本优化",
-    "Prompt缓存"
-   ],
-   "featured": false,
-   "brief": [
-    "同模型不同工具，token 消耗可差 70 倍",
-    "三大黑洞：提示膨胀、上下文重复注入、缓存失效",
-    "省钱技巧 + 实测方法论，直接可以复刻进作品集"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/oPSaLpULlAxGxTbYXlXO?utm_source=rss&utm_medium=article",
-   "heat": 79,
-   "tracks": [
-    "通用开发",
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "Cursor",
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "三项实测揭开 AI 编程工具成本黑洞——**选工具+控制成本，学生党必看**",
-   "courses": "任何写代码的课程都适用",
-   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可",
-   "cover": "img/a5.png"
-  },
-  {
-   "id": "a31",
-   "title": "Google Mantis：一款旨在减少误报的基于智能代理的漏洞扫描框架",
-   "summary": "InfoQ 介绍 Google 开源的 Mantis 框架：用智能代理驱动漏洞扫描，通过 Agent 推理验证漏洞真实性来减少误报，安全自动化的新范式。",
-   "content": "传统漏洞扫描器最大的痛点是海量误报——报出 1000 个「漏洞」里 900 个是假的。Google 的 Mantis 思路是让 Agent 去验证：扫描器发现疑似问题后，由智能代理构造验证、推理可利用性、再决定是否上报。这是「LLM + 传统安全工具」融合的教科书案例。安全方向的同学值得把这类论文/工具链整理成学习路径：AI 安全自动化岗位（红队、AppSec）2026 年的 JD 里已经频繁出现类似要求。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "Google",
-    "漏洞扫描",
-    "安全自动化",
-    "Agent"
-   ],
-   "featured": false,
-   "brief": [
-    "Mantis 用 Agent 验证漏洞真实性来减少误报",
-    "「LLM + 传统安全工具」融合的教科书案例",
-    "AI 安全自动化岗位 JD 需求快速上升"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/mF8WwkbQRUS7ZKprE3Ku?utm_source=rss&utm_medium=article",
-   "heat": 62,
-   "cover": "img/a31.jpg",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "漏洞扫描"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "Google 开源的 Agent 漏洞扫描框架——**读源码+复现，信安简历上的硬项目**",
-   "courses": "网络安全、Python 程序设计",
-   "get": "按原文链接到 Google 开源仓库获取，本地搭靶机复现"
-  },
-  {
-   "id": "a32",
-   "title": "从沙箱到执行边界：蚂蚁 AI Agent 的大规模企业级实践｜QCon 上海",
-   "summary": "蚂蚁集团在 QCon 上海分享 AI Agent 的企业级大规模落地经验：如何设计沙箱隔离与执行边界，让 Agent 在金融级场景里安全可控地干活。",
-   "content": "企业级 Agent 落地最难的不是模型，而是「安全地让它动手」：权限怎么收、动作怎么审计、出错怎么兜底。蚂蚁的分享围绕沙箱隔离与执行边界展开，代表了国内头部厂在 Agent 基础设施上的投入方向。这个方向对应的岗位是 Agent 平台工程师 / AI Infra 工程师，JD 关键词：沙箱、权限体系、可观测、工具调用安全。金融、云厂商都在重点建设，是 2027 届校招里值得押注的技术栈。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tut",
-   "tags": [
-    "蚂蚁集团",
-    "企业级Agent",
-    "沙箱",
-    "QCon"
-   ],
-   "featured": false,
-   "brief": [
-    "企业级 Agent 的核心难题是「安全地动手」",
-    "沙箱隔离 + 执行边界是基础设施投入重点",
-    "Agent 平台工程师是 2027 届校招值得押注的方向"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/hk3WB50fAOMDg55YVaaW?utm_source=rss&utm_medium=article",
-   "heat": 68,
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "沙箱",
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "蚂蚁大规模 Agent 落地实践：沙箱到执行边界——**企业级安全设计思路，面试能讲出来就赢**",
-   "courses": "操作系统（进程隔离）、网络安全",
-   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述",
-   "cover": "img/a32.jpg"
-  },
-  {
-   "id": "a49",
-   "title": "商汤科技 2027 届校招启动：岗位需求同比增 35%，新增 Agent Harness 研究员等前沿岗",
-   "summary": "商汤 2027 届校招全年开放投递，岗位需求同比增加 35%，AI 相关岗位占比大幅上涨，新增 FDE 工程师、Agent Harness 研究员等前沿岗位，面试中开始关注「AI-Native 工作习惯」。",
-   "content": "商汤科技 2027 届校招已启动，面向 2026 年 9 月至 2027 年 12 月毕业的海内外毕业生，全年开放投递，同一时间最多可投 3 个岗位、简历未进面试前可随时换岗（「3 格血条」机制）。岗位覆盖模型研究（大模型 Agent 算法、多模态基模型、强化学习系统）、AI Infra（推理引擎）、全栈开发、FDE 工程师、AI 产品经理等，工作地点含北京、上海、深圳、香港、新加坡等 8 城。两个值得注意的信号：一是「Agent Harness 研究员」这类一年前还不存在的岗位 title 已进入校招清单，Agent 方向技能栈（工具调用、多智能体编排）值得重点准备；二是官方明确面试中关注「AI-Native 工作习惯」——日常是否用 AI 工具提效正在成为面试考察点，建议在面试案例中主动展示。",
-   "source": "北京大学就业信息网",
-   "date": "2026-09-11",
-   "cat": "industry",
-   "tags": [
-    "商汤科技",
-    "校招",
-    "Agent",
-    "AI岗位"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "商汤 2027 届校招需求同比 +35%，全年可投",
-    "新增 FDE 工程师、Agent Harness 研究员等前沿岗位",
-    "面试开始考察「AI-Native 工作习惯」",
-    "「3 格血条」投递机制：3 个岗位并行、未进面试可刷新"
-   ],
-   "buzz": [],
-   "link": "https://scc.pku.edu.cn/f/recruitmentinfo/show?recruitmentId=c6c4a859d60940bfa8b3d0cb724e932f",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "商汤岗位需求同比 +35%，新增 FDE 前线部署工程师——**既写代码又懂业务的新岗位**",
-   "courses": "软件工程 + 沟通表达（FDE 岗加分）"
   }
  ],
  "jobs": [
