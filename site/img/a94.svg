@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 132" width="208" height="132">
-<rect width="208" height="132" fill="#D97706"/><rect y="66" width="208" height="66" fill="#92400E"/>
-<g transform="translate(74,-4) scale(0.5)"><rect x="28" y="34" width="64" height="26" rx="5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><rect x="28" y="68" width="64" height="26" rx="5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><circle cx="42" cy="47" r="4" fill="rgba(255,255,255,.85)"/><circle cx="42" cy="81" r="4" fill="rgba(255,255,255,.85)"/></g>
-<text x="14" y="118" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,.85)">GitHub</text>
-<circle cx="188" cy="20" r="4" fill="rgba(255,255,255,.4)"/><circle cx="172" cy="20" r="4" fill="rgba(255,255,255,.25)"/>
-</svg>

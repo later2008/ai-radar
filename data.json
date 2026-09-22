@@ -1,6 +1,277 @@
 {
- "updatedAt": "2026-09-19 01:08",
+ "updatedAt": "2026-09-22 06:10",
  "news": [
+  {
+   "id": "a121",
+   "title": "微软用AI把Copilot运行时从43万行TS重写成80万行Rust，性能提升15.9倍",
+   "summary": "微软工程师仅花12万美元token成本和三周时间，用AI agents将GitHub Copilot运行时从TypeScript迁移到Rust，性能提升15.9倍。",
+   "content": "这个案例值得软件工程专业同学认真研究：微软没有手写代码，而是让AI agents完成43万行TS到80万行Rust的迁移，成本仅12万美元。它说明两件事：一是Rust在性能敏感场景的替代趋势已经进入大厂核心链路；二是「AI辅助大规模重构」正成为真实工程能力。你可以把它当作技术选型和AI工程化的双重案例：理解为什么选Rust（内存安全+性能），以及如何用Agent做代码迁移。面试聊到「AI对软件开发的影响」时，这是有数据、有细节的硬例子，比空谈「AI会取代程序员」有说服力得多。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "TypeScript"
+   ],
+   "value": "**理解AI驱动的大规模代码迁移如何落地，是面试和职业规划的高质量谈资**",
+   "courses": "对应《软件工程》《程序设计》——把重构与AI辅助开发结合思考",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "43万行TS→80万行Rust，AI agents完成迁移",
+    "成本12万美元token+1名工程师3周",
+    "性能提升15.9倍，Rust替代趋势明显",
+    "可作为面试中AI工程化的硬案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502646/ms-agentically-ports-copilot-runtime-to-rust-for-120k"
+  },
+  {
+   "id": "a122",
+   "title": "DjangoAdmin Flask+EleVue v2.8.2发布：Vue3+TS+ElementPlus的企业级中台脚手架",
+   "summary": "基于Flask、Vue3、TypeScript、ElementPlus、Vite的前后端分离企业级数据中台方案，内置按钮级RBAC权限体系。",
+   "content": "这是一个可以直接拿来当课设或毕业设计底座的开源项目。技术栈覆盖Vue3+TypeScript+ElementPlus+Vite（前端）和Flask（后端），内置用户/角色/权限菜单/部门/日志/数据字典/任务调度等模块，权限管控精细到按钮和方法级别。对软件工程同学的价值：一是省去从零搭后台管理的时间，把精力放在业务逻辑上；二是它的RBAC设计是信息安全与管理专业理解「访问控制」的活教材。建议做法：拉下来跑通，读一遍权限校验的中间件代码，再尝试加一个自己的业务模块。",
+   "source": "开源中国",
+   "date": "2026-09-22",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "Java"
+   ],
+   "stack": [
+    "Vue3",
+    "Flask"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**拿来即用的企业级中台底座，省下搭框架的时间专注业务与权限设计**",
+   "courses": "对应《Web应用开发》《数据库原理》——用作课程设计的前后端分离实践",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Vue3+TS+ElementPlus+Vite+Flask全栈脚手架",
+    "内置按钮/方法级RBAC权限体系",
+    "适合直接作为课设/毕设底座",
+    "信息安全专业可研究其访问控制实现"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502655"
+  },
+  {
+   "id": "a123",
+   "title": "快手电商导购Agent的Harness Loop实践：复杂业务Agent如何持续进化",
+   "summary": "QCon上海分享，快手电商导购场景下Agent的Harness Loop工程实践，讲复杂业务中Agent如何迭代优化。",
+   "content": "如果你在简历上写「做过Agent」，面试官很可能追问：线上效果怎么保证、怎么迭代？这篇分享给了一个真实答案——Harness Loop（约束循环）机制。核心思路是给Agent套一层可控的执行与评估循环，让它在复杂业务里不跑偏、能持续优化。对软件工程同学来说，这是从「会调API写demo」到「理解生产级Agent工程」的桥梁。建议重点看它的循环设计、失败处理和评估指标，这些正是课设demo和工业级系统的差距所在。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**看懂生产级Agent的迭代机制，让你的「做过Agent」经得起面试追问**",
+   "courses": "对应《软件工程》《人工智能导论》——理解工程化与算法落地的结合",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "快手电商导购Agent的真实工程实践",
+    "Harness Loop：让Agent可控、可迭代",
+    "从demo到生产级Agent的关键差距",
+    "面试聊Agent项目时的加分素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/jeG84GGVYvIHaQKQfIo2?utm_source=rss&utm_medium=article",
+   "cover": "img/a123.webp"
+  },
+  {
+   "id": "a124",
+   "title": "5条护栏让LLM Agent在生产环境活下来",
+   "summary": "DEV社区文章，总结让LLM Agent从「demo能跑」到「生产可交付」的5条关键防护措施。",
+   "content": "「demo跑得通」和「生产能上线」几乎是两个项目——这句话对做过AI课设的同学应该很有共鸣。文章给出5条护栏（guardrails），覆盖输入校验、输出约束、失败兜底、成本控制、可观测性等方向。这些恰好是学生项目最容易忽略、而面试官最爱问的点。建议做法：对照自己写过的Agent/聊天机器人项目，逐条检查缺了哪几条，补上后写进简历的「项目亮点」。哪怕只落实输入校验和失败兜底两条，你的项目完成度也会明显高一个档次。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**用5条护栏把「玩具级AI项目」升级成面试官认可的工程作品**",
+   "courses": "对应《软件工程》《人工智能导论》——把质量保障意识落到AI项目里",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "demo与生产是两回事，护栏决定能否上线",
+    "5条措施覆盖校验/约束/兜底/成本/可观测",
+    "对照自己的AI项目逐条查漏",
+    "补上后可直接写进简历项目亮点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "5 Guardrails That Keep an LLM Agent Shippable in Production",
+   "link": "https://dev.to/himanshu_kawale_605156ca8/5-guardrails-that-keep-an-llm-agent-shippable-in-production-16j5",
+   "cover": "img/a124.webp"
+  },
+  {
+   "id": "a125",
+   "title": "Rust+Qwen3Guard双层安全风控架构：硬拦截+AI语义研判的落地实践",
+   "summary": "技术白皮书拆解生产环境中Rust底层硬拦截配合Qwen3Guard多语言语义研判的双层安全风控架构，含踩坑与基准数据。",
+   "content": "信息安全与管理专业的同学重点看这篇。它给出一个可复用的双层风控范式：底层用Rust做高性能硬拦截（规则、特征匹配），上层用Qwen3Guard做AI语义研判（识别绕过、多语言变体）。单靠规则会被绕过，单靠模型又慢又贵，两层配合才是工程解。文章还诚实披露了能力边界和公开基准，这种「讲清楚局限」的态度本身就值得学。建议把它当作安全课程设计或实习面试的架构参考，理解「性能层+智能层」的分工逻辑。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "stack",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Rust",
+    "Qwen3Guard"
+   ],
+   "value": "**掌握「性能层+智能层」双层风控范式，是安全方向简历的硬核亮点**",
+   "courses": "对应《信息安全技术》《网络安全》——把访问控制与内容风控结合实践",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "双层架构：Rust硬拦截+AI语义研判",
+    "解决规则易绕过、模型慢且贵的问题",
+    "含公开基准与能力边界披露",
+    "信息安全方向课设/面试的架构参考"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502652"
+  },
+  {
+   "id": "a126",
+   "title": "Go语言Agent框架covonaut v1.1.4：新增滚动工具并行池与多模态读取",
+   "summary": "面向生产环境的纯Go Agent框架，覆盖Agent主循环、工具调用、图编排与多协议互操作，本次新增滚动工具执行池。",
+   "content": "想深入理解Agent底层机制的同学可以读源码。covonaut是纯Go实现的生产级Agent框架，这次更新最有价值的是「滚动工具执行池」——解决旧方案中一个慢工具长期占住并发槽位的问题，改为单一滚动池调度，支持并行与混合两档。这是典型的工程优化思路：不是加机器，而是改调度。建议做法：读它的工具调度部分源码，理解并发池、任务排队与超时处理，这些是《操作系统》《并发编程》知识的真实应用场景，比背概念有用得多。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Go"
+   ],
+   "diff": 3,
+   "scene": "练手/简历加分",
+   "value": "**通过读生产级Agent框架源码，把并发调度知识变成真实工程能力**",
+   "courses": "对应《操作系统》《并发编程》——并发池与任务调度的实战案例",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "纯Go实现的生产级Agent框架，MIT协议",
+    "滚动工具执行池解决慢工具占槽问题",
+    "并行与混合两档调度设计",
+    "读源码可巩固并发与调度知识"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502653"
+  },
+  {
+   "id": "a127",
+   "title": "OceanBase登顶国际Data Agent榜单：国产数据库的AI新能力",
+   "summary": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark。",
+   "content": "对软件工程和信息安全同学来说，这条的价值在于「数据库+AI」这个交叉方向正在被大厂重金投入。Data Agent指的是让智能体直接理解并操作数据库、完成数据查询与分析任务，背后涉及SQL生成、schema理解、权限与安全边界。如果你在学《数据库原理》，可以顺着这个方向做点延伸：比如用LLM做自然语言转SQL的小工具，注意加上权限校验（这正好接上信息安全）。这类「数据库+AI」的复合背景，在求职时比单纯的CRUD更有辨识度。",
+   "source": "量子位",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "数据库"
+   ],
+   "value": "**抓住「数据库+AI」交叉方向，用NL2SQL小项目打造差异化简历**",
+   "courses": "对应《数据库原理》——把SQL与AI结合，注意权限安全边界",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 56,
+   "brief": [
+    "OceanBase登顶Data Agent国际基准",
+    "「数据库+AI」成为大厂重点方向",
+    "涉及SQL生成、schema理解与权限安全",
+    "可延伸做NL2SQL小项目增加简历辨识度"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/493231.html"
+  },
+  {
+   "id": "a128",
+   "title": "Rustls十周年：Rust TLS库的发展历程、基准测试与未来路线图",
+   "summary": "Rustls项目十周年回顾，涵盖其发展历程、性能基准测试结果与未来路线图。",
+   "content": "信息安全与管理专业的同学值得一读。TLS是HTTPS的底层协议，理解它的实现对做安全、后端开发都很关键。Rustls用Rust重写了TLS栈，主打内存安全——这正好切中传统C语言TLS实现（如OpenSSL）频出内存漏洞的痛点。文章包含基准测试数据，可以直观看到性能与安全的权衡。建议把它当作《网络安全》《密码学》的延伸阅读：搞懂TLS握手流程后，再看一个现代实现如何避免内存安全问题，你对「安全编码」的理解会具体很多。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "stack",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Rust",
+    "TLS"
+   ],
+   "value": "**通过现代TLS实现理解内存安全，把「安全编码」从口号变成具体认知**",
+   "courses": "对应《网络安全》《密码学》——TLS握手与安全实现的延伸学习",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "Rustls用Rust重写TLS栈，主打内存安全",
+    "对比传统C实现的内存漏洞痛点",
+    "含基准测试与未来路线图",
+    "安全/后端方向理解TLS的优质延伸阅读"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/slZSm1Qr5I1QJi0JaZjr?utm_source=rss&utm_medium=article",
+   "cover": "img/a128.webp"
+  },
   {
    "id": "a116",
    "title": "亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级",
@@ -25,7 +296,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "AL2027 预览开放，核心争议点是能否原地升级",
@@ -33,8 +304,7 @@
     "可在虚拟机复现一次升级验证，产出迁移记录"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article",
-   "cover": "img/a116.webp"
+   "link": "https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a117",
@@ -66,8 +336,7 @@
     "可用 Intent/无障碍服务做「一句话触发流程」小 Demo"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/gDSf7xBmd08H0eB0GG11?utm_source=rss&utm_medium=article",
-   "cover": "img/a117.webp"
+   "link": "https://www.infoq.cn/article/gDSf7xBmd08H0eB0GG11?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a118",
@@ -99,8 +368,7 @@
     "可自建小规模模型对比评测脚本，作为实习作品"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/O1uIfJx3CF5SZz3ayuaI?utm_source=rss&utm_medium=article",
-   "cover": "img/a118.webp"
+   "link": "https://www.infoq.cn/article/O1uIfJx3CF5SZz3ayuaI?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a119",
@@ -131,8 +399,7 @@
     "按触发条件/表现/影响/缓解整理成表，可作课程报告"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a119.webp"
+   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign="
   },
   {
    "id": "a120",
@@ -164,8 +431,7 @@
     "建议把课程模型从 PyTorch 迁到 MindSpore 跑通一次"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a119.webp"
+   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign="
   },
   {
    "id": "a112",
@@ -199,8 +465,7 @@
     "入门可从开源小模型LoRA微调练手"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680560?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a112.webp"
+   "link": "https://www.ifanr.com/1680560?utm_source=rss&utm_medium=rss&utm_campaign="
   },
   {
    "id": "a113",
@@ -266,8 +531,7 @@
     "课设给AI功能加异常处理和日志即贴近企业级"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/zFIHHoq5Tsj4ybQzpjq3?utm_source=rss&utm_medium=article",
-   "cover": "img/a114.webp"
+   "link": "https://www.infoq.cn/article/zFIHHoq5Tsj4ybQzpjq3?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a115",
@@ -303,8 +567,7 @@
     "练手：Python+SQL做可复现数据管道"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/mrl45Fq31U7JORZsV5re?utm_source=rss&utm_medium=article",
-   "cover": "img/a115.webp"
+   "link": "https://www.infoq.cn/article/mrl45Fq31U7JORZsV5re?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a106",
@@ -338,8 +601,7 @@
     "可包装成课设或简历里的AI应用项目"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1xwVr6FEh4",
-   "cover": "img/a106.webp"
+   "link": "https://www.bilibili.com/video/BV1xwVr6FEh4"
   },
   {
    "id": "a107",
@@ -369,8 +631,7 @@
     "同步准备行测与专业基础笔试"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1Vxtu6sEX7",
-   "cover": "img/a107.webp"
+   "link": "https://www.bilibili.com/video/BV1Vxtu6sEX7"
   },
   {
    "id": "a109",
@@ -403,8 +664,7 @@
     "可尝试用线程池/消息队列实现简化Agent调度器"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/CEphwKjzAe7LzbOriLcq?utm_source=rss&utm_medium=article",
-   "cover": "img/a109.webp"
+   "link": "https://www.infoq.cn/article/CEphwKjzAe7LzbOriLcq?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a110",
@@ -438,8 +698,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Why Andon Labs Puts AI Agents in Charge of Real Businesses",
-   "link": "https://spectrum.ieee.org/andon-labs-agentic-ai-businesses",
-   "cover": "img/a110.webp"
+   "link": "https://spectrum.ieee.org/andon-labs-agentic-ai-businesses"
   },
   {
    "id": "a102",
@@ -470,8 +729,7 @@
     "对分布式系统和工业软件架构学习有直接参考价值"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/brH7TRcHB9evl32KQJkY?utm_source=rss&utm_medium=article",
-   "cover": "img/a102.webp"
+   "link": "https://www.infoq.cn/article/brH7TRcHB9evl32KQJkY?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a103",
@@ -504,8 +762,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Why Make an LLM Do the Grunt Work? After Jev, Who Should Handle an Agent's Tool Work?",
-   "link": "https://dev.to/momolandnacy2del/why-make-an-llm-do-the-grunt-work-after-jev-who-should-handle-an-agents-tool-work-3nm3",
-   "cover": "img/a103.webp"
+   "link": "https://dev.to/momolandnacy2del/why-make-an-llm-do-the-grunt-work-after-jev-who-should-handle-an-agents-tool-work-3nm3"
   },
   {
    "id": "a104",
@@ -535,8 +792,7 @@
     "工业软件实验班可关注国产化替代方向的就业机会"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492476.html",
-   "cover": "img/a104.webp"
+   "link": "https://www.qbitai.com/2026/09/492476.html"
   },
   {
    "id": "a105",
@@ -569,8 +825,7 @@
     "包含免费平替方案，适合学生使用"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1wvDmBaETB",
-   "cover": "img/a105.webp"
+   "link": "https://www.bilibili.com/video/BV1wvDmBaETB"
   },
   {
    "id": "a94",
@@ -608,7 +863,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide"
+   "link": "https://github.com/Snailclimb/JavaGuide",
+   "cover": "img/a94.webp"
   },
   {
    "id": "a95",
@@ -645,8 +901,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "TheAlgorithms/Java（66277★）",
-   "link": "https://github.com/TheAlgorithms/Java",
-   "cover": "img/a95.webp"
+   "link": "https://github.com/TheAlgorithms/Java"
   },
   {
    "id": "a96",
@@ -682,8 +937,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "How to Build a Bulk Image Compressor Tool with HTML, CSS, and JavaScript",
-   "link": "https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/",
-   "cover": "img/a96.webp"
+   "link": "https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/"
   },
   {
    "id": "a97",
@@ -752,8 +1006,7 @@
     "面试聊并发时能讲底层机制，比背八股加分"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article",
-   "cover": "img/a98.webp"
+   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a99",
@@ -823,8 +1076,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
-   "cover": "img/a83.webp"
+   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/"
   },
   {
    "id": "a84",
@@ -860,8 +1112,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "GitHub Copilot app for Beginners: Using the diff, terminal, and browser",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/",
-   "cover": "img/a84.webp"
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/"
   },
   {
    "id": "a85",
@@ -895,8 +1146,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "GitHub Copilot app for Beginners: Run several agents at once",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/",
-   "cover": "img/a85.webp"
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/"
   },
   {
    "id": "a86",
@@ -967,8 +1217,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "What Go Taught Us About Java Garbage Collection",
-   "link": "https://dev.to/codenameone/what-go-taught-us-about-java-garbage-collection-25ha",
-   "cover": "img/a87.webp"
+   "link": "https://dev.to/codenameone/what-go-taught-us-about-java-garbage-collection-25ha"
   },
   {
    "id": "a88",
@@ -1004,8 +1253,7 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Valid Schema, Wrong Content: Using Jev to Guard a Google ADK Agent",
-   "link": "https://dev.to/gde/valid-schema-wrong-content-using-jev-to-guard-a-google-adk-agent-57o6",
-   "cover": "img/a88.webp"
+   "link": "https://dev.to/gde/valid-schema-wrong-content-using-jev-to-guard-a-google-adk-agent-57o6"
   },
   {
    "id": "a90",
@@ -1037,8 +1285,7 @@
     "可展示产出：靶场通关、漏洞复现报告、CTF 经历"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1uzLc68EY9",
-   "cover": "img/a90.webp"
+   "link": "https://www.bilibili.com/video/BV1uzLc68EY9"
   },
   {
    "id": "a78",
@@ -1266,8 +1513,7 @@
     "每天10分钟筛岗位，比盲目投递效率高"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1m9bY6jEjW",
-   "cover": "img/a73.webp"
+   "link": "https://www.bilibili.com/video/BV1m9bY6jEjW"
   },
   {
    "id": "a74",
@@ -1531,8 +1777,7 @@
     "对应课程中的容器化部署环节"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article",
-   "cover": "img/a65.webp"
+   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a54",
@@ -1563,8 +1808,7 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
-   "cover": "img/a54.webp"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a55",
@@ -1596,8 +1840,7 @@
     "工业软件方向可关注其模块化设计与可靠性保障机制"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
-   "cover": "img/a55.webp"
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a56",
@@ -1629,8 +1872,7 @@
     "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html",
-   "cover": "img/a56.webp"
+   "link": "https://www.qbitai.com/2026/09/491711.html"
   },
   {
    "id": "b3",
@@ -1879,7 +2121,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/eS4M9XEPmLbkxksCyAye?utm_source=rss&utm_medium=article",
    "heat": 63,
-   "cover": "img/a28.webp",
    "tracks": [
     "信息安全"
    ],
@@ -1923,8 +2164,7 @@
    ],
    "stack": [],
    "value": "平安 700+ 科技岗、AI 大数据类占 50%——**金融科技是软件工程的大买家**",
-   "courses": "Java 后端 + MySQL + 计算机网络",
-   "cover": "img/a48.webp"
+   "courses": "Java 后端 + MySQL + 计算机网络"
   },
   {
    "id": "a2",
@@ -1982,7 +2222,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/G7cublzVyXFOUX3vpz1t?utm_source=rss&utm_medium=article",
    "heat": 84,
-   "cover": "img/a3.webp",
    "tracks": [
     "Java",
     "通用开发"
@@ -2031,8 +2270,7 @@
    "scene": "课设/练手",
    "value": "三项实测揭开 AI 编程工具成本黑洞——**选工具+控制成本，学生党必看**",
    "courses": "任何写代码的课程都适用",
-   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可",
-   "cover": "img/a5.webp"
+   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可"
   },
   {
    "id": "a31",
@@ -2057,7 +2295,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/mF8WwkbQRUS7ZKprE3Ku?utm_source=rss&utm_medium=article",
    "heat": 62,
-   "cover": "img/a31.webp",
    "tracks": [
     "信息安全"
    ],
@@ -2106,8 +2343,7 @@
    "scene": "简历加分",
    "value": "蚂蚁大规模 Agent 落地实践：沙箱到执行边界——**企业级安全设计思路，面试能讲出来就赢**",
    "courses": "操作系统（进程隔离）、网络安全",
-   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述",
-   "cover": "img/a32.webp"
+   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述"
   },
   {
    "id": "a49",
@@ -2163,7 +2399,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/QPRcUdPGic5r8Ws8R1gM?utm_source=rss&utm_medium=article",
    "heat": 75,
-   "cover": "img/a9.webp",
    "tracks": [
     "Java",
     "通用开发"
@@ -2228,7 +2463,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/rlXYaPUjVR0fffbQK3Iz?utm_source=rss&utm_medium=article",
    "heat": 64,
-   "cover": "img/a33.webp",
    "tracks": [
     "Java",
     "通用开发"
@@ -2369,6 +2603,75 @@
   }
  ],
  "jobs": [
+  {
+   "id": "j28",
+   "company": "同花顺",
+   "title": "同花顺 2027届实习生招募计划",
+   "type": "实习",
+   "loc": "见公告",
+   "deadline": "公众号入口投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "实习生（技术/产品等方向）"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-21",
+   "summary": "同花顺面向 2027 届学生开放实习生招募，方向以金融科技相关技术与产品为主。适合对金融 IT、量化数据方向感兴趣的同学。",
+   "cls": "软件工程类",
+   "plain": "金融科技实习，对软件工程学生接触真实金融系统开发有帮助。",
+   "courses": "数据结构、数据库、计算机网络",
+   "hardReq": [
+    "2027届在校生",
+    "具备编程基础"
+   ],
+   "plusReq": [
+    "有金融/量化相关项目",
+    "熟悉 Python 或 Java"
+   ],
+   "selfLearn": [
+    "复习数据库与后端开发基础",
+    "了解证券行情数据基本概念"
+   ],
+   "fitWho": "对金融科技感兴趣的 2027 届学生",
+   "tips": "通过公众号入口投递，简历突出编程与数据项目"
+  },
+  {
+   "id": "j27",
+   "company": "京东",
+   "title": "京东技术行 实习（AI/大模型、云计算、搜索推荐广告、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-21",
+   "summary": "京东技术行实习面向不限届别在校生，方向含 AI/大模型、云计算大数据、搜索推荐广告与安全，工作地北京。适合想在大厂技术线做实习的同学。",
+   "cls": "信息安全类",
+   "plain": "含安全类岗位，对信息安全方向学生是进入大厂安全团队的实习机会。",
+   "courses": "计算机网络、操作系统、信息安全基础",
+   "hardReq": [
+    "在校生，专业不限",
+    "具备对应方向基础技能"
+   ],
+   "plusReq": [
+    "有安全竞赛或 CTF 经历",
+    "有云计算/大数据项目经验"
+   ],
+   "selfLearn": [
+    "复习计算机网络与系统安全基础",
+    "参与 CTF 或开源安全项目"
+   ],
+   "fitWho": "想进大厂技术线、含安全方向的在校生",
+   "tips": "按方向准备简历，安全岗可突出 CTF 与漏洞挖掘经历"
+  },
   {
    "id": "j26",
    "company": "WorkMaster高校招聘日历",
@@ -3069,39 +3372,6 @@
    ],
    "fitWho": "大三/大四，方向未定可先投技术类",
    "tips": "不确定方向的可以先投技术大类，入职后内部转岗也有空间。"
-  },
-  {
-   "id": "j4",
-   "company": "百度",
-   "title": "百度 2027 校园招聘（AI 岗占比超九成，74 个细分职位）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/广州/杭州/成都等",
-   "deadline": "全年开放投递",
-   "positions": [
-    "大模型算法工程师 30-50K",
-    "智能体开发",
-    "多模态",
-    "AI Infra",
-    "自动驾驶"
-   ],
-   "link": "https://talent.baidu.com/jobs/campus",
-   "source": "百度招聘官网",
-   "date": "2026-07-09",
-   "summary": "本届校招 AI 相关岗位占比超 90%，覆盖大模型、智能体、多模态、AI Infra、自动驾驶等赛道；大模型算法岗月薪 30-50K，顶会论文/开源贡献者优先。",
-   "cls": "软件工程类",
-   "plain": "智能体开发岗做 Agent 工作流编排与业务落地，写代码为主；大模型算法岗要求硕士起步。",
-   "courses": "Java/Python 后端、数据库、AI 应用开发",
-   "hardReq": [
-    "应届生；算法岗硕士以上"
-   ],
-   "plusReq": [
-    "了解 LangChain 类 Agent 框架"
-   ],
-   "selfLearn": [
-    "Agent 开发（工具调用、流程编排）"
-   ],
-   "fitWho": "本科主投工程/智能体方向，大三起",
-   "tips": "AI 相关岗位占比超 90%，但看清岗位门槛——算法类多要求硕博。"
   }
  ],
  "stats": [

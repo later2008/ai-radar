@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 132" width="208" height="132">
-<rect width="208" height="132" fill="#DB2777"/><rect y="66" width="208" height="66" fill="#831843"/>
-<g transform="translate(74,-4) scale(0.5)"><rect x="40" y="40" width="40" height="40" rx="6" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><rect x="52" y="52" width="16" height="16" rx="3" fill="rgba(255,255,255,.6)"/><path d="M48 40 V28 M72 40 V28 M48 100 V88 M72 100 V88 M40 52 H28 M40 76 H28 M100 52 H88 M100 76 H88" stroke="rgba(255,255,255,.7)" stroke-width="4" stroke-linecap="round"/></g>
-<text x="14" y="118" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,.85)">北京大学就业信息网</text>
-<circle cx="188" cy="20" r="4" fill="rgba(255,255,255,.4)"/><circle cx="172" cy="20" r="4" fill="rgba(255,255,255,.25)"/>
-</svg>
