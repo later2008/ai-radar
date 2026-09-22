@@ -1,6 +1,145 @@
 {
- "updatedAt": "2026-09-22 10:15",
+ "updatedAt": "2026-09-22 13:51",
  "news": [
+  {
+   "id": "a140",
+   "title": "不受控的 Agent 凭什么上生产系统？InfoQ 拆解 Agent 落地工程约束",
+   "summary": "InfoQ 讨论 Agent 进入生产环境所需的可控性设计，涉及权限、审计、回滚与失败兜底等工程问题。",
+   "content": "很多同学做课设时把 Agent 跑通就交差了，但企业里真正卡人的是「不可控」：模型乱调工具、越权访问数据、出错无法回滚。这篇文章从生产系统视角讲 Agent 的边界设计——工具调用白名单、人工确认节点、执行日志与审计、失败降级策略。对信息安全方向的同学尤其有价值：Agent 本质是一个高权限执行体，权限最小化和行为可追溯就是安全工程的老问题在新场景的复现。建议结合《软件工程》里的需求与风险分析一起读，做课设时给 Agent 加一层「操作确认 + 日志留痕」，简历上就能写出「具备生产级 Agent 可控性设计意识」。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Agent",
+    "LLM"
+   ],
+   "value": "**让你在课设和面试里都能讲清「Agent 怎么才敢上生产」，安全方向同学尤其对口**",
+   "courses": "对应《软件工程》《信息安全导论》，把风险分析与权限设计落到 Agent 场景",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Agent 上生产的核心障碍不是能力而是可控性：权限、审计、回滚",
+    "工具调用白名单 + 人工确认节点是常见兜底手段",
+    "信息安全视角：Agent 是高权限执行体，需最小权限与行为可追溯",
+    "课设加分点：给 Agent 加操作确认与日志留痕"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/3TjH8fZziNB50Qzz9tJx?utm_source=rss&utm_medium=article",
+   "cover": "img/a140.webp"
+  },
+  {
+   "id": "a141",
+   "title": "Jev 模型开放：12 分钟保姆级教程，教你接入 Codex 等 AI 编程工具",
+   "summary": "B 站程序员鱼皮发布 Jev 模型实战教程，讲清怎么接入 AI 编程工具并做速度与效果测评。",
+   "content": "AI 编程工具已经是大厂校招的隐性门槛，会用和不会用差距很明显。这个视频 12 分钟讲三件事：Jev 模型是什么、怎么接入 Codex 这类编程工具、和 DeepSeek V4 Flash 比速度效果如何。对软件工程同学来说，重点不是追新模型，而是掌握「把模型接进自己开发流」的方法——配置 API、写提示词、验证生成代码正确性。建议边看边在自己的课设项目里试一遍，比如让 AI 帮你生成一个 CRUD 接口再人工 review。这个流程走通，简历上「熟练使用 AI 编程工具提效」就不是空话。",
+   "source": "B站·程序员鱼皮",
+   "date": "2026-09-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM",
+    "Codex"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/求职准备",
+   "value": "**花 12 分钟学会把 AI 编程工具接进自己的开发流，直接提升课设效率与简历竞争力**",
+   "courses": "对应《程序设计》《软件工程》课程设计，用 AI 辅助编码并做代码审查",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "12 分钟讲清 Jev 模型接入 AI 编程工具的完整流程",
+    "含与 DeepSeek V4 Flash 的速度与效果对比",
+    "重点在「把模型接进自己的开发流」而非追新",
+    "建议在课设项目里实操一遍并人工 review 生成代码"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1wDhj6wEa8"
+  },
+  {
+   "id": "a142",
+   "title": "Jotai 3.0 发布：仅支持 ESM，摒弃旧构建方式与废弃 API",
+   "summary": "Jotai 3.0 转向纯 ESM 包，移除旧构建方式与已废弃 API，前端状态管理生态继续现代化。",
+   "content": "Jotai 是 React 生态里轻量原子化状态管理库，3.0 最大的变化是只发 ESM 包、砍掉旧构建方式和废弃 API。对前端方向同学的实际影响：一是项目里如果还在用 CJS 或老打包配置，升级会踩坑；二是这反映了整个前端生态「ESM 化」的大趋势，Vite、Rollup 新项目默认就是 ESM。建议在《Web 前端开发》课设里用 Vite + React + Jotai 搭一个小项目，亲手体验 ESM 导入导出和原子状态管理，比只背 Redux 概念更贴近现在的工程实践。面试被问状态管理方案时，能讲清 Jotai 与 Redux 的取舍就是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "stack",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "Jotai"
+   ],
+   "value": "**前端状态管理生态更新，课设选型与面试选型讨论都用得上**",
+   "courses": "对应《Web 前端开发》，在 React 课设中实践 ESM 与原子化状态管理",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Jotai 3.0 仅发 ESM 包，移除旧构建方式与废弃 API",
+    "反映前端生态整体 ESM 化趋势，Vite 新项目默认 ESM",
+    "建议用 Vite + React + Jotai 做课设小项目实操",
+    "面试可讲 Jotai 与 Redux 的选型取舍"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/JkDJyKWiavXREdAWBvJk?utm_source=rss&utm_medium=article",
+   "cover": "img/a142.webp"
+  },
+  {
+   "id": "a143",
+   "title": "快手分销增长 Agent 实践：从 AI 工具到经营智能体的工程路径",
+   "summary": "InfoQ 分享快手如何把 AI 工具演进为经营智能体，覆盖业务目标拆解与工程落地。",
+   "content": "这是一篇真实业务场景的 Agent 落地复盘：快手把 AI 从单点工具做成「经营智能体」，服务于分销增长。对软件工程同学的价值在于看工程化思路——业务目标怎么拆成 Agent 可执行的任务、效果怎么度量、线上怎么迭代。工业软件实验班的同学尤其值得读：工业场景和增长场景一样，都是「业务流程 + 数据 + 决策」的组合，Agent 落地方法论可以迁移。建议带着问题读：它的任务拆解粒度是什么？失败怎么处理？把答案整理成笔记，做课设或写简历项目描述时直接能用。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Agent",
+    "LLM"
+   ],
+   "value": "**看大厂怎么把 Agent 从工具做成业务系统，工业软件方向可迁移的落地方法论**",
+   "courses": "对应《软件工程》《软件体系结构》，理解业务到系统的拆解过程",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "真实业务场景的 Agent 落地复盘，非概念科普",
+    "重点看业务目标如何拆解为 Agent 可执行任务",
+    "工业软件场景可迁移：业务流程 + 数据 + 决策",
+    "建议整理任务拆解粒度与失败处理成笔记"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/7suOC8BJWYA4yx6dvZXa?utm_source=rss&utm_medium=article",
+   "cover": "img/a143.webp"
+  },
   {
    "id": "a134",
    "title": "中国商飞「AI+工业软件」赛道出题，参赛可走 C919 校招绿色通道",
@@ -24,7 +163,7 @@
     "求职就业",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 92,
    "brief": [
     "赛道：AI+工业软件，中国商飞出题",
