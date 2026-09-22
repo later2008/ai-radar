@@ -12,6 +12,13 @@
   --muted: #64748b; --accent: #2563eb; --accent2: #7c3aed;
   --up: #dc2626; --down: #16a34a; --flat: #94a3b8;
   --radius: 14px;
+  /* 动效令牌：只两条曲线 + 四档时长，全部动画收敛到此 */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);  /* 出现/展开/滑入：起手快收尾优雅 */
+  --ease-io: cubic-bezier(.4, 0, .2, 1);     /* 颜色/状态切换 */
+  --d-1: 120ms;  /* 按压、颜色变化 */
+  --d-2: 200ms;  /* 淡入、位移 */
+  --d-3: 280ms;  /* 展开、抽屉 */
+  --d-4: 360ms;  /* 页面级入场 */
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
@@ -25,7 +32,7 @@ a:hover { text-decoration: underline; }
 .logo .radar { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .logo-sub { font-size: 11px; color: var(--muted); font-weight: 400; margin-left: 8px; }
 .nav { display: flex; gap: 4px; flex: 1; }
-.nav button { border: none; background: transparent; padding: 8px 18px; font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer; border-radius: 10px; transition: all .2s; font-family: inherit; }
+.nav button { border: none; background: transparent; padding: 8px 18px; font-size: 15px; font-weight: 600; color: var(--muted); cursor: pointer; border-radius: 10px; transition: color var(--d-1) var(--ease-io), background-color var(--d-1) var(--ease-io); font-family: inherit; }
 .nav button:hover { color: var(--accent); background: #eff4ff; }
 .nav button.active { color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); }
 .clock { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; line-height: 1.5; }
@@ -38,9 +45,9 @@ a:hover { text-decoration: underline; }
 .ticker-summary { flex: 1; min-width: 0; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ticker-summary b { color: var(--accent); }
 .ticker-summary .ts-hint { color: #94a3b8; font-size: 12px; }
-.ticker-caret { flex-shrink: 0; margin-right: 14px; color: var(--muted); font-size: 13px; transition: transform .25s; }
+.ticker-caret { flex-shrink: 0; margin-right: 14px; color: var(--muted); font-size: 13px; transition: transform var(--d-2) var(--ease-io); }
 .ticker.open .ticker-caret { transform: rotate(180deg); }
-.ticker-panel { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.ticker-panel { max-height: 0; overflow: hidden; transition: max-height var(--d-3) var(--ease-out); }
 .ticker.open .ticker-panel { max-height: 72vh; overflow-y: auto; border-top: 1px dashed var(--border); }
 .ticker-panel-inner { max-width: 1180px; margin: 0 auto; padding: 14px 20px 18px; }
 .digest-note { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
@@ -76,7 +83,7 @@ main { min-width: 0; }
 
 /* ===== 筛选 ===== */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 0; }
-.chip { border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: all .15s; font-family: inherit; }
+.chip { border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer; transition: color var(--d-1) var(--ease-io), background-color var(--d-1) var(--ease-io), border-color var(--d-1) var(--ease-io), transform var(--d-1) var(--ease-out); font-family: inherit; }
 .chip:hover { border-color: var(--accent); color: var(--accent); }
 .chip.active { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
 .tag-row-label { font-size: 13px; font-weight: 700; color: var(--muted); align-self: center; white-space: nowrap; }
@@ -84,11 +91,13 @@ main { min-width: 0; }
 
 /* ===== 新闻卡片 ===== */
 .news-list { display: flex; flex-direction: column; gap: 12px; }
-.news-card { min-width: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; cursor: pointer; transition: transform .2s ease, box-shadow .2s, border-color .2s; display: block; }
+.news-card { min-width: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; cursor: pointer; transition: transform var(--d-2) var(--ease-out), box-shadow var(--d-2) var(--ease-io), border-color var(--d-2) var(--ease-io); display: block; }
 .news-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
+.news-card:active { transform: scale(.985); box-shadow: 0 1px 6px rgba(15,23,42,.10); }
 /* ===== 统一封面系统：16:9 容器，原文图/视频封面/生成封面同一设计语言 ===== */
 .cover { width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; position: relative; background: #eef2f7; flex-shrink: 0; }
-.cover img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 1; }
+.cover img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 1; opacity: 0; transform: scale(1.02); transition: opacity 240ms var(--ease-out), transform 400ms var(--ease-out); }
+.cover img.loaded { opacity: 1; transform: none; }
 /* 生成封面垫底：img 加载失败 onerror 自动移除，露出此层，无空洞无跳动 */
 .gen-cover { position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; gap: 11px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
 .gen-cover::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 20px 20px; }
@@ -110,8 +119,7 @@ main { min-width: 0; }
 .news-card .nc-main { flex: 1; min-width: 0; }
 .job-card { display: flex; gap: 18px; align-items: flex-start; }
 .job-card .job-main { flex: 1; min-width: 0; }
-.news-card:hover .cover img { transform: scale(1.04); }
-.cover img { transition: transform .35s ease; }
+.news-card:hover .cover img.loaded { transform: scale(1.04); }
 .job-co-wrap { display: flex; align-items: center; gap: 12px; }
 .nc-main { flex: 1; min-width: 0; }
 .nc-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 8px; flex-wrap: wrap; }
@@ -121,8 +129,15 @@ main { min-width: 0; }
 .nc-title { font-size: 16.5px; font-weight: 700; line-height: 1.45; }
 .nc-title-en { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 4px; font-style: italic; }
 .nc-summary { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-top: 8px; }
-.nc-detail { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
-.news-card.open .nc-detail { display: block; }
+/* 展开/收起：grid-template-rows 高度渐变（只动可合成属性，无跳变） */
+.nc-detail-wrap, .job-detail-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--d-3) var(--ease-out); flex: 0 0 100%; }
+.news-card.open .nc-detail-wrap, .job-card.open .job-detail-wrap { grid-template-rows: 1fr; }
+.nc-detail-clip, .job-detail-clip { overflow: hidden; min-height: 0; }
+.nc-detail { margin-top: 0; padding-top: 12px; border-top: 1px dashed var(--border); opacity: 0; transform: translateY(-4px); transition: opacity var(--d-2) 80ms var(--ease-out), transform var(--d-2) 80ms var(--ease-out); }
+.news-card.open .nc-detail { opacity: 1; transform: none; margin-top: 12px; }
+/* 详情是卡片直接子元素：flex-wrap 让它展开时全宽铺在缩略图下方 */
+.news-card, .job-card { flex-wrap: wrap; }
+.news-card > .nc-main, .job-card > .job-main { flex: 1 1 0; min-width: 0; }
 .nc-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
 .nc-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 6px; }
 .nc-detail ul { list-style: none; }
@@ -130,11 +145,11 @@ main { min-width: 0; }
 .nc-detail li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
 .nc-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-size: 12.5px; font-weight: 600; background: #eff4ff; border: 1px solid #d7e3ff; padding: 6px 14px; border-radius: 8px; }
 .badge-en { font-size: 11px; font-weight: 700; color: var(--accent2); background: #f5f0ff; border: 1px solid #e6d9ff; padding: 2px 8px; border-radius: 5px; }
-.badge-hot { font-size: 11px; font-weight: 700; color: #dc2626; background: #fef1f1; border: 1px solid #fbd5d5; padding: 2px 8px; border-radius: 5px; animation: pulseHot 2.2s ease-in-out infinite; }
+.badge-hot { font-size: 11px; font-weight: 700; color: #dc2626; background: #fef1f1; border: 1px solid #fbd5d5; padding: 2px 8px; border-radius: 5px; animation: pulseHot 2.2s var(--ease-io) 2; }
 
 /* ===== 分页 ===== */
 .pager { display: flex; gap: 6px; justify-content: center; align-items: center; padding: 20px 0 4px; flex-wrap: wrap; }
-.pager button { border: 1px solid var(--border); background: #fff; color: var(--muted); min-width: 36px; height: 34px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all .15s; }
+.pager button { border: 1px solid var(--border); background: #fff; color: var(--muted); min-width: 36px; height: 34px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: color var(--d-1) var(--ease-io), background-color var(--d-1) var(--ease-io), border-color var(--d-1) var(--ease-io), transform var(--d-1) var(--ease-out); }
 .pager button:hover:not(:disabled):not(.cur) { border-color: var(--accent); color: var(--accent); }
 .pager button.cur { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: #fff; }
 .pager button:disabled { opacity: .35; cursor: default; }
@@ -164,8 +179,9 @@ main { min-width: 0; }
 
 /* ===== 岗位卡片 ===== */
 .job-list { display: flex; flex-direction: column; gap: 12px; }
-.job-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: transform .2s ease, box-shadow .2s, border-color .2s; }
+.job-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: transform var(--d-2) var(--ease-out), box-shadow var(--d-2) var(--ease-io), border-color var(--d-2) var(--ease-io); }
 .job-card:hover { border-color: #c6d6ff; box-shadow: 0 6px 24px rgba(37,99,235,.08); transform: translateY(-3px); }
+.job-card:active { transform: scale(.985); box-shadow: 0 1px 6px rgba(15,23,42,.10); }
 .job-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
 .job-title { font-size: 16px; font-weight: 700; line-height: 1.45; }
 .job-title-en { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 3px; font-style: italic; }
@@ -193,8 +209,8 @@ main { min-width: 0; }
 .cls-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
 .cls-se { background: #dbeafe; color: #1d4ed8; }
 .cls-sec { background: #fee2e2; color: #b91c1c; }
-.job-card .job-detail { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); animation: fadeUp .3s ease-out; }
-.job-card.open .job-detail { display: block; }
+.job-card .job-detail { margin-top: 0; padding-top: 12px; border-top: 1px dashed var(--border); opacity: 0; transform: translateY(-4px); transition: opacity var(--d-2) 80ms var(--ease-out), transform var(--d-2) 80ms var(--ease-out); }
+.job-card.open .job-detail { opacity: 1; transform: none; margin-top: 12px; }
 .job-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 5px; }
 .job-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
 .job-detail ul { list-style: none; }
@@ -215,25 +231,22 @@ main { min-width: 0; }
 .guide-group li { font-size: 12px; color: #475569; line-height: 1.75; padding-left: 14px; position: relative; }
 .guide-group li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 800; }
 
-/* ===== 小动画 ===== */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+/* ===== 小动画（统一令牌） ===== */
+@keyframes riseIn { from { opacity: 0; transform: translateY(8px); } }
 @keyframes pulseHot { 0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,.28); } 50% { box-shadow: 0 0 0 5px rgba(220,38,38,0); } }
 @keyframes heatGrow { from { transform: scaleX(0); } }
-.anim-in { animation: fadeUp .5s ease-out backwards; }
+.anim-in { animation: riseIn var(--d-4) var(--ease-out) backwards; }
 /* 页面区块依次入场 */
 .hero.anim-in { animation-delay: 0s; }
 #view-news .panel.anim-in { animation-delay: .08s; }
-.side .panel:nth-child(1) { animation: fadeUp .5s ease-out .15s backwards; }
-.side .panel:nth-child(2) { animation: fadeUp .5s ease-out .25s backwards; }
+.side .panel:nth-child(1) { animation: riseIn var(--d-4) var(--ease-out) .15s backwards; }
+.side .panel:nth-child(2) { animation: riseIn var(--d-4) var(--ease-out) .25s backwards; }
 /* 按钮按压反馈 */
 .chip:active, .pager button:active, .nav button:active { transform: scale(.94); }
-.chip, .pager button, .nav button { will-change: auto; }
-.chip { transition: all .15s, transform .12s; }
-.pager button { transition: all .15s, transform .12s; }
-/* 展开详情内容淡入 */
-.news-card .nc-detail { animation: fadeUp .3s ease-out; }
+/* 列表首次入场：JS 只在首次渲染时挂 .in（筛选/翻页不重播） */
+.news-card.in, .job-card.in { animation: riseIn var(--d-4) var(--ease-out) backwards; }
 /* 板块切换淡入 */
-#view-news:not(.hidden), #view-jobs:not(.hidden) { animation: fadeUp .35s ease-out; }
+#view-news:not(.hidden), #view-jobs:not(.hidden) { animation: riseIn var(--d-3) var(--ease-out); }
 /* 用户偏好减弱动态时全部关闭 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -251,14 +264,14 @@ main { min-width: 0; }
 .news-card.flash, .job-card.flash { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37, 99, 235, .22); }
 .empty { text-align: center; color: var(--muted); padding: 50px 0; font-size: 14px; }
 /* ===== 移动端适配层 ===== */
-#back-top { display: none; position: fixed; right: 14px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; border-radius: 50%; border: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-size: 20px; font-weight: 700; box-shadow: 0 6px 18px rgba(37, 99, 235, .35); cursor: pointer; z-index: 99; opacity: 0; pointer-events: none; transition: opacity .25s; }
-#back-top.show { opacity: 1; pointer-events: auto; }
+#back-top { position: fixed; right: 14px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; border-radius: 50%; border: none; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-size: 20px; font-weight: 700; box-shadow: 0 6px 18px rgba(37, 99, 235, .35); cursor: pointer; z-index: 99; opacity: 0; transform: translateY(10px) scale(.9); pointer-events: none; transition: opacity var(--d-2) var(--ease-out), transform var(--d-2) var(--ease-out); }
+#back-top.show { opacity: 1; transform: none; pointer-events: auto; }
 @media (max-width: 720px) {
   html { -webkit-text-size-adjust: 100%; font-size: 16px; }
   * { -webkit-tap-highlight-color: rgba(37, 99, 235, .10); }
   body { overflow-x: hidden; background: #f1f5f9; padding-bottom: env(safe-area-inset-bottom, 0px); }
-  /* 顶栏：单行——logo 左、轻量 Tab 右；滚动后加投影 */
-  .topbar { position: sticky; top: 0; z-index: 50; }
+  /* 顶栏：单行——logo 左、轻量 Tab 右；滚动后加投影（带过渡） */
+  .topbar { position: sticky; top: 0; z-index: 50; transition: box-shadow 180ms var(--ease-io), border-color 180ms var(--ease-io); }
   .topbar.scrolled { box-shadow: 0 2px 8px rgba(15, 23, 42, .06); }
   .topbar-inner { flex-wrap: nowrap; gap: 10px; padding: 10px 14px; align-items: center; }
   .logo { font-size: 16.5px; letter-spacing: .2px; flex-shrink: 0; }
@@ -293,22 +306,23 @@ main { min-width: 0; }
   .hero-meta .nc-date .d-short { display: inline; }
   /* 筛选：分类主行单行横滑（渐隐提示+snap），专业方向收进底部抽屉 */
   .filter-row { align-items: center; gap: 8px; }
-  #news-chips { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; padding: 2px 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); }
+  #news-chips { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; padding: 2px 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); position: relative; }
   .chip { flex: 0 0 auto; padding: 12px 2px; font-size: 14px; border: none; background: none; border-radius: 0; color: #64748b; position: relative; scroll-snap-align: start; min-height: 44px; display: inline-flex; align-items: center; }
   .chip.active { background: none; border-color: transparent; color: var(--accent); }
-  .chip.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 2.5px; border-radius: 2px; background: var(--accent); }
+  /* 分类指示条：JS 定位，随激活项滑动 */
+  .chips-indicator { position: absolute; bottom: 4px; left: 0; height: 2.5px; border-radius: 2px; background: var(--accent); transition: transform var(--d-3) var(--ease-out), width var(--d-3) var(--ease-out); will-change: transform, width; }
   .chip-sel { flex-shrink: 0; border: none; background: #eef4ff; color: var(--accent); border-radius: 999px; padding: 10px 14px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; min-height: 44px; }
   #tag-chips { display: none; }
   /* 新闻列表：每条独立成卡（白卡+圆角+微投影），不再共用大白框和 1px 分割线 */
-  .news-list { background: none; border: none; border-radius: 0; overflow: visible; gap: 0; }
-  .news-card { background: #fff; border: none; border-radius: 14px; padding: 13px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(15,23,42,.06); transform: none; }
-  .news-card.anim-in { animation: none; }
-  .news-card:active { background: #f8fafc; }
-  /* 左侧 112px 方形缩略图 + 右侧文字（信息密度最高），点开后转纵向 + 16:9 大图 */
+  .news-list { background: none; border: none; border-radius: 0; overflow: visible; gap: 0; transition: opacity 120ms var(--ease-io), transform 120ms var(--ease-io); }
+  .news-list.filtering { opacity: 0; transform: translateY(4px); }
+  .news-card { background: #fff; border: none; border-radius: 14px; padding: 13px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(15,23,42,.06); transform: none; transition: transform var(--d-1) var(--ease-out), box-shadow var(--d-1) var(--ease-out); }
+  .news-card:active { transform: scale(.985); box-shadow: 0 1px 6px rgba(15,23,42,.10); background: #f8fafc; }
+  /* 左侧 112px 方形缩略图 + 右侧文字（信息密度最高）；展开时缩略图保持不动，只在下方渐开内容 */
   .news-card, .job-card { display: flex; gap: 12px; align-items: flex-start; }
   .news-card > .cover, .job-card > .cover { width: 112px; height: 112px; flex: 0 0 112px; aspect-ratio: auto; border-radius: 10px; margin-bottom: 0; }
-  .news-card.open, .job-card.open { display: block; }
-  .news-card.open > .cover, .job-card.open > .cover { width: 100%; height: auto; aspect-ratio: 16 / 9; margin-bottom: 8px; }
+  .news-card.open, .job-card.open { display: flex; }
+  .news-card.open > .nc-main, .job-card.open > .job-main { flex: 1; min-width: 0; }
   .gen-cover { gap: 6px; }
   .gen-cover .badge { width: 24px; height: 24px; border-radius: 7px; font-size: 12px; }
   .gen-cover .name { font-size: 12px; }
@@ -395,9 +409,9 @@ main { min-width: 0; }
 .filter-btn { display: none; flex-shrink: 0; align-items: center; gap: 5px; border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13.5px; font-weight: 700; padding: 0 14px; height: 44px; border-radius: 999px; cursor: pointer; font-family: inherit; }
 #sel-chip { display: none; }
 /* 底部抽屉（bottom sheet） */
-.sheet-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, .45); z-index: 98; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.sheet-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, .45); z-index: 98; opacity: 0; pointer-events: none; transition: opacity 180ms var(--ease-io); }
 .sheet-mask.show { opacity: 1; pointer-events: auto; }
-.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 99; background: #fff; border-radius: 16px 16px 0 0; transform: translateY(100%); transition: transform .3s ease; max-height: 70vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -8px 30px rgba(15, 23, 42, .18); }
+.sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 99; background: #fff; border-radius: 16px 16px 0 0; transform: translateY(100%); transition: transform var(--d-3) var(--ease-out); max-height: 70vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -8px 30px rgba(15, 23, 42, .18); }
 .sheet.show { transform: translateY(0); }
 .sheet-head { padding: 14px 16px 10px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); flex-shrink: 0; }
 .sheet-title { font-size: 15px; font-weight: 800; }
@@ -620,7 +634,7 @@ function coverHTML(n, opts) {
   const kind = coverKindOf(n);
   const name = n.source || "";
   const gen = `<div class="gen-cover"><span class="badge">${badgeChar(name)}</span><span class="name">${name}</span></div>`;
-  const img = n.cover ? `<img src="${n.cover}" alt="" ${o.eager ? 'loading="eager" ' : 'loading="lazy" '}decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+  const img = n.cover ? `<img src="${n.cover}" alt="" ${o.eager ? 'loading="eager" ' : 'loading="lazy" '}decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('loaded')" onerror="this.remove()">` : "";
   const inner = `${gen}${img}<span class="src-chip">${name}</span>`;
   if (o.tag === "a") return `<a class="cover${o.cls ? " " + o.cls : ""}" href="${o.href}" target="_blank" rel="noopener" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</a>`;
   return `<div class="cover" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</div>`;
@@ -701,15 +715,45 @@ function renderChips() {
       .map((t) => `<button class="chip chip-tag ${curTag === t ? "active" : ""}" onclick="setTag('${t}')">${t === "all" ? "不限" : t} · ${tc[t] || 0}</button>`)
       .join("");
   $("#sel-chip").innerHTML = curTag === "all" ? "" : `<button class="chip-sel" onclick="setTag('all')" aria-label="清除筛选">${curTag} ✕</button>`;
+  positionChipIndicator();
 }
-function setCat(c) { curCat = c; curPage = 1; renderChips(); renderNews(); }
-function setTag(t) { curTag = t; curPage = 1; renderChips(); renderNews(); }
+/* 分类指示条：滑到激活 chip 下方（移动端） */
+function positionChipIndicator() {
+  const wrap = $("#news-chips");
+  if (!wrap) return;
+  let ind = wrap.querySelector(".chips-indicator");
+  const active = wrap.querySelector(".chip.active");
+  if (!ind) { ind = document.createElement("span"); ind.className = "chips-indicator"; wrap.appendChild(ind); }
+  if (!active) { ind.style.width = "0px"; return; }
+  ind.style.width = active.offsetWidth + "px";
+  ind.style.transform = "translateX(" + active.offsetLeft + "px)";
+}
+function setCat(c) { curCat = c; curPage = 1; renderChips(); refreshNews(); }
+function setTag(t) { curTag = t; curPage = 1; renderChips(); refreshNews(); }
 function filteredNews() {
   return DATA.news.filter((n) => (curCat === "all" || n.cat === curCat) && (curTag === "all" || (n.tags || []).includes(curTag)));
 }
 function trackPill(t) {
   const c = TRACK_COLORS[t] || ["#64748b", "#f1f5f9", "#334155"];
   return `<span class="track-pill" style="background:${c[1]};color:${c[2]};border-color:${c[0]}33">${t}</span>`;
+}
+/* 首次入场只播一次：筛选/翻页不重播 */
+let firstNewsEnter = true;
+let firstJobEnter = true;
+function armCoverImages(root) {
+  (root || document).querySelectorAll(".cover img").forEach((img) => {
+    if (img.complete && img.naturalWidth > 0) img.classList.add("loaded");
+  });
+}
+function staggerEntrance(sel) {
+  document.querySelectorAll(sel).forEach((el, i) => { el.style.animationDelay = Math.min(i, 6) * 26 + "ms"; });
+}
+/* 筛选/翻页：列表淡出 120ms → 重渲染 → 淡入（不重播入场动画） */
+function refreshNews() {
+  const list = $("#news-list");
+  if (!list.children.length || !list.classList) { renderNews(); return; }
+  list.classList.add("filtering");
+  setTimeout(() => { renderNews(); list.classList.remove("filtering"); }, 120);
 }
 function renderNews() {
   const list = filteredNews();
@@ -718,8 +762,9 @@ function renderNews() {
   if (curPage > totalPages) curPage = totalPages;
   const pageItems = list.slice((curPage - 1) * PAGE_SIZE, curPage * PAGE_SIZE);
   if (!pageItems.length) { $("#news-list").innerHTML = `<div class="empty">该分类暂无内容</div>`; $("#pager").innerHTML = ""; return; }
-  $("#news-list").innerHTML = pageItems.map((n, i) => `
-    <article class="news-card anim-in" data-nid="${n.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+  const enterCls = firstNewsEnter ? " in" : "";
+  $("#news-list").innerHTML = pageItems.map((n) => `
+    <article class="news-card${enterCls}" data-nid="${n.id}" onclick="this.classList.toggle('open')">
       ${coverHTML(n)}
       <div class="nc-main">
         <div class="nc-top">
@@ -734,6 +779,11 @@ function renderNews() {
         </div>
         ${n.value ? `<div class="nc-value">💡 ${fmtValue(n.value)}</div>` : ""}
         <div class="nc-summary">${termify(n.summary)}</div>
+        <div class="nc-foot">
+          ${(n.tracks || []).map((t) => trackPill(t)).join("")}
+        </div>
+      </div>
+      <div class="nc-detail-wrap"><div class="nc-detail-clip">
         <div class="nc-detail">
           ${n.value ? `<p class="nc-use"><b>💡 一句话价值：</b>${fmtValue(n.value)}</p>` : ""}
           ${n.content ? `<p>${termify(n.content)}</p>` : ""}
@@ -742,11 +792,10 @@ function renderNews() {
           ${(n.diff || n.scene) ? `<p class="nc-use">${n.diff ? `⭐ 上手难度：${DIFF_TXT[n.diff] || "中等"}` : ""}${n.diff && n.scene ? "　" : ""}${n.scene ? `🎯 适合：${n.scene}` : ""}</p>` : ""}
           <a class="nc-link" href="${n.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 原文链接${n.lang === "en" ? "（英文，正文已译）" : ""} ↗</a>
         </div>
-        <div class="nc-foot">
-          ${(n.tracks || []).map((t) => trackPill(t)).join("")}
-        </div>
-      </div>
+      </div></div>
     </article>`).join("");
+  if (firstNewsEnter) { staggerEntrance(".news-card.in"); firstNewsEnter = false; }
+  armCoverImages($("#news-list"));
   renderPager(totalPages);
 }
 function renderPager(totalPages) {
@@ -759,7 +808,7 @@ function renderPager(totalPages) {
 }
 function goPage(p) {
   curPage = p;
-  renderNews();
+  refreshNews();
   try {
     const anchor = $("#news-chips");
     if (anchor) window.scrollTo({ top: anchor.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
@@ -783,7 +832,7 @@ document.querySelectorAll("#stats-list .stat-num").forEach((el, idx) => {
   const end = parseFloat(m[1].replace(/,/g, ""));
   if (!isFinite(end)) return;
   const dec = (m[1].split(".")[1] || "").length;
-  const dur = 1000, start = performance.now() + 300 + idx * 100;
+  const dur = 600, start = performance.now() + 300 + idx * 100;
   const ease = (p) => 1 - Math.pow(1 - p, 3);
   const step = (now) => {
     const p = Math.max(0, Math.min(1, (now - start) / dur));
@@ -820,8 +869,9 @@ function setType(t) { curType = t; renderJobChips(); renderJobs(); }
 function renderJobs() {
   const list = DATA.jobs.filter((j) => (curCls === "all" || j.cls === curCls) && (curType === "all" || curCls === "all" || j.type === curType));
   if (!list.length) { $("#job-list").innerHTML = `<div class="empty">该类型暂无岗位，明天更新会补充</div>`; return; }
-  $("#job-list").innerHTML = list.map((j, i) => `
-    <article class="job-card anim-in" data-jid="${j.id}" style="animation-delay:${Math.min(i * 45, 400)}ms" onclick="this.classList.toggle('open')">
+  const enterCls = firstJobEnter ? " in" : "";
+  $("#job-list").innerHTML = list.map((j) => `
+    <article class="job-card${enterCls}" data-jid="${j.id}" onclick="this.classList.toggle('open')">
       ${coverHTML({ cover: j.cover, source: j.company, tags: [], cat: "" }, { cat: "job" })}
       <div class="job-main">
       <div class="job-top">
@@ -841,24 +891,28 @@ function renderJobs() {
       </div>
       ${(j.positions || []).length ? `<div class="job-positions">${j.positions.map((p) => `<span class="tag">${p}</span>`).join("")}</div>` : ""}
       <div class="job-summary">${j.summary}</div>
-      <div class="job-detail">
-        <h4>💬 岗位大白话</h4><p>${termify(j.plain || j.summary)}</p>
-        ${j.courses ? `<h4>📚 对应课程</h4><p>${j.courses}</p>` : ""}
-        ${(j.hardReq || []).length ? `<h4>✅ 硬性要求</h4><ul>${j.hardReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
-        ${(j.plusReq || []).length ? `<h4>⭐ 加分项</h4><ul>${j.plusReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
-        ${(j.selfLearn || []).length ? `<h4>🔧 需要自学补充</h4><ul>${j.selfLearn.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
-        <div class="job-two">
-          ${j.fitWho ? `<div><b>🎯 适配人群：</b>${j.fitWho}</div>` : ""}
-          <div><b>🕒 发布：</b>${j.date || "—"}　<b>来源：</b>${j.source || "官方渠道"}</div>
-        </div>
-        ${j.tips ? `<p class="job-tips"><b>💡 准备建议：</b>${termify(j.tips)}</p>` : ""}
-      </div>
       <div class="job-actions">
         <a class="job-link" href="${j.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">官方投递入口 ↗</a>
         <span class="job-more">展开岗位解读 ▾</span>
       </div>
       </div>
+      <div class="job-detail-wrap"><div class="job-detail-clip">
+        <div class="job-detail">
+          <h4>💬 岗位大白话</h4><p>${termify(j.plain || j.summary)}</p>
+          ${j.courses ? `<h4>📚 对应课程</h4><p>${j.courses}</p>` : ""}
+          ${(j.hardReq || []).length ? `<h4>✅ 硬性要求</h4><ul>${j.hardReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+          ${(j.plusReq || []).length ? `<h4>⭐ 加分项</h4><ul>${j.plusReq.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+          ${(j.selfLearn || []).length ? `<h4>🔧 需要自学补充</h4><ul>${j.selfLearn.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+          <div class="job-two">
+            ${j.fitWho ? `<div><b>🎯 适配人群：</b>${j.fitWho}</div>` : ""}
+            <div><b>🕒 发布：</b>${j.date || "—"}　<b>来源：</b>${j.source || "官方渠道"}</div>
+          </div>
+          ${j.tips ? `<p class="job-tips"><b>💡 准备建议：</b>${termify(j.tips)}</p>` : ""}
+        </div>
+      </div></div>
     </article>`).join("");
+  if (firstJobEnter) { staggerEntrance(".job-card.in"); firstJobEnter = false; }
+  armCoverImages($("#job-list"));
 }
 renderJobChips(); renderJobs();
 
@@ -893,7 +947,7 @@ function pickTag(t) {
   curTag = t;
   curPage = 1;
   renderChips();
-  renderNews();
+  refreshNews();
   $("#sheet-body").innerHTML = sheetTagHTML();
   $("#sheet-apply").textContent = `查看 ${filteredNews().length} 条结果`;
 }
