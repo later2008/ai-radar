@@ -26,7 +26,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ===== 顶栏 ===== */
-.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
 .topbar-inner { max-width: 1180px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 24px; }
 .logo { font-size: 20px; font-weight: 800; letter-spacing: .5px; }
 .logo .radar { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -65,7 +65,7 @@ a:hover { text-decoration: underline; }
 /* ===== 布局 ===== */
 .wrap { max-width: 1180px; margin: 0 auto; padding: 20px; }
 .hero { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 30px; margin-bottom: 20px; position: relative; overflow: hidden; }
-.hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(37,99,235,.07), rgba(124,58,237,.06) 60%, transparent); pointer-events: none; }
+.hero::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(120deg, rgba(37,99,235,.07), rgba(124,58,237,.06) 60%, transparent); pointer-events: none; }
 .hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--accent); background: #eff4ff; border: 1px solid #d7e3ff; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
 .hero h1 { font-size: 26px; line-height: 1.35; margin-bottom: 10px; position: relative; }
 .hero p { color: var(--muted); font-size: 14.5px; line-height: 1.75; max-width: 860px; position: relative; }
@@ -98,13 +98,19 @@ main { min-width: 0; }
 .cover { width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; position: relative; background: #eef2f7; flex-shrink: 0; }
 .cover img { width: 100%; height: 100%; object-fit: cover; display: block; position: relative; z-index: 1; opacity: 0; transform: scale(1.02); transition: opacity 240ms var(--ease-out), transform 400ms var(--ease-out); }
 .cover img.loaded { opacity: 1; transform: none; }
+/* 老浏览器兜底（iOS Safari<15 / 微信 X5）：不支持 aspect-ratio 时用 padding-top 撑 16:9，封面高度不再塌成 0 */
+@supports not (aspect-ratio: 1 / 1) {
+  .cover, .hero-cover { height: auto; }
+  .cover::before, .hero-cover::before { content: ""; display: block; padding-top: 56.25%; }
+  .cover > img, .hero-cover > img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+}
 /* 生成封面垫底：img 加载失败 onerror 自动移除，露出此层，无空洞无跳动 */
-.gen-cover { position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; gap: 11px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
-.gen-cover::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 20px 20px; }
+.gen-cover { position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 0; display: flex; align-items: center; justify-content: center; gap: 11px; background: linear-gradient(135deg, var(--c1), var(--c2)); }
+.gen-cover::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 20px 20px; }
 .gen-cover .badge { width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 17px; font-weight: 800; z-index: 1; font-family: Georgia, "Microsoft YaHei", serif; }
 .gen-cover .name { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .5px; z-index: 1; max-width: 70%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* 底部渐变压暗 + 来源 chip：有图无图都有，视觉结构一致 */
-.cover::after { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,.32)); pointer-events: none; }
+.cover::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 2; background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,.32)); pointer-events: none; }
 .src-chip { position: absolute; left: 9px; bottom: 8px; z-index: 3; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; color: #fff; background: rgba(15,23,42,.42); padding: 2px 8px; border-radius: 999px; }
 /* 分类配色（CSS 变量，生成封面与后续来源 logo 共用） */
 [data-cat="tech"]     { --c1: #1d4ed8; --c2: #38bdf8; }  /* 技术栈更新 */
@@ -347,6 +353,9 @@ main { min-width: 0; }
   .news-card.open .nc-top { background: none; }
   /* meta 行：单行不换行 ≤24px；来源只在封面 chip 出现（此处隐藏）；日期用 09-21 短格式；译文标签只在展开区 */
   .nc-head { flex-wrap: nowrap; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; gap: 6px; font-size: 12.5px; margin-bottom: 5px; align-items: center; height: 20px; }
+  /* meta 行防挤压：标签绝不压缩，只有日期可收缩省略（否则药丸被压成圆球） */
+  .nc-head > * { flex: 0 0 auto; }
+  .nc-head .nc-date { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .nc-head .tag-stack, .nc-head .badge-hot, .nc-head .badge-en, .nc-src, .nc-head .d-full { display: none; }
   .nc-date .d-full { display: none; }
   .nc-date .d-short { display: inline; }
@@ -368,11 +377,18 @@ main { min-width: 0; }
   .job-card { background: #fff; border: none; border-radius: 14px; padding: 13px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(15,23,42,.06); transform: none; }
   .job-card.anim-in { animation: none; }
   .job-title { font-size: 16px; }
-  .job-top { margin: 0; padding: 0; background: none; border-bottom: none; flex-wrap: nowrap; }
+  /* 岗位卡 P0 修复：allow wrap——薪资 nowrap 的最小宽度 297px 会把标题压成一行一字 */
+  .job-top { margin: 0; padding: 0; background: none; border-bottom: none; flex-wrap: wrap; row-gap: 2px; }
+  .job-co-wrap { flex: 1 1 auto; min-width: 0; }
+  .job-title { overflow-wrap: anywhere; }
+  .job-salary { flex: 0 1 auto; min-width: 0; white-space: normal; overflow-wrap: anywhere; }
   .job-card.open .job-top { background: none; }
   .job-co { font-size: 13px; margin-top: 2px; }
-  /* 收起态 meta 压成一行，职位标签列表只留展开区 */
-  .job-card:not(.open) .job-meta { flex-wrap: nowrap; overflow: hidden; margin-top: 6px; }
+  /* 收起态 meta：放不下就换行，不再压成圆球；职位标签列表只留展开区 */
+  .job-card:not(.open) .job-meta { flex-wrap: wrap; overflow: visible; margin-top: 6px; }
+  /* meta 子项默认可收缩折行（个别 deadline 是整句话）；药丸自身不压缩 */
+  .job-card:not(.open) .job-meta > span { flex: 0 1 auto; min-width: 0; overflow-wrap: anywhere; }
+  .cls-pill, .type-pill { flex: 0 0 auto; white-space: nowrap; }
   .job-card:not(.open) .job-positions { display: none; }
   .job-summary { font-size: 14px; line-height: 1.6; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
   /* 板块说明：移动端直接用精简短句（.jt-full/.jt-short 切换），不做折叠 */
@@ -418,13 +434,18 @@ main { min-width: 0; }
 @media (max-width: 720px) {
   .news-card .gm, .job-card .gm, .hero .gm, .nc-value .gm { color: inherit; border-bottom: none; cursor: default; }
 }
+/* 老浏览器兜底：flex gap 失效（Safari<14.1 / Chrome<84）时用 margin 保间距 */
+@supports not (gap: 4px) {
+  .nc-head > * + * { margin-left: 6px; }
+  .job-meta > * + * { margin-left: 6px; }
+}
 
 /* ===== 筛选行（分类横滑 + 筛选按钮）与底部抽屉 ===== */
 .filter-row { display: flex; align-items: center; }
 .filter-btn { display: none; flex-shrink: 0; align-items: center; gap: 5px; border: 1px solid var(--border); background: #fff; color: var(--muted); font-size: 13.5px; font-weight: 700; padding: 0 14px; height: 44px; border-radius: 999px; cursor: pointer; font-family: inherit; }
 #sel-chip { display: none; }
 /* 底部抽屉（bottom sheet） */
-.sheet-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, .45); z-index: 98; opacity: 0; pointer-events: none; transition: opacity 180ms var(--ease-io); }
+.sheet-mask { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(15, 23, 42, .45); z-index: 98; opacity: 0; pointer-events: none; transition: opacity 180ms var(--ease-io); }
 .sheet-mask.show { opacity: 1; pointer-events: auto; }
 .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 99; background: #fff; border-radius: 16px 16px 0 0; transform: translateY(100%); transition: transform var(--d-3) var(--ease-out); max-height: 70vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -8px 30px rgba(15, 23, 42, .18); }
 .sheet.show { transform: translateY(0); }
@@ -649,7 +670,7 @@ function coverHTML(n, opts) {
   const kind = coverKindOf(n);
   const name = n.source || "";
   const gen = `<div class="gen-cover"><span class="badge">${badgeChar(name)}</span><span class="name">${name}</span></div>`;
-  const img = n.cover ? `<img src="${n.cover}" alt="" ${o.eager ? 'loading="eager" ' : 'loading="lazy" '}decoding="async" referrerpolicy="no-referrer" onload="this.classList.add('loaded')" onerror="this.remove()">` : "";
+  const img = n.cover ? `<img src="${n.cover}" alt="" width="800" height="450" ${o.eager ? 'loading="eager" fetchpriority="high" ' : 'loading="lazy" '}decoding="async" referrerpolicy="no-referrer" style="object-fit:cover" onload="this.classList.add('loaded')" onerror="this.remove()">` : "";
   const inner = `${gen}${img}<span class="src-chip">${name}</span>`;
   if (o.tag === "a") return `<a class="cover${o.cls ? " " + o.cls : ""}" href="${o.href}" target="_blank" rel="noopener" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</a>`;
   return `<div class="cover" data-cat="${cat}" data-kind="${kind}" data-slug="${sourceSlug(name)}">${inner}</div>`;

@@ -1,8 +1,14 @@
-// 封面系统 v2：为全部新闻条目本地化配图
-// 1) 优先 RSS/抓取阶段自带的文章配图 2) 缺图抓文章 og:image 3) 下载到 site/img/ 本地化（防盗链、不失效）
-// 失败条目留空 → 前端显示来源标识色块（图文语义相符兜底）
+// 封面系统 v3：质量门槛 + 统一转 WebP（800×450 / q78 / 居中裁剪 16:9）+ 去重 + 真实格式
+// 来源优先级：本地已有 → 远程直链（B站拼 16:9 缩略参数）→ 文章页 og:image → twitter:image → 正文首图
+// 不达标的图直接弃用（前端走 CSS 生成封面），绝不硬塞糊图/巨型图
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+let sharp = null;
+try { sharp = require("sharp"); } catch { /* workflow 里会 npm install sharp */ }
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const IMG_DIR = path.join("site", "img");
@@ -11,7 +17,15 @@ fs.mkdirSync(IMG_DIR, { recursive: true });
 const data = JSON.parse(fs.readFileSync("data.json", "utf8"));
 const BAD_IMG = /logo|icon|sprite|avatar|favicon|badge|head\.jpg|100x100|\/themes\//i;
 
-// 清洗：坏图直接作废
+// ---- 质量门槛（对源图生效）----
+const W_MIN = 600;        // 源图宽度 < 600px → 弃用
+const RATIO_MIN = 1.2;    // 纵横比 < 1.2:1（竖图/方 logo）→ 弃用
+const RATIO_MAX = 2.4;    // 纵横比 > 2.4:1（横幅）→ 弃用
+const SQUARE_MIN_BYTES = 15 * 1024; // 方形且 < 15KB → 占位图/纯 logo，弃用
+const OUT_W = 800, OUT_H = 450;     // 统一输出 800×450（16:9 居中裁剪）
+const Q_MAIN = 78, Q_RETRY = 60;    // WebP 质量：目标 ≤90KB，硬上限 200KB
+const TARGET_KB = 90 * 1024, MAX_KB = 200 * 1024;
+
 for (const n of data.news) {
   if (n.cover && (BAD_IMG.test(n.cover) || n.cover.endsWith("head.jpg"))) delete n.cover;
 }
@@ -33,20 +47,19 @@ function extractImg(html) {
   return "";
 }
 
-async function download(url, file) {
+async function download(url, maxBytes = 8 * 1024 * 1024) {
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), 25000);
   try {
     const r = await fetch(url, { headers: { "User-Agent": UA, Referer: new URL(url).origin + "/" }, signal: ac.signal, redirect: "follow" });
     clearTimeout(t);
-    if (!r.ok) return false;
+    if (!r.ok) return null;
     const ct = (r.headers.get("content-type") || "").toLowerCase();
-    if (!ct.startsWith("image/") || ct.includes("svg")) return false;
+    if (!ct.startsWith("image/") || ct.includes("svg")) return null;
     const buf = Buffer.from(await r.arrayBuffer());
-    if (buf.length < 3000 || buf.length > 6 * 1024 * 1024) return false; // <3KB 多为占位图，>6MB 拒
-    fs.writeFileSync(file, buf);
-    return true;
-  } catch (e) { clearTimeout(t); return false; }
+    if (buf.length < 3000 || buf.length > maxBytes) return null;
+    return buf;
+  } catch (e) { clearTimeout(t); return null; }
 }
 
 async function fetchArticleImg(link) {
@@ -60,38 +73,36 @@ async function fetchArticleImg(link) {
   } catch (e) { clearTimeout(t); return ""; }
 }
 
-const EXT = { "image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp", "image/jpg": ".jpg" };
-
-// 缺图兜底：按专业方向生成主题 SVG 封面（有类别辨识度，不是通用灰图）
-const THEME = [
-  { re: /信息安全|网络安全|渗透|漏洞/, c1: "#7C3AED", c2: "#4C1D95", icon: "shield" },
-  { re: /前端|Vue|React|CSS|JS/, c1: "#2563EB", c2: "#1E3A8A", icon: "code" },
-  { re: /Java|后端|Spring/, c1: "#D97706", c2: "#92400E", icon: "server" },
-  { re: /工业软件|CAD|C\+\+/, c1: "#0D9488", c2: "#134E4A", icon: "gear" },
-  { re: /AI工具|大模型|Agent/, c1: "#DB2777", c2: "#831843", icon: "chip" },
-  { re: /求职|就业|校招|面试/, c1: "#059669", c2: "#064E3B", icon: "brief" },
-];
-const ICONS = {
-  shield: `<path d="M60 30 L88 40 V66 C88 84 76 96 60 102 C44 96 32 84 32 66 V40 Z" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5" stroke-linejoin="round"/><path d="M46 66 L56 76 L76 52" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`,
-  code: `<path d="M42 44 L24 64 L42 84" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 44 L96 64 L78 84" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 38 L54 90" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="5" stroke-linecap="round"/>`,
-  server: `<rect x="28" y="34" width="64" height="26" rx="5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><rect x="28" y="68" width="64" height="26" rx="5" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><circle cx="42" cy="47" r="4" fill="rgba(255,255,255,.85)"/><circle cx="42" cy="81" r="4" fill="rgba(255,255,255,.85)"/>`,
-  gear: `<circle cx="60" cy="64" r="17" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><path d="M60 38 V28 M60 100 V90 M86 64 H96 M24 64 H34 M79 45 L86 38 M34 90 L41 83 M79 83 L86 90 M34 38 L41 45" stroke="rgba(255,255,255,.85)" stroke-width="5" stroke-linecap="round"/>`,
-  chip: `<rect x="40" y="40" width="40" height="40" rx="6" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><rect x="52" y="52" width="16" height="16" rx="3" fill="rgba(255,255,255,.6)"/><path d="M48 40 V28 M72 40 V28 M48 100 V88 M72 100 V88 M40 52 H28 M40 76 H28 M100 52 H88 M100 76 H88" stroke="rgba(255,255,255,.7)" stroke-width="4" stroke-linecap="round"/>`,
-  brief: `<rect x="28" y="42" width="64" height="46" rx="6" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><path d="M48 42 V34 C48 30 52 28 60 28 C68 28 72 30 72 34 V42" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="5"/><path d="M28 60 H92" stroke="rgba(255,255,255,.85)" stroke-width="4"/>`,
-};
-function genFallbackSvg(n) {
-  const text = (n.title || "") + " " + (n.tracks || []).join(" ") + " " + (n.cat || "");
-  const t = THEME.find((x) => x.re.test(text)) || { c1: "#3B82F6", c2: "#1E3A8A", icon: "code" };
-  const src = (n.source || "AI雷达").replace(/[<>&"]/g, "").slice(0, 14);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 132" width="208" height="132">
-<rect width="208" height="132" fill="${t.c1}"/><rect y="66" width="208" height="66" fill="${t.c2}"/>
-<g transform="translate(74,-4) scale(0.5)">${ICONS[t.icon]}</g>
-<text x="14" y="118" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,.85)">${src}</text>
-<circle cx="188" cy="20" r="4" fill="rgba(255,255,255,.4)"/><circle cx="172" cy="20" r="4" fill="rgba(255,255,255,.25)"/>
-</svg>`;
+// B站图床：拼 16:9 缩略参数，直接拿小图（672×378 webp），不用下原图
+function tuneBilibili(url) {
+  if (!/hdslb\.com/i.test(url)) return url;
+  if (url.includes("@")) return url;
+  return url + "@672w_378h_1c.webp";
 }
 
-let localized = 0, missing = 0, kept = 0, svggen = 0;
+// 统一处理：800×450 居中裁剪 → WebP q78（超 90KB 降到 q60，仍超 200KB 拒）
+async function toUniformWebp(buf) {
+  let out = await sharp(buf).resize(OUT_W, OUT_H, { fit: "cover", position: "centre" }).webp({ quality: Q_MAIN }).toBuffer();
+  if (out.length > TARGET_KB) out = await sharp(buf).resize(OUT_W, OUT_H, { fit: "cover", position: "centre" }).webp({ quality: Q_RETRY }).toBuffer();
+  return out;
+}
+
+// 质量门槛：不达标返回拒绝原因
+function gate(meta, bytes) {
+  const w = meta.width || 0, h = meta.height || 0;
+  if (!w || !h) return "unreadable";
+  if (w < W_MIN) return `w${w}<${W_MIN}`;
+  const ratio = w / h;
+  if (ratio > RATIO_MAX) return `ratio${ratio.toFixed(2)}>2.4`;
+  if (ratio < RATIO_MIN) return `ratio${ratio.toFixed(2)}<1.2`;
+  if (ratio > 0.95 && ratio < 1.05 && bytes < SQUARE_MIN_BYTES) return `square-small${(bytes / 1024).toFixed(0)}KB`;
+  return "";
+}
+
+const hashOf = (b) => crypto.createHash("sha1").update(b).digest("hex");
+const dedupe = new Map(); // sha1 → "img/xxx.webp"（同一张图只存一份）
+
+let localized = 0, kept = 0, rejected = 0, dedupHit = 0;
 const queue = [...data.news];
 const log = [];
 
@@ -99,42 +110,79 @@ await Promise.all(Array.from({ length: 6 }, async function worker() {
   while (queue.length) {
     const n = queue.shift();
     if (!n.link) continue;
-    // 已本地化的跳过
-    if (n.cover && !/^https?:/i.test(n.cover) && fs.existsSync(path.join("site", n.cover))) { kept++; continue; }
-    let src = n.cover && /^https?:/i.test(n.cover) ? n.cover : "";
-    if (!src) src = await fetchArticleImg(n.link);
-    if (!src) {
-      delete n.cover; missing++;
-      log.push(`${n.id} NOIMG`);
-      continue;
-    }
-    const ac = new AbortController();
-    const t = setTimeout(() => ac.abort(), 25000);
-    let ct = "";
     try {
-      const head = await fetch(src, { headers: { "User-Agent": UA }, signal: ac.signal, redirect: "follow" });
-      ct = (head.headers.get("content-type") || "").toLowerCase();
-      const buf = Buffer.from(await head.arrayBuffer());
-      clearTimeout(t);
-      if (!ct.startsWith("image/") || ct.includes("svg") || buf.length < 3000 || buf.length > 6 * 1024 * 1024) {
-        delete n.cover; missing++;
-        log.push(`${n.id} REJECT ${ct} ${buf.length}b`);
-        continue;
+      // 1) 本地已有合格 webp → 保留（避免每轮重编码）
+      if (n.cover && !/^https?:/i.test(n.cover)) {
+        const p = path.join("site", n.cover);
+        if (fs.existsSync(p)) {
+          if (n.cover.endsWith(".webp")) {
+            const meta = await sharp(p).metadata();
+            if (meta.width >= OUT_W && Math.abs(meta.width / meta.height - 16 / 9) < 0.08 && fs.statSync(p).size <= MAX_KB) {
+              kept++; continue;
+            }
+          }
+          // 本地图不达标/不是 webp → 用本地原文件重编码
+          const buf = fs.readFileSync(p);
+          const meta = await sharp(buf).metadata();
+          const g = gate(meta, buf.length);
+          if (g) {
+            fs.unlinkSync(p); delete n.cover; rejected++;
+            log.push(`${n.id} GATE-LOCAL ${g} ${meta.width}x${meta.height}`);
+            continue;
+          }
+          let out = await toUniformWebp(buf);
+          if (out.length > MAX_KB) { fs.unlinkSync(p); delete n.cover; rejected++; log.push(`${n.id} BIG-${(out.length / 1024).toFixed(0)}KB`); continue; }
+          const h = hashOf(out);
+          let target = dedupe.get(h);
+          if (!target) { target = "img/" + n.id + ".webp"; dedupe.set(h, target); fs.writeFileSync(path.join(IMG_DIR, path.basename(target)), out); }
+          else dedupHit++;
+          if (path.basename(target) !== path.basename(n.cover) && fs.existsSync(p)) fs.unlinkSync(p); // 换名/去重后清掉旧文件
+          n.cover = target; localized++;
+          log.push(`${n.id} REENC ${path.basename(target)} ${(out.length / 1024).toFixed(0)}KB`);
+          continue;
+        }
+        n.cover = ""; // 本地路径但文件不在（换机器）→ 走重新采集
       }
-      const fname = n.id + (EXT[ct] || ".jpg");
-      fs.writeFileSync(path.join(IMG_DIR, fname), buf);
-      n.cover = "img/" + fname;
-      localized++;
-      log.push(`${n.id} OK ${fname}`);
+
+      // 2) 远程直链 / 3) 文章页抓图
+      let src = n.cover && /^https?:/i.test(n.cover) ? tuneBilibili(n.cover) : "";
+      if (!src) src = await fetchArticleImg(n.link);
+      if (!src) { delete n.cover; rejected++; log.push(`${n.id} NOIMG`); continue; }
+
+      const buf = await download(src);
+      if (!buf) { delete n.cover; rejected++; log.push(`${n.id} DL-FAIL`); continue; }
+
+      const meta = await sharp(buf).metadata().catch(() => null);
+      if (!meta) { delete n.cover; rejected++; log.push(`${n.id} NOT-IMG ${src.slice(0, 60)}`); continue; }
+      const g = gate(meta, buf.length);
+      if (g) { delete n.cover; rejected++; log.push(`${n.id} GATE ${g} ${meta.width}x${meta.height}`); continue; }
+
+      let out = await toUniformWebp(buf);
+      if (out.length > MAX_KB) { delete n.cover; rejected++; log.push(`${n.id} BIG-${(out.length / 1024).toFixed(0)}KB`); continue; }
+
+      const h = hashOf(out);
+      let target = dedupe.get(h);
+      if (!target) { target = "img/" + n.id + ".webp"; dedupe.set(h, target); fs.writeFileSync(path.join(IMG_DIR, path.basename(target)), out); }
+      else dedupHit++;
+      n.cover = target; localized++;
+      log.push(`${n.id} OK ${path.basename(target)} ${(out.length / 1024).toFixed(0)}KB ${meta.width}x${meta.height}`);
     } catch (e) {
-      clearTimeout(t);
-      delete n.cover; missing++; log.push(`${n.id} FAIL ${String(e.message || e).slice(0, 40)}`);
+      delete n.cover; rejected++;
+      log.push(`${n.id} FAIL ${String(e.message || e).slice(0, 50)}`);
     }
   }
 }));
 
 fs.writeFileSync("data.json", JSON.stringify(data, null, 1), "utf8");
+
+// 清理不再被引用的旧封面（旧格式 jpg/png / 已弃用条目的 webp）
+const referenced = new Set(data.news.map((n) => n.cover).filter((c) => c && !/^https?:/i.test(c)).map((c) => path.basename(c)));
+let cleaned = 0;
+for (const f of fs.readdirSync(IMG_DIR)) {
+  if (!referenced.has(f)) { fs.unlinkSync(path.join(IMG_DIR, f)); cleaned++; }
+}
+
 const withCover = data.news.filter((n) => n.cover && !/^https?:/i.test(n.cover)).length;
-log.push(`---`, `localized=${localized} svg=${svggen} kept=${kept} missing=${missing} total=${withCover}/${data.news.length}`);
+log.push(`---`, `reencoded=${localized} kept=${kept} rejected=${rejected} dedupHits=${dedupHit} cleaned=${cleaned} total=${withCover}/${data.news.length}`);
 fs.writeFileSync("_covers_log.txt", log.join("\n"), "utf8");
-console.log(`covers v2: localized=${localized} svg=${svggen} kept=${kept} missing=${missing} withLocalCover=${withCover}/${data.news.length}`);
+console.log(`covers v3: reencoded=${localized} kept=${kept} rejected=${rejected} dedupHits=${dedupHit} withCover=${withCover}/${data.news.length}`);
