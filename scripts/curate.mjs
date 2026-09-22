@@ -70,7 +70,7 @@ let fresh = [];
 if (cands.length && KEY && BASE) {
   const todayDow = "星期" + "日一二三四五六"[new Date().getDay()];
   try {
-    const sys = `你是「广职大信工学院 AI 雷达站」的编辑。受众：广州职业技术大学信息工程学院软件工程（含工业软件实验班）、信息安全与管理专业本科生。今天是 ${TODAY}。
+    const sys = `你是「广职大AI资讯与求职情报站」的编辑。受众：广州职业技术大学信息工程学院软件工程（含工业软件实验班）、信息安全与管理专业本科生。今天是 ${TODAY}。
 最高原则：专业对口、实用为先、宁缺毋滥——每条内容必须回答「对我有什么用、对应什么课、怎么用」。与两个专业就业无关的内容（纯融资、八卦、学术、消费电子、具身智能等）一律不选。没有合格候选就少选或不选，禁止凑数。
 选出的每条输出字段：
 - title：改写后的中文标题（信息量足，可含关键数字）
@@ -140,7 +140,7 @@ const rawJobs = fs.existsSync("_raw_jobs.json") ? load("_raw_jobs.json") : [];
 if (KEY && BASE && rawJobs.length && !process.env.SKIP_JOBS) {
   const existJobKeys = new Set(data.jobs.map((j) => ((j.company || "") + (j.title || "")).replace(/\s/g, "").slice(0, 12)));
   try {
-    const sys = `今天是 ${TODAY}。你是「广职大信工学院AI雷达站」的就业信息编辑。下面是来自开源校招汇总仓库的原始行文本候选。提取出信息足够明确的岗位/校招/实习条目（面向本科可投的应届生或在校生优先），每条输出：
+    const sys = `今天是 ${TODAY}。你是「广职大AI资讯与求职情报站」的就业信息编辑。下面是来自开源校招汇总仓库的原始行文本候选。提取出信息足够明确的岗位/校招/实习条目（面向本科可投的应届生或在校生优先），每条输出：
 - company：公司/单位名；title：一句话标题（含批次如 2027届/秋招/实习）
 - type：校招/实习/内推 之一；loc：工作地点（未知填"见公告"）；deadline：投递方式/截止（未知填"尽快投递"）
 - positions：岗位名数组（1-5个）；salary：薪资（未知填""）
