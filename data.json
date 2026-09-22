@@ -1,6 +1,112 @@
 {
- "updatedAt": "2026-09-22 00:51",
+ "updatedAt": "2026-09-22 01:22",
  "news": [
+  {
+   "id": "a192",
+   "title": "Rustls 十周年：用 Rust 重写 TLS 库，基准测试与路线图全公开",
+   "summary": "Rustls 迎来十周年，官方回顾了从零实现 TLS 协议栈的历程，并公布与 OpenSSL 的基准测试对比及未来路线图。",
+   "content": "Rustls 是纯 Rust 实现的 TLS 库，十周年文章里最有价值的是「为什么用 Rust 重写安全协议栈」：内存安全直接消灭了 OpenSSL 里反复出现的越界与释放后使用漏洞。文章给了吞吐、握手延迟等基准数据，也讲了如何用 rustls 替换项目里的 native-tls。对信息安全专业的同学，这是理解「语言特性如何降低协议实现风险」的活教材；对开发同学，如果你在做 HTTPS 服务或写网络课设，rustls 的 API 比 OpenSSL 干净得多，值得动手跑一遍官方示例。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "stack",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "TLS"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**想搞懂「安全协议怎么实现才不出漏洞」，这是最好的开源样本之一。**",
+   "courses": "对应《网络安全》《密码学》——把 TLS 握手流程从课本落到可读代码",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 62,
+   "brief": [
+    "纯 Rust 实现的 TLS，核心卖点是内存安全",
+    "含与 OpenSSL 的基准测试数据",
+    "给出替换 native-tls 的迁移思路",
+    "十周年路线图说明后续协议支持计划"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/slZSm1Qr5I1QJi0JaZjr?utm_source=rss&utm_medium=article",
+   "cover": "img/a192.jpg"
+  },
+  {
+   "id": "a193",
+   "title": "Agentero：TypeScript 写的多 Agent 科研协作工作台（667★）",
+   "summary": "一个用 TypeScript 构建的开源工作台，定位是「人与 Agent 协作」，把多 Agent 编排、任务拆解和结果汇总做成可视化流程。",
+   "content": "Agentero 解决的是「多个 Agent 怎么分工、怎么把结果串起来」这个工程问题，而不是再训一个模型。技术栈是 TypeScript，前端同学可以直接读它的编排层和状态管理代码，理解 Agent 调度的数据结构长什么样。你可以拿它当毕业设计或课设的骨架：把科研场景换成「课程资料整理」「代码审查流水线」，接上自己的 API Key 就能跑。注意它是工作台而非框架，重点看它怎么定义任务节点和上下文传递，这部分设计思路比代码本身更值钱。",
+   "source": "GitHub",
+   "date": "2026-09-22",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**想做一个能写进简历的 Agent 项目，从读它的编排层开始。**",
+   "courses": "对应《软件工程》《Web 开发》——把多 Agent 协作当成一个可拆解的系统设计题",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "TypeScript 技术栈，前端可直接读源码",
+    "核心是 Agent 任务编排与上下文传递",
+    "可改造成课设/毕设的多 Agent 骨架",
+    "667 星、近期仍在更新"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "poco-ai/Agentero",
+   "link": "https://github.com/poco-ai/Agentero",
+   "cover": "img/a193.png"
+  },
+  {
+   "id": "a194",
+   "title": "内存墙下存储不再是算力附属品：一次关于「存力」的产业访谈",
+   "summary": "芯展速李蓁谈内存墙问题，认为未来十年算力差距会缩小，存力差距才决定谁跑在前面。",
+   "content": "这篇访谈对工业软件方向的同学有实际意义：当模型和数据规模上去后，瓶颈从「算得快不快」变成「数据搬得动搬不动」，也就是内存墙。文章讲的是存储层级、带宽与延迟如何制约系统性能，这些概念在写高性能程序、做嵌入式或工业数据处理时都会撞上。你不需要记住厂商名字，但要建立「先看数据通路再看计算」的性能观。做课设时如果发现程序慢，先查是不是在反复搬运数据，而不是急着换算法。",
+   "source": "钛媒体",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**建立「先看数据通路再看计算」的性能观，比背概念有用。**",
+   "courses": "对应《计算机组成原理》《高性能计算》——理解存储层级对程序性能的真实影响",
+   "tags": [
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "核心概念：内存墙、带宽与延迟制约性能",
+    "算力差距缩小后，存力成为新瓶颈",
+    "对高性能与工业数据处理有直接参考价值",
+    "提醒性能优化先看数据通路"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8147817.html",
+   "cover": "img/a194.png"
+  },
   {
    "id": "a188",
    "title": "Kotlin 跨端实战：安卓/iOS 的 Kotlin 代码直接驱动 JavaScript 网站",
@@ -25,7 +131,7 @@
     "前端开发",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Kotlin 业务逻辑可编译为 JS，供 Web 端直接调用",
@@ -4067,109 +4173,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
    "cover": "img/a54.jpg"
-  },
-  {
-   "id": "a55",
-   "title": "Grab开源LLM-Kit智能体框架：生产级Agent部署的工程化参考",
-   "summary": "Grab开源了其内部智能体框架LLM-Kit，用于加速AI Agent从原型到生产环境的部署，涵盖编排、工具调用、状态管理等核心模块。",
-   "content": "东南亚出行巨头Grab将其内部使用的LLM-Kit智能体框架开源。该框架解决的核心问题是：Agent从Demo到生产环境之间的工程鸿沟——包括多轮对话状态管理、工具调用的错误恢复、并发控制、可观测性等。对软件工程专业的同学来说，这是一个很好的'读源码学架构'素材。你可以在《软件工程》课程的项目实践中，用LLM-Kit搭建一个简单的课程助手Agent（比如自动查询课表、回答课程FAQ），重点体会生产级Agent与课堂Demo的差异：异常处理、日志追踪、限流降级。工业软件实验班的同学尤其值得关注其模块化设计思路，这对理解工业场景下Agent的可靠性要求很有帮助。",
-   "source": "InfoQ中文",
-   "date": "2026-09-18",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LLM",
-    "Agent框架"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**用生产级Agent框架做课设，比手写Demo更能体现工程能力，简历上是一个差异化亮点**",
-   "courses": "《软件工程》——用LLM-Kit搭建课程助手Agent，实践生产级异常处理与可观测性",
-   "tags": [],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "Grab开源生产级Agent框架LLM-Kit，解决从Demo到上线的工程化问题",
-    "核心模块：编排、工具调用、状态管理、错误恢复、可观测性",
-    "适合作为软件工程课设的Agent开发底座，体会生产级与Demo的差距",
-    "工业软件方向可关注其模块化设计与可靠性保障机制"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
-   "cover": "img/a55.jpg"
-  },
-  {
-   "id": "a56",
-   "title": "Claude Code团队公开3万Agent管理技术：大规模Agent编排的工程实践",
-   "summary": "Anthropic的Claude Code团队对外分享了其内部管理3万个并发Agent的技术方案，涉及任务调度、资源隔离、失败恢复等核心工程问题。",
-   "content": "Anthropic披露Claude Code团队内部同时运行约3万个Agent来辅助AI研发，并公开了其管理技术。核心挑战包括：如何调度海量Agent任务、如何隔离资源防止互相干扰、如何处理Agent失败后的恢复与重试、如何监控整体运行状态。这些问题的本质是分布式系统+任务编排，对软件工程专业同学来说，这是'分布式系统'课程知识的真实工业案例。你不需要照搬3万Agent的规模，但可以借鉴其设计思路：用消息队列做任务分发、用容器做资源隔离、用状态机做失败恢复。建议在《分布式系统》或《云计算》课程的大作业中，设计一个简化版的Agent任务调度器，支持并发执行和失败重试，作为项目亮点。",
-   "source": "量子位",
-   "date": "2026-09-18",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent编排",
-    "分布式系统"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**3万Agent管理技术的本质是分布式任务编排，是分布式系统课程知识的绝佳工业案例**",
-   "courses": "《分布式系统》——借鉴其调度与隔离思路，设计简化版Agent任务调度器",
-   "tags": [],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Anthropic公开3万并发Agent的管理技术，核心是调度、隔离、恢复、监控",
-    "本质是分布式系统+任务编排的工程问题，与课堂知识直接对应",
-    "可在分布式系统课设中设计简化版Agent调度器，支持并发与重试",
-    "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html"
-  },
-  {
-   "id": "b3",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "渗透测试",
-    "OWASP"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "heat": 78,
-   "title": "网络安全工程师面试高频考点整理：SQL 注入、XSS 每场必问",
-   "summary": "2026 年网安面试实战清单：渗透测试基础是 TOP1 必考，SQL 注入的原理、分类与防护要能白板讲写；附岗位方向薪资参考。",
-   "content": "整理自 2026 年最新面试题库与一线大厂面经。TOP1 必考是渗透测试基础：SQL 注入要讲清原理（恶意 SQL 拼接欺骗服务器执行未授权查询）、分类（联合查询/报错/盲注等）和防护（参数化查询最关键，另有输入过滤白名单、数据库最小权限、WAF 作补充）；XSS 的分类与区别同样高频。市场参考：2026 年 Q2 网安岗位需求同比增长约 28%，安全运维 1-3 年经验一线约 12-18K、渗透测试 18-25K。准备建议：本地搭 DVWA 靶场把 OWASP Top10 逐个复现一遍，面试时「我亲手复现并防护过」比背概念有说服力得多。",
-   "brief": [
-    "渗透测试基础是 TOP1 必考",
-    "SQL 注入：原理/分类/防护要能白板写",
-    "防护核心：参数化查询+最小权限",
-    "建议 DVWA 靶场逐个复现 OWASP Top10"
-   ],
-   "tags": [
-    "面试考点",
-    "SQL注入",
-    "XSS",
-    "渗透测试"
-   ],
-   "source": "CSDN",
-   "date": "2026-09-18",
-   "lang": "zh",
-   "value": "网安面试底线清单：**SQL 注入、XSS 原理与防护每场必问，要能白板写**",
-   "courses": "Web 安全、计算机网络、数据库",
-   "get": "CSDN 文章免费阅读，按考点清单逐条复现到本地靶场（DVWA）",
-   "link": "https://blog.csdn.net/msbcsdn/article/details/162700523",
-   "featured": false,
-   "cover": "img/b3.png"
   }
  ],
  "jobs": [
