@@ -1,6 +1,223 @@
 {
- "updatedAt": "2026-09-22 06:15",
+ "updatedAt": "2026-09-22 10:15",
  "news": [
+  {
+   "id": "a134",
+   "title": "中国商飞「AI+工业软件」赛道出题，参赛可走 C919 校招绿色通道",
+   "summary": "2026 上海开源软件应用创新大赛设「AI+工业软件赛道」，中国商飞出两道硬核赛题，参赛者可享商飞校招绿色通道。",
+   "content": "中国商飞为本次大赛的「AI+工业软件赛道」出了两道题，方向围绕大飞机研制中的软件与 AI 应用。对工业软件实验班的同学来说，这是少见的「国家级工业场景 + 开源比赛 + 校招直通」三合一机会：题目本身就是真实工业需求，做出来能直接写进简历的工业软件项目栏；商飞校招绿色通道更是把比赛结果和就业挂钩。建议组队时前端负责可视化界面、后端负责数据处理与算法服务，把课程里的软件工程流程、数据结构真正跑一遍。报名截止前先看清赛题技术栈，别盲目冲。",
+   "source": "开源中国",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "AI",
+    "工业软件"
+   ],
+   "value": "**国家级工业软件赛题 + 校招绿色通道，是工业软件方向性价比最高的求职加分项**",
+   "courses": "对应《软件工程》《工业软件导论》，把课设升级成真实工业项目",
+   "tags": [
+    "工业软件",
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 92,
+   "brief": [
+    "赛道：AI+工业软件，中国商飞出题",
+    "奖励：参赛可享商飞校招绿色通道",
+    "适合工业软件实验班组队参赛",
+    "真实工业场景，可直接写进简历"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502672"
+  },
+  {
+   "id": "a135",
+   "title": "菜鸟 Agent 托管端到端交付：AI Coding 贡献率超 90%，交付只快 10%",
+   "summary": "菜鸟分享用 Agent 托管端到端交付的实践，AI 生成代码占比超 90%，但需求交付效率仅提升约 10%，揭示瓶颈不在写代码。",
+   "content": "这个案例值得每个准备靠 AI 写代码吃饭的同学细读：AI Coding 贡献率超 90%，交付却只快 10%，说明瓶颈在需求澄清、联调、测试、上线这些「代码之外」的环节。菜鸟的解法是用 Agent 托管端到端交付流程，而不是只让它补全函数。对你的启示：别把 AI 当打字机，要学怎么把 Agent 编排进完整交付链路——这正好对应软件工程里的需求、设计、测试、运维全流程。面试聊 AI 提效时，能讲清「为什么快不了」比会背工具名更值钱。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Agent",
+    "AI Coding"
+   ],
+   "value": "**看懂 AI 提效的真实瓶颈，比会背工具名更能打动面试官**",
+   "courses": "对应《软件工程》《软件测试》，理解全流程交付而非只写代码",
+   "tags": [
+    "通用开发",
+    "求职就业",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 88,
+   "brief": [
+    "AI 生成代码占比超 90%，交付仅快 10%",
+    "瓶颈在需求、联调、测试、上线环节",
+    "解法：Agent 托管端到端交付流程",
+    "面试谈 AI 提效的高质量素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/XPo33yALUEeIsBhQ4zGI?utm_source=rss&utm_medium=article",
+   "cover": "img/a135.webp"
+  },
+  {
+   "id": "a136",
+   "title": "Meta 开源 Astryx：面向 Agent 的 React 设计系统",
+   "summary": "Meta 开源 Astryx，一套专为 Agent 场景设计的 React 设计系统，前端同学可直接接入使用。",
+   "content": "Astryx 是 Meta 开源的 React 设计系统，定位是「面向 Agent」——也就是说它预置了对话、工具调用、状态流这类 Agent 界面常用的组件与交互范式。对前端方向的同学，这是现成的练手素材：用 React + Astryx 搭一个自己的 AI 助手界面，比从零写组件库省一半时间，还能在简历里写「基于开源设计系统实现 Agent 交互界面」。建议先跑通官方示例，再改造成课程项目的前端壳，重点体会设计系统如何约束组件 API 与主题。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用现成设计系统快速搭出 Agent 界面，前端简历的差异化项目**",
+   "courses": "对应《Web 前端开发》，把课程作业升级成 Agent 交互界面",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Meta 开源的 React 设计系统",
+    "预置 Agent 对话/工具调用类组件",
+    "适合做 AI 助手界面的练手项目",
+    "可写进简历的前端开源实践"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/He6bUhlNIuPEa99GGRYC?utm_source=rss&utm_medium=article",
+   "cover": "img/a136.webp"
+  },
+  {
+   "id": "a137",
+   "title": "Jev 工程学中文全译：为 Coding Agent 而作的语言设计蓝图",
+   "summary": "有人把 TypeSafe 创始人《Jev 工程学》设计笔记完整译成中文，含七张插图，讲的是「为 coding agent 而作」的语言设计思路。",
+   "content": "这份笔记从一个尖锐问题开场：如果语言模型没有 KV 缓存、没有人类那样的记忆，编程语言该为谁设计？Jev 的思路是把语言设计成对 Agent 友好——类型系统、决策层、可验证性都围绕机器读写优化。对软件工程和信息安全方向的同学，这是理解「AI 时代编程语言往哪走」的一手材料，也能帮你建立类型安全、静态检查这些概念的直觉。建议配合另一篇《用 TypeSafe Jev 构建 Agent 快速决策层》一起读，理论加实践。",
+   "source": "开源中国",
+   "date": "2026-09-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "TypeSafe",
+    "Agent"
+   ],
+   "diff": 3,
+   "scene": "求职准备/进阶阅读",
+   "value": "**理解 AI 时代编程语言设计方向，类型安全与语言直觉的进阶读物**",
+   "courses": "对应《编译原理》《程序设计语言》，把类型系统理论落到 Agent 场景",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "TypeSafe 创始人设计笔记完整中文翻译",
+    "核心问题：语言该为 Agent 还是人设计",
+    "涉及类型系统、决策层、可验证性",
+    "适合建立类型安全与语言设计直觉"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502674"
+  },
+  {
+   "id": "a138",
+   "title": "Mnemosyne 快速上手：给 Agent 加本地 SQLite 记忆，零托管服务",
+   "summary": "Mnemosyne 是 Hermes Agent 的本地优先记忆组件，用本地 SQLite 存工作记忆、结构化事实、时序与情节历史，无需联网。",
+   "content": "做 Agent 项目最头疼的是「记不住上下文」。Mnemosyne 用本地 SQLite 存四类记忆：工作记忆、结构化事实、时序数据、情节历史，全部本地落盘，不依赖托管服务，写入控制粒度还很细。对做课设或毕设的同学，这意味着你可以给自己的 Agent 加一个可控、可调试、可离线演示的记忆层，答辩时不用担心网络和 API 费用。建议先跑通 Quickstart，再把它接到你现有的对话流程里，重点看它怎么区分「事实」和「情节」。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "SQLite",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/毕设",
+   "value": "**给 Agent 加可控可离线的记忆层，课设答辩不怕断网和 API 费用**",
+   "courses": "对应《数据库原理》，把 SQLite 从课本用到真实 Agent 记忆存储",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "本地优先记忆组件，基于 SQLite",
+    "四类记忆：工作/事实/时序/情节",
+    "无需托管服务，可离线演示",
+    "适合给课设 Agent 加记忆层"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Mnemosyne for Hermes Agent: Local Memory Quickstart",
+   "link": "https://dev.to/rosgluk/mnemosyne-for-hermes-agent-local-memory-quickstart-p0k",
+   "cover": "img/a138.webp"
+  },
+  {
+   "id": "a139",
+   "title": "用 TypeSafe Jev 给 AI Agent 搭快速决策层：别让大模型干所有活",
+   "summary": "教程演示如何用 TypeSafe Jev 为 Agent 构建快速决策层，把规划、工具选择、风险评分等任务从大模型剥离，降低成本和测试难度。",
+   "content": "多数 Agent 架构的毛病是：规划、写作、工具选择、相关性检查、风险评分、权限门全塞给同一个大模型，原型能跑，但控制回路又贵又难测。这篇教程用 TypeSafe Jev 把「决策」单独抽成一层，用类型安全的方式表达规则和权限判断，大模型只负责它擅长的部分。对信息安全方向的同学尤其有价值：权限门和风险评分正是安全策略的落点，用类型系统保证「不该放行的绝不放行」，比在 prompt 里写「请勿越权」靠谱得多。建议边读边动手复现最小决策层。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "TypeSafe",
+    "Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**用类型安全做 Agent 权限门与风险评分，安全方向的高含金量实践**",
+   "courses": "对应《信息安全导论》《软件工程》，把访问控制理论落到 Agent 架构",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "把决策层从大模型中剥离出来",
+    "用类型安全表达规则与权限判断",
+    "降低 Agent 成本与测试难度",
+    "信息安全方向可借鉴权限门设计"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Build a Fast Decision Layer for AI Agents with TypeSafe Jev",
+   "link": "https://dev.to/coderbuffer/how-to-build-a-fast-decision-layer-for-ai-agents-with-typesafe-jev-1ggj",
+   "cover": "img/a139.webp"
+  },
   {
    "id": "a129",
    "title": "Netflix 重构 Conductor：支撑每月 4.2 亿次工作流、10 倍规模扩展",
@@ -26,7 +243,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Conductor 是 Netflix 开源的 Java 工作流编排引擎，本次为应对 10 倍规模做架构重构",
@@ -1095,7 +1312,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "TheAlgorithms/Java（66277★）",
-   "link": "https://github.com/TheAlgorithms/Java"
+   "link": "https://github.com/TheAlgorithms/Java",
+   "cover": "img/a95.webp"
   },
   {
    "id": "a96",
