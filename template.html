@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI向导 — 广职大信工学院 · AI 实战信息与信工求职指南（学生公益项目）</title>
-<meta name="description" content="AI向导——面向广州职业技术大学信息工程学院学生（软件工程、信息安全与管理专业）的公益 AI 资讯与求职站：开箱工具与项目、AI 提效实战教程、技术栈更新、就业动态，岗位全部标注对应课程与准备建议，附官方投递链接。">
+<title>广职大AI资讯与求职情报站 — 信工学院学生公益项目</title>
+<meta name="description" content="广职大AI资讯与求职情报站——面向广州职业技术大学信息工程学院学生（软件工程、信息安全与管理专业）的公益 AI 资讯与求职站：开箱工具与项目、AI 提效实战教程、技术栈更新、就业动态，岗位全部标注对应课程与准备建议，附官方投递链接。">
 <meta name="keywords" content="广职大,信息工程学院,软件工程,信息安全,校招,实习,前端,Java,渗透测试,等保,工业软件,AI编程">
 <style>
 :root {
@@ -279,6 +279,21 @@ main { min-width: 0; }
   .nav { display: flex; flex: 1; justify-content: flex-end; gap: 2px; order: 0; }
   .nav button { padding: 10px 10px; font-size: 13px; border-radius: 8px; white-space: nowrap; }
   .nav button.active { background: #eef4ff; color: var(--accent); }
+  /* 小屏（≤480px）：新站名较长，顶栏做紧凑处理防止溢出 */
+  @media (max-width: 480px) {
+    .topbar-inner { padding: 10px 10px; gap: 8px; }
+    .logo { font-size: 14.5px; white-space: nowrap; }
+    .nav { gap: 0; }
+    .nav button { padding: 10px 7px; font-size: 12.5px; }
+    .tab-ico { display: none; }
+  }
+  /* 超小屏（≤380px）：顶栏改两行——logo 一行、Tab 一行，避免任何裁切 */
+  @media (max-width: 380px) {
+    .topbar-inner { flex-wrap: wrap; padding: 8px 12px; row-gap: 0; }
+    .logo { flex: 1 1 auto; font-size: 14.5px; }
+    .nav { flex: 1 0 100%; order: 3; justify-content: flex-start; }
+    .nav button { padding: 8px 8px; font-size: 12.5px; }
+  }
   /* 今日上新栏：紧凑（触控 44px 由行高保证） */
   .ticker-label { font-size: 12px; padding: 9px 12px; margin: 5px 0; }
   .ticker-summary { font-size: 13px; }
@@ -433,10 +448,10 @@ main { min-width: 0; }
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo">AI<span class="radar">向导</span><span class="logo-sub">广职大信息工程学院 · 学生公益项目</span></div>
+    <div class="logo">广职大<span class="radar">AI资讯与求职情报站</span><span class="logo-sub">信息工程学院 · 学生公益项目</span></div>
     <nav class="nav">
-      <button id="tab-news" class="active" onclick="switchTab('news')">🧰 AI 实战信息</button>
-      <button id="tab-jobs" onclick="switchTab('jobs')">💼 信工求职指南</button>
+      <button id="tab-news" class="active" onclick="switchTab('news')"><span class="tab-ico">🧰</span> AI 实战信息</button>
+      <button id="tab-jobs" onclick="switchTab('jobs')"><span class="tab-ico">💼</span> 信工求职指南</button>
     </nav>
     <div class="clock"><span id="clock-time">--:--:--</span><br>更新于 __UPDATED__</div>
   </div>
@@ -512,7 +527,7 @@ main { min-width: 0; }
 </div>
 <footer class="footer">
   <div class="footer-inner">
-    <b>最近更新：__UPDATED__ ｜ AI向导 · 广职大信工学院</b> — 面向软件工程（含工业软件实验班）、信息安全与管理专业学生的公益资讯与求职站<br>
+    <b>最近更新：__UPDATED__ ｜ 广职大AI资讯与求职情报站</b> — 面向软件工程（含工业软件实验班）、信息安全与管理专业学生的公益资讯与求职站<br>
     <span class="ft-toggle" onclick="this.closest('.footer-inner').classList.add('ft-open')">关于本站 · 内容原则与来源 ▾</span><span class="ft-more">
     内容原则：<b>专业对口 · 实用为先 · 宁缺毋滥</b>——每条内容回答「对我有什么用、对应什么课、怎么用」；无新内容不硬凑日更<br>
     资讯来源：量子位 · 爱范儿 · InfoQ中文 · 钛媒体 · CSDN · 新华网 · 工业新闻网等公开渠道 ｜ 岗位来源：企业官方校招页、高校就业信息网，投递以官方渠道为准<br>
