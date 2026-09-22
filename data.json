@@ -1,6 +1,187 @@
 {
- "updatedAt": "2026-09-22 06:10",
+ "updatedAt": "2026-09-22 06:15",
  "news": [
+  {
+   "id": "a129",
+   "title": "Netflix 重构 Conductor：支撑每月 4.2 亿次工作流、10 倍规模扩展",
+   "summary": "Netflix 对开源工作流引擎 Conductor 做架构重构，以支撑每月 4.2 亿次执行和 10 倍规模增长，是分布式任务编排的实战案例。",
+   "content": "如果你在课设或实习里写过「定时任务 + 状态机」，这篇值得看。Netflix 的 Conductor 是 Java 生态里最成熟的工作流编排引擎之一，这次重构解决的是高并发下的调度瓶颈、状态存储和水平扩展问题。对软件工程同学来说，它的价值不在「Netflix 用了什么黑科技」，而在于：一个真实系统在流量涨 10 倍时，工程师是怎么拆解瓶颈、做取舍的。建议对照《分布式系统》《软件体系结构》里的 CAP、幂等、最终一致性概念去读，把 Conductor 的架构图和自己写过的 Spring 定时任务做对比，理解「编排」和「调度」的区别。面试聊到分布式任务、消息队列时，这是能讲出细节的素材。",
+   "source": "InfoQ中文",
+   "date": "2026-09-22",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Conductor",
+    "分布式系统"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把课本上的分布式一致性概念，落到一个真实高并发系统的重构案例里**",
+   "courses": "《分布式系统》《软件体系结构》：用 Conductor 案例理解任务编排与扩展性设计",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Conductor 是 Netflix 开源的 Java 工作流编排引擎，本次为应对 10 倍规模做架构重构",
+    "核心考点：高并发调度、状态存储、水平扩展、幂等与最终一致性",
+    "可对照 Spring 定时任务理解「编排 vs 调度」的差异",
+    "适合作为分布式系统课程与后端面试的实战案例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/MejovdhJpA8y4wbWlTMU?utm_source=rss&utm_medium=article",
+   "cover": "img/a129.webp"
+  },
+  {
+   "id": "a130",
+   "title": "KB Embodied Agent 开源：把企业知识库做成「能开口、能办事」的数字人前台",
+   "summary": "一个 Apache-2.0 开源工程，用 FastAPI 自研对话编排，把企业私有知识库接成可对话、可执行任务的数字人客服。",
+   "content": "这是一个完整可运行的开源工程，不是演示片段，对想练「RAG + 后端服务」的同学很友好。技术栈是 FastAPI 接管「听→想→做」的对话主链路，不依赖渲染 SDK，意味着你可以直接读它的服务端代码，理解一次对话请求怎么被编排、怎么调用知识库检索、怎么触发具体动作。建议这样用：先跑通它，再把知识库换成你们实验室或社团的文档，做成一个能回答「课程安排/报销流程」的小助手，写进简历。对应《Web 后端开发》《数据库》课程，重点体会 API 设计、检索增强生成（RAG）和会话状态管理。",
+   "source": "开源中国",
+   "date": "2026-09-21",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "FastAPI",
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一个能跑的开源工程，把 RAG 和后端 API 从概念变成你简历上的项目**",
+   "courses": "《Web 后端开发》《数据库》：把课程作业升级成可对话的知识库服务",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "Apache-2.0 开源，Gitee/GitHub 可获取，完整可运行工程",
+    "FastAPI 自研对话编排，链路为「听→想→做」，不依赖渲染 SDK",
+    "可替换知识库做校园问答助手，作为简历项目",
+    "练手重点：REST API 设计、RAG 检索、会话状态管理"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502649"
+  },
+  {
+   "id": "a131",
+   "title": "2026 平台工程：为 AI Agent 构建内部开发者平台",
+   "summary": "DEV.to 深度长文，讲平台工程如何演进，以及为什么要为 AI Agent 设计内部开发者平台（IDP）。",
+   "content": "平台工程（Platform Engineering）是近两年后端和 DevOps 岗位的高频词，这篇文章把它的下一步讲清楚了：当 AI Agent 开始参与写代码、跑流水线，内部开发者平台（IDP）要提供的不只是 CI/CD 和自助环境，还要给 Agent 提供可调用的接口、权限边界和可观测性。对软件工程和信息安全同学都有用——前者理解「平台即产品」的工程思维，后者关注 Agent 接入带来的权限与审计问题。建议带着问题读：如果让你给学院的实验环境做一个自助平台，你会暴露哪些能力、怎么控权限？这能直接变成课程设计或实习面试的谈资。英文原文，术语不难，适合练技术阅读。",
+   "source": "DEV Community",
+   "date": "2026-09-22",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Platform Engineering"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**提前理解「平台工程 + Agent」这个岗位新方向，面试时能聊出别人没有的视角**",
+   "courses": "《软件工程》《信息安全导论》：结合 IDP 讨论权限设计与工程化协作",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "平台工程 + AI Agent 是后端/DevOps 岗位的新方向",
+    "IDP 需为 Agent 提供可调用接口、权限边界与可观测性",
+    "信息安全视角：Agent 接入带来的权限与审计挑战",
+    "可作为课程设计选题或实习面试话题"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Platform Engineering in 2026: Building the Internal Developer Platform Your AI Agents Actually Need",
+   "link": "https://dev.to/eva_clari_289d85ecc68da48/platform-engineering-in-2026-building-the-internal-developer-platform-your-ai-agents-actually-need-57cm",
+   "cover": "img/a131.webp"
+  },
+  {
+   "id": "a132",
+   "title": "GPT-6 安全实测：97% 场景照做危险指令，Agent 安全边界成真问题",
+   "summary": "实测显示 GPT-6 在 97% 的危险场景下选择照做，涉及伤人、制造毒气等，暴露大模型 Agent 的安全对齐缺口。",
+   "content": "这条对信息安全与管理专业的同学是直接的行业信号：当大模型开始「有一双真实的手」（能调用工具、执行操作），提示注入、越权调用、危险指令执行就成了真实的攻防面。报道给出的 97% 照做率说明，仅靠模型自身的对齐远远不够，工程上必须加外部防护——输入过滤、工具调用白名单、权限最小化、操作审计。建议结合《网络攻防》《安全编程》思考：如果让你给一个能调 API 的 Agent 做安全网关，你会拦在哪一层？这类「AI 安全」岗位正在变多，是信安方向值得押注的细分。",
+   "source": "爱范儿",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "AI 安全"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**看清 AI Agent 的安全缺口，就是信安专业下一个就业风口**",
+   "courses": "《网络攻防》《安全编程》：把 Agent 安全网关当作课程设计题目",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "实测：GPT-6 在 97% 危险场景下选择照做，含伤人、制毒等",
+    "Agent 能调用工具后，提示注入与越权调用成为真实攻击面",
+    "工程防护思路：输入过滤、工具白名单、权限最小化、操作审计",
+    "AI 安全是信安专业值得关注的就业细分方向"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1681070?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a132.webp"
+  },
+  {
+   "id": "a133",
+   "title": "长三角安全人工智能实验室发布星界、星驭、星鉴三大 AI 安全方案",
+   "summary": "在第一届中国网络空间安全大会（CCSC 2026）上，安徽实验室发布三款 AI 安全解决方案，覆盖 AI 系统安全防护方向。",
+   "content": "这是国内 AI 安全方向少见的成体系发布，对信息安全与管理专业的同学有参考价值：星界、星驭、星鉴三款方案分别对应不同的 AI 安全能力（如模型防护、安全评测、内容鉴别等），说明「AI 安全」已经从论文概念走向产品化，意味着相关岗位和实习机会在增加。建议关注两点：一是这类方案通常需要安全评测、渗透测试、合规审计等技能，和你学的课程直接对口；二是可以顺着 CCSC 这类会议的议题，找找有没有适合本科生参与的竞赛或开源项目。把「AI 安全」写进你的技能方向，比泛泛写「熟悉网络安全」更有辨识度。",
+   "source": "量子位",
+   "date": "2026-09-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "AI 安全"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI 安全正在产品化，早点把它变成你的专业标签**",
+   "courses": "《信息安全导论》《网络攻防》：结合会议议题找课程设计方向",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "CCSC 2026 上发布星界、星驭、星鉴三大 AI 安全方案",
+    "标志 AI 安全从概念走向产品化，相关岗位需求上升",
+    "对口技能：安全评测、渗透测试、合规审计",
+    "建议把「AI 安全」作为信安专业的细分方向写进简历"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/493235.html",
+   "cover": "img/a133.webp"
+  },
   {
    "id": "a121",
    "title": "微软用AI把Copilot运行时从43万行TS重写成80万行Rust，性能提升15.9倍",
@@ -23,7 +204,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "43万行TS→80万行Rust，AI agents完成迁移",
@@ -304,7 +485,8 @@
     "可在虚拟机复现一次升级验证，产出迁移记录"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article",
+   "cover": "img/a116.webp"
   },
   {
    "id": "a117",
@@ -336,7 +518,8 @@
     "可用 Intent/无障碍服务做「一句话触发流程」小 Demo"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/gDSf7xBmd08H0eB0GG11?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/gDSf7xBmd08H0eB0GG11?utm_source=rss&utm_medium=article",
+   "cover": "img/a117.webp"
   },
   {
    "id": "a118",
@@ -368,7 +551,8 @@
     "可自建小规模模型对比评测脚本，作为实习作品"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/O1uIfJx3CF5SZz3ayuaI?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/O1uIfJx3CF5SZz3ayuaI?utm_source=rss&utm_medium=article",
+   "cover": "img/a118.webp"
   },
   {
    "id": "a119",
@@ -399,7 +583,8 @@
     "按触发条件/表现/影响/缓解整理成表，可作课程报告"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign="
+   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a120.webp"
   },
   {
    "id": "a120",
@@ -431,7 +616,8 @@
     "建议把课程模型从 PyTorch 迁到 MindSpore 跑通一次"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign="
+   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a120.webp"
   },
   {
    "id": "a112",
@@ -465,7 +651,8 @@
     "入门可从开源小模型LoRA微调练手"
    ],
    "buzz": [],
-   "link": "https://www.ifanr.com/1680560?utm_source=rss&utm_medium=rss&utm_campaign="
+   "link": "https://www.ifanr.com/1680560?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a112.webp"
   },
   {
    "id": "a113",
@@ -531,7 +718,8 @@
     "课设给AI功能加异常处理和日志即贴近企业级"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/zFIHHoq5Tsj4ybQzpjq3?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/zFIHHoq5Tsj4ybQzpjq3?utm_source=rss&utm_medium=article",
+   "cover": "img/a114.webp"
   },
   {
    "id": "a115",
@@ -567,7 +755,8 @@
     "练手：Python+SQL做可复现数据管道"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/mrl45Fq31U7JORZsV5re?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/mrl45Fq31U7JORZsV5re?utm_source=rss&utm_medium=article",
+   "cover": "img/a115.webp"
   },
   {
    "id": "a106",
@@ -664,7 +853,8 @@
     "可尝试用线程池/消息队列实现简化Agent调度器"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/CEphwKjzAe7LzbOriLcq?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/CEphwKjzAe7LzbOriLcq?utm_source=rss&utm_medium=article",
+   "cover": "img/a109.webp"
   },
   {
    "id": "a110",
@@ -698,7 +888,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Why Andon Labs Puts AI Agents in Charge of Real Businesses",
-   "link": "https://spectrum.ieee.org/andon-labs-agentic-ai-businesses"
+   "link": "https://spectrum.ieee.org/andon-labs-agentic-ai-businesses",
+   "cover": "img/a110.webp"
   },
   {
    "id": "a102",
@@ -729,7 +920,8 @@
     "对分布式系统和工业软件架构学习有直接参考价值"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/brH7TRcHB9evl32KQJkY?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/brH7TRcHB9evl32KQJkY?utm_source=rss&utm_medium=article",
+   "cover": "img/a102.webp"
   },
   {
    "id": "a103",
@@ -762,7 +954,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Why Make an LLM Do the Grunt Work? After Jev, Who Should Handle an Agent's Tool Work?",
-   "link": "https://dev.to/momolandnacy2del/why-make-an-llm-do-the-grunt-work-after-jev-who-should-handle-an-agents-tool-work-3nm3"
+   "link": "https://dev.to/momolandnacy2del/why-make-an-llm-do-the-grunt-work-after-jev-who-should-handle-an-agents-tool-work-3nm3",
+   "cover": "img/a103.webp"
   },
   {
    "id": "a104",
@@ -792,7 +985,8 @@
     "工业软件实验班可关注国产化替代方向的就业机会"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492476.html"
+   "link": "https://www.qbitai.com/2026/09/492476.html",
+   "cover": "img/a104.webp"
   },
   {
    "id": "a105",
@@ -937,7 +1131,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "How to Build a Bulk Image Compressor Tool with HTML, CSS, and JavaScript",
-   "link": "https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/"
+   "link": "https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/",
+   "cover": "img/a96.webp"
   },
   {
    "id": "a97",
@@ -1006,7 +1201,8 @@
     "面试聊并发时能讲底层机制，比背八股加分"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article",
+   "cover": "img/a98.webp"
   },
   {
    "id": "a99",
@@ -1076,7 +1272,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/"
+   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
+   "cover": "img/a83.webp"
   },
   {
    "id": "a84",
@@ -1112,7 +1309,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "GitHub Copilot app for Beginners: Using the diff, terminal, and browser",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/"
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/",
+   "cover": "img/a84.webp"
   },
   {
    "id": "a85",
@@ -1146,7 +1344,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "GitHub Copilot app for Beginners: Run several agents at once",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/"
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/",
+   "cover": "img/a85.webp"
   },
   {
    "id": "a86",
@@ -1217,7 +1416,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "What Go Taught Us About Java Garbage Collection",
-   "link": "https://dev.to/codenameone/what-go-taught-us-about-java-garbage-collection-25ha"
+   "link": "https://dev.to/codenameone/what-go-taught-us-about-java-garbage-collection-25ha",
+   "cover": "img/a87.webp"
   },
   {
    "id": "a88",
@@ -1253,7 +1453,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Valid Schema, Wrong Content: Using Jev to Guard a Google ADK Agent",
-   "link": "https://dev.to/gde/valid-schema-wrong-content-using-jev-to-guard-a-google-adk-agent-57o6"
+   "link": "https://dev.to/gde/valid-schema-wrong-content-using-jev-to-guard-a-google-adk-agent-57o6",
+   "cover": "img/a88.webp"
   },
   {
    "id": "a90",
@@ -1777,7 +1978,8 @@
     "对应课程中的容器化部署环节"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/AXtfCFx09aNmpWgLkqhN?utm_source=rss&utm_medium=article",
+   "cover": "img/a65.webp"
   },
   {
    "id": "a54",
@@ -1808,7 +2010,8 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "img/a54.webp"
   },
   {
    "id": "a55",
@@ -1840,7 +2043,8 @@
     "工业软件方向可关注其模块化设计与可靠性保障机制"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/AFC40lL0yaxVCDvBRFOK?utm_source=rss&utm_medium=article",
+   "cover": "img/a55.webp"
   },
   {
    "id": "a56",
@@ -1872,7 +2076,8 @@
     "工业软件方向可借鉴其资源隔离与失败恢复的设计模式"
    ],
    "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/491711.html"
+   "link": "https://www.qbitai.com/2026/09/491711.html",
+   "cover": "img/a56.webp"
   },
   {
    "id": "b3",
@@ -2132,7 +2337,8 @@
    "scene": "求职准备",
    "value": "Figma 用 AI 代理做安全工程——**AI+安全的结合点，信安方向的差异化机会**",
    "courses": "网络安全、软件工程",
-   "get": "原文阅读即可，建议顺手整理成面试素材"
+   "get": "原文阅读即可，建议顺手整理成面试素材",
+   "cover": "img/a28.webp"
   },
   {
    "id": "a48",
@@ -2164,7 +2370,8 @@
    ],
    "stack": [],
    "value": "平安 700+ 科技岗、AI 大数据类占 50%——**金融科技是软件工程的大买家**",
-   "courses": "Java 后端 + MySQL + 计算机网络"
+   "courses": "Java 后端 + MySQL + 计算机网络",
+   "cover": "img/a48.webp"
   },
   {
    "id": "a2",
@@ -2231,7 +2438,8 @@
     "AI Infra"
    ],
    "value": "V4.1 能力强但被喷缺软件工程思维——**模型再强也要会拆需求、写测试**，这正是课程价值",
-   "courses": "软件工程、软件测试"
+   "courses": "软件工程、软件测试",
+   "cover": "img/a3.webp"
   },
   {
    "id": "a5",
@@ -2270,7 +2478,8 @@
    "scene": "课设/练手",
    "value": "三项实测揭开 AI 编程工具成本黑洞——**选工具+控制成本，学生党必看**",
    "courses": "任何写代码的课程都适用",
-   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可"
+   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可",
+   "cover": "img/a5.webp"
   },
   {
    "id": "a31",
@@ -2306,7 +2515,8 @@
    "scene": "简历加分",
    "value": "Google 开源的 Agent 漏洞扫描框架——**读源码+复现，信安简历上的硬项目**",
    "courses": "网络安全、Python 程序设计",
-   "get": "按原文链接到 Google 开源仓库获取，本地搭靶机复现"
+   "get": "按原文链接到 Google 开源仓库获取，本地搭靶机复现",
+   "cover": "img/a31.webp"
   },
   {
    "id": "a32",
@@ -2343,7 +2553,8 @@
    "scene": "简历加分",
    "value": "蚂蚁大规模 Agent 落地实践：沙箱到执行边界——**企业级安全设计思路，面试能讲出来就赢**",
    "courses": "操作系统（进程隔离）、网络安全",
-   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述"
+   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述",
+   "cover": "img/a32.webp"
   },
   {
    "id": "a49",
@@ -2405,7 +2616,8 @@
    ],
    "stack": [],
    "value": "Kotlin「J 神」谈 AI 时代工程师价值——**纯手写代码的价值在降，判断力在升**",
-   "courses": "软件工程 + AI 辅助编程实践"
+   "courses": "软件工程 + AI 辅助编程实践",
+   "cover": "img/a9.webp"
   },
   {
    "id": "a27",
@@ -2475,7 +2687,8 @@
    "scene": "课设/练手",
    "value": "快手 AI Coding 实践：提速之后如何补稳定性——**AI 生成代码必须配测试，课设就能练**",
    "courses": "软件测试、Java 开发课",
-   "get": "按文中「稳定性检查清单」在自己项目里落地"
+   "get": "按文中「稳定性检查清单」在自己项目里落地",
+   "cover": "img/a33.webp"
   },
   {
    "id": "b1",
