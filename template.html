@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>广职大AI资讯与求职情报站 — 信工学院学生公益项目</title>
-<meta name="description" content="广职大AI资讯与求职情报站——面向广州职业技术大学信息工程学院学生（软件工程、信息安全与管理专业）的公益 AI 资讯与求职站：开箱工具与项目、AI 提效实战教程、技术栈更新、就业动态，岗位全部标注对应课程与准备建议，附官方投递链接。">
+<title>AI风向标 — 信工学院学生公益项目</title>
+<meta name="description" content="AI风向标——面向广州职业技术大学信息工程学院学生（软件工程、信息安全与管理专业）的公益 AI 资讯与求职站：开箱工具与项目、AI 提效实战教程、技术栈更新、就业动态，岗位全部标注对应课程与准备建议，附官方投递链接。">
 <meta name="keywords" content="广职大,信息工程学院,软件工程,信息安全,校招,实习,前端,Java,渗透测试,等保,工业软件,AI编程">
 <style>
 :root {
-  --bg: #f5f7fb; --card: #ffffff; --border: #e4e9f2; --text: #17203a;
-  --muted: #64748b; --accent: #2563eb; --accent2: #7c3aed;
-  --up: #dc2626; --down: #16a34a; --flat: #94a3b8;
+  --bg: #f7f8fa; --card: #ffffff; --border: #e6e8ec; --text: #111827;
+  --muted: #6b7280; --accent: #2563eb; --accent2: #7c3aed;
+  --up: #dc2626; --down: #16a34a; --flat: #9ca3af;
   --radius: 14px;
   /* 动效令牌：只两条曲线 + 四档时长，全部动画收敛到此 */
   --ease-out: cubic-bezier(.22, 1, .36, 1);  /* 出现/展开/滑入：起手快收尾优雅 */
@@ -44,7 +44,7 @@ a:hover { text-decoration: underline; }
 .ticker-label { flex-shrink: 0; padding: 8px 14px; font-size: 12px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 0 12px 12px 0; margin: 6px 0; }
 .ticker-summary { flex: 1; min-width: 0; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ticker-summary b { color: var(--accent); }
-.ticker-summary .ts-hint { color: #94a3b8; font-size: 12px; }
+.ticker-summary .ts-hint { color: #9ca3af; font-size: 12px; }
 .ticker-caret { flex-shrink: 0; margin-right: 14px; color: var(--muted); font-size: 13px; transition: transform var(--d-2) var(--ease-io); }
 .ticker.open .ticker-caret { transform: rotate(180deg); }
 .ticker-panel { max-height: 0; overflow: hidden; transition: max-height var(--d-3) var(--ease-out); }
@@ -70,7 +70,7 @@ a:hover { text-decoration: underline; }
 .hero h1 { font-size: 26px; line-height: 1.35; margin-bottom: 10px; position: relative; }
 .hero p { color: var(--muted); font-size: 14.5px; line-height: 1.75; max-width: 860px; position: relative; }
 .hero-meta { margin-top: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); position: relative; }
-.tag { font-size: 11.5px; background: #f1f5f9; color: #475569; padding: 3px 10px; border-radius: 6px; }
+.tag { font-size: 11.5px; background: #f3f4f6; color: #4b5563; padding: 3px 10px; border-radius: 6px; }
 
 .layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
 main { min-width: 0; }
@@ -139,10 +139,10 @@ main { min-width: 0; }
 /* 详情是卡片直接子元素：flex-wrap 让它展开时全宽铺在缩略图下方 */
 .news-card, .job-card { flex-wrap: wrap; }
 .news-card > .nc-main, .job-card > .job-main { flex: 1 1 0; min-width: 0; }
-.nc-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
+.nc-detail p { font-size: 13.5px; line-height: 1.85; color: #374151; }
 .nc-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 6px; }
 .nc-detail ul { list-style: none; }
-.nc-detail li { font-size: 13px; color: #475569; line-height: 1.8; padding-left: 16px; position: relative; }
+.nc-detail li { font-size: 13px; color: #4b5563; line-height: 1.8; padding-left: 16px; position: relative; }
 .nc-detail li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
 .nc-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-size: 12.5px; font-weight: 600; background: #eff4ff; border: 1px solid #d7e3ff; padding: 6px 14px; border-radius: 8px; }
 .badge-en { font-size: 11px; font-weight: 700; color: var(--accent2); background: #f5f0ff; border: 1px solid #e6d9ff; padding: 2px 8px; border-radius: 5px; }
@@ -157,23 +157,23 @@ main { min-width: 0; }
 .pager .pg-info { font-size: 12px; color: var(--muted); margin: 0 8px; }
 
 /* ===== Agent 热度榜 ===== */
-.heat-item { display: flex; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+.heat-item { display: flex; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f3f4f6; align-items: flex-start; }
 .heat-item:last-child { border-bottom: none; }
-.heat-rank { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; background: #f1f5f9; color: #64748b; }
+.heat-rank { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; background: #f3f4f6; color: #6b7280; }
 .heat-item:nth-child(1) .heat-rank { background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; }
 .heat-item:nth-child(2) .heat-rank { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
-.heat-item:nth-child(3) .heat-rank { background: linear-gradient(135deg, #64748b, #94a3b8); color: #fff; }
+.heat-item:nth-child(3) .heat-rank { background: linear-gradient(135deg, #6b7280, #9ca3af); color: #fff; }
 .heat-body { flex: 1; min-width: 0; }
 .heat-name { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 .heat-vendor { font-size: 11px; color: var(--muted); font-weight: 400; }
 .heat-delta { font-size: 12px; font-weight: 800; }
 .heat-delta.up { color: var(--up); } .heat-delta.down { color: var(--down); } .heat-delta.flat { color: var(--flat); }
-.heat-bar { height: 5px; background: #f1f5f9; border-radius: 3px; margin: 7px 0 6px; overflow: hidden; }
+.heat-bar { height: 5px; background: #f3f4f6; border-radius: 3px; margin: 7px 0 6px; overflow: hidden; }
 .heat-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform-origin: left; animation: heatGrow .9s cubic-bezier(.22,1,.36,1) backwards; }
 .heat-note { font-size: 11.5px; color: var(--muted); line-height: 1.6; }
 
 /* ===== 求职速览 ===== */
-.stat-item { padding: 14px 18px; border-bottom: 1px solid #f1f5f9; }
+.stat-item { padding: 14px 18px; border-bottom: 1px solid #f3f4f6; }
 .stat-item:last-child { border-bottom: none; }
 .stat-num { font-size: 22px; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .stat-label { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
@@ -203,33 +203,33 @@ main { min-width: 0; }
 .tag-stack { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
 .nc-value { font-size: 13.5px; line-height: 1.7; margin-top: 7px; color: #1e3a8a; background: #f0f6ff; border-left: 3px solid var(--accent); padding: 7px 12px; border-radius: 0 8px 8px 0; }
 .nc-value b { color: var(--accent); }
-.nc-use { font-size: 13px; color: #475569; line-height: 1.8; }
+.nc-use { font-size: 13px; color: #4b5563; line-height: 1.8; }
 .nc-foot { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; align-items: center; }
 .track-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; border: 1px solid transparent; }
-.diff-tag, .scene-tag { font-size: 11.5px; color: var(--muted); background: #f8fafc; border: 1px solid var(--border); padding: 2px 9px; border-radius: 6px; }
+.diff-tag, .scene-tag { font-size: 11.5px; color: var(--muted); background: #f9fafb; border: 1px solid var(--border); padding: 2px 9px; border-radius: 6px; }
 .cls-pill { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
 .cls-se { background: #dbeafe; color: #1d4ed8; }
 .cls-sec { background: #fee2e2; color: #b91c1c; }
 .job-card .job-detail { margin-top: 0; padding-top: 12px; border-top: 1px dashed var(--border); opacity: 0; transform: translateY(-4px); transition: opacity var(--d-2) 80ms var(--ease-out), transform var(--d-2) 80ms var(--ease-out); }
 .job-card.open .job-detail { opacity: 1; transform: none; margin-top: 12px; }
 .job-detail h4 { font-size: 12.5px; color: var(--accent); margin: 10px 0 5px; }
-.job-detail p { font-size: 13.5px; line-height: 1.85; color: #334155; }
+.job-detail p { font-size: 13.5px; line-height: 1.85; color: #374151; }
 .job-detail ul { list-style: none; }
-.job-detail li { font-size: 13px; color: #475569; line-height: 1.8; padding-left: 16px; position: relative; }
+.job-detail li { font-size: 13px; color: #4b5563; line-height: 1.8; padding-left: 16px; position: relative; }
 .job-detail li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
 .job-detail li::before { content: "▸"; }
 .job-two { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
-.job-two b { color: #334155; }
+.job-two b { color: #374151; }
 .job-tips { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; line-height: 1.7; color: #713f12; }
 .job-tips b { color: #b45309; }
 .job-actions { display: flex; align-items: center; gap: 12px; }
 .job-more { font-size: 12px; color: var(--muted); cursor: pointer; user-select: none; }
 .job-card.open .job-more { color: var(--accent); }
-.guide-group { padding: 12px 18px; border-bottom: 1px solid #f1f5f9; }
+.guide-group { padding: 12px 18px; border-bottom: 1px solid #f3f4f6; }
 .guide-group:last-child { border-bottom: none; }
 .guide-name { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
 .guide-group ul { list-style: none; }
-.guide-group li { font-size: 12px; color: #475569; line-height: 1.75; padding-left: 14px; position: relative; }
+.guide-group li { font-size: 12px; color: #4b5563; line-height: 1.75; padding-left: 14px; position: relative; }
 .guide-group li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 800; }
 
 /* ===== 小动画（统一令牌） ===== */
@@ -270,7 +270,7 @@ main { min-width: 0; }
 @media (max-width: 720px) {
   html { -webkit-text-size-adjust: 100%; font-size: 16px; }
   * { -webkit-tap-highlight-color: rgba(37, 99, 235, .10); }
-  body { overflow-x: hidden; background: #f1f5f9; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body { overflow-x: hidden; background: #f3f4f6; padding-bottom: env(safe-area-inset-bottom, 0px); }
   /* 顶栏：单行——logo 左、轻量 Tab 右；滚动后加投影（带过渡） */
   .topbar { position: sticky; top: 0; z-index: 50; transition: box-shadow 180ms var(--ease-io), border-color 180ms var(--ease-io); }
   .topbar.scrolled { box-shadow: 0 2px 8px rgba(15, 23, 42, .06); }
@@ -280,20 +280,20 @@ main { min-width: 0; }
   .nav { display: flex; flex: 1; justify-content: flex-end; gap: 2px; order: 0; }
   .nav button { padding: 10px 10px; font-size: 13px; border-radius: 8px; white-space: nowrap; }
   .nav button.active { background: #eef4ff; color: var(--accent); }
-  /* 小屏（≤480px）：新站名较长，顶栏做紧凑处理防止溢出 */
+  /* 小屏（≤480px）：站名短了，适度放松顶栏 */
   @media (max-width: 480px) {
-    .topbar-inner { padding: 10px 10px; gap: 8px; }
-    .logo { font-size: 14.5px; white-space: nowrap; }
+    .topbar-inner { padding: 10px 12px; gap: 10px; }
+    .logo { font-size: 18px; white-space: nowrap; }
     .nav { gap: 0; }
-    .nav button { padding: 10px 7px; font-size: 12.5px; }
+    .nav button { padding: 10px 9px; font-size: 13px; }
     .tab-ico { display: none; }
   }
   /* 超小屏（≤380px）：顶栏改两行——logo 一行、Tab 一行，避免任何裁切 */
   @media (max-width: 380px) {
     .topbar-inner { flex-wrap: wrap; padding: 8px 12px; row-gap: 0; }
-    .logo { flex: 1 1 auto; font-size: 14.5px; }
+    .logo { flex: 1 1 auto; font-size: 17px; }
     .nav { flex: 1 0 100%; order: 3; justify-content: flex-start; }
-    .nav button { padding: 8px 8px; font-size: 12.5px; }
+    .nav button { padding: 8px 9px; font-size: 13px; }
   }
   /* 今日上新栏：紧凑（触控 44px 由行高保证） */
   .ticker-label { font-size: 12px; padding: 9px 12px; margin: 5px 0; }
@@ -304,7 +304,7 @@ main { min-width: 0; }
   .ticker-panel-inner { padding: 12px 14px 16px; }
   .digest-item { padding: 10px 4px; flex-direction: column; gap: 2px; }
   .digest-item .di-title { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 13.5px; line-height: 1.5; }
-  .digest-item .di-src { font-size: 12px; color: #94a3b8; }
+  .digest-item .di-src { font-size: 12px; color: #9ca3af; }
   /* 主栏节奏 */
   .wrap { padding: 10px 16px 46px; }
   /* 头条：封面在上（16:9、最高 130px）→ 标题 2 行 → 摘要 1 行 → 来源一行 */
@@ -323,7 +323,7 @@ main { min-width: 0; }
   /* 筛选：分类主行单行横滑（渐隐提示+snap），专业方向收进底部抽屉 */
   .filter-row { align-items: center; gap: 8px; }
   #news-chips { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; padding: 2px 0; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 24px), transparent 100%); position: relative; }
-  .chip { flex: 0 0 auto; padding: 12px 2px; font-size: 14px; border: none; background: none; border-radius: 0; color: #64748b; position: relative; scroll-snap-align: start; min-height: 44px; display: inline-flex; align-items: center; }
+  .chip { flex: 0 0 auto; padding: 12px 2px; font-size: 14px; border: none; background: none; border-radius: 0; color: #6b7280; position: relative; scroll-snap-align: start; min-height: 44px; display: inline-flex; align-items: center; }
   .chip.active { background: none; border-color: transparent; color: var(--accent); }
   /* 分类指示条：JS 定位，随激活项滑动 */
   .chips-indicator { position: absolute; bottom: 4px; left: 0; height: 2.5px; border-radius: 2px; background: var(--accent); transition: transform var(--d-3) var(--ease-out), width var(--d-3) var(--ease-out); will-change: transform, width; }
@@ -333,7 +333,7 @@ main { min-width: 0; }
   .news-list { background: none; border: none; border-radius: 0; overflow: visible; gap: 0; transition: opacity 120ms var(--ease-io), transform 120ms var(--ease-io); }
   .news-list.filtering { opacity: 0; transform: translateY(4px); }
   .news-card { background: #fff; border: none; border-radius: 14px; padding: 13px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(15,23,42,.06); transform: none; transition: transform var(--d-1) var(--ease-out), box-shadow var(--d-1) var(--ease-out); }
-  .news-card:active { transform: scale(.985); box-shadow: 0 1px 6px rgba(15,23,42,.10); background: #f8fafc; }
+  .news-card:active { transform: scale(.985); box-shadow: 0 1px 6px rgba(15,23,42,.10); background: #f9fafb; }
   /* 左侧 112px 方形缩略图 + 右侧文字（信息密度最高）；展开时缩略图保持不动，只在下方渐开内容 */
   .news-card, .job-card { display: flex; gap: 12px; align-items: flex-start; }
   .news-card > .cover, .job-card > .cover { width: 112px; height: 112px; flex: 0 0 112px; aspect-ratio: auto; border-radius: 10px; margin-bottom: 0; }
@@ -357,7 +357,7 @@ main { min-width: 0; }
   .nc-title { font-size: 17px; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
   /* 价值句收进展开区（与摘要二选一，列表只留摘要 clamp 2） */
   .nc-value { display: none; }
-  .news-card.open .nc-value { display: block; font-size: 14px; line-height: 1.55; margin-top: 6px; padding: 0; background: none; border-left: none; color: #475569; }
+  .news-card.open .nc-value { display: block; font-size: 14px; line-height: 1.55; margin-top: 6px; padding: 0; background: none; border-left: none; color: #4b5563; }
   .news-card.open .nc-summary { display: block; -webkit-line-clamp: unset; }
   .gm { color: inherit; border-bottom: none; cursor: default; }
   .nc-summary { font-size: 14px; line-height: 1.65; margin-top: 5px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
@@ -420,7 +420,7 @@ main { min-width: 0; }
 @media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } .side { position: static; } }
 /* 专业术语高亮 + 解释浮层 */
 .gm { color: var(--accent); border-bottom: 1px dashed var(--accent); cursor: help; }
-.gm-tip { position: absolute; z-index: 999; max-width: 300px; padding: 10px 12px; background: #1e293b; color: #f1f5f9; font-size: 12.5px; line-height: 1.6; border-radius: 8px; box-shadow: 0 8px 24px rgba(15,23,42,.25); pointer-events: none; }
+.gm-tip { position: absolute; z-index: 999; max-width: 300px; padding: 10px 12px; background: #1f2937; color: #f3f4f6; font-size: 12.5px; line-height: 1.6; border-radius: 8px; box-shadow: 0 8px 24px rgba(15,23,42,.25); pointer-events: none; }
 .gm-tip b { color: #93c5fd; }
 .gm-tip .gm-cat { display: inline-block; margin-bottom: 4px; padding: 1px 7px; font-size: 11px; border-radius: 99px; background: rgba(147,197,253,.18); color: #93c5fd; }
 /* 移动端术语不做视觉高亮（满屏虚线下划线太吵），点按仍可看解释；须置于 .gm 定义之后以覆盖 */
@@ -462,7 +462,7 @@ main { min-width: 0; }
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="logo">广职大<span class="radar">AI资讯与求职情报站</span><span class="logo-sub">信息工程学院 · 学生公益项目</span></div>
+    <div class="logo">AI<span class="radar">风向标</span><span class="logo-sub">信息工程学院 · 学生公益项目</span></div>
     <nav class="nav">
       <button id="tab-news" class="active" onclick="switchTab('news')"><span class="tab-ico">🧰</span> AI 实战信息</button>
       <button id="tab-jobs" onclick="switchTab('jobs')"><span class="tab-ico">💼</span> 信工求职指南</button>
@@ -541,7 +541,7 @@ main { min-width: 0; }
 </div>
 <footer class="footer">
   <div class="footer-inner">
-    <b>最近更新：__UPDATED__ ｜ 广职大AI资讯与求职情报站</b> — 面向软件工程（含工业软件实验班）、信息安全与管理专业学生的公益资讯与求职站<br>
+    <b>最近更新：__UPDATED__ ｜ AI风向标</b> — 面向软件工程（含工业软件实验班）、信息安全与管理专业学生的公益资讯与求职站<br>
     <span class="ft-toggle" onclick="this.closest('.footer-inner').classList.add('ft-open')">关于本站 · 内容原则与来源 ▾</span><span class="ft-more">
     内容原则：<b>专业对口 · 实用为先 · 宁缺毋滥</b>——每条内容回答「对我有什么用、对应什么课、怎么用」；无新内容不硬凑日更<br>
     资讯来源：量子位 · 爱范儿 · InfoQ中文 · 钛媒体 · CSDN · 新华网 · 工业新闻网等公开渠道 ｜ 岗位来源：企业官方校招页、高校就业信息网，投递以官方渠道为准<br>
@@ -759,7 +759,7 @@ function filteredNews() {
   return DATA.news.filter((n) => (curCat === "all" || n.cat === curCat) && (curTag === "all" || (n.tags || []).includes(curTag)));
 }
 function trackPill(t) {
-  const c = TRACK_COLORS[t] || ["#64748b", "#f1f5f9", "#334155"];
+  const c = TRACK_COLORS[t] || ["#6b7280", "#f3f4f6", "#374151"];
   return `<span class="track-pill" style="background:${c[1]};color:${c[2]};border-color:${c[0]}33">${t}</span>`;
 }
 /* 首次入场只播一次：筛选/翻页不重播 */
@@ -794,7 +794,7 @@ function renderNews() {
       <div class="nc-main">
         <div class="nc-top">
           <div class="nc-head">
-            <i class="cat-dot" style="background:${CAT_DOT[n.cat] || "#64748b"}"></i><span class="nc-src">${n.source}</span>${dateHTML(n.date)}
+            <i class="cat-dot" style="background:${CAT_DOT[n.cat] || "#6b7280"}"></i><span class="nc-src">${n.source}</span>${dateHTML(n.date)}
             <span class="tag">${CATS[n.cat] || n.cat}</span>
             ${(n.stack || []).slice(0, 2).map((s) => `<span class="tag tag-stack">${s}</span>`).join("")}
             ${n.lang === "en" ? `<span class="badge-en">译文 · 附原文</span>` : ""}
