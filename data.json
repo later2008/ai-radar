@@ -1,6 +1,146 @@
 {
- "updatedAt": "2026-09-23 04:52",
+ "updatedAt": "2026-09-23 06:15",
  "news": [
+  {
+   "id": "a165",
+   "title": "Spring MVC 异步线程池不设上限，高并发下服务会被打爆",
+   "summary": "Spring MVC 默认的异步任务执行器会无限创建线程，压测时容易把服务拖垮，文章给出有界线程池的配置与拒绝策略写法。",
+   "content": "很多同学写 @Async 或返回 Callable 的接口时，直接用默认配置就上线了。默认 SimpleAsyncTaskExecutor 每次请求都新建线程、不复用也不限流，QPS 一上来线程数暴涨，CPU 上下文切换和内存直接吃满，表现为「接口莫名超时」。正确做法是自定义 ThreadPoolTaskExecutor：设 corePoolSize、maxPoolSize、queueCapacity，并明确拒绝策略（CallerRunsPolicy 或抛异常降级）。这正好对应你《Java Web 开发》《企业级项目实训》里的并发章节，建议在课设的订单/报表导出接口上动手改一遍，用 JMeter 压 200 并发对比前后线程数，写进实训报告就是现成的性能优化案例。",
+   "source": "DEV Community",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring MVC",
+    "Java 并发"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**面试常问的线程池参数，在这里能落到真实接口上验证一遍。**",
+   "courses": "《Java Web 开发》《企业级项目实训》——并发与性能调优章节的实操素材",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "默认异步执行器无界创建线程，高并发下会拖垮服务",
+    "自定义 ThreadPoolTaskExecutor：核心/最大线程数 + 队列容量 + 拒绝策略",
+    "用 JMeter 压测对比线程数与响应时间，可写进实训报告"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Bound Spring MVC's Async Executor or Pay for It Under Load",
+   "link": "https://dev.to/anand_rathnas_d5b608cc3de/bound-spring-mvcs-async-executor-or-pay-for-it-under-load-49ck",
+   "cover": "img/a165.webp"
+  },
+  {
+   "id": "a166",
+   "title": "Rust + egui 写的跨平台 SSH 客户端，带 SFTP 和端口转发",
+   "summary": "一个开源 SSH 客户端，支持多会话标签、VT100/ANSI 终端模拟、SFTP 传输和 SOCKS5 端口转发，是学网络编程与安全工具开发的完整参考。",
+   "content": "这个项目把 SSH 客户端该有的东西都做齐了：多会话标签页、256 色终端模拟、SFTP 上传下载与目录浏览、本地/远程/SOCKS5 端口转发，技术栈是 Rust + egui 跨平台 GUI。对信息安全专业的同学，它是理解 SSH 协议交互、端口转发原理的活教材——你可以读源码看它怎么建隧道，再对照《网络安全》课里的隧道与代理知识；对软件工程同学，它是一个「GUI + 网络 + 文件传输」三合一的项目模板，可以照着用 Java（JSch）或 Python（paramiko）复刻一个简化版当课程设计。注意：自己写的客户端只用于实验环境，别拿去连生产服务器。",
+   "source": "开源中国",
+   "date": "2026-09-23",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "SSH"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一个能同时练网络编程和安全工具开发的开源项目，比看文档学 SSH 快得多。**",
+   "courses": "《网络安全》《计算机网络》——SSH 协议与端口转发实验的参考实现",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "功能完整：多会话、终端模拟、SFTP、本地/远程/SOCKS5 端口转发",
+    "安全方向可读源码理解 SSH 隧道与代理原理",
+    "软件方向可用 JSch/paramiko 复刻简化版做课设"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502696"
+  },
+  {
+   "id": "a167",
+   "title": "React Native 热更新实战：不发版也能推修复",
+   "summary": "讲清楚 OTA 热更新的落地流程：怎么打包 JS bundle、怎么灰度、怎么回滚，以及哪些改动不能热更。",
+   "content": "App 上线后改个文案都要等应用商店审核，这是移动端最烦的事。OTA 热更新的思路是：只替换 JS bundle，原生代码不动就能生效。文章覆盖了 bundle 打包、版本校验、灰度发布和回滚机制，也点明了边界——涉及原生模块、权限、SDK 升级的改动必须走正式发版，否则会白屏。对前端方向的同学，这是理解「前端产物如何分发」的好切口，和《移动应用开发》《前端工程化》里的构建、版本管理内容直接对应。建议在课程设计里给一个 RN 小项目接上热更新，把灰度与回滚流程跑通，简历上「熟悉移动端发布流程」就不再是空话。",
+   "source": "DEV Community",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React Native"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**移动端发布流程是前端面试的加分项，热更新是最容易讲出细节的一环。**",
+   "courses": "《移动应用开发》《前端工程化》——构建与发布流程的实践补充",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "OTA 只替换 JS bundle，原生改动仍需正式发版",
+    "要点：打包、版本校验、灰度、回滚四步",
+    "涉及原生模块/权限的改动不能热更，否则白屏"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Shipping React Native Updates Without App Store Releases: A Practical Guide to OTA Updates",
+   "link": "https://dev.to/mason_roy/-shipping-react-native-updates-without-app-store-releases-a-practical-guide-to-ota-updates-1g9p",
+   "cover": "img/a167.webp"
+  },
+  {
+   "id": "a168",
+   "title": "Claude Code 会话丢了怎么办：--continue 失效的排查与恢复",
+   "summary": "解释 Claude Code 按目录保存会话的机制，以及 --continue 找不到历史时的恢复方法。",
+   "content": "用 AI 编程工具的同学大概率踩过这个坑：换个目录敲 claude --continue，之前的上下文全没了。原因是它把会话按工作目录存在 ~/.claude 下，目录变了自然找不到。文章给了排查路径和手动恢复会话文件的办法。这件事的价值不在技巧本身，而在提醒你：AI 辅助编码的上下文是有状态的，别把重要设计决策只留在对话里。建议养成习惯——每轮关键改动让 AI 输出成代码注释或提交信息，落到 Git 里。这对《软件工程》里的配置管理与文档规范是很好的现实注解，也是团队协作里必须有的意识。",
+   "source": "DEV Community",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**用 AI 写代码的人迟早会遇到，提前知道怎么找回上下文能省半天。**",
+   "courses": "《软件工程》——配置管理与开发文档规范的现实案例",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "会话按工作目录存储，换目录会导致 --continue 失效",
+    "可从 ~/.claude 手动定位并恢复会话文件",
+    "重要上下文要落进 Git 提交或注释，别只留在对话里"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Recover a Lost Claude Code Session When --continue Fails",
+   "link": "https://dev.to/stanley_f57ec6c939e0e82db/how-to-recover-a-lost-claude-code-session-when-continue-fails-35h5",
+   "cover": "img/a168.webp"
+  },
   {
    "id": "a159",
    "title": "JimuChatBI v1.2.0 开源发布：自然语言问数，自动生成 SQL 与图表",
@@ -26,7 +166,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "国内首款免费开源 Chat2BI，自然语言直接问数",
@@ -3908,6 +4048,143 @@
  ],
  "jobs": [
   {
+   "id": "j32",
+   "company": "拼多多",
+   "title": "拼多多 27届校招（云弧计划，在招）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "技术类（云弧计划）",
+    "产品岗"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-23",
+   "summary": "拼多多27届校招云弧计划当前在招，含技术类与1个产品岗，具体岗位与地点以官方公告为准。适合想进入电商大厂的技术与产品方向本科生。",
+   "cls": "软件工程类",
+   "plain": "电商大厂校招项目，为本科生提供研发与产品方向的就业入口。",
+   "courses": "数据结构与算法、数据库、计算机网络",
+   "hardReq": [
+    "2027届应届生",
+    "具备技术或产品基础"
+   ],
+   "plusReq": [
+    "有实习或项目经历",
+    "有竞赛获奖经历"
+   ],
+   "selfLearn": [
+    "刷算法题并复习计算机基础",
+    "准备一个可讲透的项目"
+   ],
+   "fitWho": "想进电商大厂做技术或产品的2027届本科生",
+   "tips": "关注拼多多官方招聘渠道确认云弧计划岗位后尽早投递"
+  },
+  {
+   "id": "j31",
+   "company": "小红书",
+   "title": "小红书 校招应届生（2026春招批次，在招）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "产品技术岗"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-23",
+   "summary": "小红书校招应届生当前处于2026春招批次在招状态，含3个产品技术岗，具体岗位与地点以官方公告为准。适合对互联网产品技术方向感兴趣的应届本科生。",
+   "cls": "软件工程类",
+   "plain": "互联网大厂产品技术岗，适合想走研发或产品技术路线的本科生。",
+   "courses": "数据结构与算法、数据库、软件工程",
+   "hardReq": [
+    "应届毕业生",
+    "具备研发或产品技术基础"
+   ],
+   "plusReq": [
+    "有相关实习经历",
+    "有个人项目作品"
+   ],
+   "selfLearn": [
+    "复习算法与数据库",
+    "准备项目与实习经历讲述"
+   ],
+   "fitWho": "想进互联网做产品技术方向的应届本科生",
+   "tips": "通过小红书官方招聘渠道核对批次与岗位后尽快投递"
+  },
+  {
+   "id": "j30",
+   "company": "快手",
+   "title": "快手 27届快Star技术项目（在招）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "技术类（快Star技术天才计划）"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-23",
+   "summary": "快手27届快Star技术项目当前在招，属于面向技术方向的人才计划，具体岗位与地点以官方公告为准。适合技术能力突出的本科应届生挑战。",
+   "cls": "软件工程类",
+   "plain": "头部互联网技术专项计划，对技术强的本科生是冲刺大厂的好机会。",
+   "courses": "数据结构与算法、操作系统、计算机网络",
+   "hardReq": [
+    "2027届应届生",
+    "技术基础扎实"
+   ],
+   "plusReq": [
+    "有竞赛或开源项目成果",
+    "有实习经历"
+   ],
+   "selfLearn": [
+    "系统刷算法题",
+    "打磨一个高质量项目"
+   ],
+   "fitWho": "技术能力突出的2027届本科应届生",
+   "tips": "关注快手官方招聘渠道确认快Star具体岗位后尽早投递"
+  },
+  {
+   "id": "j29",
+   "company": "京东",
+   "title": "京东技术行 实习生招募（不限届别）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号投递",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-22",
+   "summary": "京东技术行面向在校生招募实习生，方向涵盖AI/大模型、云计算大数据、搜索推荐广告以及安全类，工作地北京。安全类岗位对信息安全方向本科生较为对口。",
+   "cls": "信息安全类",
+   "plain": "含安全类实习岗位，是信息安全方向本科生进入大厂实践的入口。",
+   "courses": "计算机网络、操作系统、信息安全基础",
+   "hardReq": [
+    "在校生身份",
+    "具备相关技术方向基础",
+    "可到北京实习"
+   ],
+   "plusReq": [
+    "有CTF或安全项目经历",
+    "熟悉云或大数据技术栈"
+   ],
+   "selfLearn": [
+    "复习网络与操作系统基础",
+    "参与CTF或搭建安全实验环境"
+   ],
+   "fitWho": "想进大厂做安全或AI/云方向的在校生",
+   "tips": "通过京东官方公众号查看技术行具体岗位并投递"
+  },
+  {
    "id": "j28",
    "company": "同花顺",
    "title": "同花顺 2027届实习生招募计划",
@@ -4557,125 +4834,6 @@
    ],
    "fitWho": "大三/大四，做过完整 Web 项目",
    "tips": "五大类 70 余种岗位都可以投，别只盯 AI 岗；笔面试重点考数据结构 + 项目深挖。"
-  },
-  {
-   "id": "j5",
-   "company": "小米",
-   "title": "小米集团 2027 届全球校园招聘（AI 岗需求 +50%）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/南京/武汉/西安等",
-   "deadline": "2026 年 12 月 31 日截止",
-   "positions": [
-    "算法类",
-    "软件研发",
-    "硬件研发",
-    "芯片类",
-    "产品类"
-   ],
-   "link": "https://hr.xiaomi.com/campus",
-   "source": "小米招聘官网",
-   "date": "2026-08-10",
-   "summary": "17+ 职类开放投递，产研类岗位占 70%，AI 相关岗位需求同比增长 50%；从大模型、智能终端到智能汽车，AI 岗位贯穿人车家全生态，每人最多投递 2 个职位。",
-   "cls": "软件工程类",
-   "plain": "软件研发岗写手机/IoT 业务代码，产研类岗位占 70%，是硬件大厂里软件坑位最多的。",
-   "courses": "Java/C++、数据结构、操作系统",
-   "hardReq": [
-    "应届生，17+ 职类开放投递"
-   ],
-   "plusReq": [
-    "软硬结合项目（IoT/嵌入式）经历"
-   ],
-   "selfLearn": [
-    "至少一门后端语言练到能独立做项目"
-   ],
-   "fitWho": "大三/大四",
-   "tips": "别只投算法类——软件研发类名额更多、对本科更友好。"
-  },
-  {
-   "id": "j19",
-   "cls": "信息安全类",
-   "type": "校招",
-   "company": "浪潮软件集团",
-   "title": "27 届校招 · 安全测试工程师",
-   "salary": "面议",
-   "loc": "济南",
-   "deadline": "2027 应届生（秋招）",
-   "source": "央国企岗位库",
-   "date": "2026-08-05",
-   "positions": [
-    "安全测试工程师"
-   ],
-   "summary": "国企软件集团安全测试岗：Web/App/小程序渗透测试、安全产品运维；要求掌握 OWASP Top10。",
-   "link": "https://vip.gangweiku.com/wap/index.php?a=comapply&c=job&id=370806"
-  },
-  {
-   "id": "j2",
-   "company": "字节跳动",
-   "title": "字节跳动 2027 校园招聘（重点加大 AI 人才储备）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/杭州/广州/成都",
-   "deadline": "2027 年 5 月 31 日截止",
-   "positions": [
-    "研发类",
-    "Seed大模型算法",
-    "多模态算法",
-    "产品类",
-    "运营类",
-    "游戏策划"
-   ],
-   "link": "https://jobs.bytedance.com/campus",
-   "source": "字节跳动招聘官网",
-   "date": "2026-08-03",
-   "summary": "面向 2026 年 9 月至 2027 年 8 月毕业的应届生，研发/产品等八大类岗位；官方明确看重 AI Native 思维，会针对 AI 岗提供行业领先薪酬，实习转正通道通畅。",
-   "cls": "软件工程类",
-   "plain": "研发类岗写业务代码和基础组件；算法岗跑实验调模型、读论文复现。官方明确看重 AI Coding 能力。",
-   "courses": "数据结构与算法、操作系统、计算机网络、数据库",
-   "hardReq": [
-    "2026.9-2027.8 毕业的应届生"
-   ],
-   "plusReq": [
-    "ACM/蓝桥杯等竞赛获奖",
-    "大厂实习经历"
-   ],
-   "selfLearn": [
-    "刷算法题（字节笔试强度大）",
-    "熟练使用 AI Coding 工具并能讲清工作流"
-   ],
-   "fitWho": "大三起可投；算法岗适合硕士，本科主投研发类",
-   "tips": "笔试面试主动展示「用 AI 提效 + 校验产出」的工作流，正好对上官方偏好。"
-  },
-  {
-   "id": "j6",
-   "company": "京东",
-   "title": "京东 2027 校园招聘 · JDS 新星计划",
-   "type": "校招",
-   "loc": "北京/上海/广州/深圳/成都/武汉/杭州",
-   "deadline": "网申 8 月 3 日 - 11 月 30 日",
-   "positions": [
-    "技术方向",
-    "AI算法",
-    "产品方向",
-    "采销方向",
-    "物流方向"
-   ],
-   "link": "https://campus.jd.com",
-   "source": "京东校招官网",
-   "date": "2026-08-03",
-   "summary": "面向 2027 届本硕博毕业生，技术/采销/物流/产品等多元方向；TET 管培生与 JD YOUNG 实习生计划同步开放，校招与实习投递流程可并行。",
-   "cls": "软件工程类",
-   "plain": "技术方向覆盖后端/前端/测试等传统软件岗；TET 管培生有轮岗培养机制。",
-   "courses": "按投递方向准备：前端三件套或 Java 全栈、软件测试",
-   "hardReq": [
-    "2027 届本硕博毕业生"
-   ],
-   "plusReq": [
-    "管培生项目看重综合表达与领导力"
-   ],
-   "selfLearn": [
-    "对应岗位的基础功（测试岗练自动化测试）"
-   ],
-   "fitWho": "大三/大四，方向未定可先投技术类",
-   "tips": "不确定方向的可以先投技术大类，入职后内部转岗也有空间。"
   }
  ],
  "stats": [
