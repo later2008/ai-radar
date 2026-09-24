@@ -1,6 +1,212 @@
 {
- "updatedAt": "2026-09-23 10:13",
+ "updatedAt": "2026-09-24 00:08",
  "news": [
+  {
+   "id": "a176",
+   "title": "KiCAD-MCP-Server：让 Claude 直接画 PCB，2429 星的开源硬件 AI 工具",
+   "summary": "一个基于 MCP 协议的开源服务，让大模型能直接操作 KiCAD 完成原理图与 PCB 设计，GitHub 已获 2429 星。",
+   "content": "KiCAD-MCP-Server 把 KiCAD 变成了大模型可调用的工具集：你写自然语言描述，Claude 这类模型就能通过 MCP 协议读取网表、放置元件、走线、生成 Gerber。对工业软件实验班的同学来说，这是「EDA + AI」最直接的落地样本——它不教你画板，但教你 AI 如何与专业工业软件对接。建议做法：本地装 KiCAD 9，跑通 MCP Server，用 Python 读它的工具定义（tool schema），理解「专业软件能力如何被封装成 Agent 可调用接口」，这套思路可以直接迁移到你的工业软件课程设计。",
+   "source": "GitHub",
+   "date": "2026-09-24",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**想进工业软件方向，先看懂「专业软件如何被 AI 调用」这件事，比会画板更值钱。**",
+   "courses": "对应《工业软件概论》《EDA 技术》，可作课程设计选题",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "MCP 协议是当前 AI 调用外部工具的事实标准，值得掌握",
+    "可拆解其 Python 源码，学习如何把 EDA 功能封装成 tool",
+    "适合作为工业软件+AI 交叉方向的课设选题"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "mixelpixx/KiCAD-MCP-Server",
+   "link": "https://github.com/mixelpixx/KiCAD-MCP-Server",
+   "cover": "img/a176.webp"
+  },
+  {
+   "id": "a177",
+   "title": "VSCode SSH Agent 被吐槽「离谱」：远程开发的安全坑，你迟早会踩",
+   "summary": "Fly.io 工程师撰文剖析 VSCode 远程 SSH 扩展的密钥与转发机制问题，HN 98 分热议。",
+   "content": "文章指出 VSCode Remote-SSH 在密钥转发、agent 复用上的实现存在安全隐患：你的本地 SSH agent 可能被远程主机间接利用，转发链路不透明。信息安全与管理专业的同学，这正好是《网络安全》里「认证与信任边界」的活案例。动手建议：用 ssh -v 观察 VSCode 连接时的 agent forwarding 行为，对比 ssh -A 与默认配置的差异，写一份「远程开发场景下的密钥暴露面分析」报告。以后进公司做开发或安全审计，这类配置问题天天遇到。",
+   "source": "Hacker News",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "SSH"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**远程开发的便利背后是密钥暴露面，安全岗面试常问，开发岗迟早踩。**",
+   "courses": "对应《网络安全》《操作系统》，可做认证机制实验",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "理解 SSH agent forwarding 的信任边界",
+    "用 ssh -v 实测 VSCode 远程连接的转发行为",
+    "可作为安全课程实验报告素材"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "VSCode's SSH Agent Is Bananas (2025)",
+   "link": "https://fly.io/blog/vscode-ssh-wtf/"
+  },
+  {
+   "id": "a178",
+   "title": "GitHub 如何把百万行 PR 渲染出来：前端 diff 性能优化实战",
+   "summary": "GitHub 官方博客复盘 Copilot 应用中 diff 视图的重构，目标是打开百万行 PR 与数百条行内评论。",
+   "content": "这篇是 GitHub 工程团队的一手复盘：面对百万行 diff 和成百上千条 inline comment，他们重写了 diff 渲染层，涉及虚拟滚动、增量渲染、DOM 复用等前端性能手段。前端方向的同学，这是「大列表渲染」这一经典面试题的工业级答案。建议做法：用 React 或 Vue 复刻一个简化版 diff 查看器，加载一个 10 万行的假 diff，测出首屏时间，再逐步引入虚拟滚动优化，把优化前后的数据写进简历项目描述。",
+   "source": "GitHub Blog",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**「大列表渲染优化」是前端面试高频题，这篇给你工业级参考答案。**",
+   "courses": "对应《Web 前端开发》，可作综合实训项目",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "虚拟滚动、增量渲染是大数据量前端渲染的核心手段",
+    "可复刻一个简化 diff 查看器作为简历项目",
+    "性能优化前后要有可量化数据"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Rendering huge pull requests in the GitHub Copilot app",
+   "link": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/",
+   "cover": "img/a178.webp"
+  },
+  {
+   "id": "a179",
+   "title": "Unreal Agent 开源：比 Codex 省 40% 成本的 Agent 框架，怎么做到的",
+   "summary": "Unreal Labs 开源 Agent 运行框架，宣称在真实负载与 coding 基准上比 Codex 省最多 40% 成本且性能不降。",
+   "content": "Agent 框架（harness）决定了大模型怎么被调度、上下文怎么裁剪、工具怎么调用——这直接决定 token 花多少。Unreal Agent 的核心卖点是成本效率：同样的 coding 任务，通过更聪明的上下文管理和调用策略，比 Codex 省 40%。对软件工程同学，这是理解「Agent 工程」而非「调 API」的入口。建议：clone 下来跑通它的 benchmark，重点读它的上下文压缩与工具调度模块，思考如果换成 DeepSeek 或 Qwen 做后端，你的成本会怎样变化。",
+   "source": "开源中国",
+   "date": "2026-09-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**会调 API 只是入门，懂 harness 怎么省 token 才是 Agent 工程师的竞争力。**",
+   "courses": "对应《软件工程》《人工智能导论》，可作毕业设计框架",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "harness 层决定 token 成本，是 Agent 工程的核心",
+    "可对比不同模型后端的成本差异",
+    "适合作为毕业设计或大创的框架选型参考"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502701/unreallabs-ai-unreal-agent"
+  },
+  {
+   "id": "a180",
+   "title": "如意玲珑 1.14 发布：Linux 打包与依赖管理的国产实践",
+   "summary": "国产 Linux 应用打包格式 Linyaps 发布 1.14，重点解决升级丢模块、调试困难、磁盘占用与合规审计问题。",
+   "content": "如意玲珑是国产 Linux 桌面应用的容器化打包方案，1.14 版针对打包者调试、运维磁盘占用和合规审计做了改进。对信安和通用开发方向的同学，这是理解「应用隔离与依赖管理」的国产案例：它和 Docker、Flatpak 解决的是同类问题——如何让应用带着自己的依赖跑，又不污染系统。建议在虚拟机里装一个玲珑环境，打包一个自己写的 Python 小工具，观察它如何隔离依赖，再对比 Docker 的做法写一份笔记。",
+   "source": "开源中国",
+   "date": "2026-09-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Linux"
+   ],
+   "diff": 2,
+   "scene": "练手",
+   "value": "**打包与依赖隔离是 Linux 基本功，国产方案值得动手跑一遍。**",
+   "courses": "对应《Linux 操作系统》，可作实验课扩展",
+   "tags": [
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "理解容器化打包的隔离思路，与 Docker 对比学习",
+    "动手打包自己的小工具，体会依赖隔离",
+    "国产基础软件生态，面试可聊"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502710"
+  },
+  {
+   "id": "a181",
+   "title": "用丰田生产系统（TPS）的思路管理 Coding Agent",
+   "summary": "一篇把精益制造理念映射到 AI 编码 Agent 工作流的思考文章，讨论如何减少浪费、提升交付质量。",
+   "content": "文章借用丰田生产系统的「消除浪费、拉动式生产、持续改进」，类比到 coding agent 的工作流设计：哪些环节在制造无效 token（浪费）、如何用测试作为「质量门」、如何让 agent 按需拉取上下文而非一次性灌入。对软件工程同学，这是把《软件工程》里的流程管理知识与 AI 工具结合的新视角。建议读完写一份「我的 AI 编码工作流改进清单」，把日常用 Copilot/Claude 写代码的坏习惯逐条对照改进。",
+   "source": "DEV Community",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**工具人人会用，能把 AI 编码流程管出效率的人才是少数。**",
+   "courses": "对应《软件工程》，可作课程论文素材",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "把精益生产理念迁移到 AI 编码流程",
+    "测试即质量门，减少无效 token 消耗",
+    "适合写进个人工程方法论笔记"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Revisiting the Toyota Production System (TPS) in the Age of Coding Agents",
+   "link": "https://dev.to/remojansen/revisiting-the-toyota-production-system-tps-in-the-age-of-coding-agents-2bb5",
+   "cover": "img/a181.webp"
+  },
   {
    "id": "a169",
    "title": "Claude Code 多 Agent 账单翻 4 倍？一个环境变量配置切到 DeepSeek V4",
@@ -25,7 +231,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "子 Agent 走便宜模型，主 Agent 保留强模型，成本可降数倍",
@@ -3912,217 +4118,6 @@
    "value": "V4.1 能力强但被喷缺软件工程思维——**模型再强也要会拆需求、写测试**，这正是课程价值",
    "courses": "软件工程、软件测试",
    "cover": "img/a3.webp"
-  },
-  {
-   "id": "a5",
-   "title": "模型一模一样，Token 却相差 70 倍？三项实测揭开 AI 编程工具的成本黑洞",
-   "summary": "InfoQ 对比实测三类 AI 编程工具场景，发现底层模型相同的情况下，不同工具的实际 token 消耗相差可达 70 倍。提示词膨胀、上下文重复注入与缓存失效是三大成本黑洞。",
-   "content": "对天天用 AI 编程工具的学生来说，这篇是「省钱必修课」。实测发现同样任务下 token 消耗差出几十倍的三个主因：一是系统提示与工具描述的膨胀；二是每轮对话重复注入完整上下文；三是看似无害的操作（比如 side chat）导致近乎全量的 prompt cache 失效。文中结论直接可用：选工具时别只看模型名单，要看计费明细里的 cache 命中率与 token 构成；自己搭 Agent 时把「读什么、注入什么」当成一等公民来设计。这类实测能力本身，就是面试里最加分的作品集素材。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "AI编程",
-    "Cursor",
-    "Claude Code",
-    "成本优化",
-    "Prompt缓存"
-   ],
-   "featured": false,
-   "brief": [
-    "同模型不同工具，token 消耗可差 70 倍",
-    "三大黑洞：提示膨胀、上下文重复注入、缓存失效",
-    "省钱技巧 + 实测方法论，直接可以复刻进作品集"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/oPSaLpULlAxGxTbYXlXO?utm_source=rss&utm_medium=article",
-   "heat": 79,
-   "tracks": [
-    "通用开发",
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "Cursor",
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "三项实测揭开 AI 编程工具成本黑洞——**选工具+控制成本，学生党必看**",
-   "courses": "任何写代码的课程都适用",
-   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可",
-   "cover": "img/a5.webp"
-  },
-  {
-   "id": "a31",
-   "title": "Google Mantis：一款旨在减少误报的基于智能代理的漏洞扫描框架",
-   "summary": "InfoQ 介绍 Google 开源的 Mantis 框架：用智能代理驱动漏洞扫描，通过 Agent 推理验证漏洞真实性来减少误报，安全自动化的新范式。",
-   "content": "传统漏洞扫描器最大的痛点是海量误报——报出 1000 个「漏洞」里 900 个是假的。Google 的 Mantis 思路是让 Agent 去验证：扫描器发现疑似问题后，由智能代理构造验证、推理可利用性、再决定是否上报。这是「LLM + 传统安全工具」融合的教科书案例。安全方向的同学值得把这类论文/工具链整理成学习路径：AI 安全自动化岗位（红队、AppSec）2026 年的 JD 里已经频繁出现类似要求。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "Google",
-    "漏洞扫描",
-    "安全自动化",
-    "Agent"
-   ],
-   "featured": false,
-   "brief": [
-    "Mantis 用 Agent 验证漏洞真实性来减少误报",
-    "「LLM + 传统安全工具」融合的教科书案例",
-    "AI 安全自动化岗位 JD 需求快速上升"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/mF8WwkbQRUS7ZKprE3Ku?utm_source=rss&utm_medium=article",
-   "heat": 62,
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "漏洞扫描"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "Google 开源的 Agent 漏洞扫描框架——**读源码+复现，信安简历上的硬项目**",
-   "courses": "网络安全、Python 程序设计",
-   "get": "按原文链接到 Google 开源仓库获取，本地搭靶机复现",
-   "cover": "img/a31.webp"
-  },
-  {
-   "id": "a32",
-   "title": "从沙箱到执行边界：蚂蚁 AI Agent 的大规模企业级实践｜QCon 上海",
-   "summary": "蚂蚁集团在 QCon 上海分享 AI Agent 的企业级大规模落地经验：如何设计沙箱隔离与执行边界，让 Agent 在金融级场景里安全可控地干活。",
-   "content": "企业级 Agent 落地最难的不是模型，而是「安全地让它动手」：权限怎么收、动作怎么审计、出错怎么兜底。蚂蚁的分享围绕沙箱隔离与执行边界展开，代表了国内头部厂在 Agent 基础设施上的投入方向。这个方向对应的岗位是 Agent 平台工程师 / AI Infra 工程师，JD 关键词：沙箱、权限体系、可观测、工具调用安全。金融、云厂商都在重点建设，是 2027 届校招里值得押注的技术栈。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tut",
-   "tags": [
-    "蚂蚁集团",
-    "企业级Agent",
-    "沙箱",
-    "QCon"
-   ],
-   "featured": false,
-   "brief": [
-    "企业级 Agent 的核心难题是「安全地动手」",
-    "沙箱隔离 + 执行边界是基础设施投入重点",
-    "Agent 平台工程师是 2027 届校招值得押注的方向"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/hk3WB50fAOMDg55YVaaW?utm_source=rss&utm_medium=article",
-   "heat": 68,
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "沙箱",
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "蚂蚁大规模 Agent 落地实践：沙箱到执行边界——**企业级安全设计思路，面试能讲出来就赢**",
-   "courses": "操作系统（进程隔离）、网络安全",
-   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述",
-   "cover": "img/a32.webp"
-  },
-  {
-   "id": "a49",
-   "title": "商汤科技 2027 届校招启动：岗位需求同比增 35%，新增 Agent Harness 研究员等前沿岗",
-   "summary": "商汤 2027 届校招全年开放投递，岗位需求同比增加 35%，AI 相关岗位占比大幅上涨，新增 FDE 工程师、Agent Harness 研究员等前沿岗位，面试中开始关注「AI-Native 工作习惯」。",
-   "content": "商汤科技 2027 届校招已启动，面向 2026 年 9 月至 2027 年 12 月毕业的海内外毕业生，全年开放投递，同一时间最多可投 3 个岗位、简历未进面试前可随时换岗（「3 格血条」机制）。岗位覆盖模型研究（大模型 Agent 算法、多模态基模型、强化学习系统）、AI Infra（推理引擎）、全栈开发、FDE 工程师、AI 产品经理等，工作地点含北京、上海、深圳、香港、新加坡等 8 城。两个值得注意的信号：一是「Agent Harness 研究员」这类一年前还不存在的岗位 title 已进入校招清单，Agent 方向技能栈（工具调用、多智能体编排）值得重点准备；二是官方明确面试中关注「AI-Native 工作习惯」——日常是否用 AI 工具提效正在成为面试考察点，建议在面试案例中主动展示。",
-   "source": "北京大学就业信息网",
-   "date": "2026-09-11",
-   "cat": "industry",
-   "tags": [
-    "商汤科技",
-    "校招",
-    "Agent",
-    "AI岗位"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "商汤 2027 届校招需求同比 +35%，全年可投",
-    "新增 FDE 工程师、Agent Harness 研究员等前沿岗位",
-    "面试开始考察「AI-Native 工作习惯」",
-    "「3 格血条」投递机制：3 个岗位并行、未进面试可刷新"
-   ],
-   "buzz": [],
-   "link": "https://scc.pku.edu.cn/f/recruitmentinfo/show?recruitmentId=c6c4a859d60940bfa8b3d0cb724e932f",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "商汤岗位需求同比 +35%，新增 FDE 前线部署工程师——**既写代码又懂业务的新岗位**",
-   "courses": "软件工程 + 沟通表达（FDE 岗加分）"
-  },
-  {
-   "id": "a9",
-   "title": "怒斥加密货币是庞氏骗局、放弃 80% 就业机会也不用 AI 写代码！Kotlin「J 神」：AI 会让工程师变成可替换的齿轮",
-   "summary": "Kotlin 语言核心贡献者 John（社区称 J 神）公开表达对 AI 编程的强烈保留意见：主动放弃约 80% 的就业机会也不用 AI 写代码，并警告 AI 会让工程师沦为「可替换的齿轮」。",
-   "content": "这是本周最刺耳也最值得听的反方声音。J 神的论点不是「AI 写的代码不好」，而是更深层：当编写代码的门槛归零，工程师的核心价值从「写出功能」转移到「判断该写什么、为什么写、如何对结果负责」，拒绝这种转移的人会真的变成可替换的齿轮。他同时怒斥加密货币是庞氏骗局，其独立立场的表达方式在社区引发两极评价。给学生的启示不是站队，而是对照自问：如果 AI 明天就能写完你目前的全部日常代码，你剩下的不可替代性是什么？把答案里的能力提前练起来，就是最好的求职策略。",
-   "source": "InfoQ中文",
-   "date": "2026-09-11",
-   "cat": "industry",
-   "tags": [
-    "AI编程",
-    "职业发展",
-    "Kotlin",
-    "工程师价值"
-   ],
-   "featured": false,
-   "brief": [
-    "Kotlin 核心贡献者放弃 80% 就业机会也不用 AI 写代码",
-    "核心警告：不做判断的工程师会沦为可替换齿轮",
-    "反方视角值得对照自问：你的不可替代性是什么"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/QPRcUdPGic5r8Ws8R1gM?utm_source=rss&utm_medium=article",
-   "heat": 75,
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "Kotlin「J 神」谈 AI 时代工程师价值——**纯手写代码的价值在降，判断力在升**",
-   "courses": "软件工程 + AI 辅助编程实践",
-   "cover": "img/a9.webp"
-  },
-  {
-   "id": "a27",
-   "title": "Rust 语言成为微软的一级支持语言",
-   "summary": "微软在 RustConf 宣布将 Rust 指定为一级（Tier One）支持语言，与 C++、C#、TypeScript 同级，构建了覆盖完整开发生命周期的工具与流程体系。",
-   "content": "微软把 Rust 提到与 C++、C# 同级的一线位置，这是大型科技公司技术栈转向的标志性事件。对求职者的直接含义：Rust 已经从「极客玩具」变成大厂刚需——Windows 内核、Azure 基础设施、AI 推理引擎（大量新的推理框架用 Rust 写）都在大量使用。如果你的方向是系统编程或 AI Infra，Rust 是目前性价比最高的第二语言：学习曲线陡但竞争者少，JD 里「Rust 优先」的字样越来越多。",
-   "source": "Solidot",
-   "date": "2026-09-11",
-   "cat": "stack",
-   "tags": [
-    "Rust",
-    "微软",
-    "系统编程",
-    "AI Infra"
-   ],
-   "featured": false,
-   "brief": [
-    "微软将 Rust 提到与 C++ 同级的一线位置",
-    "AI 推理引擎大量采用 Rust 编写",
-    "系统/AI Infra 方向性价比最高的第二语言"
-   ],
-   "lang": "zh",
-   "link": "https://www.solidot.org/story?sid=85351",
-   "heat": 65,
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "C++"
-   ],
-   "value": "Rust 成微软一级支持语言——**想做系统/游戏底层的同学多一门备选语言**",
-   "courses": "C++ 课学完再上手 Rust 顺滑很多"
   }
  ],
  "jobs": [
