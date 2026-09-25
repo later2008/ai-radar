@@ -1,6 +1,191 @@
 {
- "updatedAt": "2026-09-25 06:15",
+ "updatedAt": "2026-09-25 10:13",
  "news": [
+  {
+   "id": "a147",
+   "title": "htmx 4.0 发布：Fetch API 重写、内置 DOM Morphing Swap，前端少写 JS 的新选择",
+   "summary": "htmx 4.0 用 Fetch API 重写核心，新增 DOM Morphing Swap 并明确属性继承规则，让后端渲染页面也能有接近 SPA 的交互体验。",
+   "content": "如果你在做课设或实习项目，被 React/Vue 的构建链和状态管理折腾过，htmx 值得花半小时试一下。它的思路是：交互逻辑写在 HTML 属性里（hx-get、hx-post），服务端直接返回 HTML 片段，前端不用写 fetch 和 DOM 操作。4.0 改用 Fetch API 重写，内置 DOM Morphing Swap（局部替换时保留焦点和滚动位置），并明确了属性继承规则，减少以前版本里「属性到底传给谁」的坑。对软件工程同学来说，这是理解「超媒体驱动」架构的好样本，也适合做后台管理、表单类课设，配合 Spring Boot/Flask 直接返回模板片段即可。",
+   "source": "InfoQ中文",
+   "date": "2026-09-25",
+   "cat": "stack",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "htmx",
+    "HTML"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用 HTML 属性就能做交互，是理解前后端协作边界、快速交付课设的低成本方案。**",
+   "courses": "对应《Web 前端开发》《Web 应用开发》，可在课程设计里替代部分 JS 交互代码。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "核心改用 Fetch API 重写，替换旧版 XHR 实现",
+    "新增 DOM Morphing Swap，局部更新不丢焦点与滚动位置",
+    "明确属性继承规则，减少嵌套组件的隐式行为",
+    "适合后端渲染为主、不想引入前端构建链的项目"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/kJ4EkjPLVTh9iT5yyXkM?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a148",
+   "title": "AI 编程 Agent 的真正难点：跨会话丢失工程上下文，而不是写代码",
+   "summary": "作者在长期项目中使用 AI 编程 Agent 后发现，代码能留存，但架构决策、约束条件等工程上下文在会话之间丢失，导致重复踩坑。",
+   "content": "这篇来自一线开发者的复盘很值得软件工程同学读。作者指出，AI Agent 读代码、改代码已经很强，但真正拖后腿的是「工程上下文」的丢失：为什么这么设计、哪些方案试过不行、有哪些隐性约束，这些不在代码里，会话一结束就没了，下次 Agent 又会提出已被否决的方案。他的做法是把决策记录、约束、术语表写成项目内的文档，让 Agent 每次先读。这对你做课程项目、毕设或实习都有直接价值：养成写 ADR（架构决策记录）和 README 约束说明的习惯，不只是给人看，也是给 AI 看，能显著减少返工。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "AI Coding Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**学会给 AI 写「工程上下文文档」，是当前团队协作里最实用的软技能之一。**",
+   "courses": "对应《软件工程》《软件项目管理》，可把 ADR 作为课程项目的过程文档提交。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "AI Agent 写代码不是瓶颈，跨会话的工程上下文丢失才是",
+    "架构决策、被否决的方案、隐性约束都不在代码里",
+    "解法：把决策与约束写成项目内文档，让 Agent 每次先读",
+    "对课设/毕设：写 ADR 和约束说明能减少重复返工"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The Hard Part of AI Coding Agents Isn't Writing Code — It's Preserving Engineering Context",
+   "link": "https://dev.to/yasin_tqvi/the-hard-part-of-ai-coding-agents-isnt-writing-code-its-preserving-engineering-context-5bhf",
+   "cover": "img/a148.webp"
+  },
+  {
+   "id": "a149",
+   "title": "把 Agent Skill 重构一遍，Token 成本降 10 倍：给学生的省钱实践",
+   "summary": "团队用 AI 编程 Agent 后开发速度上去了，但 Token 账单失控；作者通过重构 Agent 的 Skill 定义实现约 10 倍成本优化。",
+   "content": "很多同学用 AI 编程工具只关心「能不能跑通」，很少关心成本。这篇文章讲的是：当 Agent 的 Skill（提示词、工具描述、上下文注入）写得冗余时，每次调用都在烧 Token，团队账单很快超预算。作者的做法不是简单换便宜模型，而是重构 Skill 本身——精简描述、拆分职责、减少无关上下文注入。对学生的意义在于：一是养成看 Token 消耗的习惯，二是理解「提示词工程」本质是接口设计问题。你在做毕设或实习时，如果项目要接大模型 API，这套思路能直接帮你控制调用成本，也是面试里能聊的具体案例。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM API",
+    "Prompt Engineering"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**掌握 Agent 成本优化，是接大模型 API 项目时能写进简历的硬技能。**",
+   "courses": "对应《人工智能导论》《软件工程》，可在毕设的大模型模块中实践。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Agent 提速后常见问题是 Token 账单失控",
+    "解法不是无脑换便宜模型，而是重构 Skill 定义",
+    "精简提示词、拆分职责、减少无关上下文注入",
+    "对毕设/实习：接大模型 API 时能直接控制成本"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Refactor Agent Skills for 10x Cost Efficiency",
+   "link": "https://dev.to/jennieji/refactor-agent-skills-for-10x-cost-efficiency-52fg",
+   "cover": "img/a149.webp"
+  },
+  {
+   "id": "a150",
+   "title": "Kimi 推出浏览器插件：把网页操作一键变成可复用的 Skill",
+   "summary": "Kimi 转向浏览器插件形态，把用户在网页上的操作录制并转化为可复用的 Skill，让 Agent 直接接管网页任务。",
+   "content": "这条对信息安全与管理专业的同学尤其值得关注。Agent 通过浏览器插件接管网页操作，意味着它能读取页面内容、模拟点击、填写表单——能力很强，但攻击面也同步扩大：插件权限、会话凭证、页面注入都是新的风险点。对软件开发方向的同学，这是「Agent + 浏览器自动化」的产品化样本，可以对比 Playwright/Puppeteer 这类脚本方案，思考「录制即 Skill」的抽象方式。建议动手装一个试试，观察它请求了哪些权限、数据流向哪里，这本身就是一次很好的安全分析练习。",
+   "source": "量子位",
+   "date": "2026-09-25",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Browser Extension",
+    "AI Agent"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**亲手分析一个 Agent 插件的权限与数据流，是信息安全方向最贴近实战的练手素材。**",
+   "courses": "对应《Web 安全》《信息安全技术》，可作为权限与数据流分析的实验对象。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "Kimi 以浏览器插件形态切入，网页操作可录制为 Skill",
+    "Agent 获得读页面、模拟点击、填表单的能力",
+    "安全视角：插件权限、会话凭证、页面注入是新增风险面",
+    "可与 Playwright/Puppeteer 对比，理解「录制即 Skill」的抽象"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/497075.html",
+   "cover": "img/a150.webp"
+  },
+  {
+   "id": "a151",
+   "title": "ReactFlux：518 星的 Miniflux RSS 阅读器，React 练手可读源码",
+   "summary": "ReactFlux 是一个基于 React 的 Miniflux RSS 阅读器前端，518 星、近期仍在更新，代码量适中，适合作为前端项目参考。",
+   "content": "想找一个「不太大、但结构完整」的 React 项目读源码或做二次开发，ReactFlux 是个不错的候选。它是 Miniflux（一个轻量 RSS 服务）的前端，功能边界清晰：列表、详情、已读状态、订阅管理，正好覆盖前端开发的核心场景——路由、状态管理、API 调用、列表渲染与分页。你可以本地跑起来，接一个自建 Miniflux 实例，然后尝试加功能（比如标签筛选、暗色主题）。对课设来说，它的价值在于「完整度」：不是玩具 demo，也不是巨型工程，适合作为《Web 前端开发》课程设计的参考架构。",
+   "source": "GitHub",
+   "date": "2026-09-25",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "JavaScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一个体量适中的真实 React 项目，比教程 demo 更适合用来练「读懂并改动别人代码」。**",
+   "courses": "对应《Web 前端开发》《软件工程》，可作为课程设计参考项目。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "基于 React 的 Miniflux RSS 阅读器前端，518 星且近期更新",
+    "功能边界清晰：列表、详情、已读状态、订阅管理",
+    "覆盖路由、状态管理、API 调用、列表渲染等核心场景",
+    "适合读源码或二次开发，作为课设参考架构"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "electh/ReactFlux",
+   "link": "https://github.com/electh/ReactFlux",
+   "cover": "img/a151.webp"
+  },
   {
    "id": "a143",
    "title": "让 AI Agent 帮你部署服务器，但别把 root 交给它：MCP 权限隔离实战",
@@ -26,7 +211,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "用 MCP 把 Agent 的部署能力收敛成白名单工具，而非开放 SSH",
@@ -105,7 +290,8 @@
     "沙箱逃逸是安全岗面试的高频话题"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/TFaXKQvEWOOPfEuqmLkY?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/TFaXKQvEWOOPfEuqmLkY?utm_source=rss&utm_medium=article",
+   "cover": "img/a145.webp"
   },
   {
    "id": "a146",
