@@ -525,6 +525,8 @@ main { min-width: 0; }
 .sr-badge-news { color: var(--accent); background: var(--acc-soft); }
 .sr-badge-job { color: #ea580c; background: #fff7ed; }
 [data-theme="dark"] .sr-badge-job { color: #fdba74; background: #33200f; }
+.sr-count { padding: 8px 12px 5px; font-size: 11.5px; color: var(--muted); }
+.sr-count b { color: var(--accent); font-variant-numeric: tabular-nums; }
 .sr-empty { padding: 18px 12px; text-align: center; font-size: 13px; color: var(--muted); }
 /* 移动端：内联框隐藏，图标展开全宽搜索层 */
 .mobile-search-layer { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: var(--card2); border-bottom: 1px solid var(--border); box-shadow: 0 10px 30px rgba(15,23,42,.14); padding: 12px 14px 10px; transform: translateY(-105%); transition: transform var(--d-3) var(--ease-out); padding-top: calc(12px + env(safe-area-inset-top, 0px)); }
@@ -1212,46 +1214,89 @@ function toggleTheme() {
    索引数据即页面内联的 DATA（构建期已随模板打包），运行时建轻量倒排记分索引，无后端、无额外库 */
 const SR_INDEX = [];
 (function buildSearchIndex() {
+  /* 字段权重与 fields 一一对应：标题/岗位名最高、标签次之、正文最低（正文按命中次数计分） */
+  const NW = [10, 3, 1, 6, 3, 6, 2];
+  const JW = [8, 10, 3, 6, 3, 4, 2, 4];
   DATA.news.forEach((n) => SR_INDEX.push({
     kind: "news", id: n.id, title: n.title || "", date: n.date || "",
-    tags: (n.tags || []).slice(0, 3), badge: CATS[n.cat] || "资讯",
+    tags: (n.tags || []).slice(0, 3), badge: CATS[n.cat] || "资讯", lw: NW,
     fields: [n.title || "", n.summary || "", n.content || "", (n.tags || []).join(" "), (n.tracks || []).join(" "), (n.stack || []).join(" "), n.source || ""],
   }));
   DATA.jobs.forEach((j) => SR_INDEX.push({
     kind: "job", id: j.id, title: `${j.company} · ${j.title || (j.positions || [])[0] || ""}`, date: j.date || "",
-    tags: [j.type, j.loc].filter(Boolean).slice(0, 3), badge: "岗位",
+    tags: [j.type, j.loc].filter(Boolean).slice(0, 3), badge: "岗位", lw: JW,
     fields: [j.company || "", j.title || "", j.summary || "", (j.positions || []).join(" "), j.plain || "", j.loc || "", j.cls || "", j.type || ""],
   }));
+  /* 预降小写，查询时不再重复转换 */
+  SR_INDEX.forEach((it) => { it.low = it.fields.map((f) => (f || "").toLowerCase()); });
 })();
 function escHTML(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 function escAttr(s) { return escHTML(s); }
-function hlMark(s, q) {
+function hlMark(s, words) {
   const e = escHTML(s);
-  if (!q) return e;
-  try { return e.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), (m) => `<mark>${m}</mark>`); }
-  catch (err) { return e; }
+  if (!words || !words.length) return e;
+  try {
+    const re = new RegExp(words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "gi");
+    return e.replace(re, (m) => `<mark>${m}</mark>`);
+  } catch (err) { return e; }
 }
-/* 记分：标题 10 / 岗位公司 8 / 标签·方向 6 / 摘要·大白话 3 / 来源 2 / 正文 1（正文多次命中最多计 3） */
-function searchScore(it, q) {
-  let s = 0;
-  const f = it.fields;
-  if (f[0].includes(q)) s += 10;
-  if (it.kind === "job" && f[0].includes(q)) s += 0; /* 公司命中已在标题串里 */
-  const tagsStr = f[3] + " " + f[5];
-  if (tagsStr.includes(q)) s += 6;
-  if (f[1].includes(q)) s += 3;
-  if (f[4] && f[4].includes(q)) s += 3;
-  if (f[6] && f[6].includes(q)) s += 2;
-  const c = f[2];
-  if (c) { let i = c.indexOf(q), hits = 0; while (i >= 0 && hits < 3) { hits++; i = c.indexOf(q, i + q.length); } s += hits; }
-  return s;
+/* 查询分词：空白切词 + 小写；≥2 字连续中文段补充二元组提升召回（如「人工智能」→另含 人工/工智/智能） */
+function qTerms(q) {
+  const words = [], terms = new Set();
+  q.toLowerCase().split(/\s+/).filter(Boolean).forEach((w) => {
+    words.push(w); terms.add(w);
+    (w.match(/[\u4e00-\u9fa5]{2,}/g) || []).forEach((seg) => {
+      for (let i = 0; i < seg.length - 1; i++) terms.add(seg.slice(i, i + 2));
+    });
+  });
+  return { words, terms: [...terms] };
 }
-function searchSnippet(it, q) {
-  const hay = it.fields[1] && it.fields[1].includes(q) ? it.fields[1] : (it.fields[4] || it.fields[1] || it.fields[2] || "");
-  const i = hay.indexOf(q);
-  if (i < 0) return hay.slice(0, 56);
-  const st = Math.max(0, i - 20);
-  return (st > 0 ? "…" : "") + hay.slice(st, st + 56) + (st + 56 < hay.length ? "…" : "");
+/* 记分：逐词在带权字段中匹配（OR 语义），任一词命中即入选；多词全命中额外强加权置顶。
+   高频词过滤：DF（命中文档占比）> 35% 的词视为停用词，防止「存在/可以」这类二元组制造噪声 */
+const SR_DF = new Map();
+function termUsable(t) {
+  if (SR_DF.has(t)) return SR_DF.get(t);
+  let df = 0;
+  SR_INDEX.forEach((it) => { if (it.low.some((f) => f.includes(t))) df++; });
+  const ok = df > 0 && df <= SR_INDEX.length * 0.35;
+  SR_DF.set(t, ok);
+  return ok;
+}
+function searchScore(it, terms) {
+  let s = 0, matched = 0, useful = 0;
+  for (const t of terms) {
+    let ts = 0;
+    it.low.forEach((f, i) => {
+      if (!t || !f) return;
+      const w = it.lw[i];
+      if (!f.includes(t)) return;
+      if (w >= 3) ts += w; /* 高权重字段按出现与否计 */
+      else { /* 正文类字段按命中次数计，封顶 5 次 */
+        let p = f.indexOf(t), hits = 0;
+        while (p >= 0 && hits < 5) { hits++; p = f.indexOf(t, p + t.length); }
+        ts += w * hits;
+      }
+    });
+    if (ts > 0) { matched++; if (termUsable(t)) useful++; }
+    s += ts;
+  }
+  /* 若所有命中的都是停用词级高频词，视为无意义命中，直接清零 */
+  if (matched > 0 && useful === 0) return { s: 0, matched: 0 };
+  if (terms.length > 1 && matched === terms.length) s += 15 * terms.length;
+  return { s, matched };
+}
+function searchSnippet(it, words) {
+  for (const w of words) {
+    for (let i = 1; i < it.low.length; i++) {
+      const p = it.low[i].indexOf(w);
+      if (p >= 0) {
+        const hay = it.fields[i] || "";
+        const st = Math.max(0, p - 20);
+        return (st > 0 ? "…" : "") + hay.slice(st, st + 56) + (st + 56 < hay.length ? "…" : "");
+      }
+    }
+  }
+  return (it.fields[1] || it.fields[4] || it.fields[2] || "").slice(0, 56);
 }
 let SR_CONTAINER = "search-results"; /* 当前结果容器：桌面内联 / 移动端层 */
 function doSearch(q) {
@@ -1259,19 +1304,24 @@ function doSearch(q) {
   const box = $("#" + SR_CONTAINER);
   if (!box) return;
   if (q.length < 1) { box.classList.remove("show"); box.innerHTML = ""; return; }
-  const hits = SR_INDEX
-    .map((it) => ({ it, s: searchScore(it, q) }))
+  const { words, terms } = qTerms(q);
+  /* 高亮词表：原始词 + 命中的分词/二元组（长词优先，整词命中优先于片段） */
+  const hlTerms = [...new Set([...words, ...terms])].sort((a, b) => b.length - a.length);
+  const MAX = 20;
+  const scored = SR_INDEX
+    .map((it) => { const r = searchScore(it, terms); return { it, s: r.s, m: r.matched }; })
     .filter((x) => x.s > 0)
-    .sort((a, b) => b.s - a.s || (b.it.date || "").localeCompare(a.it.date || ""))
-    .slice(0, 8);
-  box.innerHTML = hits.length
-    ? hits.map(({ it }) => `
+    .sort((a, b) => b.m - a.m || b.s - a.s || (b.it.date || "").localeCompare(a.it.date || ""))
+    .slice(0, MAX);
+  box.innerHTML = scored.length
+    ? `<div class="sr-count">找到 <b>${scored.length}</b> 条与「${escHTML(q)}」相关的内容${scored.length >= MAX ? "（仅展示前 " + MAX + " 条）" : ""}</div>` +
+      scored.map(({ it }) => `
       <div class="sr-item" onclick="searchGo('${it.kind}','${it.id}')">
-        <div class="sr-title">${hlMark(it.title, q)}</div>
-        <div class="sr-snippet">${hlMark(searchSnippet(it, q), q)}</div>
+        <div class="sr-title">${hlMark(it.title, hlTerms)}</div>
+        <div class="sr-snippet">${hlMark(searchSnippet(it, hlTerms), hlTerms)}</div>
         <div class="sr-meta"><span class="sr-badge ${it.kind === "job" ? "sr-badge-job" : "sr-badge-news"}">${it.badge}</span>${it.tags.map((t) => `<span># ${escHTML(t)}</span>`).join("")}<span>${it.date}</span></div>
       </div>`).join("")
-    : `<div class="sr-empty">没有找到与「${escHTML(q)}」相关的内容，换个关键词试试</div>`;
+    : `<div class="sr-empty">没有找到与「${escHTML(q)}」相关的内容，试试更短的关键词，或按标签筛选</div>`;
   box.classList.add("show");
 }
 function closeSearch() {
