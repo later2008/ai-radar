@@ -1,6 +1,183 @@
 {
- "updatedAt": "2026-09-24 10:13",
+ "updatedAt": "2026-09-25 00:09",
  "news": [
+  {
+   "id": "a198",
+   "title": "GitHub 安全实验室开源 AI 模糊测试工作流：用 Agent 自动挖漏洞",
+   "summary": "GitHub Security Lab 发布基于 Taskflow Agent 的 AI 模糊测试（fuzzing）工作流，把「生成测试用例—跑崩溃—定位漏洞」交给智能体编排。",
+   "content": "传统 fuzzing 要自己写 harness、调 AFL/libFuzzer、盯着覆盖率曲线，门槛不低。GitHub 这套 Taskflow Agent 的思路是：用 LLM 读懂目标代码、自动生成/变异输入语料，再把崩溃样本回灌给 Agent 做初步归因，人只做最后的验证。对信息安全专业的同学，这是把「AI 辅助安全测试」落到实处的参考实现——你可以照着它的 taskflow 结构，在课程实验里对一个 C 语言小工具做自动化 fuzzing，产出一份带崩溃复现步骤的报告，比单纯跑扫描器有说服力得多。",
+   "source": "GitHub Blog",
+   "date": "2026-09-24",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Fuzzing",
+    "LLM Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把 AI 辅助漏洞挖掘变成可复现的实验项目，是安全岗简历上少见的实操亮点。**",
+   "courses": "对应《软件安全》《渗透测试》课程，可作为安全测试实验或毕业设计的技术底座。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "AI Agent 编排 fuzzing 全流程：生成语料→执行→崩溃归因",
+    "适合作为「软件安全测试」类课程实验的自动化方案",
+    "可直接复现到自己的 C/C++ 小项目上，产出漏洞报告"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
+   "link": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+   "cover": "img/a198.webp"
+  },
+  {
+   "id": "a199",
+   "title": "你的 AI Agent 评测指标在骗你：为什么 benchmark 全过、上线就崩",
+   "summary": "一篇拆解 AI Agent 评测陷阱的实践文章：跑分漂亮不等于可用，指标设计不当会掩盖真实的失败模式。",
+   "content": "文章的核心观点很扎心：Agent 在 benchmark 上全绿，上线后却频繁翻车，往往是因为评测集和真实输入分布不一致、只统计「最终答案对不对」而忽略中间步骤、以及没覆盖多轮工具调用的失败路径。对做课设或大创的同学，这篇能直接改造你的测试方案——别只写「输入 A 输出 B」的断言，要记录 Agent 每一步调用了什么工具、参数对不对、失败后有没有重试。哪怕你只是用 LangChain 搭个查询助手，加上这层可观测性，答辩时就能讲出「我怎么验证它真的可靠」。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM Agent",
+    "Testing"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会给 AI 应用设计「不骗人」的评测，是从「能跑」到「能交付」的分水岭。**",
+   "courses": "对应《软件测试》《软件工程》，可把 Agent 评测作为测试用例设计的实战案例。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "常见坑：评测集失真、只看结果不看过程、忽略工具调用失败",
+    "给出可落地的改进：记录中间步骤 + 覆盖失败路径",
+    "适合任何做 LLM 应用课设的同学改造测试方案"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The Silent Killer of AI Agents: Why Your Evaluation Metrics Are Lying to You",
+   "link": "https://dev.to/tamizuddin/the-silent-killer-of-ai-agents-why-your-evaluation-metrics-are-lying-to-you-20g7",
+   "cover": "img/a199.webp"
+  },
+  {
+   "id": "a200",
+   "title": "Cursor Projects 实测：一份被改了 111 次的计划，只被读过一次",
+   "summary": "开发者实测 Cursor 新出的 Projects 编排功能：一个 orchestrator 管上下文、把任务分发给多个 Agent，能干活但仍是 beta。",
+   "content": "作者的真实体验值得一看：Cursor Projects 让一个「总控 Agent」持有全局上下文，再把子任务派给不同 Agent 执行，确实能完成实际工作。但槽点也很具体——生成的计划文档被反复重写 111 次却几乎没人（包括 Agent 自己）真正回头读，说明多 Agent 协作里「计划」和「执行」的同步仍是难题。对正在用 AI 编程工具做课程项目的同学，这篇能帮你建立正确预期：把它当「能并行干活的助手」而不是「自动项目经理」，关键节点还是要人工 review，否则上下文漂移会让你 debug 到怀疑人生。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Cursor",
+    "AI Coding"
+   ],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**看清多 Agent 编程工具的真实边界，避免把课设进度押在 beta 功能上。**",
+   "courses": "对应《软件工程》《程序设计》课程项目，可作为 AI 辅助开发工具的选型参考。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Cursor Projects = 一个 orchestrator + 多个执行 Agent",
+    "实测有效但仍 beta，计划与执行容易脱节",
+    "用 AI 编程工具做课设时的合理预期与踩坑提醒"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Cursor Projects: a plan rewritten 111 times and read once",
+   "link": "https://dev.to/lutz_leonhardt/cursor-projects-a-plan-rewritten-111-times-and-read-once-4j77",
+   "cover": "img/a200.webp"
+  },
+  {
+   "id": "a201",
+   "title": "DeepSeek 公开 Agent 训练沙箱 DSec，推理吞吐靠内核优化翻近 7 倍",
+   "summary": "DeepSeek 发布新论文并公开 Agent 训练沙箱 DSec；同时通过内核补齐与通信重构，让 PCIe 显卡推理吞吐提升近 7 倍。",
+   "content": "两条信息对工业软件和系统方向的同学都有价值。一是 DSec 沙箱：Agent 要执行代码、调工具，就必须有安全隔离的运行环境，这正是「AI 基础设施」里偏系统层的活儿，涉及容器、权限、资源限制，和工业软件对确定性、隔离性的要求是同一套思路。二是推理优化：文章称通过补齐内核、重构通信，1.5 台 6000D 跑赢 1 台 B300，说明在受限硬件上做性能优化仍有巨大空间。想往高性能计算、嵌入式/工业控制方向走的同学，这类「抠底层换性能」的案例比调 API 更有长期价值。",
+   "source": "量子位",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Agent Sandbox",
+    "性能优化"
+   ],
+   "value": "**Agent 落地绕不开沙箱隔离与推理性能，这两块正是系统能力的用武之地。**",
+   "courses": "对应《操作系统》《计算机网络》，可结合沙箱隔离与通信优化做课程专题。",
+   "tags": [
+    "行业动态",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "DSec：Agent 代码执行的隔离沙箱，涉及容器与权限控制",
+    "推理优化靠内核与通信层改造，而非堆硬件",
+    "适合关注系统层、性能优化方向的同学跟踪"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/496925.html",
+   "cover": "img/a201.webp"
+  },
+  {
+   "id": "a202",
+   "title": "云栖 2026：阿里云 PAI 面向 Agentic AI 的基础设施迭代",
+   "summary": "阿里云人工智能平台 PAI 针对 Agentic AI 场景持续迭代，为模型与智能体的训练、部署提供底层支撑。",
+   "content": "这类平台发布看起来离学生很远，但拆开看全是可用的东西：模型托管、推理服务、Agent 编排、向量检索、监控——你在课设里手搓的每一块，云平台基本都有对应组件。建议的做法是：先自己用 Flask/FastAPI 搭一个最小可用的 Agent 服务，理解请求链路和状态管理，再去对照 PAI 这类平台的架构图，看它把哪些环节做成了托管服务。这样面试被问「你怎么理解 AI 基础设施」时，你能从自己踩过的坑讲起，而不是背概念。",
+   "source": "掘金",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "云平台",
+    "LLM Agent"
+   ],
+   "value": "**把云平台架构图当成自己课设的「参考答案」，理解每一层为什么存在。**",
+   "courses": "对应《云计算》《软件体系结构》，可作为架构设计作业的对照案例。",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "PAI 覆盖模型托管、推理服务、Agent 编排等环节",
+    "建议先手搓最小 Agent 服务，再对照云平台架构",
+    "面试谈 AI Infra 时可用自己的实现经历支撑"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7689029624774017074"
+  },
   {
    "id": "a192",
    "title": "LangGraph 多智能体编排实战：常见模式与踩坑指南",
@@ -26,7 +203,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "LangGraph 用有向图描述 Agent 协作，节点是 Agent、边是状态流转",
@@ -3989,173 +4166,6 @@
    ],
    "buzz": [],
    "link": "https://www.freebuf.com/articles/501784.html"
-  },
-  {
-   "id": "a57",
-   "title": "四大AI编码Agent曝0-Click RCE漏洞Plugin4Shell，两款至今无补丁",
-   "summary": "四款主流AI编码Agent被曝无需用户操作即可远程执行代码的漏洞，可导致权限窃取与数据泄露，其中两款产品尚未发布修复补丁。",
-   "content": "如果你已经在用Cursor、Claude Code这类AI编码Agent帮你写代码，这条必须看。Plugin4Shell漏洞允许攻击者通过恶意插件在0-Click（用户无需任何点击）情况下实现RCE，直接拿到你的开发机权限，代码仓库、SSH密钥、云凭证全暴露。安全专业的同学可以把它当作「AI供应链安全」的典型案例来分析：Agent的插件加载机制缺乏沙箱隔离，本质上是把传统Web的插件漏洞搬到了AI工具链上。软件工程的同学则要养成习惯——给AI Agent配置最小权限，别把生产环境凭证直接暴露在工作区里。",
-   "source": "FreeBuf",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**AI编码工具已成为新的攻击面，理解其安全风险是信息安全专业的前沿必修课**",
-   "courses": "对应《网络安全》《系统安全》课程，可作为AI供应链安全案例写入课程报告或毕设选题",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "四款主流AI编码Agent存在0-Click RCE漏洞，无需用户操作即可被利用",
-    "攻击者可窃取权限、泄露数据，两款产品至今无补丁",
-    "本质是AI Agent插件加载机制缺乏沙箱隔离",
-    "建议给AI编码工具配置最小权限，隔离敏感凭证"
-   ],
-   "buzz": [],
-   "link": "https://www.freebuf.com/articles/ai-security/501731.html"
-  },
-  {
-   "id": "a58",
-   "title": "智谱ZCode被曝静默上传完整Git历史到阿里云OSS，含reflog和全局配置",
-   "summary": "开发者取证发现智谱AI编程工具ZCode在用户登录后，后台静默将整个工作区（含.git历史、LFS大文件、reflog）打包加密上传至阿里云OSS。",
-   "content": "这条对所有用AI编程工具的同学都是警钟。开发者ferstar通过取证发现，ZCode只要登录账号，就会在后台把整个工作区打包上传——不只是你写的代码，还包括完整的.git提交历史、LFS大文件缓存、reflog操作记录甚至全局配置。这意味着你本地仓库里所有历史提交（包括已经删掉的敏感信息）都可能被上传。信息安全专业的同学可以学习其取证方法（网络抓包+文件系统监控），这是「终端安全取证」的实操案例。软件工程的同学请立刻检查自己在用的AI编程工具：是否开源、是否有隐私政策、能否离线使用。",
-   "source": "开源中国",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Git"
-   ],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**你用的AI编程工具可能正在偷传你的代码，学会取证和甄别是开发者的基本安全素养**",
-   "courses": "对应《网络安全》《操作系统》课程，可结合网络抓包实验分析工具的数据外传行为",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "ZCode登录后静默上传完整工作区，含.git历史、LFS缓存、reflog",
-    "上传目标为阿里云OSS，数据打包加密但未经用户同意",
-    "取证方法可作终端安全取证实操案例学习",
-    "建议检查AI编程工具的隐私政策和数据上传行为"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502589"
-  },
-  {
-   "id": "a59",
-   "title": "首个AI黑客智能体暗网开售：渗透周期从两周压缩到2.8天",
-   "summary": "暗网出现首个商业化AI黑客智能体，可将渗透测试周期从两周缩短至2.8天，标志着AI驱动的自动化攻击进入商品化阶段。",
-   "content": "这条对信息安全专业的同学意义重大。AI黑客智能体把渗透测试的周期从两周压到2.8天，意味着防守方的响应窗口被大幅压缩。你需要理解它的技术路径：大概率是LLM驱动+工具链编排（Nmap扫描→漏洞匹配→Exploit生成→后渗透），和你在B站教程里学的手动流程本质相同，只是自动化了。这直接指向一个就业方向——AI安全对抗。防守方也需要AI来自动化漏洞发现和修复，微软单月修补超千个漏洞就是例子。建议在学完渗透基础后，关注「AI+安全」的自动化工具链，这是未来3-5年的增量岗位。",
-   "source": "安全客",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**AI正在重塑攻防节奏，理解自动化渗透原理才能跟上安全岗位的技术迭代**",
-   "courses": "对应《渗透测试》《网络安全》课程，可作为AI安全对抗的行业背景材料",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "首个商业化AI黑客智能体在暗网开售，渗透周期从两周缩至2.8天",
-    "技术路径为LLM驱动+工具链编排，本质是渗透流程自动化",
-    "防守方同样需要AI自动化漏洞发现与修复",
-    "AI安全对抗是未来3-5年的增量就业方向"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316114"
-  },
-  {
-   "id": "a62",
-   "title": "研究员用Claude Opus 5串联漏洞，72小时接管OpenAI员工账号并访问内部代码库",
-   "summary": "安全研究员借助Claude Opus 5在72小时内串联多个漏洞，成功接管OpenAI员工账号并访问内部代码库，漏洞已修复并获赏金。",
-   "content": "这是一次典型的AI辅助漏洞挖掘实战。研究员用Claude Opus 5在72小时内完成了漏洞串联——从信息收集到权限提升再到横向移动，最终接管员工账号、访问内部代码库。对信息安全专业的启示有两点：第一，AI正在成为漏洞挖掘的加速器，你未来面试安全岗位时，「能否用AI辅助渗透」可能成为加分项；第二，漏洞串联（Chaining）是真实攻防中的核心能力，单点漏洞往往危害有限，组合起来才能造成实质影响。建议在掌握单个漏洞原理后，刻意练习多漏洞组合利用的思路。",
-   "source": "FreeBuf",
-   "date": "2026-09-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**AI辅助漏洞挖掘已进入实战阶段，掌握漏洞串联思路是安全岗位的核心竞争力**",
-   "courses": "对应《渗透测试》《网络安全》课程，可作为漏洞串联利用的案例分析材料",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "研究员用Claude Opus 5在72小时内串联漏洞接管OpenAI员工账号",
-    "AI正成为漏洞挖掘的加速器，多漏洞串联是核心实战能力",
-    "漏洞已修复，OpenAI发放赏金",
-    "建议在掌握单点漏洞后练习组合利用思路"
-   ],
-   "buzz": [],
-   "link": "https://www.freebuf.com/news/501978.html"
-  },
-  {
-   "id": "a63",
-   "title": "BragJack攻击：恶意扩展可劫持5款主流浏览器AI Agent，窃密越权",
-   "summary": "新型BragJack攻击利用恶意浏览器扩展劫持5款主流浏览器的内置AI Agent，模型防护失效，可实现窃密和越权操作。",
-   "content": "浏览器内置AI Agent正在成为新的攻击目标。BragJack攻击的核心思路是：通过恶意扩展注入，劫持AI Agent的决策流程，绕过模型自身的安全防护，实现数据窃取和权限越界。对信息安全专业的同学来说，这是一个「AI Agent安全」的入门案例——理解Agent的信任边界在哪里、扩展权限如何被滥用。对通用开发方向的同学，如果你在做浏览器扩展或Web应用，需要关注扩展与AI Agent之间的通信安全。目前相关漏洞已部分修复，建议及时升级浏览器和扩展。",
-   "source": "FreeBuf",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "前端"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**浏览器AI Agent成为新攻击面，理解扩展安全是前端和信息安全同学的交叉技能点**",
-   "courses": "对应《Web安全》《浏览器安全》课程，可作为AI Agent安全的案例分析",
-   "tags": [
-    "信息安全",
-    "前端开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "BragJack攻击通过恶意扩展劫持5款主流浏览器的AI Agent",
-    "模型自身防护失效，可实现窃密和越权操作",
-    "核心问题是AI Agent的信任边界和扩展权限滥用",
-    "相关漏洞已部分修复，需及时升级浏览器"
-   ],
-   "buzz": [],
-   "link": "https://www.freebuf.com/articles/ai-security/501930.html"
   }
  ],
  "jobs": [
