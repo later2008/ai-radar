@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-19 01:08",
+ "updatedAt": "2026-09-25 10:36",
  "news": [
   {
    "id": "a116",
@@ -2366,6 +2366,55 @@
    "value": "官方紧缺人才目录点名：**网络安全攻防、工业 CAD/CAE 软件需求爆发**——信安和工业软件方向吃定心丸",
    "courses": "网络安全、CAD/CAE 原理（工业软件方向）",
    "link": "http://www.cq.xinhuanet.com/20260725/99408ba4df2143e7bafdf46d7c699254/c.html"
+  },
+  {
+   "id": "wk-20260914",
+   "title": "【AI风向标周报】第1期（09.14-09.20）",
+   "summary": "本周精选：BragJack攻击：恶意扩展可劫持、亚马逊云科技开放 AL2027 预览等 5 条资讯；WorkMaster高校招聘日历、上海芯源创新中心等 5 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、5 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. BragJack攻击：恶意扩展可劫持5款主流浏览器AI Agent，窃密越权\n   浏览器AI Agent成为新攻击面，理解扩展安全是前端和信息安全同学的交叉技能点\n   原文：https://www.freebuf.com/articles/ai-security/501930.html\n2. 亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级\n   把「操作系统兼容性」从课本概念变成一次可复现的升级验证，是后端岗面试的加分素材。\n   原文：https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article\n3. 面向船舶/计算机/数学专业：参赛可获中船海舟校招优先机会\n   工业软件竞赛+央企校招直通，是工业软件实验班最对口的加分项。\n   原文：https://www.oschina.net/news/502583\n4. 一个月68个CVE、91.8%的AI工具没有OAuth：你的Agent工具层正在裸奔\n   AI工具链安全是2026年信息安全岗位的新增考点，早看懂早占位。\n   原文：https://www.anquanke.com/post/id/316121\n5. 四大AI编码Agent曝0-Click RCE漏洞Plugin4Shell，两款至今无补丁\n   AI编码工具已成为新的攻击面，理解其安全风险是信息安全专业的前沿必修课\n   原文：https://www.freebuf.com/articles/ai-security/501731.html\n\n【本周精选岗位】\n1. WorkMaster高校招聘日历 · 南京/上海/苏州周边33所高校宣讲会与招聘会日历（在校生可用）\n   校招 ｜ 南京、上海、苏州及周边\n   投递：https://github.com/chidou59/workmaster\n2. 上海芯源创新中心 · 上海芯源创新中心 2027 届校园招聘（事业单位 · AI+微电子）\n   校招 ｜ 上海·浦东 ｜ 博士 40-55 万（最高 100 万）· 硕士 25-35 万\n   投递：https://scc.pku.edu.cn/f/recruitmentinfo/show?recruitmentId=9719db0d71d14e1f859df5744b0da696\n3. 佰聆数据 · 佰聆数据 润才计划 实习（不限年级）\n   实习 ｜ 广州\n   投递：https://github.com/xixicc186/xixicc2027\n4. 同花顺 · 同花顺 实习生招募计划 2027届实习\n   实习 ｜ 见公告\n   投递：https://github.com/xixicc186/xixicc2027\n5. 京东 · 京东 TET管理培训生 2027届实习\n   实习 ｜ 见公告\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 纯前端实现批量图片压缩工具：HTML+CSS+JS 完整教程\n   一个能完整跑通、能写进简历的前端实战项目，顺带把浏览器文件 API 学透。\n   获取：https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/\n2. JavaGuide 15.8万星：Java后端+AI应用开发面试指南（含计算机基础/分布式/系统设计）……",
+   "source": "AI风向标·编辑部",
+   "date": "2026-09-20",
+   "cat": "weekly",
+   "tags": [
+    "周报汇总",
+    "求职就业",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 99,
+   "brief": [
+    "精选资讯 Top5：BragJack攻击：恶意扩展可劫持5款主流浏览器AI Agent，窃密越权",
+    "精选岗位 Top5：WorkMaster高校招聘日历 · 南京/上海/苏州周边33所高校宣讲会与招聘会日历（在校生可用）",
+    "实用工具 Top3：纯前端实现批量图片压缩工具：HTML+CSS+JS 完整教程"
+   ],
+   "link": "",
+   "cover": "img/a116.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-09-14",
+    "end": "2026-09-20",
+    "news": [
+     "a63",
+     "a116",
+     "a70",
+     "a66",
+     "a57"
+    ],
+    "jobs": [
+     "j26",
+     "j17",
+     "j25",
+     "j24",
+     "j23"
+    ],
+    "tools": [
+     "a96",
+     "a94",
+     "a95"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [

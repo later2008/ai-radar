@@ -5,6 +5,7 @@ on:
     - cron: "0 0 * * *"  # UTC 00:00 = 北京时间 08:00
     - cron: "0 6 * * *"  # UTC 06:00 = 北京时间 14:00
     - cron: "0 10 * * *" # UTC 10:00 = 北京时间 20:00
+    - cron: "0 13 * * 0" # UTC 13:00 周日 = 北京时间 周日 21:00（周报生成）
   workflow_dispatch: {}
 
 permissions:
@@ -50,6 +51,9 @@ jobs:
 
       - name: Fetch covers
         run: node scripts/covers.mjs
+
+      - name: Weekly digest (Sunday 21:00 CST)
+        run: node scripts/weekly.mjs
 
       - name: Build site
         run: node build.js
