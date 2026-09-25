@@ -1,6 +1,243 @@
 {
- "updatedAt": "2026-09-25 10:36",
+ "updatedAt": "2026-09-25 02:50",
  "news": [
+  {
+   "id": "a121",
+   "title": "同一套 DeepSeek Key，换三个框架六个坑：大模型接入的工程真相",
+   "summary": "作者用同一个 DeepSeek API Key 分别在三种主流框架中跑通调用，结果每个框架都在不同地方报错，暴露了 SDK 封装、流式解析、超时重试等工程细节差异。",
+   "content": "很多人跑通一个框架就以为「我会接大模型了」，换一个框架第一行就崩。这篇文章用同一套 DeepSeek Key 实测三种框架，踩了六个不同的坑：有的框架默认开启流式导致解析失败，有的对 system prompt 处理方式不同，有的超时重试策略完全不一样。对软件工程同学来说，这是最真实的「API 集成」实战教材——你在课设里调用大模型时，遇到的报错大概率就在这六类里。建议边读边对照自己项目里的大模型调用代码，把异常处理补上。",
+   "source": "掘金",
+   "date": "2026-09-24",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "DeepSeek API"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**帮你提前避开大模型 API 集成中最常见的六个工程坑，课设少熬三个晚上。**",
+   "courses": "对应《软件工程》《Web 应用开发》课程中的第三方 API 集成环节，可直接用于课设的大模型调用模块。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "同一 API Key 在不同框架下报错位置完全不同，说明封装层差异巨大",
+    "重点涉及流式解析、system prompt 处理、超时重试三大高频坑",
+    "适合正在做 AI 相关课设、需要集成大模型 API 的同学参考"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7689030180351017011"
+  },
+  {
+   "id": "a122",
+   "title": "LangGraph 入门实战：StateGraph、条件路由与 Agent 工具调用循环",
+   "summary": "从 Chain 为什么不够讲起，系统介绍 LangGraph 的 StateGraph 构建、条件路由和 Agent 工具调用循环三个核心概念，附代码示例。",
+   "content": "链式调用 prompt→model→parser 只能处理线性流程，一旦需要分支判断、循环调用工具、维护多轮状态就不够用了。这篇教程用 LangGraph 的 StateGraph 把 Agent 的工作流画成图：节点是处理步骤，边是流转条件，状态在节点间传递。条件路由解决「根据模型输出决定下一步走哪」的问题，工具调用循环解决「模型调用工具→拿到结果→再决定是否继续调用」的闭环。如果你在做智能客服、自动化流程类的课设或毕设，这套图结构比硬编码 if-else 清晰得多。",
+   "source": "掘金",
+   "date": "2026-09-24",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LangGraph"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**掌握 LangGraph 图结构编排，让你的 Agent 项目从 demo 级别升级到可讲清楚架构的程度。**",
+   "courses": "对应《人工智能导论》《软件工程》中的智能系统设计部分，可用于毕设的 Agent 架构设计章节。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "StateGraph 用图结构替代链式调用，适合有分支和循环的 Agent 场景",
+    "条件路由 + 工具调用循环是构建自主 Agent 的两个核心模式",
+    "有代码示例，跟着敲一遍就能理解 Agent 编排的基本思路"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7688988203789467648"
+  },
+  {
+   "id": "a123",
+   "title": "GitHub 安全实验室开源 AI 模糊测试 Agent：自动挖漏洞的实战框架",
+   "summary": "GitHub Security Lab 发布基于 Taskflow Agent 的 AI 模糊测试工作流，用 AI 自动生成测试用例、分析崩溃、定位安全漏洞。",
+   "content": "模糊测试（Fuzzing）是发现内存泄漏、缓冲区溢出等安全漏洞的经典手段，但传统方式需要人工编写大量测试用例。GitHub 这次把 AI Agent 接入模糊测试流程：Agent 自动分析目标代码、生成有针对性的输入、监控崩溃并归类漏洞类型。对信息安全专业的同学来说，这是「AI+安全」最直接的落地场景——你学的漏洞挖掘、渗透测试，未来很可能就是和 AI Agent 协作完成。文章附完整工作流配置，可以在自己的靶场环境里跑一遍。",
+   "source": "GitHub Blog",
+   "date": "2026-09-24",
+   "cat": "tool",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "GitHub Security Lab"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**信息安全方向的同学，这是你简历上「AI+安全」项目经历的最佳素材来源。**",
+   "courses": "对应《网络安全》《渗透测试》课程中的漏洞挖掘实验环节，可作为课程设计的安全工具实践项目。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "AI Agent 自动完成模糊测试的用例生成、崩溃分析和漏洞归类",
+    "信息安全专业可直接在靶场环境复现，理解 AI 辅助漏洞挖掘的流程",
+    "GitHub 官方出品，工作流配置开源可复用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
+   "link": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+   "cover": "img/a123.webp"
+  },
+  {
+   "id": "a124",
+   "title": "你的 Agent 自由文本输出，是一个你从未设计过的 API",
+   "summary": "大多数 Agent demo 失败的原因不在模型，而在模型输出进入程序的那条边界——字符串没有 schema，导致下游代码脆弱不堪。",
+   "content": "Agent 返回一段自然语言，你的代码用正则去抠字段，模型换个措辞就崩了。这篇文章点出一个被忽视的工程问题：模型输出到程序之间缺少结构化契约。解决方案是用 JSON Schema、Pydantic 等工具强制约束输出格式，把「自由文本」变成「有类型的 API 响应」。对软件工程同学来说，这是接口设计中「契约优先」思想在 AI 场景的延伸——你写 REST API 时会定义 DTO，调大模型时同样需要。建议在自己的 Agent 项目里加一层输出校验。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "JSON Schema"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个被 90% 的 Agent 项目忽视的工程问题，解决它你的项目稳定性直接上一个台阶。**",
+   "courses": "对应《软件工程》中的接口设计与数据校验章节，可用于课设中 AI 模块的输出处理。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Agent 输出是自由文本，直接解析极其脆弱，模型换个说法就崩",
+    "用 JSON Schema 或 Pydantic 给模型输出加结构化约束",
+    "本质是接口设计中「契约优先」思想在 AI 场景的应用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your Agent's Free-Text Output Is an API You Never Designed",
+   "link": "https://dev.to/ruixuan_jiang_663eb75f3fa/your-agents-free-text-output-is-an-api-you-never-designed-3mb9",
+   "cover": "img/a124.webp"
+  },
+  {
+   "id": "a125",
+   "title": "React Flow 不帮你做的事：用领域规则构建图编辑器",
+   "summary": "作者用 React Flow 构建家谱图编辑器时发现，库只负责渲染节点和连线，领域规则（谁能连谁、什么关系用什么线型）全得自己实现。",
+   "content": "React Flow 是一个流行的节点图渲染库，但文章作者在做一个家谱图编辑器时发现：库帮你画节点和连线，但「父子关系用实线、婚姻关系用虚线、同一个人不能既是父亲又是兄弟」这些领域规则，库一概不管。你需要自己实现连接校验、类型约束、布局算法。这对前端方向的同学很有参考价值——很多课设会涉及流程图、拓扑图、关系图，选型时要想清楚哪些是库的能力、哪些必须自己写。文章给出了完整的规则引擎设计思路。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React Flow"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**做图编辑类课设前先读这篇，避免选完库才发现核心逻辑全要自己写。**",
+   "courses": "对应《Web 前端开发》《人机交互》课程中的可视化项目，可用于课设的图形编辑器模块。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "React Flow 只负责渲染，领域规则（连接合法性、线型语义）需自行实现",
+    "适合做流程图、拓扑图、关系图类课设的前端同学参考选型和架构",
+    "文章给出规则引擎的完整设计思路，可直接借鉴"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "What React Flow Doesn't Do For You: Building a Diagram Editor With Domain Rules",
+   "link": "https://dev.to/ruixuan_jiang_663eb75f3fa/what-react-flow-doesnt-do-for-you-building-a-diagram-editor-with-domain-rules-2e3o",
+   "cover": "img/a125.webp"
+  },
+  {
+   "id": "a126",
+   "title": "腾讯 QClaw 宣布 12 月停运：本地 Agent 路线的一次撤退",
+   "summary": "腾讯电脑管家 QClaw 团队公告将于 2026 年 12 月 24 日正式停止运营，即日起停止新用户注册和订阅购买，基于 OpenClaw 的本地 Agent 路线被放弃。",
+   "content": "QClaw 是腾讯基于 OpenClaw 做的本地 Agent 产品，上线不到一年就宣布停运。这件事对技术选型有直接启示：依赖某个大厂特定 Agent 平台做开发，平台一停你的工作就白费。对软件工程和信息安全同学来说，选择技术栈时优先考虑开源、标准化、可迁移的方案——比如 LangChain/LangGraph 这类社区驱动的框架，而不是绑定某家云厂商的专有 Agent 服务。这不是唱衰，是提醒你把精力投在可复用的能力上。",
+   "source": "开源中国",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**技术选型时的一个真实教训：别把项目绑在随时可能停运的专有平台上。**",
+   "courses": "对应《软件工程》中的技术选型与风险评估章节，可作为课程讨论案例。",
+   "tags": [
+    "行业动态",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "QClaw 停运说明绑定大厂专有 Agent 平台存在技术选型风险",
+    "建议优先选择开源、标准化的 Agent 框架，保证技能可迁移",
+    "对做技术选型和职业规划都有参考价值"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502726"
+  },
+  {
+   "id": "a127",
+   "title": "WSO2 发布 Agent Manager：企业级 AI Agent 治理工具",
+   "summary": "WSO2 推出 Agent Manager 产品，帮助企业应对内部 AI Agent 数量激增带来的管理、权限、监控问题。",
+   "content": "当企业里每个团队都在部署自己的 AI Agent，就会出现「Agent 泛滥」：谁在用、调了什么工具、花了多少 token、有没有越权操作，没人说得清。WSO2 Agent Manager 试图解决这个问题，提供 Agent 注册、权限控制、调用链追踪等能力。对信息安全专业的同学，这是一个值得关注的方向——Agent 治理本质上是身份认证、访问控制、审计日志在 AI 场景的延伸，你学的 IAM、零信任架构在这里都能用上。",
+   "source": "InfoQ中文",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**信息安全同学的新就业方向：AI Agent 治理，你的 IAM 知识直接能用。**",
+   "courses": "对应《信息安全技术》《访问控制》课程，可作为 AI 安全治理的案例讨论。",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "企业 AI Agent 泛滥带来权限、审计、成本管控等治理需求",
+    "Agent 治理本质是 IAM、访问控制、审计日志在 AI 场景的延伸",
+    "信息安全专业可关注这个新兴方向，与已有安全知识高度相关"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4gr5Zt9GZoyIwF2f6LvR?utm_source=rss&utm_medium=article",
+   "cover": "img/a127.webp"
+  },
   {
    "id": "a116",
    "title": "亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级",
@@ -25,7 +262,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "AL2027 预览开放，核心争议点是能否原地升级",
@@ -338,8 +575,7 @@
     "可包装成课设或简历里的AI应用项目"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1xwVr6FEh4",
-   "cover": "img/a106.webp"
+   "link": "https://www.bilibili.com/video/BV1xwVr6FEh4"
   },
   {
    "id": "a107",
@@ -369,8 +605,7 @@
     "同步准备行测与专业基础笔试"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1Vxtu6sEX7",
-   "cover": "img/a107.webp"
+   "link": "https://www.bilibili.com/video/BV1Vxtu6sEX7"
   },
   {
    "id": "a109",
@@ -569,8 +804,7 @@
     "包含免费平替方案，适合学生使用"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1wvDmBaETB",
-   "cover": "img/a105.webp"
+   "link": "https://www.bilibili.com/video/BV1wvDmBaETB"
   },
   {
    "id": "a94",
@@ -608,7 +842,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide"
+   "link": "https://github.com/Snailclimb/JavaGuide",
+   "cover": "img/a94.webp"
   },
   {
    "id": "a95",
@@ -1037,8 +1272,7 @@
     "可展示产出：靶场通关、漏洞复现报告、CTF 经历"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1uzLc68EY9",
-   "cover": "img/a90.webp"
+   "link": "https://www.bilibili.com/video/BV1uzLc68EY9"
   },
   {
    "id": "a78",
@@ -1266,8 +1500,7 @@
     "每天10分钟筛岗位，比盲目投递效率高"
    ],
    "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1m9bY6jEjW",
-   "cover": "img/a73.webp"
+   "link": "https://www.bilibili.com/video/BV1m9bY6jEjW"
   },
   {
    "id": "a74",
@@ -1563,8 +1796,7 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
-   "cover": "img/a54.webp"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
   },
   {
    "id": "a55",
@@ -1982,7 +2214,6 @@
    "lang": "zh",
    "link": "https://www.infoq.cn/article/G7cublzVyXFOUX3vpz1t?utm_source=rss&utm_medium=article",
    "heat": 84,
-   "cover": "img/a3.webp",
    "tracks": [
     "Java",
     "通用开发"
