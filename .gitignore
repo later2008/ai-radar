@@ -1,5 +1,7 @@
-# 构建产物（由 GitHub Actions 部署，不入库）
-site/
+# 构建产物：默认不追踪，但放行 Actions「Commit updated data」步骤要提交的 index.html 与 img/
+site/*
+!site/index.html
+!site/img
 
 # 本地临时调试产物（截图/日志/诊断）
 _*.png
