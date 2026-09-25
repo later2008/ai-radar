@@ -527,19 +527,19 @@ main { min-width: 0; }
 [data-theme="dark"] .sr-badge-job { color: #fdba74; background: #33200f; }
 .sr-empty { padding: 18px 12px; text-align: center; font-size: 13px; color: var(--muted); }
 /* 移动端：内联框隐藏，图标展开全宽搜索层 */
-.mobile-search-layer { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 97; background: var(--card2); border-bottom: 1px solid var(--border); box-shadow: 0 10px 30px rgba(15,23,42,.14); padding: 12px 14px 10px; transform: translateY(-105%); transition: transform var(--d-3) var(--ease-out); padding-top: calc(12px + env(safe-area-inset-top, 0px)); }
+.mobile-search-layer { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: var(--card2); border-bottom: 1px solid var(--border); box-shadow: 0 10px 30px rgba(15,23,42,.14); padding: 12px 14px 10px; transform: translateY(-105%); transition: transform var(--d-3) var(--ease-out); padding-top: calc(12px + env(safe-area-inset-top, 0px)); }
 .mobile-search-layer.show { transform: translateY(0); }
 .mobile-search-layer .search-box { background: var(--soft); }
 .mobile-search-layer .search-results { position: static; width: 100%; max-width: none; max-height: 58vh; border: none; box-shadow: none; padding: 4px 0 0; }
 @media (max-width: 900px) {
   .search-wrap { display: none; }
+  .mobile-search-layer { display: block; } /* 与搜索入口（≤900px 切图标）保持同一断点，避免 721-900px 空档 */
 }
 @media (min-width: 901px) {
   /* 桌面端已有内联搜索框，放大镜按钮冗余，隐藏 */
   #search-toggle { display: none; }
 }
 @media (max-width: 720px) {
-  .mobile-search-layer { display: block; }
   .search-results { max-height: 50vh; }
 }
 
