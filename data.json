@@ -1,6 +1,204 @@
 {
- "updatedAt": "2026-09-25 02:50",
+ "updatedAt": "2026-09-25 03:01",
  "news": [
+  {
+   "id": "a128",
+   "title": "用 Jev 逐 Span 评估 Agent Trace：同样 PASS，路径为何不同",
+   "summary": "团队做 Agent Evals 时常只看 PASS 率，但同一批用例全通过，底层模型的执行路径可能完全不同。文章介绍用 Jev 对 Agent Trace 做逐 Span 评估，定位路径差异。",
+   "content": "做课设或实习时，你可能已经用 LLM 搭过 Agent（比如自动查资料、写代码、调工具）。但只统计「任务通过率」会掩盖问题：两个模型都 PASS，一个走了 3 步，一个绕了 10 步、多调了 5 次工具，成本和稳定性天差地别。Jev 的思路是把一次 Agent 运行拆成 Span（每一步的模型调用、工具调用），逐个比对路径，而不是只看最终结果。对你的用处：如果你在做「智能体」相关的课程设计或毕设，这套评估方法可以直接套用——先埋点记录每步输入输出，再对比不同模型/提示词下的路径差异，写进实验报告里比只贴一个通过率有说服力得多。",
+   "source": "掘金",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会逐 Span 评估 Agent，让你的智能体项目从「能跑」升级到「可解释、可优化」**",
+   "courses": "《软件测试》《人工智能导论》——把逐 Span 评估当作 Agent 测试用例设计的一部分",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "PASS 率相同不代表执行路径相同，成本和稳定性可能差很多",
+    "把 Agent 运行拆成 Span，逐步比对模型调用与工具调用",
+    "适合给课设/毕设的 Agent 项目做可解释的评估"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7689001132434407424"
+  },
+  {
+   "id": "a129",
+   "title": "GitHub Copilot 应用如何渲染百万行级 PR：diff 界面重构实录",
+   "summary": "GitHub 工程团队分享如何重写 Copilot 应用里的 diff 视图，让它能打开包含数十万行改动、上百条行内评论的超大 PR。",
+   "content": "你迟早会遇到「一个 PR 改了几千行」的场面——大作业合并、实习时接手遗留代码。普通 diff 工具一卡就是几分钟。这篇文章讲的是 GitHub 怎么把 diff 渲染做成能扛百万行的：核心思路是虚拟滚动（只渲染视口内的行）、把行内评论和代码行解耦、按需计算差异块。对前端方向的同学，这是虚拟列表 + 大数据渲染的实战案例，可以直接借鉴到你的 Vue/React 项目里；对通用开发同学，理解 diff 算法和渲染分层，能帮你在 code review 时更快定位改动。建议对照自己项目里「长列表卡顿」的问题读一遍。",
+   "source": "GitHub Blog",
+   "date": "2026-09-23",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「虚拟滚动 + 大数据渲染」从面试八股变成你项目里的真实优化点**",
+   "courses": "《Web 前端开发》《数据结构》——虚拟列表对应前端性能优化章节",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "百万行 PR 的渲染靠虚拟滚动，只画视口内的行",
+    "行内评论与代码行解耦，避免重排",
+    "前端长列表性能优化的真实工业案例"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Rendering huge pull requests in the GitHub Copilot app",
+   "link": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/",
+   "cover": "img/a129.webp"
+  },
+  {
+   "id": "a130",
+   "title": "freeCodeCamp 上线 Claude 认证开发者基础课：从写代码到搭 Agent 工作流",
+   "summary": "freeCodeCamp 发布了一套面向软件工程师的 Claude 开发者基础课程，覆盖构建生产级 AI 应用与 Agent 工作流。",
+   "content": "如果你已经会写 Python/JS，但不知道「怎么把大模型接进真实项目」，这套免费课程是个不错的起点。它讲的是生产级 AI 应用：怎么设计提示词、怎么让模型调用工具、怎么组织 Agent 工作流、怎么处理失败重试。对软件工程专业的同学，这正好补上课堂里不太讲的一环——把 LLM 当组件而不是玩具。建议边看边动手：拿你课设里的一个小功能（比如自动生成接口文档、自动分类工单）改造成 Agent 调用，写进简历比「熟悉 ChatGPT」有分量得多。注意课程是英文，但技术词汇不难。",
+   "source": "freeCodeCamp",
+   "date": "2026-09-24",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "简历加分/求职准备",
+   "value": "**用一门免费课把「会调 API」升级成「会搭 Agent 工作流」，直接写进简历项目栏**",
+   "courses": "《软件工程》《人工智能导论》——作为课外实践补充，产出可展示的 Agent 小项目",
+   "tags": [
+    "AI工具",
+    "求职就业",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "免费课程，覆盖生产级 AI 应用与 Agent 工作流",
+    "重点在工具调用、工作流编排、失败处理",
+    "适合把课设功能改造成 Agent 写进简历"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Unlock the Power of AI Agents with the New Claude Certified Developer Foundations Course",
+   "link": "https://www.freecodecamp.org/news/unlock-the-power-of-ai-agents-with-the-new-claude-certified-developer-foundations-course/",
+   "cover": "img/a130.webp"
+  },
+  {
+   "id": "a131",
+   "title": "阿里云发布 Agentic OS：操作系统正变成智能体的基础设施",
+   "summary": "2026 云栖大会上，阿里云提出「AI Agent 原生操作系统」，把操作系统定位为连接算力、模型、工具与应用的智能体基础设施。",
+   "content": "这条对工业软件和信息安全方向的同学值得留意。当 AI 从「生成内容」走向「自主规划并持续执行」，操作系统要管的不再只是进程和内存，还要管智能体的权限、工具调用、执行沙箱和安全边界。这意味着两件事：一是工业软件里的调度、资源管理逻辑会被 Agent 化，你学的操作系统、并发、资源调度知识仍然有用，只是对象变了；二是智能体要进生产环境，安全隔离、权限控制、审计日志会成为刚需——这正是信息安全专业的用武之地。建议关注「Agent 如何安全地调用系统工具」这个方向，作为毕设选题或实习切入点。",
+   "source": "开源中国",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**看懂「Agent 原生 OS」这个趋势，你的操作系统和安全知识会找到新的落点**",
+   "courses": "《操作系统》《信息安全技术》——把智能体权限与沙箱当作传统安全模型的新场景来理解",
+   "tags": [
+    "行业动态",
+    "信息安全",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "操作系统从资源管理底座变成智能体基础设施",
+    "智能体进生产环境带来权限、沙箱、审计等安全需求",
+    "工业软件调度逻辑与信息安全方向都有对应机会"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502729"
+  },
+  {
+   "id": "a132",
+   "title": "DeepSeek 推理优化：内核补齐 + 通信重构，PCIe 显卡吞吐翻近 7 倍",
+   "summary": "通过补齐内核实现并重构通信，DeepSeek 推理在 PCIe 显卡上吞吐提升近 7 倍，1.5 台 6000D 跑赢 1 台 B300。",
+   "content": "这条偏底层，但对工业软件和想走系统方向的同学有参考价值。核心信息是：同样的硬件，靠软件层面的内核补齐和通信重构，推理吞吐能提升近 7 倍——说明性能瓶颈往往不在硬件，而在数据搬运和通信路径。你学的《计算机组成原理》《操作系统》里的 PCIe、内存带宽、通信开销，在这里是实打实的工程问题。如果你做工业软件或高性能计算相关课设，可以借此理解「为什么优化通信比堆硬件更划算」。不建议现在深挖实现细节，但要知道这个方向存在，面试聊到性能优化时能说出「通信重构」这个点。",
+   "source": "量子位",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**记住「优化通信比堆硬件更划算」，这是性能优化面试里的加分认知**",
+   "courses": "《计算机组成原理》《操作系统》——用真实案例理解 PCIe 带宽与通信开销",
+   "tags": [
+    "行业动态",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "软件优化（内核 + 通信重构）带来近 7 倍吞吐提升",
+    "瓶颈常在数据搬运和通信，而非算力本身",
+    "对应计算机组成、操作系统里的 PCIe 与通信开销知识"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/496925.html",
+   "cover": "img/a132.webp"
+  },
+  {
+   "id": "a133",
+   "title": "出海 Agent「小元AI」入驻腾讯 WorkBuddy：自动找买家、写开发信、谈生意",
+   "summary": "小元 AI 作为出海场景 Agent 入驻腾讯 WorkBuddy，能记忆、自进化，自动完成找买家、写开发信、跟进谈判等销售流程。",
+   "content": "这是一个「Agent 落地到具体业务」的案例，值得软件工程同学拆解它的产品结构：一个垂直场景 Agent = 领域数据（买家库）+ 工具调用（发邮件、查资料）+ 记忆（记住客户偏好）+ 自进化（根据反馈调整话术）。你可以把它当成课设的选题模板——不一定要做出海，换成「校园二手交易助手」「实习岗位匹配助手」都成立，技术骨架是一样的：意图理解、工具编排、状态记忆。信息安全方向的同学可以顺带思考：Agent 自动发邮件、自动谈判，如何防止越权操作和信息泄露？这是很现实的攻防场景。",
+   "source": "量子位",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM Agent"
+   ],
+   "value": "**拆解一个真实 Agent 产品的结构，直接套用到你的课设选题上**",
+   "courses": "《软件工程》《信息安全技术》——用 Agent 业务流程做需求分析与威胁建模练习",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "垂直场景 Agent 的通用结构：领域数据 + 工具调用 + 记忆 + 自进化",
+    "可作为课设选题模板，换成校园场景同样成立",
+    "自动发信/谈判带来越权与信息泄露的安全问题"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/496961.html",
+   "cover": "img/a133.webp"
+  },
   {
    "id": "a121",
    "title": "同一套 DeepSeek Key，换三个框架六个坑：大模型接入的工程真相",
@@ -25,7 +223,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "同一 API Key 在不同框架下报错位置完全不同，说明封装层差异巨大",
@@ -1796,7 +1994,8 @@
     "可在网络攻防课程实验中用LLM做CVE自动分类与优先级排序"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/eluArohETBhwjjYZRoMG?utm_source=rss&utm_medium=article",
+   "cover": "img/a54.webp"
   },
   {
    "id": "a55",
