@@ -1,0 +1,11 @@
+import fs from "node:fs";
+const { token } = JSON.parse(fs.readFileSync("_token.json", "utf8"));
+const owner = fs.readFileSync("_owner.txt", "utf8").trim();
+const H = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" };
+const r = await fetch("https://api.github.com/user", { headers: H });
+console.log("scopes:", r.headers.get("x-oauth-scopes"));
+const REPO = `https://api.github.com/repos/${owner}/ai-radar`;
+const wf = await (await fetch(`${REPO}/actions/workflows`, { headers: H })).json();
+console.log("workflows:", JSON.stringify((wf.workflows || []).map((w) => ({ name: w.name, path: w.path, state: w.state }))));
+const c = await (await fetch(`${REPO}/commits/main`, { headers: H })).json();
+console.log("head commit:", (c.sha || "").slice(0, 8), "| msg:", c.commit?.message?.slice(0, 50));

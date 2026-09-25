@@ -1,0 +1,14 @@
+import fs from "node:fs";
+const { token } = JSON.parse(fs.readFileSync("_token.json", "utf8"));
+const owner = fs.readFileSync("_owner.txt", "utf8").trim();
+const H = { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" };
+const REPO = `https://api.github.com/repos/${owner}/ai-radar`;
+const runs = await (await fetch(`${REPO}/actions/runs?per_page=1`, { headers: H })).json();
+const run = runs.workflow_runs[0];
+const jobs = await (await fetch(`${REPO}/actions/runs/${run.id}/jobs`, { headers: H })).json();
+const buildJob = jobs.jobs.find((j) => j.name === "build");
+const logs = await (await fetch(`${buildJob.url}/logs`, { headers: H })).text();
+const lines = logs.split("\n").filter((l) => /curate|llm|LLM|items|candidates|heat|FAIL|Error|error/i.test(l));
+console.log(lines.slice(0, 40).join("\n") || "(no matching lines)");
+console.log("--- tail ---");
+console.log(logs.split("\n").slice(-8).join("\n"));
