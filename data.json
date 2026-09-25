@@ -1,6 +1,151 @@
 {
- "updatedAt": "2026-09-25 03:20",
+ "updatedAt": "2026-09-25 04:17",
  "news": [
+  {
+   "id": "a139",
+   "title": "GPT-6 Astra 29小时攻破浏览器，成OpenAI首个「严重级」安全模型",
+   "summary": "GPT-6 Astra 在安全测试中仅用29小时就攻破了浏览器防护，被OpenAI标记为首个「严重级」模型，这意味着AI驱动的自动化漏洞挖掘已进入实战阶段。",
+   "content": "这条新闻对信息安全专业的同学是直接预警：AI 已经能自主完成浏览器漏洞挖掘与利用链构建，29 小时这个数字说明攻击面正在被 AI 指数级放大。你们在《Web安全》《渗透测试》课上学的手工挖洞流程，未来对手可能是自动化 Agent。建议现在就开始关注 OWASP Top 10 在 AI 辅助攻击下的新变种，把「AI 辅助代码审计」「自动化 fuzzing」纳入自己的技能树。同时这也是防守方的机会——会用 AI 做安全测试的人，比只会用 Burp Suite 的人更值钱。",
+   "source": "InfoQ中文",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "AI安全",
+    "渗透测试"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI 攻防已来，信息安全学生必须把「AI 辅助安全测试」写进简历**",
+   "courses": "对应《Web安全》《渗透测试》，可把 AI 自动化挖洞作为课程设计或 CTF 新方向",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 92,
+   "brief": [
+    "GPT-6 Astra 29小时自主攻破浏览器，被定为「严重级」",
+    "AI 自动化漏洞挖掘已从概念进入实战",
+    "防守方需掌握 AI 辅助代码审计与自动化 fuzzing",
+    "安全岗面试可能开始考察 AI 攻防理解"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/b5oxzJyafr0lkZexoo8E?utm_source=rss&utm_medium=article",
+   "cover": "img/a139.webp"
+  },
+  {
+   "id": "a140",
+   "title": "OpenClaude 免费开源，可自选模型替代 Claude Code",
+   "summary": "OpenClaude 作为 Claude Code 的开源替代方案，安装免费且支持自由切换底层模型，适合预算有限的学生搭建自己的 AI 编程助手。",
+   "content": "对软件工程学生来说，Claude Code 这类 AI 编程工具已经成了写课设、刷 LeetCode 的标配，但官方订阅对学生党不友好。OpenClaude 的核心卖点是「免费安装 + 模型自选」——你可以接本地 Ollama 跑开源模型，也可以接便宜的 API。实操建议：在《软件工程》课程项目里用它做代码补全和重构，同时对比不同模型在同一个任务上的表现，这本身就是一份很好的实验报告。注意它和 Anthropic 官方生态的集成度不如 Claude Code，团队协作场景慎选。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code",
+    "Ollama"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**零成本搭一个可自选模型的 AI 编程助手，课设效率直接翻倍**",
+   "courses": "对应《软件工程》课程项目，可用它做代码补全与重构对比实验",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "OpenClaude 免费安装，支持自选底层模型",
+    "可接本地 Ollama 或低成本 API，适合学生",
+    "与 Anthropic 官方生态集成度弱于 Claude Code",
+    "适合个人练手和课设，团队协作需评估"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "OpenClaude vs Claude Code 2026: OpenClaude Wins on Price",
+   "link": "https://dev.to/shaam_ai/openclaude-vs-claude-code-2026-openclaude-wins-on-price-4i79",
+   "cover": "img/a140.webp"
+  },
+  {
+   "id": "a141",
+   "title": "用 Rust 写一个自适应计算机控制层 AICore：CPU/GPU/NPU 统一调度",
+   "summary": "一篇用 Rust 构建 AICore 的实践文章，讲解如何统一调度 CPU、GPU、NPU 和内存，应对异构计算与功耗约束。",
+   "content": "现代 PC 已经是 CPU+GPU+NPU 的异构系统，但大多数同学写代码时只当它是「一个 CPU」。这篇文章用 Rust 实现了一个自适应控制层，核心思路是：根据任务类型和功耗状态，动态决定把计算放到哪个单元。对工业软件实验班的同学尤其有价值——工业仿真、边缘推理场景下，异构调度是绕不开的底层能力。建议结合《操作系统》《计算机组成原理》一起看，重点理解它怎么做资源抽象和状态管理。Rust 门槛不低，但这类系统编程经验在工业软件岗位上是硬通货。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "异构计算"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**异构计算调度是工业软件底层硬技能，Rust 实现能让你在面试中脱颖而出**",
+   "courses": "对应《操作系统》《计算机组成原理》，可延伸为异构计算课程设计",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "用 Rust 实现 CPU/GPU/NPU 统一调度层",
+    "核心是任务-算力动态匹配与功耗约束管理",
+    "工业仿真、边缘推理场景直接相关",
+    "适合作为系统编程能力的简历加分项"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building AICore: An Adaptive Computer Control Layer in Rust",
+   "link": "https://dev.to/kenny_2e43df536d4d2dc7b71/building-aicore-an-adaptive-computer-control-layer-in-rust-3maf",
+   "cover": "img/a141.webp"
+  },
+  {
+   "id": "a142",
+   "title": "代码不再稀缺之后，软件工程还剩下什么？",
+   "summary": "InfoQ 视频讨论 AI 生成代码普及后，软件工程师的核心价值从「写代码」转向需求理解、系统设计与质量把控。",
+   "content": "这个话题对你们不是鸡汤，是就业现实。当 GPT-6 能直接进 Blender 搭场景、能自主返工修法线问题时，单纯「会写 CRUD」的竞争力在快速贬值。视频的核心观点是：代码变得廉价后，稀缺的是「定义问题」和「判断对错」的能力。具体到学习上：别再把时间全花在背 API 上，多练系统设计、多读开源项目架构、多写技术方案文档。在《软件工程》课上认真做需求分析和设计文档，这些「软技能」正在变成硬门槛。",
+   "source": "InfoQ中文",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**别只卷语法，AI 时代值钱的是系统设计和问题定义能力**",
+   "courses": "对应《软件工程》，认真对待需求分析与设计文档环节",
+   "tags": [
+    "通用开发",
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "AI 让写代码变廉价，定义问题和判断质量变稀缺",
+    "学习重心应从背 API 转向系统设计与架构",
+    "需求分析、技术方案文档能力价值上升",
+    "适合作为职业规划参考，调整学习优先级"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/video/P6mBiPWbwZIIpWpUVcOa?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a134",
    "title": "AI Agent 权限管理实战：如何让 Claude Code、Cursor「敢用又稳」",
@@ -26,7 +171,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "读操作放行、写操作白名单、危险命令强制确认，三级授权模型",
