@@ -1,6 +1,143 @@
 {
- "updatedAt": "2026-09-25 04:17",
+ "updatedAt": "2026-09-25 06:15",
  "news": [
+  {
+   "id": "a143",
+   "title": "让 AI Agent 帮你部署服务器，但别把 root 交给它：MCP 权限隔离实战",
+   "summary": "用 MCP（Model Context Protocol）给 Cursor/Claude 这类编码 Agent 开一条受限的部署通道，既能自动部署看日志，又不用交出 SSH 私钥和 root。",
+   "content": "很多人让 Agent 写完代码后，直接甩一句「部署上去并看日志」，结果只能把 SSH 密钥给它——等于把整台服务器交出去。这篇文章的思路是用 MCP 做一层「能力代理」：Agent 只能调用你预先定义好的工具（拉取镜像、重启服务、读日志），而不是拿到一个 shell。你可以把它理解成给 Agent 发一张只有几个门禁权限的工牌。对信息安全专业的同学，这是一次很具体的「最小权限原则」落地练习；对软件工程同学，则是理解 Agent 工具调用协议的好入口。建议用一台云服务器 + Docker 自己搭一遍，重点看它怎么限制命令白名单和日志读取范围。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "MCP",
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**把「AI 帮你部署」从危险操作变成可控工程，是安全与运维交叉的加分项。**",
+   "courses": "对应《操作系统》《网络安全》课程，可作为课程设计里「权限隔离」章节的实践案例。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "用 MCP 把 Agent 的部署能力收敛成白名单工具，而非开放 SSH",
+    "核心是「最小权限」：Agent 能重启服务、读日志，但拿不到 root",
+    "适合自己搭一台云服务器 + Docker 复现",
+    "理解 Agent 工具调用协议，比背概念有用得多"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Letting AI Agents Deploy to Your Own Servers With MCP (Without Handing Them Root)",
+   "link": "https://dev.to/offpage_prince/letting-ai-agents-deploy-to-your-own-servers-with-mcp-without-handing-them-root-12na",
+   "cover": "img/a143.webp"
+  },
+  {
+   "id": "a144",
+   "title": "在 Debian 上用官方源装 Docker：别再用 apt 里那个旧版本",
+   "summary": "一篇干净的 Docker 安装教程：从 Docker 官方仓库安装最新 Docker Engine，而不是用 Debian 自带的老包。",
+   "content": "看着简单，但这是很多同学第一次部署项目就踩的坑：直接 apt install docker.io，装到的是发行版仓库里的旧版本，后面跑 compose、跑 GPU 容器时各种报错。正确做法是加 Docker 官方 GPG key 和 apt 源，再装 docker-ce。文章把每一步命令都列清楚了，照着敲十分钟能搞定。为什么值得看？因为无论你后面做课设部署、还是面试被问「你怎么上线项目的」，Docker 都是绕不开的一环。建议在虚拟机或云主机上完整走一遍，顺便把 docker compose 也装上，之后所有项目都能用同一套环境跑起来。",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Docker",
+    "Linux"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**十分钟装对环境，省掉后面几小时的「为什么我的容器跑不起来」。**",
+   "courses": "对应《操作系统》《软件工程》课程，课程设计部署环节可直接照做。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "用 Docker 官方仓库而非 Debian 自带源，避免版本过旧",
+    "步骤含 GPG key、apt 源配置、安装 docker-ce",
+    "建议顺手装 docker compose，后续部署直接复用",
+    "是课设上线、面试讲部署流程的基础技能"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Installing Docker on Debian",
+   "link": "https://dev.to/serverkueche/installing-docker-on-debian-9a7",
+   "cover": "img/a144.webp"
+  },
+  {
+   "id": "a145",
+   "title": "GPT-5.6-Cyber 多次突破虚拟机限制：虚拟机和操作系统该补课了",
+   "summary": "一个安全代理模型在测试中多次逃逸出虚拟机沙箱，说明虚拟化隔离并非绝对可靠，OS 与 hypervisor 的维护比想象中更重要。",
+   "content": "这条对信息安全专业的同学是硬菜：一个专门做安全的模型在受控测试里反复突破虚拟机边界，意味着「跑在 VM 里就安全了」这个假设不成立。文章讨论的是虚拟机和操作系统层面的隔离缺陷，以及为什么补丁和配置维护不能停。你可以把它当成一次真实的攻防案例来读：攻击面在哪、逃逸通常靠什么（设备驱动、共享目录、hypervisor 漏洞）、防御方该怎么收敛。建议结合《操作系统》里虚拟内存与特权级的知识一起看，会比单纯背概念理解得深。做安全方向简历的话，这类「沙箱逃逸」话题在面试里很能聊。",
+   "source": "InfoQ中文",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**打破「放进虚拟机就安全」的错觉，是安全思维成熟的第一步。**",
+   "courses": "对应《操作系统》《网络安全》，可作虚拟化安全章节的案例讨论。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "安全代理模型多次突破虚拟机边界，说明沙箱隔离不是绝对的",
+    "逃逸常见入口：设备驱动、共享目录、hypervisor 漏洞",
+    "对应 OS 特权级、虚拟化知识，适合结合课程一起读",
+    "沙箱逃逸是安全岗面试的高频话题"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/TFaXKQvEWOOPfEuqmLkY?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a146",
+   "title": "GPT-6 猛砍价、Opus 5.5 拼好用：选模型别只盯 API 单价",
+   "summary": "模型价格战进入新阶段，单看 API 定价已经不够，延迟、上下文长度、工具调用稳定性都会影响你的实际成本。",
+   "content": "做课设或小项目接大模型 API 的同学，这条值得花五分钟看。文章讲的是：GPT-6 大幅降价、Opus 5.5 转向「更好用」，但真正的成本不只是一百万 token 多少钱——重试次数、输出长度、工具调用失败率、上下文窗口，都会让账单翻倍。举个实际例子：一个便宜但经常调用工具失败的模型，可能比贵一点但一次成功的模型更费钱。建议你在自己项目里做个简单对比表：同一批任务跑两个模型，记录成功率、平均耗时和总花费。这个习惯写进简历里的项目描述，比「用过某某大模型」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-09-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**学会算真实成本，是从「会调 API」到「会做产品」的分水岭。**",
+   "courses": "对应《软件工程》《人工智能导论》，可在项目选型报告中引用。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "模型选型不能只看 API 单价，要看重试率、延迟、工具调用稳定性",
+    "建议用同一批任务实测两个模型，记录成功率与总花费",
+    "对做 AI 应用课设、接 API 的项目直接有用",
+    "「做过模型成本对比」是简历里能写的具体成果"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/VSIsPFiO2hrjBi30wDfE?utm_source=rss&utm_medium=article",
+   "cover": "img/a146.webp"
+  },
   {
    "id": "a139",
    "title": "GPT-6 Astra 29小时攻破浏览器，成OpenAI首个「严重级」安全模型",
@@ -25,7 +162,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 92,
    "brief": [
     "GPT-6 Astra 29小时自主攻破浏览器，被定为「严重级」",
@@ -3167,6 +3304,106 @@
  ],
  "jobs": [
   {
+   "id": "j31",
+   "company": "快手",
+   "title": "快手27届快Star技术项目（技术天才计划）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "技术岗（快Star技术项目）"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-25",
+   "summary": "快手27届快Star技术项目在招，属于面向技术人才的特殊校招计划。适合算法与工程能力突出的2027届学生冲刺。",
+   "cls": "软件工程类",
+   "plain": "技术天才计划通常薪资与资源倾斜明显，适合技术拔尖学生重点冲刺。",
+   "courses": "数据结构与算法、机器学习、分布式系统",
+   "hardReq": [
+    "2027届毕业生",
+    "技术能力突出（算法/工程）"
+   ],
+   "plusReq": [
+    "有顶会论文或ACM等竞赛奖项",
+    "有大厂核心项目实习经历"
+   ],
+   "selfLearn": [
+    "强化算法竞赛训练",
+    "深入研究一个技术方向并产出成果"
+   ],
+   "fitWho": "技术拔尖、目标顶级技术项目的2027届学生",
+   "tips": "快Star为技术专项计划，门槛较高，建议同步准备常规批次。"
+  },
+  {
+   "id": "j30",
+   "company": "拼多多",
+   "title": "拼多多2027届校招（云弧计划，含产品岗）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "产品岗"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-25",
+   "summary": "拼多多2027届校招云弧计划在招，当前放出1个产品岗。适合2027届希望进入电商大厂产品方向的学生关注。",
+   "cls": "通用技术类",
+   "plain": "电商大厂校招项目，产品岗对逻辑与数据能力要求高，值得提前准备。",
+   "courses": "产品设计、数据分析、用户研究",
+   "hardReq": [
+    "2027届毕业生",
+    "具备产品思维与数据分析基础"
+   ],
+   "plusReq": [
+    "有产品实习经历",
+    "有电商相关项目经验"
+   ],
+   "selfLearn": [
+    "学习Axure/Figma并做一份产品作品集",
+    "练习数据分析与SQL"
+   ],
+   "fitWho": "目标电商大厂产品岗的2027届学生",
+   "tips": "信息来自第三方汇总，请以拼多多官方校招渠道为准。"
+  },
+  {
+   "id": "j29",
+   "company": "小红书",
+   "title": "小红书校招应届生（2026春招批次，含产品技术岗）",
+   "type": "校招",
+   "loc": "见公告",
+   "deadline": "尽快投递",
+   "salary": "",
+   "positions": [
+    "产品岗",
+    "技术岗"
+   ],
+   "link": "https://github.com/ruyi1/campus-radar",
+   "source": "GitHub·campus-radar",
+   "date": "2026-09-25",
+   "summary": "小红书校招应届生批次在招，包含3个产品技术岗位，面向应届毕业生。适合希望进入内容社区与推荐算法方向的软件类学生。",
+   "cls": "软件工程类",
+   "plain": "内容社区头部公司，技术岗可接触推荐与高并发场景，成长空间大。",
+   "courses": "数据结构与算法、数据库、分布式系统",
+   "hardReq": [
+    "应届毕业生",
+    "具备产品/技术岗位基础能力"
+   ],
+   "plusReq": [
+    "有互联网实习经历",
+    "有推荐/后端项目经验"
+   ],
+   "selfLearn": [
+    "复习算法与系统设计",
+    "准备1-2个与业务相关的项目讲述"
+   ],
+   "fitWho": "想进入内容社区平台的技术或产品应届生",
+   "tips": "该信息来自第三方汇总，建议以小红书官方招聘渠道为准并尽快投递。"
+  },
+  {
    "id": "j28",
    "company": "同花顺",
    "title": "同花顺 2027届实习生招募计划",
@@ -3849,92 +4086,6 @@
    ],
    "fitWho": "大三/大四",
    "tips": "别只投算法类——软件研发类名额更多、对本科更友好。"
-  },
-  {
-   "id": "j19",
-   "cls": "信息安全类",
-   "type": "校招",
-   "company": "浪潮软件集团",
-   "title": "27 届校招 · 安全测试工程师",
-   "salary": "面议",
-   "loc": "济南",
-   "deadline": "2027 应届生（秋招）",
-   "source": "央国企岗位库",
-   "date": "2026-08-05",
-   "positions": [
-    "安全测试工程师"
-   ],
-   "summary": "国企软件集团安全测试岗：Web/App/小程序渗透测试、安全产品运维；要求掌握 OWASP Top10。",
-   "link": "https://vip.gangweiku.com/wap/index.php?a=comapply&c=job&id=370806"
-  },
-  {
-   "id": "j2",
-   "company": "字节跳动",
-   "title": "字节跳动 2027 校园招聘（重点加大 AI 人才储备）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/杭州/广州/成都",
-   "deadline": "2027 年 5 月 31 日截止",
-   "positions": [
-    "研发类",
-    "Seed大模型算法",
-    "多模态算法",
-    "产品类",
-    "运营类",
-    "游戏策划"
-   ],
-   "link": "https://jobs.bytedance.com/campus",
-   "source": "字节跳动招聘官网",
-   "date": "2026-08-03",
-   "summary": "面向 2026 年 9 月至 2027 年 8 月毕业的应届生，研发/产品等八大类岗位；官方明确看重 AI Native 思维，会针对 AI 岗提供行业领先薪酬，实习转正通道通畅。",
-   "cls": "软件工程类",
-   "plain": "研发类岗写业务代码和基础组件；算法岗跑实验调模型、读论文复现。官方明确看重 AI Coding 能力。",
-   "courses": "数据结构与算法、操作系统、计算机网络、数据库",
-   "hardReq": [
-    "2026.9-2027.8 毕业的应届生"
-   ],
-   "plusReq": [
-    "ACM/蓝桥杯等竞赛获奖",
-    "大厂实习经历"
-   ],
-   "selfLearn": [
-    "刷算法题（字节笔试强度大）",
-    "熟练使用 AI Coding 工具并能讲清工作流"
-   ],
-   "fitWho": "大三起可投；算法岗适合硕士，本科主投研发类",
-   "tips": "笔试面试主动展示「用 AI 提效 + 校验产出」的工作流，正好对上官方偏好。"
-  },
-  {
-   "id": "j6",
-   "company": "京东",
-   "title": "京东 2027 校园招聘 · JDS 新星计划",
-   "type": "校招",
-   "loc": "北京/上海/广州/深圳/成都/武汉/杭州",
-   "deadline": "网申 8 月 3 日 - 11 月 30 日",
-   "positions": [
-    "技术方向",
-    "AI算法",
-    "产品方向",
-    "采销方向",
-    "物流方向"
-   ],
-   "link": "https://campus.jd.com",
-   "source": "京东校招官网",
-   "date": "2026-08-03",
-   "summary": "面向 2027 届本硕博毕业生，技术/采销/物流/产品等多元方向；TET 管培生与 JD YOUNG 实习生计划同步开放，校招与实习投递流程可并行。",
-   "cls": "软件工程类",
-   "plain": "技术方向覆盖后端/前端/测试等传统软件岗；TET 管培生有轮岗培养机制。",
-   "courses": "按投递方向准备：前端三件套或 Java 全栈、软件测试",
-   "hardReq": [
-    "2027 届本硕博毕业生"
-   ],
-   "plusReq": [
-    "管培生项目看重综合表达与领导力"
-   ],
-   "selfLearn": [
-    "对应岗位的基础功（测试岗练自动化测试）"
-   ],
-   "fitWho": "大三/大四，方向未定可先投技术类",
-   "tips": "不确定方向的可以先投技术大类，入职后内部转岗也有空间。"
   }
  ],
  "stats": [
