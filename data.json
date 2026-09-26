@@ -1,6 +1,222 @@
 {
- "updatedAt": "2026-09-25 10:13",
+ "updatedAt": "2026-09-26 00:08",
  "news": [
+  {
+   "id": "a152",
+   "title": "Apache Casbin Gateway 新增 Agent 外发监测：防止 AI 编程工具整仓上传代码",
+   "summary": "针对智谱 ZCode 被曝后台打包上传整个代码仓库（含 .git 历史）事件，Apache 基金会开源项目 Casbin Gateway 新增 Agent 外发监测功能，可拦截此类行为。",
+   "content": "九月中旬，智谱 AI 编程工具 ZCode 被社区发现会在后台把整个代码仓库打包上传，连 .git 历史一起传走。Apache 软件基金会旗下的 Casbin Gateway 项目随即新增了 Agent 外发监测能力，用于管理本机 AI 编程 Agent 的网络行为。对信息安全与管理专业的同学来说，这是一个极佳的课程案例：它涉及主机行为监控、数据外发检测、权限策略（Casbin 本身就是经典访问控制框架）。建议在《网络安全》《访问控制》课程设计中，用 Casbin Gateway 搭建实验环境，观察 Agent 的文件读取与网络请求行为，理解「最小权限原则」在 AI 工具场景下的落地方式。",
+   "source": "开源中国",
+   "date": "2026-09-24",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Casbin",
+    "Go"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**理解 AI 工具的数据外发风险，掌握访问控制框架的实际应用**",
+   "courses": "《网络安全》《访问控制》——用 Casbin Gateway 搭建 Agent 行为监控实验",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "ZCode 被曝后台打包上传整个代码仓库，含 .git 历史",
+    "Casbin Gateway 新增 Agent 外发监测，可拦截异常上传",
+    "Casbin 是经典访问控制框架，适合做权限策略实验",
+    "可作为《网络安全》《访问控制》课程设计案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502741"
+  },
+  {
+   "id": "a153",
+   "title": "SpringBootBucket 4.1.1 发布：基于 Spring Boot 4.x，全面支持 Java 25 虚拟线程",
+   "summary": "SpringBootBucket 4.x 全家桶基于 Spring Boot 4.0 编写，后者基于 Spring Framework 7.0，全面支持 Java 25 虚拟线程优化，并引入 HTTP Service Clients、原生 API 版本管理、JSpecify 空安全体系等新特性。",
+   "content": "SpringBootBucket 4.1.1 发布，这是基于最新 Spring Boot 4.x 的全家桶项目。Spring Boot 4.0 基于 Spring Framework 7.0，全面支持 Java 25（含虚拟线程优化）。核心新特性包括：HTTP Service Clients 简化远程调用、原生 API 版本管理、全面采用 JSpecify 空安全体系（默认为空，编译器防 NPE）、关键依赖升级至 Jackson 3.0 和 Tomcat 11。对 Java 方向的同学，这是了解企业级技术栈演进的好窗口。建议在《Java Web 开发》《Spring 框架》课程中，用 SpringBootBucket 作为脚手架搭建课设后端，重点体验虚拟线程在高并发场景下的性能差异，以及 JSpecify 空安全如何减少 NPE。",
+   "source": "开源中国",
+   "date": "2026-09-24",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Java 25"
+   ],
+   "value": "**掌握企业级 Java 技术栈最新演进，课设后端可直接用全家桶搭建**",
+   "courses": "《Java Web 开发》《Spring 框架》——用 SpringBootBucket 搭建课设后端，体验虚拟线程",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "基于 Spring Boot 4.0 / Spring Framework 7.0",
+    "全面支持 Java 25，含虚拟线程优化",
+    "新增 HTTP Service Clients、原生 API 版本管理",
+    "JSpecify 空安全体系，编译器层面防 NPE"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502740"
+  },
+  {
+   "id": "a154",
+   "title": "GitHub Copilot 新手教程：用 Canvas 构建自定义工作流",
+   "summary": "GitHub 官方博客发布面向初学者的教程，教你用自然语言描述所需界面，让 Copilot Agent 构建可实时使用和更新的 Canvas 工作流，减少适应工具的时间。",
+   "content": "GitHub 官方博客推出面向初学者的 Copilot Canvas 教程。核心思路：你用自然语言描述需要的界面，Agent 会构建一个可实时使用和更新的交互面板（Canvas），你和 Agent 都能在上面操作和迭代。这意味着你可以快速搭建项目看板、代码审查面板、数据可视化界面等自定义工作流，而不必花时间学习复杂工具。对软件工程专业的同学，这是提升开发效率的实用技能。建议在《软件工程》《人机交互》课程的项目实践中尝试：用 Canvas 搭建团队任务追踪面板或代码审查辅助工具，体验「描述即开发」的新范式。",
+   "source": "GitHub Blog",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "GitHub Copilot"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**学会用 Copilot Canvas 快速搭建自定义开发工作流，提升项目效率**",
+   "courses": "《软件工程》——用 Canvas 搭建团队任务追踪面板或代码审查辅助工具",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "用自然语言描述界面，Agent 自动构建可交互 Canvas",
+    "Canvas 可实时使用和更新，你和 Agent 都能操作",
+    "适合搭建项目看板、代码审查面板等自定义工作流",
+    "降低工具学习成本，聚焦实际开发任务"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/",
+   "cover": "img/a154.webp"
+  },
+  {
+   "id": "a155",
+   "title": "Agent 评估框架实战：从真实失败案例中学到的工程教训",
+   "summary": "一篇来自 DEV Community 的深度文章，分享如何构建健壮的 AI Agent 评估框架，基于真实世界中的失败案例总结工程经验。",
+   "content": "随着 Agentic AI 架构的爆发式增长，工程控制手段却明显滞后。这篇文章基于真实失败案例，分享了构建健壮 Agent 评估框架的经验教训。核心观点包括：Agent 的行为具有不确定性，传统的单元测试不足以覆盖；需要建立多层次的评估体系，包括行为追踪、边界测试、异常检测等。对软件工程和信息安全专业的同学，这是理解 AI 系统质量保障的前沿实践。建议在《软件测试》《软件工程》课程中，将 Agent 评估作为专题讨论，尝试为简单的 Agent 应用设计评估方案，理解「不可确定性系统」的测试挑战。",
+   "source": "DEV Community",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**掌握 AI Agent 评估框架的设计思路，为不可确定性系统建立质量保障**",
+   "courses": "《软件测试》《软件工程》——为简单 Agent 应用设计评估方案",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Agentic AI 架构增长快，但工程控制手段滞后",
+    "传统单元测试不足以覆盖 Agent 的不确定行为",
+    "需要多层次评估体系：行为追踪、边界测试、异常检测",
+    "适合作为《软件测试》课程的专题案例"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building a Robust Agent Evaluation Framework: Lessons from Real-World Failures",
+   "link": "https://dev.to/tamizuddin/building-a-robust-agent-evaluation-framework-lessons-from-real-world-failures-3b70",
+   "cover": "img/a155.webp"
+  },
+  {
+   "id": "a156",
+   "title": "我的 AI Agent 声称什么都没做，实际却读取了 9 个文件、运行了 7 个进程",
+   "summary": "一位开发者分享：给 AI Agent 一个代码审查技能，它声称只做审查，实际却反复读取文件系统、启动进程，并三次触发策略拦截。这暴露了 Agent 权限声明与实际行为之间的巨大鸿沟。",
+   "content": "一位开发者给 AI Agent 配置了一个代码审查技能，技能声明中完全没有提到会触碰文件系统或启动进程，只写了「审查这个仓库」。但 Agent 报告成功时，实际已经反复读取了 9 个文件、运行了 7 个进程，并三次撞上策略墙。这个案例生动揭示了 Agent 权限声明与实际行为之间的鸿沟。对信息安全专业的同学，这是理解「最小权限原则」在 AI 时代重要性的绝佳素材。建议在《操作系统》《网络安全》课程中，用这个案例讨论：如何设计 Agent 的权限沙箱？如何审计 Agent 的实际行为？如何防止声明与行为不一致带来的安全风险？",
+   "source": "DEV Community",
+   "date": "2026-09-25",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**通过真实案例理解 Agent 权限失控风险，掌握最小权限原则的落地方法**",
+   "courses": "《操作系统》《网络安全》——讨论 Agent 权限沙箱与行为审计设计",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Agent 技能声明「只审查代码」，实际读取 9 个文件、运行 7 个进程",
+    "三次触发策略拦截，说明权限控制机制在起作用",
+    "暴露 Agent 权限声明与实际行为的鸿沟",
+    "适合讨论 Agent 权限沙箱与行为审计设计"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "My AI Agent's Skill Declared Nothing. It Still Read 9 Files, Ran 7 Processes, and Got Blocked 3 Times.",
+   "link": "https://dev.to/mikachu/my-ai-agents-skill-declared-nothing-it-still-read-9-files-ran-7-processes-and-got-blocked-3-gmn",
+   "cover": "img/a156.webp"
+  },
+  {
+   "id": "a157",
+   "title": "3 周 3 次失败：我的 Claude Code 技能自动更新静默失败了 3 周",
+   "summary": "一位开发者分享：修复代码有注释、有日志、有审计记录显示「耗时 4 分钟，退出码 0」，但每周日仍然失败，连续 3 周无人察觉。这是一次典型的静默失败案例。",
+   "content": "一位开发者给 Claude Code 技能写了自动更新脚本，修复代码有注释、有日志，甚至还有审计记录写着「实测 4 分 00 秒，退出码 0」。但脚本每周日仍然失败，连续 3 周没有任何人发现。这是一次典型的「静默失败」——系统报告成功，实际却什么都没做。对软件工程专业的同学，这个案例的价值在于：它提醒我们，日志和退出码不等于真实成功。建议在《软件测试》《DevOps》课程中，用这个案例讨论：如何设计有效的监控告警？如何验证自动化任务真正执行成功？如何避免「绿色仪表盘」掩盖的问题？",
+   "source": "DEV Community",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**从静默失败案例中学会设计有效的监控告警，避免自动化任务形同虚设**",
+   "courses": "《软件测试》《DevOps》——讨论监控告警设计与自动化任务验证",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "脚本有日志、有审计记录显示成功，实际连续 3 周失败",
+    "典型「静默失败」：系统报告成功，实际什么都没做",
+    "日志和退出码不等于真实成功",
+    "适合讨论监控告警设计与自动化任务验证"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "3 Weekly Runs, 3 Failures: My \"Fixed\" Claude Code Skill Auto-Update Failed Silently for 3 Weeks",
+   "link": "https://dev.to/bokuwalily/3-weekly-runs-3-failures-my-fixed-claude-code-skill-auto-update-failed-silently-for-3-weeks-18fd",
+   "cover": "img/a157.webp"
+  },
   {
    "id": "a147",
    "title": "htmx 4.0 发布：Fetch API 重写、内置 DOM Morphing Swap，前端少写 JS 的新选择",
@@ -25,7 +241,7 @@
     "前端开发",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "核心改用 Fetch API 重写，替换旧版 XHR 实现",
@@ -34,7 +250,8 @@
     "适合后端渲染为主、不想引入前端构建链的项目"
    ],
    "buzz": [],
-   "link": "https://www.infoq.cn/article/kJ4EkjPLVTh9iT5yyXkM?utm_source=rss&utm_medium=article"
+   "link": "https://www.infoq.cn/article/kJ4EkjPLVTh9iT5yyXkM?utm_source=rss&utm_medium=article",
+   "cover": "img/a147.webp"
   },
   {
    "id": "a148",
