@@ -1,6 +1,117 @@
 {
- "updatedAt": "2026-09-26 05:05",
+ "updatedAt": "2026-09-26 06:14",
  "news": [
+  {
+   "id": "a170",
+   "title": "AI Agent 攻防新战场：LLM 驱动的自动化渗透测试正在成型",
+   "summary": "一篇面向开发者的实战分析，讲清 LLM Agent 如何被用于攻击性安全测试，以及防御方需要补哪些课。",
+   "content": "传统渗透测试靠人写脚本、手工验证，而 LLM Agent 能自主拆解目标、调用工具链、迭代 payload。文章梳理了 Agent 做侦察、漏洞验证、报告生成的完整链路，也点出风险：Agent 会误伤生产环境、被提示注入反制、日志难以审计。对信息安全专业的同学，这是把《Web 安全》《渗透测试》课程知识接到新工具上的好切口——你可以用开源 Agent 框架搭一个只打靶机（DVWA、靶场）的自动化扫描器，作为课程设计或 CTF 备赛项目，既练工具链编排，也练安全边界设计。",
+   "source": "DEV Community",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "LLM Agent",
+    "渗透测试"
+   ],
+   "diff": 3,
+   "scene": "课设/CTF备赛",
+   "value": "**把渗透测试课的知识接到 Agent 工具链上，是信息安全专业当下最值钱的动手方向。**",
+   "courses": "对应《Web 安全》《渗透测试》，可做自动化扫描器课程设计",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "LLM Agent 可自主完成侦察、漏洞验证、报告生成",
+    "提示注入会让攻击 Agent 反被利用，防御方要加护栏",
+    "适合用靶场环境练手，别碰生产系统"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "When AI Hacks AI: Inside the New Offensive Security Landscape of LLM-Powered Agents",
+   "link": "https://dev.to/tamizuddin/when-ai-hacks-ai-inside-the-new-offensive-security-landscape-of-llm-powered-agents-208n",
+   "cover": "img/a170.webp"
+  },
+  {
+   "id": "a171",
+   "title": "AI 文档新物种：Model Card、Eval Report、Agent Card 该怎么写",
+   "summary": "README 和 API 文档之外，AI 项目多出一整套文档规范，文章给出各类文档的用途与写法。",
+   "content": "做 AI 相关项目时，光有 README 已经不够。Model Card 说明模型能力边界与训练数据，Eval Report 记录评测方法与结果，Agent Card 描述 Agent 的工具权限和行为约束。文章把这些文档类型逐一拆解，说明各自解决什么问题。对软件工程同学，这直接关系到两件事：一是课设/毕业设计里接入大模型时，评审老师会问「你怎么证明它可靠」；二是求职时，能写规范 Model Card 的候选人明显更受 AI 应用岗青睐。建议下一个课设就顺手补一份 Eval Report。",
+   "source": "DEV Community",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI 工程化"
+   ],
+   "diff": 1,
+   "scene": "课设/简历加分",
+   "value": "**会写 AI 文档，是课设答辩和 AI 应用岗面试里最容易被忽略的加分项。**",
+   "courses": "对应《软件工程》《软件文档写作》，直接用于课设交付物",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Model Card 讲能力边界，Eval Report 讲评测证据",
+    "Agent Card 描述工具权限与行为约束",
+    "课设接入大模型时补文档，答辩和简历都加分"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "A Field Guide to AI Documentation: Model Cards, Eval Reports, Agent Cards, and More",
+   "link": "https://dev.to/james_anderson_h/a-field-guide-to-ai-documentation-model-cards-eval-reports-agent-cards-and-more-5h0f",
+   "cover": "img/a171.webp"
+  },
+  {
+   "id": "a172",
+   "title": "给初学者的 Java 与 JavaScript 辨析：名字像，语言完全不同",
+   "summary": "一篇面向新手的对比文，讲清 Java 与 JavaScript 在运行环境、类型系统、用途上的根本差异。",
+   "content": "很多大一新生因为名字相近，以为 Java 和 JavaScript 是一回事。文章从运行环境（JVM vs 浏览器/Node）、类型系统（静态 vs 动态）、典型用途（后端/安卓 vs 前端/全栈）三个维度做了对比。对软件工程专业来说，这不是「常识科普」而是选课和选方向的依据：Java 方向对应《Java 程序设计》《Spring 框架》，JavaScript 方向对应《Web 前端开发》。搞清楚差异，你才知道大三该往工业软件后端还是前端全栈投入时间。建议动手各写一个 Hello World 加一个简单类/对象，体感比看文章快。",
+   "source": "DEV Community",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "前端"
+   ],
+   "stack": [
+    "Java",
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "练手/方向选择",
+   "value": "**花半小时搞清 Java 和 JavaScript 的区别，能帮你少走一学期的选方向弯路。**",
+   "courses": "对应《Java 程序设计》《Web 前端开发》入门课",
+   "tags": [
+    "Java全栈",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "Java 跑在 JVM，JavaScript 跑在浏览器和 Node",
+    "Java 静态类型，JavaScript 动态类型",
+    "先各写一个小 demo，再决定主攻方向"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "JavaScript vs Java: They're Not the Same!",
+   "link": "https://dev.to/narasimma/javascript-vs-java-theyre-not-the-same-3d11",
+   "cover": "img/a172.webp"
+  },
   {
    "id": "a164",
    "title": "OpenAI模型被曝入侵医保系统：AI安全漏洞成信息安全专业新课题",
@@ -25,7 +136,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "AI Agent接入业务系统后，提示注入和越权调用成为新的攻击路径",
@@ -4011,115 +4122,6 @@
    "stack": [],
    "value": "央企 AI 军团扩编——**国企路线的技术岗参考**（注意面向硕士以上）",
    "courses": "Java 后端、数据库"
-  },
-  {
-   "id": "a47",
-   "title": "山西「十五五」就业规划发布：人工智能纳入新职业培训，城镇新增就业 200 万人",
-   "summary": "山西省人社厅在「开局起步『十五五』」发布会上明确：五年城镇新增就业 200 万人，将人工智能等新职业、新岗位技能纳入补贴性职业技能培训，并打造「15 分钟」就业服务圈。",
-   "content": "9 月 9 日，山西省人社厅在省委宣传部新闻发布会上介绍「十五五」就业规划：全省城镇新增就业将累计达到 200 万人，城镇失业人员再就业 75 万人，开展补贴性职业技能培训 100 万人次。对大学生最相关的三个点：一是「百行百业、人人出彩」技能培训行动明确将人工智能等新职业、新岗位技能纳入培训范围——这意味着非 AI 专业的同学也能通过政府补贴培训切入 AI 应用岗位；二是打造「15 分钟」就业服务圈，常态化开展专项招聘和「小而美」专场招聘，推行直播带岗、远程面试，岗位推送会更精准；三是对离校未就业毕业生提供「1131」实名服务（1 次政策宣介、1 次职业指导、3 次岗位推荐、1 次培训或见习机会）。这是地方把 AI 纳入公共就业服务的代表性案例，后续其他省份大概率跟进，值得关注自己所在省份的对应政策。",
-   "source": "中国新闻网",
-   "date": "2026-09-09",
-   "cat": "industry",
-   "tags": [
-    "就业政策",
-    "职业技能培训",
-    "十五五",
-    "山西"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "山西五年城镇新增就业 200 万人，AI 新职业纳入补贴培训",
-    "「15 分钟」就业服务圈：直播带岗、远程面试常态化",
-    "离校未就业毕业生可享「1131」实名服务",
-    "地方 AI 就业政策样本，可关注本省是否跟进"
-   ],
-   "buzz": [],
-   "link": "https://www.chinanews.com.cn/cj/2026/09-09/10693507.shtml",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "AI 纳入新职业培训清单——**跟着政策列技能清单**，考证/培训方向有了官方参考",
-   "courses": "任选一门主语言课 + AI 应用开发自学"
-  },
-  {
-   "id": "b2",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [],
-   "heat": 85,
-   "title": "《2026 中国数字经济急需紧缺人才目录》发布：网络安全攻防、工业 CAD/CAE 软件需求爆发",
-   "summary": "重庆人社部门发布的全国性紧缺目录显示：网络安全攻防、工业 CAD/CAE 软件岗位需求同步爆发；算力机房运维等岗位本科即可入行。",
-   "content": "《目录》按五大产业划定百类紧缺岗位。与我们学院直接相关的两条：一是数字技术应用业中，网络安全攻防、工业 CAD/CAE 软件需求同步爆发，属于人才缺口最大的领域之一；二是数字产品服务业中，算力机房硬件运维架构师等岗位「本科即可入行」，覆盖全国算力基础设施。给同学的行动参考：信安方向把渗透测试、应急响应、等保合规练扎实，对口岗位在政企两侧都很稳；工业软件方向盯住 CAD/CAE 厂商（中望、华天等）和制造业数字化部门的校招。",
-   "brief": [
-    "网络安全攻防、工业 CAD/CAE 软件需求爆发",
-    "算力机房运维等岗位本科即可入行",
-    "隐私计算、云原生等高端岗年薪 50 万起（参考行情）"
-   ],
-   "tags": [
-    "紧缺人才目录",
-    "网络安全",
-    "工业软件"
-   ],
-   "source": "新华网重庆频道",
-   "date": "2026-07-25",
-   "lang": "zh",
-   "value": "官方紧缺人才目录点名：**网络安全攻防、工业 CAD/CAE 软件需求爆发**——信安和工业软件方向吃定心丸",
-   "courses": "网络安全、CAD/CAE 原理（工业软件方向）",
-   "link": "http://www.cq.xinhuanet.com/20260725/99408ba4df2143e7bafdf46d7c699254/c.html"
-  },
-  {
-   "id": "wk-20260914",
-   "title": "【AI风向标周报】第1期（09.14-09.20）",
-   "summary": "本周精选：BragJack攻击：恶意扩展可劫持、亚马逊云科技开放 AL2027 预览等 5 条资讯；WorkMaster高校招聘日历、上海芯源创新中心等 5 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、5 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. BragJack攻击：恶意扩展可劫持5款主流浏览器AI Agent，窃密越权\n   浏览器AI Agent成为新攻击面，理解扩展安全是前端和信息安全同学的交叉技能点\n   原文：https://www.freebuf.com/articles/ai-security/501930.html\n2. 亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级\n   把「操作系统兼容性」从课本概念变成一次可复现的升级验证，是后端岗面试的加分素材。\n   原文：https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article\n3. 面向船舶/计算机/数学专业：参赛可获中船海舟校招优先机会\n   工业软件竞赛+央企校招直通，是工业软件实验班最对口的加分项。\n   原文：https://www.oschina.net/news/502583\n4. 一个月68个CVE、91.8%的AI工具没有OAuth：你的Agent工具层正在裸奔\n   AI工具链安全是2026年信息安全岗位的新增考点，早看懂早占位。\n   原文：https://www.anquanke.com/post/id/316121\n5. 四大AI编码Agent曝0-Click RCE漏洞Plugin4Shell，两款至今无补丁\n   AI编码工具已成为新的攻击面，理解其安全风险是信息安全专业的前沿必修课\n   原文：https://www.freebuf.com/articles/ai-security/501731.html\n\n【本周精选岗位】\n1. WorkMaster高校招聘日历 · 南京/上海/苏州周边33所高校宣讲会与招聘会日历（在校生可用）\n   校招 ｜ 南京、上海、苏州及周边\n   投递：https://github.com/chidou59/workmaster\n2. 上海芯源创新中心 · 上海芯源创新中心 2027 届校园招聘（事业单位 · AI+微电子）\n   校招 ｜ 上海·浦东 ｜ 博士 40-55 万（最高 100 万）· 硕士 25-35 万\n   投递：https://scc.pku.edu.cn/f/recruitmentinfo/show?recruitmentId=9719db0d71d14e1f859df5744b0da696\n3. 佰聆数据 · 佰聆数据 润才计划 实习（不限年级）\n   实习 ｜ 广州\n   投递：https://github.com/xixicc186/xixicc2027\n4. 同花顺 · 同花顺 实习生招募计划 2027届实习\n   实习 ｜ 见公告\n   投递：https://github.com/xixicc186/xixicc2027\n5. 京东 · 京东 TET管理培训生 2027届实习\n   实习 ｜ 见公告\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 纯前端实现批量图片压缩工具：HTML+CSS+JS 完整教程\n   一个能完整跑通、能写进简历的前端实战项目，顺带把浏览器文件 API 学透。\n   获取：https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/\n2. JavaGuide 15.8万星：Java后端+AI应用开发面试指南（含计算机基础/分布式/系统设计）……",
-   "source": "AI风向标·编辑部",
-   "date": "2026-09-20",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：BragJack攻击：恶意扩展可劫持5款主流浏览器AI Agent，窃密越权",
-    "精选岗位 Top5：WorkMaster高校招聘日历 · 南京/上海/苏州周边33所高校宣讲会与招聘会日历（在校生可用）",
-    "实用工具 Top3：纯前端实现批量图片压缩工具：HTML+CSS+JS 完整教程"
-   ],
-   "link": "",
-   "cover": "img/a116.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-09-14",
-    "end": "2026-09-20",
-    "news": [
-     "a63",
-     "a116",
-     "a70",
-     "a66",
-     "a57"
-    ],
-    "jobs": [
-     "j26",
-     "j17",
-     "j25",
-     "j24",
-     "j23"
-    ],
-    "tools": [
-     "a96",
-     "a94",
-     "a95"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
