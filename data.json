@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-09-26 10:13",
+ "updatedAt": "2026-09-27 00:09",
  "news": [
+  {
+   "id": "a179",
+   "title": "不用状态机框架，也能把状态迁移收口：25处散落调用点收敛到3处的实战",
+   "summary": "作者用 jeeflow-core 项目演示如何在不引入状态机框架的前提下，把散落在 4 个类里的 25 处 setState 调用收口到主代码只剩 3 处，并附上命令面白名单的诚实复盘。",
+   "content": "很多同学写课设或实习项目时，状态字段到处 set，最后 bug 找不到源头。这篇讲的是「收口」思路：把状态迁移规则集中到一处，运行时禁止直接写状态字段，只允许通过命令面白名单触发迁移。作者还诚实说明收口不等于完备守卫——收口解决的是「谁改的」，完备守卫解决的是「改得对不对」，两者不能互相替代。你可以在课程设计、毕业设计里直接套用这套模式：先找出所有直写状态的位置，再定义一个迁移入口，最后加白名单校验。不需要引入 XState 这类框架，几十行代码就能让代码可维护性上一个台阶，面试聊项目时也是加分项。",
+   "source": "掘金",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会把散落的状态修改收口成单一入口，是写出可维护业务代码的关键一步。**",
+   "courses": "对应《软件工程》《面向对象程序设计》，可直接用于课程设计的状态管理重构",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "状态迁移规则集中收口，运行时零直写状态字段",
+    "命令面白名单控制哪些操作能触发迁移",
+    "收口≠完备守卫，作者诚实说明边界",
+    "不依赖状态机框架，几十行代码可落地"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7689314158994571310"
+  },
+  {
+   "id": "a180",
+   "title": "企业知识库问答 Agent 实战：Qwen + RAG + 反思自检 + MCP 集成",
+   "summary": "一个完整的企业级知识库问答 Agent 案例，覆盖文档处理、向量检索、RAG 反思评估自检和 MCP 集成四个环节。",
+   "content": "这是系列教程中的一章，讲的是怎么从零搭一个企业知识库问答 Agent。技术链路很清晰：先用 Qwen 做文档处理与向量检索，再上 RAG 加反思机制让模型自检答案质量，最后通过 MCP 集成外部工具。对软件工程和信息安全专业的同学来说，这套东西的价值在于：RAG 是目前企业落地 AI 最主流的形态，你简历上写「做过 RAG 问答系统」比写「调过 ChatGPT API」有说服力得多。建议动手时重点抠两个点——向量检索的召回率怎么评估、反思环节怎么设计 prompt 让模型自己发现答错。信息安全方向的同学可以额外关注知识库的权限隔离和敏感信息过滤，这是企业落地时的刚需。",
+   "source": "掘金",
+   "date": "2026-09-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "RAG",
+    "Qwen"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**RAG 是企业 AI 落地最主流的形态，做完这个案例你就有了能写进简历的完整项目。**",
+   "courses": "对应《人工智能导论》《数据库原理》，可作为毕业设计或大创项目选题",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "完整链路：文档处理→向量检索→RAG→反思自检→MCP集成",
+    "Qwen 作为基座模型，适合国内环境部署",
+    "反思+评估自检是提升回答质量的关键环节",
+    "可延伸做权限隔离，契合信息安全方向"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7689219046840074278"
+  },
+  {
+   "id": "a181",
+   "title": "用 Python 桥接 Manus API 自动归档 AI 对话：5 道安全护栏的设计思路",
+   "summary": "作者写了一个 Python 小桥接程序，每 5 分钟轮询 Manus API 把对话归档进自己的知识库，并总结了 5 条安全护栏的设计。",
+   "content": "作者原本用 Claude Code 的对话会自动存进知识库，但给 Manus 的任务全锁在浏览器 UI 里搜不到。于是他写了个 Python bridge 定时轮询 API 做归档。重点不是归档本身，而是他总结的 5 道安全护栏：频率限制、去重、失败重试、敏感内容过滤、归档前校验。这套思路对信息安全专业的同学特别有用——任何「自动拉取外部数据入库」的场景都要考虑这几点，否则要么把库写爆，要么把敏感信息拉进来。软件工程的同学可以把它当成一个练手项目：调 API、写定时任务、处理异常，工作量不大但能体现工程素养。",
+   "source": "DEV Community",
+   "date": "2026-09-27",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**学会给「自动拉数据入库」加安全护栏，是信息安全方向最实用的工程习惯之一。**",
+   "courses": "对应《Python 程序设计》《网络安全》，可用于课程实验或安全实践项目",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Python 定时轮询 API 实现对话自动归档",
+    "5 道护栏：限流、去重、重试、过滤、校验",
+    "适合作为 API 调用+定时任务的练手项目",
+    "安全护栏思路可迁移到任何数据同步场景"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "5 Safety Guards for Auto-Archiving Another AI Agent's Conversations into My Vault: Designing a Manus API Bridge",
+   "link": "https://dev.to/bokuwalily/5-safety-guards-for-auto-archiving-another-ai-agents-conversations-into-my-vault-designing-a-35gd",
+   "cover": "img/a181.webp"
+  },
+  {
+   "id": "a182",
+   "title": "Powerlevel10k + Oh-My-Zsh 下 Cursor Agent 终端输出截断的修复方法",
+   "summary": "一篇解决 Cursor Agent 在 Powerlevel10k 主题下终端输出被截断、格式错乱的排查记录。",
+   "content": "如果你用 Cursor 的 Agent 功能写代码，又装了 Oh-My-Zsh 加 Powerlevel10k 主题，大概率遇到过终端输出被截断或格式乱掉的问题。这篇给出了排查和修复思路。看起来是个小问题，但终端环境配置是每个开发者迟早要面对的：提示符主题、终端宽度检测、ANSI 转义序列冲突，这些概念在排查过程中都会碰到。建议你花十分钟跟着调一遍，顺便理解 shell 提示符是怎么工作的。以后实习时同事说「你终端怎么这么丑还老出问题」，你能自己搞定，不用求人。",
+   "source": "DEV Community",
+   "date": "2026-09-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Zsh"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**花十分钟修好终端环境，以后实习不用为这种小事求人。**",
+   "courses": "对应《Linux 操作系统》，可加深对 shell 与终端交互的理解",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "解决 Cursor Agent 输出截断和格式错乱",
+    "涉及终端宽度检测与 ANSI 转义序列冲突",
+    "顺带理解 shell 提示符工作机制",
+    "开发环境配置能力是实习基本功"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "[Powerlevel10k+Oh-My-Zsh] How to Fix Cursor Agent Terminal Output Truncation and Formatting Issues",
+   "link": "https://dev.to/sanghunkang/powerlevel10koh-my-zsh-how-to-fix-cursor-agent-terminal-output-truncation-and-formatting-issues-6pl",
+   "cover": "img/a182.webp"
+  },
+  {
+   "id": "a183",
+   "title": "荷兰政府基于 NixOS 构建数字工作环境 DAWO，推动数字主权",
+   "summary": "因美国制裁导致国际刑事法庭微软软件瘫痪，荷兰政府开始在 NixOS 基础上构建本土化数字工作环境 DAWO，试点已在政府内部展开。",
+   "content": "2025 年美国制裁国际刑事法庭，导致依赖微软软件的法庭工作直接瘫痪。这件事推动欧洲各国政府搞数字主权，荷兰的方案是在 NixOS 基础上构建 DAWO，包含操作系统、办公套件、协作应用和云服务。这条新闻对信息安全专业的同学有直接参考价值：供应链安全和自主可控不是空话，是真实发生的国家级需求。国内的信创产业、国产操作系统适配、开源软件供应链审计，都是这个逻辑下的就业方向。你可以关注 NixOS 的声明式配置思路，它和传统 Linux 发行版的包管理完全不同，理解它对做系统级开发和运维都有帮助。",
+   "source": "Solidot",
+   "date": "2026-09-26",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "NixOS"
+   ],
+   "value": "**供应链安全和自主可控是真实的国家级需求，也是信息安全专业的重要就业方向。**",
+   "courses": "对应《操作系统》《信息安全导论》，可结合信创产业案例做课程报告",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "制裁事件暴露对单一软件供应商的依赖风险",
+    "DAWO 基于 NixOS，涵盖系统到云服务全栈",
+    "信创与自主可控是信息安全专业的就业方向",
+    "NixOS 声明式配置值得系统方向同学了解"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85481"
+  },
   {
    "id": "a173",
    "title": "阿里开源 OpenCodeReview：把 AI 代码评审接进你的 Git 工作流",
@@ -26,7 +201,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "开源可自部署，适合接进 Git/PR 流程做自动化评审",
@@ -3953,192 +4128,45 @@
    "value": "平安 700+ 科技岗、AI 大数据类占 50%——**金融科技是软件工程的大买家**",
    "courses": "Java 后端 + MySQL + 计算机网络",
    "cover": "img/a48.webp"
-  },
-  {
-   "id": "a2",
-   "title": "Kimi 突发 K2.8：性能逼近 K3，百万上下文全员开放",
-   "summary": "月之暗面突发 Kimi K2.8 更新，性能逼近 K3 代际，百万 token 上下文能力向全部用户开放。同日 TechCrunch 报道其母公司月之暗面（Moonshot AI）正瞄准 20 亿美元年收入目标。",
-   "content": "Kimi K2.8 属于 K2 系列的强力迭代：官方口径为性能逼近下一代 K3，且百万上下文不再设门槛、全员开放。配合 TechCrunch 报道的「月之暗面瞄准 20 亿美元年收入」，可以看出国产大模型厂商已经同时在学习能力和商业化两条线上压满油门。对开发者而言，百万上下文全员开放意味着长文档分析、大型代码库理解这类任务可以直接零成本上手试验，是低成本做项目、刷作品集的好素材。",
-   "source": "量子位 / TechCrunch",
-   "date": "2026-09-12",
-   "cat": "stack",
-   "tags": [
-    "Kimi",
-    "月之暗面",
-    "长上下文",
-    "国产大模型"
-   ],
-   "featured": false,
-   "brief": [
-    "K2.8 性能逼近 K3，百万上下文全员开放",
-    "月之暗面被曝瞄准 20 亿美元年收入（TechCrunch）",
-    "长文档/大代码库任务可直接上手，适合做项目作品集"
-   ],
-   "lang": "zh",
-   "link": "https://www.qbitai.com/2026/09/487688.html",
-   "heat": 88,
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "大模型 API",
-    "长上下文"
-   ],
-   "value": "Kimi K2.8 百万上下文全员开放——**课设里读长文档/做摘要可以直接用**",
-   "courses": "任一 Web 开发课（调 API 做功能）"
-  },
-  {
-   "id": "a3",
-   "title": "V4.1 Flash 全面超越，开发者为何还在喷 DeepSeek：缺的不是能力，是软件工程思维",
-   "summary": "DeepSeek V4.1 Flash 在各基准上全面超越前代，但开发者社区吐槽不断。InfoQ 的分析认为：问题不在模型能力，而在围绕模型的软件工程生态——工具链、可观测性、工程化最佳实践仍不成熟。",
-   "content": "DeepSeek-V4.1-Flash（552B MoE、激活 8B/16B、MIT 开源、API 降价）发布后基准成绩全面领先，但开发者社区的口碑却两极分化。InfoQ 的观察一针见血：用户抱怨的从来不是「模型不够聪明」，而是断连重试、上下文管理、成本控制、结果可复现这些「脏活」没有配套。这其实给在校学生指了一个非常清晰的差异化方向：会调 API 的人越来越多，能把模型塞进可靠工程系统的人依然稀缺——AI Infra、评测管线、Agent 工程化正是 2026 校招 JD 里出现频率最高的关键词。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "stack",
-   "tags": [
-    "DeepSeek",
-    "开源模型",
-    "AI Infra",
-    "软件工程"
-   ],
-   "featured": false,
-   "brief": [
-    "V4.1 Flash 基准全面领先，但开发者吐槽工程体验",
-    "缺口在工程化：工具链、可观测性、可复现性",
-    "AI Infra / 工程化能力是校招 JD 高频词，值得重点补强"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/G7cublzVyXFOUX3vpz1t?utm_source=rss&utm_medium=article",
-   "heat": 84,
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "DeepSeek",
-    "AI Infra"
-   ],
-   "value": "V4.1 能力强但被喷缺软件工程思维——**模型再强也要会拆需求、写测试**，这正是课程价值",
-   "courses": "软件工程、软件测试",
-   "cover": "img/a3.webp"
-  },
-  {
-   "id": "a5",
-   "title": "模型一模一样，Token 却相差 70 倍？三项实测揭开 AI 编程工具的成本黑洞",
-   "summary": "InfoQ 对比实测三类 AI 编程工具场景，发现底层模型相同的情况下，不同工具的实际 token 消耗相差可达 70 倍。提示词膨胀、上下文重复注入与缓存失效是三大成本黑洞。",
-   "content": "对天天用 AI 编程工具的学生来说，这篇是「省钱必修课」。实测发现同样任务下 token 消耗差出几十倍的三个主因：一是系统提示与工具描述的膨胀；二是每轮对话重复注入完整上下文；三是看似无害的操作（比如 side chat）导致近乎全量的 prompt cache 失效。文中结论直接可用：选工具时别只看模型名单，要看计费明细里的 cache 命中率与 token 构成；自己搭 Agent 时把「读什么、注入什么」当成一等公民来设计。这类实测能力本身，就是面试里最加分的作品集素材。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "AI编程",
-    "Cursor",
-    "Claude Code",
-    "成本优化",
-    "Prompt缓存"
-   ],
-   "featured": false,
-   "brief": [
-    "同模型不同工具，token 消耗可差 70 倍",
-    "三大黑洞：提示膨胀、上下文重复注入、缓存失效",
-    "省钱技巧 + 实测方法论，直接可以复刻进作品集"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/oPSaLpULlAxGxTbYXlXO?utm_source=rss&utm_medium=article",
-   "heat": 79,
-   "tracks": [
-    "通用开发",
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "Cursor",
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "三项实测揭开 AI 编程工具成本黑洞——**选工具+控制成本，学生党必看**",
-   "courses": "任何写代码的课程都适用",
-   "get": "文中含实测数据与配置思路，按文章步骤自己跑一遍即可",
-   "cover": "img/a5.webp"
-  },
-  {
-   "id": "a31",
-   "title": "Google Mantis：一款旨在减少误报的基于智能代理的漏洞扫描框架",
-   "summary": "InfoQ 介绍 Google 开源的 Mantis 框架：用智能代理驱动漏洞扫描，通过 Agent 推理验证漏洞真实性来减少误报，安全自动化的新范式。",
-   "content": "传统漏洞扫描器最大的痛点是海量误报——报出 1000 个「漏洞」里 900 个是假的。Google 的 Mantis 思路是让 Agent 去验证：扫描器发现疑似问题后，由智能代理构造验证、推理可利用性、再决定是否上报。这是「LLM + 传统安全工具」融合的教科书案例。安全方向的同学值得把这类论文/工具链整理成学习路径：AI 安全自动化岗位（红队、AppSec）2026 年的 JD 里已经频繁出现类似要求。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tool",
-   "tags": [
-    "Google",
-    "漏洞扫描",
-    "安全自动化",
-    "Agent"
-   ],
-   "featured": false,
-   "brief": [
-    "Mantis 用 Agent 验证漏洞真实性来减少误报",
-    "「LLM + 传统安全工具」融合的教科书案例",
-    "AI 安全自动化岗位 JD 需求快速上升"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/mF8WwkbQRUS7ZKprE3Ku?utm_source=rss&utm_medium=article",
-   "heat": 62,
-   "cover": "img/a31.webp",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "漏洞扫描"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "Google 开源的 Agent 漏洞扫描框架——**读源码+复现，信安简历上的硬项目**",
-   "courses": "网络安全、Python 程序设计",
-   "get": "按原文链接到 Google 开源仓库获取，本地搭靶机复现"
-  },
-  {
-   "id": "a32",
-   "title": "从沙箱到执行边界：蚂蚁 AI Agent 的大规模企业级实践｜QCon 上海",
-   "summary": "蚂蚁集团在 QCon 上海分享 AI Agent 的企业级大规模落地经验：如何设计沙箱隔离与执行边界，让 Agent 在金融级场景里安全可控地干活。",
-   "content": "企业级 Agent 落地最难的不是模型，而是「安全地让它动手」：权限怎么收、动作怎么审计、出错怎么兜底。蚂蚁的分享围绕沙箱隔离与执行边界展开，代表了国内头部厂在 Agent 基础设施上的投入方向。这个方向对应的岗位是 Agent 平台工程师 / AI Infra 工程师，JD 关键词：沙箱、权限体系、可观测、工具调用安全。金融、云厂商都在重点建设，是 2027 届校招里值得押注的技术栈。",
-   "source": "InfoQ中文",
-   "date": "2026-09-12",
-   "cat": "tut",
-   "tags": [
-    "蚂蚁集团",
-    "企业级Agent",
-    "沙箱",
-    "QCon"
-   ],
-   "featured": false,
-   "brief": [
-    "企业级 Agent 的核心难题是「安全地动手」",
-    "沙箱隔离 + 执行边界是基础设施投入重点",
-    "Agent 平台工程师是 2027 届校招值得押注的方向"
-   ],
-   "lang": "zh",
-   "link": "https://www.infoq.cn/article/hk3WB50fAOMDg55YVaaW?utm_source=rss&utm_medium=article",
-   "heat": 68,
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "沙箱",
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "蚂蚁大规模 Agent 落地实践：沙箱到执行边界——**企业级安全设计思路，面试能讲出来就赢**",
-   "courses": "操作系统（进程隔离）、网络安全",
-   "get": "QCon 演讲内容整理，按文章要点自己画架构图复述",
-   "cover": "img/a32.webp"
   }
  ],
  "jobs": [
+  {
+   "id": "j32",
+   "company": "京东",
+   "title": "京东技术行 实习（AI/大模型、云计算大数据、搜推广告、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-09-26",
+   "summary": "京东技术行面向不限年级在校生招募技术实习生，方向含AI/大模型、云计算大数据、搜索推荐广告及安全类，工作地北京。适合想进大厂技术岗的同学。",
+   "cls": "信息安全类",
+   "plain": "大厂技术实习覆盖安全与AI方向，对软件与安全专业学生都是不错的跳板。",
+   "courses": "计算机网络、操作系统、信息安全、机器学习",
+   "hardReq": [
+    "在校生，专业不限",
+    "具备对应技术方向基础"
+   ],
+   "plusReq": [
+    "有安全或AI相关项目经验",
+    "有竞赛或开源经历"
+   ],
+   "selfLearn": [
+    "按方向补强基础（安全方向学Web安全/渗透）",
+    "准备一份针对性技术简历"
+   ],
+   "fitWho": "想进大厂技术实习的在校生",
+   "tips": "通过京东官方公众号投递，注意区分技术行与TET项目"
+  },
   {
    "id": "j31",
    "company": "快手",
@@ -4889,39 +4917,6 @@
    ],
    "fitWho": "大三/大四，做过完整 Web 项目",
    "tips": "五大类 70 余种岗位都可以投，别只盯 AI 岗；笔面试重点考数据结构 + 项目深挖。"
-  },
-  {
-   "id": "j5",
-   "company": "小米",
-   "title": "小米集团 2027 届全球校园招聘（AI 岗需求 +50%）",
-   "type": "校招",
-   "loc": "北京/上海/深圳/南京/武汉/西安等",
-   "deadline": "2026 年 12 月 31 日截止",
-   "positions": [
-    "算法类",
-    "软件研发",
-    "硬件研发",
-    "芯片类",
-    "产品类"
-   ],
-   "link": "https://hr.xiaomi.com/campus",
-   "source": "小米招聘官网",
-   "date": "2026-08-10",
-   "summary": "17+ 职类开放投递，产研类岗位占 70%，AI 相关岗位需求同比增长 50%；从大模型、智能终端到智能汽车，AI 岗位贯穿人车家全生态，每人最多投递 2 个职位。",
-   "cls": "软件工程类",
-   "plain": "软件研发岗写手机/IoT 业务代码，产研类岗位占 70%，是硬件大厂里软件坑位最多的。",
-   "courses": "Java/C++、数据结构、操作系统",
-   "hardReq": [
-    "应届生，17+ 职类开放投递"
-   ],
-   "plusReq": [
-    "软硬结合项目（IoT/嵌入式）经历"
-   ],
-   "selfLearn": [
-    "至少一门后端语言练到能独立做项目"
-   ],
-   "fitWho": "大三/大四",
-   "tips": "别只投算法类——软件研发类名额更多、对本科更友好。"
   }
  ],
  "stats": [
