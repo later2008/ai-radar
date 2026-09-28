@@ -1,6 +1,251 @@
 {
- "updatedAt": "2026-09-28 04:39",
+ "updatedAt": "2026-09-28 05:05",
  "news": [
+  {
+   "id": "a213",
+   "title": "OpenAI DevDay 9月29日发布常驻AI助手「O」：Agent开发者的新接口要来了",
+   "summary": "OpenAI 将在 9 月 29 日 DevDay 推出代号「O」的常驻 AI 助手，可在聊天之外持续运行并拥有独立身份。对做 Agent 应用的同学，这意味着新的运行时与接口形态。",
+   "content": "据泄露信息，ChatGPT 配置文件中已出现「O」相关线索：显示名称、-o 邮箱后缀，项目可能与「Aeon」相关。所谓「常驻」意味着 Agent 不再是一次请求一次响应，而是有持久身份、能后台持续跑任务——这正是当前 Agent 工程最难的部分（状态管理、任务调度、失败重试）。建议做法：DevDay 后第一时间读官方 Agent/Assistants API 文档，用你课设里的「图书管理」或「校园助手」改造成一个常驻任务型 Agent，把「会话状态存哪、任务断了怎么恢复」写成设计文档。这类工程经验在面试里比会调 API 值钱得多。",
+   "source": "极客公园",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**Agent 从「一问一答」走向「常驻运行」，是软件工程能力的新战场，早跟进早占位。**",
+   "courses": "对应《软件工程》《人工智能导论》，把课设升级为常驻 Agent 项目",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "9月29日 DevDay 发布，代号「O」，可常驻运行、有独立身份",
+    "关注点不是模型能力，而是 Agent 的持久状态与任务调度机制",
+    "建议把课设改造成常驻任务型 Agent，沉淀设计文档",
+    "面试可讲：状态存储、断点恢复、失败重试"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/371044",
+   "cover": "img/a213.webp"
+  },
+  {
+   "id": "a214",
+   "title": "匿名模型「玉兔」登顶 OpenRouter 双榜第一，Coding 实测全记录",
+   "summary": "一个匿名模型在中秋假期冲上 OpenRouter 调用日榜榜首，并在 Coding 实测中表现亮眼。对写代码的学生来说，值得关注的是它的实际编码能力与接入成本。",
+   "content": "OpenRouter 是很多同学低成本试多模型的入口。这次「玉兔」双榜第一，重点不在排名，而在 Coding 实测——也就是真实写代码、改 bug、补测试的表现。建议你直接做一次对照实验：拿同一道算法题或同一个课设模块（比如一个 Java 工具类、一个前端表单校验），分别用玉兔和你现在常用的模型跑一遍，记录：一次通过率、需要人工改几处、生成代码能不能直接编译。把结果写进你的技术博客或简历项目说明里。这种「多模型横评 + 实测数据」是求职时很有说服力的加分项，也顺便练了工程判断力。",
+   "source": "量子位",
+   "date": "2026-09-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "OpenRouter"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**用真实编码任务横评模型，比看榜单排名更能提升你的工程判断力。**",
+   "courses": "对应《程序设计》《软件测试》，用课设模块做多模型对照实验",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "匿名模型登顶 OpenRouter 调用日榜，Coding 实测受关注",
+    "用同一道题/同一模块做多模型对照实验",
+    "记录一次通过率、人工修改次数、能否直接编译",
+    "横评结果可写进博客或简历，是求职加分项"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/498584.html",
+   "cover": "img/a214.webp"
+  },
+  {
+   "id": "a215",
+   "title": "业务方到底要什么样的 Agent 技术栈？一线 AI 基建负责人的复盘",
+   "summary": "一位 AI 基础设施公司负责人总结：Agent 原型能跑通、价值也清楚，但卡在预算审批前的往往不是模型，而是工程与交付。",
+   "content": "这篇文章的价值在于它讲的是「落地」而不是「demo」。作者每周和已经在用 Agent 干活的团队交流，结论是：原型能跑 ≠ 能上生产。真正卡住的是可观测性、权限与数据边界、失败兜底、成本可控。对信工学院的同学，这正好对应《软件工程》里的非功能需求：你写课设时如果只写「功能实现了」，面试官一问「出错怎么办、日志在哪、权限怎么控」就露馅。建议做法：给你的 Agent 课设补三样东西——结构化日志、失败重试与降级策略、一份成本估算（每次调用多少钱）。这三样写进 README，项目立刻从「学生作业」变成「能交付的系统」。",
+   "source": "DEV Community",
+   "date": "2026-09-28",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把 Agent 课设按「能交付的系统」标准补齐非功能需求，是求职时最容易被忽略的差异化。**",
+   "courses": "对应《软件工程》，用于需求分析与系统设计章节的实践",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Agent 落地的瓶颈不是模型，是可观测性、权限、兜底、成本",
+    "对应软件工程的非功能需求，课设最容易忽略",
+    "给课设补：结构化日志、重试降级、成本估算",
+    "README 写清这三点，项目档次立刻不同"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "What the Business Actually Needs From Your Agent Stack",
+   "link": "https://dev.to/sam_yang/what-the-business-actually-needs-from-your-agent-stack-d94",
+   "cover": "img/a215.webp"
+  },
+  {
+   "id": "a216",
+   "title": "从端侧推理到物理AI：芯片行业的新考题，工业软件方向值得留意",
+   "summary": "芯片行业正从端侧推理转向物理 AI，比拼的是谁的落地更稳。对工业软件实验班同学，这是仿真、实时调度与嵌入式软件的新需求窗口。",
+   "content": "物理 AI 指的是让模型直接作用于真实物理世界（机器人、产线、车辆），这对软件提出的要求和你现在学的很不一样：确定性时延、实时调度、与传感器/执行器的接口、仿真与现实的偏差校正。工业软件实验班的同学尤其该关注——这类系统大量依赖仿真软件、实时操作系统和工业通信协议。建议的切入方式：在《嵌入式系统》或《工业软件》课程项目里，尝试做一个「传感器数据采集 → 简单推理 → 控制指令输出」的最小闭环，哪怕只是模拟环境。能讲清楚「实时性怎么保证、数据延迟多大」比会调模型更稀缺。",
+   "source": "钛媒体",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**物理 AI 把软件能力从「跑得通」推向「跑得稳、跑得准」，工业软件方向的同学正站在需求口上。**",
+   "courses": "对应《嵌入式系统》《工业软件》，用于实时控制类课程项目",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "物理 AI 要求确定性时延、实时调度、软硬件接口能力",
+    "工业软件实验班对口：仿真、实时OS、工业通信协议",
+    "课设可做「采集→推理→控制」最小闭环",
+    "能讲清实时性与延迟指标，比会调模型更稀缺"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8153747.html"
+  },
+  {
+   "id": "a217",
+   "title": "微软悄悄砍掉 Copilot+ PC 品牌：新笔记本仍满足硬件要求但不再贴标",
+   "summary": "微软在新款 Surface 笔记本上移除了 Copilot+ 品牌标识，设备仍满足硬件要求。对做端侧 AI 开发的同学，这提示厂商对「AI PC」的叙事正在调整。",
+   "content": "品牌撤了，但硬件要求还在——这意味着端侧 AI 的算力底座（NPU）并没有被放弃，只是营销话术退潮。对软件工程和信息安全专业的同学，实际影响有两点：一是端侧推理仍是长期方向，Windows 上的本地模型调用接口值得提前熟悉；二是「AI 功能默认开启」带来的隐私与数据边界问题，正是信息安全方向可以切入的点。建议做法：在《操作系统》或《信息安全》课程里，选一个小题目研究「本地模型推理时数据是否出设备、日志里留了什么」，写成一份简短的分析报告。这类「技术+合规」的交叉视角，在求职时比单纯会写代码更少见。",
+   "source": "Hacker News",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**营销退潮但技术底座还在，端侧 AI 的隐私与数据边界正是信息安全同学的切入点。**",
+   "courses": "对应《信息安全》《操作系统》，用于隐私与数据流分析类课题",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Copilot+ 品牌被移除，但硬件要求仍在，端侧 AI 底座未变",
+    "端侧推理接口与本地模型调用值得提前熟悉",
+    "信息安全方向可切入：本地推理的数据边界与隐私",
+    "课设可做「本地推理数据流向」分析报告"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Microsoft drops Copilot+ branding from its new laptops",
+   "link": "https://www.tomshardware.com/tablets/microsoft-surface/microsoft-quietly-drops-copilot-branding-from-its-new-laptops-surface-cvp-confirms-new-devices-meet-hardware-requirements-but-lack-controversial-branding",
+   "cover": "img/a217.webp"
+  },
+  {
+   "id": "a218",
+   "title": "F-Droid 2.0 发布：开源安卓应用商店大版本更新，客户端开发可参考",
+   "summary": "开源安卓应用分发平台 F-Droid 发布 2.0 版本。对做移动端或关注开源软件供应链的同学，这是一个可读源码、可参与贡献的真实项目。",
+   "content": "F-Droid 的价值不只是「装 App」，它是完全开源、可自行构建的安卓应用商店，涉及包管理、签名校验、仓库索引、增量更新等一整套工程问题——这些恰好是《软件工程》和《信息安全》的活教材。信息安全方向的同学可以重点看它的签名与校验机制：应用如何被验证来源、仓库元数据如何防篡改。前端/移动方向的同学可以读它的 UI 层代码，看一个成熟开源项目怎么做多语言与无障碍。建议做法：clone 仓库，跑通构建，挑一个 good first issue 提 PR。有真实开源项目贡献记录，简历含金量远高于课程作业。",
+   "source": "少数派",
+   "date": "2026-09-27",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "前端"
+   ],
+   "stack": [
+    "Android"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**一个可读可改的真实开源项目，签名校验与包管理都是课本知识的落地样本。**",
+   "courses": "对应《信息安全》《移动应用开发》，用于源码阅读与开源贡献实践",
+   "tags": [
+    "信息安全",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "F-Droid 是完全开源、可自构建的安卓应用商店",
+    "可学习包管理、签名校验、仓库索引、增量更新",
+    "信息安全方向重点看签名与防篡改机制",
+    "clone 跑通构建，挑 good first issue 提 PR"
+   ],
+   "buzz": [],
+   "link": "https://sspai.com/post/115079",
+   "cover": "img/a218.webp"
+  },
+  {
+   "id": "a219",
+   "title": "Excel 单元格将支持数组：办公自动化脚本的写法要变了",
+   "summary": "Excel 单元格即将原生支持数组，意味着公式与数据处理逻辑会更接近编程模型。对写办公自动化脚本的同学，值得提前了解。",
+   "content": "这条看似小，但对做数据处理和办公自动化的同学很实用。数组进入单元格后，原本需要 VBA 或 Python 脚本才能完成的批量计算，可能用公式就能表达，逻辑更接近你在《数据结构》里学的「向量化操作」。实际影响：一是以后写 Excel 自动化时，先想「能不能用数组公式」再考虑上脚本，效率更高；二是如果你做的是把 Excel 数据接入后端（Java/Python），数据格式和解析逻辑可能要跟着调整。建议做法：拿你手头一份成绩表或实验数据，试着用数组思路重写一遍处理流程，对比脚本方案的代码量。这种「工具演进如何改变实现方式」的观察，写进技术笔记很有价值。",
+   "source": "少数派",
+   "date": "2026-09-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Excel"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**办公数据处理的实现方式正在变化，提前掌握数组思路能少写一半脚本。**",
+   "courses": "对应《数据结构》《办公自动化》，用于向量化数据处理练习",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "Excel 单元格原生支持数组，公式更接近编程模型",
+    "批量计算可能不再需要 VBA/Python 脚本",
+    "影响数据接入后端的格式与解析逻辑",
+    "用成绩表/实验数据对比数组公式与脚本方案"
+   ],
+   "buzz": [],
+   "link": "https://sspai.com/post/115079",
+   "cover": "img/a218.webp"
+  },
   {
    "id": "a206",
    "title": "用 Spring Boot 搭一个生产级 AI 应用平台：模型、知识库、Agent、权限、成本都要管",
@@ -26,7 +271,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "生产级 AI 平台 = 模型管理 + 知识库 + Agent + 会话 + 工具 + 权限 + 成本 + 运行状态",
@@ -3938,257 +4183,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502586/hc-agentic-infra-industry-ai"
-  },
-  {
-   "id": "a98",
-   "title": "Solaris 的「转门」算法，还活在 Go、WebKit 和 Rust 里",
-   "summary": "InfoQ 文章追溯 Solaris 调度器中的「转门（Turnstile）」机制，如何在 Go runtime、WebKit 和 Rust 生态中延续。",
-   "content": "这是一篇讲「老技术不死」的文章：Solaris 早已退场，但它的转门机制——一种用于解决锁竞争、实现优先级继承与公平唤醒的调度原语——至今仍影响 Go runtime 的调度器、WebKit 的锁实现和 Rust 生态。对信安和软件工程学生，价值在于理解「并发不是调个 synchronized 就完事」：锁竞争、优先级反转、公平性这些问题在操作系统层面有成熟解法。建议在学《操作系统》进程同步章节时配合阅读，再去翻 Go runtime 的 mutex 源码，你会对「为什么 Go 的锁要自旋几次再休眠」有实感。面试聊到并发时，能讲清底层机制比背八股强得多。",
-   "source": "InfoQ中文",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Go",
-    "Rust"
-   ],
-   "diff": 3,
-   "scene": "求职准备/进阶学习",
-   "value": "**理解并发原语的历史与实现，是把你从「会调 API」拉到「懂系统」的关键一步。**",
-   "courses": "对应《操作系统》进程同步与死锁章节，用它把课本概念对接到真实 runtime 实现。",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Solaris 转门机制仍影响 Go runtime、WebKit、Rust",
-    "讲透锁竞争、优先级继承与公平唤醒的底层设计",
-    "配合《操作系统》进程同步章节阅读效果最好",
-    "面试聊并发时能讲底层机制，比背八股加分"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/GAhNItmT2o7kvEA1ovxt?utm_source=rss&utm_medium=article",
-   "cover": "img/a98.webp"
-  },
-  {
-   "id": "a99",
-   "title": "Qwen 3.8 27B 分分钟交付网页：前端全干了，后端没来上班",
-   "summary": "量子位报道 Qwen 3.8 27B 模型能快速生成完整网页，设计与前端一并完成，但后端能力仍是短板。",
-   "content": "这条对前端方向的同学是提醒而非威胁：模型能生成页面结构和样式，说明「照着设计稿切图」这类工作的价值在快速贬值，但「把页面接上真实数据、处理状态与异常、保证性能与可访问性」依然是人的活。文章里那句「后端没来上班」很传神——AI 交付的是静态壳子，业务逻辑、接口设计、数据一致性还得靠工程能力。建议现在就用这类模型做前端练习：让它生成初版，你来改交互、接 API、做错误处理，把省下的时间投到工程化能力上。工业软件方向的 Web 组态界面同理，能生成布局，但实时数据绑定和工控协议对接它做不了。",
-   "source": "量子位",
-   "date": "2026-09-19",
-   "cat": "industry",
-   "tracks": [
-    "前端",
-    "工业软件"
-   ],
-   "stack": [
-    "Qwen"
-   ],
-   "value": "**AI 能替你切图，但替不了你接数据、处理异常和设计接口——把精力投到后者。**",
-   "courses": "对应《Web 前端开发》，用 AI 生成初版页面后自己完成接口对接与交互完善。",
-   "tags": [
-    "AI工具",
-    "前端开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "27B 模型可快速生成完整网页，设计与前端一并完成",
-    "后端逻辑、接口设计、数据一致性仍是人的活",
-    "前端同学应把时间投向工程化与业务逻辑能力",
-    "工业软件 Web 组态界面的实时数据对接同样无法被替代"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492573.html"
-  },
-  {
-   "id": "a83",
-   "title": "GitHub Copilot 运行时用 Copilot 自己重写成 80 万行 Rust",
-   "summary": "GitHub 把 Copilot 的 Agent 运行时整体迁移到 Rust，代码量 80 万行，且迁移过程本身由 Copilot 辅助完成。",
-   "content": "这条对想进大厂或做后端/工具链的同学很有参考价值。文章讲了三件事：为什么选 Rust（并发、内存安全、启动速度）、怎么用 Agent 分批做机械式改写、以及迁移中如何保证行为一致（测试、灰度、回滚）。它其实是一份「大型重构方法论」：先切边界、再让 AI 做重复劳动、人只审关键 diff。你课设里如果遇到「老代码想换语言/换框架」，可以照这个思路拆任务。另外它说明一个趋势——会用 AI 做工程化重构，正在变成比会写单文件代码更值钱的能力。",
-   "source": "GitHub Blog",
-   "date": "2026-09-17",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Rust",
-    "GitHub Copilot"
-   ],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**理解 AI 辅助大型重构的工程方法，比只会写业务代码更能在面试中讲出深度。**",
-   "courses": "对应《软件工程》《程序设计》——课设重构或换框架时可套用其分批迁移思路。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "80 万行生产级 Rust 迁移，由 Copilot 辅助完成",
-    "重点在重构方法论：切边界、AI 做重复改写、人审关键 diff",
-    "说明 AI 辅助大型工程迁移正成为实用技能"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
-   "link": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
-   "cover": "img/a83.webp"
-  },
-  {
-   "id": "a84",
-   "title": "GitHub Copilot 新手教程：用 diff、终端、浏览器三件套审查 AI 代码",
-   "summary": "官方入门文，教你在 Copilot 应用里并排看 diff、跑终端命令、预览网页，减少在标签页之间来回跳。",
-   "content": "很多同学用 AI 写代码后不敢改、不敢信，问题就出在「不会审」。这篇把审查流程拆得很具体：改完先看 diff 确认动了哪些行；需要验证就跑终端命令；前端项目直接在应用内预览页面。三步下来，AI 生成的东西从「黑盒」变成「可验证」。建议你在做课程设计时养成习惯：每次让 AI 改完，先看 diff 再跑测试，最后才提交。这套流程写进简历的「工程规范」里，面试官会认。",
-   "source": "GitHub Blog",
-   "date": "2026-09-10",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "GitHub Copilot"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**学会审查 AI 生成的代码，是把 AI 真正用进项目而不是被它带偏的关键。**",
-   "courses": "对应《Web 开发》《软件工程》——课设提交前用 diff+终端+预览三步自检。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "并排查看 AI 改动 diff，避免盲改",
-    "应用内跑终端命令、预览网页，验证更快",
-    "把「审 AI 代码」变成固定流程，可写进简历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "GitHub Copilot app for Beginners: Using the diff, terminal, and browser",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser/",
-   "cover": "img/a84.webp"
-  },
-  {
-   "id": "a85",
-   "title": "GitHub Copilot 新手教程：同时跑多个 Agent 并行干活",
-   "summary": "官方教程演示如何在 Copilot 应用里并行运行多个 Agent，把重复任务分出去。",
-   "content": "单 Agent 只能串行，多 Agent 并行才是效率跃升点。这篇讲的是实操：怎么把一个大任务拆成互不依赖的子任务，分给多个 Agent 同时跑，再合并结果。对软件工程专业来说，这背后是「任务分解 + 并发控制」的工程思维，和你学的多线程、任务调度是同一套逻辑。建议拿一个课设练手：比如前端页面、后端接口、测试用例三块并行让 Agent 生成，你负责定接口和验收。注意并行越多越要管好冲突，别让两个 Agent 改同一个文件。",
-   "source": "GitHub Blog",
-   "date": "2026-09-03",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "GitHub Copilot"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**掌握多 Agent 并行分工，能把 AI 从「打字员」升级成「小团队」。**",
-   "courses": "对应《操作系统》《软件工程》——用任务分解与并发思想组织课设分工。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "把大任务拆成互不依赖的子任务并行交给多个 Agent",
-    "核心是任务分解与并发控制，和课程里的调度思想一致",
-    "并行越多越要防文件冲突，需先定接口再分工"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "GitHub Copilot app for Beginners: Run several agents at once",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-run-several-agents-at-once/",
-   "cover": "img/a85.webp"
-  },
-  {
-   "id": "a86",
-   "title": "从 Rust 转 Zig 是什么体验：一篇给系统编程入门者的对比笔记",
-   "summary": "作者从 Rust 转到 Zig 后的真实感受，对比两门语言在内存管理、编译、工具链上的差异。",
-   "content": "如果你已经学过 C 或 Rust，这篇能帮你建立「系统级语言怎么选」的判断力。作者讲得很实在：Zig 没有隐藏控制流、没有 GC、编译期计算强，写起来更接近 C 的手感；但生态和包管理还不如 Rust 成熟。对工业软件方向的同学尤其有用——很多工业软件底层是 C/C++，理解 Zig 这种「现代 C 替代品」的取舍，能让你在面试聊到底层性能、内存布局时不虚。建议配合课程里的指针、内存管理章节一起看，别只当语言八卦。",
-   "source": "Hacker News",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Zig"
-   ],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**理解底层语言选型取舍，是工业软件方向面试聊性能时的加分项。**",
-   "courses": "对应《程序设计基础》《计算机组成原理》——结合指针与内存管理理解语言差异。",
-   "tags": [
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "对比 Rust 与 Zig 在内存管理、编译期、工具链上的取舍",
-    "Zig 更接近 C 手感，适合理解工业软件底层语言选型",
-    "配合指针与内存管理章节阅读，建立系统编程判断力"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "What Zig felt like, coming from Rust",
-   "link": "https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/"
-  },
-  {
-   "id": "a87",
-   "title": "Go 语言给 Java 垃圾回收上的三堂课",
-   "summary": "一篇从 Go 视角反观 Java GC 的文章，讲两种语言在内存回收策略上的不同取舍。",
-   "content": "Java 全栈方向的同学，GC 是面试高频题，但光背「分代回收」很容易被追问倒。这篇用 Go 的对比视角，把「为什么 Java 要分代、为什么停顿时间难压、吞吐和延迟怎么权衡」讲得更清楚。读完你能回答：什么场景下该调堆大小、什么场景该换收集器、为什么大内存服务对 GC 更敏感。建议配合《Java 程序设计》和 JVM 相关章节，自己写个压测小程序观察 GC 日志，比干背概念强得多。",
-   "source": "DEV Community",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Java",
-    "Go"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**从对比视角吃透 Java GC，面试被追问调优时能答到点上。**",
-   "courses": "对应《Java 程序设计》——结合 JVM 内存模型与 GC 日志做压测验证。",
-   "tags": [
-    "Java全栈",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "用 Go 对比视角讲清 Java 分代回收与停顿时间取舍",
-    "能帮你回答 GC 调优类面试追问，而非死背概念",
-    "建议配合 JVM 章节写压测程序观察 GC 日志"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "What Go Taught Us About Java Garbage Collection",
-   "link": "https://dev.to/codenameone/what-go-taught-us-about-java-garbage-collection-25ha",
-   "cover": "img/a87.webp"
   }
  ],
  "jobs": [
