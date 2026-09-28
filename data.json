@@ -1,6 +1,209 @@
 {
- "updatedAt": "2026-09-28 05:05",
+ "updatedAt": "2026-09-28 06:16",
  "news": [
+  {
+   "id": "a220",
+   "title": "Prompt Injection 就是新的 SQL 注入：给 AI Agent 做安全防护的实战指南",
+   "summary": "一篇面向开发者的实操文，把提示注入类比 SQL 注入，讲清 AI Agent 的攻击面与防御写法。",
+   "content": "文章的核心类比很值得记住：当年大家不懂参数化查询，于是有了 SQL 注入；现在大家把用户输入直接拼进 Prompt，于是有了提示注入。文中给出的防御思路包括：把外部内容（网页、文档、工具返回）当作不可信输入，与系统指令做结构化隔离；对工具调用做白名单和参数校验；给 Agent 的输出加一道程序化校验，而不是只靠模型自觉。对信息安全专业的同学，这是一条能直接写进简历的技能线——你会 SQL 注入，现在也该会 Prompt 注入。建议用 Python 写一个带工具调用的最小 Agent，然后自己构造 3 个注入 payload 打穿它，再逐个修。",
+   "source": "DEV Community",
+   "date": "2026-09-28",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "LLM",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI 安全」从概念变成你简历上可演示的一个攻防 Demo。**",
+   "courses": "对应《Web 安全》《信息安全导论》，可作为课程设计或安全竞赛选题",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "提示注入的本质是「不可信内容混入指令通道」，和 SQL 注入同源",
+    "防御要点：输入隔离、工具白名单、输出程序化校验",
+    "动手建议：自建最小 Agent，构造 payload 打穿再修复"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Prompt Injection Is the New SQL Injection: A Practical Developer's Guide to Securing AI Agents",
+   "link": "https://dev.to/tamizuddin/prompt-injection-is-the-new-sql-injection-a-practical-developers-guide-to-securing-ai-agents-28ji",
+   "cover": "img/a220.webp"
+  },
+  {
+   "id": "a221",
+   "title": "GitHub 花三年把官网从 CSS-in-JS 迁到 CSS Modules，删掉 styled-components",
+   "summary": "GitHub 工程博客复盘三年迁移：组件爆炸导致性能问题，最终全站跑在 CSS Modules 上。",
+   "content": "起因很具体：Primer 设计系统组件数量爆炸后，CSS-in-JS 的运行时开销拖垮了页面性能。GitHub 的做法是分阶段迁移，三年后 100% 跑在 CSS Modules，彻底删掉 styled-components、styled-system 和 sx props。对前端方向的同学，这篇文章的价值不在「CSS-in-JS 好不好」的口水战，而在于它展示了一个真实大型项目怎么做渐进式重构：如何在不冻结业务的前提下，一个组件一个组件地换掉底层方案。建议你在自己的 React 课设里试一次——把某个页面的 styled-components 改成 CSS Modules，记录构建体积和首屏时间的变化，这就是一份能讲的重构经历。",
+   "source": "开源中国",
+   "date": "2026-09-28",
+   "cat": "stack",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "CSS Modules"
+   ],
+   "value": "**学会「大型前端项目如何渐进式换底层方案」，比会写组件更值钱。**",
+   "courses": "对应《Web 前端开发》，可作为课程设计中的性能优化与重构章节素材",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "动因是 CSS-in-JS 运行时开销随组件规模放大",
+    "策略是三年渐进式迁移，而非一次性重写",
+    "可复现：在自己的 React 项目里做一次局部替换并量化对比"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502761/github-improving-site-performance-by-shipping-more-css"
+  },
+  {
+   "id": "a222",
+   "title": "开源 AI 终端 uniTerm v1.9.5：15MB 装下终端、SFTP、数据库客户端和 AI Agent",
+   "summary": "轻量一站式终端工具更新，内置可自主规划并执行多轮 Shell 命令的 AI Agent。",
+   "content": "uniTerm 把终端、文件传输、远程桌面、数据库客户端、容器等 5 类协议整合进 15MB 安装包，这次更新重点是工作区管理（点选创建、拖拽分屏、保存为连接）和终端图片显示、SFTP 提速。对学生最实用的两点：一是它内置可自主执行多轮 Shell 命令的 AI Agent，你可以观察它是怎么把自然语言拆成命令序列的，这是理解 Agent 循环最直观的样本；二是数据库客户端和 SFTP 集成，做课设连服务器、传文件、查库不用来回切工具。建议在虚拟机或测试机上跑，别拿它直接连生产环境。",
+   "source": "开源中国",
+   "date": "2026-09-28",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**一个工具顶掉你课设里的四五个客户端，还能顺便看懂 AI Agent 怎么调 Shell。**",
+   "courses": "对应《Linux 操作系统》《数据库原理》，课设环境搭建与远程运维可直接使用",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "15MB 集成终端/SFTP/数据库/容器等 30+ 协议",
+    "内置 AI Agent 可规划并执行多轮 Shell 命令，适合观察 Agent 工作循环",
+    "适合课设连服务器、传文件、查库的一站式场景"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502766"
+  },
+  {
+   "id": "a223",
+   "title": "ShopXO v6.9.2 开源商城新增 AI 大模型插件与以图搜款",
+   "summary": "免费开源商城系统更新，把 AI 能力以插件形式接入商品、经营与搜索环节。",
+   "content": "这次更新的看点不是商城本身，而是它把 AI 能力做成了插件：AI 大模型插件支持腾讯云等通道、AI 编辑器插件、商品助手与后台经营助手、以图搜款。对 Java 全栈方向的同学，这是一个现成的、可读源码的工程样本——你能看到在一个真实业务系统里，大模型调用是怎么被封装成插件、怎么和权限、订单、商品这些老模块解耦的。建议做法：本地跑起来，然后只读「AI 插件」那一层的接口设计和调用链，写一份插件化接入大模型的笔记，比空谈「AI 赋能业务」有说服力得多。",
+   "source": "开源中国",
+   "date": "2026-09-28",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "MySQL"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**读一个真实业务系统怎么「插件化」接入大模型，比背八股更接近工程现实。**",
+   "courses": "对应《Java Web 开发》《软件工程》，可作为课程设计二次开发底座",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 能力以插件形式接入，而非侵入式改造核心业务",
+    "可重点研究插件层如何封装大模型调用与通道切换",
+    "适合作为 Java 全栈课设的二次开发底座"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502759"
+  },
+  {
+   "id": "a224",
+   "title": "QCon 上海：从生成式到代理式，保险后援数字分身怎么落地",
+   "summary": "一个企业级 Agent 落地案例，讲从生成式 AI 到代理式 AI 的架构跃迁路径。",
+   "content": "这类分享的价值在于它讲的是「代理式（Agentic）」而不是「生成式」：前者要能规划、调工具、多轮执行并对结果负责，后者只是问答。保险后援数字分身这种场景，天然要求权限控制、流程编排、可审计——这恰好是工业软件和信息系统专业最该关心的部分。听这类内容不要记结论，要记它的分层：意图理解层、任务编排层、工具/系统对接层、审计与回滚层。你在做课设时哪怕只实现一个「查工单→判断→调接口→写回」的四步 Agent，把分层画清楚，答辩时就能讲出工程味。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "value": "**给你一套企业级 Agent 的分层话术，课设答辩和面试都能直接用。**",
+   "courses": "对应《软件体系结构》《软件工程》，可作为系统设计类课设的架构参考",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "重点是「代理式」而非「生成式」：要规划、调工具、可审计",
+    "典型分层：意图理解 / 任务编排 / 系统对接 / 审计回滚",
+    "课设可照搬四步 Agent 结构，答辩时讲清分层"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/9UvorlMxKgjEoFauQ4py?utm_source=rss&utm_medium=article",
+   "cover": "img/a224.webp"
+  },
+  {
+   "id": "a225",
+   "title": "KnowForge 2026.0.6：会员、支付、付费内容与 AI 知识服务全线上线",
+   "summary": "开源知识管理系统一次跨度很大的更新，补齐商业化闭环与 AI 创作阅读流程。",
+   "content": "这次更新把「知识服务怎么商业化」这件事补全了：会员体系、支付、付费内容、不同用户对应不同资源与 AI 使用额度。对软件工程的同学，这是一个难得的完整业务闭环样本——权限分级、计费、额度控制、内容可见性，这些是课本上讲不透、但企业系统里天天要处理的东西。建议带着问题读源码：AI 使用额度是怎么计量的？是按 token 还是按次数？额度耗尽时系统怎么降级？把这几个问题搞清楚，你对「AI 功能怎么和业务系统耦合」的理解会超过大多数同学。",
+   "source": "开源中国",
+   "date": "2026-09-28",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**看懂「AI 额度怎么计量和降级」，是 AI 应用落地最容易被问倒的一环。**",
+   "courses": "对应《软件工程》《数据库原理》，可作为综合课程设计参考",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "补齐会员/支付/付费内容/额度控制的完整商业化闭环",
+    "可重点研究 AI 使用额度的计量与降级策略",
+    "适合作为「业务系统 + AI」综合课设的参考实现"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502760"
+  },
   {
    "id": "a213",
    "title": "OpenAI DevDay 9月29日发布常驻AI助手「O」：Agent开发者的新接口要来了",
@@ -24,7 +227,7 @@
     "行业动态",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "9月29日 DevDay 发布，代号「O」，可常驻运行、有独立身份",
@@ -3971,218 +4174,6 @@
    "origTitle": "Why Make an LLM Do the Grunt Work? After Jev, Who Should Handle an Agent's Tool Work?",
    "link": "https://dev.to/momolandnacy2del/why-make-an-llm-do-the-grunt-work-after-jev-who-should-handle-an-agents-tool-work-3nm3",
    "cover": "img/a103.webp"
-  },
-  {
-   "id": "a104",
-   "title": "华为CANN跨过拐点：AI算力底座不只靠一颗芯片",
-   "summary": "华为汪涛谈AI算力战略，强调CANN软件生态建设，指出只做好芯片远远不够。",
-   "content": "华为这条新闻对工业软件实验班的同学尤其值得关注：CANN是华为的AI计算框架，对标英伟达的CUDA。汪涛明确说「只做好一颗芯片远远不够」，意思是软件生态才是壁垒。这意味着什么？国产AI算力平台需要大量会写算子、做框架适配、优化推理性能的软件工程师。如果你在学《并行计算》或对底层性能优化感兴趣，CANN的算子开发和模型迁移是可以提前布局的方向。工业软件实验班本身强调国产化替代，CANN生态的岗位需求未来几年会持续增长。",
-   "source": "量子位",
-   "date": "2026-09-19",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [
-    "CANN"
-   ],
-   "value": "**国产AI算力生态建设带来算子开发和框架适配的就业方向，工业软件方向学生可提前布局**",
-   "courses": "对应《并行计算》和国产化替代相关课程内容",
-   "tags": [
-    "行业动态",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "华为CANN软件生态跨过拐点，对标CUDA",
-    "国产AI算力平台需要算子开发和框架适配人才",
-    "工业软件实验班可关注国产化替代方向的就业机会"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/492476.html",
-   "cover": "img/a104.webp"
-  },
-  {
-   "id": "a105",
-   "title": "2026年十大AI工具实测：编程/Agent/文本生成免费平替推荐",
-   "summary": "B站UP主实测200多款AI工具后精选十大推荐，覆盖AI编程、Agent、文本生成等领域，含免费方案。",
-   "content": "作为软件工程专业的学生，用好AI工具已经是基本技能。这个视频按使用场景分类推荐了十大AI工具，特别关注了AI编程和AI Agent两个方向——这两个跟你的专业最相关。AI编程工具（如代码补全、代码审查）可以直接提升你写课设的效率；AI Agent工具则可以帮助你理解Agent的工作原理，甚至用来搭建简单的自动化流程。视频还重点推荐了免费平替方案，对学生党友好。建议先挑AI编程类的工具用起来，在写课设时实际体验，比单纯看视频收获大。",
-   "source": "B站·小邓Talk",
-   "date": "2026-04-12",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程",
-    "Agent"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**精选AI编程和Agent工具，直接用免费方案提升课设开发效率**",
-   "courses": "适用于所有编程类课程，用AI工具辅助课设开发",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "实测200+款AI工具后精选十大推荐",
-    "重点覆盖AI编程和AI Agent方向",
-    "包含免费平替方案，适合学生使用"
-   ],
-   "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1wvDmBaETB"
-  },
-  {
-   "id": "a94",
-   "title": "JavaGuide 15.8万星：Java后端+AI应用开发面试指南（含计算机基础/分布式/系统设计）",
-   "summary": "GitHub 15.8万星的 Java 面试与后端通用面试指南，覆盖计算机基础、数据库、分布式、高并发、系统设计与 AI 应用开发。",
-   "content": "这是目前中文圈最完整的 Java 后端知识地图，15.8 万星不是刷出来的：从 JVM、集合、并发，到 MySQL、Redis、消息队列、分布式与系统设计，再到新增的 AI 应用开发章节，基本把校招面试会问的都串了一遍。建议用法：不要通读，先按目录自查——哪一章你答不上来，就精读那一章并动手写 demo。大二下开始每周啃一个专题，配合课程（数据结构、数据库、计算机网络、Java 程序设计）同步推进，秋招前至少过两轮。工业软件实验班的同学重点看并发与系统设计部分，工控上位机/数据采集服务端常考。",
-   "source": "GitHub",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java",
-    "Spring"
-   ],
-   "diff": 2,
-   "scene": "求职准备/课设",
-   "value": "**一份能当复习大纲用的 Java 后端面试总纲，秋招前按它查漏补缺效率最高。**",
-   "courses": "对应《Java 程序设计》《数据库原理》《计算机网络》，用它把课程知识点串成面试答案。",
-   "tags": [
-    "Java全栈",
-    "求职就业",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "15.8万星的 Java 后端面试知识地图，覆盖基础到分布式",
-    "新增 AI 应用开发章节，贴合当前岗位需求",
-    "建议按目录自查式精读，不要通读",
-    "与数据库、计算机网络、Java 程序设计课直接对应"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Snailclimb/JavaGuide（158688★）",
-   "link": "https://github.com/Snailclimb/JavaGuide",
-   "cover": "img/a94.webp"
-  },
-  {
-   "id": "a95",
-   "title": "TheAlgorithms/Java 6.6万星：用 Java 手写一遍排序、图论、动态规划",
-   "summary": "GitHub 6.6万星的开源仓库，用 Java 实现了几乎所有经典算法与数据结构，可直接当代码参考书。",
-   "content": "学算法最痛苦的是「看得懂伪代码，写不出能跑的 Java」。这个仓库把排序、查找、图论、动态规划、字符串、密码学等算法全部用 Java 实现并配了测试用例，6.6 万星说明它经得起检验。用法建议：不要 clone 完就放着——挑你正在学的章节（比如《数据结构》讲到图），先自己写，再对照它的实现看差在哪，尤其看边界处理和复杂度注释。信息安全方向的同学可以重点看它 cryptography 目录下的哈希、加解密实现，理解算法底层比调库有用得多。刷题前先过一遍这个仓库，比直接上 LeetCode 更扎实。",
-   "source": "GitHub",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**把课本上的算法变成能跑的 Java 代码，是打牢数据结构与算法基本功的最短路径。**",
-   "courses": "对应《数据结构》《算法设计与分析》，用它对照课程作业的算法实现。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "6.6万星，Java 实现的全套经典算法与数据结构",
-    "含密码学目录，信息安全方向可直接参考",
-    "建议先自己写再对照，重点看边界处理",
-    "与《数据结构》《算法设计》课程强对应"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "TheAlgorithms/Java（66277★）",
-   "link": "https://github.com/TheAlgorithms/Java",
-   "cover": "img/a95.webp"
-  },
-  {
-   "id": "a96",
-   "title": "纯前端实现批量图片压缩工具：HTML+CSS+JS 完整教程",
-   "summary": "freeCodeCamp 教程，教你用 Canvas 和浏览器 API 做一个纯客户端批量图片压缩工具，无需后端。",
-   "content": "图片压缩通常靠后端，但浏览器其实完全能做：用 FileReader 读文件、Canvas 重绘并调 toBlob 控制质量、再用 URL.createObjectURL 预览和下载，全程不上传服务器，隐私和速度都占优。这篇教程从零搭出一个支持多选、批量处理、可调压缩率的工具，代码量不大但把 File API、Canvas、Blob、异步流程都练了一遍。适合前端入门后想做一个「能放简历上」的完整小项目。做完可以再扩展：加拖拽上传、加压缩前后体积对比、打包成 PWA。信息安全方向也能借此理解客户端文件处理的风险边界。",
-   "source": "freeCodeCamp",
-   "date": "2026-09-18",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript",
-    "Canvas"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**一个能完整跑通、能写进简历的前端实战项目，顺带把浏览器文件 API 学透。**",
-   "courses": "对应《Web 前端开发》《JavaScript 程序设计》，可作为课程设计选题。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "纯浏览器端图片压缩，用 Canvas + File API，无需后端",
-    "一次练到 File、Canvas、Blob、异步流程",
-    "成品可直接放简历，扩展空间大（拖拽/PWA）",
-    "前端入门到进阶的合适练手项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Build a Bulk Image Compressor Tool with HTML, CSS, and JavaScript",
-   "link": "https://www.freecodecamp.org/news/how-to-build-a-bulk-image-compressor-tool-with-html-css-and-javascript/",
-   "cover": "img/a96.webp"
-  },
-  {
-   "id": "a97",
-   "title": "华为云 All in Agentic Cloud：灵衢昇腾 950 智算集群 9 月底国内商用",
-   "summary": "华为云在全联接大会宣布转向 Agentic Cloud，灵衢昇腾 950 智算集群 9 月 30 日国内商用、11 月 30 日海外商用，强调「让每一个 Token 更高效」。",
-   "content": "这条对信工学生的意义不在芯片参数，而在生态信号：华为云把战略从「卖算力」改成「卖智能体基础设施」，意味着国内会持续缺能写 Agent 编排、能对接国产算力平台（昇腾+CANN）的开发者。CANN 补软件生态，本质是缺人写算子、写适配层、写调度。对软件工程和工业软件方向的同学，这是明确的技能指向：Java/Python 后端 + 分布式调度 + 国产化平台适配经验，在制造业和政企项目里会越来越吃香。现在能做的：把 Linux、容器、分布式基础打牢，关注昇腾开发者社区的入门课程，别等到招聘要求写出来才学。",
-   "source": "开源中国",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "昇腾",
-    "CANN"
-   ],
-   "value": "**看清国产算力生态缺的是软件适配人才，提前布局 Linux、容器与分布式调度技能。**",
-   "courses": "对应《操作系统》《分布式系统》，把课程里的调度与并发知识对接到国产算力平台场景。",
-   "tags": [
-    "行业动态",
-    "工业软件",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "华为云战略转向 Agentic Cloud，强调 Token 效率",
-    "灵衢昇腾 950 集群 9/30 国内商用、11/30 海外商用",
-    "CANN 补软件生态，意味着缺平台适配与调度开发人才",
-    "国产化 + 分布式调度是工业软件方向的长期红利"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502586/hc-agentic-infra-industry-ai"
   }
  ],
  "jobs": [
