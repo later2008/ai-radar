@@ -1,6 +1,176 @@
 {
- "updatedAt": "2026-09-29 06:15",
+ "updatedAt": "2026-09-29 10:14",
  "news": [
+  {
+   "id": "a252",
+   "title": "Java AI 应用异步化实战：Spring AI + 虚拟线程 + 背压，一套可落地接口设计",
+   "summary": "以 Spring Boot 和 Spring AI 为基础，系统讲解 Java AI 应用中的异步任务、流式输出、线程池、虚拟线程、超时取消、背压与租户级并发控制。",
+   "content": "很多同学做 AI 应用时只会写一个同步的 Controller 调模型，一旦并发上来就线程阻塞、响应超时。这篇文章把 Java 侧真正工程化的做法讲清楚了：用 Spring AI 做流式输出（SSE/Flux），用虚拟线程承接高并发请求，用线程池隔离不同租户，再配合超时、取消、背压和优雅降级。对软件工程专业的你来说，这是一份可以直接抄进课程设计或实习项目的接口设计模板——把「调大模型」从玩具 demo 变成能扛压的服务。建议边读边用 Spring Boot 3 起一个项目，把流式接口和虚拟线程跑通，面试聊高并发时就有真实案例可讲。",
+   "source": "掘金",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Spring AI"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把「调大模型」升级成能扛并发的 Java 服务，是 Java 方向求职的差异化加分项。**",
+   "courses": "对应《Java Web 开发》《分布式系统》，可把异步流式接口作为课程设计的技术亮点。",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "Spring AI 流式输出 + 虚拟线程，解决 AI 接口阻塞问题",
+    "线程池隔离、超时取消、背压、租户级并发控制一整套方案",
+    "给出可落地的接口设计，可直接用于课设或实习项目"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690769804492324914"
+  },
+  {
+   "id": "a253",
+   "title": "Bun 四个月把 53.5 万行 Zig 重写成 Rust，顺手干掉大量内存泄漏",
+   "summary": "Bun 团队在四个月内将 53.5 万行 Zig 代码迁移到 Rust，消除了大量内存泄漏问题。",
+   "content": "这是一次罕见的超大规模语言迁移案例，值得当作工程课本来读。核心看点不是「Zig 和 Rust 谁更好」，而是：53.5 万行代码如何在四个月内安全迁移、如何用类型系统和所有权模型在编译期消灭内存泄漏、迁移过程中如何保证行为一致。对信息安全专业的同学尤其有价值——内存安全漏洞（UAF、缓冲区溢出）长期是 CVE 重灾区，Rust 的所有权机制正是从语言层面堵住这类问题。建议读完后自己写一个小 demo：用 Rust 实现一个带引用计数的资源管理器，对比 C 手动 free 的写法，体会「编译期防泄漏」到底意味着什么。",
+   "source": "InfoQ中文",
+   "date": "2026-09-29",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "value": "**看懂内存安全为什么是安全岗和系统岗的硬通货，Rust 正在成为敲门砖。**",
+   "courses": "对应《程序设计基础》《系统安全》，可用作内存安全章节的案例素材。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "53.5 万行 Zig → Rust，四个月完成的大规模迁移实录",
+    "重点在内存泄漏的根因与 Rust 所有权如何从编译期解决",
+    "是理解内存安全漏洞成因的绝佳真实案例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0x1uOEWOj16S1vNmtsuP?utm_source=rss&utm_medium=article",
+   "cover": "img/a253.webp"
+  },
+  {
+   "id": "a254",
+   "title": "用 Microsoft Agent Framework + Auth0 构建带鉴权的安全 AI Agent",
+   "summary": "一篇英文实战教程，演示如何用微软 Agent Framework 搭配 Auth0 给 AI Agent 加上身份认证与权限控制。",
+   "content": "现在大量教程只教你怎么让 Agent 跑起来，却几乎不提「谁能调用它、它能碰哪些数据」。这篇教程补上了关键一环：用 Microsoft Agent Framework 搭 Agent，用 Auth0 做 OAuth/Token 鉴权，把工具调用限制在授权范围内。对信息安全与管理专业的同学，这正是 AI 时代最缺的能力——传统 Web 的越权、注入、凭证泄露问题，在 Agent 场景会被放大（Agent 会自己调工具、自己读数据）。建议动手复现一遍，重点看 Token 如何传递到工具调用链、如何做最小权限。做完这个 demo，简历上「AI 安全」就不再是空话。",
+   "source": "DEV Community",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Auth0"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**AI Agent 安全是信息安全专业少有人占的坑位，一个鉴权 demo 就能拉开差距。**",
+   "courses": "对应《Web 安全》《身份认证技术》，可作为课程实践或毕业设计选题方向。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Agent + Auth0 鉴权，解决「谁能调用 Agent」的核心安全问题",
+    "覆盖 Token 传递、最小权限、工具调用边界",
+    "英文原文，适合作为 AI 安全方向的入门实战"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Build Secure AI Agents with Microsoft Agent Framework and Auth0",
+   "link": "https://dev.to/auth0/build-secure-ai-agents-with-microsoft-agent-framework-and-auth0-1hfa",
+   "cover": "img/a254.webp"
+  },
+  {
+   "id": "a255",
+   "title": "ReaUse：把 VueUse、ahooks、Mantine 合成 286 个 Hook 的 React 工具库",
+   "summary": "一个整合了三大主流 Hook 库、共 286 个 Hook 的 React 工具库 ReaUse 发布，试图终结 Hook 选型困难。",
+   "content": "接手别人项目时 package.json 里同时躺着 ahooks、@mantine/hooks、react-use，是很多前端的真实痛点。ReaUse 把这三家的 Hook 合并成一套 286 个的集合，统一 API 和类型。对前端方向的同学，值得关注的不是「要不要换库」，而是借它的源码学 Hook 怎么写：防抖节流、useRequest 的缓存与竞态处理、useLocalStorage 的序列化边界，这些在课设和面试手写题里高频出现。建议挑 5 个你常用的 Hook 读源码，然后自己手写一遍 useRequest，理解请求取消和依赖追踪。",
+   "source": "掘金",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**别只当它是新库，把它当成 286 个 Hook 实现的教学源码来读。**",
+   "courses": "对应《Web 前端开发》，可作为课程设计中的工具库选型与源码分析对象。",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "整合 VueUse/ahooks/Mantine，286 个 Hook 统一 API",
+    "适合作为学习 Hook 实现原理的源码素材",
+    "面试高频手写题（防抖、useRequest）可从中取经"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690762523469742121"
+  },
+  {
+   "id": "a256",
+   "title": "MariaDB 13 增强 Oracle 兼容性与可观测性，数据库选型多一个选项",
+   "summary": "MariaDB 13 扩展了对 Oracle 的兼容性，并改善开发者体验与可观测性。",
+   "content": "这条对工业软件和 Java 后端方向的同学有实际意义。很多制造业、金融类工业软件的历史系统跑在 Oracle 上，迁移成本极高；MariaDB 13 强化 Oracle 兼容（PL/SQL、数据类型、语法），意味着国产化替代和降本迁移多了一条可行路径。同时它改善了可观测性，慢查询、连接池、锁等待更容易定位。建议在虚拟机里装一个 MariaDB 13，把课程里写过的 SQL 脚本跑一遍，重点试 Oracle 风格的分页和存储过程，感受兼容层到底能覆盖多少。这类「数据库迁移」经验在工业软件岗位面试里很吃香。",
+   "source": "InfoQ中文",
+   "date": "2026-09-29",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "MariaDB"
+   ],
+   "value": "**数据库迁移与国产化替代是工业软件岗的常见需求，提前摸一遍兼容性有备无患。**",
+   "courses": "对应《数据库原理》，可结合 SQL 实验课做 Oracle 兼容性对比测试。",
+   "tags": [
+    "工业软件",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "MariaDB 13 强化 Oracle 兼容，降低历史系统迁移成本",
+    "可观测性改善，便于排查慢查询与锁问题",
+    "工业软件/Java 后端方向值得关注的数据库选型变化"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/vWO5oOkToq5WYFE18WiB?utm_source=rss&utm_medium=article",
+   "cover": "img/a256.webp"
+  },
   {
    "id": "a247",
    "title": "Manus 2.0 发布：自研 Agent 框架 Cascade 省 32% 成本，附共享工作区与个人 Agent",
@@ -26,7 +196,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Cascade 框架主打轻量与成本优化，官方称省 32%",
@@ -4035,178 +4205,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/OUcL9autU0dg1BIt6bib?utm_source=rss&utm_medium=article",
    "cover": "img/a135.webp"
-  },
-  {
-   "id": "a136",
-   "title": "Vibe Coding 撞上企业级现实：AI 写代码在真实工程里到底能提效多少",
-   "summary": "QCon 上海议题，讲 AI 辅助编码（Vibe Coding）从个人玩具走向企业级工程时遇到的真实问题：代码审查、可维护性、责任归属。",
-   "content": "Vibe Coding 就是「你描述需求、AI 生成代码、你看着差不多就收」的开发方式，个人项目里爽得飞起。但到了企业级工程，问题就来了：AI 生成的代码谁 review？风格不统一怎么办？出了线上事故算谁的？这个 QCon 议题讲的就是真实工程中 AI 效能的边界——哪些环节 AI 确实快（写样板、写测试、查文档），哪些环节必须人来把关（架构决策、安全边界、性能调优）。对准备实习和秋招的同学，这是很好的面试谈资：面试官问「你怎么看 AI 编程」，你能答出分层使用、人机分工，比只会说「很好用」高一个档次。",
-   "source": "InfoQ中文",
-   "date": "2026-09-25",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**搞清 AI 编码在企业里的能力边界，面试和实习都用得上**",
-   "courses": "《软件工程》——结合软件生命周期讲 AI 辅助开发的质量与责任问题",
-   "tags": [
-    "AI工具",
-    "求职就业",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "AI 擅长写样板、测试、查文档；架构与安全边界必须人来把关",
-    "企业级关注点：代码审查、风格统一、事故责任归属",
-    "面试谈「怎么看 AI 编程」时，分层使用+人机分工是加分答案"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/QQk3wiolU1VScH3u0P7T?utm_source=rss&utm_medium=article",
-   "cover": "img/a136.webp"
-  },
-  {
-   "id": "a137",
-   "title": "00 后开发者实测鸿蒙新能力：AI 在鸿蒙开发里帮了什么、哪些还得自己磨",
-   "summary": "三位 00 后鸿蒙开发者分享做 App 的实战经验，讲 AI 辅助鸿蒙开发的真实体验与仍需手工打磨的细节。",
-   "content": "三位 00 后开发者带着自己做的鸿蒙 App，聊了 AI 在鸿蒙开发中到底帮了什么忙：生成 ArkTS 样板代码、查 API 用法、写页面布局确实省事；但涉及鸿蒙特有的分布式能力、元服务卡片、性能调优时，AI 给的答案经常过时或想当然，还得自己翻官方文档、真机调试。对软件工程的同学，这篇的价值是给你一个「新平台 + AI 工具」的真实工作流样本：怎么用 AI 快速上手一个陌生框架，又怎么识别它靠不靠谱。鸿蒙生态在扩，会 ArkTS 的应届生目前不算多，算个差异化技能点。",
-   "source": "爱范儿",
-   "date": "2026-09-24",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "HarmonyOS",
-    "ArkTS"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**掌握「AI 快速上手新框架 + 官方文档兜底」的工作流，鸿蒙技能还能做差异化**",
-   "courses": "《移动应用开发》——鸿蒙 ArkTS 开发可参考其 AI 辅助工作流",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "AI 能帮生成 ArkTS 样板、查 API、写布局",
-    "鸿蒙分布式能力、元服务卡片等特性 AI 常给过时答案，需查官方文档",
-    "新平台+AI 的工作流：用 AI 快速上手，用官方文档和真机验证兜底"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1682109?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a137.webp"
-  },
-  {
-   "id": "a138",
-   "title": "DeepSeek 公开 Agent 训练沙箱 DSec，安全方向值得一看",
-   "summary": "爱范儿早报提到 DeepSeek 发布新论文，公开 Agent 训练沙箱 DSec。对信息安全专业，Agent 沙箱隔离是当前热门方向。",
-   "content": "早报里一条容易被忽略的消息：DeepSeek 发新论文，公开了 Agent 训练沙箱 DSec。为什么值得信息安全方向的同学关注？因为 AI Agent 要执行代码、访问文件、调外部接口，怎么把它关在一个「跑得动但闯不出祸」的环境里，是当前工程和安全交叉的热点。DSec 这类沙箱要解决的是：隔离文件系统、限制网络访问、记录所有操作以便审计、防止 Agent 通过提示注入逃逸。你可以把它当作一个选题方向——毕业设计做「Agent 沙箱的隔离机制分析」，或者安全课大作业复现一个简易沙箱，都比泛泛而谈「AI 安全很重要」有料。",
-   "source": "爱范儿",
-   "date": "2026-09-24",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**Agent 沙箱隔离是安全方向的新选题富矿，毕设和大作业都能用**",
-   "courses": "《信息安全导论》《操作系统》——沙箱隔离机制可作课程项目选题",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Agent 沙箱要解决文件隔离、网络限制、操作审计、防提示注入逃逸",
-    "是工程与安全交叉的热点方向，适合做毕设或安全课选题",
-    "可复现简易沙箱作为大作业，比空谈 AI 安全更实在"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1681909?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a138.webp"
-  },
-  {
-   "id": "a128",
-   "title": "用 Jev 逐 Span 评估 Agent Trace：同样 PASS，路径为何不同",
-   "summary": "团队做 Agent Evals 时常只看 PASS 率，但同一批用例全通过，底层模型的执行路径可能完全不同。文章介绍用 Jev 对 Agent Trace 做逐 Span 评估，定位路径差异。",
-   "content": "做课设或实习时，你可能已经用 LLM 搭过 Agent（比如自动查资料、写代码、调工具）。但只统计「任务通过率」会掩盖问题：两个模型都 PASS，一个走了 3 步，一个绕了 10 步、多调了 5 次工具，成本和稳定性天差地别。Jev 的思路是把一次 Agent 运行拆成 Span（每一步的模型调用、工具调用），逐个比对路径，而不是只看最终结果。对你的用处：如果你在做「智能体」相关的课程设计或毕设，这套评估方法可以直接套用——先埋点记录每步输入输出，再对比不同模型/提示词下的路径差异，写进实验报告里比只贴一个通过率有说服力得多。",
-   "source": "掘金",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**学会逐 Span 评估 Agent，让你的智能体项目从「能跑」升级到「可解释、可优化」**",
-   "courses": "《软件测试》《人工智能导论》——把逐 Span 评估当作 Agent 测试用例设计的一部分",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "PASS 率相同不代表执行路径相同，成本和稳定性可能差很多",
-    "把 Agent 运行拆成 Span，逐步比对模型调用与工具调用",
-    "适合给课设/毕设的 Agent 项目做可解释的评估"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689001132434407424",
-   "cover": "img/a128.webp"
-  },
-  {
-   "id": "a129",
-   "title": "GitHub Copilot 应用如何渲染百万行级 PR：diff 界面重构实录",
-   "summary": "GitHub 工程团队分享如何重写 Copilot 应用里的 diff 视图，让它能打开包含数十万行改动、上百条行内评论的超大 PR。",
-   "content": "你迟早会遇到「一个 PR 改了几千行」的场面——大作业合并、实习时接手遗留代码。普通 diff 工具一卡就是几分钟。这篇文章讲的是 GitHub 怎么把 diff 渲染做成能扛百万行的：核心思路是虚拟滚动（只渲染视口内的行）、把行内评论和代码行解耦、按需计算差异块。对前端方向的同学，这是虚拟列表 + 大数据渲染的实战案例，可以直接借鉴到你的 Vue/React 项目里；对通用开发同学，理解 diff 算法和渲染分层，能帮你在 code review 时更快定位改动。建议对照自己项目里「长列表卡顿」的问题读一遍。",
-   "source": "GitHub Blog",
-   "date": "2026-09-23",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「虚拟滚动 + 大数据渲染」从面试八股变成你项目里的真实优化点**",
-   "courses": "《Web 前端开发》《数据结构》——虚拟列表对应前端性能优化章节",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "百万行 PR 的渲染靠虚拟滚动，只画视口内的行",
-    "行内评论与代码行解耦，避免重排",
-    "前端长列表性能优化的真实工业案例"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Rendering huge pull requests in the GitHub Copilot app",
-   "link": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app/",
-   "cover": "img/a129.webp"
   }
  ],
  "jobs": [
