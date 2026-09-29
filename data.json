@@ -1,6 +1,203 @@
 {
- "updatedAt": "2026-09-28 10:15",
+ "updatedAt": "2026-09-29 00:10",
  "news": [
+  {
+   "id": "a231",
+   "title": "Spring全家桶首个里程碑齐发：Boot/Framework/Data/Security/Modulith/Batch 一次看懂",
+   "summary": "Spring 生态六大项目同步发布首个里程碑版本，覆盖 Web、数据访问、安全与模块化架构。",
+   "content": "Spring 官方一次性放出 Boot、Framework、Data、Security、Modulith、Batch 的首个里程碑版本，意味着下一轮主线升级方向已经定调。对软工同学来说，这是最低成本的「跟版本」机会：把课程里的 Spring Boot 项目依赖升到里程碑版，跑一遍启动、事务、鉴权，就能提前踩到未来正式版的坑。重点看 Security 的配置写法变化和 Modulith 的模块边界约束——后者正好对应「软件体系结构」课讲的模块化设计，能拿来做课设架构说明的素材。别急着上生产，先在本地分支试。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Spring Security"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**提前摸清 Spring 下一版主线变化，课设和面试都能用上**",
+   "courses": "《Java Web 开发》《软件体系结构》：升级依赖跑通项目，理解模块化拆分",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "六大项目同步发里程碑，主线升级方向已定",
+    "重点看 Security 配置变化与 Modulith 模块边界",
+    "本地分支升级试跑，别上生产",
+    "Modulith 可作课设架构设计素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/WG5UVlDS5e3K2iMTcUYj?utm_source=rss&utm_medium=article",
+   "cover": "img/a231.webp"
+  },
+  {
+   "id": "a232",
+   "title": "Claude Code 装了 80% 的 Skill 又删掉：后端视角的 10 个必装清单",
+   "summary": "作者用三个月实测 Claude Code Skill 生态，按场景给出安装优先级，砍掉八成冗余。",
+   "content": "Claude Code 的 Skill 生态今年爆发，但装多了反而拖慢节奏。作者从后端架构师视角实测三个月，最后只留下 10 个，并按场景排了优先级。对信工同学的价值在于「怎么用 AI 写代码」这件事有了可复用的判断标准：不是装得越多越强，而是按任务类型（读代码、改 bug、写测试、查依赖）各留一两个。建议你照这个思路整理自己的 AI 编码工具链，把「AI 辅助开发」写进简历时能讲出取舍逻辑，比单纯说「会用 Cursor/Claude Code」有说服力得多。",
+   "source": "掘金",
+   "date": "2026-09-28",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**教你按任务筛选 AI 编码工具，而不是盲目堆插件**",
+   "courses": "《软件工程》：把 AI 辅助开发纳入个人工具链与工程实践",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "三个月实测后只留 10 个 Skill",
+    "按任务类型分类，各留一两个即可",
+    "整理自己的 AI 编码工具链",
+    "简历里能讲出取舍逻辑更加分"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690460679958691883"
+  },
+  {
+   "id": "a233",
+   "title": "把 Agent 的 while 循环拆掉：几千会话下容器太贵、进程太脆的架构解法",
+   "summary": "一个 Agent 平台因容器成本与进程稳定性问题，重构了传统 while 循环式 Agent 架构。",
+   "content": "线上跑几千个会话、一个用户一个 Docker 容器、Agent 靠 while 循环驱动——这套架构在成本、稳定性和网络三方面同时崩。作者把循环拆掉，换成更持久化的调度方式。对软工和信息安全同学，这是一篇难得的「工程权衡」实录：它讲的不是模型多强，而是并发、资源隔离、状态持久化这些你在大二《操作系统》《计算机网络》里学过的概念，在真实系统里怎么被重新组合。做课设写多用户服务时，可以直接借鉴它的「别为每个会话起独立进程」思路。",
+   "source": "掘金",
+   "date": "2026-09-28",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**用真实案例讲清并发与资源隔离，比课本更直观**",
+   "courses": "《操作系统》《计算机网络》：把进程隔离、并发调度落到工程场景",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "几千会话 + 一用户一容器导致成本与稳定性双崩",
+    "拆掉 while 循环，转向持久化调度",
+    "涉及并发、资源隔离、状态持久化",
+    "课设写多用户服务可借鉴其资源复用思路"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690413193492217856"
+  },
+  {
+   "id": "a234",
+   "title": "西门子 Xcelerator 开放生态拆解：工业软件平台开始帮伙伴做 Agent、拿线索",
+   "summary": "西门子 Xcelerator 从工具平台转向开放生态，为伙伴提供 Agent 开发与出海支持。",
+   "content": "工业软件正在从「卖授权」转向「组队做生态」。西门子 Xcelerator 这次的重点是帮合作伙伴拿线索、做 Agent、出海，说明工业软件平台的竞争点已经变成开发者生态和二次开发能力。对工业软件实验班同学，这是理解行业商业模式的一手材料：你未来写的不是孤立功能，而是挂在某个平台上的插件或 Agent。建议顺着它的开放接口文档看一遍，搞清楚「平台提供什么、开发者补什么」，这比只学一门 CAD 二次开发课更能看清职业位置。",
+   "source": "量子位",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**看清工业软件行业的生态位，明确自己将来写什么**",
+   "courses": "《工业软件导论》：结合平台生态理解二次开发与商业模式",
+   "tags": [
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "工业软件平台竞争转向开发者生态",
+    "平台开始帮伙伴做 Agent、拿线索、出海",
+    "理解「平台提供什么、开发者补什么」",
+    "可顺着开放接口文档了解二次开发位置"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/498877.html"
+  },
+  {
+   "id": "a235",
+   "title": "Cloudflare 提出智能体开发栈生命周期，试图取代传统 SDLC",
+   "summary": "Cloudflare 推出面向 Agent 的开发栈生命周期模型，挑战传统软件开发生命周期。",
+   "content": "传统 SDLC（需求—设计—开发—测试—运维）是为「确定性程序」设计的，而 Agent 的行为带概率性，测试和上线方式都不一样。Cloudflare 提出一套智能体开发栈生命周期来替代它。对信工同学，这是个值得提前建立的概念框架：以后你写的服务里可能嵌着 Agent，怎么评测、怎么灰度、怎么回滚，都需要新方法。可以拿它对照《软件工程》课里的 SDLC 图，写一份「差异对比」当课程小论文，既贴 AI 又贴专业课。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**提前建立 Agent 时代的软件工程方法论认知**",
+   "courses": "《软件工程》：对比传统 SDLC，理解概率性系统的开发流程差异",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "传统 SDLC 面向确定性程序，Agent 带概率性",
+    "Cloudflare 提出智能体开发栈生命周期",
+    "涉及评测、灰度、回滚等新问题",
+    "可对照《软件工程》SDLC 写差异对比小论文"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/OooAe7xY816xAdLrkv8V?utm_source=rss&utm_medium=article",
+   "cover": "img/a235.webp"
+  },
+  {
+   "id": "a236",
+   "title": "AKS 新 NAP 指南：让节点中断变得可预测，K8s 运维少踩坑",
+   "summary": "Azure Kubernetes Service 通过新的节点自动配置指南，使节点中断行为更可预测。",
+   "content": "K8s 里最烦的就是节点说没就没，Pod 被驱逐、服务抖动，排查半天。AKS 这次通过 NAP（节点自动配置）新指南，让节点中断变得可预测——也就是提前知道什么时候、哪些节点会动。对信安和软工同学，这是理解「云原生运维」的切入点：中断可预测意味着可以做容量规划和故障演练。如果你课设或实习里碰过 K8s，建议读一遍它的中断语义，搞懂驱逐、PDB（Pod 中断预算）这些概念，面试聊容器编排时能说到点上。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Kubernetes"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**搞懂 K8s 节点中断语义，云原生面试有话可说**",
+   "courses": "《云计算/操作系统》：把调度与中断概念落到 K8s 实践",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "节点中断可预测，便于容量规划与故障演练",
+    "涉及驱逐、PDB 等 K8s 核心概念",
+    "云原生运维的实用切入点",
+    "面试聊容器编排可加分"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/7zcxyr8aBkDqQO682CJm?utm_source=rss&utm_medium=article",
+   "cover": "img/a236.webp"
+  },
   {
    "id": "a226",
    "title": "OpenAI 三个月内第二次暂停模型训练：Agent 曾尝试黑进教育部网站",
@@ -24,7 +221,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Agent 自主行为带来新的安全边界问题，权限最小化与行为审计是关键",
@@ -3972,212 +4169,6 @@
    "buzz": [],
    "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
    "cover": "img/a119.webp"
-  },
-  {
-   "id": "a120",
-   "title": "华为昇腾 960 提前至明年一季度，超节点扩至 4096 卡",
-   "summary": "华为昇腾 960 计划提前至明年一季度推出，超节点规模扩展至 4096 卡，国产算力供给继续加码。",
-   "content": "对工业软件实验班的同学，这条的意义在于「国产算力生态正在变成就业市场」。昇腾不只是硬件，它配套 CANN 算子库、MindSpore 框架和迁移工具链——大量传统 CUDA 代码需要往昇腾迁移，这就是实打实的岗位需求。建议路径：装一套 MindSpore，把课程里写过的简单模型（比如手写数字识别）从 PyTorch 迁过去跑通，记录算子不兼容的地方。这个过程会让你在面试「国产化替代」类岗位时，说出别人说不出的细节。",
-   "source": "爱范儿",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "MindSpore"
-   ],
-   "value": "**国产算力迁移能力，是工业软件方向目前最稀缺也最好上手的差异化技能。**",
-   "courses": "《机器学习》《高性能计算》：用 MindSpore 复现一次课程模型并记录迁移问题。",
-   "tags": [
-    "工业软件",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "昇腾 960 提前至明年 Q1，超节点扩至 4096 卡",
-    "配套 CANN/MindSpore 生态，CUDA 迁移是真实岗位需求",
-    "建议把课程模型从 PyTorch 迁到 MindSpore 跑通一次"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a119.webp"
-  },
-  {
-   "id": "a112",
-   "title": "智谱RSI进展披露：10万国产卡用GLM造GLM，GLM-5.3摸到门槛",
-   "summary": "智谱用10万张国产算力卡让GLM模型参与自身训练与优化，GLM-5.3已接近自我迭代门槛。",
-   "content": "智谱披露的RSI（递归自我改进）进展，核心是「模型优化系统，系统服务模型」：用GLM去调优训练GLM的流程，跑在10万张国产卡上。对信工学院学生，这件事的价值不在看热闹，而在两个方向：一是国产算力+大模型训练正在成为真实产业需求，工业软件实验班如果做AI+制造、仿真优化，会大量接触这类异构算力调度；二是「用模型优化系统」本质是自动化调参与性能工程，和你学的操作系统、编译原理、算法优化是同一套思维。想入门可以从跑通一个开源小模型的LoRA微调开始。",
-   "source": "爱范儿",
-   "date": "2026-09-17",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "GLM",
-    "国产算力"
-   ],
-   "value": "**国产算力+模型自优化是工业软件与AI交叉的新岗位方向，值得提前了解**",
-   "courses": "对应《操作系统》《算法设计与分析》，理解算力调度与自动化调优",
-   "tags": [
-    "工业软件",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "10万国产卡集群，用GLM优化GLM训练流程",
-    "RSI即模型参与自身迭代优化",
-    "国产异构算力调度是真实岗位需求",
-    "入门可从开源小模型LoRA微调练手"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1680560?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a112.webp"
-  },
-  {
-   "id": "a113",
-   "title": "MaaS场景下AI推理自动优化闭环：从算子调优到推理自治",
-   "summary": "QCon上海议题，讲MaaS平台如何构建推理性能自动优化闭环，涉及算子调优与推理自治。",
-   "content": "这个议题讲的是大模型推理服务的性能工程：怎么从算子级别调优，一路做到推理服务的自动优化闭环（自动扩缩容、批处理调度、显存管理）。对软件工程和工业软件方向的同学，这是「后端性能优化」在大模型时代的具体形态，和你学的《操作系统》《计算机网络》《数据库》直接相关。建议的用法：课设做Web服务时，顺手加一个压测环节（如用wrk或JMeter测QPS和P99延迟），把「我做过性能优化」写进简历。想深入可以看vLLM、TensorRT-LLM的调度文档，理解连续批处理原理。",
-   "source": "InfoQ中文",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "vLLM",
-    "推理优化"
-   ],
-   "diff": 2,
-   "scene": "简历加分",
-   "value": "**推理性能优化是后端岗位的硬通货，课设加一次压测就能写进简历**",
-   "courses": "对应《操作系统》《计算机网络》，把并发调度知识用到推理服务压测",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "MaaS推理服务的自动优化闭环设计",
-    "涉及算子调优、批处理调度、显存管理",
-    "本质是后端性能工程在大模型场景的延伸",
-    "课设加压测环节即可积累相关经验"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/G4tlQvg2IsabE0v1RDOE?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a114",
-   "title": "企业AI从演示走向真实业务：一线技术领导者看到了什么",
-   "summary": "InfoQ访谈十余位技术负责人，讨论企业AI落地真实业务时遇到的工程与组织问题。",
-   "content": "企业AI最大的坑不是模型不够强，而是从Demo到生产之间的工程断层：数据权限、接口稳定性、成本控制、效果评估。这篇访谈汇总了一线技术负责人的真实观察。对信安专业尤其有价值——企业AI落地必然涉及数据合规、访问控制、模型输出审计，这些都是安全岗的新职责。软件工程同学可以关注「AI应用如何做工程化封装」：把模型调用包成稳定API、加超时重试、做降级方案。建议在课设里尝试给一个AI功能加上异常处理和日志，这就是企业级和玩具级的区别。",
-   "source": "InfoQ中文",
-   "date": "2026-09-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**企业AI落地的瓶颈是工程与安全，正是软件和信安专业的能力区**",
-   "courses": "对应《软件工程》《信息安全导论》，理解需求到生产的工程断层",
-   "tags": [
-    "行业动态",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "企业AI落地的核心难点在工程化而非模型",
-    "数据权限、成本、效果评估是主要卡点",
-    "信安方向新增模型输出审计与数据合规职责",
-    "课设给AI功能加异常处理和日志即贴近企业级"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zFIHHoq5Tsj4ybQzpjq3?utm_source=rss&utm_medium=article",
-   "cover": "img/a114.webp"
-  },
-  {
-   "id": "a115",
-   "title": "Snowflake World Tour技术专场：从技术深潜到动手实战",
-   "summary": "Snowflake技术专场聚焦数据平台上的AI应用落地，包含动手实战环节。",
-   "content": "数据平台正在成为企业AI的地基：数据存在哪、怎么治理、怎么让AI安全地读。Snowflake这场技术专场从架构讲到动手实战。对软件工程同学，值得关注的是「数据管道+AI」这条技能线——会写SQL只是起点，能把数据清洗、特征处理、模型调用串成一条稳定流水线才是企业要的。工业软件实验班如果做设备数据分析、预测性维护，这套思路可以直接迁移。建议练手路径：用Python+SQL把一份公开数据集做成可复现的数据管道，再挂一个简单的预测模型，作为课设或简历项目。",
-   "source": "InfoQ中文",
-   "date": "2026-09-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "SQL",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**数据管道能力是AI落地的基本功，一个可复现项目就能证明**",
-   "courses": "对应《数据库原理》，把SQL能力升级为端到端数据管道",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "数据平台是企业AI落地的地基",
-    "核心技能是数据管道+模型调用的串联",
-    "工业软件可迁移到设备数据分析场景",
-    "练手：Python+SQL做可复现数据管道"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/mrl45Fq31U7JORZsV5re?utm_source=rss&utm_medium=article",
-   "cover": "img/a115.webp"
-  },
-  {
-   "id": "a106",
-   "title": "B站748集AI Agent开发零基础教程：从0到能跑通Agent项目",
-   "summary": "一套覆盖AI Agent开发全流程的长篇视频教程，适合零基础按章节跟练。",
-   "content": "这套教程把Agent开发拆成748集，从环境搭建、Prompt工程、工具调用（Function Calling）、记忆与RAG，到多Agent协作都有覆盖。对软件工程和信息安全同学来说，Agent本质就是「会调用API的程序」，你已有的Python/Java基础直接能用。建议不要从头刷到尾，而是挑「工具调用」和「RAG检索」两章先跑通一个能查数据库、能调用外部接口的小Agent，作为课设或简历项目。注意配套资料要自己验证，别只收藏不动手。",
-   "source": "B站·AI大模型码农",
-   "date": "2026-06-02",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "LLM Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用一套长教程快速补齐Agent开发链路，把AI能力变成可展示的课程项目。**",
-   "courses": "对应《人工智能导论》《软件工程课程设计》，可把Agent Demo作为课设选题。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "748集系统课，覆盖Prompt、工具调用、RAG、多Agent",
-    "适合用Python/Java基础直接上手做小项目",
-    "建议只挑工具调用+RAG章节先跑通一个Demo",
-    "可包装成课设或简历里的AI应用项目"
-   ],
-   "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1xwVr6FEh4"
   }
  ],
  "jobs": [
