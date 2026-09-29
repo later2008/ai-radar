@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-09-29 00:10",
+ "updatedAt": "2026-09-29 01:09",
  "news": [
+  {
+   "id": "a237",
+   "title": "Swift 6.4 发布：内置 Subprocess 1.0、跨语言互操作增强、Wasm 性能大幅提升",
+   "summary": "Swift 6.4 正式版带来内置 Subprocess 1.0 进程管理库、更强的 C++/Java 互操作能力，以及 WebAssembly 性能的大幅优化。",
+   "content": "Swift 6.4 这次更新对做跨平台和系统编程的同学挺有参考价值。内置的 Subprocess 1.0 让你不用再依赖第三方库就能安全地启动子进程、管理管道和退出码，写命令行工具或构建脚本会顺手很多。跨语言互操作增强意味着 Swift 调 C++、Java 的桥接成本更低，做工业软件里混合技术栈的模块对接时能少写不少胶水代码。Wasm 性能提升则让 Swift 编译到浏览器端跑得更快，前端同学如果对 Wasm 感兴趣可以拿它练手。建议在 macOS 或 Linux 上装个 toolchain，把课设里的一个小工具用 Subprocess 重写一遍，感受下 API 设计。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Swift",
+    "WebAssembly"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**想入门系统编程或跨语言互操作，Swift 6.4 是个低门槛的练手入口**",
+   "courses": "《程序设计》《操作系统》课程可用来理解进程管理与跨语言调用",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "内置 Subprocess 1.0，进程管理不再依赖第三方库",
+    "C++/Java 互操作增强，混合技术栈桥接更省事",
+    "Wasm 性能大幅提升，浏览器端运行更快"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/zl0e1sUoD95YJfboNz2a?utm_source=rss&utm_medium=article",
+   "cover": "img/a237.webp"
+  },
+  {
+   "id": "a238",
+   "title": "Manus 2.0 发布：自研 Cascade Agent 框架，Token 消耗降 23%、成本降 32%",
+   "summary": "Manus 升级到 2.0，推出云电脑、视频编辑、游戏开发和个人 AI 助手 Cue，官方称新框架让任务 Token 消耗减少 23.2%、完成时间缩短 28.2%、运行成本降低 32%。",
+   "content": "Manus 2.0 值得关注的是它的自研 Cascade Agent 框架——把 Token 消耗降了 23%、运行成本降了 32%，这对做 AI 应用开发的同学是个信号：Agent 的成本优化已经是工程重点，不是光堆模型能力。新增的云电脑、远程控制、视频编辑和游戏开发能力，本质是把 Agent 从聊天框扩展到能操作真实环境。你可以拿它当参照，想想自己课设里如果接一个大模型做自动化任务，怎么设计任务编排和上下文管理才能省 Token。建议注册试用，重点观察它的任务拆解和工具调用流程，比只看文档收获大。",
+   "source": "极客公园",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Agent",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**做 AI 应用开发，先看别人怎么把 Agent 成本打下来，比盲目接 API 更有用**",
+   "courses": "《人工智能导论》《软件工程》课设中可借鉴其任务编排与成本控制思路",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 70,
+   "brief": [
+    "Cascade Agent 框架：Token 降 23%、成本降 32%",
+    "新增云电脑、远程控制、视频编辑、游戏开发能力",
+    "个人 AI 助手 Cue 面向日常任务自动化"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/371359",
+   "cover": "img/a238.webp"
+  },
+  {
+   "id": "a239",
+   "title": "豆包输入法大更新：AI 能力回到键盘，输入即调用",
+   "summary": "豆包输入法迎来大版本更新，把 AI 能力直接嵌入键盘输入流程，主打「少折腾」的自然交互。",
+   "content": "输入法正在变成 AI 最自然的入口之一，这对前端和客户端开发同学有实际启发。豆包这次更新把 AI 能力塞进键盘，意味着用户不用切 App、不用复制粘贴，输入时就能触发改写、翻译、生成。背后的技术点是输入法如何做本地与云端的能力调度、如何保证低延迟和隐私。如果你在做移动端或 Web 输入组件，可以研究它的交互设计：什么时候弹建议、什么时候静默处理、怎么处理中文分词和候选排序。建议下载体验，重点看它的触发时机和响应速度，这些细节比功能列表更值得学。",
+   "source": "爱范儿",
+   "date": "2026-09-28",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "输入法",
+    "AI"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**做前端或客户端交互，输入法是最贴近用户的 AI 落地场景，值得拆解学习**",
+   "courses": "《人机交互》《移动应用开发》可分析其交互设计与响应策略",
+   "tags": [
+    "AI工具",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "AI 能力嵌入键盘，输入即触发改写/翻译/生成",
+    "主打低折腾的自然交互，减少 App 切换",
+    "对做输入组件和客户端交互有参考价值"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1682232?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a239.webp"
+  },
+  {
+   "id": "a240",
+   "title": "Imagination E 系列 GPU IP：一套架构同时支持图形、计算与 AI",
+   "summary": "Imagination 发布 E 系列 GPU IP 新进展，主打单套架构覆盖图形渲染、通用计算和 AI 推理三类负载。",
+   "content": "这条对工业软件和嵌入式方向的同学有参考价值。Imagination 的 E 系列强调「一套架构通吃图形、计算、AI」，意味着未来车载、工控、移动设备里的 GPU 不再需要为不同任务准备不同硬件，软件层也能用统一的编程模型调度。对做工业软件的人来说，理解 GPU 的异构计算模型越来越重要——不管是做仿真、图像处理还是边缘推理，都绕不开。建议结合《计算机组成原理》里 GPU 架构那部分一起看，重点搞清 SIMD、统一着色器架构这些概念，再去看它的编程接口文档，会顺很多。",
+   "source": "InfoQ中文",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "GPU",
+    "异构计算"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**做工业软件或嵌入式，GPU 异构计算是绕不开的底层知识，早点建立认知不吃亏**",
+   "courses": "《计算机组成原理》《嵌入式系统》中 GPU 架构与异构计算部分可对照学习",
+   "tags": [
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "单套 GPU 架构同时覆盖图形、计算、AI 三类负载",
+    "面向车载、工控、移动等嵌入式场景",
+    "软件层可用统一编程模型调度异构计算"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/5Xfeqshw0hwfUD95JpWE?utm_source=rss&utm_medium=article",
+   "cover": "img/a240.webp"
+  },
+  {
+   "id": "a241",
+   "title": "华为重新定义 AIDC 基础设施：算电协同成 AI 数据中心下一站",
+   "summary": "华为在 HC 大会上提出 AI 数据中心（AIDC）的新思路，核心是算力与电力的协同调度。",
+   "content": "AI 数据中心不只是堆 GPU，电力和散热的调度正在成为瓶颈。华为提的「算电协同」，本质是让算力任务和供电能力动态匹配——什么时候跑训练、什么时候降频、怎么分配机柜功率，都需要软件层去调度。对软件工程和信息安全专业的同学来说，这里有两个切入点：一是数据中心调度系统的开发，涉及分布式任务编排和资源管理；二是基础设施的安全与可靠性，涉及监控、容灾和权限控制。建议关注这类岗位的招聘要求，很多云厂商和硬件厂商都在招懂分布式系统又懂基础设施的人，提前补《操作系统》《分布式系统》的知识。",
+   "source": "量子位",
+   "date": "2026-09-28",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "分布式系统",
+    "数据中心"
+   ],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**数据中心调度和基础设施安全是正在扩张的岗位方向，分布式系统功底是敲门砖**",
+   "courses": "《操作系统》《分布式系统》中的资源调度与容灾部分直接对应",
+   "tags": [
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "AIDC 核心从堆算力转向算力与电力协同调度",
+    "涉及分布式任务编排、资源管理与功率分配",
+    "基础设施安全与可靠性是配套的软件需求"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/498787.html",
+   "cover": "img/a241.webp"
+  },
   {
    "id": "a231",
    "title": "Spring全家桶首个里程碑齐发：Boot/Framework/Data/Security/Modulith/Batch 一次看懂",
@@ -25,7 +200,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "六大项目同步发里程碑，主线升级方向已定",
@@ -4005,170 +4180,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502726"
-  },
-  {
-   "id": "a127",
-   "title": "WSO2 发布 Agent Manager：企业级 AI Agent 治理工具",
-   "summary": "WSO2 推出 Agent Manager 产品，帮助企业应对内部 AI Agent 数量激增带来的管理、权限、监控问题。",
-   "content": "当企业里每个团队都在部署自己的 AI Agent，就会出现「Agent 泛滥」：谁在用、调了什么工具、花了多少 token、有没有越权操作，没人说得清。WSO2 Agent Manager 试图解决这个问题，提供 Agent 注册、权限控制、调用链追踪等能力。对信息安全专业的同学，这是一个值得关注的方向——Agent 治理本质上是身份认证、访问控制、审计日志在 AI 场景的延伸，你学的 IAM、零信任架构在这里都能用上。",
-   "source": "InfoQ中文",
-   "date": "2026-09-24",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**信息安全同学的新就业方向：AI Agent 治理，你的 IAM 知识直接能用。**",
-   "courses": "对应《信息安全技术》《访问控制》课程，可作为 AI 安全治理的案例讨论。",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "企业 AI Agent 泛滥带来权限、审计、成本管控等治理需求",
-    "Agent 治理本质是 IAM、访问控制、审计日志在 AI 场景的延伸",
-    "信息安全专业可关注这个新兴方向，与已有安全知识高度相关"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4gr5Zt9GZoyIwF2f6LvR?utm_source=rss&utm_medium=article",
-   "cover": "img/a127.webp"
-  },
-  {
-   "id": "a116",
-   "title": "亚马逊云科技开放 AL2027 预览：开发者最关心能否原地升级",
-   "summary": "AWS 发布 Amazon Linux 2027 预览版，社区焦点集中在能否从 AL2023 原地升级，避免重装迁移。",
-   "content": "Amazon Linux 是很多云上 Java/后端服务的默认底座，这次 AL2027 预览最实际的问题就是「能不能原地升级」。对软工同学来说，这背后是 Linux 包管理、systemd、glibc 版本、内核 ABI 兼容性这些硬知识——你在《操作系统》《Linux 系统管理》里背的概念，到了真实运维就是「升级会不会把服务搞挂」。建议做法：在虚拟机或 WSL 里装一个 AL2027 预览，跑一遍你课设用的 JDK、Nginx、MySQL，记录依赖冲突和回滚方案，这就是一份能写进简历的「系统迁移验证」经历。",
-   "source": "InfoQ中文",
-   "date": "2026-09-18",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Linux",
-    "AWS"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**把「操作系统兼容性」从课本概念变成一次可复现的升级验证，是后端岗面试的加分素材。**",
-   "courses": "《操作系统》《Linux 系统管理》：用虚拟机做一次发行版升级与回滚实验。",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "AL2027 预览开放，核心争议点是能否原地升级",
-    "涉及 glibc/内核/包管理兼容性，是真实运维场景",
-    "可在虚拟机复现一次升级验证，产出迁移记录"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/tbUQhEqo7etbjfyuyNK0?utm_source=rss&utm_medium=article",
-   "cover": "img/a116.webp"
-  },
-  {
-   "id": "a117",
-   "title": "ColorOS 17 转向 AgentOS：手机系统里的 AI 从被动变主动",
-   "summary": "OPPO 发布 ColorOS 17，把手机 OS 往 AgentOS 方向推，AI 开始主动感知场景并执行任务。",
-   "content": "AgentOS 的核心不是「多一个语音助手」，而是系统层提供意图识别、任务编排、跨应用调用的能力。对信工学院同学，这意味着一批新的开发接口：如何声明一个可被 Agent 调用的能力、如何做权限与隐私边界。前端方向的同学可以关注「意图式 UI」——用户不再点按钮，而是说一句话触发流程，这对交互设计和状态管理是全新命题。建议拿安卓模拟器装 ColorOS 17，观察它的任务编排逻辑，试着用无障碍服务或 Intent 做一个「一句话完成课表查询」的小 Demo，比空谈 AI 应用实在得多。",
-   "source": "InfoQ中文",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Android"
-   ],
-   "value": "**理解 AgentOS 的能力边界，是移动端与前端同学抓住下一波交互范式的前提。**",
-   "courses": "《移动应用开发》《人机交互》：用 Intent 或无障碍服务实现一次意图触发流程。",
-   "tags": [
-    "前端开发",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "ColorOS 17 把 OS 定位为 AgentOS，AI 主动执行任务",
-    "系统层将开放意图识别与跨应用调用能力",
-    "可用 Intent/无障碍服务做「一句话触发流程」小 Demo"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/gDSf7xBmd08H0eB0GG11?utm_source=rss&utm_medium=article",
-   "cover": "img/a117.webp"
-  },
-  {
-   "id": "a118",
-   "title": "智谱披露 RSI 进展：GLM-5.3 已摸到门槛",
-   "summary": "唐杰与 GLM 团队长文披露自我改进（RSI）最新进展，称 GLM-5.3 已接近门槛。",
-   "content": "RSI（递归自我改进）听起来很学术，但对求职有直接意义：它决定了模型能力迭代的速度，也决定了「会用 AI 工具」这件事的保质期。对软件工程和信息安全两个专业，值得关注的是文中提到的训练/评测工程细节——数据管线、评测集设计、失败案例归因，这些恰恰是工业软件和 AI 工程岗位的日常。建议不要只读结论，去翻它的技术报告，重点看「评测方法」一节，学着写一份自己的模型对比评测脚本（同一批题目跑两个模型，统计通过率），这在实习面试里比背概念管用。",
-   "source": "InfoQ中文",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "value": "**模型迭代越快，「会做评测」越比「会用工具」更保值。**",
-   "courses": "《机器学习》《软件测试》：借鉴其评测方法，写一份可复现的模型对比评测。",
-   "tags": [
-    "AI工具",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "GLM 团队披露 RSI 自我改进进展，GLM-5.3 接近门槛",
-    "值得关注的是数据管线与评测集设计等工程细节",
-    "可自建小规模模型对比评测脚本，作为实习作品"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/O1uIfJx3CF5SZz3ayuaI?utm_source=rss&utm_medium=article",
-   "cover": "img/a118.webp"
-  },
-  {
-   "id": "a119",
-   "title": "OpenAI 将定期披露模型异常行为，首批公开 6 份报告",
-   "summary": "OpenAI 宣布定期公开模型异常行为报告，首批发布 6 份，涉及模型在特定场景下的意外表现。",
-   "content": "这条对信息安全与管理专业的同学价值最直接：模型异常行为报告本质是一份「AI 系统的漏洞与事件披露」。你可以把它当成安全领域的事件响应案例来读——异常如何被发现、如何界定影响范围、如何缓解。建议做法：下载这 6 份报告，按「触发条件—表现—影响—缓解」四栏整理成表格，再对照《信息安全导论》里的事件响应流程，看哪些环节是传统安全没有覆盖的。这类整理可以直接变成课程报告或大作业选题，也是 AI 安全岗位面试的高频话题。",
-   "source": "爱范儿",
-   "date": "2026-09-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "value": "**把 AI 异常报告当安全事件案例读，是信安专业切入 AI 安全最低成本的方式。**",
-   "courses": "《信息安全导论》《安全事件响应》：用其报告做一次事件分析作业。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "OpenAI 定期公开模型异常行为报告，首批 6 份",
-    "可当作 AI 系统的事件披露与响应案例来读",
-    "按触发条件/表现/影响/缓解整理成表，可作课程报告"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1680525?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a119.webp"
   }
  ],
  "jobs": [
