@@ -1,6 +1,182 @@
 {
- "updatedAt": "2026-09-29 01:09",
+ "updatedAt": "2026-09-29 05:08",
  "news": [
+  {
+   "id": "a242",
+   "title": "Claude Sonnet 5.5 发布：Agent 编程评测从 10% 跳到 70%，速度快 30%",
+   "summary": "Anthropic 发布 Sonnet 5.5，定位高频日常任务与修 bug，Agent 编程评测从 10% 跃升至 70%，速度快 30%、成本低 30%。",
+   "content": "对软件工程学生来说，这条最值得关注的是「Agent 编程评测从 10% 到 70%」这个数字。它意味着 AI 独立完成多步编程任务（读代码、改文件、跑测试、修错误）的能力正在跨过可用门槛。你可以把它用在课程设计里：让它读你的 Java 或前端项目、定位 bug、生成单元测试，你负责审查和验证。注意别全盘照抄——评测分数高不等于你的业务逻辑它都懂，尤其是工业软件里的领域规则。建议现在就注册账号，拿你的课设代码做一次「AI 结对编程」实验，记录它改对了什么、改错了什么，这本身就是简历上能写的实践经历。",
+   "source": "开源中国",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Claude"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/简历加分",
+   "value": "**AI 编程助手已能独立完成多步任务，现在不练「人机协作开发」就落后了**",
+   "courses": "对应《软件工程》《Java 程序设计》，用 AI 辅助完成课设并做代码审查",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 92,
+   "brief": [
+    "Agent 编程评测 10%→70%，AI 多步编程任务能力跨过可用门槛",
+    "速度快 30%、成本低 30%，适合高频修 bug 与文档任务",
+    "建议拿课设代码实测 AI 结对编程，记录成功与失败案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502794/claude-sonnet-5-5"
+  },
+  {
+   "id": "a243",
+   "title": "Java Web 服务器 wastnet mvc 实战：零第三方依赖、自研 NIO 与 HTTP/2",
+   "summary": "wastnet 是一款零第三方依赖的轻量 Java Web 框架，基于 JDK 原生 NIO 实现 Reactor 模型，HTTP/2 协议栈全部自研，提供注解驱动 MVC。",
+   "content": "这条对 Java 方向的同学很有价值：wastnet 把「一个 Web 服务器到底怎么跑起来」这件事拆开给你看。它不用 Netty、不用 Spring，全靠 JDK 原生 NIO 手写 Reactor 多路复用，HTTP/2 的 HPACK、Huffman、ALPN 都是自己实现的。你可以把它当成《计算机网络》和《Java 程序设计》的活教材——读它的源码，你能真正理解 BIO/NIO 区别、事件循环、注解如何被扫描成路由。建议做法：先跑通它的 @Controller 示例写一个 REST 接口，再对照源码看请求从 socket 到方法调用的完整链路。工业软件方向的同学尤其值得看，因为很多工业场景要求可控、无外部依赖。",
+   "source": "开源中国",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "Java",
+    "NIO"
+   ],
+   "diff": 3,
+   "scene": "课设/练手/简历加分",
+   "value": "**读一个零依赖的 Java Web 框架源码，比背十遍 NIO 八股更能让你真正懂网络编程**",
+   "courses": "对应《计算机网络》《Java 程序设计》，用源码理解 NIO 与 HTTP 协议",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "零第三方依赖，基于 JDK 原生 NIO 的 Reactor 多路复用模型",
+    "HTTP/2 协议栈（HPACK/Huffman/ALPN）全部自主实现",
+    "注解驱动 MVC，适合作为理解 Web 服务器原理的源码教材"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502793"
+  },
+  {
+   "id": "a244",
+   "title": "AI 驱动业务漏洞挖掘：从业务规则建模到攻击路径验证｜QCon 上海",
+   "summary": "QCon 上海议题，讲如何用 AI 对复杂业务做规则建模，并自动推导、验证攻击路径，属于安全测试的前沿实践。",
+   "content": "信息安全方向的同学注意：传统漏洞扫描器只能发现 SQL 注入、XSS 这类通用问题，但真正的业务漏洞（越权、支付逻辑绕过、状态机缺陷）需要理解业务规则。这个议题的思路是：先把业务规则建模成机器可理解的形式，再让 AI 推导出可能的攻击路径并自动验证。这正好对应你们《Web 安全》《渗透测试》课程里最难讲清楚的部分——逻辑漏洞。建议做法：拿一个开源电商或教务系统，手动梳理它的业务规则（谁能改谁的订单、状态怎么流转），然后尝试用 AI 辅助列出越权路径，再用 Burp 手工验证。这套「建模—推导—验证」的方法论写进简历，比只会用工具强得多。",
+   "source": "InfoQ中文",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Burp Suite"
+   ],
+   "diff": 3,
+   "scene": "求职准备/简历加分",
+   "value": "**业务逻辑漏洞是安全岗面试的高频考点，掌握 AI 辅助挖掘方法能让你脱颖而出**",
+   "courses": "对应《Web 安全》《渗透测试》，用于练习业务逻辑漏洞挖掘",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "AI 对业务规则建模，自动推导并验证攻击路径",
+    "聚焦越权、支付逻辑绕过等通用扫描器发现不了的业务漏洞",
+    "建议用开源系统练习「建模—推导—验证」完整流程"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/mDiczbGJpHNMU6e0qBX1?utm_source=rss&utm_medium=article",
+   "cover": "img/a244.webp"
+  },
+  {
+   "id": "a245",
+   "title": "Faultline：用 AI 事件记忆 Agent 做故障响应，把事故报告变成可检索知识",
+   "summary": "Faultline 是一个 AI 事件记忆 Agent，把历史故障报告结构化存储，在下次故障时自动检索相似案例辅助定位。",
+   "content": "这个项目解决一个真实痛点：服务出故障时，工程师排查、修复、写报告，但下次遇到类似问题，那份报告早就找不到了。Faultline 把历史事故报告变成可检索的记忆库，新故障发生时自动匹配相似案例。对软件工程和信息安全专业都实用——运维排障、安全事件响应都是这个套路。建议做法：用 Python 或 Java 写一个简化版，输入是 Markdown 格式的故障报告，用向量数据库（如 Chroma）做相似度检索，前端用简单的搜索框。这个项目工作量适中，技术栈通用，非常适合作为课设或简历项目，面试时能讲清楚「为什么用向量检索而不是关键词」就是加分项。",
+   "source": "DEV Community",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python",
+    "向量数据库"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一个技术栈通用、痛点真实的 AI 项目，做完能直接写进简历当项目经历**",
+   "courses": "对应《软件工程》《数据库原理》，用于课设项目实践",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "把历史故障报告结构化为可检索记忆库，新故障自动匹配相似案例",
+    "技术栈通用：向量数据库 + 检索 + 简单前端",
+    "适合作为课设或简历项目，可讲清向量检索 vs 关键词检索的取舍"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Faultline: An AI Incident-Memory Agent for Smarter Incident Response",
+   "link": "https://dev.to/shyam_muddana/faultline-an-ai-incident-memory-agent-for-smarter-incident-response-3gn",
+   "cover": "img/a245.webp"
+  },
+  {
+   "id": "a246",
+   "title": "Scrapy 橙皮书 2.19 版发布：基于最新 Scrapy 的中文爬虫实战教程",
+   "summary": "Scrapy 橙皮书教程更新至 2.19 版本，通过实例带你一步步掌握 Scrapy 爬虫框架核心。",
+   "content": "爬虫是数据采集的基础技能，信息安全方向做资产测绘、软件工程方向做数据抓取都用得上。这本橙皮书是中文圈公认的 Scrapy 入门资料，现在跟上了 2.19 版本。建议学习路径：先跟着教程跑通一个简单爬虫（比如抓取豆瓣电影列表），理解 Spider、Item、Pipeline、Middleware 四个核心概念，然后自己加一个需求——比如把数据存进 MySQL 或做增量去重。注意：学爬虫一定要同时了解 robots.txt 和相关法律边界，信息安全专业的同学更要清楚「授权测试」和「非法入侵」的区别，别把技术用错地方。",
+   "source": "开源中国",
+   "date": "2026-09-28",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python",
+    "Scrapy"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**爬虫是数据采集的通用技能，一本跟得上版本的中文教程能帮你少踩很多坑**",
+   "courses": "对应《Python 程序设计》《Web 安全》，用于数据采集与资产测绘练习",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "中文 Scrapy 教程更新至 2.19 版本，实例驱动",
+    "掌握 Spider/Item/Pipeline/Middleware 四大核心概念",
+    "务必同时了解 robots.txt 与法律边界，区分授权测试与非法入侵"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502775"
+  },
   {
    "id": "a237",
    "title": "Swift 6.4 发布：内置 Subprocess 1.0、跨语言互操作增强、Wasm 性能大幅提升",
@@ -60,7 +236,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 70,
    "brief": [
     "Cascade Agent 框架：Token 降 23%、成本降 32%",
@@ -4008,178 +4184,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7689030180351017011"
-  },
-  {
-   "id": "a122",
-   "title": "LangGraph 入门实战：StateGraph、条件路由与 Agent 工具调用循环",
-   "summary": "从 Chain 为什么不够讲起，系统介绍 LangGraph 的 StateGraph 构建、条件路由和 Agent 工具调用循环三个核心概念，附代码示例。",
-   "content": "链式调用 prompt→model→parser 只能处理线性流程，一旦需要分支判断、循环调用工具、维护多轮状态就不够用了。这篇教程用 LangGraph 的 StateGraph 把 Agent 的工作流画成图：节点是处理步骤，边是流转条件，状态在节点间传递。条件路由解决「根据模型输出决定下一步走哪」的问题，工具调用循环解决「模型调用工具→拿到结果→再决定是否继续调用」的闭环。如果你在做智能客服、自动化流程类的课设或毕设，这套图结构比硬编码 if-else 清晰得多。",
-   "source": "掘金",
-   "date": "2026-09-24",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "LangGraph"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**掌握 LangGraph 图结构编排，让你的 Agent 项目从 demo 级别升级到可讲清楚架构的程度。**",
-   "courses": "对应《人工智能导论》《软件工程》中的智能系统设计部分，可用于毕设的 Agent 架构设计章节。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "StateGraph 用图结构替代链式调用，适合有分支和循环的 Agent 场景",
-    "条件路由 + 工具调用循环是构建自主 Agent 的两个核心模式",
-    "有代码示例，跟着敲一遍就能理解 Agent 编排的基本思路"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7688988203789467648"
-  },
-  {
-   "id": "a123",
-   "title": "GitHub 安全实验室开源 AI 模糊测试 Agent：自动挖漏洞的实战框架",
-   "summary": "GitHub Security Lab 发布基于 Taskflow Agent 的 AI 模糊测试工作流，用 AI 自动生成测试用例、分析崩溃、定位安全漏洞。",
-   "content": "模糊测试（Fuzzing）是发现内存泄漏、缓冲区溢出等安全漏洞的经典手段，但传统方式需要人工编写大量测试用例。GitHub 这次把 AI Agent 接入模糊测试流程：Agent 自动分析目标代码、生成有针对性的输入、监控崩溃并归类漏洞类型。对信息安全专业的同学来说，这是「AI+安全」最直接的落地场景——你学的漏洞挖掘、渗透测试，未来很可能就是和 AI Agent 协作完成。文章附完整工作流配置，可以在自己的靶场环境里跑一遍。",
-   "source": "GitHub Blog",
-   "date": "2026-09-24",
-   "cat": "tool",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "GitHub Security Lab"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分/求职准备",
-   "value": "**信息安全方向的同学，这是你简历上「AI+安全」项目经历的最佳素材来源。**",
-   "courses": "对应《网络安全》《渗透测试》课程中的漏洞挖掘实验环节，可作为课程设计的安全工具实践项目。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "AI Agent 自动完成模糊测试的用例生成、崩溃分析和漏洞归类",
-    "信息安全专业可直接在靶场环境复现，理解 AI 辅助漏洞挖掘的流程",
-    "GitHub 官方出品，工作流配置开源可复用"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
-   "link": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
-   "cover": "img/a123.webp"
-  },
-  {
-   "id": "a124",
-   "title": "你的 Agent 自由文本输出，是一个你从未设计过的 API",
-   "summary": "大多数 Agent demo 失败的原因不在模型，而在模型输出进入程序的那条边界——字符串没有 schema，导致下游代码脆弱不堪。",
-   "content": "Agent 返回一段自然语言，你的代码用正则去抠字段，模型换个措辞就崩了。这篇文章点出一个被忽视的工程问题：模型输出到程序之间缺少结构化契约。解决方案是用 JSON Schema、Pydantic 等工具强制约束输出格式，把「自由文本」变成「有类型的 API 响应」。对软件工程同学来说，这是接口设计中「契约优先」思想在 AI 场景的延伸——你写 REST API 时会定义 DTO，调大模型时同样需要。建议在自己的 Agent 项目里加一层输出校验。",
-   "source": "DEV Community",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "JSON Schema"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**一个被 90% 的 Agent 项目忽视的工程问题，解决它你的项目稳定性直接上一个台阶。**",
-   "courses": "对应《软件工程》中的接口设计与数据校验章节，可用于课设中 AI 模块的输出处理。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Agent 输出是自由文本，直接解析极其脆弱，模型换个说法就崩",
-    "用 JSON Schema 或 Pydantic 给模型输出加结构化约束",
-    "本质是接口设计中「契约优先」思想在 AI 场景的应用"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Your Agent's Free-Text Output Is an API You Never Designed",
-   "link": "https://dev.to/ruixuan_jiang_663eb75f3fa/your-agents-free-text-output-is-an-api-you-never-designed-3mb9",
-   "cover": "img/a124.webp"
-  },
-  {
-   "id": "a125",
-   "title": "React Flow 不帮你做的事：用领域规则构建图编辑器",
-   "summary": "作者用 React Flow 构建家谱图编辑器时发现，库只负责渲染节点和连线，领域规则（谁能连谁、什么关系用什么线型）全得自己实现。",
-   "content": "React Flow 是一个流行的节点图渲染库，但文章作者在做一个家谱图编辑器时发现：库帮你画节点和连线，但「父子关系用实线、婚姻关系用虚线、同一个人不能既是父亲又是兄弟」这些领域规则，库一概不管。你需要自己实现连接校验、类型约束、布局算法。这对前端方向的同学很有参考价值——很多课设会涉及流程图、拓扑图、关系图，选型时要想清楚哪些是库的能力、哪些必须自己写。文章给出了完整的规则引擎设计思路。",
-   "source": "DEV Community",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React Flow"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**做图编辑类课设前先读这篇，避免选完库才发现核心逻辑全要自己写。**",
-   "courses": "对应《Web 前端开发》《人机交互》课程中的可视化项目，可用于课设的图形编辑器模块。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "React Flow 只负责渲染，领域规则（连接合法性、线型语义）需自行实现",
-    "适合做流程图、拓扑图、关系图类课设的前端同学参考选型和架构",
-    "文章给出规则引擎的完整设计思路，可直接借鉴"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "What React Flow Doesn't Do For You: Building a Diagram Editor With Domain Rules",
-   "link": "https://dev.to/ruixuan_jiang_663eb75f3fa/what-react-flow-doesnt-do-for-you-building-a-diagram-editor-with-domain-rules-2e3o",
-   "cover": "img/a125.webp"
-  },
-  {
-   "id": "a126",
-   "title": "腾讯 QClaw 宣布 12 月停运：本地 Agent 路线的一次撤退",
-   "summary": "腾讯电脑管家 QClaw 团队公告将于 2026 年 12 月 24 日正式停止运营，即日起停止新用户注册和订阅购买，基于 OpenClaw 的本地 Agent 路线被放弃。",
-   "content": "QClaw 是腾讯基于 OpenClaw 做的本地 Agent 产品，上线不到一年就宣布停运。这件事对技术选型有直接启示：依赖某个大厂特定 Agent 平台做开发，平台一停你的工作就白费。对软件工程和信息安全同学来说，选择技术栈时优先考虑开源、标准化、可迁移的方案——比如 LangChain/LangGraph 这类社区驱动的框架，而不是绑定某家云厂商的专有 Agent 服务。这不是唱衰，是提醒你把精力投在可复用的能力上。",
-   "source": "开源中国",
-   "date": "2026-09-24",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**技术选型时的一个真实教训：别把项目绑在随时可能停运的专有平台上。**",
-   "courses": "对应《软件工程》中的技术选型与风险评估章节，可作为课程讨论案例。",
-   "tags": [
-    "行业动态",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "QClaw 停运说明绑定大厂专有 Agent 平台存在技术选型风险",
-    "建议优先选择开源、标准化的 Agent 框架，保证技能可迁移",
-    "对做技术选型和职业规划都有参考价值"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502726"
   }
  ],
  "jobs": [
