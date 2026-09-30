@@ -1,6 +1,238 @@
 {
- "updatedAt": "2026-09-30 06:15",
+ "updatedAt": "2026-09-30 10:15",
  "news": [
+  {
+   "id": "a274",
+   "title": "DeepSeek开源昇腾基础组件：国产AI芯片软件栈开始要人",
+   "summary": "DeepSeek官方开源面向昇腾的基础组件，与昇腾共建AI芯片软件生态，意味着国产算力栈的适配、调优、算子开发岗位将持续放量。",
+   "content": "这条对工业软件实验班的同学价值最直接：国产AI芯片要跑起来，缺的不是芯片本身，而是驱动、算子库、通信库、编译工具链这一整套软件。DeepSeek把昇腾基础组件开源，等于把「怎么在国产卡上把模型跑通、跑快」的经验摊开给你看。建议做法：先在你的Linux环境里把仓库拉下来读目录结构，重点看算子实现和通信部分，再对照《操作系统》《编译原理》里学过的内存管理、并行调度去理解。简历上写「跑通过国产算力栈的推理/训练demo」，比写十行CRUD有辨识度。",
+   "source": "量子位",
+   "date": "2026-09-30",
+   "cat": "stack",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "C++",
+    "昇腾"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**国产算力软件栈是工业软件方向少见的、真实存在的增量岗位入口。**",
+   "courses": "对应《操作系统》《编译原理》《高性能计算》，把课上的并行与内存知识落到真实工程代码上。",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "国产AI芯片的瓶颈在软件栈，不在硬件",
+    "开源组件是读源码、练系统编程的好素材",
+    "昇腾生态相关岗位会持续增加"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/499263.html"
+  },
+  {
+   "id": "a275",
+   "title": "DeepSeek首次公开V4.1 Agent训练底座DSec：弹性计算怎么做的",
+   "summary": "DeepSeek在知乎独家发文，系统阐释弹性计算平台DSec，这是支撑V4.1 Agent训练的基础设施。",
+   "content": "别被「大模型训练」四个字吓退，这篇长文真正的干货是工程侧：任务如何调度、算力如何弹性伸缩、失败如何重试、资源如何隔离。这些恰好是《操作系统》《分布式系统》的核心命题，只是换了个规模。读法建议：不要逐段啃，先看架构图，把「调度器—资源池—任务队列」三层画成自己的图，再挑一个你最熟的模块（比如任务重试）看它怎么处理幂等。信息安全方向的同学可以额外关注多租户隔离与权限边界，这是云平台最容易被攻击的面。",
+   "source": "量子位",
+   "date": "2026-09-30",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "分布式系统"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「大模型基础设施」翻译成你课表上的操作系统与分布式知识，面试时能讲出层次。**",
+   "courses": "对应《操作系统》《分布式系统》，可作为课程设计选题背景。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "弹性计算=调度+隔离+容错，全是操作系统课的内容",
+    "架构图优先，别陷进公式",
+    "多租户隔离是安全方向的切入点"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/09/499308.html",
+   "cover": "img/a275.webp"
+  },
+  {
+   "id": "a276",
+   "title": "Cloudflare开源EmDash 1.0：沙箱化插件注册表怎么做才安全",
+   "summary": "Cloudflare发布面向Astro的CMS EmDash 1.0，核心亮点是沙箱化插件、去中心化注册表和对Agent友好的扩展机制。",
+   "content": "这是本期少见的、前端和安全两边都能吃的技术内容。插件系统最大的难题是：第三方代码凭什么能在你的进程里跑？EmDash给的答案是沙箱隔离+显式权限声明+去中心化注册表校验。前端同学可以学它的插件接口设计——如何用一套稳定的契约让扩展不破坏主程序；安全同学可以重点看沙箱边界、权限最小化和供应链校验，这正好是《Web安全》里「第三方依赖风险」的真实案例。动手建议：本地起一个Astro项目装上EmDash，写一个最小插件，再尝试越权访问主程序数据，看它怎么拦住你。",
+   "source": "DEV Community",
+   "date": "2026-09-30",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "Astro",
+    "Node.js"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个能同时写进前端作品集和安全课程报告的插件沙箱案例。**",
+   "courses": "对应《Web前端开发》《Web安全》，可做课程设计或安全实验。",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "插件沙箱=权限最小化+隔离执行，安全课的直接案例",
+    "前端可学插件契约设计与扩展点划分",
+    "动手写一个越权插件，验证沙箱是否真的拦得住"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "EmDash's Sandboxed Plugin Registry: How Cloudflare Built Agent-Friendly CMS Extensions",
+   "link": "https://dev.to/mech_app_ai/emdashs-sandboxed-plugin-registry-how-cloudflare-built-agent-friendly-cms-extensions-24ee",
+   "cover": "img/a276.webp"
+  },
+  {
+   "id": "a277",
+   "title": "阿里Qoder团队复盘：AI Native团队怎么组织软件生产",
+   "summary": "钛媒体记录阿里Qoder团队如何用AI Native方式重组研发流程，从项目室走到Agent时代入口。",
+   "content": "这篇不是产品发布，是研发组织方式的复盘，对准备秋招和实习的同学有实际参考价值。核心信息是：当编码环节被Agent大量接管后，人的工作重心前移到需求拆解、上下文供给和结果验收。也就是说，会写代码只是入场券，能说清楚「要什么、怎么验证对不对」才是分水岭。建议带着问题读：他们的代码评审怎么做？测试用例谁来写？出错了责任怎么划？把答案对照你现在的课设流程，看看哪些环节可以立刻用Agent替掉。面试被问「你怎么用AI写代码」，能讲出流程而不只是「我用Copilot」，差距很大。",
+   "source": "钛媒体",
+   "date": "2026-09-30",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [],
+   "value": "**提前理解AI Native研发流程，秋招面试时比同龄人多一层视角。**",
+   "courses": "对应《软件工程》，把需求分析、评审、测试环节与文中实践对照。",
+   "tags": [
+    "求职就业",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "AI接管编码后，人的价值前移到需求拆解与验收",
+    "带着「评审/测试/追责」三个问题读",
+    "面试谈AI协作要讲流程，不要只报工具名"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8156900.html"
+  },
+  {
+   "id": "a278",
+   "title": "个人Agent与企业Agent正在分道扬镳：一张格局图",
+   "summary": "钛媒体梳理个人Agent与企业Agent的定位分化、全球格局与演进路径，前者走向数字生活中枢，后者走向业务流程节点。",
+   "content": "如果你在纠结「Agent方向该往哪投」，这篇给了个可用的坐标系。个人Agent拼的是体验、多模态交互和隐私边界；企业Agent拼的是权限、审计、系统集成和稳定性——后者才是软件工程与信息安全专业的主场。企业Agent要接ERP、要过等保、要留操作日志、要能回滚，这些全是工程与合规问题，不是模型问题。建议做法：把文中提到的企业Agent能力项抄下来，对照你学过的《数据库》《软件工程》《信息安全》逐条打勾，缺哪块就在课设里补哪块。",
+   "source": "钛媒体",
+   "date": "2026-09-30",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**帮你判断Agent赛道里哪一段真正吃你的专业技能。**",
+   "courses": "对应《软件工程》《信息安全》，可作为毕业设计选题方向参考。",
+   "tags": [
+    "行业动态",
+    "求职就业",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "个人Agent拼体验，企业Agent拼权限与审计",
+    "企业Agent是软件工程+信息安全的主场",
+    "用能力清单反查自己的课程短板"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8157089.html"
+  },
+  {
+   "id": "a279",
+   "title": "DeepSeek Harness桌面版实测：万物皆插件的个人助理",
+   "summary": "DeepSeek Harness推出桌面端预览版，主打插件化扩展，被评价为更像个人助理。",
+   "content": "工具类里这条最值得动手。它的设计思路是「万物皆插件」——能力通过插件挂载，而不是塞进一个巨型应用。对软件工程学生来说，这是一个现成的插件架构观察样本：插件如何注册、如何声明权限、如何与主程序通信、升级时如何兼容。建议花一个下午装上，然后做两件事：一是翻它的插件目录，看接口定义；二是自己写一个最小插件（比如读取本地某个文件并展示），跑通完整链路。这个过程能让你在简历上写「实现过插件扩展」而不是「用过AI工具」。注意桌面端意味着本地文件权限，安全方向的同学顺手看看它的权限提示是否清晰。",
+   "source": "爱范儿",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "插件架构"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**一个下午就能跑通的插件开发练手项目，比刷教程实在。**",
+   "courses": "对应《软件工程》《Web前端开发》，可做课程设计中的扩展模块。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "插件化架构是可直接观察的工程样本",
+    "动手写一个最小插件，跑通注册到调用全链路",
+    "桌面端涉及本地文件权限，安全方向可顺带评估"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1682532?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a279.webp"
+  },
+  {
+   "id": "a280",
+   "title": "Muse卖键盘顺手泄露家庭住址：Agent权限边界的一次真实翻车",
+   "summary": "作者让Muse帮忙卖键盘，结果Agent把家庭地址等信息一并暴露，暴露了个人Agent的权限与隐私设计缺陷。",
+   "content": "这条对信息安全方向的同学是现成的案例分析素材。问题不在模型「不听话」，而在权限设计：Agent被授予了访问本地数据的能力，却没有做字段级的最小化授权和敏感信息过滤。拆解思路可以按三步走：一是数据流——地址从哪个接口被读出来、经过哪些环节；二是权限模型——为什么一个「卖东西」的任务能拿到家庭住址；三是防护设计——如果让你来改，你会加白名单、脱敏还是人工确认。把这三步写成一份两页的分析，放进《信息安全》课程报告或面试作品集，比空谈「AI有隐私风险」有说服力得多。",
+   "source": "爱范儿",
+   "date": "2026-09-29",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**把一条隐私事故新闻，变成信息安全课程报告里的完整案例分析。**",
+   "courses": "对应《信息安全》《Web安全》，可做隐私与权限专题作业。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "根因是权限最小化缺失，不是模型能力问题",
+    "按数据流—权限模型—防护设计三步拆解",
+    "产出两页分析可直接用于课程报告"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1682462?utm_source=rss&utm_medium=rss&utm_campaign="
+  },
   {
    "id": "a269",
    "title": "Java 近期动态盘点：JDK 27、Open J Proxy、A2A Jakarta 等新进展",
@@ -23,7 +255,7 @@
     "行业动态",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "JDK 27、Open J Proxy、A2A Jakarta 等多项更新集中发布",
@@ -3937,255 +4169,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7688926238557388815"
-  },
-  {
-   "id": "a161",
-   "title": "React 渲染与 Fiber：从同步递归到可中断的并发渲染",
-   "summary": "掘金系列文章进入框架内核阶段，讲解 React 从同步递归渲染到 Fiber 可中断并发渲染的演进逻辑。",
-   "content": "这是「框架内核」系列的一篇，把 React 近几年的大事件串成一条线：Concurrent Mode、Suspense、useTransition、React 19，底层都指向 Fiber 架构——把渲染拆成可中断、可恢复的小单元。对前端方向的同学，这是从「会用 hooks」到「懂为什么」的关键一跳。建议边读边做两件事：一是用 Performance 面板录一次大列表渲染，看长任务如何被切分；二是自己写一个极简的可中断调度器（任务队列 + 时间片），几十行就能跑通，理解会立刻不一样。",
-   "source": "掘金",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**想在前端面试里讲清 React 19 的并发特性，Fiber 这层必须打通，这篇是系统入口。**",
-   "courses": "对应《Web 前端开发》《人机交互技术》，适合作为前端进阶自学材料。",
-   "tags": [
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "串起 Concurrent Mode、Suspense、useTransition、React 19",
-    "核心是 Fiber 的可中断、可恢复渲染模型",
-    "建议配合 Performance 面板观察长任务切分",
-    "可手写极简时间片调度器加深理解"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689030783365791770"
-  },
-  {
-   "id": "a162",
-   "title": "DoorDash 用多 Agent LLM 系统清理 6 万个 Feature Flag",
-   "summary": "InfoQ 报道 DoorDash 如何用多 Agent 的大模型系统，批量清理代码库中积压的 6 万个 Feature Flag。",
-   "content": "Feature Flag（功能开关）用久了会变成技术债：没人敢删，也不知道哪个还在生效。DoorDash 的做法是用多个 LLM Agent 分工——有的负责扫描代码定位开关、有的判断是否已全量、有的生成删除改动，最终清理了 6 万个。对软件工程和工业软件方向的同学，这案例的价值在于「大型代码库的自动化重构」这个真实工程问题：它涉及静态分析、变更风险评估、人工复核流程。可以想想如果换成你们课设的代码库，怎么设计一个只做「识别 + 建议」的保守版本。",
-   "source": "InfoQ中文",
-   "date": "2026-09-26",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "diff": 3,
-   "scene": "求职准备",
-   "value": "**它展示了 AI 在真实工程里怎么处理技术债，是理解「AI 辅助研发」落地形态的好样本。**",
-   "courses": "对应《软件工程》《软件测试与维护》，可作技术债与代码重构章节的案例讨论。",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "多 Agent 分工完成扫描、判断、生成改动",
-    "解决的是大型代码库技术债治理问题",
-    "涉及静态分析与变更风险评估",
-    "可借鉴做「只建议不自动改」的保守版工具"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/gk4rWsQg09PWTFTZlJE3?utm_source=rss&utm_medium=article",
-   "cover": "img/a162.webp"
-  },
-  {
-   "id": "a163",
-   "title": "用自然语言查询 Elastic Agent 的追踪数据：定位 Agent 为什么变慢",
-   "summary": "掘金文章介绍如何用自然语言分析 Elastic Agent Builder 的追踪数据，回答 token 消耗、工具错误率、慢轮次等性能问题。",
-   "content": "Agent 上线后最常见的问题是「它为什么变慢、为什么变贵」。文章给出四个可查询的性能维度：按模型统计 token 消耗、工具调用错误率、缓慢的对话轮次等，并用自然语言直接问追踪数据。对做 AI 应用的同学，这是一套可观测性思路：任何 LLM 应用都该记录每次调用的模型、耗时、token、工具结果。建议你在自己的课设项目里加一层最简埋点（一张日志表就够），把每次请求的耗时和 token 存下来，再写个统计接口。有数据，优化才有方向。",
-   "source": "掘金",
-   "date": "2026-09-25",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Elastic",
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**AI 应用不埋点就是黑盒，这篇给了你一套可直接照搬的性能观测维度。**",
-   "courses": "对应《软件工程综合实践》，可在课设中增加调用日志与性能统计模块。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "四个关键指标：token 消耗、工具错误率、慢轮次",
-    "核心思路是给 LLM 应用加可观测性埋点",
-    "课设里用一张日志表就能实现最简版本",
-    "有数据支撑才能谈性能与成本优化"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689030470210191410"
-  },
-  {
-   "id": "a152",
-   "title": "Apache Casbin Gateway 新增 Agent 外发监测：防止 AI 编程工具整仓上传代码",
-   "summary": "针对智谱 ZCode 被曝后台打包上传整个代码仓库（含 .git 历史）事件，Apache 基金会开源项目 Casbin Gateway 新增 Agent 外发监测功能，可拦截此类行为。",
-   "content": "九月中旬，智谱 AI 编程工具 ZCode 被社区发现会在后台把整个代码仓库打包上传，连 .git 历史一起传走。Apache 软件基金会旗下的 Casbin Gateway 项目随即新增了 Agent 外发监测能力，用于管理本机 AI 编程 Agent 的网络行为。对信息安全与管理专业的同学来说，这是一个极佳的课程案例：它涉及主机行为监控、数据外发检测、权限策略（Casbin 本身就是经典访问控制框架）。建议在《网络安全》《访问控制》课程设计中，用 Casbin Gateway 搭建实验环境，观察 Agent 的文件读取与网络请求行为，理解「最小权限原则」在 AI 工具场景下的落地方式。",
-   "source": "开源中国",
-   "date": "2026-09-24",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Casbin",
-    "Go"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**理解 AI 工具的数据外发风险，掌握访问控制框架的实际应用**",
-   "courses": "《网络安全》《访问控制》——用 Casbin Gateway 搭建 Agent 行为监控实验",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "ZCode 被曝后台打包上传整个代码仓库，含 .git 历史",
-    "Casbin Gateway 新增 Agent 外发监测，可拦截异常上传",
-    "Casbin 是经典访问控制框架，适合做权限策略实验",
-    "可作为《网络安全》《访问控制》课程设计案例"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502741"
-  },
-  {
-   "id": "a153",
-   "title": "SpringBootBucket 4.1.1 发布：基于 Spring Boot 4.x，全面支持 Java 25 虚拟线程",
-   "summary": "SpringBootBucket 4.x 全家桶基于 Spring Boot 4.0 编写，后者基于 Spring Framework 7.0，全面支持 Java 25 虚拟线程优化，并引入 HTTP Service Clients、原生 API 版本管理、JSpecify 空安全体系等新特性。",
-   "content": "SpringBootBucket 4.1.1 发布，这是基于最新 Spring Boot 4.x 的全家桶项目。Spring Boot 4.0 基于 Spring Framework 7.0，全面支持 Java 25（含虚拟线程优化）。核心新特性包括：HTTP Service Clients 简化远程调用、原生 API 版本管理、全面采用 JSpecify 空安全体系（默认为空，编译器防 NPE）、关键依赖升级至 Jackson 3.0 和 Tomcat 11。对 Java 方向的同学，这是了解企业级技术栈演进的好窗口。建议在《Java Web 开发》《Spring 框架》课程中，用 SpringBootBucket 作为脚手架搭建课设后端，重点体验虚拟线程在高并发场景下的性能差异，以及 JSpecify 空安全如何减少 NPE。",
-   "source": "开源中国",
-   "date": "2026-09-24",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Java 25"
-   ],
-   "value": "**掌握企业级 Java 技术栈最新演进，课设后端可直接用全家桶搭建**",
-   "courses": "《Java Web 开发》《Spring 框架》——用 SpringBootBucket 搭建课设后端，体验虚拟线程",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "基于 Spring Boot 4.0 / Spring Framework 7.0",
-    "全面支持 Java 25，含虚拟线程优化",
-    "新增 HTTP Service Clients、原生 API 版本管理",
-    "JSpecify 空安全体系，编译器层面防 NPE"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502740"
-  },
-  {
-   "id": "a154",
-   "title": "GitHub Copilot 新手教程：用 Canvas 构建自定义工作流",
-   "summary": "GitHub 官方博客发布面向初学者的教程，教你用自然语言描述所需界面，让 Copilot Agent 构建可实时使用和更新的 Canvas 工作流，减少适应工具的时间。",
-   "content": "GitHub 官方博客推出面向初学者的 Copilot Canvas 教程。核心思路：你用自然语言描述需要的界面，Agent 会构建一个可实时使用和更新的交互面板（Canvas），你和 Agent 都能在上面操作和迭代。这意味着你可以快速搭建项目看板、代码审查面板、数据可视化界面等自定义工作流，而不必花时间学习复杂工具。对软件工程专业的同学，这是提升开发效率的实用技能。建议在《软件工程》《人机交互》课程的项目实践中尝试：用 Canvas 搭建团队任务追踪面板或代码审查辅助工具，体验「描述即开发」的新范式。",
-   "source": "GitHub Blog",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "GitHub Copilot"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**学会用 Copilot Canvas 快速搭建自定义开发工作流，提升项目效率**",
-   "courses": "《软件工程》——用 Canvas 搭建团队任务追踪面板或代码审查辅助工具",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "用自然语言描述界面，Agent 自动构建可交互 Canvas",
-    "Canvas 可实时使用和更新，你和 Agent 都能操作",
-    "适合搭建项目看板、代码审查面板等自定义工作流",
-    "降低工具学习成本，聚焦实际开发任务"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/",
-   "cover": "img/a154.webp"
-  },
-  {
-   "id": "a155",
-   "title": "Agent 评估框架实战：从真实失败案例中学到的工程教训",
-   "summary": "一篇来自 DEV Community 的深度文章，分享如何构建健壮的 AI Agent 评估框架，基于真实世界中的失败案例总结工程经验。",
-   "content": "随着 Agentic AI 架构的爆发式增长，工程控制手段却明显滞后。这篇文章基于真实失败案例，分享了构建健壮 Agent 评估框架的经验教训。核心观点包括：Agent 的行为具有不确定性，传统的单元测试不足以覆盖；需要建立多层次的评估体系，包括行为追踪、边界测试、异常检测等。对软件工程和信息安全专业的同学，这是理解 AI 系统质量保障的前沿实践。建议在《软件测试》《软件工程》课程中，将 Agent 评估作为专题讨论，尝试为简单的 Agent 应用设计评估方案，理解「不可确定性系统」的测试挑战。",
-   "source": "DEV Community",
-   "date": "2026-09-26",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**掌握 AI Agent 评估框架的设计思路，为不可确定性系统建立质量保障**",
-   "courses": "《软件测试》《软件工程》——为简单 Agent 应用设计评估方案",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Agentic AI 架构增长快，但工程控制手段滞后",
-    "传统单元测试不足以覆盖 Agent 的不确定行为",
-    "需要多层次评估体系：行为追踪、边界测试、异常检测",
-    "适合作为《软件测试》课程的专题案例"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building a Robust Agent Evaluation Framework: Lessons from Real-World Failures",
-   "link": "https://dev.to/tamizuddin/building-a-robust-agent-evaluation-framework-lessons-from-real-world-failures-3b70",
-   "cover": "img/a155.webp"
   }
  ],
  "jobs": [
