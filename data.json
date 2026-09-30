@@ -1,6 +1,211 @@
 {
- "updatedAt": "2026-09-29 10:14",
+ "updatedAt": "2026-09-30 00:02",
  "news": [
+  {
+   "id": "a257",
+   "title": "隔离内网下跑 AI Agent 的工程实战：从权限到落地的完整踩坑记录",
+   "summary": "一位开发者在隔离内网环境中搭建 AI Agent 的完整工程实践，涵盖权限控制、依赖安装、API 调用等真实问题。",
+   "content": "很多同学做课设时想接大模型，但学校机房或企业内网根本连不上外网，这篇实战文正好解决这个痛点。作者在隔离内网环境下搭建 AI Agent，详细记录了如何离线部署模型、如何在没有外网的情况下管理依赖、如何设计 Agent 的权限边界防止它读到不该读的文件。对信息安全专业的同学尤其有价值——Agent 要读代码、改文件、装依赖，权限管控做不好就是安全事故。建议结合《信息安全导论》和《软件工程》课程，把这篇当作课设参考，重点看它的权限设计思路和离线部署方案。",
+   "source": "掘金",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent",
+    "内网部署"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**内网环境做 AI 课设不再卡壳，权限设计思路直接可用**",
+   "courses": "《信息安全导论》《软件工程》——课设中搭建 Agent 时参考权限与部署方案",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "隔离内网部署 AI Agent 的完整流程与踩坑记录",
+    "Agent 权限管控设计：防止越权读文件、泄露密钥",
+    "适合课设或实验环境无法连外网时参考"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690784318688297010"
+  },
+  {
+   "id": "a258",
+   "title": "NVIDIA 开源 Agent 权限管控工具：让 Coding Agent 不再乱读你的密钥",
+   "summary": "NVIDIA 开源了一套 AI Agent 权限管控方案，解决 Coding Agent 在修 Bug 时越权访问文件、泄露密钥的安全隐患。",
+   "content": "让 Coding Agent 帮你修 Bug 很爽，但它需要读代码、改文件、装依赖、调 API 的权限——你有没有想过它可能读到 .env 里的密钥，或者连上不该连的服务？NVIDIA 这次开源的权限管控工具就是解决这个问题的。对信息安全专业的同学来说，这是一个绝佳的课程设计素材：你可以研究它的权限模型设计，对比 RBAC、最小权限原则在实际 Agent 场景中怎么落地。软件工程的同学也可以用它在课设中给 Agent 加上安全边界，简历上写「为 AI Agent 设计权限管控模块」比「调了个 API」有分量得多。",
+   "source": "掘金",
+   "date": "2026-09-29",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent",
+    "权限管控"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**给 Agent 加权限管控，既是安全课设好题也是简历亮点**",
+   "courses": "《信息安全导论》《访问控制》——用其权限模型做课程设计或实验",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "NVIDIA 开源 Agent 权限管控方案，解决越权访问问题",
+    "涉及最小权限原则、密钥保护等安全设计",
+    "可作为信息安全课设或简历项目的技术底座"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690756305615224867"
+  },
+  {
+   "id": "a259",
+   "title": "从 LLM 到 Agent 一文搞懂：写课设前先弄明白 Agent 到底是什么",
+   "summary": "系统梳理从大语言模型到 AI Agent 的演进逻辑，讲清楚 Agent 的核心组成：规划、记忆、工具调用。",
+   "content": "现在到处都在说 Agent，但很多同学其实分不清 LLM 和 Agent 的区别。这篇科普文把演进逻辑讲得很清楚：LLM 是你问它答，Agent 是它能自己规划步骤、调用工具、根据结果调整策略。核心三件套是规划（Planning）、记忆（Memory）、工具使用（Tool Use）。如果你要做带 AI 功能的课设，比如智能问答系统、自动化测试助手，先读这篇能帮你选对架构——不是所有场景都需要 Agent，有时候一个 Prompt 加函数调用就够了。建议配合《人工智能导论》或《软件工程》课程阅读，作为技术选型的入门参考。",
+   "source": "掘金",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent",
+    "LLM"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**做 AI 课设前先读这篇，避免架构选型走弯路**",
+   "courses": "《人工智能导论》《软件工程》——技术选型阶段的入门阅读材料",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "讲清 LLM 与 Agent 的本质区别及 Agent 三大核心能力",
+    "帮你判断课设项目该用 LLM 还是 Agent 架构",
+    "规划、记忆、工具调用的概念一次搞懂"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7690784318688002098"
+  },
+  {
+   "id": "a260",
+   "title": "用 JavaScript 全屏 API + 唤醒锁 API：课件演示、视频播放器一次搞定",
+   "summary": "freeCodeCamp 教程：如何用 Fullscreen API 让页面全屏，配合 Wake Lock API 防止屏幕休眠，附完整代码示例。",
+   "content": "前端同学迟早会遇到这个需求：「能不能全屏？」不管是做课件演示、视频播放器、大屏看板还是课设里的画板工具，Fullscreen API 都是必备技能。这篇教程还多教了一个 Wake Lock API——防止屏幕自动休眠，做演示类或监控类页面时特别有用。两个 API 都不难，浏览器原生支持，不需要引入任何库。建议前端方向的同学花半小时跟着敲一遍，把这两个 API 封装成工具函数放进自己的代码库里。下次课设做展示页面时直接调用，比同学多一手。",
+   "source": "freeCodeCamp",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript",
+    "Web API"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**半小时掌握两个实用 Web API，课设展示页面直接加分**",
+   "courses": "《Web 前端开发》——DOM 与浏览器 API 章节的实战补充",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Fullscreen API + Wake Lock API 的完整用法与代码示例",
+    "适用于课件演示、视频播放器、大屏看板等场景",
+    "浏览器原生支持，无需第三方库"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Use the Fullscreen API in JavaScript (and Keep the Screen Awake with the Wake Lock API)",
+   "link": "https://www.freecodecamp.org/news/fullscreen-api-javascript-wake-lock/",
+   "cover": "img/a260.webp"
+  },
+  {
+   "id": "a261",
+   "title": "SolidStart 2 迁移到 Vite 8：前端框架选型时值得关注的一个信号",
+   "summary": "SolidStart 2 用 Vite 8 取代 Vinxi 构建工具，项目进入维护模式，反映了前端元框架生态的整合趋势。",
+   "content": "如果你在做前端课设时纠结选哪个元框架，这条新闻值得看一眼。SolidStart 2 把底层构建工具从 Vinxi 换成了 Vite 8，同时项目进入维护模式——意思是核心功能稳定了，不再频繁加新特性。这透露两个信号：一是 Vite 作为构建工具的地位进一步巩固，学 Vite 的投入回报比很高；二是前端元框架正在从百花齐放走向整合，选型时优先考虑生态成熟的方案更稳妥。对软件工程专业做毕设或课程项目的同学，建议把精力放在 React/Vue + Vite 的组合上，SolidStart 可以作为了解前端架构演进的补充阅读。",
+   "source": "InfoQ中文",
+   "date": "2026-09-29",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vite",
+    "SolidStart"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**看懂前端构建工具趋势，课设和毕设选型不踩坑**",
+   "courses": "《Web 前端开发》——了解现代前端构建工具链的演进",
+   "tags": [
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "SolidStart 2 用 Vite 8 替代 Vinxi，项目进入维护模式",
+    "反映 Vite 构建工具地位巩固、元框架生态整合的趋势",
+    "前端选型建议优先 React/Vue + Vite 组合"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/v0NAyDPc0bZ2T8HMWfv2?utm_source=rss&utm_medium=article",
+   "cover": "img/a261.webp"
+  },
+  {
+   "id": "a262",
+   "title": "人脸验证系统怎么设计才安全又可扩展？架构思路值得安全课设参考",
+   "summary": "InfoQ 文章讨论人脸验证系统的安全设计与可扩展架构，涉及活体检测、数据加密、防攻击等关键设计点。",
+   "content": "人脸验证看起来简单——拍个照比对就行，但真正做安全设计要考虑的东西很多：怎么防照片攻击（活体检测）、人脸特征数据怎么加密存储、高并发下怎么保证识别速度。这篇文章从架构层面梳理了这些设计决策。信息安全专业的同学可以把这篇当作课程设计的架构参考，比如做「校园门禁人脸识别系统」时，不只是调个 API 就完事，而是要说明你的系统怎么防伪造、数据怎么保护、扩展性怎么保证。这些设计思路写在课设报告里，比单纯贴代码有深度得多。",
+   "source": "InfoQ中文",
+   "date": "2026-09-29",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "人脸识别",
+    "系统安全"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做人脸识别课设时，这些安全设计点让你的报告更有深度**",
+   "courses": "《信息安全导论》《系统安全》——课设系统设计章节的参考材料",
+   "tags": [
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "人脸验证系统的安全设计要点：活体检测、数据加密、防攻击",
+    "可扩展架构思路：高并发下的识别性能保障",
+    "适合作为信息安全课设的系统设计参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/wLJHYzKDUdt5wSyZ06Fp?utm_source=rss&utm_medium=article",
+   "cover": "img/a262.webp"
+  },
   {
    "id": "a252",
    "title": "Java AI 应用异步化实战：Spring AI + 虚拟线程 + 背压，一套可落地接口设计",
@@ -26,7 +231,7 @@
     "AI工具",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Spring AI 流式输出 + 虚拟线程，解决 AI 接口阻塞问题",
@@ -3990,221 +4195,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/VSIsPFiO2hrjBi30wDfE?utm_source=rss&utm_medium=article",
    "cover": "img/a146.webp"
-  },
-  {
-   "id": "a139",
-   "title": "GPT-6 Astra 29小时攻破浏览器，成OpenAI首个「严重级」安全模型",
-   "summary": "GPT-6 Astra 在安全测试中仅用29小时就攻破了浏览器防护，被OpenAI标记为首个「严重级」模型，这意味着AI驱动的自动化漏洞挖掘已进入实战阶段。",
-   "content": "这条新闻对信息安全专业的同学是直接预警：AI 已经能自主完成浏览器漏洞挖掘与利用链构建，29 小时这个数字说明攻击面正在被 AI 指数级放大。你们在《Web安全》《渗透测试》课上学的手工挖洞流程，未来对手可能是自动化 Agent。建议现在就开始关注 OWASP Top 10 在 AI 辅助攻击下的新变种，把「AI 辅助代码审计」「自动化 fuzzing」纳入自己的技能树。同时这也是防守方的机会——会用 AI 做安全测试的人，比只会用 Burp Suite 的人更值钱。",
-   "source": "InfoQ中文",
-   "date": "2026-09-24",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "AI安全",
-    "渗透测试"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**AI 攻防已来，信息安全学生必须把「AI 辅助安全测试」写进简历**",
-   "courses": "对应《Web安全》《渗透测试》，可把 AI 自动化挖洞作为课程设计或 CTF 新方向",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 92,
-   "brief": [
-    "GPT-6 Astra 29小时自主攻破浏览器，被定为「严重级」",
-    "AI 自动化漏洞挖掘已从概念进入实战",
-    "防守方需掌握 AI 辅助代码审计与自动化 fuzzing",
-    "安全岗面试可能开始考察 AI 攻防理解"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/b5oxzJyafr0lkZexoo8E?utm_source=rss&utm_medium=article",
-   "cover": "img/a139.webp"
-  },
-  {
-   "id": "a140",
-   "title": "OpenClaude 免费开源，可自选模型替代 Claude Code",
-   "summary": "OpenClaude 作为 Claude Code 的开源替代方案，安装免费且支持自由切换底层模型，适合预算有限的学生搭建自己的 AI 编程助手。",
-   "content": "对软件工程学生来说，Claude Code 这类 AI 编程工具已经成了写课设、刷 LeetCode 的标配，但官方订阅对学生党不友好。OpenClaude 的核心卖点是「免费安装 + 模型自选」——你可以接本地 Ollama 跑开源模型，也可以接便宜的 API。实操建议：在《软件工程》课程项目里用它做代码补全和重构，同时对比不同模型在同一个任务上的表现，这本身就是一份很好的实验报告。注意它和 Anthropic 官方生态的集成度不如 Claude Code，团队协作场景慎选。",
-   "source": "DEV Community",
-   "date": "2026-09-25",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code",
-    "Ollama"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**零成本搭一个可自选模型的 AI 编程助手，课设效率直接翻倍**",
-   "courses": "对应《软件工程》课程项目，可用它做代码补全与重构对比实验",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "OpenClaude 免费安装，支持自选底层模型",
-    "可接本地 Ollama 或低成本 API，适合学生",
-    "与 Anthropic 官方生态集成度弱于 Claude Code",
-    "适合个人练手和课设，团队协作需评估"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "OpenClaude vs Claude Code 2026: OpenClaude Wins on Price",
-   "link": "https://dev.to/shaam_ai/openclaude-vs-claude-code-2026-openclaude-wins-on-price-4i79",
-   "cover": "img/a140.webp"
-  },
-  {
-   "id": "a141",
-   "title": "用 Rust 写一个自适应计算机控制层 AICore：CPU/GPU/NPU 统一调度",
-   "summary": "一篇用 Rust 构建 AICore 的实践文章，讲解如何统一调度 CPU、GPU、NPU 和内存，应对异构计算与功耗约束。",
-   "content": "现代 PC 已经是 CPU+GPU+NPU 的异构系统，但大多数同学写代码时只当它是「一个 CPU」。这篇文章用 Rust 实现了一个自适应控制层，核心思路是：根据任务类型和功耗状态，动态决定把计算放到哪个单元。对工业软件实验班的同学尤其有价值——工业仿真、边缘推理场景下，异构调度是绕不开的底层能力。建议结合《操作系统》《计算机组成原理》一起看，重点理解它怎么做资源抽象和状态管理。Rust 门槛不低，但这类系统编程经验在工业软件岗位上是硬通货。",
-   "source": "DEV Community",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "异构计算"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "**异构计算调度是工业软件底层硬技能，Rust 实现能让你在面试中脱颖而出**",
-   "courses": "对应《操作系统》《计算机组成原理》，可延伸为异构计算课程设计",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "用 Rust 实现 CPU/GPU/NPU 统一调度层",
-    "核心是任务-算力动态匹配与功耗约束管理",
-    "工业仿真、边缘推理场景直接相关",
-    "适合作为系统编程能力的简历加分项"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building AICore: An Adaptive Computer Control Layer in Rust",
-   "link": "https://dev.to/kenny_2e43df536d4d2dc7b71/building-aicore-an-adaptive-computer-control-layer-in-rust-3maf",
-   "cover": "img/a141.webp"
-  },
-  {
-   "id": "a142",
-   "title": "代码不再稀缺之后，软件工程还剩下什么？",
-   "summary": "InfoQ 视频讨论 AI 生成代码普及后，软件工程师的核心价值从「写代码」转向需求理解、系统设计与质量把控。",
-   "content": "这个话题对你们不是鸡汤，是就业现实。当 GPT-6 能直接进 Blender 搭场景、能自主返工修法线问题时，单纯「会写 CRUD」的竞争力在快速贬值。视频的核心观点是：代码变得廉价后，稀缺的是「定义问题」和「判断对错」的能力。具体到学习上：别再把时间全花在背 API 上，多练系统设计、多读开源项目架构、多写技术方案文档。在《软件工程》课上认真做需求分析和设计文档，这些「软技能」正在变成硬门槛。",
-   "source": "InfoQ中文",
-   "date": "2026-09-24",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**别只卷语法，AI 时代值钱的是系统设计和问题定义能力**",
-   "courses": "对应《软件工程》，认真对待需求分析与设计文档环节",
-   "tags": [
-    "通用开发",
-    "求职就业",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "AI 让写代码变廉价，定义问题和判断质量变稀缺",
-    "学习重心应从背 API 转向系统设计与架构",
-    "需求分析、技术方案文档能力价值上升",
-    "适合作为职业规划参考，调整学习优先级"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/video/P6mBiPWbwZIIpWpUVcOa?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a134",
-   "title": "AI Agent 权限管理实战：如何让 Claude Code、Cursor「敢用又稳」",
-   "summary": "掘金热文拆解 AI 编码助手权限两难：给少了频繁弹窗打断心流，给多了怕它乱执行命令。文章给出分级授权、白名单与沙箱隔离的落地思路。",
-   "content": "你写课设或做项目时大概率用过 Claude Code、Cursor，它动不动弹「是否执行这条命令」，你刚想喝口水就被叫回来；可一旦全放开，rm -rf 之类的命令又让人后背发凉。这篇讲的就是怎么在两者间找平衡：把命令按危险等级分层，读操作直接放行，写文件、装依赖、跑脚本走白名单，删库类强制人工确认；再配合容器或临时目录做沙箱，让 Agent 在隔离环境里折腾。对信息安全方向的同学，这其实是「最小权限原则」在 AI 工具链上的直接应用，写进简历或安全课大作业都很实在。",
-   "source": "掘金",
-   "date": "2026-09-25",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code",
-    "Cursor"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**学会给 AI 编码助手做权限分级，既保住效率又守住安全底线**",
-   "courses": "《信息安全导论》《操作系统》——把最小权限原则套到 AI 工具链上做实验",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "读操作放行、写操作白名单、危险命令强制确认，三级授权模型",
-    "用容器/临时目录做沙箱，限制 Agent 能碰的文件范围",
-    "本质是最小权限原则在 AI 工具链的落地，安全课可直接引用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689030315844665390"
-  },
-  {
-   "id": "a135",
-   "title": "TanStack Charts 每周下载 16 万仍处 Alpha，前端图表库该不该上车？",
-   "summary": "TanStack 家族新成员 Charts 周下载约 16 万，但仍是 Alpha 版。文章分析它凭什么火、和 ECharts/Chart.js 比强在哪、生产环境能不能用。",
-   "content": "前端做数据可视化，你多半用过 ECharts 或 Chart.js。TanStack Charts 是 TanStack 家族（Query、Router 那套）的新成员，主打类型安全、框架无关、API 组合式，周下载已约 16 万，但官方仍标 Alpha。对做课设、实训项目的同学，它的价值在于：如果你已经在用 React + TanStack Query，图表能无缝接入同一套数据流，TypeScript 类型提示完整，少写一堆配置。但 Alpha 意味着 API 可能变、文档不全、踩坑要自己查 issue。建议：练手项目、个人作品集可以试；要交付给老师或客户的正式项目，还是先 ECharts 保稳。",
-   "source": "InfoQ中文",
-   "date": "2026-09-25",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**判断新前端库能不能上生产：看成熟度、看生态契合度，而不是看下载量**",
-   "courses": "《Web 前端开发》——数据可视化模块可对比 ECharts 与 TanStack Charts 的接入方式",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "TanStack 家族新图表库，类型安全、框架无关、组合式 API",
-    "周下载约 16 万但仍是 Alpha，API 和文档不稳定",
-    "已在用 React+TanStack Query 的项目接入成本最低",
-    "练手可试，正式交付项目建议仍用 ECharts"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/OUcL9autU0dg1BIt6bib?utm_source=rss&utm_medium=article",
-   "cover": "img/a135.webp"
   }
  ],
  "jobs": [
