@@ -1,6 +1,185 @@
 {
- "updatedAt": "2026-10-02 06:15",
+ "updatedAt": "2026-10-02 10:14",
  "news": [
+  {
+   "id": "a309",
+   "title": "MCP 参考服务器全解析：9万星、16种语言 SDK，Agent 工具边界到底怎么划",
+   "summary": "Model Context Protocol 仓库已 9 万星、16 个语言 SDK，其参考服务器是理解「Agent 能调用什么、不能调用什么」的最佳教学样本。",
+   "content": "MCP 现在几乎是 Agent 工具调用的通用协议，但很多人只会照抄配置，说不清工具边界。这个仓库的参考服务器不是生产系统，而是教学实现：每个 server 用最小代码演示「资源、工具、提示」三类原语的划分，以及权限、超时、错误如何回传。你可以用 Python 或 Java SDK 跑一个本地 server，把「查数据库」「读文件」封装成工具，再用客户端调用。做完你就明白：为什么工具描述写不好，模型就会乱调；为什么权限校验必须放在 server 端而不是提示词里。这正好是信息安全专业最该补的一课——Agent 的攻击面就在这些边界上。",
+   "source": "DEV Community",
+   "date": "2026-10-02",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**想搞 Agent 开发或安全，MCP 工具边界是绕不开的基本功，动手写一遍胜过读十篇解读。**",
+   "courses": "对应《软件工程》《信息安全导论》，可作为课程设计或大创的 Agent 工具层实现参考",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "MCP 仓库 9 万星、16 语言 SDK，参考服务器是教学实现而非生产代码",
+    "重点看资源/工具/提示三类原语的划分与权限校验位置",
+    "用 Python 或 Java SDK 自己写一个本地 server 并调用",
+    "工具边界设计直接对应 Agent 安全与越权风险"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "MCP Reference Servers: What 90,000 Stars and 16 Language SDKs Reveal About Agent Tool Boundaries",
+   "link": "https://dev.to/mech_app_ai/mcp-reference-servers-what-90000-stars-and-16-language-sdks-reveal-about-agent-tool-boundaries-51p9",
+   "cover": "img/a309.webp"
+  },
+  {
+   "id": "a310",
+   "title": "实测打脸：Claude Code 的 Read(.env) 拒绝规则，11 条外泄路径漏了 4 条",
+   "summary": "有人跑了 20 次真实 claude -p 会话，发现针对 .env 的读取拒绝规则形同纱窗，11 条数据外泄路径有 4 条直接穿过去。",
+   "content": "这条对信息安全专业价值极高。作者用 20 次真实 claude -p 会话测试 Read(./.env) 的 deny 规则，结果 11 条外泄路径里 4 条成功绕过——说明基于文件名/路径的黑名单在 Agent 场景下基本不可靠。原因很直白：模型可以通过 shell 命令、间接引用、编码变形等方式读到同一份内容，规则只拦住了最笨的那条路。正确做法是默认拒绝 + 白名单 + 最小权限，敏感文件根本不该出现在 Agent 可访问的文件系统视图里。建议你把这套测试思路复现一遍，写进安全课程报告：它同时覆盖访问控制、最小权限、Agent 攻击面三个考点，比背概念有用得多。",
+   "source": "DEV Community",
+   "date": "2026-10-02",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**做安全方向一定要知道：给 AI 工具配黑名单等于没配，最小权限才是正解。**",
+   "courses": "对应《信息安全导论》《网络攻防》，可直接作为访问控制实验或安全课程报告素材",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "20 次 claude -p 实测，11 条外泄路径有 4 条绕过 Read(.env) 拒绝规则",
+    "黑名单式路径规则在 Agent 场景下不可靠，需默认拒绝+白名单",
+    "敏感文件应从 Agent 可见文件系统视图中移除",
+    "可复现该测试作为访问控制与最小权限的实践案例"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your Claude Code Read Deny Rule Is a Screen Door — I Built a Tool That Proves It",
+   "link": "https://dev.to/haoli/your-claude-code-read-deny-rule-is-a-screen-door-i-built-a-tool-that-proves-it-1ah7",
+   "cover": "img/a310.webp"
+  },
+  {
+   "id": "a311",
+   "title": "openJiuwen X-Router 首发：自演进模型路由，实测省 50%+ Token",
+   "summary": "让每次请求自动选对模型、每次反馈都用于优化下次选择，昇腾亲和，实测 Token 消耗减少 50% 以上。",
+   "content": "多模型时代一个现实问题：简单请求用大模型纯属浪费钱。X-Router 做的是「模型路由」——根据请求特征和反馈历史，自动决定这次该走哪个模型，并让反馈持续优化路由策略。对学生的直接价值有两点：一是省钱，你自费调 API 做课设时，路由层能显著压低成本；二是工程思路，路由本质是一个带反馈的决策服务，涉及特征提取、策略更新、灰度回滚，完全可以作为软件工程课设的架构案例。如果你在做 Agent 或 RAG 项目，可以把它当成「模型调用层」的参考实现，重点看它如何定义请求特征和反馈信号，而不是照抄代码。",
+   "source": "量子位",
+   "date": "2026-10-02",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**自费做 AI 项目的同学，模型路由是省钱又显工程能力的一层，值得抄思路。**",
+   "courses": "对应《软件工程》《人工智能导论》，可作为课设中模型调用层的成本优化方案",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "核心是模型路由：按请求特征自动选择模型，反馈驱动策略演进",
+    "实测 Token 消耗减少 50%+，自费调 API 做课设能明显省钱",
+    "路由层本质是带反馈的决策服务，含特征提取与策略更新",
+    "可借鉴到自己的 Agent/RAG 项目的模型调用层"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/500098.html",
+   "cover": "img/a311.webp"
+  },
+  {
+   "id": "a312",
+   "title": "Graphify：把代码库上下文喂给代理，优化 AI 辅助软件工程",
+   "summary": "通过整合代码库上下文来提升基于代理的软件工程效果，解决 Agent 改代码时「看不懂项目」的老问题。",
+   "content": "用 AI 改代码最大的痛点不是模型不行，是它不知道你的项目结构、依赖关系和调用链。Graphify 的思路是先把代码库的上下文（模块、依赖、引用关系）整理成结构化信息，再交给代理使用，从而提升改动的准确率。对软件工程专业来说，这比「换个更强的模型」更值得学：上下文工程正在成为独立技能。你可以拿自己的课设仓库做实验，对比「直接让 AI 改」和「先喂依赖图再改」的成功率差异，把结果写进实验报告。工业软件实验班的同学尤其值得关注——大型工业代码库的上下文管理，正是这类工具的主战场。",
+   "source": "InfoQ中文",
+   "date": "2026-10-02",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**上下文工程是 AI 辅助开发的新基本功，会整理代码库上下文的人比只会写提示词的人值钱。**",
+   "courses": "对应《软件工程》《软件体系结构》，可用于课设中 AI 辅助重构的对比实验",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "核心是代码库上下文的结构化整合，而非换更强模型",
+    "解决 Agent 改代码时不懂项目结构与调用链的问题",
+    "可用自己的课设仓库做对照实验，量化成功率差异",
+    "大型工业代码库的上下文管理是主要应用场景"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/8XuP4iZKKr3ex2VTDxpl?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a313",
+   "title": "Zig 作者专访：为什么禁止 AI 贡献、把项目搬出 GitHub",
+   "summary": "Andrew Kelley 谈创建 Zig 的动机、禁止 AI 生成代码贡献，以及将项目迁出 GitHub 的决策逻辑。",
+   "content": "这条不是让你去学 Zig，而是让你理解一个真实开源项目维护者的工程判断：为什么拒绝 AI 生成的 PR、为什么把仓库迁出 GitHub。核心矛盾是「贡献者责任」——AI 生成的补丁没人能对正确性负责，评审成本反而更高；平台迁移则涉及供应链与治理自主权。对软件工程专业的价值在于：你将来提交 PR、参与开源、甚至在公司做代码评审时，都会遇到「这段代码是谁写的、谁负责」的问题。读这篇能帮你建立代码归属与评审责任的意识，也能在面试聊开源经历时说出有深度的观点，而不是只会说「我用过 AI 写代码」。",
+   "source": "InfoQ中文",
+   "date": "2026-10-02",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**面试聊开源时，能讲清「AI 写的代码谁负责」比会背语法更能体现工程素养。**",
+   "courses": "对应《软件工程》《开源软件开发》，可用于课程讨论或开源实践报告",
+   "tags": [
+    "通用开发",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Zig 作者禁止 AI 生成代码贡献，理由是贡献者责任无法落实",
+    "项目迁出 GitHub 涉及供应链与治理自主权",
+    "核心议题是代码归属与评审责任，而非语言本身",
+    "适合作为开源参与和代码评审讨论的观点素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/eRbEA3dMd58RNPqp5D8S?utm_source=rss&utm_medium=article",
+   "cover": "img/a313.webp"
+  },
   {
    "id": "a304",
    "title": "FAISS 与 LangChain 在文档检索中的分工：别再被同一个保存路径骗了",
@@ -24,7 +203,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "FAISS 负责向量索引与相似度检索，LangChain 负责加载/切分/编排，职责别混",
@@ -3961,180 +4140,6 @@
    "origTitle": "How to Build a Personal Agent Marketplace for Claude Code",
    "link": "https://dev.to/teppana88/how-to-build-a-personal-agent-marketplace-for-claude-code-17fp",
    "cover": "img/a198.webp"
-  },
-  {
-   "id": "a199",
-   "title": "《Java实战》读书笔记：通过行为参数化传递代码",
-   "summary": "作者读《Java实战（第2版）》第二章后，用自己的例子重写行为参数化，讲清把代码当参数传递的思路。",
-   "content": "行为参数化是Java 8之后理解Lambda和函数式编程的关键一步，也是《Java实战》第二章的核心。这篇不是照抄书中例子，而是作者自己改造后的版本，讲清「把行为（代码）作为参数传给方法」到底解决什么问题：面对需求频繁变化时，如何避免写一堆重复的if-else和匿名类。对正在学Java的同学，这是从「会写方法」到「会设计可扩展接口」的思维转变，课设里做策略切换、排序比较器时都用得上。建议配合书中原文一起看，动手把示例改成自己的场景。",
-   "source": "掘金",
-   "date": "2026-09-27",
-   "cat": "tut",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**吃透行为参数化，是从会写Java到会设计Java的关键一步。**",
-   "courses": "对应《Java程序设计》《面向对象程序设计》，Lambda与函数式接口章节的补充读物",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "基于《Java实战》第二章，作者自己改造例子",
-    "讲清行为参数化解决的需求变化问题",
-    "是理解Lambda和函数式编程的前置知识",
-    "课设中做策略切换、比较器时可直接用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689656350306517038"
-  },
-  {
-   "id": "a188",
-   "title": "Spring Boot 应用监控实战：用 Micrometer 采集 JVM、GC、连接池指标并配置告警",
-   "summary": "系统梳理 HTTP 请求、JVM 内存与 GC、线程、Web 容器线程池、数据库连接池等核心指标的采集方式与常用 PromQL，并给出一套可落地的告警规则。",
-   "content": "很多同学写 Spring Boot 只会写接口，一上生产就抓瞎：内存泄漏、GC 频繁、连接池打满全看不到。这篇文章把 Micrometer 的接入路径讲全了——从依赖引入、Actuator 端点暴露，到 JVM 内存/GC、Tomcat 线程池、HikariCP 连接池指标的具体含义，还给了可直接抄的 PromQL 和告警阈值。建议你拿课设或毕设项目练手：加依赖、开 /actuator/prometheus、用 Docker 起个 Prometheus+Grafana，把 QPS、P99、堆内存曲线画出来。面试被问「你怎么做线上监控」时，这套流程就是标准答案。",
-   "source": "掘金",
-   "date": "2026-09-27",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Micrometer"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分/求职准备",
-   "value": "**把「会写接口」升级为「会看线上指标」，是 Java 后端求职的硬门槛。**",
-   "courses": "对应《Java Web 开发》《软件工程综合实践》，可把监控模块加进课程项目作为亮点。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Micrometer + Actuator 是 Spring Boot 监控的标准组合，依赖引入即可用",
-    "重点掌握 JVM 内存/GC、线程池、数据库连接池四类指标",
-    "附可直接复用的 PromQL 与告警规则，适合落地到课设项目",
-    "面试常问「线上问题怎么排查」，这是加分项"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689408456147714075"
-  },
-  {
-   "id": "a189",
-   "title": "多 Agent 到底该拆还是该合？从 LangChain 到 LangGraph 的 token 账本与干扰问题",
-   "summary": "作者用「token 账本」和「上下文干扰」两个具体维度，分析把所有功能塞给一个 Agent 还是拆成多个 Agent 的决策冲突。",
-   "content": "做 Agent 应用时最常见的纠结：一个全能 Agent 还是拆成多个专职 Agent？这篇文章没有讲玄学，而是算了两笔账——token 成本和上下文干扰。单 Agent 上下文越堆越长，指令互相打架，模型开始「忘记」前面的约束；多 Agent 则要付出额外的调度与信息传递开销。作者用 LangGraph 的图结构演示了如何把流程显式建模成节点和边，让状态流转可控。对软件工程同学来说，这本质上是「模块化 vs 单体」在 AI 应用里的翻版，你已有的架构思维可以直接迁移。建议用 LangGraph 复现一个「检索—校验—生成」三节点小流程练手。",
-   "source": "掘金",
-   "date": "2026-09-27",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangGraph",
-    "LangChain"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**把 Agent 编排当成软件架构问题来解，而不是靠提示词碰运气。**",
-   "courses": "对应《软件体系结构》《人工智能导论》，可把多 Agent 编排作为课程设计选题。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "核心矛盾：单 Agent 上下文干扰 vs 多 Agent 调度开销",
-    "LangGraph 用图结构显式建模状态流转，比链式调用更可控",
-    "本质是「模块化 vs 单体」架构思想在 AI 应用中的迁移",
-    "适合用一个小型多节点流程动手复现"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689415591787266074"
-  },
-  {
-   "id": "a190",
-   "title": "Cabloy 全栈框架的两种 SSR 方案：Vona 集成式 vs Zova 独立式",
-   "summary": "Cabloy 基于双向契约实现前后端类型自动生成与共享，并给出集成式与独立式两种 SSR 入口的取舍。",
-   "content": "前后端分离项目里，类型对不上是最烦的：后端改了字段，前端编译不报错，上线才炸。Cabloy 的做法不是简单共享一个 types.ts，而是基于「双向契约」自动生成前后端类型，从源头保证一致。文章对比了两种 SSR 入口：Vona 集成式（后端直接渲染，链路短、部署简单）和 Zova 独立式（前端独立 SSR 服务，前后端解耦更彻底、可分别扩容）。如果你在做全栈课设，可以重点看它的类型契约生成机制——这套思路用 TypeScript + OpenAPI 也能自己搭一个简化版，写进简历比「会写 CRUD」有说服力。",
-   "source": "掘金",
-   "date": "2026-09-27",
-   "cat": "stack",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript",
-    "SSR"
-   ],
-   "value": "**前后端类型自动同步，是消灭「联调对字段」这类低级事故的有效手段。**",
-   "courses": "对应《Web 前端开发》《软件工程综合实践》，可借鉴其类型契约设计课程项目接口层。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "双向契约自动生成前后端类型，避免手写 types.ts 不同步",
-    "集成式 SSR 链路短易部署，独立式 SSR 解耦好可分别扩容",
-    "类型契约思路可用 TypeScript + OpenAPI 自行实现简化版",
-    "适合作为全栈课设的架构参考"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7689654965351530539"
-  },
-  {
-   "id": "a191",
-   "title": "开源 Web 搜索 MCP：无需 API Key，给 AI Agent 接上联网检索能力",
-   "summary": "作者开源了一个面向 AI Agent 的 Web 搜索 MCP 服务，无需申请 API Key，支持搜索、抓取与信息抽取。",
-   "content": "MCP（Model Context Protocol）正在成为 Agent 接外部工具的事实标准，而「联网搜索」是最刚需的一个。这个开源项目把搜索、打开结果、抽取正文、喂给模型这条链路封装成 MCP Server，最大卖点是免 API Key，本地就能跑。对信息安全方向的同学尤其值得动手：MCP Server 本质是一个本地进程，Agent 通过它访问外网，这里天然存在提示词注入、SSRF、越权读取等攻击面——你可以一边搭一边想「如果搜索结果里藏了恶意指令会怎样」。建议用 Claude Desktop 或任意 MCP 客户端接上，跑通后再做一次简单的注入测试。",
-   "source": "DEV Community",
-   "date": "2026-09-27",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**既学会给 Agent 接工具，又能从攻击者视角理解 MCP 的安全边界。**",
-   "courses": "对应《信息安全技术》《人工智能导论》，可作为安全测试或 Agent 应用的课程实验。",
-   "tags": [
-    "AI工具",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "MCP 是 Agent 调用外部工具的主流协议，搜索是最常用能力",
-    "免 API Key、可本地运行，适合动手实验",
-    "安全视角：搜索结果可被投毒，存在提示词注入与 SSRF 风险",
-    "可作为信息安全课程的安全测试靶子"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "I Built a Better Web Search MCP for AI Agents — No API Key Required",
-   "link": "https://dev.to/phantompixeldev/i-built-a-better-web-search-mcp-for-ai-agents-no-api-key-required-51k2",
-   "cover": "img/a191.webp"
   }
  ],
  "jobs": [
