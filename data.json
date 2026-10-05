@@ -1,6 +1,213 @@
 {
- "updatedAt": "2026-10-05 06:19",
+ "updatedAt": "2026-10-05 10:17",
  "news": [
+  {
+   "id": "a360",
+   "title": "LibreCAD 2D绘图架构全链路拆解：从鼠标点击到屏幕像素，Action与命令系统怎么设计",
+   "summary": "以开源CAD软件LibreCAD源码为例，从main()入口梳理Qt应用初始化、菜单/工具栏/QAction关系，再深入Action与命令系统的实现。",
+   "content": "如果你在做工业软件实验班的课设，或者想找一份能写进简历的C++/Qt项目，LibreCAD是极好的拆解对象。这篇文章从main()程序入口讲起，先带你走一遍Qt应用初始化、配置加载、主界面创建的启动链路，再重点分析菜单、工具栏与QAction的绑定关系，最后落到Action与命令系统——也就是「用户点一下鼠标，命令怎么被分发、状态怎么被管理、图形怎么被重绘」这条全链路。建议对照源码边读边画调用图，重点看命令对象的注册与撤销/重做机制，这是CAD类工业软件的核心骨架，面试聊项目时能讲清楚这套设计，比堆功能有说服力得多。",
+   "source": "掘金",
+   "date": "2026-10-05",
+   "cat": "tut",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "C++",
+    "Qt"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**读懂一套真实CAD软件的架构骨架，是工业软件方向最硬的项目谈资**",
+   "courses": "对应《面向对象程序设计》《软件体系结构》，可作为课程设计或毕业设计的源码分析素材",
+   "tags": [
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "从main()入口梳理Qt应用启动与界面创建全流程",
+    "解析菜单/工具栏/QAction的绑定关系",
+    "重点讲Action与命令系统的分发与状态管理",
+    "建议对照源码画调用图，理解撤销/重做机制"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7692498648035311659"
+  },
+  {
+   "id": "a361",
+   "title": "Pi Pod沙箱架构：自托管Agent执行环境，怎么做网络与密钥隔离",
+   "summary": "Pi Pod把Pi编码Agent框架包进隔离沙箱，跑在自己的服务器上，重点解决网络隔离与密钥隔离两个安全问题。",
+   "content": "Agent能执行代码，就意味着它能读你的环境变量、连你的内网、发你的密钥——这是信息安全专业最该关心的新攻击面。Pi Pod的思路值得抄：把Pi这个轻量Agent框架整个塞进沙箱，在自托管服务器上运行，网络层面限制出站访问，密钥层面做隔离注入，Agent拿不到明文凭证。文章讲的是架构设计而非调参，适合你用来理解「不可信代码执行」这个经典安全命题在Agent时代的新形态。做信息安全课设时，可以照着这个思路写一个简易沙箱demo：用容器或命名空间隔离进程，用代理拦截出站请求，再对比一下不做隔离时的风险，报告就有了。",
+   "source": "DEV Community",
+   "date": "2026-10-05",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**理解Agent沙箱的网络与密钥隔离设计，是信安方向切入AI安全的最短路径**",
+   "courses": "对应《网络安全》《系统安全》，可作为安全课程设计或CTF沙箱逃逸方向的延伸阅读",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Agent执行代码带来的密钥泄露与内网渗透风险",
+    "沙箱做网络隔离：限制出站访问",
+    "密钥隔离注入，Agent拿不到明文凭证",
+    "可照着写一个简易沙箱demo做课设"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Pi Pod's Sandbox Architecture: Self-Hosted Agent Execution with Network and Secret Isolation",
+   "link": "https://dev.to/mech_app_ai/pi-pods-sandbox-architecture-self-hosted-agent-execution-with-network-and-secret-isolation-38bk",
+   "cover": "img/a361.webp"
+  },
+  {
+   "id": "a362",
+   "title": "workbuddy-to-dsh零依赖Node脚本：用量统计、模型体检、环境诊断一把梭",
+   "summary": "一个开箱即用的模型中转插件，用零依赖Node脚本实现用量统计、请求明细、模型体检、环境诊断、自动签到与对话测试。",
+   "content": "这是个典型的「小而全」工具：纯Node脚本、零依赖，clone下来就能跑。功能覆盖用量统计、请求明细查看、模型体检、环境诊断、自动签到和对话测试。对软件工程的同学来说，它的价值有两层：一是直接当工具用，帮你摸清自己调API时的token消耗和请求细节，排查「为什么这个模型不返回」这类问题；二是当学习样本读，看一个零依赖项目怎么组织HTTP请求、怎么做CLI参数解析、怎么把多个诊断能力拆成模块。建议先跑通，再挑「模型体检」这一块读源码，理解健康检查的设计思路，顺手改一个自己的诊断项，就是一次不错的练手。",
+   "source": "掘金",
+   "date": "2026-10-05",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Node.js"
+   ],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**零依赖Node脚本，既能立刻解决API调试痛点，又是读源码练手的好样本**",
+   "courses": "对应《Web开发》《Node.js程序设计》，可作为课程作业的参考实现",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "零依赖Node脚本，clone即用",
+    "覆盖用量统计、请求明细、模型体检、环境诊断",
+    "适合当工具用，也适合当Node项目源码学习样本",
+    "可改造「模型体检」模块作为练手"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7692614083904274486"
+  },
+  {
+   "id": "a363",
+   "title": "DeepAgents与LangChain三层抽象：Agent身上的「插槽」到底预留了什么",
+   "summary": "用组装电脑类比LangChain生态的三层定位，讲清DeepAgents在Agent框架中预留的扩展插槽与抽象层次。",
+   "content": "LangChain生态最容易劝退新人的地方，就是抽象层太多、不知道自己在用哪一层。这篇文章用「组装电脑」做类比：LangChain是散装配件，再往上是更完整的整机方案，DeepAgents则是在Agent身上预留了若干「插槽」——工具接入、记忆、规划、执行循环各占一个位置。理解这套分层，比背API有用得多：当你要做一个课设级Agent应用时，先想清楚哪些能力用现成插槽、哪些要自己写，能省掉大量返工。建议边读边把三层对应到自己做过的小项目上，画一张「我的Agent用了哪些插槽」的图，面试讲项目时结构会清晰很多。",
+   "source": "掘金",
+   "date": "2026-10-05",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LangChain"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**搞清Agent框架的分层与插槽，做课设时少走一半弯路**",
+   "courses": "对应《人工智能导论》《软件工程》，可作为AI应用课程设计的架构参考",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "用组装电脑类比LangChain三层抽象",
+    "DeepAgents在工具、记忆、规划、执行循环上预留插槽",
+    "帮你判断课设Agent哪些用现成、哪些自己写",
+    "建议画一张自己项目的插槽图"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7692500213994586153"
+  },
+  {
+   "id": "a364",
+   "title": "苹果把照片签名塞进传感器，C2PA信任模型为何仍不够可信",
+   "summary": "苹果将照片签名下沉到传感器层，但验证信任仍依赖自家云，文章讨论C2PA内容凭证体系的可信度边界。",
+   "content": "内容凭证（C2PA）想解决的是「这张图是不是AI生成的、有没有被改过」，但它的信任根在哪，决定了它到底可不可信。苹果的做法是把签名环节前移到传感器，理论上从拍摄那一刻就锁定来源，可验证环节却交给了自家云——这就把信任从「密码学」转移到了「厂商」。对信息安全专业的同学，这是个绝佳的分析案例：信任链的每一环谁在背书、单点信任会带来什么风险、去中心化验证为什么难落地。可以顺着这个思路写一篇小分析，对比C2PA、数字水印和硬件签名的信任模型差异，作为《网络安全》的读书报告或课程论文选题。",
+   "source": "InfoQ中文",
+   "date": "2026-10-05",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设",
+   "value": "**用真实案例理解信任链与单点信任风险，比背概念扎实得多**",
+   "courses": "对应《网络安全》《密码学基础》，可作为课程论文或读书报告选题",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "C2PA内容凭证的信任根问题",
+    "苹果把签名前移到传感器，验证却依赖自家云",
+    "信任从密码学转移到厂商单点",
+    "适合做信任模型对比的课程论文选题"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/8lQVsmY9e7zdJsKcfPzE?utm_source=rss&utm_medium=article",
+   "cover": "img/a364.webp"
+  },
+  {
+   "id": "a365",
+   "title": "AgentCore Runtime Instances：多Agent工作流如何在持久GPU上共置运行",
+   "summary": "AWS详解AgentCore Runtime Instances，演示三个Agent共置在一台EC2实例上、共享持久GPU基础设施的多Agent部署方式。",
+   "content": "多Agent工作流跑起来之后，成本和状态管理是绕不开的问题。AWS这篇讲的是把多个Agent共置到同一台EC2实例、共享持久GPU，例子是一条三Agent的音乐制作流水线。对本科生来说，直接上手云GPU成本太高，但架构思路值得学：Agent之间怎么共享状态、怎么避免重复加载模型、持久化实例相比无状态函数调用省在哪。如果你在做需要调用模型的课设，可以借鉴「共置+持久状态」的思路，用本地进程或一台便宜服务器模拟，把状态存到共享存储而不是每次重建。理解这套部署模型，对将来投AI应用开发岗也有帮助。",
+   "source": "DEV Community",
+   "date": "2026-10-05",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AWS"
+   ],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**理解多Agent部署的状态与成本模型，是AI应用岗面试的加分项**",
+   "courses": "对应《云计算》《分布式系统》，可作为课程报告的架构分析素材",
+   "tags": [
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "多Agent共置一台实例、共享持久GPU",
+    "三Agent音乐制作流水线作为示例",
+    "重点在状态共享与避免重复加载",
+    "可用本地进程模拟，理解部署模型"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AgentCore Runtime Instances: GPU Colocation and Persistent State for Multi-Agent Workflows",
+   "link": "https://dev.to/mech_app_ai/agentcore-runtime-instances-gpu-colocation-and-persistent-state-for-multi-agent-workflows-1gea",
+   "cover": "img/a365.webp"
+  },
   {
    "id": "a353",
    "title": "同一道请假审批，六款 Java 工作流引擎实现路径与成本对比",
@@ -26,7 +233,7 @@
     "工业软件",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "六款 Java 工作流引擎同题对比：建模、表单、分支、待办派发",
@@ -3919,218 +4126,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502794/claude-sonnet-5-5"
-  },
-  {
-   "id": "a243",
-   "title": "Java Web 服务器 wastnet mvc 实战：零第三方依赖、自研 NIO 与 HTTP/2",
-   "summary": "wastnet 是一款零第三方依赖的轻量 Java Web 框架，基于 JDK 原生 NIO 实现 Reactor 模型，HTTP/2 协议栈全部自研，提供注解驱动 MVC。",
-   "content": "这条对 Java 方向的同学很有价值：wastnet 把「一个 Web 服务器到底怎么跑起来」这件事拆开给你看。它不用 Netty、不用 Spring，全靠 JDK 原生 NIO 手写 Reactor 多路复用，HTTP/2 的 HPACK、Huffman、ALPN 都是自己实现的。你可以把它当成《计算机网络》和《Java 程序设计》的活教材——读它的源码，你能真正理解 BIO/NIO 区别、事件循环、注解如何被扫描成路由。建议做法：先跑通它的 @Controller 示例写一个 REST 接口，再对照源码看请求从 socket 到方法调用的完整链路。工业软件方向的同学尤其值得看，因为很多工业场景要求可控、无外部依赖。",
-   "source": "开源中国",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "Java",
-    "NIO"
-   ],
-   "diff": 3,
-   "scene": "课设/练手/简历加分",
-   "value": "**读一个零依赖的 Java Web 框架源码，比背十遍 NIO 八股更能让你真正懂网络编程**",
-   "courses": "对应《计算机网络》《Java 程序设计》，用源码理解 NIO 与 HTTP 协议",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "零第三方依赖，基于 JDK 原生 NIO 的 Reactor 多路复用模型",
-    "HTTP/2 协议栈（HPACK/Huffman/ALPN）全部自主实现",
-    "注解驱动 MVC，适合作为理解 Web 服务器原理的源码教材"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502793"
-  },
-  {
-   "id": "a244",
-   "title": "AI 驱动业务漏洞挖掘：从业务规则建模到攻击路径验证｜QCon 上海",
-   "summary": "QCon 上海议题，讲如何用 AI 对复杂业务做规则建模，并自动推导、验证攻击路径，属于安全测试的前沿实践。",
-   "content": "信息安全方向的同学注意：传统漏洞扫描器只能发现 SQL 注入、XSS 这类通用问题，但真正的业务漏洞（越权、支付逻辑绕过、状态机缺陷）需要理解业务规则。这个议题的思路是：先把业务规则建模成机器可理解的形式，再让 AI 推导出可能的攻击路径并自动验证。这正好对应你们《Web 安全》《渗透测试》课程里最难讲清楚的部分——逻辑漏洞。建议做法：拿一个开源电商或教务系统，手动梳理它的业务规则（谁能改谁的订单、状态怎么流转），然后尝试用 AI 辅助列出越权路径，再用 Burp 手工验证。这套「建模—推导—验证」的方法论写进简历，比只会用工具强得多。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Burp Suite"
-   ],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**业务逻辑漏洞是安全岗面试的高频考点，掌握 AI 辅助挖掘方法能让你脱颖而出**",
-   "courses": "对应《Web 安全》《渗透测试》，用于练习业务逻辑漏洞挖掘",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "AI 对业务规则建模，自动推导并验证攻击路径",
-    "聚焦越权、支付逻辑绕过等通用扫描器发现不了的业务漏洞",
-    "建议用开源系统练习「建模—推导—验证」完整流程"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/mDiczbGJpHNMU6e0qBX1?utm_source=rss&utm_medium=article",
-   "cover": "img/a244.webp"
-  },
-  {
-   "id": "a245",
-   "title": "Faultline：用 AI 事件记忆 Agent 做故障响应，把事故报告变成可检索知识",
-   "summary": "Faultline 是一个 AI 事件记忆 Agent，把历史故障报告结构化存储，在下次故障时自动检索相似案例辅助定位。",
-   "content": "这个项目解决一个真实痛点：服务出故障时，工程师排查、修复、写报告，但下次遇到类似问题，那份报告早就找不到了。Faultline 把历史事故报告变成可检索的记忆库，新故障发生时自动匹配相似案例。对软件工程和信息安全专业都实用——运维排障、安全事件响应都是这个套路。建议做法：用 Python 或 Java 写一个简化版，输入是 Markdown 格式的故障报告，用向量数据库（如 Chroma）做相似度检索，前端用简单的搜索框。这个项目工作量适中，技术栈通用，非常适合作为课设或简历项目，面试时能讲清楚「为什么用向量检索而不是关键词」就是加分项。",
-   "source": "DEV Community",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "向量数据库"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一个技术栈通用、痛点真实的 AI 项目，做完能直接写进简历当项目经历**",
-   "courses": "对应《软件工程》《数据库原理》，用于课设项目实践",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "把历史故障报告结构化为可检索记忆库，新故障自动匹配相似案例",
-    "技术栈通用：向量数据库 + 检索 + 简单前端",
-    "适合作为课设或简历项目，可讲清向量检索 vs 关键词检索的取舍"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Faultline: An AI Incident-Memory Agent for Smarter Incident Response",
-   "link": "https://dev.to/shyam_muddana/faultline-an-ai-incident-memory-agent-for-smarter-incident-response-3gn",
-   "cover": "img/a245.webp"
-  },
-  {
-   "id": "a246",
-   "title": "Scrapy 橙皮书 2.19 版发布：基于最新 Scrapy 的中文爬虫实战教程",
-   "summary": "Scrapy 橙皮书教程更新至 2.19 版本，通过实例带你一步步掌握 Scrapy 爬虫框架核心。",
-   "content": "爬虫是数据采集的基础技能，信息安全方向做资产测绘、软件工程方向做数据抓取都用得上。这本橙皮书是中文圈公认的 Scrapy 入门资料，现在跟上了 2.19 版本。建议学习路径：先跟着教程跑通一个简单爬虫（比如抓取豆瓣电影列表），理解 Spider、Item、Pipeline、Middleware 四个核心概念，然后自己加一个需求——比如把数据存进 MySQL 或做增量去重。注意：学爬虫一定要同时了解 robots.txt 和相关法律边界，信息安全专业的同学更要清楚「授权测试」和「非法入侵」的区别，别把技术用错地方。",
-   "source": "开源中国",
-   "date": "2026-09-28",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "Scrapy"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**爬虫是数据采集的通用技能，一本跟得上版本的中文教程能帮你少踩很多坑**",
-   "courses": "对应《Python 程序设计》《Web 安全》，用于数据采集与资产测绘练习",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "中文 Scrapy 教程更新至 2.19 版本，实例驱动",
-    "掌握 Spider/Item/Pipeline/Middleware 四大核心概念",
-    "务必同时了解 robots.txt 与法律边界，区分授权测试与非法入侵"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502775"
-  },
-  {
-   "id": "a237",
-   "title": "Swift 6.4 发布：内置 Subprocess 1.0、跨语言互操作增强、Wasm 性能大幅提升",
-   "summary": "Swift 6.4 正式版带来内置 Subprocess 1.0 进程管理库、更强的 C++/Java 互操作能力，以及 WebAssembly 性能的大幅优化。",
-   "content": "Swift 6.4 这次更新对做跨平台和系统编程的同学挺有参考价值。内置的 Subprocess 1.0 让你不用再依赖第三方库就能安全地启动子进程、管理管道和退出码，写命令行工具或构建脚本会顺手很多。跨语言互操作增强意味着 Swift 调 C++、Java 的桥接成本更低，做工业软件里混合技术栈的模块对接时能少写不少胶水代码。Wasm 性能提升则让 Swift 编译到浏览器端跑得更快，前端同学如果对 Wasm 感兴趣可以拿它练手。建议在 macOS 或 Linux 上装个 toolchain，把课设里的一个小工具用 Subprocess 重写一遍，感受下 API 设计。",
-   "source": "InfoQ中文",
-   "date": "2026-09-28",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Swift",
-    "WebAssembly"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**想入门系统编程或跨语言互操作，Swift 6.4 是个低门槛的练手入口**",
-   "courses": "《程序设计》《操作系统》课程可用来理解进程管理与跨语言调用",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "内置 Subprocess 1.0，进程管理不再依赖第三方库",
-    "C++/Java 互操作增强，混合技术栈桥接更省事",
-    "Wasm 性能大幅提升，浏览器端运行更快"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zl0e1sUoD95YJfboNz2a?utm_source=rss&utm_medium=article",
-   "cover": "img/a237.webp"
-  },
-  {
-   "id": "a238",
-   "title": "Manus 2.0 发布：自研 Cascade Agent 框架，Token 消耗降 23%、成本降 32%",
-   "summary": "Manus 升级到 2.0，推出云电脑、视频编辑、游戏开发和个人 AI 助手 Cue，官方称新框架让任务 Token 消耗减少 23.2%、完成时间缩短 28.2%、运行成本降低 32%。",
-   "content": "Manus 2.0 值得关注的是它的自研 Cascade Agent 框架——把 Token 消耗降了 23%、运行成本降了 32%，这对做 AI 应用开发的同学是个信号：Agent 的成本优化已经是工程重点，不是光堆模型能力。新增的云电脑、远程控制、视频编辑和游戏开发能力，本质是把 Agent 从聊天框扩展到能操作真实环境。你可以拿它当参照，想想自己课设里如果接一个大模型做自动化任务，怎么设计任务编排和上下文管理才能省 Token。建议注册试用，重点观察它的任务拆解和工具调用流程，比只看文档收获大。",
-   "source": "极客公园",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent",
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**做 AI 应用开发，先看别人怎么把 Agent 成本打下来，比盲目接 API 更有用**",
-   "courses": "《人工智能导论》《软件工程》课设中可借鉴其任务编排与成本控制思路",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Cascade Agent 框架：Token 降 23%、成本降 32%",
-    "新增云电脑、远程控制、视频编辑、游戏开发能力",
-    "个人 AI 助手 Cue 面向日常任务自动化"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/371359",
-   "cover": "img/a238.webp"
   }
  ],
  "jobs": [
