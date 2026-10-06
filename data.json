@@ -1,6 +1,189 @@
 {
- "updatedAt": "2026-10-05 10:17",
+ "updatedAt": "2026-10-06 00:10",
  "news": [
+  {
+   "id": "a366",
+   "title": "AI客服自信撒谎致Booking损失1400欧：日志缺失才是真问题",
+   "summary": "一家公司因AI Agent向客户给出错误付款指令而损失1400欧元，复盘发现根因不是模型说错话，而是没有任何日志能解释它为什么这么说。",
+   "content": "这篇文章值得每个做后端和AI应用的同学读一遍。作者团队弃用某SaaS客服Agent，不是因为响应慢，而是它「自信地胡说」——告诉客户用银行转账付款，结果公司赔了1400欧。更致命的是：出事后翻遍系统，找不到任何可追溯的推理日志，无法定位是提示词、知识库还是工具调用出错。这直接对应软件工程里的可观测性（Observability）问题：Agent不是普通函数，它的输出是概率性的，所以必须记录输入、检索片段、工具调用参数和最终决策链。做课设或毕设接大模型API时，别只写try-catch，要落库每次调用的prompt和response。",
+   "source": "DEV Community",
+   "date": "2026-10-05",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM",
+    "日志"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做AI应用不写日志，出事时你连甩锅都甩不出去。**",
+   "courses": "《软件工程》可观测性章节、《数据库原理》日志表设计，毕设接入大模型时直接套用。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "AI Agent错误输出造成真实资金损失，且无法追溯原因",
+    "根因是缺少推理链路日志，而非模型能力不足",
+    "做LLM应用必须记录prompt、检索结果、工具调用参数",
+    "对应软件工程中的可观测性与日志设计"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Why We Left SleekFlow After Its AI Agent Started Confidently Lying to Customers",
+   "link": "https://dev.to/kevinbarrett/why-we-left-sleekflow-after-its-ai-agent-started-confidently-lying-to-customers-fjb",
+   "cover": "img/a366.webp"
+  },
+  {
+   "id": "a367",
+   "title": "AI编程Agent陷入「修复死循环」？freeCodeCamp给出破局方法",
+   "summary": "用AI Agent改bug，它说修好了，bug还在甚至冒出第二个——这篇文章拆解了这种死循环的成因和跳出方法。",
+   "content": "场景太熟悉了：你让AI Agent修一个报错，它改了几行说「已修复」，一跑还是崩，再让它修，它把别的地方改坏了。文章指出根因是Agent缺少对「修复是否真的生效」的验证闭环，它只是在生成看起来合理的代码，而不是在验证行为。破局思路包括：给Agent提供可执行的测试用例作为验收标准、限制单次修改范围、要求它先复现bug再改。对软件工程学生来说，这其实就是测试驱动开发（TDD）在AI时代的新用法——你写的单元测试不只是给CI跑的，更是给AI Agent划的边界。做课程项目用Copilot或Cursor时，先写测试再让AI改代码，能省大量来回。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-05",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI编程",
+    "单元测试"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**先写测试再让AI改代码，是跳出修复死循环最省事的办法。**",
+   "courses": "《软件测试》单元测试章节、《软件工程》迭代开发，课程项目用AI辅助时直接实践。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "AI Agent修bug常陷入「说修好但没修好」的循环",
+    "根因是缺少可执行的验证闭环",
+    "解法：先写测试用例作为验收标准，限制修改范围",
+    "本质是TDD在AI辅助编程中的新应用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Break the AI Coding Agent Fix Loop",
+   "link": "https://www.freecodecamp.org/news/how-to-break-the-ai-coding-agent-fix-loop/",
+   "cover": "img/a367.webp"
+  },
+  {
+   "id": "a368",
+   "title": "从Agent协议到语义运行时：MCP之后Agent架构往哪走",
+   "summary": "文章梳理了Agentic系统的演进路径：从MCP工具调用协议，走向带语义理解与自愈能力的Agent运行时。",
+   "content": "如果你在课设里接过MCP（Model Context Protocol）给大模型挂工具，这篇能帮你理解下一步。当前Agent已经能通过MCP调工具、通过A2A互相通信，但作者认为这还不够——协议只解决了「怎么调」，没解决「调错了怎么办」。语义运行时的思路是在协议层之上加一层意图理解与自愈机制，让Agent能根据目标动态调整调用策略，而不是死板执行。对软件工程学生，这相当于从「写死接口调用」进化到「运行时动态编排」，和微服务里的服务网格、熔断降级是同一类架构思想。想往AI应用开发方向走的同学，这是值得关注的架构趋势。",
+   "source": "DEV Community",
+   "date": "2026-10-05",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MCP",
+    "Agent架构"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**理解Agent运行时的分层设计，是AI应用开发岗面试的加分项。**",
+   "courses": "《软件体系结构》分层与编排思想，可作为毕设架构选型参考。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Agent架构正从MCP协议层向语义运行时演进",
+    "协议解决「怎么调」，运行时解决「调错怎么办」",
+    "核心是意图理解、动态编排与自愈能力",
+    "类比微服务的服务网格与熔断降级思想"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "From Agent Protocols to Semantic Agent Runtimes",
+   "link": "https://dev.to/fullagenticstack/from-agent-protocols-to-semantic-agent-runtimes-479m",
+   "cover": "img/a368.webp"
+  },
+  {
+   "id": "a369",
+   "title": "快手DataAgent：大数据生产与分析如何用Agent做智能化",
+   "summary": "QCon上海分享，快手介绍其DataAgent如何把Agent能力接入大数据生产与分析链路，覆盖数据开发与查询场景。",
+   "content": "这是少数直接对口「数据+Agent」工程实践的中文分享。快手DataAgent要解决的问题是：数据开发和分析的门槛高，写SQL、配任务、查口径都依赖人工。他们的思路是把Agent嵌入数据生产链路，让自然语言能驱动数据查询和任务生成。对信息安全与管理、软件工程的同学，这里有两个可迁移点：一是Agent与结构化数据（SQL/数仓）结合的工程模式，二是企业级数据权限与安全如何在这种新交互下管控——Agent能查数据，权限边界怎么划？做课设如果涉及数据平台或管理系统，可以参考这种「自然语言→SQL→权限校验」的分层设计。",
+   "source": "InfoQ中文",
+   "date": "2026-10-05",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent",
+    "大数据"
+   ],
+   "diff": 2,
+   "scene": "简历加分",
+   "value": "**Agent接数据平台时，权限校验层怎么设计，是安全专业能切入的工程点。**",
+   "courses": "《数据库原理》SQL与权限、《大数据技术》数仓，课设做数据平台时可参考分层设计。",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "快手分享DataAgent在大数据生产分析中的落地实践",
+    "核心是自然语言驱动数据查询与任务生成",
+    "涉及Agent与SQL/数仓结合的工程模式",
+    "数据权限与安全管控是落地关键难点"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/yVWAQGCZCzI838JESA1b?utm_source=rss&utm_medium=article",
+   "cover": "img/a369.webp"
+  },
+  {
+   "id": "a370",
+   "title": "AI面试官正在筛简历：技术能筛人，但筛不出人的价值",
+   "summary": "钛媒体讨论AI面试官的普及与争议：自动化筛选提升了效率，但也带来误判与公平性问题。",
+   "content": "这篇对求职季的同学有直接参考价值。AI面试官已经在不少企业落地，它做的事包括简历关键词匹配、视频面试微表情与语音分析、自动打分排序。作为求职者，你要知道它的筛选逻辑：关键词密度、结构化表达、岗位JD匹配度往往权重很高。所以简历里把课程项目、技术栈、量化结果写清楚，比堆砌形容词有用得多。同时文章也点出问题——AI筛不出潜力、动机和团队适配度，误判率不低。对信息安全专业同学，这里还有个延伸点：AI面试采集的人脸、语音属于敏感个人信息，合规边界在哪，是值得关注的方向。",
+   "source": "钛媒体",
+   "date": "2026-10-05",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**了解AI面试的筛选逻辑，比盲目投简历更能提高通过率。**",
+   "courses": "《职业发展与就业指导》，求职准备阶段直接应用；信息安全方向可延伸至个人信息保护。",
+   "tags": [
+    "求职就业",
+    "行业动态",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "AI面试官已用于简历筛选、视频面试打分",
+    "筛选逻辑偏重关键词匹配与JD匹配度",
+    "求职建议：简历写清技术栈与量化结果",
+    "涉及人脸语音等敏感信息的合规问题"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8159479.html"
+  },
   {
    "id": "a360",
    "title": "LibreCAD 2D绘图架构全链路拆解：从鼠标点击到屏幕像素，Action与命令系统怎么设计",
@@ -25,7 +208,7 @@
     "工业软件",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "从main()入口梳理Qt应用启动与界面创建全流程",
@@ -3943,189 +4126,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502788/manus-2-0"
-  },
-  {
-   "id": "a248",
-   "title": "拆解 AI Agent：为什么一半的“智能体”只是昂贵的 if-else，如何做到真正自主",
-   "summary": "文章指出大量所谓 AI Agent 本质只是昂贵的 if-else 逻辑，并讨论如何设计真正具备自主性的 Agent 系统。",
-   "content": "这篇 DEV 文章直接点破一个常见误区：很多号称 AI Agent 的项目，拆开看就是一堆 if-else 加 API 调用。对软件工程和信息安全专业的同学来说，这恰恰是面试和课设里容易被追问的点。文章从“昂贵 if-else”讲到“真正自主”，核心在于状态管理、工具选择、失败恢复和记忆机制。建议你对照自己写过的自动化脚本，问三个问题：任务失败后能否自己重试？能否根据中间结果调整下一步？有没有持久化记忆？如果答案都是否，那它确实只是 if-else。读完可以尝试用 Python 写一个带重试和状态记录的小 Agent，作为简历项目。",
-   "source": "DEV Community",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "求职准备/练手",
-   "value": "**看懂 Agent 的“伪自主”陷阱，面试和课设都不容易被忽悠**",
-   "courses": "《人工智能导论》《软件工程》——用于理解 Agent 设计模式与工程实现",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "大量 AI Agent 本质是 if-else 加 API 调用",
-    "真正自主需要状态管理、失败恢复与记忆",
-    "适合对照自己的自动化脚本做自查",
-    "可作为面试中 Agent 相关问题的准备材料"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Deconstructing AI Agents: From Expensive If-Statements to True Autonomy",
-   "link": "https://dev.to/tamizuddin/deconstructing-ai-agents-from-expensive-if-statements-to-true-autonomy-151c",
-   "cover": "img/a248.webp"
-  },
-  {
-   "id": "a249",
-   "title": "AI Agent 为什么会“失忆”：记忆机制如何改变 Agent 的能力边界",
-   "summary": "文章讨论 AI Agent 普遍存在的遗忘问题，以及引入记忆机制后 Agent 能力发生的变化。",
-   "content": "很多同学在用 AI Agent 时都遇到过：聊到一半它忘了前面说过什么。这篇文章从工程角度解释 Agent 为什么会“失忆”，以及加上记忆后能做什么。对软件工程专业来说，这是理解 Agent 架构的关键一环——记忆本质上是状态持久化和检索问题，涉及数据库、缓存和向量检索。信息安全方向的同学则可以关注记忆带来的隐私与数据泄露风险：Agent 记住了什么、存在哪里、谁能访问。建议在课设里给 Agent 加一个简单的 SQLite 或 JSON 记忆层，对比加与不加的效果差异，这个改进很容易写进简历。",
-   "source": "DEV Community",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent",
-    "向量检索"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**给 Agent 加记忆层是低成本高回报的课设改进点**",
-   "courses": "《数据库原理》《人工智能导论》——用数据库知识实现 Agent 记忆持久化",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Agent 遗忘源于缺乏状态持久化与检索机制",
-    "记忆层涉及数据库、缓存和向量检索",
-    "信息安全视角需关注记忆的隐私与访问控制",
-    "课设中加简单记忆层即可显著提升 Agent 表现"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Why AI Agents Forget — and What Changes When They Can Remember",
-   "link": "https://dev.to/mohammedsumehan/why-ai-agents-forget-and-what-changes-when-they-can-remember-2gmi",
-   "cover": "img/a249.webp"
-  },
-  {
-   "id": "a250",
-   "title": "Token 价格持续下降，但边缘 AI 不会退场：企业算力账越算越细",
-   "summary": "文章分析 Token 价格下降趋势下，边缘 AI 为何仍有生存空间，企业开始更精细地核算算力成本。",
-   "content": "Token 越来越便宜，是不是所有 AI 都该上云？这篇文章给出的答案是否定的。企业开始把算力账算得更细：延迟敏感、数据不能出本地、网络不稳定的场景，边缘 AI 依然有优势。对信息安全专业来说，这是数据合规与本地化部署的现实案例——很多行业客户根本不允许数据上公有云。对软件工程同学来说，这意味着端侧推理、模型量化、轻量部署这些技能有实际需求。建议关注 ONNX Runtime、llama.cpp 这类能在本地跑模型的工具，在课设里做一个离线可用的智能问答小工具，既练手又能体现对成本与合规的理解。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "ONNX",
-    "llama.cpp"
-   ],
-   "value": "**理解边缘 AI 的成本与合规逻辑，信息安全方向尤其受用**",
-   "courses": "《信息安全导论》《计算机网络》——结合数据合规与本地化部署理解边缘计算",
-   "tags": [
-    "行业动态",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Token 降价不意味着边缘 AI 退场",
-    "延迟、数据合规、网络稳定性是边缘 AI 的核心场景",
-    "端侧推理与模型量化技能有实际需求",
-    "可关注 ONNX Runtime、llama.cpp 等本地推理工具"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/XF5kZxV681STVDrzsstj?utm_source=rss&utm_medium=article",
-   "cover": "img/a250.webp"
-  },
-  {
-   "id": "a251",
-   "title": "自主数据工程：迈向真正智能体成熟度的五个阶段",
-   "summary": "文章提出数据工程走向自主化的五个成熟度阶段，讨论智能体在数据流水线中的渐进式应用。",
-   "content": "这篇文章把“自主数据工程”拆成五个阶段，从人工编排到完全自主的智能体流水线。对软件工程和工业软件方向的同学来说，这是一个很好的能力地图：你现在处于哪个阶段，下一步该补什么。工业软件场景里，数据采集、清洗、入库往往还是手工脚本，如果能用 Agent 做异常检测和自动重跑，就是实打实的效率提升。建议把五个阶段当成学习路线：先掌握基础 ETL，再学调度框架，最后尝试让 Agent 根据数据质量自动决策。课设里可以做一个“自动发现脏数据并触发清洗”的小流水线，比单纯写 CRUD 更有说服力。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "ETL",
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**用五阶段模型定位自己的数据工程能力，工业软件方向很对口**",
-   "courses": "《数据库原理》《软件工程》——用于设计自动化数据处理流水线",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "自主数据工程分为五个成熟度阶段",
-    "可作为数据工程方向的学习路线图",
-    "工业软件场景中自动化数据流水线价值明显",
-    "课设可做自动脏数据检测与清洗流水线"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AmYfVbwTlVyApFszqKx3?utm_source=rss&utm_medium=article",
-   "cover": "img/a251.webp"
-  },
-  {
-   "id": "a242",
-   "title": "Claude Sonnet 5.5 发布：Agent 编程评测从 10% 跳到 70%，速度快 30%",
-   "summary": "Anthropic 发布 Sonnet 5.5，定位高频日常任务与修 bug，Agent 编程评测从 10% 跃升至 70%，速度快 30%、成本低 30%。",
-   "content": "对软件工程学生来说，这条最值得关注的是「Agent 编程评测从 10% 到 70%」这个数字。它意味着 AI 独立完成多步编程任务（读代码、改文件、跑测试、修错误）的能力正在跨过可用门槛。你可以把它用在课程设计里：让它读你的 Java 或前端项目、定位 bug、生成单元测试，你负责审查和验证。注意别全盘照抄——评测分数高不等于你的业务逻辑它都懂，尤其是工业软件里的领域规则。建议现在就注册账号，拿你的课设代码做一次「AI 结对编程」实验，记录它改对了什么、改错了什么，这本身就是简历上能写的实践经历。",
-   "source": "开源中国",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Claude"
-   ],
-   "diff": 1,
-   "scene": "课设/练手/简历加分",
-   "value": "**AI 编程助手已能独立完成多步任务，现在不练「人机协作开发」就落后了**",
-   "courses": "对应《软件工程》《Java 程序设计》，用 AI 辅助完成课设并做代码审查",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 92,
-   "brief": [
-    "Agent 编程评测 10%→70%，AI 多步编程任务能力跨过可用门槛",
-    "速度快 30%、成本低 30%，适合高频修 bug 与文档任务",
-    "建议拿课设代码实测 AI 结对编程，记录成功与失败案例"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502794/claude-sonnet-5-5"
   }
  ],
  "jobs": [
