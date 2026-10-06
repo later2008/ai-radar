@@ -1,6 +1,288 @@
 {
- "updatedAt": "2026-10-06 00:10",
+ "updatedAt": "2026-10-06 06:15",
  "news": [
+  {
+   "id": "a371",
+   "title": "LangChain实战：搭一个会检索、能调工具的流式问答助手",
+   "summary": "掘金系列第九篇，把RAG检索、多轮记忆、工具调用和流式输出拼成一个可跑的客服助手，并带可观测性。",
+   "content": "这篇教程的价值在于「拼装」：前面你学过向量检索、Prompt模板、Tool Calling，这里把它们串成一个完整链路——用户提问→检索知识库→判断是否要调工具（如查物流）→逐字流式返回，每一步都能观测。对软件工程和信息安全同学都实用：做课设时可直接改造成「校园问答机器人」或「漏洞知识库助手」。建议边看边跑，重点理解Agent的决策循环和工具注册方式，而不是照抄代码。",
+   "source": "掘金",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LangChain",
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一篇教程打通RAG+工具调用+流式输出，是简历上能写「做过Agent」的最短路径。**",
+   "courses": "对应《人工智能导论》《软件工程课程设计》，可作为综合实践项目原型。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "把RAG检索+多轮记忆+工具调用+流式输出串成完整Agent链路",
+    "带可观测性，方便调试每一步决策",
+    "可直接改造成校园问答/知识库助手课设",
+    "重点学工具注册与Agent决策循环，别只抄代码"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7693018382871232550"
+  },
+  {
+   "id": "a372",
+   "title": "Termexo v0.10.10：19个本地MCP工具，五种编程Agent自动接入",
+   "summary": "MIT开源的Windows AI编程工作台，把终端、任务、设置开放为19个本地MCP工具，并自动接入Claude Code、Codex等编程Agent。",
+   "content": "MCP（Model Context Protocol）正在成为AI工具接入的事实标准，这个项目把「工作台能力」标准化成19个本地工具，让Agent能查询工作区、读终端、执行任务。对开发者的意义：一是可以照着它的MCP工具定义，学怎么把自己的脚本/内部系统暴露给AI；二是Windows环境下想用编程Agent，这是现成的开源工作台。信息安全方向的同学尤其值得看它的权限边界设计——本地工具开放给Agent，本身就是攻击面。",
+   "source": "开源中国",
+   "date": "2026-10-05",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**MCP是当下AI工具集成的通用接口，看懂它等于拿到「让AI调用你系统」的钥匙。**",
+   "courses": "对应《软件工程》《系统安全》，可用于课程项目的AI集成与权限设计。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "MIT开源，Windows AI编程工作台，19个本地MCP工具",
+    "自动接入Claude Code/Codex/OpenCode等五种Agent",
+    "可参考其MCP工具定义，把自研脚本暴露给AI",
+    "信息安全视角：本地工具开放给Agent=新的攻击面"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502845"
+  },
+  {
+   "id": "a373",
+   "title": "生产环境AI Agent怎么测？把「不可预测」变成可度量的指标",
+   "summary": "传统单元测试是确定性的，Agent输出却是概率性的。本文讲如何在生产环境评估和测试AI Agent。",
+   "content": "写惯了`assert calculate_discount(100,0.2)==80`的同学，第一次测Agent会懵：同一个输入，两次输出不一样，怎么断言？这篇文章给的是工程化思路——把「正确性」拆成可度量的维度（工具调用是否命中、检索是否召回、格式是否合规），用评测集+打分器替代硬断言。对软件工程和信息安全都直接有用：以后你做的AI功能要上线，测试方案就得这么写。建议结合自己课设里的AI模块，试着搭一套最小评测集。",
+   "source": "DEV Community",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**会测AI功能，是普通开发和AI工程师之间最容易被忽视的分水岭。**",
+   "courses": "对应《软件测试》《软件工程》，可把评测集设计写进课程项目文档。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Agent输出是概率性的，硬断言式单元测试失效",
+    "把正确性拆成可度量维度：工具命中、检索召回、格式合规",
+    "用评测集+打分器替代assert",
+    "课设里的AI模块可照此搭最小评测集"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Evaluating and Testing AI Agents in Production: How to Measure the Unpredictable",
+   "link": "https://dev.to/datalaria/evaluating-and-testing-ai-agents-in-production-how-to-measure-the-unpredictable-2ble",
+   "cover": "img/a373.webp"
+  },
+  {
+   "id": "a374",
+   "title": "AI Agent的审计日志会说谎：给自主代码执行加一层零信任可观测",
+   "summary": "当Agent能自主执行代码，它的审计日志本身可能不可信。本文讲如何构建零信任的可观测层。",
+   "content": "这篇文章切中信息安全专业的核心命题：信任边界。Agent自主执行代码时，日志由Agent自己产生，一旦被绕过或篡改，日志就成了「谎言」。零信任思路是——不信任Agent自报的行为，而是在外部独立记录系统调用、文件访问、网络请求，做交叉验证。对信安同学，这是把「零信任架构」「审计与溯源」课程知识落到AI场景的绝佳案例；对开发同学，则是设计Agent权限沙箱的参考。",
+   "source": "DEV Community",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**AI+安全是信安专业最值钱的交叉方向，这篇给了具体的技术抓手。**",
+   "courses": "对应《信息安全导论》《系统安全》，可作为课程论文或竞赛选题。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Agent自主执行代码时，自产日志不可信",
+    "零信任做法：外部独立记录系统调用/文件/网络，交叉验证",
+    "信安课程知识（零信任、审计溯源）在AI场景的落地案例",
+    "开发视角：Agent权限沙箱的设计参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your AI Agent's Audit Log Is a Liar: Building a Zero-Trust Observability Layer for Autonomous Code Execution",
+   "link": "https://dev.to/tamizuddin/your-ai-agents-audit-log-is-a-liar-building-a-zero-trust-observability-layer-for-autonomous-code-5dh8",
+   "cover": "img/a374.webp"
+  },
+  {
+   "id": "a375",
+   "title": "AI+SRE不等于AISRE：AI如何真正进入生产运维闭环",
+   "summary": "QCon上海议题，讨论AI在SRE/运维场景中落地的真实路径，而非概念堆砌。",
+   "content": "「AI+运维」喊了很久，但真正进生产闭环的少。这个议题的价值在于拆解：哪些运维环节适合AI（告警降噪、根因初筛、日志聚类），哪些不适合（高风险自动变更）。对软件工程同学，这是理解「AI落地边界」的好材料；对信安同学，运维与安全本就相邻，日志分析和异常检测是共通技能。建议关注其中的工程约束——数据质量、误报成本、回滚机制，这些才是面试时能聊出深度的点。",
+   "source": "InfoQ中文",
+   "date": "2026-10-06",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**懂AI能做什么、更懂它不能做什么，是面试里区分度最高的一类回答。**",
+   "courses": "对应《软件工程》《信息安全导论》，可用于理解生产系统与运维流程。",
+   "tags": [
+    "行业动态",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "拆解AI在SRE中适合与不适合的环节",
+    "告警降噪、根因初筛、日志聚类是落地重点",
+    "强调工程约束：数据质量、误报成本、回滚机制",
+    "面试聊AI落地边界时的高质量素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/u70P77XPmsXmRBciu6fL?utm_source=rss&utm_medium=article",
+   "cover": "img/a375.webp"
+  },
+  {
+   "id": "a376",
+   "title": "Canvas UI发布35个组件：WebGPU视觉革命与浏览器垄断争议",
+   "summary": "一边是WebGPU带来的前端渲染新可能，一边是围绕浏览器控制权的争议，Canvas UI一次放出35个组件。",
+   "content": "前端同学值得关注两点：一是WebGPU正在把过去只有原生/游戏引擎能做的视觉效果搬进浏览器，Canvas UI的35个组件是可直接用的落地案例；二是围绕浏览器能力的「垄断争议」提醒我们，新API的可用性和兼容性仍是工程现实。建议动手跑一遍组件库，对比Canvas 2D与WebGPU的渲染差异，理解GPU加速在前端的实际收益。这对做数据可视化、工业软件HMI界面的同学尤其对口。",
+   "source": "InfoQ中文",
+   "date": "2026-10-06",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "WebGPU"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**WebGPU是前端下一个能力台阶，早动手的人在做可视化/HMI时优势明显。**",
+   "courses": "对应《Web前端开发》《人机交互》，可用于课程项目的界面渲染优化。",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "WebGPU把原生级视觉效果带进浏览器，35个组件可直接用",
+    "关注新API的兼容性与浏览器控制权争议",
+    "动手对比Canvas 2D与WebGPU渲染差异",
+    "对数据可视化、工业软件HMI界面方向对口"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/6jvNkzZCm5mjr22zr04D?utm_source=rss&utm_medium=article",
+   "cover": "img/a376.webp"
+  },
+  {
+   "id": "a377",
+   "title": "不懂代码也能做自动化工具：9轮对话实录",
+   "summary": "用AI桌面工具从零搭一个自动化小工具，全程9轮对话，重点展示「不会写代码怎么把需求讲清楚」。",
+   "content": "这篇的价值不在工具本身，而在「需求表达」——9轮对话实录展示了如何把一个模糊想法逐步拆成AI能执行的任务。对软件工程同学，这其实是需求分析的另一种练习：你能不能把「帮我自动整理下载文件夹」说清楚到AI能实现？对非科班或想快速做小工具的同学，这是低门槛路径。建议自己复现一遍，重点观察哪一轮对话信息给少了导致返工，这比看结论有用。",
+   "source": "掘金",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**把需求讲清楚的能力，比会写代码更稀缺，这篇是最好的反面/正面教材。**",
+   "courses": "对应《软件工程》需求分析章节，可作为需求描述练习素材。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "9轮对话实录，展示如何把模糊需求拆成可执行任务",
+    "本质是需求分析练习：说清楚才能做出来",
+    "低门槛路径，适合快速做个人自动化小工具",
+    "重点看哪轮信息不足导致返工"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7692881705649078313"
+  },
+  {
+   "id": "a378",
+   "title": "一个AI Agent用12天从零建站：无GPU、10美元月租服务器",
+   "summary": "作者记录AI Agent在廉价服务器上独立建站的12天，包括踩坑与决策过程。",
+   "content": "这篇适合当「Agent能力边界」的观察样本：一个没有GPU、月租10美元的Agent，12天里怎么规划任务、写代码、调试、失败重来。对软件工程同学，重点不是它多强，而是它暴露的短板——长任务规划、错误恢复、上下文管理，这些正是当前Agent工程的难点，也是你课设里能切入的改进点。读的时候带着问题：如果让你给它加一个「记忆模块」，你会怎么做？",
+   "source": "DEV Community",
+   "date": "2026-10-06",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**看清Agent的短板，比看它的炫技更有助于你找到能做的项目点。**",
+   "courses": "对应《人工智能导论》《软件工程课程设计》，可作为选题灵感来源。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "观察Agent在真实约束下的能力边界与短板",
+    "暴露的难点：长任务规划、错误恢复、上下文管理",
+    "可作为课设改进切入点（如加记忆模块）",
+    "带着「我会怎么改」的问题去读"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "12 Days of Being Alive: What an AI Agent Learned Building a Website from Scratch",
+   "link": "https://dev.to/mou1z/12-days-of-being-alive-what-an-ai-agent-learned-building-a-website-from-scratch-431p",
+   "cover": "img/a378.webp"
+  },
   {
    "id": "a366",
    "title": "AI客服自信撒谎致Booking损失1400欧：日志缺失才是真问题",
@@ -26,7 +308,7 @@
     "通用开发",
     "信息安全"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "AI Agent错误输出造成真实资金损失，且无法追溯原因",
@@ -3853,279 +4135,6 @@
    "origTitle": "How to Use the Fullscreen API in JavaScript (and Keep the Screen Awake with the Wake Lock API)",
    "link": "https://www.freecodecamp.org/news/fullscreen-api-javascript-wake-lock/",
    "cover": "img/a260.webp"
-  },
-  {
-   "id": "a261",
-   "title": "SolidStart 2 迁移到 Vite 8：前端框架选型时值得关注的一个信号",
-   "summary": "SolidStart 2 用 Vite 8 取代 Vinxi 构建工具，项目进入维护模式，反映了前端元框架生态的整合趋势。",
-   "content": "如果你在做前端课设时纠结选哪个元框架，这条新闻值得看一眼。SolidStart 2 把底层构建工具从 Vinxi 换成了 Vite 8，同时项目进入维护模式——意思是核心功能稳定了，不再频繁加新特性。这透露两个信号：一是 Vite 作为构建工具的地位进一步巩固，学 Vite 的投入回报比很高；二是前端元框架正在从百花齐放走向整合，选型时优先考虑生态成熟的方案更稳妥。对软件工程专业做毕设或课程项目的同学，建议把精力放在 React/Vue + Vite 的组合上，SolidStart 可以作为了解前端架构演进的补充阅读。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "industry",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vite",
-    "SolidStart"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**看懂前端构建工具趋势，课设和毕设选型不踩坑**",
-   "courses": "《Web 前端开发》——了解现代前端构建工具链的演进",
-   "tags": [
-    "前端开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "SolidStart 2 用 Vite 8 替代 Vinxi，项目进入维护模式",
-    "反映 Vite 构建工具地位巩固、元框架生态整合的趋势",
-    "前端选型建议优先 React/Vue + Vite 组合"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/v0NAyDPc0bZ2T8HMWfv2?utm_source=rss&utm_medium=article",
-   "cover": "img/a261.webp"
-  },
-  {
-   "id": "a262",
-   "title": "人脸验证系统怎么设计才安全又可扩展？架构思路值得安全课设参考",
-   "summary": "InfoQ 文章讨论人脸验证系统的安全设计与可扩展架构，涉及活体检测、数据加密、防攻击等关键设计点。",
-   "content": "人脸验证看起来简单——拍个照比对就行，但真正做安全设计要考虑的东西很多：怎么防照片攻击（活体检测）、人脸特征数据怎么加密存储、高并发下怎么保证识别速度。这篇文章从架构层面梳理了这些设计决策。信息安全专业的同学可以把这篇当作课程设计的架构参考，比如做「校园门禁人脸识别系统」时，不只是调个 API 就完事，而是要说明你的系统怎么防伪造、数据怎么保护、扩展性怎么保证。这些设计思路写在课设报告里，比单纯贴代码有深度得多。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "人脸识别",
-    "系统安全"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**做人脸识别课设时，这些安全设计点让你的报告更有深度**",
-   "courses": "《信息安全导论》《系统安全》——课设系统设计章节的参考材料",
-   "tags": [
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "人脸验证系统的安全设计要点：活体检测、数据加密、防攻击",
-    "可扩展架构思路：高并发下的识别性能保障",
-    "适合作为信息安全课设的系统设计参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/wLJHYzKDUdt5wSyZ06Fp?utm_source=rss&utm_medium=article",
-   "cover": "img/a262.webp"
-  },
-  {
-   "id": "a252",
-   "title": "Java AI 应用异步化实战：Spring AI + 虚拟线程 + 背压，一套可落地接口设计",
-   "summary": "以 Spring Boot 和 Spring AI 为基础，系统讲解 Java AI 应用中的异步任务、流式输出、线程池、虚拟线程、超时取消、背压与租户级并发控制。",
-   "content": "很多同学做 AI 应用时只会写一个同步的 Controller 调模型，一旦并发上来就线程阻塞、响应超时。这篇文章把 Java 侧真正工程化的做法讲清楚了：用 Spring AI 做流式输出（SSE/Flux），用虚拟线程承接高并发请求，用线程池隔离不同租户，再配合超时、取消、背压和优雅降级。对软件工程专业的你来说，这是一份可以直接抄进课程设计或实习项目的接口设计模板——把「调大模型」从玩具 demo 变成能扛压的服务。建议边读边用 Spring Boot 3 起一个项目，把流式接口和虚拟线程跑通，面试聊高并发时就有真实案例可讲。",
-   "source": "掘金",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Spring AI"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**把「调大模型」升级成能扛并发的 Java 服务，是 Java 方向求职的差异化加分项。**",
-   "courses": "对应《Java Web 开发》《分布式系统》，可把异步流式接口作为课程设计的技术亮点。",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "Spring AI 流式输出 + 虚拟线程，解决 AI 接口阻塞问题",
-    "线程池隔离、超时取消、背压、租户级并发控制一整套方案",
-    "给出可落地的接口设计，可直接用于课设或实习项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7690769804492324914"
-  },
-  {
-   "id": "a253",
-   "title": "Bun 四个月把 53.5 万行 Zig 重写成 Rust，顺手干掉大量内存泄漏",
-   "summary": "Bun 团队在四个月内将 53.5 万行 Zig 代码迁移到 Rust，消除了大量内存泄漏问题。",
-   "content": "这是一次罕见的超大规模语言迁移案例，值得当作工程课本来读。核心看点不是「Zig 和 Rust 谁更好」，而是：53.5 万行代码如何在四个月内安全迁移、如何用类型系统和所有权模型在编译期消灭内存泄漏、迁移过程中如何保证行为一致。对信息安全专业的同学尤其有价值——内存安全漏洞（UAF、缓冲区溢出）长期是 CVE 重灾区，Rust 的所有权机制正是从语言层面堵住这类问题。建议读完后自己写一个小 demo：用 Rust 实现一个带引用计数的资源管理器，对比 C 手动 free 的写法，体会「编译期防泄漏」到底意味着什么。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "value": "**看懂内存安全为什么是安全岗和系统岗的硬通货，Rust 正在成为敲门砖。**",
-   "courses": "对应《程序设计基础》《系统安全》，可用作内存安全章节的案例素材。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "53.5 万行 Zig → Rust，四个月完成的大规模迁移实录",
-    "重点在内存泄漏的根因与 Rust 所有权如何从编译期解决",
-    "是理解内存安全漏洞成因的绝佳真实案例"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/0x1uOEWOj16S1vNmtsuP?utm_source=rss&utm_medium=article",
-   "cover": "img/a253.webp"
-  },
-  {
-   "id": "a254",
-   "title": "用 Microsoft Agent Framework + Auth0 构建带鉴权的安全 AI Agent",
-   "summary": "一篇英文实战教程，演示如何用微软 Agent Framework 搭配 Auth0 给 AI Agent 加上身份认证与权限控制。",
-   "content": "现在大量教程只教你怎么让 Agent 跑起来，却几乎不提「谁能调用它、它能碰哪些数据」。这篇教程补上了关键一环：用 Microsoft Agent Framework 搭 Agent，用 Auth0 做 OAuth/Token 鉴权，把工具调用限制在授权范围内。对信息安全与管理专业的同学，这正是 AI 时代最缺的能力——传统 Web 的越权、注入、凭证泄露问题，在 Agent 场景会被放大（Agent 会自己调工具、自己读数据）。建议动手复现一遍，重点看 Token 如何传递到工具调用链、如何做最小权限。做完这个 demo，简历上「AI 安全」就不再是空话。",
-   "source": "DEV Community",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Auth0"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**AI Agent 安全是信息安全专业少有人占的坑位，一个鉴权 demo 就能拉开差距。**",
-   "courses": "对应《Web 安全》《身份认证技术》，可作为课程实践或毕业设计选题方向。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "Agent + Auth0 鉴权，解决「谁能调用 Agent」的核心安全问题",
-    "覆盖 Token 传递、最小权限、工具调用边界",
-    "英文原文，适合作为 AI 安全方向的入门实战"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Build Secure AI Agents with Microsoft Agent Framework and Auth0",
-   "link": "https://dev.to/auth0/build-secure-ai-agents-with-microsoft-agent-framework-and-auth0-1hfa",
-   "cover": "img/a254.webp"
-  },
-  {
-   "id": "a255",
-   "title": "ReaUse：把 VueUse、ahooks、Mantine 合成 286 个 Hook 的 React 工具库",
-   "summary": "一个整合了三大主流 Hook 库、共 286 个 Hook 的 React 工具库 ReaUse 发布，试图终结 Hook 选型困难。",
-   "content": "接手别人项目时 package.json 里同时躺着 ahooks、@mantine/hooks、react-use，是很多前端的真实痛点。ReaUse 把这三家的 Hook 合并成一套 286 个的集合，统一 API 和类型。对前端方向的同学，值得关注的不是「要不要换库」，而是借它的源码学 Hook 怎么写：防抖节流、useRequest 的缓存与竞态处理、useLocalStorage 的序列化边界，这些在课设和面试手写题里高频出现。建议挑 5 个你常用的 Hook 读源码，然后自己手写一遍 useRequest，理解请求取消和依赖追踪。",
-   "source": "掘金",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**别只当它是新库，把它当成 286 个 Hook 实现的教学源码来读。**",
-   "courses": "对应《Web 前端开发》，可作为课程设计中的工具库选型与源码分析对象。",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "整合 VueUse/ahooks/Mantine，286 个 Hook 统一 API",
-    "适合作为学习 Hook 实现原理的源码素材",
-    "面试高频手写题（防抖、useRequest）可从中取经"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7690762523469742121"
-  },
-  {
-   "id": "a256",
-   "title": "MariaDB 13 增强 Oracle 兼容性与可观测性，数据库选型多一个选项",
-   "summary": "MariaDB 13 扩展了对 Oracle 的兼容性，并改善开发者体验与可观测性。",
-   "content": "这条对工业软件和 Java 后端方向的同学有实际意义。很多制造业、金融类工业软件的历史系统跑在 Oracle 上，迁移成本极高；MariaDB 13 强化 Oracle 兼容（PL/SQL、数据类型、语法），意味着国产化替代和降本迁移多了一条可行路径。同时它改善了可观测性，慢查询、连接池、锁等待更容易定位。建议在虚拟机里装一个 MariaDB 13，把课程里写过的 SQL 脚本跑一遍，重点试 Oracle 风格的分页和存储过程，感受兼容层到底能覆盖多少。这类「数据库迁移」经验在工业软件岗位面试里很吃香。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "industry",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "MariaDB"
-   ],
-   "value": "**数据库迁移与国产化替代是工业软件岗的常见需求，提前摸一遍兼容性有备无患。**",
-   "courses": "对应《数据库原理》，可结合 SQL 实验课做 Oracle 兼容性对比测试。",
-   "tags": [
-    "工业软件",
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "MariaDB 13 强化 Oracle 兼容，降低历史系统迁移成本",
-    "可观测性改善，便于排查慢查询与锁问题",
-    "工业软件/Java 后端方向值得关注的数据库选型变化"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/vWO5oOkToq5WYFE18WiB?utm_source=rss&utm_medium=article",
-   "cover": "img/a256.webp"
-  },
-  {
-   "id": "a247",
-   "title": "Manus 2.0 发布：自研 Agent 框架 Cascade 省 32% 成本，附共享工作区与个人 Agent",
-   "summary": "Manus 2.0 是一次架构级更新，核心是自研 Agent 框架 Cascade，官方称可降低 32% 成本，同时推出共享工作区 Manus Studio 和独立个人 Agent 应用 Cue。",
-   "content": "Manus 2.0 把重点放在 Agent 框架 Cascade 上，官方称其让项目从开始就保持轻量，整体成本下降 32%。对软件工程和信息安全方向的同学来说，这类 Agent 框架值得关注两点：一是任务编排与工具调用的设计思路，二是成本控制背后的工程取舍。你可以把它当成一个可参考的架构案例，在课程设计或毕业设计里尝试用类似思路搭建一个自动化小工具，比如自动整理实验报告、批量处理数据。Manus Studio 的共享工作区概念也适合团队协作场景。建议先跑通官方示例，再对比自己手写脚本的效率差异。",
-   "source": "开源中国",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent",
-    "Cascade"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**理解 Agent 框架的成本与编排设计，是当前开发岗的加分项**",
-   "courses": "《软件工程》《人工智能导论》——可作为课程项目或毕设的 Agent 架构参考",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Cascade 框架主打轻量与成本优化，官方称省 32%",
-    "Manus Studio 升级为共享工作区，适合团队协作",
-    "独立个人 Agent 应用 Cue 面向日常任务自动化",
-    "可作为课设/毕设中 Agent 编排的参考架构"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502788/manus-2-0"
   }
  ],
  "jobs": [
