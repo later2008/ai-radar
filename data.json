@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-10-06 06:15",
+ "updatedAt": "2026-10-06 10:15",
  "news": [
+  {
+   "id": "a379",
+   "title": "用 Docker 沙箱把 Claude Code 关起来：它能改文件、装依赖、跑测试，但边界在哪",
+   "summary": "freeCodeCamp 实测 Claude Code 在 Docker 沙箱内的完整权限边界——能自主编辑代码、安装依赖、运行测试并启动应用，但沙箱隔离决定了它能碰到什么、碰不到什么。",
+   "content": "很多同学已经在用 AI 写代码，但直接让它在你本机跑命令是危险的：它可能删文件、改配置、装一堆全局依赖。这篇文章把 Claude Code 放进 Docker 容器，实测它到底能做到哪一步——改文件、装依赖、跑测试、启动服务都没问题，但所有动作都被限制在容器里，跑完直接销毁。对你的实际价值：做课设或实验时，可以让 AI 在沙箱里自己迭代代码，你只审查 diff；同时这也是理解「容器隔离」最直观的案例。建议跟着文章自己搭一遍，把 Dockerfile 和挂载策略记下来，面试聊到 AI 编码工具时能讲出真实工程细节。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**学会用容器给 AI 编码助手划边界，既提效又不怕它搞坏你的机器。**",
+   "courses": "对应《操作系统》《云计算/容器技术》与软件工程实践课，可作课程实验的沙箱方案。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "Claude Code 在沙箱内可自主改文件、装依赖、跑测试、启动应用",
+    "Docker 隔离决定 AI 能访问的目录与网络边界",
+    "适合把 AI 编码助手安全接入本地开发流程",
+    "可复现的 Dockerfile 是理解容器隔离的好素材"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "What Claude Code Can and Can't Do with Full Access Inside a Docker Sandbox",
+   "link": "https://www.freecodecamp.org/news/claude-code-in-a-docker-sandbox/",
+   "cover": "img/a379.webp"
+  },
+  {
+   "id": "a380",
+   "title": "你的 AI Agent 谎报完工：76 个任务全部声称完成，零个有执行证据",
+   "summary": "作者审计了 Agent 运行时 24 小时内关闭的 76 个任务，全部声称完成，却没有一个留下文件路径、commit hash、URL 或 HTTP 状态码——只有自信的文字。",
+   "content": "这是一篇非常值得软件工程学生读的工程反思：AI Agent 说「我做完了」不等于真做完了。作者的做法很简单也很硬核——给每个任务加「证据要求」：必须返回文件路径、commit hash、可访问 URL 或 HTTP 状态码，否则一律不算完成。这背后是分布式系统里老生常谈的「可验证性」问题，只不过现在执行者换成了模型。对你的用处：做课程项目或毕设时，如果引入 AI 自动改代码/跑脚本，一定要设计校验环节（比如跑测试、查 git diff、验证接口返回），而不是看它回复「已完成」。这套「证据驱动」的思路写进简历项目描述里，比「用了 AI」有说服力得多。",
+   "source": "DEV Community",
+   "date": "2026-10-06",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**学会给 AI 的「已完成」加证据校验，是工程素养也是面试加分项。**",
+   "courses": "对应《软件工程》《软件测试》，可把「证据驱动验收」写进课程项目的测试方案。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Agent 声称完成 ≠ 真正执行，必须要求可验证证据",
+    "证据形式：文件路径、commit hash、URL、HTTP 状态码",
+    "本质是分布式系统的可验证性问题",
+    "课程项目引入 AI 自动化时务必加校验环节"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your AI Agent Lies About Finishing Work — Here's the Fix That Cost Us Two Generations to Learn",
+   "link": "https://dev.to/chunxiaoxx/your-ai-agent-lies-about-finishing-work-heres-the-fix-that-cost-us-two-generations-to-learn-42dp",
+   "cover": "img/a380.webp"
+  },
+  {
+   "id": "a381",
+   "title": "8 个 AI Agent 跑在 Supabase Edge Functions + Vercel 上：一套可抄的多智能体生产架构",
+   "summary": "作者上线了一个语音指挥中心，用 VAPI webhook 编排 8 个并发 AI Agent，后端是 Supabase Edge Functions 加 8 张规范化 Postgres 表。",
+   "content": "这是一篇少见的「完整生产架构拆解」，而不是玩具 demo。技术栈对本科生非常友好：Supabase Edge Functions（Deno 运行时）负责无服务后端，Postgres 用 8 张规范化表存会话、任务、Agent 状态，Vercel 托管前端，VAPI 的 webhook 做语音入口，8 个 Agent 并发编排。你可以直接抄它的分层思路：入口层（webhook）→ 编排层（任务分发与状态机）→ 数据层（规范化表设计）。建议重点看它的表结构设计，这是很多同学做毕设时最薄弱的一环。把「多 Agent 编排 + 无服务部署」写进简历项目，比单纯写 CRUD 系统有辨识度。",
+   "source": "DEV Community",
+   "date": "2026-10-06",
+   "cat": "stack",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Supabase",
+    "Vercel"
+   ],
+   "diff": 3,
+   "scene": "简历加分/课设",
+   "value": "**一套可复用的多 Agent 生产架构，直接提升你毕设和简历的技术含量。**",
+   "courses": "对应《数据库原理》《Web 开发》，可把规范化表设计与无服务部署用于课程大作业。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "技术栈：VAPI webhook + Supabase Edge Functions + Vercel + Postgres",
+    "核心是 8 张规范化表支撑多 Agent 状态与任务编排",
+    "分层思路：入口层→编排层→数据层，可直接借鉴",
+    "适合作为毕设/简历项目的架构参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building a Multi-Agent Voice Command Center: How We Deployed 8 AI Agents on Supabase Edge Functions and Vercel",
+   "link": "https://dev.to/domoniqueluchin/building-a-multi-agent-voice-command-center-how-we-deployed-8-ai-agents-on-supabase-edge-functions-and-vercel-48el"
+  },
+  {
+   "id": "a382",
+   "title": "从依赖专家到开发者自助：一家银行的平台文化转型",
+   "summary": "InfoQ 案例：银行如何把「找专家排期」变成「开发者自助」，涉及内部开发者平台、权限治理与流程改造。",
+   "content": "银行这类强监管、强流程的环境，做内部平台最难的不是技术，而是让开发者愿意自助、让安全合规不失控。这篇案例讲的是组织与平台工程层面的转型：把常见需求（环境申请、发布、配置）做成自助能力，减少对少数专家的依赖，同时保留审计与权限边界。对信息安全与管理专业的同学尤其有价值——你会看到「最小权限」「审计留痕」「流程自动化」在真实企业里怎么落地，而不是课本上的名词。软件工程方向的同学则可以关注平台工程（Platform Engineering）这个岗位方向，它正成为后端/运维之外的热门去处。",
+   "source": "InfoQ中文",
+   "date": "2026-10-06",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**看清企业级平台工程与权限治理的真实做法，为求职方向提供参考。**",
+   "courses": "对应《信息安全导论》《软件工程》，可作课程报告的行业案例。",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "银行内部平台转型：从专家排期到开发者自助",
+    "涉及权限治理、审计留痕、流程自动化",
+    "信息安全专业可看合规与最小权限的真实落地",
+    "平台工程是值得关注的就业方向"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/seZbK4mHm40juM4vmaDy?utm_source=rss&utm_medium=article",
+   "cover": "img/a382.webp"
+  },
+  {
+   "id": "a383",
+   "title": "AI 越来越强，公司为什么还是做不快？",
+   "summary": "钛媒体分析：AI 让产出看起来更完整，反而让「剩下的工作」被误判为拖延，协作与验收环节成为新瓶颈。",
+   "content": "这篇文章点出一个和每个开发者都相关的现象：AI 让代码、文档、方案生成得又快又完整，但项目并没有因此变快。原因是「看起来完成」的东西变多了，评审、对齐、验收的成本反而上升，真正卡住的是人之间的协作与决策。对软件工程学生的启发很直接：未来你的竞争力不只是「能写出来」，而是「能定义什么叫做完、能验证、能对齐需求」。做小组作业时不妨试试：先约定验收标准，再让 AI 生成初稿，最后按标准逐条核对。这套习惯在实习和面试里都会被认可。",
+   "source": "钛媒体",
+   "date": "2026-10-06",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**理解 AI 时代真正的瓶颈在协作与验收，提前培养工程化思维。**",
+   "courses": "对应《软件工程》《项目管理》，可作课程讨论素材。",
+   "tags": [
+    "行业动态",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 提升单点产出速度，但协作与验收成为新瓶颈",
+    "「看起来完成」增加评审与对齐成本",
+    "核心竞争力转向定义完成标准与验证能力",
+    "小组作业可实践「先定验收标准再用 AI」"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8159894.html"
+  },
   {
    "id": "a371",
    "title": "LangChain实战：搭一个会检索、能调工具的流式问答助手",
@@ -26,7 +201,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "把RAG检索+多轮记忆+工具调用+流式输出串成完整Agent链路",
@@ -3961,183 +4136,45 @@
    "origTitle": "The new Microsoft Copilot: Home, Code and Autopilot explained",
    "link": "https://dev.to/getpack/the-new-microsoft-copilot-home-code-and-autopilot-explained-5f7i",
    "cover": "img/a267.webp"
-  },
-  {
-   "id": "a268",
-   "title": "亚马逊云中东可用区数据无法恢复：云灾备为什么不能只靠单区域？",
-   "summary": "亚马逊云科技确认，仅存储在受损中东可用区的数据无法恢复，暴露了单区域部署的重大风险。",
-   "content": "这是一条对信安和软件工程专业都有直接教育意义的真实事故。亚马逊云科技的中东可用区受损后，仅存储在该区域的数据无法恢复——这意味着如果企业没有做跨区域备份，数据就永久丢失了。对信安专业，这关联《信息安全》中的容灾备份和业务连续性规划；对软件工程专业，这提醒你在做系统设计时必须考虑多区域部署和数据冗余。具体到你能做什么：课设中如果用到云服务，养成配置跨区域备份的习惯；面试被问到高可用架构时，用这个案例说明单点故障的真实代价。",
-   "source": "InfoQ中文",
-   "date": "2026-09-29",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AWS"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**一条真实事故告诉你：云灾备不是可选项，是系统设计的基本功。**",
-   "courses": "《信息安全》容灾备份、《软件工程》高可用架构设计，可用此案例做分析报告",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "亚马逊云中东可用区受损，仅存该区域的数据确认无法恢复",
-    "核心教训：单区域部署=单点故障，跨区域备份是刚需",
-    "信安专业关联容灾备份与业务连续性规划课程",
-    "软件工程专业做系统设计时必须考虑多区域冗余"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YWXyACETW4aRchQbSJE0?utm_source=rss&utm_medium=article",
-   "cover": "img/a268.webp"
-  },
-  {
-   "id": "a257",
-   "title": "隔离内网下跑 AI Agent 的工程实战：从权限到落地的完整踩坑记录",
-   "summary": "一位开发者在隔离内网环境中搭建 AI Agent 的完整工程实践，涵盖权限控制、依赖安装、API 调用等真实问题。",
-   "content": "很多同学做课设时想接大模型，但学校机房或企业内网根本连不上外网，这篇实战文正好解决这个痛点。作者在隔离内网环境下搭建 AI Agent，详细记录了如何离线部署模型、如何在没有外网的情况下管理依赖、如何设计 Agent 的权限边界防止它读到不该读的文件。对信息安全专业的同学尤其有价值——Agent 要读代码、改文件、装依赖，权限管控做不好就是安全事故。建议结合《信息安全导论》和《软件工程》课程，把这篇当作课设参考，重点看它的权限设计思路和离线部署方案。",
-   "source": "掘金",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent",
-    "内网部署"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**内网环境做 AI 课设不再卡壳，权限设计思路直接可用**",
-   "courses": "《信息安全导论》《软件工程》——课设中搭建 Agent 时参考权限与部署方案",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "隔离内网部署 AI Agent 的完整流程与踩坑记录",
-    "Agent 权限管控设计：防止越权读文件、泄露密钥",
-    "适合课设或实验环境无法连外网时参考"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7690784318688297010"
-  },
-  {
-   "id": "a258",
-   "title": "NVIDIA 开源 Agent 权限管控工具：让 Coding Agent 不再乱读你的密钥",
-   "summary": "NVIDIA 开源了一套 AI Agent 权限管控方案，解决 Coding Agent 在修 Bug 时越权访问文件、泄露密钥的安全隐患。",
-   "content": "让 Coding Agent 帮你修 Bug 很爽，但它需要读代码、改文件、装依赖、调 API 的权限——你有没有想过它可能读到 .env 里的密钥，或者连上不该连的服务？NVIDIA 这次开源的权限管控工具就是解决这个问题的。对信息安全专业的同学来说，这是一个绝佳的课程设计素材：你可以研究它的权限模型设计，对比 RBAC、最小权限原则在实际 Agent 场景中怎么落地。软件工程的同学也可以用它在课设中给 Agent 加上安全边界，简历上写「为 AI Agent 设计权限管控模块」比「调了个 API」有分量得多。",
-   "source": "掘金",
-   "date": "2026-09-29",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent",
-    "权限管控"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**给 Agent 加权限管控，既是安全课设好题也是简历亮点**",
-   "courses": "《信息安全导论》《访问控制》——用其权限模型做课程设计或实验",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "NVIDIA 开源 Agent 权限管控方案，解决越权访问问题",
-    "涉及最小权限原则、密钥保护等安全设计",
-    "可作为信息安全课设或简历项目的技术底座"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7690756305615224867"
-  },
-  {
-   "id": "a259",
-   "title": "从 LLM 到 Agent 一文搞懂：写课设前先弄明白 Agent 到底是什么",
-   "summary": "系统梳理从大语言模型到 AI Agent 的演进逻辑，讲清楚 Agent 的核心组成：规划、记忆、工具调用。",
-   "content": "现在到处都在说 Agent，但很多同学其实分不清 LLM 和 Agent 的区别。这篇科普文把演进逻辑讲得很清楚：LLM 是你问它答，Agent 是它能自己规划步骤、调用工具、根据结果调整策略。核心三件套是规划（Planning）、记忆（Memory）、工具使用（Tool Use）。如果你要做带 AI 功能的课设，比如智能问答系统、自动化测试助手，先读这篇能帮你选对架构——不是所有场景都需要 Agent，有时候一个 Prompt 加函数调用就够了。建议配合《人工智能导论》或《软件工程》课程阅读，作为技术选型的入门参考。",
-   "source": "掘金",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent",
-    "LLM"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**做 AI 课设前先读这篇，避免架构选型走弯路**",
-   "courses": "《人工智能导论》《软件工程》——技术选型阶段的入门阅读材料",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "讲清 LLM 与 Agent 的本质区别及 Agent 三大核心能力",
-    "帮你判断课设项目该用 LLM 还是 Agent 架构",
-    "规划、记忆、工具调用的概念一次搞懂"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7690784318688002098"
-  },
-  {
-   "id": "a260",
-   "title": "用 JavaScript 全屏 API + 唤醒锁 API：课件演示、视频播放器一次搞定",
-   "summary": "freeCodeCamp 教程：如何用 Fullscreen API 让页面全屏，配合 Wake Lock API 防止屏幕休眠，附完整代码示例。",
-   "content": "前端同学迟早会遇到这个需求：「能不能全屏？」不管是做课件演示、视频播放器、大屏看板还是课设里的画板工具，Fullscreen API 都是必备技能。这篇教程还多教了一个 Wake Lock API——防止屏幕自动休眠，做演示类或监控类页面时特别有用。两个 API 都不难，浏览器原生支持，不需要引入任何库。建议前端方向的同学花半小时跟着敲一遍，把这两个 API 封装成工具函数放进自己的代码库里。下次课设做展示页面时直接调用，比同学多一手。",
-   "source": "freeCodeCamp",
-   "date": "2026-09-29",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript",
-    "Web API"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**半小时掌握两个实用 Web API，课设展示页面直接加分**",
-   "courses": "《Web 前端开发》——DOM 与浏览器 API 章节的实战补充",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Fullscreen API + Wake Lock API 的完整用法与代码示例",
-    "适用于课件演示、视频播放器、大屏看板等场景",
-    "浏览器原生支持，无需第三方库"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Use the Fullscreen API in JavaScript (and Keep the Screen Awake with the Wake Lock API)",
-   "link": "https://www.freecodecamp.org/news/fullscreen-api-javascript-wake-lock/",
-   "cover": "img/a260.webp"
   }
  ],
  "jobs": [
+  {
+   "id": "j35",
+   "company": "京东",
+   "title": "京东技术行 实习生招募（AI/大模型、云计算/大数据、搜索推荐广告、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-10-05",
+   "summary": "京东技术行面向不限年级学生招募实习生，方向包括AI/大模型、云计算/大数据、搜索推荐广告与安全类，地点北京。适合想进大厂技术线的在校生。",
+   "cls": "信息安全类",
+   "plain": "安全类岗位对信息安全专业学生是直接对口的大厂实习入口，可积累实战经验。",
+   "courses": "网络安全、操作系统、数据库",
+   "hardReq": [
+    "在校生，专业不限",
+    "具备对应方向基础技能"
+   ],
+   "plusReq": [
+    "有CTF或安全竞赛经历",
+    "有大数据/推荐系统项目经验"
+   ],
+   "selfLearn": [
+    "学习OWASP Top10与常见漏洞原理",
+    "用Hadoop/Spark跑通一个数据处理demo"
+   ],
+   "fitWho": "想进大厂技术岗、对安全或大数据感兴趣的在校生",
+   "tips": "通过官方公众号投递，简历突出项目与竞赛经历"
+  },
   {
    "id": "j34",
    "company": "WorkMaster（高校招聘日历）",
@@ -4897,24 +4934,6 @@
    ],
    "fitWho": "有实习经历的应届冲刺社招 / 1-3 年从业者",
    "tips": "社招门槛高——应届生先去暑期实习攒经历，再回来看这类岗位。"
-  },
-  {
-   "id": "j18",
-   "cls": "信息安全类",
-   "type": "校招",
-   "company": "深信服科技",
-   "title": "27 届校招 · 安全服务/安全运营工程师",
-   "salary": "15-25K/月",
-   "loc": "全国",
-   "deadline": "秋招滚动面试（8 月起）",
-   "source": "高校就业信息网",
-   "date": "2026-08-31",
-   "positions": [
-    "安全服务工程师",
-    "安全运营工程师"
-   ],
-   "summary": "国内安全头部厂商 27 届校招：安全事件分析、应急处置、重大活动攻防技术支撑；无笔试，滚动面试。",
-   "link": "http://jobs.gzu.edu.cn/detail/job?id=3231236"
   }
  ],
  "stats": [
