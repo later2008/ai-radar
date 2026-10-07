@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-10-07 00:09",
+ "updatedAt": "2026-10-07 06:14",
  "news": [
+  {
+   "id": "a389",
+   "title": "MCP 协议转向无状态：状态管理甩给应用层，开发者该怎么接",
+   "summary": "InfoQ 解析 MCP 最新无状态化改造：协议本身不再维护会话状态，改由应用侧自行管理，直接影响你写 AI 工具调用时的架构设计。",
+   "content": "MCP（Model Context Protocol）是当前把大模型接进本地工具、数据库的主流协议，之前它靠服务端维护会话状态，部署和横向扩展都很别扭。这次改成无状态后，服务端可以像普通 HTTP 接口一样随意扩容，但代价是「谁调用谁负责记住上下文」——状态被推到了应用层。对软件工程同学来说，这意味着以后写 AI Agent 或工具网关时，会话存储、幂等、重试要自己设计，不能指望协议兜底。做课设或实习里涉及 LLM 工具调用的话，建议先读这篇，理解协议边界再动手，能少踩一堆并发和状态丢失的坑。",
+   "source": "InfoQ中文",
+   "date": "2026-10-07",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**理解 AI 工具调用协议的架构演进，避免在 Agent 项目里把状态管理设计错。**",
+   "courses": "对应《软件体系结构》《分布式系统》，可作课设中 AI 模块的架构参考",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "MCP 从有状态改为无状态，服务端可水平扩展",
+    "状态管理责任转移到应用层，需自行设计会话存储",
+    "影响 AI Agent、工具调用网关的架构选型",
+    "适合在做 LLM 相关课设/实习前建立认知"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/MwQyLYzgSiD16x36k9Ef?utm_source=rss&utm_medium=article",
+   "cover": "img/a389.webp"
+  },
+  {
+   "id": "a390",
+   "title": "用 Harness 工程做 SRE 可控生产环境：QCon 上海实战分享",
+   "summary": "InfoQ 带来 QCon 上海议题，讲如何用 Harness 平台把 SRE 的发布、回滚、可观测性做成可控流水线，适合想往运维/后端方向走的同学。",
+   "content": "Harness 是一套覆盖 CI/CD、特性开关、混沌工程的工程平台，这次分享的重点是「可控」：怎么让生产环境的每一次变更都可回滚、可观测、可审计。对信息安全与软件工程专业来说，这类内容直接对应企业里真实的上线流程——不是写完代码就完事，而是要设计灰度、监控、回滚预案。如果你在准备后端或安全运维岗的面试，把「发布流水线 + 可观测性 + 故障演练」这条链路讲清楚，比只会背八股加分得多。建议结合课设的部署环节，试着用 GitHub Actions 或 Jenkins 复刻一个最小可控发布流程。",
+   "source": "InfoQ中文",
+   "date": "2026-10-07",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "CI/CD",
+    "SRE"
+   ],
+   "diff": 2,
+   "scene": "求职准备/简历加分",
+   "value": "**把「可控发布」讲成自己的项目经验，是后端和运维岗面试的实打实加分项。**",
+   "courses": "对应《软件工程》《信息安全运维》，可用于课设部署环节的流程设计",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Harness 覆盖 CI/CD、特性开关、混沌工程",
+    "核心是让生产变更可回滚、可观测、可审计",
+    "对应企业真实上线流程，面试常问",
+    "可用 GitHub Actions/Jenkins 做最小复刻练手"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/WvTYmUCLl28HKFvWHpZ2?utm_source=rss&utm_medium=article",
+   "cover": "img/a390.webp"
+  },
+  {
+   "id": "a391",
+   "title": "Shaders：给 React/Vue/Svelte 用的 WebGPU 着色器组件库",
+   "summary": "一个把 WebGPU 着色器封装成前端组件的开源库，支持 React、Vue、Svelte、Solid 和原生 JS，前端同学可以低成本给页面加 GPU 特效。",
+   "content": "WebGPU 是浏览器里跑 GPU 计算和图形的新标准，但直接写着色器对前端来说门槛不低。这个库把常见着色器效果封装成组件，React、Vue、Svelte、Solid 都能直接用，等于把「GPU 特效」变成了几行标签。对前端方向的同学，这是练手 WebGPU 和图形编程的省力入口：可以先跑通官方示例，再改参数理解 uniform、片元着色器怎么工作。注意 WebGPU 目前浏览器兼容性还不完整，做课程展示或作品集页面时记得留降级方案。工业软件方向如果涉及三维可视化，也值得关注这条技术线。",
+   "source": "Hacker News",
+   "date": "2026-10-07",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "WebGPU",
+    "React"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**用几行组件就能给作品集加上 GPU 特效，是前端简历里少见的差异化亮点。**",
+   "courses": "对应《Web 前端开发》《计算机图形学》，可用于课设的可视化展示环节",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "把 WebGPU 着色器封装成 React/Vue/Svelte 等框架组件",
+    "降低前端接入 GPU 特效的门槛",
+    "可作 WebGPU/图形编程的入门练手项目",
+    "注意浏览器兼容性，需准备降级方案"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Shaders, WebGPU Components for React, Vue, Svelte, Solid, JavaScript and Framer",
+   "link": "https://github.com/shader-effects-inc/shaders",
+   "cover": "img/a391.webp"
+  },
+  {
+   "id": "a392",
+   "title": "Palantir 旧访谈翻红：企业级 AI 订单拼的不只是模型",
+   "summary": "钛媒体复盘 Palantir 旧访谈，指出企业级 AI 项目成败往往取决于认知与信任，而非模型参数，对想进 B 端软件方向的同学有参考价值。",
+   "content": "Palantir 是做企业级数据与 AI 平台的老牌公司，这篇翻红的访谈核心观点是：好产品也会丢单，客户对一件事的认知有时比客观技术指标更能左右决策。放到国内 B 端软件和工业软件的语境里同样成立——甲方买的不只是功能，还有可解释性、交付确定性和责任边界。对工业软件实验班的同学，这提示你在做课设或实习项目时，除了把功能做出来，还要想清楚「怎么向非技术决策者说明价值」。这类软技能在 B 端岗位面试里经常被追问，提前有意识地去表达，比单纯堆技术点更有效。",
+   "source": "钛媒体",
+   "date": "2026-10-07",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**理解 B 端软件的成交逻辑，帮你在工业软件方向的项目表达上更贴近真实需求。**",
+   "courses": "对应《软件工程》《项目管理》，可用于课设的需求分析与汇报环节",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "企业级 AI 项目成败常取决于客户认知与信任",
+    "B 端软件卖的是确定性、可解释性和责任边界",
+    "工业软件方向需练习向非技术方讲清价值",
+    "面试 B 端岗位常被追问这类软技能"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8160164.html"
+  },
+  {
+   "id": "a393",
+   "title": "OpenRouter 榜单争议：中国模型烧掉六成 Token，定价权却在别人手里",
+   "summary": "钛媒体拆解 OpenRouter 三张榜单背后的度量衡问题：匿名模型靠免费冲榜，中国模型贡献大量 Token 却拿不到对应收益，涉及平台准入与定价权。",
+   "content": "OpenRouter 是聚合各家大模型 API 的中转平台，它的周榜被不少厂商当成营销素材。这篇文章点出一个关键问题：榜单的所有权在平台手里，冲榜证明的是获客能力而非模型实力；中国模型消耗了大量 Token，换回的营收份额却很小。对信息安全与管理专业的同学，这是一个典型的「平台准入权、定价权、情报权」案例，可以拿来分析第三方平台依赖带来的供应链风险。做安全合规或平台治理方向的课设时，这种「度量衡被别人掌握」的视角，比单纯讲技术漏洞更有深度。",
+   "source": "钛媒体",
+   "date": "2026-10-07",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**用真实平台案例理解「度量衡被第三方掌握」的供应链风险，写进安全课设很有说服力。**",
+   "courses": "对应《信息安全管理》《平台治理》，可作课设的案例分析素材",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "OpenRouter 榜单由平台掌握，冲榜≠模型实力",
+    "中国模型贡献大量 Token 但营收分成有限",
+    "涉及平台准入权、定价权、情报权三重风险",
+    "可作信息安全/平台治理课设的分析案例"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8160102.html"
+  },
   {
    "id": "a384",
    "title": "用 Vaultwarden + Keyguard 自托管密码管理：把密码数据握在自己手里",
@@ -26,7 +201,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Docker 一键部署 Vaultwarden，兼容 Bitwarden 客户端",
@@ -3955,174 +4130,6 @@
    ],
    "buzz": [],
    "link": "https://www.ifanr.com/1682462?utm_source=rss&utm_medium=rss&utm_campaign="
-  },
-  {
-   "id": "a269",
-   "title": "Java 近期动态盘点：JDK 27、Open J Proxy、A2A Jakarta 等新进展",
-   "summary": "InfoQ 汇总了 Java 生态近期重要更新，涵盖 JDK 27、Open J Proxy、A2A Jakarta、Azul/Payara、BoxLang 等。",
-   "content": "这条新闻适合当作你的 Java 技术雷达。JDK 27 意味着新语法和 API 在推进，Open J Proxy 这类连接池/代理组件会影响你写数据库访问层的方式，A2A Jakarta 则和 Jakarta EE 规范演进相关。建议做法：打开原文，只挑和你课程相关的条目精读——比如《Java 程序设计》里讲集合、并发时，对照 JDK 新特性看有没有更简洁的写法；做课设连数据库时，留意连接池组件的版本兼容。不用全懂，但要知道生态在往哪走，面试聊到 Java 版本演进时不至于只会说 JDK 8。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "JDK",
-    "Jakarta EE"
-   ],
-   "value": "**帮你建立 Java 生态版本演进的全局观，面试和课设都用得上**",
-   "courses": "《Java 程序设计》《Web 应用开发》：对照新特性优化课设代码，了解连接池与规范演进",
-   "tags": [
-    "Java全栈",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "JDK 27、Open J Proxy、A2A Jakarta 等多项更新集中发布",
-    "关注新语法/API 对现有课程代码的影响",
-    "连接池与 Jakarta 规范演进和课设、面试都相关"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Rgb6X5RSD1P8HQzRc0K7?utm_source=rss&utm_medium=article",
-   "cover": "img/a269.webp"
-  },
-  {
-   "id": "a270",
-   "title": "Resumv 开源：免注册、本地保存的简历工具，Astro+React+TS 可自部署",
-   "summary": "Resumv 是一款开源简历制作工具，内容保存在浏览器本地，支持 15 套模板，技术栈为 Astro、React 和 TypeScript。",
-   "content": "对正在准备秋招/实习的软件工程学生，这个项目有双重价值。第一层是直接用：免注册、数据存本地，改简历不用担心隐私，15 套模板够你快速出一版投递用。第二层更值钱——它是 Astro+React+TypeScript 写的，代码可读、可自部署。你可以把它 clone 下来，读一读组件怎么拆分、状态怎么管理、静态站点怎么构建，然后改成自己的在线简历站，部署到 GitHub Pages 或 Vercel，简历上直接写「个人项目：基于 Astro 的简历生成器」。这比空谈「熟悉 React」有说服力得多。",
-   "source": "开源中国",
-   "date": "2026-09-30",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Astro",
-    "React"
-   ],
-   "diff": 1,
-   "scene": "简历加分/练手",
-   "value": "**既能马上做简历，又能改造成前端个人项目写进简历**",
-   "courses": "《Web 前端开发》：作为 React/组件化实战案例，二次开发后可作为课程设计作品",
-   "tags": [
-    "前端开发",
-    "求职就业",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "免注册、简历数据存浏览器本地，隐私友好",
-    "15 套模板，可直接用于秋招投递",
-    "Astro+React+TS 技术栈，适合读源码并二次开发成个人项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502816"
-  },
-  {
-   "id": "a271",
-   "title": "JavaScript 日期处理终于要变好了：告别 Date 的历史包袱",
-   "summary": "文章讨论 JavaScript 老旧的 Date 对象为何长期让人头疼，以及语言层面正在引入的新日期方案。",
-   "content": "写过 JS 的人几乎都被 Date 坑过：月份从 0 开始、时区处理混乱、格式化全靠手写。这篇讲的是新方案怎么解决这些痛点。对你的实际用处很直接：做课设或实习项目时，凡是涉及时间显示、倒计时、跨时区，先判断能不能用新 API，别再手写一堆 getMonth()+1。建议边读边在浏览器控制台敲一遍新旧写法对比，把差异记进自己的代码片段库。信息安全方向的同学也留意：时间戳和时区处理不当，在日志审计、令牌过期校验里是真实的安全隐患。",
-   "source": "DEV Community",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**学会用新日期 API 替代手写 Date 逻辑，少踩时区和格式化的坑**",
-   "courses": "《Web 前端开发》《JavaScript 程序设计》：课设中时间显示、倒计时模块可直接应用",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "Date 的月份从 0 开始、时区混乱是经典坑",
-    "新日期方案能简化格式化和时区处理",
-    "时间处理不当在日志审计、令牌过期场景有安全风险"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Goodbye Date: Why JavaScript is finally getting dates right.",
-   "link": "https://dev.to/ahr_dev/goodbye-date-why-javascript-is-finally-getting-dates-right-42l0",
-   "cover": "img/a271.webp"
-  },
-  {
-   "id": "a272",
-   "title": "Termexo v0.10.9：终端里集中显示多个 Agent 运行状态",
-   "summary": "开源 Windows 多 Agent 工作台 Termexo 更新，用颜色图标集中显示各终端 Agent 的空闲、运行、异常、完成状态。",
-   "content": "如果你已经开始用 AI Agent 帮自己写代码，迟早会遇到一个问题：开了好几个终端跑不同任务，根本不知道哪个跑完了、哪个卡住等你授权。Termexo 这次更新就是解决这个——按终端顺序用颜色图标标状态：灰=空闲，绿闪=运行/思考，红=异常或等待授权，绿勾=完成，鼠标悬停看窗口名。对做课设、多任务并行的同学很实用，能减少来回切窗口的时间。上手成本低，装完把常用终端接进去即可。注意它目前偏 Windows 工作流，Linux/macOS 用户先看兼容性再决定。",
-   "source": "开源中国",
-   "date": "2026-09-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**多开 AI 编码任务时，一眼看清哪个终端需要你处理**",
-   "courses": "《软件工程》《程序设计实践》：多任务开发时管理工具链，提升调试效率",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "用颜色图标集中显示多个 Agent 终端状态",
-    "红色=异常或等待授权，避免任务卡死无人处理",
-    "适合同时跑多个 AI 编码任务的课设场景"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502815"
-  },
-  {
-   "id": "a273",
-   "title": "用 Rust 从零写一个非 Transformer 语言模型：PSSA 开源项目",
-   "summary": "GitHub 上的 PSSA 项目用 Rust 从零实现了一个非 Transformer 架构的语言模型，在 Hacker News 引发讨论。",
-   "content": "这个项目不适合当「快速上手工具」，但对想深入理解模型原理的同学很有价值。它用 Rust 从零实现了一个非 Transformer 的语言模型，意味着你能看到张量运算、前向传播、训练循环这些平时被框架封装掉的东西。建议路径：先跑通它的示例，再对照代码读 README 里的架构说明，重点看它和 Transformer 在注意力/序列建模上的差异。Rust 本身也值得练——系统级编程、内存安全，工业软件方向对性能敏感的场景会用到。别指望一晚上看懂，当成一个学期的长期阅读项目更现实。",
-   "source": "Hacker News",
-   "date": "2026-09-30",
-   "cat": "stack",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "value": "**想真正搞懂模型内部原理、顺便练 Rust，这是难得的从零实现样本**",
-   "courses": "《人工智能导论》《程序设计基础》：作为模型原理与 Rust 系统编程的延伸阅读",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "用 Rust 从零实现非 Transformer 语言模型，代码完全开放",
-    "能看到被 PyTorch 等框架封装掉的底层运算逻辑",
-    "Rust 系统编程能力对工业软件方向有加分"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "PSSA: A non-transformer language model written from scratch in Rust",
-   "link": "https://github.com/Sparticle62ops/pssa",
-   "cover": "img/a273.webp"
   }
  ],
  "jobs": [
