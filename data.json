@@ -1,6 +1,219 @@
 {
- "updatedAt": "2026-10-08 06:16",
+ "updatedAt": "2026-10-08 10:16",
  "news": [
+  {
+   "id": "a407",
+   "title": "Docker 官方 Agent 工具发布：YAML 声明式定义、任意 MCP、OCI 镜像分发",
+   "summary": "Docker 推出官方 CLI 插件 Docker Agent，用 YAML 声明式配置定义 AI Agent，支持工具挂载、多 Agent 编排，并通过 OCI 镜像分发。",
+   "content": "Docker Desktop 4.63+ 装好后直接 `docker agent` 就能用，Homebrew 也能装。核心思路是把 Agent 当成一个可构建、可运行、可分享的制品：YAML 里写清楚模型、工具、MCP 服务，然后像分发镜像一样分发 Agent。对软件工程和工业软件方向的同学来说，这是把「AI 能力」纳入现有工程流水线的最短路径——你不需要学新框架，只要会写 YAML 和 Dockerfile。建议在课设里试一次：把某个课程项目的构建/测试脚本包成一个 Agent，用 YAML 声明它能调哪些工具，再 push 到 registry 分享给同学。信息安全方向可以顺带研究 MCP 工具的权限边界问题。",
+   "source": "开源中国",
+   "date": "2026-10-08",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Docker",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用你已经会的 Docker 和 YAML 就能定义、运行、分享 AI Agent，是把 AI 接入工程流水线的最低门槛入口。**",
+   "courses": "《软件工程》《云计算/容器技术》：把课设项目的构建测试流程封装成 Agent，作为课程设计加分项。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "Docker 官方 CLI 插件，`docker agent` 直接可用，需 Docker Desktop 4.63+",
+    "YAML 声明式定义 Agent，支持工具、多 Agent 编排、任意 MCP",
+    "Agent 以 OCI 镜像形式分发，可复用现有容器生态",
+    "适合把 AI 能力接入已有工程流水线，学习成本低"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502889"
+  },
+  {
+   "id": "a408",
+   "title": "谷歌用 AI + 差分模糊测试把 C 语言依赖库改写为 Rust",
+   "summary": "谷歌借助 AI 与差分模糊测试，将 C 语言依赖库迁移到 Rust，用测试对拍保证行为一致。",
+   "content": "这条对工业软件方向特别有价值：大量工业软件底层是 C/C++ 老库，内存安全问题多，但重写风险极高。谷歌的做法是「AI 翻译 + 差分模糊测试验证」——同一组输入分别喂给 C 原版和 Rust 新版，比对输出是否一致，不一致就说明改写有问题。这套方法论可以直接搬进你的课程项目：如果你在做一个 C 语言的课设，可以尝试用 AI 把某个模块翻成 Rust，再写一组对拍测试。信息安全方向更该关注：内存安全漏洞（缓冲区溢出、UAF）是 C 系代码的长期痛点，Rust 迁移是当前业界主流缓解路线。",
+   "source": "InfoQ中文",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "信息安全"
+   ],
+   "stack": [
+    "Rust",
+    "C"
+   ],
+   "value": "**学会「AI 改写 + 差分测试验证」这套组合拳，你就掌握了老代码现代化改造的可信方法论。**",
+   "courses": "《程序设计基础（C）》《软件测试》：用差分测试思想给课设代码写对拍验证。",
+   "tags": [
+    "工业软件",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "AI 负责代码翻译，差分模糊测试负责验证行为一致性",
+    "差分测试思路：同输入喂新旧两版，比对输出",
+    "针对 C/C++ 内存安全问题，Rust 迁移是业界主流路线",
+    "方法论可迁移到自己的课设：AI 改写 + 对拍测试"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/LVsjSV4pIlh3Liz0KZZE?utm_source=rss&utm_medium=article",
+   "cover": "img/a408.webp"
+  },
+  {
+   "id": "a409",
+   "title": "SwarmReconGuard：检测分布式 Agent 侦察攻击",
+   "summary": "自主 Agent 带来新的侦察威胁模型——攻击者把系统探测分散到成百上千个身份上，每个请求都合法、低频，但整体在拼凑攻击面。",
+   "content": "这是信息安全与管理专业值得认真读的一篇。传统入侵检测看的是「单个 IP 高频扫描」，但 Agent 时代攻击者可以租用大量 Agent 身份，每个只发一两次请求，速率低、认证合法，单点看完全正常，只有把整个群体的行为聚合起来才能看出是在做系统测绘。文章给出的是检测思路：跨身份的行为关联与群体级异常检测。对你的直接用处：做安全课设或毕业设计时，「基于行为聚合的异常检测」是个有真实威胁模型支撑的选题，比泛泛的「IDS 实现」有说服力得多。",
+   "source": "DEV Community",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**「分布式低频侦察」是 Agent 时代的新攻击面，理解它能让你的安全课设选题从泛泛而谈变成有真实威胁模型支撑。**",
+   "courses": "《网络安全》《入侵检测》：作为课设选题方向，实现群体级行为聚合检测。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "新威胁模型：侦察行为分散到大量合法身份，单点检测失效",
+    "检测思路是跨身份行为关联 + 群体级异常聚合",
+    "适合作为安全方向课设/毕设选题：有真实威胁模型支撑",
+    "涉及日志聚合、行为基线、异常检测等可落地技术点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "SwarmReconGuard: Detecting Distributed Agent Reconnaissance",
+   "link": "https://dev.to/mech_app_ai/swarmreconguard-detecting-distributed-agent-reconnaissance-4p52",
+   "cover": "img/a409.webp"
+  },
+  {
+   "id": "a410",
+   "title": "ts-rust：用 LLM 把 TypeScript 编译器、类型检查器和 LSP 移植到 Rust",
+   "summary": "有人用 LLM 把 TypeScript 的编译器、类型检查器和语言服务器整体移植到 Rust，项目已开源在 GitHub。",
+   "content": "前端方向的同学值得点进去看。TypeScript 编译器（tsc）是前端工具链里最重的部分之一，用 Go/Rust 重写以提速是近两年的明确趋势（参考 tsgo）。这个项目更进一步：整个移植过程由 LLM 完成。不管最终质量如何，它至少说明一件事——「用 AI 做大规模代码迁移」已经从论文走进了真实仓库。对你的用处有两层：一是了解前端工具链正在被重写，面试聊到构建性能时有话可说；二是可以拿它当案例，研究 LLM 做跨语言迁移时哪些地方容易出错（类型系统、边界条件、性能语义），这正是软件工程课上讲的「可维护性」的现实版本。",
+   "source": "Hacker News",
+   "date": "2026-10-08",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "TypeScript"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**看懂「前端工具链正在被系统语言重写」这条趋势线，你在面试聊构建性能时就不是只会背 webpack 配置。**",
+   "courses": "《编译原理》《Web 前端开发》：结合编译原理课理解类型检查器与 LSP 的实现。",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "TypeScript 编译器/类型检查器/LSP 被 LLM 整体移植到 Rust",
+    "反映前端工具链「用系统语言重写提速」的明确趋势",
+    "可作为研究 LLM 跨语言代码迁移失败模式的真实案例",
+    "面试聊构建性能、工具链演进时可作为谈资"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Port of the TypeScript compiler, checker and lsp to Rust, by LLM",
+   "link": "https://github.com/pingdotgg/ts-rust",
+   "cover": "img/a410.webp"
+  },
+  {
+   "id": "a411",
+   "title": "Libra：面向 Agent 的 AI 原生版本控制系统，兼容 Git 并记录「怎么做的」",
+   "summary": "Libra 是兼容 Git 的 AI 原生版本控制系统，除了代码历史，还记录工作是如何完成的，并把这份记忆存在仓库里。",
+   "content": "Git 记录的是「代码变成了什么样」，但记录不了「为什么这么改、当时问了 AI 什么、试了哪几条路」。Libra 想补上这一层：兼容 Git，同时把 Agent 的创作过程（提示、决策、尝试路径）一并存进仓库。对软件工程专业的学生，这直接关联到两个现实问题：一是团队协作时，AI 生成的代码如何追溯责任与意图；二是课程项目里，如何向老师证明「这部分是我设计的，不是 AI 一把梭的」。建议做法：在下一个课设里试着记录你的 AI 交互过程（哪怕是手动记 markdown），这本身就是很好的工程习惯，也能在答辩时讲清楚设计决策。",
+   "source": "开源中国",
+   "date": "2026-10-08",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI 怎么帮你写的」也纳入版本管理，答辩时你能讲清楚每个设计决策的来龙去脉。**",
+   "courses": "《软件工程》《软件配置管理》：结合 Git 课程理解版本控制从「代码历史」到「创作历史」的扩展。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "兼容 Git，额外记录 Agent 的工作过程与决策路径",
+    "解决「AI 生成代码如何追溯意图与责任」的问题",
+    "课设答辩时可用于说明设计决策来源，而非只展示结果",
+    "可先用 markdown 手动记录 AI 交互过程作为轻量替代"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/p/libra-vcs"
+  },
+  {
+   "id": "a412",
+   "title": "SuperMap iClient-JavaScript：基于 Leaflet/OpenLayers/MapboxGL 的 GIS Web 客户端",
+   "summary": "SuperMap 开源的现代 GIS Web 客户端，基于 Leaflet、OpenLayers、MapboxGL-JS，并集成 ECharts、D3、MapV 等可视化库。",
+   "content": "这是国产 GIS 厂商 SuperMap 的前端地图库，908 星、近期仍在更新。为什么值得软件工程和工业软件方向关注：GIS 是工业软件里少见的「前端技术栈直接对口」的领域——智慧城市、电力管网、物流调度、应急指挥这些系统，前端几乎都靠这类地图库渲染。它同时支持 Leaflet、OpenLayers、MapboxGL 三套底层，意味着你学一套 API 就能覆盖多种地图引擎。建议用法：找一个开源地图数据（如 GeoJSON 格式的广州路网），用 iClient 做一个带图层切换和热力图的课设 demo，比纯 CRUD 项目在简历上更有辨识度。",
+   "source": "GitHub",
+   "date": "2026-10-08",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "JavaScript",
+    "Leaflet"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**想进智慧城市、电力、物流这类工业软件公司，一个能跑的地图可视化 demo 比十个 CRUD 项目都管用。**",
+   "courses": "《Web 前端开发》《GIS 原理》：用 iClient 完成地图图层与空间数据可视化课设。",
+   "tags": [
+    "前端开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "国产 GIS 前端库，同时支持 Leaflet/OpenLayers/MapboxGL 三种引擎",
+    "集成 ECharts、D3、MapV，可视化能力开箱可用",
+    "GIS 是工业软件中前端技术栈直接对口的典型领域",
+    "用 GeoJSON 数据做地图可视化课设，简历辨识度高"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "SuperMap/iClient-JavaScript",
+   "link": "https://github.com/SuperMap/iClient-JavaScript",
+   "cover": "img/a412.webp"
+  },
   {
    "id": "a401",
    "title": "TypeScript 编译成原生程序实测：启动快 12 倍，运行慢 7.5 倍，值不值得用？",
@@ -26,7 +239,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "TS 可编译为原生程序，冷启动快约 12 倍",
@@ -3929,209 +4142,6 @@
    "origTitle": "Neuron 4 is Here 🚀 Welcome To The PHP Agentic Era",
    "link": "https://dev.to/neuron-ai/neuron-4-is-here-welcome-to-the-php-agentic-era-301",
    "cover": "img/a295.webp"
-  },
-  {
-   "id": "a296",
-   "title": "用 Supabase Edge Functions + VAPI 跑 8 个并发 AI Agent 的架构拆解",
-   "summary": "一篇生产级实践，讲如何用 Supabase Edge Functions 和 VAPI 支撑 8 个并发语音 AI Agent。",
-   "content": "这是一篇偏架构的实战文，适合想了解「AI Agent 怎么真正上线」的同学。核心看点：用 Serverless（Supabase Edge Functions）承载 Agent 逻辑，用 VAPI 处理语音链路，同时跑 8 个并发 Agent。对软件工程专业来说，价值在于它展示了真实系统的分层——接入层、编排层、状态存储、外部服务调用，以及并发和成本怎么权衡。你可以把它当成一个「AI 应用后端架构」的参考模板，对照《软件体系结构》《数据库原理》里的分层与状态管理概念去读。",
-   "source": "DEV Community",
-   "date": "2026-10-01",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Supabase",
-    "VAPI"
-   ],
-   "value": "**想看 AI Agent 从 Demo 到生产的架构长什么样，这篇是现成样本。**",
-   "courses": "对应《软件体系结构》《数据库原理》，可用于课程报告的架构分析。",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "Serverless 承载 Agent 逻辑，VAPI 处理语音链路",
-    "展示真实 AI 应用的分层：接入、编排、状态、外部调用",
-    "可作「AI 应用后端架构」参考，对照分层与状态管理概念"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building a Multi-Agent Voice Command Center: How Load Bearing Empire Scaled 8 AI Agents on Supabase Edge Functions and VAPI",
-   "link": "https://dev.to/domoniqueluchin/building-a-multi-agent-voice-command-center-how-load-bearing-empire-scaled-8-ai-agents-on-supabase-38kh",
-   "cover": "img/a296.webp"
-  },
-  {
-   "id": "a286",
-   "title": "Cloudflare Worker 上做多租户 SaaS：模块化边缘计算架构拆解",
-   "summary": "InfoQ 分享如何在 Cloudflare Worker 上实现多租户 SaaS 规模的模块化边缘计算，涉及隔离、路由与资源配额设计。",
-   "content": "多租户是 SaaS 后端最核心的架构难题之一：如何让不同客户的数据和计算互不干扰，又能共享同一套部署。这篇文章把方案搬到 Cloudflare Worker 的边缘运行时上，讲模块化拆分、租户隔离和按需扩缩。对软件工程同学来说，它是一份难得的『真实生产架构』阅读材料——你平时课设写的单体应用，正好可以对照理解什么是边缘计算、什么是租户上下文注入。建议先读懂它的路由与隔离层，再尝试用 Worker 写一个最小多租户 Demo，放进简历项目里比 CRUD 更有说服力。",
-   "source": "InfoQ中文",
-   "date": "2026-10-01",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Cloudflare Workers",
-    "SaaS"
-   ],
-   "diff": 3,
-   "scene": "简历加分/进阶阅读",
-   "value": "**把课设从单体 CRUD 升级成有架构讨论度的边缘多租户项目**",
-   "courses": "对应《软件体系结构》《Web 应用开发》，可作架构设计作业的案例素材",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "多租户 SaaS 在边缘运行时上的模块化拆分思路",
-    "租户隔离、路由与资源配额是设计重点",
-    "可作为课设升级为『边缘多租户 Demo』的参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/P5yCYKFiJfKAICrf8bfs?utm_source=rss&utm_medium=article",
-   "cover": "img/a286.webp"
-  },
-  {
-   "id": "a287",
-   "title": "DeepSeek 开源昇腾平台基础设施组件：TileLang、计算库与分布式通信库",
-   "summary": "DeepSeek 开源面向昇腾平台的底层基础设施组件，覆盖算子语言 TileLang、计算库与分布式通信库。",
-   "content": "这条对工业软件实验班的同学尤其值得关注：国产 AI 芯片（昇腾）的软件栈正在补齐底层工具链，而这类『算子 + 计算库 + 通信库』正是工业软件里最硬核的一层。你不需要立刻去写 TileLang，但应该知道国产算力生态缺的是什么人——懂并行计算、懂通信原语、能把算法落到硬件上的工程师。建议做法：先读仓库 README 了解组件边界，再对照《并行计算》或《操作系统》里的通信原语概念，理解 AllReduce 这类操作在分布式训练中的位置。这类背景在国产替代方向的求职里是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "昇腾",
-    "分布式计算"
-   ],
-   "value": "**看清国产算力软件栈缺哪类工程师，提前布局并行计算方向**",
-   "courses": "对应《并行计算》《操作系统》，用通信原语概念理解分布式训练底层",
-   "tags": [
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "开源组件覆盖算子语言、计算库、分布式通信库三层",
-    "反映国产算力软件栈的补链方向",
-    "适合作为并行计算/工业软件方向的入门认知"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/t5i2Yv2z0LwIbK36lteR?utm_source=rss&utm_medium=article",
-   "cover": "img/a287.webp"
-  },
-  {
-   "id": "a288",
-   "title": "从数据到智能再到进化：Agent 正在重写 AI 基础设施的负载模型",
-   "summary": "极客公园分析 Agent 使用数据平台的方式与人类截然不同：高频并发试错让管控与隐形计算压力成倍放大。",
-   "content": "这篇文章的价值不在『Agent 多厉害』，而在它点出了一个工程事实：Agent 调用平台是并发、高频、不断换方案地试，而不是人那样『提交—等待—看结果』。这意味着后端系统要重新设计限流、配额、可观测性和成本控制。对信息安全与管理专业的同学，这直接对应『异常行为检测』——Agent 的高频调用模式和攻击流量在特征上很像，怎么区分是新的安全课题。对开发方向的同学，可以把它当作系统设计面试题：如果让你给一个 Agent 网关做限流，你会怎么设计？",
-   "source": "极客公园",
-   "date": "2026-10-01",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent",
-    "系统设计"
-   ],
-   "value": "**把『Agent 高频调用』变成系统设计与安全检测的面试谈资**",
-   "courses": "对应《系统分析与设计》《网络安全》，可作限流与异常检测的讨论案例",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Agent 的调用模式是并发高频试错，而非人类式串行等待",
-    "带来限流、配额、可观测性、成本控制的新设计压力",
-    "安全方向可延伸思考：如何区分 Agent 流量与攻击流量"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/372065",
-   "cover": "img/a288.webp"
-  },
-  {
-   "id": "a289",
-   "title": "工业 AI 的下一个机会在哪：什么样的 AI 才适合工业现场",
-   "summary": "量子位直播回顾讨论工业 AI 的落地路径：企业该从哪里下手、什么样的 AI 才适配工业现场。",
-   "content": "工业软件实验班的同学应该重点看这类内容，因为它回答的是『工业 AI 到底怎么落地』而不是模型跑分。工业现场的特点是：数据脏、实时性要求高、容错率极低、和现有 PLC/MES 系统强耦合。这决定了工业 AI 往往不是一个大模型解决一切，而是小模型 + 规则 + 边缘部署的组合。建议带着问题去读：如果让你给一条产线做缺陷检测，你会选云端还是边缘？延迟预算是多少？这类思考在工业软件方向的面试和毕设选题里都很实用。",
-   "source": "量子位",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [
-    "工业AI",
-    "边缘计算"
-   ],
-   "value": "**搞清工业 AI 的落地约束，毕设选题不再空谈大模型**",
-   "courses": "对应《工业软件导论》《嵌入式系统》，可作产线检测方案设计参考",
-   "tags": [
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "工业现场强调实时性、低容错、与现有系统耦合",
-    "工业 AI 多为小模型 + 规则 + 边缘部署的组合",
-    "适合作为毕设选题与工业软件方向面试的思考框架"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/499605.html",
-   "cover": "img/a289.webp"
-  },
-  {
-   "id": "a290",
-   "title": "别把攻略全甩给 AI：用 Agent 做国庆自驾规划的实操方法",
-   "summary": "少数派作者分享如何把 Agent 当协作工具而非许愿池，用分步拆解的方式完成七天自驾行程规划。",
-   "content": "这篇看似是旅行攻略，实际是一份『怎么正确用 Agent』的方法论示范：作者没有一次性把需求全甩给 AI，而是拆成路线、住宿、天气、备选方案多个子任务，逐步验证和修正。这个思路可以直接迁移到你的开发工作流——比如让 AI 帮你排查一个 bug，不要问『帮我修好』，而是先让它读日志、列假设、逐个验证。对软件工程和信息安全同学，这种『把大任务拆成可验证小步』的能力，比会背多少提示词模板更值钱。建议拿它当提示词工程的案例读。",
-   "source": "少数派",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "Prompt"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**学会把大任务拆成可验证小步，AI 才真正帮你干活**",
-   "courses": "对应《软件工程》，可作需求分解与迭代开发方法的实例",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "核心方法是把大任务拆成可验证的子任务逐步推进",
-    "可迁移到调试、排查、方案设计等开发场景",
-    "比背提示词模板更实用的是任务拆解能力"
-   ],
-   "buzz": [],
-   "link": "https://sspai.com/post/114945",
-   "cover": "img/a290.webp"
   }
  ],
  "jobs": [
