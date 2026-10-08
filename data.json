@@ -1,6 +1,155 @@
 {
- "updatedAt": "2026-10-07 10:15",
+ "updatedAt": "2026-10-08 00:09",
  "news": [
+  {
+   "id": "a397",
+   "title": "Docker 官方开源 Docker Agent：把 AI 智能体塞进容器里跑",
+   "summary": "Docker 官方在 GitHub 发布 docker-agent 项目，让 AI Agent 以容器化方式运行，天然获得隔离、资源限制和可复现环境。",
+   "content": "Docker 官方新开源的 docker-agent，核心思路是把 AI 智能体当成一个容器化进程来管理：镜像里打包好工具链和依赖，运行时用 Docker 的命名空间、cgroup 做隔离和资源上限。对软件工程和信息安全专业的同学来说，这东西有两个直接价值：一是做课设时可以把「调 LLM + 执行代码」的流程封装成镜像，环境不再互相污染；二是安全方向可以拿它当靶子，研究 Agent 逃逸、权限过大、挂载宿主机目录等风险。建议先跑通官方示例，再尝试自己写一个只读文件系统的受限 Agent 镜像。",
+   "source": "Hacker News",
+   "date": "2026-10-07",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用容器隔离 AI Agent，是当前工程落地和安全防护的最小可行方案。**",
+   "courses": "对应《操作系统》《云计算/容器技术》，课设可用它做隔离环境演示。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "Docker 官方出品，Agent 运行在容器内，天然隔离",
+    "可复现环境，适合课设和团队协作",
+    "安全方向可研究容器逃逸与权限边界",
+    "上手门槛低，会 Dockerfile 就能改"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Docker Agent",
+   "link": "https://github.com/docker/docker-agent",
+   "cover": "img/a397.webp"
+  },
+  {
+   "id": "a398",
+   "title": "高权限 AI Agent 怎么防？Blast-Radius 分析与硬边界设计",
+   "summary": "一篇工程向文章，讲如何用爆炸半径分析和硬边界把高权限 AI Agent 关进笼子，避免它误删数据或越权调用。",
+   "content": "文章针对「给 Agent 开了高权限后怎么不出事」这个真问题，提出两步：先做 blast-radius（爆炸半径）分析——列出 Agent 能碰到的所有资源，评估最坏情况下会炸多大；再设硬边界——用独立进程、只读挂载、网络白名单、独立凭证把范围钉死，而不是靠提示词求它「别乱来」。信息安全与管理专业的同学可以直接把这套思路写进课程设计或安全方案里：先画资产图，再逐条给缓解措施。软件工程同学在做自动化脚本时也该学这个习惯，别让一个脚本拿到生产库的写权限。",
+   "source": "DEV Community",
+   "date": "2026-10-08",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent",
+    "权限控制"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**高权限 Agent 的安全不是靠提示词，而是靠可验证的边界设计。**",
+   "courses": "对应《信息安全导论》《系统安全》，可作课程设计的安全设计参考。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "先算爆炸半径，再设硬边界，不靠提示词约束",
+    "硬边界手段：独立进程、只读挂载、网络白名单、最小权限凭证",
+    "可直接套用到课程设计的安全方案章节",
+    "对做自动化脚本的开发者同样适用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Containment by Design: Securing High-Privilege AI Agents with Blast-Radius Analysis and Hard Boundaries",
+   "link": "https://dev.to/tamizuddin/containment-by-design-securing-high-privilege-ai-agents-with-blast-radius-analysis-and-hard-3iln",
+   "cover": "img/a398.webp"
+  },
+  {
+   "id": "a399",
+   "title": "SonnetDB 4.0 发布：C#/.NET 10 写的多模型数据引擎，支持向量与全文",
+   "summary": "一个用 C#/.NET 10 构建的开源多模型数据库，同时提供关系表、KV、JSON、全文、向量、图等多种原生语义，MIT 许可。",
+   "content": "SonnetDB 4.0 用 C#/.NET 10 写成，主打「一个引擎多种模型」：时序、关系表、KV、JSON 文档、全文、向量、对象、消息队列、Graph 各有原生语义，既能嵌入式跑也能独立 Server 部署，本次更新扩展了 CTE 等 SQL 能力并强化了部署与恢复边界。对 Java 全栈同学来说，它的价值在于提供一个可对照阅读的数据库实现样本——你可以拿它对比 MySQL/PostgreSQL 的目录持久化设计；对做 RAG 的同学，它内置向量和全文，可以省掉再搭一套向量库的功夫。建议本地嵌入式模式跑一遍，看它怎么用一个目录做持久化边界。",
+   "source": "开源中国",
+   "date": "2026-10-06",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "C#/.NET",
+    "多模型数据库"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**想理解数据库内部设计或给 RAG 找轻量存储，这是一个可读源码的样本。**",
+   "courses": "对应《数据库原理》，可对照阅读其目录持久化与多模型设计。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "C#/.NET 10 实现，MIT 许可，可嵌入式也可 Server 部署",
+    "一个引擎覆盖关系、KV、JSON、全文、向量、图",
+    "本次强化 SQL CTE 与部署/恢复边界",
+    "适合做 RAG 时省掉独立向量库"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502847"
+  },
+  {
+   "id": "a400",
+   "title": "AuthX 更名 GrantForge：权限管理系统推倒重做，多角色场景是重点",
+   "summary": "开源权限系统 AuthX 因原架构撑不住复杂权限模型，正式更名 GrantForge 并重构，重点解决一个用户多角色、细粒度 API 权限等问题。",
+   "content": "AuthX 的作者坦承：项目做到一定阶段，原来的架构装不下真正想做的事，于是更名 GrantForge 重做一遍。触发重构的正是权限系统最典型的痛点——一个用户拥有多个角色时，菜单、按钮、API 权限如何叠加与冲突消解。这对 Java 全栈和信息安全专业的同学都是高频面试题：RBAC 到 ABAC 怎么演进、权限校验放在网关还是服务层、越权漏洞怎么防。建议把它拉下来跑通，重点读它的权限判定核心代码，再对照自己课设里的登录模块，看能不能把「一个用户多角色」这个场景补上。",
+   "source": "开源中国",
+   "date": "2026-10-06",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "RBAC",
+    "权限系统"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**权限模型是后端和安全岗的必考项，读一个真实重构案例比背概念有用。**",
+   "courses": "对应《Web 应用开发》《信息安全》，可把多角色权限补进课设登录模块。",
+   "tags": [
+    "Java全栈",
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "因架构撑不住复杂权限模型而重构更名",
+    "核心场景：一个用户多角色下的菜单/按钮/API 权限",
+    "权限模型是 Java 全栈与安全岗的高频面试题",
+    "建议读权限判定核心代码并对照自己的课设"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502846"
+  },
   {
    "id": "a394",
    "title": "袋鼠数据库工具 v9.9.1 上线：AI 驱动的多库客户端，支持建表/查询/同步",
@@ -26,7 +175,7 @@
     "工业软件",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "支持 MySQL/PostgreSQL/MongoDB/Redis/SQLite 等主流库，一个客户端搞定",
@@ -3991,144 +4140,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/cA9rSEGKphbJHIiTQKMv?utm_source=rss&utm_medium=article",
    "cover": "img/a285.webp"
-  },
-  {
-   "id": "a274",
-   "title": "DeepSeek开源昇腾基础组件：国产AI芯片软件栈开始要人",
-   "summary": "DeepSeek官方开源面向昇腾的基础组件，与昇腾共建AI芯片软件生态，意味着国产算力栈的适配、调优、算子开发岗位将持续放量。",
-   "content": "这条对工业软件实验班的同学价值最直接：国产AI芯片要跑起来，缺的不是芯片本身，而是驱动、算子库、通信库、编译工具链这一整套软件。DeepSeek把昇腾基础组件开源，等于把「怎么在国产卡上把模型跑通、跑快」的经验摊开给你看。建议做法：先在你的Linux环境里把仓库拉下来读目录结构，重点看算子实现和通信部分，再对照《操作系统》《编译原理》里学过的内存管理、并行调度去理解。简历上写「跑通过国产算力栈的推理/训练demo」，比写十行CRUD有辨识度。",
-   "source": "量子位",
-   "date": "2026-09-30",
-   "cat": "stack",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "C++",
-    "昇腾"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**国产算力软件栈是工业软件方向少见的、真实存在的增量岗位入口。**",
-   "courses": "对应《操作系统》《编译原理》《高性能计算》，把课上的并行与内存知识落到真实工程代码上。",
-   "tags": [
-    "工业软件",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "国产AI芯片的瓶颈在软件栈，不在硬件",
-    "开源组件是读源码、练系统编程的好素材",
-    "昇腾生态相关岗位会持续增加"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/499263.html"
-  },
-  {
-   "id": "a275",
-   "title": "DeepSeek首次公开V4.1 Agent训练底座DSec：弹性计算怎么做的",
-   "summary": "DeepSeek在知乎独家发文，系统阐释弹性计算平台DSec，这是支撑V4.1 Agent训练的基础设施。",
-   "content": "别被「大模型训练」四个字吓退，这篇长文真正的干货是工程侧：任务如何调度、算力如何弹性伸缩、失败如何重试、资源如何隔离。这些恰好是《操作系统》《分布式系统》的核心命题，只是换了个规模。读法建议：不要逐段啃，先看架构图，把「调度器—资源池—任务队列」三层画成自己的图，再挑一个你最熟的模块（比如任务重试）看它怎么处理幂等。信息安全方向的同学可以额外关注多租户隔离与权限边界，这是云平台最容易被攻击的面。",
-   "source": "量子位",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "分布式系统"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「大模型基础设施」翻译成你课表上的操作系统与分布式知识，面试时能讲出层次。**",
-   "courses": "对应《操作系统》《分布式系统》，可作为课程设计选题背景。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "弹性计算=调度+隔离+容错，全是操作系统课的内容",
-    "架构图优先，别陷进公式",
-    "多租户隔离是安全方向的切入点"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/09/499308.html",
-   "cover": "img/a275.webp"
-  },
-  {
-   "id": "a276",
-   "title": "Cloudflare开源EmDash 1.0：沙箱化插件注册表怎么做才安全",
-   "summary": "Cloudflare发布面向Astro的CMS EmDash 1.0，核心亮点是沙箱化插件、去中心化注册表和对Agent友好的扩展机制。",
-   "content": "这是本期少见的、前端和安全两边都能吃的技术内容。插件系统最大的难题是：第三方代码凭什么能在你的进程里跑？EmDash给的答案是沙箱隔离+显式权限声明+去中心化注册表校验。前端同学可以学它的插件接口设计——如何用一套稳定的契约让扩展不破坏主程序；安全同学可以重点看沙箱边界、权限最小化和供应链校验，这正好是《Web安全》里「第三方依赖风险」的真实案例。动手建议：本地起一个Astro项目装上EmDash，写一个最小插件，再尝试越权访问主程序数据，看它怎么拦住你。",
-   "source": "DEV Community",
-   "date": "2026-09-30",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "Astro",
-    "Node.js"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**一个能同时写进前端作品集和安全课程报告的插件沙箱案例。**",
-   "courses": "对应《Web前端开发》《Web安全》，可做课程设计或安全实验。",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "插件沙箱=权限最小化+隔离执行，安全课的直接案例",
-    "前端可学插件契约设计与扩展点划分",
-    "动手写一个越权插件，验证沙箱是否真的拦得住"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "EmDash's Sandboxed Plugin Registry: How Cloudflare Built Agent-Friendly CMS Extensions",
-   "link": "https://dev.to/mech_app_ai/emdashs-sandboxed-plugin-registry-how-cloudflare-built-agent-friendly-cms-extensions-24ee",
-   "cover": "img/a276.webp"
-  },
-  {
-   "id": "a277",
-   "title": "阿里Qoder团队复盘：AI Native团队怎么组织软件生产",
-   "summary": "钛媒体记录阿里Qoder团队如何用AI Native方式重组研发流程，从项目室走到Agent时代入口。",
-   "content": "这篇不是产品发布，是研发组织方式的复盘，对准备秋招和实习的同学有实际参考价值。核心信息是：当编码环节被Agent大量接管后，人的工作重心前移到需求拆解、上下文供给和结果验收。也就是说，会写代码只是入场券，能说清楚「要什么、怎么验证对不对」才是分水岭。建议带着问题读：他们的代码评审怎么做？测试用例谁来写？出错了责任怎么划？把答案对照你现在的课设流程，看看哪些环节可以立刻用Agent替掉。面试被问「你怎么用AI写代码」，能讲出流程而不只是「我用Copilot」，差距很大。",
-   "source": "钛媒体",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [],
-   "value": "**提前理解AI Native研发流程，秋招面试时比同龄人多一层视角。**",
-   "courses": "对应《软件工程》，把需求分析、评审、测试环节与文中实践对照。",
-   "tags": [
-    "求职就业",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "AI接管编码后，人的价值前移到需求拆解与验收",
-    "带着「评审/测试/追责」三个问题读",
-    "面试谈AI协作要讲流程，不要只报工具名"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8156900.html"
   }
  ],
  "jobs": [
