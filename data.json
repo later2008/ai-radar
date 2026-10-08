@@ -1,6 +1,210 @@
 {
- "updatedAt": "2026-10-08 00:09",
+ "updatedAt": "2026-10-08 06:16",
  "news": [
+  {
+   "id": "a401",
+   "title": "TypeScript 编译成原生程序实测：启动快 12 倍，运行慢 7.5 倍，值不值得用？",
+   "summary": "TypeScript 现在可以编译为原生可执行程序，冷启动速度提升约 12 倍，但运行时性能下降约 7.5 倍。文章给出了具体基准测试与适用边界。",
+   "content": "对前端和全栈同学来说，这条值得花 10 分钟读：它回答了一个很实际的问题——什么时候该把 TS 编译成原生程序。结论很清晰：CLI 工具、冷启动敏感的 Serverless 函数、构建脚本这类「跑一次就退出」的场景收益巨大；而长时间运行、计算密集的服务端逻辑反而会变慢。建议你在自己的课设或小工具里做一次对照实验：同一份 TS 代码分别用 Node 直跑和原生编译跑，记录启动耗时和循环计算耗时，把数据写进实验报告或简历项目描述里，比空谈「了解编译原理」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-08",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Node.js"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**教你判断 TS 原生编译该用在哪，并给出可复现的基准测试方法**",
+   "courses": "《Web 前端开发》《编译原理》——把编译产物性能差异做成课程实验对比数据",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "TS 可编译为原生程序，冷启动快约 12 倍",
+    "长时运行场景性能下降约 7.5 倍，需按场景选型",
+    "适合 CLI、Serverless、构建脚本，不适合计算密集服务",
+    "建议自己跑一次基准测试，数据可写进简历"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/BchL2TVhSF2dwyrCogVO?utm_source=rss&utm_medium=article",
+   "cover": "img/a401.webp"
+  },
+  {
+   "id": "a402",
+   "title": "Apollo 3.0 转向 Agent First：配置中心开始给 AI Agent 开权限，安全边界怎么划？",
+   "summary": "Apollo 3.0 提出面向 Agent 的配置管理，让 AI 能读取、修改、发布和回滚配置，同时强调权限与敏感配置的隔离设计。",
+   "content": "这条对信息安全与软件工程两个方向都有用。背景是：Agent 已经进入编码、测试、运维流程，自然也要读写配置。但配置中心连着生产环境，还可能存着数据库密码、密钥，直接开放给 Agent 等于把生产控制权交出去。Apollo 3.0 的思路是给 Agent 单独设计权限模型、操作审计和回滚机制。你可以把它当成一个现成的课程设计题目：在《信息安全》课上做一份「Agent 访问配置中心的威胁建模」，列出越权读取、误改配置、回滚失败三类风险和对策；或者用 Apollo 搭个本地环境，实测一次 Agent 改配置的完整链路。",
+   "source": "开源中国",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "Apollo"
+   ],
+   "value": "**理解 Agent 接入生产系统时的权限与审计设计，是安全方向的高频面试题**",
+   "courses": "《信息安全技术》《软件体系结构》——用于威胁建模作业或配置中心权限设计案例",
+   "tags": [
+    "信息安全",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Apollo 3.0 让 Agent 参与配置读取、修改、发布、回滚",
+    "核心矛盾：Agent 需要权限，但配置含生产控制与敏感信息",
+    "涉及权限模型、审计日志、回滚机制三类设计",
+    "可做威胁建模课设或本地环境实测"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502867"
+  },
+  {
+   "id": "a403",
+   "title": "Termexo v0.10.11：用 MCP 让一个 Agent 去操控 Claude Code、Codex 等五种编程 Agent",
+   "summary": "Termexo 是 Windows 平台的 MIT 开源工作台，通过本地 MCP 协议统一操控 Claude Code、Codex、OpenCode、Grok Build、Antigravity CLI 五种编程 Agent。",
+   "content": "如果你已经在用 AI 写代码，这条能帮你把工具链串起来。MCP（Model Context Protocol）正在成为 Agent 之间通信的事实标准，Termexo 做的事就是：用一个 Agent 调度另外几个编程 Agent，统一在终端里跑。对学生最直接的价值是——你可以在一个界面里对比不同 Agent 对同一道算法题、同一个课设模块的产出质量，顺便理解 MCP 的请求/响应结构和状态回传机制。建议拿《数据结构》或《Java 程序设计》的作业当测试集，记录各 Agent 的正确率和返工次数，这本身就是一份不错的实践报告素材。",
+   "source": "开源中国",
+   "date": "2026-10-07",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**用一个工具横向对比多个编程 Agent，同时搞懂 MCP 协议怎么用**",
+   "courses": "《软件工程》《Java 程序设计》——用多 Agent 对比完成课设模块并记录质量数据",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "通过本地 MCP 统一操控五种主流编程 Agent",
+    "MCP 正成为 Agent 间通信的事实标准，值得提前熟悉",
+    "可用来横向对比不同 Agent 的代码产出质量",
+    "Windows x64、MIT 开源，安装门槛低"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502851"
+  },
+  {
+   "id": "a404",
+   "title": "两名工程师两个月写出 4 万行 Rust：Perplexity 因 DynamoDB 太贵太慢自研数据库",
+   "summary": "Perplexity 两名工程师用两个月、约 4 万行 Rust 代码替换了 DynamoDB，原因是成本高且延迟不达标。",
+   "content": "这不是让你去写数据库，而是让你看清一个工程决策的完整链条：先量化问题（成本、P99 延迟），再评估替代方案（继续用托管服务 vs 自研），最后才是技术选型（Rust 换性能）。对软件工程专业的同学，这条最适合用在《软件工程》或《数据库原理》的案例分析作业里：把「什么时候该自研、什么时候该买服务」的权衡写成一份决策文档，列出成本、人力、运维复杂度三个维度的对比。另外，4 万行 Rust 由两人两个月完成，也说明现代工程里 AI 辅助编码对产能的实际影响，值得在简历项目里体现你对工程效率的认知。",
+   "source": "InfoQ中文",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "value": "**学会用成本与延迟数据支撑技术选型，而不是凭喜好选框架**",
+   "courses": "《软件工程》《数据库原理》——作为技术选型与架构决策的案例分析材料",
+   "tags": [
+    "通用开发",
+    "行业动态",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "触发自研的原因是成本与延迟双超标，而非技术炫技",
+    "决策链条：量化问题→评估方案→技术选型",
+    "适合做「自研 vs 托管服务」的工程决策案例分析",
+    "Rust 在高性能基础设施中的地位进一步巩固"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4AMw7Bt3UHqw48qmQTpS?utm_source=rss&utm_medium=article",
+   "cover": "img/a404.webp"
+  },
+  {
+   "id": "a405",
+   "title": "苹果权限高墙被 Meta AI 助手「借道」绕过：一次真实的越权路径分析",
+   "summary": "Meta AI 助手通过间接方式绕过了苹果系统的权限限制，暴露出移动端权限模型在 AI 助手场景下的新攻击面。",
+   "content": "信息安全方向的同学重点看这条。传统权限模型假设「用户主动授权、应用被动执行」，但 AI 助手会代替用户去调用其他能力，于是出现了「借道」——助手本身没拿到权限，却通过它能调用的组件间接完成了越权操作。这正是《信息安全技术》里讲的 confused deputy（混淆代理）问题在 AI 时代的翻版。建议你把它整理成一个攻击链分析：入口是什么、中间经过了哪些组件、最终触达了什么数据、哪一层本该拦住。这类分析写进简历的安全项目栏，比只写「熟悉 OWASP Top 10」具体得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**掌握 AI 助手场景下的越权分析思路，是安全岗面试的加分项**",
+   "courses": "《信息安全技术》《移动应用安全》——用于攻击链分析与威胁建模作业",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 助手代用户调用能力，产生新的越权路径",
+    "本质是 confused deputy 问题在移动端的再现",
+    "分析要点：入口、调用链、最终触达数据、缺失的拦截层",
+    "适合作为安全课的攻击链分析作业"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/s2Rt9t0yqUFk6VYV33Mh?utm_source=rss&utm_medium=article",
+   "cover": "img/a405.webp"
+  },
+  {
+   "id": "a406",
+   "title": "Claude Code 工程最佳实践：怎么把 AI 编码助手真正接进项目流程",
+   "summary": "开源中国整理了一份 Claude Code 的工程化使用实践，覆盖项目上下文组织、任务拆分与代码审查衔接等环节。",
+   "content": "很多人用 AI 写代码还停留在「贴一段需求、复制一段结果」，效率提升有限。这份实践的价值在于把 AI 编码放进工程流程：怎么给足项目上下文、怎么把大任务拆成可验证的小步、怎么让 AI 产出直接进入代码审查环节。对软件工程专业的同学，建议你按它的思路改造一次课设流程——先写清楚模块接口和约束，再让 AI 生成实现，最后自己跑测试并记录返工点。做完你会发现，AI 产出质量主要取决于你给的约束是否明确，这本身就是《软件工程》里需求规格说明书的实战训练。",
+   "source": "开源中国",
+   "date": "2026-10-08",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**把 AI 编码从「复制粘贴」升级为可审查的工程流程，直接提升课设质量**",
+   "courses": "《软件工程》——用需求规格说明书约束 AI 产出，训练需求表达能力",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "重点在流程而非提示词技巧：上下文、任务拆分、审查衔接",
+    "AI 产出质量取决于约束是否明确，与需求规格能力直接相关",
+    "建议用一次课设完整走一遍该流程并记录返工点",
+    "可与 MDP 主数据平台 1.6.0 的前后端提交记录对照参考"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502869"
+  },
   {
    "id": "a397",
    "title": "Docker 官方开源 Docker Agent：把 AI 智能体塞进容器里跑",
@@ -26,7 +230,7 @@
     "通用开发",
     "信息安全"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "Docker 官方出品，Agent 运行在容器内，天然隔离",
@@ -3928,218 +4132,6 @@
    "buzz": [],
    "link": "https://sspai.com/post/114945",
    "cover": "img/a290.webp"
-  },
-  {
-   "id": "a291",
-   "title": "Gemini 4 Argon 发布：多项基测超 GPT-6 Astra，已参与谷歌 80 万行内核代码迁移",
-   "summary": "谷歌发布 Gemini 4 Argon，多项基准测试领先，并已实际参与谷歌内部 80 万行内核代码的迁移工作。",
-   "content": "模型跑分看看就好，但『参与 80 万行内核代码迁移』这个细节值得软件工程同学留意：这说明大模型在大型代码库的批量重构、跨语言迁移这类任务上已经进入生产可用阶段。对你意味着什么？一是以后接手遗留系统改造，AI 辅助迁移会成为标配技能；二是面试时如果被问『你怎么看 AI 对开发的影响』，你可以用这个案例谈具体场景而不是空泛表态。建议顺手了解一下代码迁移类任务常见的坑：语义等价性验证、回归测试覆盖，这些才是 AI 帮不了你的部分。",
-   "source": "InfoQ中文",
-   "date": "2026-10-01",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Gemini",
-    "代码迁移"
-   ],
-   "value": "**用真实代码迁移案例，谈清 AI 在工程中的能与不能**",
-   "courses": "对应《软件工程》《编译原理》，可作代码重构与测试的讨论素材",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "大模型已进入大型代码库批量迁移的生产场景",
-    "AI 辅助重构将成为遗留系统改造的标配技能",
-    "语义等价验证与回归测试仍是人的核心工作"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/vVrSzjhEvkmpevS7wZzU?utm_source=rss&utm_medium=article",
-   "cover": "img/a291.webp"
-  },
-  {
-   "id": "a281",
-   "title": "用HTML/CSS/JS从零写一个实时字数统计工具（附完整教程）",
-   "summary": "freeCodeCamp 发布前端入门实战教程，教你用原生三件套实现输入即统计的字数与字符数工具，覆盖事件监听与 DOM 更新。",
-   "content": "这个教程适合刚学完 HTML/CSS/JS 基础、想找一个完整小项目练手的同学。核心知识点就三个：input 事件监听、字符串 length 与 split 统计、以及把结果实时写回 DOM。别看功能简单，它把「数据变化 → 视图更新」这条前端最本质的链路走通了，理解之后再学 Vue/React 的响应式会顺很多。建议做法：先照着敲一遍，然后自己加两个功能——统计中文字符数（区分中英文）、加一个「复制统计结果」按钮。做完可以直接放进课程设计或简历的小作品集里，比空写「熟悉前端三件套」有说服力。",
-   "source": "freeCodeCamp",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript",
-    "HTML/CSS"
-   ],
-   "diff": 1,
-   "scene": "课设/练手/简历加分",
-   "value": "**用一个小项目把「事件驱动 + DOM 更新」这条前端主线彻底走通，性价比极高。**",
-   "courses": "对应《Web前端开发》：作为 DOM 操作与事件处理的课后综合练习。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "原生 HTML/CSS/JS 实现实时字数、字符数统计",
-    "核心是 input 事件监听 + DOM 动态更新",
-    "建议自行扩展中文字符统计与复制按钮",
-    "成品可作课设或简历小作品"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Build a Real-Time Word Counter Tool with HTML, CSS, and JavaScript",
-   "link": "https://www.freecodecamp.org/news/how-to-build-a-real-time-word-counter-tool-with-html-css-and-javascript/",
-   "cover": "img/a281.webp"
-  },
-  {
-   "id": "a282",
-   "title": "实时协作光标通知怎么做：实时通道 + 消息队列的持久化取舍",
-   "summary": "DEV 社区文章讨论协作编辑场景下光标同步的工程难题：实时通道保证即时性，消息队列保证可恢复性，但重连后不该重放全部旧坐标。",
-   "content": "如果你做过协同白板、在线文档这类课设，一定踩过这个坑：用 WebSocket 广播光标位置很爽，但用户断线重连后，要么丢状态，要么把几百个历史坐标全重放一遍，界面直接乱跳。文章的核心观点是——「持久化」不等于「存下所有历史」，而是要存一个可恢复的最终状态快照，实时通道只负责增量推送。这背后是典型的消息队列设计思想：区分「事件流」和「状态」。建议结合你正在做的多人协作项目，把光标同步改成「快照 + 增量」模式，这是能写进简历的工程细节。",
-   "source": "DEV Community",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "WebSocket",
-    "消息队列"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**协同类项目最容易翻车的地方，学会「状态快照 + 增量」能显著提升项目工程质量。**",
-   "courses": "对应《计算机网络》《分布式系统》：作为实时通信与消息可靠性设计的案例。",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "实时通道管即时推送，消息队列管断线恢复",
-    "重连时重放全部历史坐标通常是错误做法",
-    "正确思路：持久化状态快照 + 增量事件",
-    "适合用在协同编辑、在线白板类项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Realtime Channel and Message Queue Durability for Collaborative Cursor Notifications",
-   "link": "https://dev.to/yatesholloway6872/realtime-channel-and-message-queue-durability-for-collaborative-cursor-notifications-4dfo",
-   "cover": "img/a282.webp"
-  },
-  {
-   "id": "a283",
-   "title": "谷歌开源 Kubernetes 风格 AI Agent 编排器 AX，Agent 调度开始「上 K8s」",
-   "summary": "谷歌开源面向自主 AI 代理的编排器 AX，用类似 Kubernetes 的思路管理 Agent 的部署、调度与生命周期。",
-   "content": "这条对信息安全与软件工程方向都有价值。Agent 从「一个脚本」变成「一群需要调度、隔离、限权的服务」后，问题就和容器编排高度同构了：谁在跑、跑在哪、崩了怎么重启、权限边界在哪。AX 把 K8s 那套声明式编排思路搬到 Agent 上，意味着未来企业级 Agent 系统会需要懂编排 + 懂安全边界的人。建议做法：不用急着部署，先读它的架构文档，重点看「Agent 如何被隔离」和「权限如何声明」两部分，然后对照你学过的容器与访问控制知识做笔记。这是工业软件与安全岗都会问到的方向。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes",
-    "AI Agent"
-   ],
-   "value": "**Agent 规模化后的调度与隔离问题，正是工业软件和信息安全专业的交叉就业方向。**",
-   "courses": "对应《操作系统》《信息安全技术》：作为资源调度与访问隔离的工业级案例。",
-   "tags": [
-    "工业软件",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "谷歌开源 Agent 编排器 AX，思路对标 Kubernetes",
-    "解决 Agent 的部署、调度、隔离与生命周期管理",
-    "安全视角重点看权限声明与隔离机制",
-    "企业级 Agent 系统将需要编排 + 安全复合能力"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/M6BRTrsyJvUg8y0M0kyh?utm_source=rss&utm_medium=article",
-   "cover": "img/a283.webp"
-  },
-  {
-   "id": "a284",
-   "title": "企业 Agent 的全栈技术账单：一个忘关的开关能烧掉多少钱",
-   "summary": "InfoQ 文章复盘企业落地 Agent 时的全栈成本结构，从一次配置疏忽引出的算力与调用费用失控问题。",
-   "content": "这篇文章的价值不在技术深度，而在于它讲清楚了一件事：Agent 系统的成本不是「一次调用多少钱」，而是「失控时能烧多快」。一个忘关的开关、一个没有上限的重试循环、一个没做缓存的重复调用，都可能让账单指数级上涨。对软件工程和工业软件方向的同学来说，这提醒你写代码时要有「资源边界」意识：超时、重试上限、并发限制、幂等设计，这些平时觉得「不重要」的东西，在生产环境就是钱。建议把「给每个外部调用加超时和重试上限」当成写代码的默认习惯。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "value": "**让你在写第一行生产代码前就建立「资源边界」意识，这是企业开发最看重的习惯之一。**",
-   "courses": "对应《软件工程》《分布式系统》：作为系统可靠性与成本控制的教学案例。",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "企业 Agent 成本失控往往源于配置疏忽而非模型贵",
-    "重试循环、无缓存重复调用是烧钱重灾区",
-    "工程启示：超时、重试上限、并发限制、幂等要默认加上",
-    "适合作为后端与工业软件开发的成本意识案例"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/z9VP6ZQ3vCxTrk1VdU5D?utm_source=rss&utm_medium=article",
-   "cover": "img/a284.webp"
-  },
-  {
-   "id": "a285",
-   "title": "GitLab Duo 接入微软 Foundry：自托管 AI 编程助手的私有化选项",
-   "summary": "GitLab Duo 通过微软 Foundry 扩展自托管 AI 能力，企业可在自有环境中运行代码助手，避免代码外流。",
-   "content": "对信息安全专业来说，这条的关键词是「自托管」。企业用 AI 编程助手最大的顾虑从来不是效果，而是代码会不会被传到外部。GitLab Duo 支持通过 Foundry 在自有环境部署，本质是把「模型调用」这条数据链路收进企业边界内。这背后涉及的知识点你在《信息安全》课上都学过：数据出境、最小权限、审计日志。建议做法：找一份 GitLab Duo 的部署文档，重点看它的鉴权与日志审计设计，然后思考一个问题——如果让你给学校实验室设计一套内网代码助手，你会怎么划权限边界？",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "GitLab",
-    "AI 编程助手"
-   ],
-   "value": "**自托管 AI 助手是企业安全合规的刚需，理解其权限与审计设计对信安求职直接有用。**",
-   "courses": "对应《信息安全技术》：作为数据边界与访问控制的企业实践案例。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "GitLab Duo 支持通过微软 Foundry 自托管部署",
-    "核心卖点是代码不出企业边界，解决数据外流顾虑",
-    "涉及数据出境、最小权限、审计日志等安全知识点",
-    "可作为内网 AI 工具权限设计的思考题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/cA9rSEGKphbJHIiTQKMv?utm_source=rss&utm_medium=article",
-   "cover": "img/a285.webp"
   }
  ],
  "jobs": [
