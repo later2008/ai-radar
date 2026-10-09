@@ -1,6 +1,256 @@
 {
- "updatedAt": "2026-10-09 06:17",
+ "updatedAt": "2026-10-09 10:16",
  "news": [
+  {
+   "id": "a425",
+   "title": "MyBatis 持久层框架完整教程：从 JDBC 痛点讲到 XML 映射实战",
+   "summary": "一篇面向初学者的 MyBatis 教程，梳理了 MyBatis 的由来、核心概念与基本用法，帮助理解它如何简化 JDBC 开发。",
+   "content": "很多同学写 Java Web 课设时，还在用 JDBC 手写 Connection、PreparedStatement、ResultSet，代码又长又容易出错。MyBatis 就是为解决这个问题而生的持久层框架，前身是 Apache 的 iBatis，2010 年更名。它把 SQL 写在 XML 或注解里，由框架负责参数映射和结果集封装，你只需要关注 SQL 本身。这篇教程适合作为入门材料，建议配合你的数据库课设一起看：先跑通一个单表 CRUD，再尝试动态 SQL（if/foreach）和关联查询。掌握 MyBatis 后，再学 MyBatis-Plus 或 Spring Data JPA 会轻松很多，也是 Java 后端求职的常见考点。",
+   "source": "掘金",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "MyBatis",
+    "JDBC"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**用一篇教程打通 JDBC 到 MyBatis 的过渡，直接服务你的 Java 课设和后端面试。**",
+   "courses": "对应《数据库原理》《Java Web 开发》，可把课设的数据访问层从 JDBC 换成 MyBatis 实践",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "MyBatis 是简化 JDBC 开发的持久层框架，SQL 与 Java 代码解耦",
+    "核心用法：XML 映射文件 + Mapper 接口，配合动态 SQL",
+    "建议用课设单表 CRUD 练手，再扩展到关联查询",
+    "是 Java 后端面试高频考点，后续可衔接 MyBatis-Plus"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694466939382267938"
+  },
+  {
+   "id": "a426",
+   "title": "OpenAI 开源 Codex Security CLI：Agent 驱动的漏洞扫描如何做验证、修复与 CI 集成",
+   "summary": "OpenAI 发布开源 TypeScript SDK「Codex Security」，用 Agent 并行发现漏洞、用 LLM 推理验证结果并生成修复，可接入 CI 流程。",
+   "content": "这不是又一个静态分析工具，而是 Agent 驱动的安全扫描器：它调度多个并行发现 worker，再用 LLM 推理验证告警是否真实，最后生成补丁，并可集成进 CI。对信息安全与管理专业的同学来说，这代表安全工具链正在从「规则匹配」转向「Agent + 推理」。建议这样用：先读它的架构设计（发现-验证-修复三段式），理解为什么需要 LLM 做误报过滤；再动手把它接进一个自己的 GitHub 仓库 CI，观察扫描报告格式。这类「AI + 安全」的工程能力，正在成为安全岗位的新加分项，也是你课程设计可以借鉴的架构。",
+   "source": "DEV Community",
+   "date": "2026-10-09",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "CI/CD"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**让你看到 AI Agent 如何改造安全扫描流程，是信息安全方向简历上少见的差异化项目。**",
+   "courses": "对应《网络安全》《软件安全测试》，可作为课程项目的架构参考或直接接入 CI 实践",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "开源 TypeScript SDK，Agent 驱动而非传统静态分析",
+    "三段式流程：并行发现 → LLM 验证 → 生成修复补丁",
+    "可集成 CI，适合作为安全课设或简历项目",
+    "反映安全工具链向 Agent + 推理演进的趋势"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/mech_app_ai/openais-codex-security-cli-how-agent-driven-vulnerability-scanning-handles-validation-patching-3oj9",
+   "cover": "img/a426.webp"
+  },
+  {
+   "id": "a427",
+   "title": "Jenkins + Docker 部署 Vben Admin 前端 CI/CD 踩坑全记录",
+   "summary": "一篇实战记录，讲述如何用 Jenkins + Docker 为基于 Monorepo 架构的 Vben Admin 前端项目搭建 CI/CD，并记录排查过程。",
+   "content": "前端项目上了规模之后，手动打包部署很容易出错，CI/CD 就成了必备技能。这篇记录针对 Vben Admin 5.x 这种 Monorepo 架构，用 Jenkins + Docker 搭建流水线，把踩过的坑和排查思路都写了出来。对软件工程专业的同学来说，价值在于：它不是一个玩具 demo，而是真实项目里的工程问题——Monorepo 下依赖安装、构建缓存、镜像分层、环境变量注入，每一条都可能卡住你。建议你拿自己的课设或毕设项目跟着做一遍，哪怕只是本地起个 Jenkins 容器跑通「提交代码 → 自动构建 → 生成镜像」这条链路，写进简历也比「熟悉 Git」有说服力得多。",
+   "source": "掘金",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Jenkins",
+    "Docker"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**把「会写前端」升级为「能交付前端」，CI/CD 实战是简历上实打实的工程能力证明。**",
+   "courses": "对应《软件工程》《软件项目管理》，可结合课设完成一次自动化构建部署实践",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "针对 Vben Admin 5.x Monorepo 的 Jenkins + Docker 流水线",
+    "覆盖依赖安装、构建缓存、镜像分层等真实工程坑点",
+    "建议用课设/毕设项目跟做一遍完整链路",
+    "CI/CD 实战经验是前端求职的差异化亮点"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694502106560200744"
+  },
+  {
+   "id": "a428",
+   "title": "WSS 让 Server 安全调用 Desktop 本地工具（下）：Ticket、人工确认、幂等与断线对账",
+   "summary": "系列文章下篇，讲解如何通过 WebSocket Secure 让服务端安全调用用户桌面本地工具，重点解决鉴权、人工确认、幂等和断线对账问题。",
+   "content": "上篇搭好了对话应用，但 AI 能用的工具都在 Server 上，看不到用户电脑本地的东西。这篇解决的是「Server 如何安全地反向调用 Desktop 本地工具」——听起来像远程控制，实际是很多 AI 桌面应用的刚需。核心难点有四：用 Ticket 做一次性鉴权、关键操作要人工确认、请求要保证幂等避免重复执行、断线后如何对账补状态。这些不是炫技，而是分布式系统里真实存在的可靠性问题。建议你在做「本地 AI 助手」类课设或毕设时参考这套设计，尤其是幂等和断线重连的处理，面试聊到 WebSocket 或分布式调用时能讲出细节，比只会说「用过 WebSocket」强很多。",
+   "source": "掘金",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "WebSocket",
+    "Node.js"
+   ],
+   "diff": 3,
+   "scene": "简历加分/课设",
+   "value": "**把 WebSocket 从「会连」讲到「可靠」，幂等与断线对账是能写进简历的分布式实战细节。**",
+   "courses": "对应《计算机网络》《分布式系统》，可作为课设中实时通信模块的设计参考",
+   "tags": [
+    "通用开发",
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "解决 Server 安全调用 Desktop 本地工具的工程问题",
+    "四个关键点：Ticket 鉴权、人工确认、幂等、断线对账",
+    "适合本地 AI 助手类课设/毕设参考",
+    "幂等与重连设计是面试可展开的技术细节"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694508180046905363"
+  },
+  {
+   "id": "a429",
+   "title": "Java 查找并高亮 Word 文字：精确匹配与正则模糊查找实战",
+   "summary": "一篇 Java 操作 Word 文档的实战文章，讲解如何精确查找和用正则表达式模糊查找文字并高亮标记。",
+   "content": "需求很具体：把 Word 报告里涉及「风险」的文字标出来方便检查，还要支持只标记某一段、或用正则做模糊匹配。这类「Java 处理 Office 文档」的需求在工业软件和企业信息化场景里非常常见——报表生成、合同审查、文档批注都绕不开。技术上是基于 Apache POI 或类似库操作 Word 的 run 级别文本。建议你把它当成一个小工具项目练手：先实现精确查找高亮，再加正则支持，最后封装成可复用的工具类。工业软件实验班的同学尤其值得关注，因为很多工业场景的文档处理需求就是这种「看起来简单、细节很多」的活，能独立搞定就是竞争力。",
+   "source": "掘金",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "Java",
+    "Apache POI"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**文档处理是工业软件里的高频刚需，能独立封装 Word 操作工具类就是实打实的工程能力。**",
+   "courses": "对应《Java 程序设计》《软件工程》，可作为课程项目中的文档处理模块实践",
+   "tags": [
+    "Java全栈",
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Java 操作 Word 实现文字查找与高亮，支持精确和正则两种模式",
+    "基于文档 run 级别文本处理，细节较多",
+    "适合封装成可复用工具类作为练手项目",
+    "工业软件/企业信息化场景常见需求"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694457332278493193"
+  },
+  {
+   "id": "a430",
+   "title": "乱序 HTML 流技术从 JavaScript 框架迁移到浏览器原生",
+   "summary": "InfoQ 报道，原本由 JavaScript 框架实现的乱序 HTML 流式渲染技术，正在被浏览器原生支持，可能改变前端流式渲染的实现方式。",
+   "content": "流式渲染是提升首屏体验的重要手段，过去要靠 React、Vue 等框架或第三方库在 JS 层实现「乱序 HTML 流」——先到先渲染，不等前面慢的部分。现在浏览器开始原生支持这套机制，意味着未来前端框架可能不再需要自己造轮子，渲染性能和实现复杂度都会改善。对前端方向的同学来说，这是一个值得关注的标准演进信号：它会影响你未来写 SSR、流式组件时的技术选型。建议先理解「为什么需要乱序流」（慢数据不阻塞快数据），再关注浏览器原生 API 的落地进度。面试聊到 SSR 或性能优化时，能提到这个趋势会很加分。",
+   "source": "InfoQ中文",
+   "date": "2026-10-09",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "HTML",
+    "JavaScript"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**理解流式渲染的底层演进，让你在 SSR 和性能优化话题上比只会用框架的人多一层认知。**",
+   "courses": "对应《Web 前端开发》《计算机网络》，可结合 SSR 课设理解流式渲染原理",
+   "tags": [
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "乱序 HTML 流式渲染从 JS 框架层下沉到浏览器原生",
+    "核心价值：慢数据不阻塞快数据，提升首屏体验",
+    "影响未来 SSR 和流式组件的技术选型",
+    "关注标准演进，面试聊性能优化时可展开"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/BEgaPOXCCtDaPGJiCtSi?utm_source=rss&utm_medium=article",
+   "cover": "img/a430.webp"
+  },
+  {
+   "id": "a431",
+   "title": "Immutable JavaScript：从源头减少状态意外修改引发的 Bug",
+   "summary": "一篇讲解 JavaScript 不可变数据理念的文章，分析状态被意外修改为何是常见 Bug 来源，以及如何用不可变方式规避。",
+   "content": "写 JS 应用时最常见的 Bug 之一，就是某处代码悄悄改了一个对象，导致另一处依赖它的逻辑出错——这类问题往往很难排查。不可变（Immutable）的核心思想是：不直接修改原数据，而是生成新副本。React 的状态更新、Redux 的 reducer 都建立在这个理念上。建议你这样练：先写一段会因共享引用而出错的代码，再用展开运算符或 structuredClone 改成不可变写法，对比差异。理解这一点，你在写 React 组件或调试「数据莫名其妙变了」的问题时会快很多，也是前端面试中状态管理话题的基础。",
+   "source": "DEV Community",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**搞懂不可变数据，能让你少踩一大半「数据莫名变了」的坑，也是状态管理的地基。**",
+   "courses": "对应《Web 前端开发》，可结合 React 课设理解状态更新为何要返回新对象",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "状态意外修改（state mutation）是 JS 常见 Bug 来源",
+    "不可变思想：不修改原数据，生成新副本",
+    "是 React 状态更新和 Redux reducer 的基础理念",
+    "建议用对比代码练习，理解共享引用问题"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/aisyah_kartina/immutable-javascript-499k",
+   "cover": "img/a431.webp"
+  },
   {
    "id": "a418",
    "title": "openJiuwen 开源企业级 AgentOS：多智能体协同还能自我进化",
@@ -26,7 +276,7 @@
     "AI工具",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "开源企业级 AgentOS，核心是多 Agent 协同与自我进化",
@@ -3930,235 +4180,6 @@
    "origTitle": "Your Claude Code Read Deny Rule Is a Screen Door — I Built a Tool That Proves It",
    "link": "https://dev.to/haoli/your-claude-code-read-deny-rule-is-a-screen-door-i-built-a-tool-that-proves-it-1ah7",
    "cover": "img/a310.webp"
-  },
-  {
-   "id": "a311",
-   "title": "openJiuwen X-Router 首发：自演进模型路由，实测省 50%+ Token",
-   "summary": "让每次请求自动选对模型、每次反馈都用于优化下次选择，昇腾亲和，实测 Token 消耗减少 50% 以上。",
-   "content": "多模型时代一个现实问题：简单请求用大模型纯属浪费钱。X-Router 做的是「模型路由」——根据请求特征和反馈历史，自动决定这次该走哪个模型，并让反馈持续优化路由策略。对学生的直接价值有两点：一是省钱，你自费调 API 做课设时，路由层能显著压低成本；二是工程思路，路由本质是一个带反馈的决策服务，涉及特征提取、策略更新、灰度回滚，完全可以作为软件工程课设的架构案例。如果你在做 Agent 或 RAG 项目，可以把它当成「模型调用层」的参考实现，重点看它如何定义请求特征和反馈信号，而不是照抄代码。",
-   "source": "量子位",
-   "date": "2026-10-02",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**自费做 AI 项目的同学，模型路由是省钱又显工程能力的一层，值得抄思路。**",
-   "courses": "对应《软件工程》《人工智能导论》，可作为课设中模型调用层的成本优化方案",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "核心是模型路由：按请求特征自动选择模型，反馈驱动策略演进",
-    "实测 Token 消耗减少 50%+，自费调 API 做课设能明显省钱",
-    "路由层本质是带反馈的决策服务，含特征提取与策略更新",
-    "可借鉴到自己的 Agent/RAG 项目的模型调用层"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/500098.html",
-   "cover": "img/a311.webp"
-  },
-  {
-   "id": "a312",
-   "title": "Graphify：把代码库上下文喂给代理，优化 AI 辅助软件工程",
-   "summary": "通过整合代码库上下文来提升基于代理的软件工程效果，解决 Agent 改代码时「看不懂项目」的老问题。",
-   "content": "用 AI 改代码最大的痛点不是模型不行，是它不知道你的项目结构、依赖关系和调用链。Graphify 的思路是先把代码库的上下文（模块、依赖、引用关系）整理成结构化信息，再交给代理使用，从而提升改动的准确率。对软件工程专业来说，这比「换个更强的模型」更值得学：上下文工程正在成为独立技能。你可以拿自己的课设仓库做实验，对比「直接让 AI 改」和「先喂依赖图再改」的成功率差异，把结果写进实验报告。工业软件实验班的同学尤其值得关注——大型工业代码库的上下文管理，正是这类工具的主战场。",
-   "source": "InfoQ中文",
-   "date": "2026-10-02",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**上下文工程是 AI 辅助开发的新基本功，会整理代码库上下文的人比只会写提示词的人值钱。**",
-   "courses": "对应《软件工程》《软件体系结构》，可用于课设中 AI 辅助重构的对比实验",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "核心是代码库上下文的结构化整合，而非换更强模型",
-    "解决 Agent 改代码时不懂项目结构与调用链的问题",
-    "可用自己的课设仓库做对照实验，量化成功率差异",
-    "大型工业代码库的上下文管理是主要应用场景"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/8XuP4iZKKr3ex2VTDxpl?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a313",
-   "title": "Zig 作者专访：为什么禁止 AI 贡献、把项目搬出 GitHub",
-   "summary": "Andrew Kelley 谈创建 Zig 的动机、禁止 AI 生成代码贡献，以及将项目迁出 GitHub 的决策逻辑。",
-   "content": "这条不是让你去学 Zig，而是让你理解一个真实开源项目维护者的工程判断：为什么拒绝 AI 生成的 PR、为什么把仓库迁出 GitHub。核心矛盾是「贡献者责任」——AI 生成的补丁没人能对正确性负责，评审成本反而更高；平台迁移则涉及供应链与治理自主权。对软件工程专业的价值在于：你将来提交 PR、参与开源、甚至在公司做代码评审时，都会遇到「这段代码是谁写的、谁负责」的问题。读这篇能帮你建立代码归属与评审责任的意识，也能在面试聊开源经历时说出有深度的观点，而不是只会说「我用过 AI 写代码」。",
-   "source": "InfoQ中文",
-   "date": "2026-10-02",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**面试聊开源时，能讲清「AI 写的代码谁负责」比会背语法更能体现工程素养。**",
-   "courses": "对应《软件工程》《开源软件开发》，可用于课程讨论或开源实践报告",
-   "tags": [
-    "通用开发",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Zig 作者禁止 AI 生成代码贡献，理由是贡献者责任无法落实",
-    "项目迁出 GitHub 涉及供应链与治理自主权",
-    "核心议题是代码归属与评审责任，而非语言本身",
-    "适合作为开源参与和代码评审讨论的观点素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/eRbEA3dMd58RNPqp5D8S?utm_source=rss&utm_medium=article",
-   "cover": "img/a313.webp"
-  },
-  {
-   "id": "a304",
-   "title": "FAISS 与 LangChain 在文档检索中的分工：别再被同一个保存路径骗了",
-   "summary": "一篇讲清 RAG 文档检索里 FAISS 负责向量索引、LangChain 负责流程编排的分工，并点出 save_local 路径容易踩的坑。",
-   "content": "做课设或毕设想加个「文档问答」功能，最容易卡在检索层。这篇把两件事拆开了：FAISS 只管向量存与相似度搜索，LangChain 管加载、切分、调用链。作者特别提醒 save_local(save_path) 会把索引和 docstore 写到同一路径下，两个文件归属不同，读回来时如果只 load 一半，就会出现「检索得到 ID 却拿不到原文」的经典 bug。建议你按它的流程自己跑一遍：先用小规模 txt 建索引，打印 index.ntotal 和 docstore 里的键，确认两边对齐，再换成 PDF。这套调试思路直接能用在《人工智能导论》或软件工程综合实践的 RAG 模块里，比背 API 有用。",
-   "source": "掘金",
-   "date": "2026-10-02",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangChain",
-    "FAISS"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**想给课设加 RAG 问答，这篇能帮你少踩检索层最常见的坑**",
-   "courses": "《人工智能导论》/软件工程综合实践：RAG 模块的向量检索实现",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "FAISS 负责向量索引与相似度检索，LangChain 负责加载/切分/编排，职责别混",
-    "save_local 同一路径下会落多个文件，只加载一半会导致检索到 ID 拿不到原文",
-    "建议先小规模 txt 跑通，打印 index.ntotal 与 docstore 键做对齐验证"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7691399863522623526"
-  },
-  {
-   "id": "a305",
-   "title": "团队用 Codex / Claude Code，API Key 和模型权限怎么管？开源工具 Zentrola",
-   "summary": "从「一人一个 Key」到团队统一管控：密钥下发、模型权限、成员离职撤销、上游故障通知。",
-   "content": "一个人用 AI Coding 工具很简单，填个 Key 就完事；一旦变成小组协作（比如软件工程课程的项目组），问题立刻变成管理问题：真实 Key 要不要发给每个人？新成员能用哪些模型？人走了怎么撤销？上游挂了怎么通知全员改配置？Zentrola 把这些做成了一层代理与权限管理。对信安专业的同学，这其实是一个现成的「密钥生命周期管理」案例：可以顺着它的设计看代理层如何做鉴权、审计与吊销，再对照《信息安全技术》《网络安全》里讲的访问控制模型。对开发方向的同学，小组做课设时也可以照这个思路，别把生产 Key 直接写进前端或提交到 Git。",
-   "source": "开源中国",
-   "date": "2026-10-01",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**小组协作别再把真实 API Key 发给每个人，这是密钥管理的最小实践**",
-   "courses": "《信息安全技术》/《网络安全》：访问控制、密钥生命周期与审计",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "团队场景下 API Key 分发、模型权限、离职撤销都会变成管理问题",
-    "Zentrola 用代理层统一管控密钥与模型访问，可作密钥生命周期管理案例",
-    "信安方向可对照访问控制与审计；开发方向注意别把 Key 提交进仓库"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502836"
-  },
-  {
-   "id": "a306",
-   "title": "构建 Agent 开发环境：别让智能体住「毛坯房」",
-   "summary": "QCon 上海分享：Agent 要跑得稳，运行环境、工具链、权限边界得先搭好，而不是只丢一个模型。",
-   "content": "很多人做 Agent 就是「一个模型 + 一个 while 循环」，跑两次就崩。这个分享的核心观点是：Agent 需要一套拎包入住的环境——可复现的运行时、明确的工具接口、受控的文件与网络权限、可观测的日志。对软件工程和工业软件方向的同学，这其实是把软件工程里的「环境一致性」「接口契约」「最小权限」搬到了 AI 应用上。建议做法：课设里给 Agent 单独建容器或虚拟环境，工具调用统一走一层封装函数并打日志，文件读写限定在指定目录。这样调试时能定位到底是模型错了还是环境错了，答辩时也讲得清楚。",
-   "source": "InfoQ中文",
-   "date": "2026-10-02",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**做 Agent 课设前先把环境和权限搭好，能省掉一半玄学调试时间**",
-   "courses": "《软件工程》：环境一致性、接口契约与最小权限原则的落地",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 稳定性取决于运行环境与工具链，而非只换更强的模型",
-    "要点：可复现运行时、统一工具接口、最小权限、可观测日志",
-    "课设里给 Agent 单独建环境、工具调用统一封装并打日志"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/DEyrayxufObhpoeZgOKT?utm_source=rss&utm_medium=article",
-   "cover": "img/a306.webp"
-  },
-  {
-   "id": "a307",
-   "title": "二手 CPU 导致玩家被 Riot 封禁：内核级反作弊与硬件指纹的坑",
-   "summary": "买二手 Ryzen 7 5800X3D 后无法启动 Riot 游戏，原因是该 CPU 被列入封禁黑名单——反作弊系统记住了前主人的作弊记录。",
-   "content": "一名玩家买了二手 5800X3D，结果 Valorant、LoL 等全部启动即被踢，客服确认该 CPU 已被拉黑，因为前任主人作弊。Riot 的 Vanguard 是内核级反作弊，会深度嵌入 Windows 内核模式采集硬件与系统指纹，硬件 ID 一旦与作弊记录绑定，换用户也不解除。对信息安全专业的同学，这是一个极好的「设备指纹 + 内核态采集 + 隐私边界」讨论案例：反作弊为了可靠性必须拿到内核权限，但代价是硬件级标识的长期留存与误伤。写课程报告时可以对比用户态与内核态反作弊的攻防面、指纹的可迁移性问题。买二手硬件前也记得先查是否被平台标记。",
-   "source": "Solidot",
-   "date": "2026-10-01",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "课程报告/求职准备",
-   "value": "**一个真实案例讲清内核级反作弊的可靠性与隐私代价，写报告直接能用**",
-   "courses": "《信息安全技术》/《操作系统》：内核态权限、设备指纹与隐私边界",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "Vanguard 为内核级反作弊，会采集并长期保留硬件指纹",
-    "硬件 ID 与作弊记录绑定后，换用户也不会自动解除封禁",
-    "信安课程可作设备指纹、内核态采集与隐私边界的分析案例"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85523"
   }
  ],
  "jobs": [
