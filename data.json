@@ -1,6 +1,183 @@
 {
- "updatedAt": "2026-10-08 10:16",
+ "updatedAt": "2026-10-09 00:11",
  "news": [
+  {
+   "id": "a413",
+   "title": "TanStack Router 速成课：给 React 项目加上端到端类型安全的路由",
+   "summary": "freeCodeCamp 发布 TanStack Router 实战教程，覆盖类型安全路由、自动代码分割与 URL 搜索参数管理，是现代 React 项目路由的新选择。",
+   "content": "很多同学做课设时还在用 React Router 手写路由配置，URL 参数一多就到处是 any，改一个路径全项目报错。TanStack Router 的核心卖点是端到端类型安全：路由路径、参数、search 参数都能被 TypeScript 推导出来，写错立刻报红；同时内置自动代码分割，不用手动配 lazy。教程从零搭一个带嵌套路由和搜索参数过滤的应用，跟着敲一遍就能迁移到自己的项目里。建议配合《Web 前端开发》《软件工程课程设计》使用，把路由层重构一遍，简历上写「使用类型安全路由方案」比「熟悉 React Router」更有区分度。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-08",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用类型安全路由替换手写 React Router，是前端课设最容易做出差异化的改造点。**",
+   "courses": "对应《Web 前端开发》《软件工程课程设计》，可直接用于课程项目的路由重构。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "端到端类型安全：路由路径与参数由 TS 自动推导，减少运行时错误",
+    "内置自动代码分割，无需手动配置 lazy loading",
+    "搜索参数（search params）有完整的类型化方案",
+    "适合把现有 React 课设的路由层做一次现代化重构"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Master Modern React Routing: TanStack Router Crash Course",
+   "link": "https://www.freecodecamp.org/news/master-modern-react-routing-tanstack-router-crash-course/",
+   "cover": "img/a413.webp"
+  },
+  {
+   "id": "a414",
+   "title": "从零构建本地优先的 AI Agent 运行时：沙箱、记忆与审计日志",
+   "summary": "一篇工程向长文，讲如何给本地 AI Agent 加上沙箱隔离、持久记忆和完整审计链路，把「幽灵脚本」变成可控系统。",
+   "content": "这篇文章的价值不在 AI，而在工程约束：Agent 要执行代码、读写文件，就必须有沙箱（进程/文件系统隔离）、记忆（持久化上下文）和审计（每一步操作可追溯）。作者从零实现了一个 local-first 运行时，思路和实现都可以直接借鉴。对信息安全专业的同学，这是一份现成的「AI 系统安全边界」案例：沙箱逃逸怎么防、权限怎么最小化、日志怎么留痕；对软件工程同学，则是很好的系统设计练手素材。建议配合《操作系统》《信息安全技术》《软件体系结构》阅读，把沙箱和审计模块单独抽出来做一个小实验。",
+   "source": "DEV Community",
+   "date": "2026-10-09",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent",
+    "Sandbox"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**AI Agent 的安全边界（沙箱+审计）正成为企业刚需技能，信息安全方向同学可借此切入 AI 安全赛道。**",
+   "courses": "对应《操作系统》《信息安全技术》《软件体系结构》，可作为课程设计或毕设选题。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "本地优先架构：敏感数据不出本机，符合隐私合规思路",
+    "沙箱隔离是 Agent 执行任意代码的前置安全条件",
+    "审计日志让 Agent 的每一步操作可回溯、可追责",
+    "适合作为信息安全方向课程设计或毕业设计的选题参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "From Ghost to Guardrails: Building a Local-First AI Agent Runtime with Sandboxing, Memory, and Audit Trails",
+   "link": "https://dev.to/tamizuddin/from-ghost-to-guardrails-building-a-local-first-ai-agent-runtime-with-sandboxing-memory-and-2dah",
+   "cover": "img/a414.webp"
+  },
+  {
+   "id": "a415",
+   "title": "微软把 Windows 重定位为「Agent 的家」：本地跑小模型，云端跑大推理",
+   "summary": "微软发布《Building Windows for hybrid intelligence》，提出本地/云端混合的 Agent 中间层架构，并让沙箱机制转正，为 AI 应用提供系统级运行环境。",
+   "content": "这条不是消费电子新闻，而是平台级架构信号：Windows 正在把「本地小模型处理隐私任务、云端大模型处理长推理」做成系统能力，并提供沙箱作为 Agent 的标准运行环境。对开发者的实际影响是——未来 Windows 应用会多出一层 Agent 中间层 API，本地推理、文件访问、权限控制都有统一入口。软件工程和工业软件方向的同学值得关注：工业软件大量运行在 Windows 上，如果 Agent 能力下沉到系统层，桌面端工业软件的交互范式可能被改写。建议结合《操作系统》《软件工程》跟踪其 API 设计，作为技术选型的前瞻输入。",
+   "source": "开源中国",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Windows",
+    "AI Agent"
+   ],
+   "value": "**系统级 Agent 中间层会改变 Windows 桌面开发方式，工业软件方向同学应提前了解其 API 走向。**",
+   "courses": "对应《操作系统》《软件工程》，可作为技术选型与架构演进的分析素材。",
+   "tags": [
+    "行业动态",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "本地/云端混合推理：隐私任务本地跑，重推理上云",
+    "沙箱从实验特性转为系统级正式能力",
+    "Agent 中间层将成为 Windows 应用的新开发接口",
+    "工业软件大量基于 Windows，桌面端交互范式可能被重塑"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502895"
+  },
+  {
+   "id": "a416",
+   "title": "用 Rust 复刻掘金 Markdown 阅读体验：一个纯阅读器的实现思路",
+   "summary": "作者用 Rust 写了一个专注阅读的 Markdown 阅读器，解决「写和读体验割裂」的问题，文中分享了技术选型与渲染实现。",
+   "content": "痛点很真实：Markdown 写起来爽，读起来别扭，很多人靠复制到网页编辑器里看效果。作者用 Rust 做了个纯阅读器，重点在渲染质量和阅读体验。对软件工程同学，这是一个「小而完整」的项目范例：需求明确、技术栈清晰（Rust + Markdown 渲染）、可交付。如果你在准备简历项目，这类工具型作品比 CRUD 管理系统更能体现工程品味。可以借鉴的点：如何做 Markdown 渲染管线、如何处理代码高亮与主题、如何打包分发桌面应用。建议配合《程序设计》《软件工程》使用，作为个人项目的选题模板。",
+   "source": "掘金",
+   "date": "2026-10-08",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "Markdown"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**工具型小项目是简历差异化的捷径，本文提供了从痛点发现到技术落地的完整示范。**",
+   "courses": "对应《程序设计》《软件工程》，可作为个人项目或课程设计的选题参考。",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "小而完整的工具型项目，适合作为简历作品",
+    "涉及 Markdown 解析与渲染管线设计",
+    "Rust 桌面应用的技术选型与打包思路可复用",
+    "比传统 CRUD 课设更能体现工程品味"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694182755944480831"
+  },
+  {
+   "id": "a417",
+   "title": "Cloudflare 详解从 WordPress 迁移到 EmDash 的全过程",
+   "summary": "Cloudflare 公开了将 WordPress 站点迁移到自研 EmDash 的完整工程实践，涉及数据迁移、性能与架构取舍。",
+   "content": "这是一篇典型的「大型系统迁移」复盘，价值在于方法论而非具体产品：如何评估迁移成本、如何做数据一致性校验、如何灰度切换、迁移后性能如何对比。软件工程专业的同学在《软件工程》《数据库原理》里学到的迁移与重构理论，在这里有真实工业案例对照。虽然多数人不会遇到 WordPress 迁移，但「遗留系统替换」是工业软件和企业级开发中的高频场景，面试时聊起这类工程权衡会很加分。建议重点看它的迁移步骤拆解和风险控制部分。",
+   "source": "InfoQ中文",
+   "date": "2026-10-08",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "WordPress"
+   ],
+   "value": "**遗留系统迁移是工业界刚需能力，这篇复盘提供了可直接套用的迁移方法论。**",
+   "courses": "对应《软件工程》《数据库原理》，用于理解真实项目中的迁移与重构流程。",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "大型系统迁移的完整工程方法论：评估、校验、灰度、对比",
+    "遗留系统替换是企业开发和工业软件的高频场景",
+    "可作为《软件工程》课程中重构与迁移章节的真实案例",
+    "面试中讨论工程权衡的优质素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/hGCTSjQKOsqqz0lVUgfx?utm_source=rss&utm_medium=article",
+   "cover": "img/a417.webp"
+  },
   {
    "id": "a407",
    "title": "Docker 官方 Agent 工具发布：YAML 声明式定义、任意 MCP、OCI 镜像分发",
@@ -26,7 +203,7 @@
     "通用开发",
     "工业软件"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Docker 官方 CLI 插件，`docker agent` 直接可用，需 Docker Desktop 4.63+",
@@ -3972,176 +4149,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/bduvBdbgwxj6DMbNeKCC?utm_source=rss&utm_medium=article",
    "cover": "img/a302.webp"
-  },
-  {
-   "id": "a303",
-   "title": "DeepSeek Harness 推出桌面端预览版",
-   "summary": "DeepSeek 推出 Harness 桌面端预览版，把模型能力封装成可在本地桌面直接使用的工具形态。",
-   "content": "对学生的实际意义在于「本地可用的 AI 工具链」这件事本身：桌面端意味着可以脱离浏览器、接入本地文件、和你的开发环境联动。如果你在做课设时需要批量处理文档、生成测试数据、辅助读代码，桌面端工具比网页版更顺手，也更容易接进脚本流程。软件工程同学可以留意它的插件或扩展机制——能不能自定义命令、能不能调用本地脚本，决定了它是不是一个可编程的工具而不只是个聊天窗口。建议先当效率工具用起来，再考虑二次开发。",
-   "source": "爱范儿",
-   "date": "2026-09-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI工具"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**桌面端 AI 工具能接本地文件和脚本，用起来比网页版更贴开发流程。**",
-   "courses": "《软件开发工具与环境》——作为日常开发效率工具使用",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "桌面端形态，可脱离浏览器并接入本地文件",
-    "适合批量处理文档、生成测试数据、辅助读代码",
-    "关注是否支持自定义命令/本地脚本调用",
-    "先当效率工具，再考虑二次开发"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1682554?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a303.webp"
-  },
-  {
-   "id": "a292",
-   "title": "Changesets 3.0 发布：纯 ESM、安装体积缩减 88%，前端 monorepo 版本管理更省事",
-   "summary": "Changesets 3.0 改为纯 ESM 发布，安装体积缩减 88%，并调整对等依赖下游包的默认版本升级策略。",
-   "content": "如果你在做前端 monorepo（pnpm workspace + 多包发布），Changesets 基本是绕不开的版本与 changelog 工具。3.0 这次两个变化值得注意：一是纯 ESM 发布，安装体积缩减 88%，CI 里装依赖更快；二是对等依赖（peerDependencies）的下游包默认升补丁版本，意味着你改一个底层组件库，依赖它的包会自动带上 patch 版本，减少手动改版本号。建议在课设或团队项目里先跑一遍 changeset version 看生成的版本号和 changelog 是否符合预期，再决定是否升级。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Changesets",
-    "pnpm"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**做 monorepo 前端项目的同学，这是版本发布环节最省事的工具升级。**",
-   "courses": "对应《Web前端开发》《软件工程》课程中的工程化与持续集成环节，可直接用于小组项目的包发布流程。",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "纯 ESM 发布，安装体积缩减 88%，CI 安装更快",
-    "对等依赖下游包默认升补丁版本，减少手工改版本",
-    "升级前先在分支跑 changeset version 验证版本号与 changelog"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/JEw7578VW84g7wmh75gM?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a293",
-   "title": "Elastic Beanstalk 跑上 EKS 引争议：为什么不把 ECS 做好？",
-   "summary": "AWS 把 Elastic Beanstalk 部署目标扩展到 EKS，开发者质疑其抽象层与 ECS 定位重叠、增加复杂度。",
-   "content": "这条对准备走 Java 后端/云原生方向的同学有参考价值。Elastic Beanstalk 原本是「上传代码就帮你跑」的 PaaS，现在把底层换成 EKS（Kubernetes），等于在 K8s 上再包一层抽象。开发者的质疑点很实在：抽象层越多，出问题时排查链路越长，而且 ECS 已经能覆盖大部分场景。面试被问到「PaaS 与 K8s 的关系」「什么时候不该上 K8s」时，这类真实工程争论比背概念更有说服力。建议结合《云计算》或《分布式系统》课程，自己画一遍从代码到容器的部署链路。",
-   "source": "InfoQ中文",
-   "date": "2026-10-01",
-   "cat": "industry",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "AWS",
-    "Kubernetes"
-   ],
-   "value": "**想走 Java 后端/云原生方向，这是理解 PaaS 与 K8s 边界的好案例。**",
-   "courses": "对应《云计算与虚拟化》《分布式系统》，可作为课程报告或面试准备的讨论素材。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Beanstalk 部署目标扩展到 EKS，等于在 K8s 上再包一层",
-    "争议核心：抽象层增加排查成本，ECS 是否已够用",
-    "面试常问「什么时候不该上 K8s」，这是现成案例"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AYXLumiEmzcCrKrRuq9B?utm_source=rss&utm_medium=article",
-   "cover": "img/a293.webp"
-  },
-  {
-   "id": "a294",
-   "title": "意图驱动治理：分钟级实现敏感数据规模化保护",
-   "summary": "介绍以「意图」为核心的敏感数据治理实践，用策略声明替代逐表逐字段手工配置，实现分钟级规模化保护。",
-   "content": "信息安全与管理专业的同学可以重点看。传统数据脱敏/权限治理往往是「一张表一张表配规则」，数据源一多就失控。意图驱动治理的思路是：先声明「谁能以什么目的访问哪类数据」的意图，再由系统自动推导并下发到各数据源，把配置时间从周级压到分钟级。这背后是策略即代码（Policy as Code）的思路，和 RBAC、ABAC、数据分级分类都相关。建议结合《信息安全导论》《数据安全》课程，试着用一段伪策略描述你课设数据库的访问规则，体会声明式与命令式的差别。",
-   "source": "InfoQ中文",
-   "date": "2026-09-30",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Policy as Code"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**数据安全方向的同学，这是把「策略即代码」落到实处的治理思路。**",
-   "courses": "对应《信息安全导论》《数据安全与隐私保护》，可用于课程设计中的权限与脱敏方案设计。",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "把「逐表配规则」换成声明访问意图，系统自动下发",
-    "核心是策略即代码，与 RBAC/ABAC、数据分级分类相关",
-    "可结合课设数据库，写一段伪策略体会声明式治理"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/ZBXXP1BuZMIGusWyQZvB?utm_source=rss&utm_medium=article",
-   "cover": "img/a294.webp"
-  },
-  {
-   "id": "a295",
-   "title": "Neuron 4 发布：PHP 也能写 AI Agent 了",
-   "summary": "Neuron AI 框架发布 4.0，让 PHP 开发者可以用熟悉的语言构建 Agent 应用，回应「PHP 是否落后」的质疑。",
-   "content": "如果你主修 Java/前端但接触过 PHP（很多课设和外包还在用 PHP），这条值得一看。Neuron 4 把 Agent 开发能力带进 PHP 生态：工具调用、多步推理、记忆管理这些 Agent 核心概念，用 PHP 也能实现。重点不是「PHP 行不行」，而是理解 Agent 框架的通用结构——工具注册、循环调度、上下文管理，这套抽象换到 Java（Spring AI）或前端（Vercel AI SDK）是相通的。建议对照你熟悉的一门语言，看它的 Agent 框架是怎么组织工具调用循环的，这比死记某个框架 API 更有迁移价值。",
-   "source": "DEV Community",
-   "date": "2026-10-01",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "PHP",
-    "Agent"
-   ],
-   "value": "**借 PHP 的 Agent 框架，理解跨语言通用的 Agent 架构抽象。**",
-   "courses": "对应《面向对象程序设计》《软件体系结构》，可用于理解框架抽象与设计模式。",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "Neuron 4 让 PHP 具备 Agent 工具调用、多步推理能力",
-    "重点看 Agent 框架通用结构：工具注册、循环调度、上下文管理",
-    "同一套抽象可迁移到 Spring AI、Vercel AI SDK"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Neuron 4 is Here 🚀 Welcome To The PHP Agentic Era",
-   "link": "https://dev.to/neuron-ai/neuron-4-is-here-welcome-to-the-php-agentic-era-301",
-   "cover": "img/a295.webp"
   }
  ],
  "jobs": [
