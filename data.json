@@ -1,6 +1,155 @@
 {
- "updatedAt": "2026-10-10 06:14",
+ "updatedAt": "2026-10-10 10:12",
  "news": [
+  {
+   "id": "a445",
+   "title": "Java 生态近期大更新：TornadoVM 7.0、Groovy 6.0、GraalVM、Quarkus、Gradle、Maven 全梳理",
+   "summary": "InfoQ 汇总了 Java 生态近期重要版本更新，涵盖 JVM 加速、构建工具、框架与语言本身，是了解 Java 技术栈演进的一站式入口。",
+   "content": "这波更新对做 Java 全栈的同学很实用。TornadoVM 7.0 让 Java 代码能跑在 GPU 上，适合高性能计算场景；Groovy 6.0 是动态语言的重要迭代；GraalVM 持续优化原生镜像编译，能显著缩短启动时间，微服务部署时很有价值；Quarkus 主打云原生低内存；Gradle 和 Maven 是日常构建必备，新版本在依赖解析和构建缓存上有改进。建议对照你正在用的 Spring Boot 项目，挑一个工具升级试试，比如用 GraalVM 把课设后端编译成原生镜像，感受启动速度差异。",
+   "source": "InfoQ中文",
+   "date": "2026-10-10",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "GraalVM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**一次看清 Java 生态最新动向，帮你判断该学什么、项目该升什么。**",
+   "courses": "对应《Java 程序设计》《软件工程》，可把 GraalVM 原生镜像编译作为课程项目部署优化点。",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "TornadoVM 7.0 支持 Java 代码跑 GPU，高性能计算可关注",
+    "GraalVM 原生镜像能大幅缩短 Java 服务启动时间",
+    "Quarkus 适合云原生场景，内存占用低",
+    "Gradle/Maven 新版本优化了构建缓存与依赖解析"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/8s5fm3AAfw7ya1qdWl5Q?utm_source=rss&utm_medium=article",
+   "cover": "img/a445.webp"
+  },
+  {
+   "id": "a446",
+   "title": "AI Agent 上线前怎么测？一套可落地的护栏测试实战手册",
+   "summary": "文章以加拿大航空聊天机器人编造退款政策被判败诉为例，给出在生产环境前测试 AI Agent 护栏的实操方法。",
+   "content": "这个案例对信息安全专业的同学特别有参考价值：Air Canada 的客服机器人自己编了一条退款政策，法院判定航空公司必须履行——说明 Agent 说的话就是公司说的话。文章给出了一套测试护栏的 playbook，核心思路是在上线前构造对抗性输入，验证 Agent 不会越权、不会编造、不会泄露敏感信息。你可以把这套方法用到课程设计里的对话系统或智能客服项目上，重点测三类场景：诱导性提问、越权指令、边界输入。信息安全方向的同学可以进一步思考如何把护栏测试纳入安全开发生命周期。",
+   "source": "DEV Community",
+   "date": "2026-10-10",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**学会给 AI Agent 做上线前安全测试，信息安全方向面试可直接讲。**",
+   "courses": "对应《信息安全导论》《软件测试》，可把护栏测试作为课程项目的测试用例设计部分。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Agent 编造内容，法律责任归公司，不是归模型",
+    "上线前需构造对抗性输入测试护栏",
+    "重点测诱导提问、越权指令、边界输入三类场景",
+    "可纳入安全开发生命周期（SDL）流程"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Testing AI Agent Guardrails Before Production: A Practical Playbook",
+   "link": "https://dev.to/nughes/testing-ai-agent-guardrails-before-production-a-practical-playbook-56e3",
+   "cover": "img/a446.webp"
+  },
+  {
+   "id": "a447",
+   "title": "Ray 分布式计算教程（00-01）：从单机到集群的编程模型入门",
+   "summary": "掘金上的 Ray 系列教程开篇，介绍 Ray 的设计目标、解决的问题、编程模型演进和生态全景，附七天学习计划。",
+   "content": "Ray 是目前主流的分布式计算框架，被广泛用于 AI 训练和推理调度。这套教程从零讲起，第 00 篇给了六条阅读路径和七天学习计划，第 01 篇讲清楚 Ray 解决什么问题、从单机到集群的编程模型怎么演进。对软件工程的同学来说，如果你做过需要并行处理的任务（比如批量图片处理、模型推理），Ray 能把单机代码几乎无痛扩展到集群。建议先跑通官方 quickstart，再对照教程把课设里的耗时任务改成 Ray 并行版本，简历上「分布式计算」这一项就有实打实的项目支撑了。",
+   "source": "掘金",
+   "date": "2026-10-10",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Ray",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用 Ray 把课设里的串行任务改成分布式并行，简历多一个硬核项目。**",
+   "courses": "对应《分布式系统》《并行计算》，可作为课程大作业的技术选型。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Ray 是主流分布式计算框架，AI 训练推理调度常用",
+    "教程含七天学习计划和六条阅读路径",
+    "单机代码可近乎无痛扩展到集群",
+    "适合给课设中的耗时任务做并行加速"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694834709336981545"
+  },
+  {
+   "id": "a448",
+   "title": "relay：面向编码 Agent 的基础设施（TypeScript，869 星）",
+   "summary": "GitHub 上 869 星的开源项目，用 TypeScript 为编码 Agent 提供基础设施，近期持续更新。",
+   "content": "这个项目做的是 coding agent 的底层基础设施，用 TypeScript 写的，869 星且近 7 日有更新，说明社区活跃度不错。对前端和通用开发方向的同学来说，这是一个很好的「读懂 AI 工具链底层」的入口——你可以 clone 下来看它怎么组织 agent 的任务调度、上下文管理和工具调用。即使不直接用它，读源码也能帮你理解现在 IDE 里的 AI 补全、AI 编程助手是怎么搭起来的。建议结合你正在用的 AI 编程工具，对照看它的架构设计，面试聊到 AI 工具链时能讲出具体实现。",
+   "source": "GitHub",
+   "date": "2026-10-10",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分/求职准备",
+   "value": "**读一个活跃开源项目的源码，搞懂 AI 编程助手底层怎么搭。**",
+   "courses": "对应《Web 开发》《软件架构》，可作为课程项目的参考实现或源码阅读作业。",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "TypeScript 编写的 coding agent 基础设施，869 星",
+    "近 7 日有更新，社区活跃",
+    "适合读源码理解 AI 编程工具底层架构",
+    "前端/通用开发方向可作为 AI 工具链学习入口"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AgentWorkforce/relay",
+   "link": "https://github.com/AgentWorkforce/relay",
+   "cover": "img/a448.webp"
+  },
   {
    "id": "a439",
    "title": "ToolForge v0.1.8 发布：Rust+Tauri 2 开源桌面工具箱新增 11 款工具",
@@ -26,7 +175,7 @@
     "AI工具",
     "前端开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Rust + Tauri 2 技术栈，前后端分离的桌面应用范例",
@@ -4059,145 +4208,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7691876916196065295"
-  },
-  {
-   "id": "a332",
-   "title": "Agent 的记忆不在对话里：把企业数仓沉淀为可治理的共享语义记忆",
-   "summary": "QCon 上海议题：企业级 Agent 的记忆应沉淀在数仓中，做成可治理的共享语义层，而非塞进对话历史。",
-   "content": "很多团队做 Agent 时把「记忆」等同于对话历史，结果上下文越堆越长、越贵越乱。这个 QCon 上海议题提出另一种架构：把企业数仓沉淀为可治理的共享语义记忆，让 Agent 从结构化的语义层取数，而不是靠对话拼接。对信息安全与管理、工业软件方向的同学，这背后是数据治理、权限控制、语义建模的工程问题——谁能把企业数据变成 Agent 能安全使用的记忆，谁就掌握落地关键。建议在课程设计里尝试把业务数据整理成带元数据的语义表，再让模型查询，体会「治理」和「堆上下文」的差别。",
-   "source": "InfoQ中文",
-   "date": "2026-10-04",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "数据治理"
-   ],
-   "value": "**理解「语义记忆 + 数据治理」，才看得懂企业级 Agent 真正的落地门槛。**",
-   "courses": "对应《数据库原理》《信息安全》课程，结合数据治理与权限设计。",
-   "tags": [
-    "行业动态",
-    "工业软件",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Agent 记忆不该只等于对话历史",
-    "把数仓做成可治理的共享语义层",
-    "涉及数据治理、权限与语义建模",
-    "企业级 Agent 落地的关键工程问题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/M4mgbKf4RDv5AKTwQvFH?utm_source=rss&utm_medium=article",
-   "cover": "img/a332.webp"
-  },
-  {
-   "id": "a324",
-   "title": "Docker Engine 29.7 的 overlay 网络炸了：没有 IPv6 的 Swarm 任务全部起不来",
-   "summary": "有开发者实测：同一条命令在上一版引擎能起 20 个副本，升到 29.7 后副本数恒为 0，原因是 overlay 网络在没有 IPv6 时直接失效。",
-   "content": "如果你在《云计算与容器技术》或课程设计里用过 docker service create --replicas，这条要留意。作者用 overlay 网络请求 20 个副本，结果不是变慢、不是部分启动，而是永远 0 个，回退一个版本就恢复正常。排查方向集中在 Engine 29.7 对 overlay 网络与 IPv6 的处理变更上。给你的实操建议：一、课程/毕设环境先固定 Docker 版本，别在演示前一天 docker pull 最新；二、用 docker version、docker network inspect 记录基线，出问题先做版本二分；三、Swarm 集群里显式配置 IPv6 或改用非 overlay 的 host 网络验证。这类「升级即翻车」的坑，写进简历的排障经历比背命令更值钱。",
-   "source": "DEV Community",
-   "date": "2026-10-03",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "Swarm"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**容器升级前先锁版本、留基线，一次 overlay 网络回归就能让你整个演示环境归零。**",
-   "courses": "《云计算与容器技术》/《Linux 系统管理》：实验环境固定镜像与引擎版本，把排障过程写进实验报告。",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "29.7 版本下无 IPv6 的 overlay 网络会导致 Swarm 任务副本数恒为 0",
-    "回退一个 Engine 版本即可恢复，属于典型版本回归问题",
-    "课程/毕设环境应锁定 Docker 版本并记录 network inspect 基线",
-    "排障思路：版本二分 + 显式 IPv6 配置，可写成简历项目经历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Docker Engine 29.7's overlay networking breaks every Swarm task without IPv6",
-   "link": "https://dev.to/alexgeorgiev17/docker-engine-297s-overlay-networking-breaks-every-swarm-task-without-ipv6-72l",
-   "cover": "img/a324.webp"
-  },
-  {
-   "id": "a325",
-   "title": "DeepSeek 弹性计算团队扩招：JD 直接甩技术报告，资深工程师优先",
-   "summary": "DeepSeek 弹性计算团队放出大量 HC，招聘方式是把技术报告当 JD，明显偏向有系统/基础设施经验的候选人。",
-   "content": "对软件工程和信息安全专业的同学，这条的价值不在「大厂又招人」，而在于它暴露了当前 AI 公司真正缺的岗位画像：弹性计算、资源调度、推理基础设施——本质是分布式系统 + 操作系统 + 性能优化。想往这个方向走，本科阶段可以这样铺：一、把《操作系统》《计算机网络》《分布式系统》学扎实，重点搞懂调度、内存、网络 IO；二、用 Go/C++/Rust 写一个能跑的小调度器或简易推理服务，放 GitHub；三、读一读 vLLM、K8s 调度器源码，面试时能讲清一个具体机制。信息安全方向则可关注多租户隔离、容器逃逸与资源配额安全。别只刷算法题，这类岗位看的是系统功底。",
-   "source": "量子位",
-   "date": "2026-10-03",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes",
-    "Go"
-   ],
-   "value": "**AI 公司最缺的不是调参的人，而是能把算力调度起来、把系统压榨干净的基础设施工程师。**",
-   "courses": "《操作系统》《计算机网络》《分布式系统》：把调度、IO、网络机制学透，直接对应弹性计算岗位面试考点。",
-   "tags": [
-    "求职就业",
-    "行业动态",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "弹性计算岗位核心能力是分布式系统、资源调度与性能优化",
-    "招聘以技术报告代替 JD，说明更看重真实系统经验而非刷题",
-    "建议用 Go/C++/Rust 写小型调度器或推理服务作为作品",
-    "信安方向可切入多租户隔离、容器逃逸与配额安全"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/501381.html"
-  },
-  {
-   "id": "a326",
-   "title": "国庆出游用 AI 规划被坑：基础信息还行，真实情况全靠猜",
-   "summary": "钛媒体实测国庆用 AI 做行程规划，发现模型在票务、营业时间等实时信息上错误率高，容易把用户带沟里。",
-   "content": "这条对信息安全与管理、软件工程的同学是个很好的产品视角案例：大模型在「静态知识」上表现尚可，但一旦涉及实时、可验证的事实（车次、票价、营业时间、路况），幻觉率就上来了。如果你在做课设或想练手，可以做一个「AI 行程规划 + 事实校验」的小项目：用大模型生成结构化行程 JSON，再调用真实 API（12306、地图、天气）逐条校验，把不一致项标红并给出修正建议。技术点覆盖 Prompt 结构化输出、函数调用、结果校验与降级策略，正好是《软件工程》需求分析与《数据库》数据校验的综合练习，也是简历上很讨喜的「AI 应用落地」项目。",
-   "source": "钛媒体",
-   "date": "2026-10-03",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "LLM API"
-   ],
-   "value": "**AI 应用的关键不是让模型说得漂亮，而是给它接上能验证事实的数据源。**",
-   "courses": "《软件工程》《数据库原理》：把需求分析、接口设计与数据校验串成一个可演示的 AI 应用项目。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "大模型在实时票务、营业时间等可验证事实上幻觉明显",
-    "可用「LLM 生成结构化行程 + 真实 API 校验」做课设项目",
-    "技术点：结构化输出、函数调用、结果校验与降级",
-    "对应软件工程需求分析与数据校验能力，适合写进简历"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8158647.html"
   }
  ],
  "jobs": [
