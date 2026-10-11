@@ -1,6 +1,237 @@
 {
- "updatedAt": "2026-10-11 10:14",
+ "updatedAt": "2026-10-11 21:20",
  "news": [
+  {
+   "id": "a466",
+   "title": "Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时",
+   "summary": "作者在用户行为分析看板上被 Vue 数组更新机制坑了 18 小时，复盘了 Vue 2/3 数组响应式的差异与正确写法。",
+   "content": "Vue 对数组的响应式处理一直是新手最容易翻车的地方：Vue 2 靠重写 push/pop/splice 等七个方法生效，直接 arr[0]=x 或改 length 不会触发更新；Vue 3 用 Proxy 后大部分场景正常，但把数组整体替换、在 setup 里解构 reactive 数组、或对 ref 数组忘记 .value 时依然会静默失效。这篇文章用真实事故复盘了排查过程，值得你花 20 分钟读完。建议边读边在本地起一个 Vite+Vue3 项目复现每种失效场景，把「为什么没更新」变成肌肉记忆。前端方向面试常问响应式原理，这段经历可以直接写进简历项目描述。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**把「数组不更新」从玄学变成可复现的知识点，前端面试与课设都用得上。**",
+   "courses": "对应《Web 前端开发》《人机交互界面设计》，可把踩坑复现过程写进课程设计报告的问题排查章节。",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Vue2 靠重写 7 个数组方法实现响应式，索引赋值和 length 修改不触发更新",
+    "Vue3 Proxy 覆盖大部分场景，但解构 reactive、忘记 ref .value 仍会失效",
+    "建议本地复现每种失效场景，理解响应式边界比背 API 更重要"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694928086820995072"
+  },
+  {
+   "id": "a467",
+   "title": "GitHub Actions + Docker + ACR/GHCR：一条流水线自动构建发布镜像",
+   "summary": "手把手教你用 GitHub Actions 把 Docker 镜像自动构建并推送到阿里云 ACR 和 GitHub GHCR，实现提交即发布。",
+   "content": "这套组合是当前中小团队最省钱的 CI/CD 方案：代码 push 到 GitHub 触发 Actions，构建 Docker 镜像后同时推送到阿里云 ACR（国内拉取快）和 GHCR（免费、和仓库同源）。文章给出了完整的 workflow yaml，包括多架构构建、镜像 tag 策略（分支名+commit sha+latest）、以及用 Secrets 管理 ACR 账号密码的写法。建议你拿自己的课设项目练一遍：把 Spring Boot 或 Node 服务打成镜像，配好流水线，以后每次改代码自动出新镜像。这是简历上「熟悉 CI/CD」最实在的证明，也是软件工程课程里配置管理章节的落地实践。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker",
+    "GitHub Actions"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一次配置，终身自动部署，是简历上「会 CI/CD」最有说服力的证据。**",
+   "courses": "对应《软件工程》《软件项目管理》，可作为课程项目持续集成环节的实践材料。",
+   "tags": [
+    "通用开发",
+    "Java全栈",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "GitHub Actions 触发构建，一次推送同时发到 ACR 和 GHCR",
+    "镜像 tag 建议用 commit sha + 分支名，避免 latest 覆盖导致回滚困难",
+    "账号密码放 GitHub Secrets，不要硬编码进 yaml"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694961880853118976"
+  },
+  {
+   "id": "a468",
+   "title": "用 Python 解析 class 文件 access_flags，看懂 JVM 字节码结构",
+   "summary": "通过解析 .class 文件顶层的 access_flags 字段，直观理解 Java 字节码文件格式与访问修饰符的二进制表示。",
+   "content": "很多人学 JVM 只背「class 文件包含魔数、版本号、常量池」，却从没真正打开过一个 class 文件。这篇文章用 Python 读取 class 文件头，按字节解析出 access_flags，再用 GUI 展示 ACC_PUBLIC、ACC_FINAL、ACC_INTERFACE 等标志位。动手做完你会彻底明白：为什么接口的方法默认是 public abstract、为什么 final 类不能被继承——这些在字节码层面就是几个 bit。建议用 javac 编译一个自己写的类，再用脚本解析对比，配合 javap -v 交叉验证。这是《Java 虚拟机》课程最直观的入门实验，也是理解 Java 安全机制（如字节码校验）的第一步。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Java",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**亲手解析一次 class 文件，JVM 规范和 Java 安全机制不再是背诵题。**",
+   "courses": "对应《Java 程序设计》《Java 虚拟机原理》，可作为字节码章节的实验作业。",
+   "tags": [
+    "Java全栈",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "access_flags 是 class 文件顶层的一个 u2 字段，用位掩码表示类/方法的访问权限",
+    "用 Python 按字节读取并解析，比死记 JVM 规范直观得多",
+    "配合 javap -v 交叉验证，可延伸到字节码校验与 Java 安全"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694932886454435867"
+  },
+  {
+   "id": "a469",
+   "title": "开源工具 Who Arrives：一行命令查公网 IP、地区、时区与网络信息",
+   "summary": "免费开源的连接信息查询工具，支持通过 fields 参数定制返回字段，适合调试网络与排查代理配置。",
+   "content": "做前后端联调或爬虫时，经常需要确认「我的请求到底从哪个 IP 出去的」——尤其是挂了代理、用了云函数或容器之后。Who Arrives 是一个开源小工具，能一次性返回公网 IP、近似地理位置、时区和网络信息，还支持 fields 参数只取你需要的字段，方便脚本里直接调用。建议把它加进你的调试工具箱：写爬虫前先查出口 IP 是否被目标站封禁，部署到云服务器后确认出口地区是否符合预期。信息安全方向的同学可以用它验证代理链路是否生效、是否存在 IP 泄露。工具本身开源，代码量不大，也适合作为学习 HTTP 请求与 API 设计的练手项目。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**网络调试与代理验证的顺手工具，信息安全方向排查 IP 泄露时尤其好用。**",
+   "courses": "对应《计算机网络》《Web 应用安全》，可用于实验课验证 NAT、代理与出口 IP 的关系。",
+   "tags": [
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "一次查询返回公网 IP、地区、时区、网络信息",
+    "支持 fields 参数定制返回字段，便于脚本集成",
+    "可用于验证代理是否生效、排查爬虫出口 IP 被封问题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7695079160248123446"
+  },
+  {
+   "id": "a470",
+   "title": "LLM 驱动自动化测试（九）：MetaGPT 多智能体框架下沉到移动端测试",
+   "summary": "介绍如何把 MetaGPT 这类通用多智能体框架用于 Android 自动化测试，让 Agent 自己分析需求并生成测试用例。",
+   "content": "这个系列已经更到第九篇，本篇讲的是把 MetaGPT（一个「多智能体软件公司」框架）内置的 Android 测试 demo 拆开看：它如何让不同角色的 Agent 分别做需求分析、用例设计、脚本生成与执行。对软件工程和信息安全专业来说，这代表测试岗的下一波技能栈——不是写更多 Selenium 脚本，而是会编排 Agent 完成测试任务。建议你先跑通官方 demo，再尝试把被测对象换成自己的课设 App，观察 Agent 生成的用例覆盖率如何。测试与质量保障是就业面很宽的方向，懂 LLM 测试编排的应届生目前还很少。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MetaGPT"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**测试岗正在被 Agent 重构，会编排 LLM 测试流程的应届生目前是稀缺资源。**",
+   "courses": "对应《软件测试》《软件工程》，可作为自动化测试章节的拓展实践。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "MetaGPT 用多角色 Agent 分别负责需求分析、用例设计、脚本生成与执行",
+    "把通用 Agent 框架下沉到移动端测试，是测试岗的新技能方向",
+    "建议跑通 demo 后换成自己的课设 App 实测覆盖率"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694917909773271074"
+  },
+  {
+   "id": "a471",
+   "title": "Hermes Agent 协作篇：Gateway、Profile、Delegation 与 Kanban 怎么用",
+   "summary": "深入讲解 Hermes Agent 的消息网关、配置档案、任务委派和看板机制，适合想搭建多 Agent 协作系统的开发者。",
+   "content": "单 Agent 能做的事有限，真正落地要解决的是「多个 Agent 怎么分工、怎么通信、任务怎么排队」。这篇是 Hermes Agent 系列的第四部分，讲清了四个核心概念：Gateway 负责接入消息平台（相当于前台），Profile 定义 Agent 的身份与能力，Delegation 实现任务下发给子 Agent，Kanban 则管理任务状态流转。如果你在做课设里的智能助手、或者想给团队搭一个内部自动化工具，这套架构可以直接借鉴。建议先理解 Gateway 与 Profile 的解耦设计，再动手跑一个「主 Agent 接单、子 Agent 干活」的最小例子，比一上来啃全部文档高效得多。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Hermes Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**想搭多 Agent 协作系统，这套 Gateway/Profile/Delegation 分层设计可以直接抄架构。**",
+   "courses": "对应《软件体系结构》《人工智能导论》，可作为智能系统课程设计的架构参考。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "Gateway 是消息接入层，Profile 定义 Agent 身份与能力，两者解耦",
+    "Delegation 负责把任务下发给子 Agent，Kanban 管理任务状态流转",
+    "建议先跑通「主 Agent 接单 + 子 Agent 干活」的最小闭环"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7695030462259527730"
+  },
+  {
+   "id": "a472",
+   "title": "2026 最新 Rust 入门教程（六）：枚举与模式匹配",
+   "summary": "Rust 入门系列第六章，从结构体过渡到枚举，讲解 Rust 枚举如何携带数据以及模式匹配的基本用法。",
+   "content": "Rust 的枚举和 C/Java 的枚举完全不是一个东西：它的每个变体可以携带不同类型和数量的数据，配合 match 做模式匹配，是 Rust 表达「一个值可能是几种形态之一」的核心手段。这也是 Option<T> 和 Result<T,E> 能取代 null 和异常的基础。本章从结构体自然过渡到枚举，适合已经会一门语言的你快速上手。建议边读边写：用枚举定义一个「网络请求状态」（加载中/成功带数据/失败带错误），再用 match 处理每种情况，体会编译器如何强制你处理所有分支。工业软件方向对内存安全和可靠性要求高，Rust 值得提前布局。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**Rust 枚举+模式匹配是理解内存安全语言设计的关键一步，工业软件方向值得提前学。**",
+   "courses": "对应《程序设计基础》《系统编程》，可作为第二语言选修的入门材料。",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "Rust 枚举的变体可以携带不同类型的数据，和 C/Java 枚举完全不同",
+    "match 模式匹配强制穷尽所有分支，是 Option/Result 取代 null 与异常的基础",
+    "建议用「网络请求状态」枚举练手，体会编译器的穷尽性检查"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694952423996653594"
+  },
   {
    "id": "a458",
    "title": "Spring AI Alibaba 实战：Agent 执行 shell 命令时，沙箱如何拦住家目录密钥泄露",
@@ -26,7 +257,7 @@
     "Java全栈",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "四层纯 Java 过滤：命令白名单、路径限制、输出脱敏、权限校验",
@@ -3976,253 +4207,88 @@
    "link": "https://juejin.cn/post/7692742889171566607"
   },
   {
-   "id": "a347",
-   "title": "Redis Cluster 主节点挂了，为什么「高可用」还全员掉线？三次 kill 实测复盘",
-   "summary": "作者三次 kill 主节点，发现 failover 窗口约 7.47 秒，且当主节点无从节点时全集群 CLUSTERDOWN，健康分片也一起挂。",
-   "content": "这是一篇难得的「踩坑实录」：作者在 Redis Cluster 上反复 kill 主节点，记录下两个关键现象——一是 failover 存在约 7.47 秒的错误窗口，二是当某个主节点没有从节点时，整个集群会进入 fail，连健康分片也报 CLUSTERDOWN。根因指向 require-full-coverage 配置。对软件工程同学来说，这比背「Redis 高可用」四个字有用得多：它告诉你分布式系统的「高可用」是有前提的。建议配合《分布式系统》《数据库原理》课程，自己用 Docker 起一个三主三从集群，亲手 kill 一次，观察 CLUSTER INFO 输出变化，把结论写进课设或实习面试的「项目难点」里。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Redis"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**把「Redis 高可用」从口号变成你亲手验证过的故障窗口和配置陷阱，面试时能讲出细节。**",
-   "courses": "《分布式系统》《数据库原理》——可作为集群高可用章节的动手实验",
+   "id": "wk-20261005",
+   "title": "【AI风向标周报】第1期（10.05-10.11）",
+   "summary": "本周精选：8 个 AI Agent 跑在 Su、Java 生态近期大更新：Torna等 5 条资讯；京东等 1 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、1 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. 8 个 AI Agent 跑在 Supabase Edge Functions + Vercel 上：一套可抄的多智能体生产架构\n   一套可复用的多 Agent 生产架构，直接提升你毕设和简历的技术含量。\n   原文：https://dev.to/domoniqueluchin/building-a-multi-agent-voice-command-center-how-we-deployed-8-ai-agents-on-supabase-edge-functions-and-vercel-48el\n2. Java 生态近期大更新：TornadoVM 7.0、Groovy 6.0、GraalVM、Quarkus、Gradle、Maven 全梳理\n   一次看清 Java 生态最新动向，帮你判断该学什么、项目该升什么。\n   原文：https://www.infoq.cn/article/8s5fm3AAfw7ya1qdWl5Q?utm_source=rss&utm_medium=article\n3. AI客服自信撒谎致Booking损失1400欧：日志缺失才是真问题\n   做AI应用不写日志，出事时你连甩锅都甩不出去。\n   原文：https://dev.to/kevinbarrett/why-we-left-sleekflow-after-its-ai-agent-started-confidently-lying-to-customers-fjb\n4. 谷歌用 AI + 差分模糊测试把 C 语言依赖库改写为 Rust\n   学会「AI 改写 + 差分测试验证」这套组合拳，你就掌握了老代码现代化改造的可信方法论。\n   原文：https://www.infoq.cn/article/LVsjSV4pIlh3Liz0KZZE?utm_source=rss&utm_medium=article\n5. Agent 写的 PR 回滚率 6.1% 还是 14.5%？取决于厂商\n   能拿出「我们组 AI 提交回滚率是多少」的实测数据，比任何「熟练使用 AI」的自我描述都硬。\n   原文：https://dev.to/cole_halton_42f71d71b809b/agent-prs-revert-at-61-or-145-depending-on-the-vendor-55ph\n\n【本周精选岗位】\n1. 京东 · 京东技术行 2027届/不限 技术实习（AI/大模型、云计算大数据、搜推广告、安全）\n   实习 ｜ 北京\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时\n   把「数组不更新」从玄学变成可复现的知识点，前端面试与课设都用得上。\n   获取：https://juejin.cn/post/7694928086820995072\n2. Spring AI Alibaba 实战：Agent 执行 shell 命令时，沙箱如何拦住家目录密钥泄露\n   学会给 AI Agent 加安全沙箱，是信息安全方向求职的差异化亮点\n   获取：https://juejin.cn/post/7694952423996080154\n3. Claude 动态多 Agent 工作流公测：116k 行代码库实测，主 Agent 写计划、多 Agent 分阶段跑\n   学会多 Agent 任务编排，比只会写 prompt 更能拉开求职差距。\n   获取：https://www.oschina.net/news/50……",
+   "source": "AI风向标·编辑部",
+   "date": "2026-10-11",
+   "cat": "weekly",
    "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "failover 窗口实测约 7.47 秒，期间请求会失败",
-    "主节点无从节点时，全集群 CLUSTERDOWN，健康分片也受影响",
-    "根因之一是 require-full-coverage 配置",
-    "建议自己用 Docker 复现，作为课设/面试的项目难点素材"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692240106913120310"
-  },
-  {
-   "id": "a348",
-   "title": "从工具调用到 Code Mode：AI Agent 范式转移，MCP 塞 5.5 万 token 的隐性成本",
-   "summary": "GitHub 官方 MCP 服务器连接时会把约 55,000 个 token 的工具 schema 塞进上下文，而等价的 gh CLI 调用成本低得多，Agent 正从「工具调用」转向「Code Mode」。",
-   "content": "这篇文章点出一个很多人忽略的成本：你给 Agent 接的每一个 MCP 工具，都要把它的 schema 塞进上下文。GitHub 官方 MCP 服务器一次就是约 55,000 token，还没开始干活，上下文就烧掉一大截。作者提出「Code Mode」——让模型直接写代码调 CLI，而不是走结构化工具调用。对软件工程和信息安全同学来说，这是理解 Agent 架构的关键一课：工具不是越多越好，上下文预算和安全边界都要算。建议在《人工智能导论》或课程设计里，自己接一个 MCP 服务，用 tokenizer 数一下 schema 占了多少 token，再对比直接调 CLI 的方案，写成一页对比报告。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "MCP",
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**让你在做 AI 应用时先算清上下文成本，而不是无脑堆工具，这是 Agent 工程的分水岭。**",
-   "courses": "《人工智能导论》《软件工程》——可作为 AI 应用架构设计的案例",
-   "tags": [
+    "周报汇总",
+    "求职就业",
     "AI工具",
-    "通用开发",
-    "信息安全"
+    "行业动态"
    ],
    "featured": false,
-   "heat": 80,
+   "heat": 99,
    "brief": [
-    "MCP 工具 schema 会占用大量上下文，GitHub 官方服务器约 55,000 token",
-    "Code Mode 思路：让模型写代码调 CLI，而非结构化工具调用",
-    "涉及上下文预算与工具安全边界两个工程问题",
-    "可自己接 MCP 服务并用 tokenizer 实测 schema 开销"
+    "精选资讯 Top5：8 个 AI Agent 跑在 Supabase Edge Functions + Vercel 上：一套可抄的多智能体生产架构",
+    "精选岗位 Top1：京东 · 京东技术行 2027届/不限 技术实习（AI/大模型、云计算大数据、搜推广告、安全）",
+    "实用工具 Top3：Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时"
    ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692241923549921334"
-  },
-  {
-   "id": "a349",
-   "title": "Loop Engineering 保姆级教程 + 项目实战：AI 编程新概念怎么落地",
-   "summary": "围绕 Claude Code 之父提出的 Loop Engineering 概念，给出保姆级教程和项目实战，讲清 AI 编程中「循环」该怎么设计。",
-   "content": "AI 编程圈每隔一阵就冒一个新概念，这次是 Loop Engineering。别被名词吓到，核心问题是：当 AI 帮你写代码时，一次生成往往不够，你需要设计「生成—验证—修正」的循环，让模型自己迭代到可用。文章给了保姆级教程和项目实战，适合动手跟做。对软件工程同学来说，这直接对应你未来用 AI 辅助开发的日常：不是问一句就完事，而是要会设计反馈回路、会写验证脚本。建议在课程设计里挑一个小模块（比如一个 CRUD 接口），用这套循环方法让 AI 生成并自测，记录迭代了几轮、每轮改了什么，作为「AI 辅助开发实践」的素材。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**把「用 AI 写代码」升级成「设计 AI 的迭代循环」，这是拉开效率差距的实操方法。**",
-   "courses": "《软件工程》《程序设计》——可作为 AI 辅助开发流程的实践参考",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "Loop Engineering 核心是设计「生成—验证—修正」的迭代循环",
-    "提供保姆级教程和项目实战，可跟做",
-    "适合作为 AI 辅助开发的实践方法论",
-    "建议在小模块上实测并记录迭代轮次"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692336657548279842"
-  },
-  {
-   "id": "a350",
-   "title": "蓝耘 MaaS 视觉模型实测：让 AI 读工单截图，关键是学会写「探测器」",
-   "summary": "实测蓝耘 MaaS 视觉模型处理客服系统里的图片信息（报修工单、手写便签、报表截图），结论是模型能不能接住活，关键在提示词探测器。",
-   "content": "客服系统里大量信息是以图片形态存在的：用户拍来的报修工单、手写投诉便签、导出的报表截图。文本模型无能为力，人工录入又慢又错。作者实测蓝耘 MaaS 的视觉模型，发现「全对」的背后有一个必须学会的探测器——也就是怎么设计提示词和校验逻辑，让模型稳定输出结构化结果。对软件工程同学来说，这是一次完整的「调 API 解决真实业务问题」的演练：怎么选模型、怎么写 prompt、怎么校验输出。建议在课程设计里做一个「截图转结构化数据」的小工具，用任意视觉模型 API 跑通，把提示词和校验逻辑写进文档。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MaaS",
-    "视觉模型 API"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**教你用视觉模型 API 把图片信息变成结构化数据，是一个能直接写进简历的完整小项目。**",
-   "courses": "《人工智能导论》《软件工程》——可作为调用 AI API 的课程设计选题",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "场景真实：把工单截图、手写便签转成结构化数据",
-    "关键不在模型热度，而在提示词「探测器」的设计",
-    "是一次完整的调 API 解决业务问题的演练",
-    "适合做成课设小工具：截图转结构化数据"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692676879360720923"
-  },
-  {
-   "id": "a351",
-   "title": "Aleph Alpha 开源 78B 参数 MoE 模型 Kolibri，Apache 2.0 可商用",
-   "summary": "德国 Aleph Alpha 发布开源 MoE 模型 Kolibri，总参数 78B，每次推理仅激活 3.46B，Apache 2.0 许可，支持百万 token 上下文。",
-   "content": "MoE（混合专家）架构是当前大模型的主流方向之一：总参数 78B，但每次推理只激活 3.46B，意味着显存和算力需求远低于同规模稠密模型，且 Apache 2.0 许可可商用、支持百万 token 上下文。对软件工程和信息安全同学来说，这条新闻的价值不在「又出了个模型」，而在于它是一个可以本地部署、可以读源码的开源样本。建议在《人工智能导论》或毕业设计里，用 Ollama 或 vLLM 把它跑起来，观察 MoE 的专家路由是怎么工作的，顺便测一下显存占用——这比只看论文有用得多。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MoE",
-    "开源大模型"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**一个可本地部署、可读源码的 MoE 模型，是把「大模型架构」从课本变成动手实验的好材料。**",
-   "courses": "《人工智能导论》《机器学习》——可作为模型架构与部署的实验对象",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "MoE 架构：总参数 78B，推理仅激活 3.46B",
-    "Apache 2.0 许可，可商用，支持百万 token 上下文",
-    "可本地部署、可读源码，适合学习模型架构",
-    "建议用 Ollama/vLLM 跑起来并测显存占用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692612898275754010"
-  },
-  {
-   "id": "a352",
-   "title": "GEO 优化是什么？AI 搜索时代，内容要让 AI 愿意引用",
-   "summary": "GEO（生成引擎优化）的核心主张：AI 搜索时代，内容不仅要让人搜到，还要让 AI 愿意引用，是 SEO 之后的新技能。",
-   "content": "SEO 是给搜索引擎看的，GEO 是给 AI 看的。当越来越多用户直接问 AI 而不是点搜索结果，内容的曝光逻辑就变了：AI 会不会引用你，取决于你的内容结构是否清晰、事实是否可验证、是否容易被切分成片段。对软件工程同学来说，这看起来像「运营」的事，其实和技术强相关——结构化数据、语义化 HTML、清晰的标题层级，都是前端和信息架构的基本功。建议在《Web 开发》课程里，把你做的页面按 GEO 思路重构一遍：加结构化数据标记、优化标题层级、让内容可被机器切分，然后对比重构前后的可读性。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "结构化数据",
-    "SEO/GEO"
-   ],
-   "diff": 1,
-   "scene": "课设/简历加分",
-   "value": "**把「让 AI 引用你的内容」拆成结构化数据和语义化 HTML 的技术活，前端同学可以直接练手。**",
-   "courses": "《Web 开发》《信息架构》——可作为页面结构优化的实践选题",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "GEO 核心：让内容被 AI 引用，而不只是被搜索引擎收录",
-    "技术相关：结构化数据、语义化 HTML、清晰标题层级",
-    "可结合 Web 开发课程做页面重构实验",
-    "是内容与技术交叉的新技能方向"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692296625806540840"
-  },
-  {
-   "id": "a343",
-   "title": "开源桌面 AI 智能体 Cyrene-Agent：TypeScript 写的，能直接读源码学架构",
-   "summary": "GitHub 上 657 星的开源桌面 AI 智能体项目，基于昔涟开发，近 7 日仍在更新，TypeScript 实现。",
-   "content": "这是少数能让你把「AI Agent 到底怎么跑起来」看明白的开源项目：桌面端形态、TypeScript 技术栈、代码量可控，适合拆解 Agent 的工具调用、任务编排、上下文管理这几块核心逻辑。对软件工程和信息安全两个专业都有用——前者可以照着它的架构做课设或二次开发，后者可以研究本地智能体的权限边界与数据流向。建议先 clone 跑通 demo，再挑一个模块（比如工具注册或消息循环）读源码写笔记，这比刷十篇「Agent 原理科普」实在得多。",
-   "source": "GitHub",
-   "date": "2026-10-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**想搞懂 Agent 内部机制，读一个能跑的开源项目比看十篇科普快。**",
-   "courses": "对应《软件工程》《人工智能导论》，可作为课程设计选题或毕业设计原型基础。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "TypeScript 实现，桌面端 Agent，代码可读性优先",
-    "657★ 且近期活跃，说明有人在维护，不是弃坑项目",
-    "适合拆解工具调用/任务编排/上下文管理三大模块",
-    "可作课设选题或简历项目底座"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Playa-Cyrene/Cyrene-Agent",
-   "link": "https://github.com/Playa-Cyrene/Cyrene-Agent"
+   "link": "",
+   "cover": "img/a445.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-10-05",
+    "end": "2026-10-11",
+    "news": [
+     "a381",
+     "a445",
+     "a366",
+     "a408",
+     "a434"
+    ],
+    "jobs": [
+     "j36"
+    ],
+    "tools": [
+     "a466",
+     "a458",
+     "a449"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [
+  {
+   "id": "j36",
+   "company": "京东",
+   "title": "京东技术行 2027届/不限 技术实习（AI/大模型、云计算大数据、搜推广告、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号投递，尽快投递",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-10-10",
+   "summary": "京东技术行面向在校生招募技术实习生，方向包括AI/大模型、云计算/大数据、搜索推荐广告与安全类，工作地点北京。适合想在大厂技术体系内积累工程与安全实战经验的同学。",
+   "cls": "信息安全类",
+   "plain": "对信息安全与软件工程专业学生而言，安全类岗位提供了进入大厂安全团队的实习通道，可参与真实业务安全建设。",
+   "courses": "网络安全、操作系统、数据结构与算法",
+   "hardReq": [
+    "在校生，年级不限",
+    "具备对应技术方向的基础编程与工程能力"
+   ],
+   "plusReq": [
+    "有CTF、安全竞赛或漏洞挖掘经历",
+    "有云计算/大数据或搜推相关项目经验"
+   ],
+   "selfLearn": [
+    "学习Web安全与常见漏洞原理并动手复现",
+    "熟悉Linux、网络协议与一门主流编程语言"
+   ],
+   "fitWho": "希望进入大厂技术岗、对AI或安全方向感兴趣的在校生",
+   "tips": "技术行岗位方向多，投递前明确一个主攻方向并针对性准备项目经历"
+  },
   {
    "id": "j35",
    "company": "京东",
@@ -4983,41 +5049,6 @@
    ],
    "fitWho": "应届重点看 AI Native 全栈；算法岗适合硕士",
    "tips": "薪资给得最高的全栈方向，把「AI 应用全链路」项目写进简历。"
-  },
-  {
-   "id": "j13",
-   "company": "MiniMax",
-   "title": "大模型工程师 / 算法 / Infra 多岗（205 个在招岗位）",
-   "type": "社招",
-   "loc": "北京/上海",
-   "salary": "应届总包约 36-58 万",
-   "deadline": "长期招聘",
-   "positions": [
-    "大模型工程师-RL框架",
-    "训练框架工程师",
-    "大模型算法-code方向",
-    "K8s架构师",
-    "视频生成开源生态"
-   ],
-   "link": "https://vrfi1sk8a0.jobs.feishu.cn/index/",
-   "source": "MiniMax 官方招聘（飞书）",
-   "date": "2026-09-01",
-   "summary": "国内多模态大模型头部公司官方招聘页：自研 RL 训练系统 Forge、大规模训练框架、推理 serving、Agent 基础设施等核心岗位全部在招，社招校招并行，Top Talent 人才计划面向应届生。",
-   "cls": "软件工程类",
-   "plain": "写大模型训练/推理的基础设施代码：自研 RL 训练系统 Forge、大规模训练框架、推理服务。",
-   "courses": "Python/C++、操作系统、分布式系统概念",
-   "hardReq": [
-    "社招：1 年以上相关经验为主"
-   ],
-   "plusReq": [
-    "有训练框架/推理优化实战"
-   ],
-   "selfLearn": [
-    "CUDA/分布式训练概念",
-    "读 DeepSeek 开源仓库代码"
-   ],
-   "fitWho": "有实习经历的应届冲刺社招 / 1-3 年从业者",
-   "tips": "社招门槛高——应届生先去暑期实习攒经历，再回来看这类岗位。"
   }
  ],
  "stats": [
