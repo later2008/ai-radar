@@ -1,6 +1,148 @@
 {
- "updatedAt": "2026-10-11 00:09",
+ "updatedAt": "2026-10-11 06:15",
  "news": [
+  {
+   "id": "a454",
+   "title": "T3 Code：把 Claude Code、Codex、Cursor 收进一个开源多 Agent 控制台",
+   "summary": "T3 Code 是一个开源的多 Agent 控制台，可在同一应用里管理和切换 Claude Code、Codex、Cursor 等编码 Agent，免去多窗口来回切换。",
+   "content": "写课设或做项目时，很多人会同时开着 Claude Code、Codex、Cursor 好几个 Agent 窗口，切来切去很乱。T3 Code 的思路是做一个统一的桌面控制台，把这些编码 Agent 集中管理，任务、会话、上下文都能在一个界面里调度。对软件工程和信息安全方向的同学来说，它的价值不在于“又一个 AI 工具”，而在于让你观察多 Agent 协作的工程结构——怎么分发任务、怎么隔离上下文、怎么汇总结果。你可以拿它跑一个真实的小项目（比如给工业软件实验班的课设加个模块），对比单 Agent 和多 Agent 在拆解任务、改代码、写测试上的差异，把过程整理成简历里的“AI 辅助开发实践”。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Claude Code",
+    "Cursor"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一个工具把多个编码 Agent 管起来，顺便理解多 Agent 协作的工程结构。**",
+   "courses": "对应《软件工程》《软件项目实训》，可作为团队开发中 AI 辅助流程的实践素材。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "开源多 Agent 控制台，统一管理 Claude Code/Codex/Cursor",
+    "适合观察多 Agent 任务分发与上下文隔离的工程实现",
+    "可结合课设做单 Agent vs 多 Agent 的对比实验"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694908808570437673"
+  },
+  {
+   "id": "a455",
+   "title": "6MB 的 JS 运行时 xuan：基于 QuickJS，内置 MQTT/串口/FFI，可编译成独立二进制",
+   "summary": "xuan（玄）是面向物联网与嵌入式设备的轻量级 JavaScript 运行时，约 6MB、毫秒级启动，内置 MQTT、串口和 FFI，还能把 JS 编译成独立二进制。",
+   "content": "嵌入式开发长期是 C/C++ 的地盘，但 xuan 这类项目在尝试把 JS 塞进资源受限的设备。它基于 QuickJS，体积约 6MB、毫秒级启动，内置 MQTT、串口和 FFI，还能把 JS 直接编译成独立二进制。对工业软件实验班的同学，这正好是一个“软件能力下沉到设备侧”的样本：你可以用它写一个采集串口数据、通过 MQTT 上报的小程序，跑在开发板或树莓派上，理解运行时、事件循环、FFI 在嵌入式场景里怎么落地。对信息安全方向，也可以研究 JS 运行时在设备端的攻击面。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "QuickJS",
+    "JavaScript"
+   ],
+   "diff": 3,
+   "scene": "课设/练手/简历加分",
+   "value": "**把 JS 运行时搬到嵌入式设备上，是理解工业软件“设备侧”的一个具体入口。**",
+   "courses": "对应《嵌入式系统》《物联网技术》，可做串口采集+MQTT 上报的课程设计。",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "基于 QuickJS 的轻量 JS 运行时，约 6MB、毫秒级启动",
+    "内置 MQTT/串口/FFI，可编译为独立二进制",
+    "适合做设备侧数据采集与上报的练手项目"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694888649712844809"
+  },
+  {
+   "id": "a456",
+   "title": "Cloudflare 拦了 urllib 默认 UA，我两个月后才发现：一个真实的上线事故复盘",
+   "summary": "作者的开源 Python 混淆器 pyobfus 激活一直失败，两个月后才定位到是 Cloudflare 拦截了 urllib 的默认 User-Agent。",
+   "content": "这是一个很典型的“上线后才暴露”的问题：作者卖的 Python 混淆器 pyobfus，客户激活一直失败，排查两个月才发现是 Cloudflare 把 urllib 的默认 User-Agent 拦了。对信息安全与管理专业的同学，这个案例的价值在于它把几个知识点串起来了——HTTP 请求头、User-Agent 识别、WAF/CDN 的拦截策略、以及客户端与服务端联调时的排错思路。你可以照着复现：用 Python 的 urllib 和 requests 分别请求一个开了 Cloudflare 的站点，对比默认 UA 和自定义 UA 的结果，再抓包看响应码和头信息。这类“请求被中间层拦掉”的问题，在以后做接口对接、爬虫合规、安全测试时都会遇到。",
+   "source": "DEV Community",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "urllib"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**一个 HTTP 请求头引发的线上事故，是理解 WAF 与排错思路的好案例。**",
+   "courses": "对应《计算机网络》《Web 安全》，可做请求头与 WAF 拦截的实验。",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "真实事故：urllib 默认 UA 被 Cloudflare 拦截导致激活失败",
+    "涉及 HTTP 头、WAF 拦截、客户端排错等知识点",
+    "可复现对比 urllib/requests 默认 UA 与自定义 UA 的差异"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Cloudflare blocked urllib's default User-Agent, and it took me two months to notice.",
+   "link": "https://dev.to/zhurong2020/cloudflare-blocked-urllibs-default-user-agent-and-it-took-me-two-months-to-notice-3k8e",
+   "cover": "img/a456.webp"
+  },
+  {
+   "id": "a457",
+   "title": "Docker 部署 WordPress：用容器把开源 CMS 跑起来",
+   "summary": "用 Docker 快速部署 WordPress，搭建可自托管的内容管理平台，顺带练习容器、镜像、数据卷和端口映射。",
+   "content": "WordPress 是最常见的开源 CMS，但直接装环境容易踩坑。用 Docker 部署的好处是：一条 compose 命令就能把 Web 服务、数据库、数据卷串起来，你只需要理解镜像、容器、端口映射、持久化存储这几个概念。对软件工程的同学，这是一个成本很低的容器入门项目——可以本地跑，也可以放到云服务器上，再配个反向代理和 HTTPS。做完之后你对“一个 Web 应用从代码到上线需要哪些组件”会有具体感受，这在以后做课设部署、面试聊项目时都用得上。注意别只抄命令，把 docker-compose.yml 每一行搞懂。",
+   "source": "掘金",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Docker",
+    "WordPress"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用容器跑通一个完整 Web 应用，是理解部署链路最省力的方式。**",
+   "courses": "对应《Web 开发》《云计算与虚拟化》，可作为课程设计的部署环节。",
+   "tags": [
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "用 Docker Compose 一键部署 WordPress + 数据库",
+    "练习镜像、容器、数据卷、端口映射等容器基础",
+    "可延伸做反向代理与 HTTPS 配置"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7694932886453682203"
+  },
   {
    "id": "a449",
    "title": "Claude 动态多 Agent 工作流公测：116k 行代码库实测，主 Agent 写计划、多 Agent 分阶段跑",
@@ -26,7 +168,7 @@
     "通用开发",
     "信息安全"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "主 agent 写计划，跨多 agent 分阶段执行后合并结果",
@@ -4069,144 +4211,6 @@
    "buzz": [],
    "link": "http://www.geekpark.net/news/372069",
    "cover": "img/a342.webp"
-  },
-  {
-   "id": "a333",
-   "title": "Java生态本周速览：新OpenJDK JEP、CDI 5.0、Spring与Open Liberty更新",
-   "summary": "InfoQ汇总了本周Java生态的重要更新，涵盖OpenJDK新JEP提案、CDI 5.0规范、Spring框架及Open Liberty等企业级中间件的版本动态。",
-   "content": "对软件工程专业的同学来说，这条汇总值得花十分钟扫一遍。OpenJDK的新JEP往往预示未来JDK版本的语言或API变化，比如模式匹配、虚拟线程的演进方向，直接影响你写Java代码的习惯。CDI 5.0和Jakarta EE相关更新则关系到企业级开发中的依赖注入规范，Spring Boot项目里虽然用Spring自己的容器，但理解CDI标准有助于看懂Quarkus、Micronaut等新框架。建议做法：挑其中一两个你正在用的技术（比如Spring），去对应GitHub release页面看changelog，比读二手汇总更扎实。找Java后端实习时，面试官问「最近关注什么技术动态」，这就是现成素材。",
-   "source": "InfoQ中文",
-   "date": "2026-10-04",
-   "cat": "stack",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Spring",
-    "OpenJDK"
-   ],
-   "diff": 2,
-   "scene": "求职准备/技术视野拓展",
-   "value": "**帮你跟上Java生态节奏，面试聊技术动态时有话可说**",
-   "courses": "对应《Java程序设计》《企业级应用开发》，课后跟踪框架版本变化",
-   "tags": [
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "OpenJDK新JEP影响未来JDK语言特性方向",
-    "CDI 5.0与Jakarta EE规范更新，企业级开发需关注",
-    "Spring、Open Liberty等框架版本迭代",
-    "建议直接看GitHub changelog而非二手汇总"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/KXmob0H9RXKmJxIlcAaA?utm_source=rss&utm_medium=article",
-   "cover": "img/a333.webp"
-  },
-  {
-   "id": "a334",
-   "title": "Claude Code被玩成「乐高」：程序员在终端里养宠物、玩小恐龙",
-   "summary": "开发者们把Claude Code的终端界面改造成各种趣味互动场景——像素宠物、断网小恐龙、呼吸引导动画，展示了AI编程工具的可扩展性。",
-   "content": "这条看似娱乐，但对软件工程学生有实际启发。Claude Code这类AI编程工具支持自定义hooks和插件机制，开发者能在AI调用工具时触发自己的脚本——养宠物本质是监听工具调用事件并渲染状态。这背后是「事件驱动+终端UI渲染」的工程实践。你可以学到：如何用Node.js或Python写一个CLI插件，监听AI Agent的工具调用生命周期，再用ink或rich这类库做终端渲染。课设里如果做命令行工具，这套思路直接能用。更重要的是，它说明AI编程工具正在从「黑盒」变成「可编程平台」，理解其扩展机制，比单纯会用提示词更有竞争力。",
-   "source": "极客公园",
-   "date": "2026-10-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**学会给AI编程工具写插件，把「会用AI」升级成「能扩展AI」**",
-   "courses": "对应《程序设计基础》《软件工程》，课设做CLI工具时可借鉴插件架构",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Claude Code支持hooks/插件扩展，可监听工具调用事件",
-    "终端UI渲染可用ink(Node)或rich(Python)实现",
-    "事件驱动+CLI插件是通用工程能力",
-    "AI编程工具正变成可编程平台，扩展能力比提示词更值钱"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/372074",
-   "cover": "img/a334.webp"
-  },
-  {
-   "id": "a335",
-   "title": "从PyQt6到Electron：字帖生成器跨平台重构实战与踩坑记录",
-   "summary": "一位开发者将PyQt6桌面应用重构为Electron跨平台应用，涉及electron-vite、Canvas 2D、tesseract.js OCR、electron-builder打包等完整技术链。",
-   "content": "这是一篇难得的完整重构实录，对前端和通用开发方向的同学都很有参考价值。原文项目是英语字帖生成器，从Python桌面端迁到Electron，踩坑点包括：Canvas 2D绘制字帖网格、tesseract.js做OCR识别、pickle数据格式兼容、Bottles交叉打包。你能学到的不只是Electron，而是「一个真实项目从技术选型到打包发布」的全流程。建议做法：把文章里的踩坑清单抄下来，对照自己课设项目检查——比如你有没有处理过跨平台路径问题？打包体积优化过吗？如果毕设想做桌面工具类应用，Electron+Canvas是低门槛高展示度的组合，简历上写「独立完成跨平台桌面应用」比写「熟悉Electron」有说服力得多。",
-   "source": "开源中国",
-   "date": "2026-10-03",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Electron",
-    "Canvas"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一篇顶十篇的重构实录，帮你把课设做成能写进简历的跨平台应用**",
-   "courses": "对应《Web前端开发》《软件工程》，课设或毕设做桌面工具时可直接参考",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "完整记录PyQt6→Electron重构全流程",
-    "涉及Canvas 2D、tesseract.js OCR、electron-builder打包",
-    "踩坑清单可直接对照自己的课设项目自查",
-    "桌面工具类毕设可参考此技术栈"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502840"
-  },
-  {
-   "id": "a336",
-   "title": "Zig 0.17.0发布：构建系统大改，206位贡献者925次提交",
-   "summary": "底层系统编程语言Zig发布0.17.0里程碑版本，对构建系统进行重大重构，被视为奔向1.0的关键一步。",
-   "content": "Zig可能不是你日常用的语言，但它值得信息安全方向的同学关注。Zig的定位是「更好的C」，没有隐式内存分配、没有预处理器宏、编译期计算能力强，正在被用于操作系统、嵌入式和安全工具开发。0.17.0重点重构了构建系统，这意味着用Zig写跨平台工具链会更顺手。对信安专业来说，理解Zig有助于读懂现代系统级代码——很多安全工具（如Bun运行时）用Zig编写。建议做法：花半小时看Zig官方「In-depth Overview」，重点理解comptime和显式分配器设计，这两个概念能帮你更深刻理解C/C++里的内存安全问题。不要求你会写Zig，但面试聊到系统安全时，能说出「Zig用编译期检查替代部分运行时开销」是加分项。",
-   "source": "开源中国",
-   "date": "2026-10-03",
-   "cat": "stack",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Zig"
-   ],
-   "diff": 3,
-   "scene": "技术视野拓展",
-   "value": "**理解Zig的显式内存设计，加深对C/C++内存安全问题的认知**",
-   "courses": "对应《操作系统》《编译原理》，辅助理解系统级语言设计取舍",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Zig定位「更好的C」，无隐式内存分配、编译期计算强",
-    "0.17.0重构构建系统，向1.0迈进",
-    "Bun等安全相关工具用Zig编写",
-    "comptime和显式分配器设计值得理解"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502841"
   }
  ],
  "jobs": [
