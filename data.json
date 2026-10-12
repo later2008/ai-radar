@@ -1,6 +1,215 @@
 {
- "updatedAt": "2026-10-12 00:10",
+ "updatedAt": "2026-10-12 14:25",
  "news": [
+  {
+   "id": "a478",
+   "title": "Linus 用 Claude Code 写的内核补丁已推送到个人仓库",
+   "summary": "Linus Torvalds 在 Linux 内核仓库推送了一个由 Claude Code 辅助完成的分支，代码、测试和提交说明均由 LLM 在他指导下生成。",
+   "content": "这不是演示，是 Linus 本人仓库里的真实分支 noref-filemap-read-with-llm。他在提交信息里明确说明：代码、测试程序、审阅清单和信件初稿都由 Claude Code 在他的指导下完成，测试跑在他自己机器上。对软件工程和工业软件方向的同学来说，这件事的意义在于：AI 编程助手已经能进入操作系统内核这种对正确性要求极高的场景，但前提是有人类专家做架构判断和结果验证。你们现在学的《操作系统》《C 语言程序设计》正是理解这类补丁的基础，而《软件工程》里的代码审查流程则是驾驭 AI 生成代码的关键。建议在课程设计或开源贡献中，尝试让 AI 写初稿、自己逐行审查并补测试，把「AI 辅助 + 人工把关」变成习惯。",
+   "source": "开源中国",
+   "date": "2026-10-12",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Claude Code",
+    "Linux"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI 写内核代码已成现实，学会审查和验证 AI 产出比会写代码更值钱。**",
+   "courses": "对应《操作系统》《软件工程》，可在课程设计中实践 AI 辅助编码与代码审查流程。",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 92,
+   "brief": [
+    "Linus 亲自推送 LLM 辅助编写的 Linux 内核分支，非玩笑",
+    "代码、测试、提交说明均由 Claude Code 在其指导下生成",
+    "说明 AI 编程已进入高可靠性系统开发场景",
+    "关键仍是人类专家做架构判断与结果验证"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502978/linus-torvalds-used-claude-code"
+  },
+  {
+   "id": "a479",
+   "title": "Artifactory 高危漏洞正被积极利用：可绕过认证获取管理员权限",
+   "summary": "JFrog Artifactory 存在可绕过身份验证并提权至管理员的漏洞，目前已被攻击者积极利用，影响大量使用该制品库的企业。",
+   "content": "Artifactory 是很多公司用来存放 Maven、npm、Docker 镜像的制品仓库，Java 和前端项目的依赖大多从这里拉取。这个漏洞能绕过认证直接拿到管理员权限，意味着攻击者可以篡改依赖包、植入后门，进而污染整条 CI/CD 流水线。对信息安全与管理专业的同学，这是一次典型的「供应链攻击」案例：漏洞不在你写的代码里，而在你信任的基础设施里。建议结合《网络安全技术》《Web 安全》课程，梳理认证绕过的常见成因（如路径解析差异、默认配置不当），并在实验环境中复现类似逻辑。对软件工程同学，至少要检查自己项目用的 Artifactory 版本是否已修复，理解依赖仓库被攻破的后果。",
+   "source": "InfoQ中文",
+   "date": "2026-10-12",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "Artifactory"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**供应链安全不是理论，你每天拉的依赖包就可能是攻击入口。**",
+   "courses": "对应《网络安全技术》《Web 安全》，可作为认证绕过与供应链攻击的案例分析素材。",
+   "tags": [
+    "信息安全",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 88,
+   "brief": [
+    "Artifactory 漏洞可绕过认证并获取管理员权限，已被积极利用",
+    "攻击者可篡改依赖包，污染整条 CI/CD 供应链",
+    "是供应链安全的典型案例，适合写入安全课程实验报告",
+    "软件工程同学应检查项目所用制品库版本"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/CSNMcSceutWCGQhZcL7D?utm_source=rss&utm_medium=article",
+   "cover": "img/a479.webp"
+  },
+  {
+   "id": "a480",
+   "title": "Radicle 披露关键漏洞：私有仓库可能以明文形式暴露",
+   "summary": "去中心化代码协作平台 Radicle 披露了一个关键漏洞，可能导致用户的私有仓库内容以明文形式泄露。",
+   "content": "Radicle 主打去中心化的 Git 协作，很多开发者用它托管不想放到 GitHub 的私有代码。这次漏洞的核心是私有仓库的加密或访问控制被绕过，导致内容明文暴露。对信息安全专业的同学，这是研究「去中心化系统访问控制」的好素材：传统中心化平台靠服务器鉴权，去中心化系统则依赖密码学协议和 P2P 信任模型，一旦实现有偏差，隐私假设就会崩塌。建议结合《密码学》《网络安全技术》课程，分析私有仓库在 P2P 场景下的密钥管理和访问控制设计。对软件工程同学，提醒一点：任何托管私有代码的平台都要评估其安全模型，敏感项目应做本地加密或使用经过审计的方案。",
+   "source": "InfoQ中文",
+   "date": "2026-10-12",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**去中心化不等于安全，私有代码托管前先看懂它的信任模型。**",
+   "courses": "对应《密码学》《网络安全技术》，可用于分析 P2P 场景下的密钥管理与访问控制。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "Radicle 私有仓库可能明文暴露，破坏其隐私承诺",
+    "去中心化系统的访问控制依赖密码学协议，实现偏差即致命",
+    "适合作为密码学与访问控制课程的分析案例",
+    "提醒：托管私有代码前应评估平台安全模型"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/h86bNjSBdJRBYwxP4Xgt?utm_source=rss&utm_medium=article",
+   "cover": "img/a480.webp"
+  },
+  {
+   "id": "a481",
+   "title": "AI Agent 量产关：89% 的试点倒在生产门口",
+   "summary": "报告指出 89% 的 AI Agent 试点项目无法进入生产环境，安全、可靠性和工程化能力成为主要瓶颈。",
+   "content": "这个数据对正在学 AI 应用开发的同学很有参考价值：Demo 能跑通和生产能用之间隔着巨大的工程鸿沟。文章提到的问题集中在权限控制、异常处理、可观测性和安全边界——这些恰好是《软件工程》《网络安全技术》里的核心议题。对软件工程（含工业软件实验班）的同学，如果你在做 Agent 相关的课设或项目，别只关注「能不能跑」，要思考「出错怎么办、权限怎么控、日志怎么查」。对信息安全专业，Agent 接入企业系统后的权限滥用和数据泄露是新的攻击面。建议在简历项目里体现你对生产级可靠性的理解，这比多做一个 Demo 更能打动面试官。",
+   "source": "安全客",
+   "date": "2026-10-12",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**Agent 项目能不能上生产，考的是工程化和安全意识，不是模型调得多好。**",
+   "courses": "对应《软件工程》《网络安全技术》，可用于分析 AI 系统的生产化瓶颈与安全边界。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "89% 的 AI Agent 试点无法进入生产环境",
+    "瓶颈在权限控制、异常处理、可观测性与安全边界",
+    "对应软件工程与安全课程中的工程化核心议题",
+    "简历项目应体现生产级可靠性思考，而非只做 Demo"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316218"
+  },
+  {
+   "id": "a482",
+   "title": "React 性能优化三件套：useCallback、useMemo、useReducer 怎么用",
+   "summary": "一篇面向 React 开发者的实践文章，讲解 useCallback、useMemo 和 useReducer 三个 Hook 的使用场景与区别。",
+   "content": "前端同学做课设或项目时经常遇到「组件莫名重渲染」「状态逻辑越写越乱」的问题，这三个 Hook 就是解药。useCallback 缓存函数引用，避免子组件因父组件每次渲染生成新函数而无效更新；useMemo 缓存计算结果，适合开销大的派生数据；useReducer 把复杂状态逻辑集中管理，比一堆 useState 更清晰。建议结合《Web 前端开发》课程，在一个真实的列表或表单页面里分别用上这三个 Hook，用 React DevTools 的 Profiler 观察渲染次数变化。注意别滥用：缓存本身有成本，简单计算用 useMemo 反而更慢。把优化前后的对比写进课设报告，是很好的加分点。",
+   "source": "DEV Community",
+   "date": "2026-10-12",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**掌握这三个 Hook，前端课设的性能和代码组织能明显上一个台阶。**",
+   "courses": "对应《Web 前端开发》，可在 React 课设中实践性能优化并记录前后对比。",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "useCallback 缓存函数引用，减少子组件无效重渲染",
+    "useMemo 缓存高开销计算结果，useReducer 集中管理复杂状态",
+    "用 React DevTools Profiler 验证优化效果",
+    "避免滥用缓存，简单场景反而增加开销"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "useCallback, useMemo, and useReducer in React",
+   "link": "https://dev.to/mahalakshmi_c_48a15c7871b/usecallback-usememo-and-usereducer-in-react-14ib",
+   "cover": "img/a482.webp"
+  },
+  {
+   "id": "a483",
+   "title": "Jync v1.4.0 发布：异构数据库实时同步支持断点续传与表内并行",
+   "summary": "异构数据库实时同步工具 Jync 发布 v1.4.0，初始全量装载改为 keyset 分块加检查点，支持崩溃后续传和表内并行。",
+   "content": "做数据中台或工业软件项目的同学，迟早会遇到「把 Oracle 的数据同步到 MySQL」这类需求。Jync 这次升级解决的是全量装载的可靠性问题：以前一条流式查询拉整表，中途崩了就得重来；现在改成 keyset 分块加每块提交，进程被杀也能从上一块继续。单列整数主键的表还能开表内并行，最多 8 个 worker 切不重叠区间同时拉。这些设计思路值得学：keyset 分页比 offset 分页在大数据量下更稳，检查点机制是任何长任务都要考虑的容错手段。建议结合《数据库原理》课程，在实验环境里搭一个 Oracle 到 MySQL 的同步链路，观察分块和并行对吞吐的影响。",
+   "source": "开源中国",
+   "date": "2026-10-11",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Oracle",
+    "MySQL"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**异构数据库同步的容错设计思路，比工具本身更值得学。**",
+   "courses": "对应《数据库原理》，可在实验中搭建 Oracle 到 MySQL 同步链路并观察分块并行效果。",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "全量装载改为 keyset 分块 + 检查点，崩溃后可断点续传",
+    "单列整数主键表支持表内并行，最多 8 个 worker",
+    "keyset 分页和检查点机制是长任务容错的通用思路",
+    "适合在数据库课程实验中搭建异构同步链路验证"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502960"
+  },
   {
    "id": "a473",
    "title": "用AI代码智能体优化软件架构的5种实操方法",
@@ -26,7 +235,7 @@
     "通用开发",
     "工业软件"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "五种方法都围绕「让智能体读懂整个仓库」而非单文件补全",
@@ -4011,211 +4220,6 @@
    "origTitle": "Pi Pod's Sandbox Architecture: Self-Hosted Agent Execution with Network and Secret Isolation",
    "link": "https://dev.to/mech_app_ai/pi-pods-sandbox-architecture-self-hosted-agent-execution-with-network-and-secret-isolation-38bk",
    "cover": "img/a361.webp"
-  },
-  {
-   "id": "a362",
-   "title": "workbuddy-to-dsh零依赖Node脚本：用量统计、模型体检、环境诊断一把梭",
-   "summary": "一个开箱即用的模型中转插件，用零依赖Node脚本实现用量统计、请求明细、模型体检、环境诊断、自动签到与对话测试。",
-   "content": "这是个典型的「小而全」工具：纯Node脚本、零依赖，clone下来就能跑。功能覆盖用量统计、请求明细查看、模型体检、环境诊断、自动签到和对话测试。对软件工程的同学来说，它的价值有两层：一是直接当工具用，帮你摸清自己调API时的token消耗和请求细节，排查「为什么这个模型不返回」这类问题；二是当学习样本读，看一个零依赖项目怎么组织HTTP请求、怎么做CLI参数解析、怎么把多个诊断能力拆成模块。建议先跑通，再挑「模型体检」这一块读源码，理解健康检查的设计思路，顺手改一个自己的诊断项，就是一次不错的练手。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Node.js"
-   ],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**零依赖Node脚本，既能立刻解决API调试痛点，又是读源码练手的好样本**",
-   "courses": "对应《Web开发》《Node.js程序设计》，可作为课程作业的参考实现",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "零依赖Node脚本，clone即用",
-    "覆盖用量统计、请求明细、模型体检、环境诊断",
-    "适合当工具用，也适合当Node项目源码学习样本",
-    "可改造「模型体检」模块作为练手"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692614083904274486"
-  },
-  {
-   "id": "a363",
-   "title": "DeepAgents与LangChain三层抽象：Agent身上的「插槽」到底预留了什么",
-   "summary": "用组装电脑类比LangChain生态的三层定位，讲清DeepAgents在Agent框架中预留的扩展插槽与抽象层次。",
-   "content": "LangChain生态最容易劝退新人的地方，就是抽象层太多、不知道自己在用哪一层。这篇文章用「组装电脑」做类比：LangChain是散装配件，再往上是更完整的整机方案，DeepAgents则是在Agent身上预留了若干「插槽」——工具接入、记忆、规划、执行循环各占一个位置。理解这套分层，比背API有用得多：当你要做一个课设级Agent应用时，先想清楚哪些能力用现成插槽、哪些要自己写，能省掉大量返工。建议边读边把三层对应到自己做过的小项目上，画一张「我的Agent用了哪些插槽」的图，面试讲项目时结构会清晰很多。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangChain"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**搞清Agent框架的分层与插槽，做课设时少走一半弯路**",
-   "courses": "对应《人工智能导论》《软件工程》，可作为AI应用课程设计的架构参考",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "用组装电脑类比LangChain三层抽象",
-    "DeepAgents在工具、记忆、规划、执行循环上预留插槽",
-    "帮你判断课设Agent哪些用现成、哪些自己写",
-    "建议画一张自己项目的插槽图"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692500213994586153"
-  },
-  {
-   "id": "a364",
-   "title": "苹果把照片签名塞进传感器，C2PA信任模型为何仍不够可信",
-   "summary": "苹果将照片签名下沉到传感器层，但验证信任仍依赖自家云，文章讨论C2PA内容凭证体系的可信度边界。",
-   "content": "内容凭证（C2PA）想解决的是「这张图是不是AI生成的、有没有被改过」，但它的信任根在哪，决定了它到底可不可信。苹果的做法是把签名环节前移到传感器，理论上从拍摄那一刻就锁定来源，可验证环节却交给了自家云——这就把信任从「密码学」转移到了「厂商」。对信息安全专业的同学，这是个绝佳的分析案例：信任链的每一环谁在背书、单点信任会带来什么风险、去中心化验证为什么难落地。可以顺着这个思路写一篇小分析，对比C2PA、数字水印和硬件签名的信任模型差异，作为《网络安全》的读书报告或课程论文选题。",
-   "source": "InfoQ中文",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设",
-   "value": "**用真实案例理解信任链与单点信任风险，比背概念扎实得多**",
-   "courses": "对应《网络安全》《密码学基础》，可作为课程论文或读书报告选题",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "C2PA内容凭证的信任根问题",
-    "苹果把签名前移到传感器，验证却依赖自家云",
-    "信任从密码学转移到厂商单点",
-    "适合做信任模型对比的课程论文选题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/8lQVsmY9e7zdJsKcfPzE?utm_source=rss&utm_medium=article",
-   "cover": "img/a364.webp"
-  },
-  {
-   "id": "a365",
-   "title": "AgentCore Runtime Instances：多Agent工作流如何在持久GPU上共置运行",
-   "summary": "AWS详解AgentCore Runtime Instances，演示三个Agent共置在一台EC2实例上、共享持久GPU基础设施的多Agent部署方式。",
-   "content": "多Agent工作流跑起来之后，成本和状态管理是绕不开的问题。AWS这篇讲的是把多个Agent共置到同一台EC2实例、共享持久GPU，例子是一条三Agent的音乐制作流水线。对本科生来说，直接上手云GPU成本太高，但架构思路值得学：Agent之间怎么共享状态、怎么避免重复加载模型、持久化实例相比无状态函数调用省在哪。如果你在做需要调用模型的课设，可以借鉴「共置+持久状态」的思路，用本地进程或一台便宜服务器模拟，把状态存到共享存储而不是每次重建。理解这套部署模型，对将来投AI应用开发岗也有帮助。",
-   "source": "DEV Community",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AWS"
-   ],
-   "diff": 3,
-   "scene": "求职准备",
-   "value": "**理解多Agent部署的状态与成本模型，是AI应用岗面试的加分项**",
-   "courses": "对应《云计算》《分布式系统》，可作为课程报告的架构分析素材",
-   "tags": [
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "多Agent共置一台实例、共享持久GPU",
-    "三Agent音乐制作流水线作为示例",
-    "重点在状态共享与避免重复加载",
-    "可用本地进程模拟，理解部署模型"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "AgentCore Runtime Instances: GPU Colocation and Persistent State for Multi-Agent Workflows",
-   "link": "https://dev.to/mech_app_ai/agentcore-runtime-instances-gpu-colocation-and-persistent-state-for-multi-agent-workflows-1gea",
-   "cover": "img/a365.webp"
-  },
-  {
-   "id": "a353",
-   "title": "同一道请假审批，六款 Java 工作流引擎实现路径与成本对比",
-   "summary": "用「请假审批」这一道业务题，横向对比六款 Java 工作流引擎的建模方式、表单挂载、分支写法与待办派发，并给出场景适配与成本结论。",
-   "content": "工作流引擎是 Java 后端和工业软件里绕不开的一环——OA 审批、生产工单流转、设备检修流程，本质都是「谁在什么条件下把任务交给谁」。这篇文章的可贵之处在于它不做泛泛的引擎介绍，而是拿同一道请假审批题在六款引擎上各实现一遍，对比三件事：怎么建模、怎么挂表单、怎么写分支、怎么把待办送到人。你写课程设计或实验班的流程类项目时，可以直接照它的对比表选型，避免一上来就选了个学习曲线陡峭、社区资料稀少的引擎。建议先跑通其中一款（如 Flowable 或 Camunda），把「流程定义—任务分配—审批回调」这条链路走通，再回头看对比表，体会会深很多。",
-   "source": "掘金",
-   "date": "2026-10-04",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "Java",
-    "Flowable"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**用一道题吃透六款工作流引擎，是 Java 后端与工业软件流程类项目的选型速查表。**",
-   "courses": "对应《软件工程》《Java Web 开发》，课程设计做审批/工单系统时直接参考选型。",
-   "tags": [
-    "Java全栈",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "六款 Java 工作流引擎同题对比：建模、表单、分支、待办派发",
-    "给出场景适配与实现成本结论，可直接用于技术选型",
-    "建议先跑通一款（Flowable/Camunda）再横向对比"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692042894161657891"
-  },
-  {
-   "id": "a354",
-   "title": "Java 17 调用 Embeddings API：余弦相似度与 FAQ 拒答阈值",
-   "summary": "用 Java 17 和官方 Embeddings 接口写一个三条 FAQ 的小检索器，讲清向量化、余弦相似度和「答不上就拒答」的阈值设定。",
-   "content": "关键词搜索的痛点很典型：用户问「东西买错了怎么换」，知识库里写的是「商品换货流程」，字面不匹配但语义一致。这篇用 Java 17 把句子转成向量，比较语义空间中的方向，并给出一个可运行的 FAQ 检索器。对软件工程和信息安全专业的同学来说，价值在于：一是用你熟悉的 Java 而不是 Python 入门向量检索，二是「拒答阈值」这个点——低于相似度阈值就不回答，正是 RAG 系统防止胡编的关键工程手段。建议把示例代码跑通后，换成你们专业课的 FAQ 语料（比如《操作系统》常见问题），调一调阈值，观察命中率和误答率的变化，这个实验写进简历比「了解大模型」有说服力得多。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java",
-    "Embeddings"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用 Java 亲手实现一次语义检索与拒答阈值，是 RAG 方向最实在的入门练手项目。**",
-   "courses": "对应《Java 程序设计》《人工智能导论》，可作课程大作业或毕设的检索模块。",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Java 17 + Embeddings API 实现语义检索，不依赖 Python",
-    "核心是余弦相似度计算与拒答阈值设定",
-    "可换成自己课程的 FAQ 语料做调参实验"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692743968832520201"
   }
  ],
  "jobs": [
