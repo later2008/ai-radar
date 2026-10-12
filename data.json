@@ -1,6 +1,183 @@
 {
- "updatedAt": "2026-10-12 14:25",
+ "updatedAt": "2026-10-12 19:41",
  "news": [
+  {
+   "id": "a484",
+   "title": "GitHub Copilot 进阶：用自定义指令和 MCP 让 AI 读懂你的整个代码库",
+   "summary": "GitHub 官方教程，教你通过自定义指令、自定义 Agent 和 MCP 服务器（如 Playwright）让 Copilot 真正理解项目上下文，而不是只会补全单行代码。",
+   "content": "很多同学用 Copilot 只停留在「Tab 补全」，其实它支持在仓库里放自定义指令文件（如 .github/copilot-instructions.md），把项目的技术栈、命名规范、目录结构写进去，Copilot 生成的代码就会贴合你的工程约定。更进一步，可以配置自定义 Agent 和接入 MCP 服务器（比如 Playwright），让 AI 能真正调用浏览器、跑测试。对做课设和准备秋招的同学来说，这套配置能直接写进简历——「熟悉 AI 辅助研发工作流，能配置 MCP 工具链」。建议拿你正在做的课程项目仓库练手，先写一份 instructions 文件，再尝试接一个 MCP server。",
+   "source": "GitHub Blog",
+   "date": "2026-10-12",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "GitHub Copilot",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把 Copilot 从「补全工具」升级为「懂你项目的 AI 队友」，是当前最容易被面试官问到的工程实践。**",
+   "courses": "对应《软件工程》《Web 应用开发》课程项目，可在团队协作中统一 AI 编码规范",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "用 copilot-instructions.md 把项目规范喂给 AI，生成代码更贴合工程约定",
+    "自定义 Agent + MCP 服务器（如 Playwright）让 Copilot 能调用外部工具",
+    "可直接写进简历的「AI 辅助研发工作流」实践经历"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+   "cover": "img/a484.webp"
+  },
+  {
+   "id": "a485",
+   "title": "Agent 工具调用全流程拆解：从工具声明到执行反馈，附源码",
+   "summary": "掘金实战文，讲清楚大模型给出工具名和参数后，程序如何真正执行工具并把结果回传给模型，形成完整闭环。",
+   "content": "这篇文章解决的是 Agent 开发里最核心的一环：模型说「调用天气 API，参数是广州」，然后呢？文章拆解了工具声明（JSON Schema 描述函数签名）、参数解析、实际执行、结果格式化回传四个步骤，并附了可跑的源码。对软件工程和信息安全专业的同学都有用——前者可以把它当成《软件工程》或毕业设计里 Agent 模块的参考实现；后者可以关注工具调用中的参数注入风险，这是当前 AI 应用安全的热点方向。建议边看边跑一遍代码，理解 function calling 的完整链路，比只看概念强得多。",
+   "source": "掘金",
+   "date": "2026-10-12",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM Function Calling",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/毕设参考",
+   "value": "**搞懂 function calling 闭环，是做出可用 Agent 应用的第一道门槛，也是面试高频考点。**",
+   "courses": "对应《人工智能导论》《软件工程》，可作为毕业设计中 Agent 模块的实现参考",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "拆解 function calling 四步：工具声明→参数解析→执行→结果回传",
+    "附可运行源码，适合直接嵌入课设或毕设的 Agent 模块",
+    "信息安全方向可延伸研究工具调用中的参数注入攻击面"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7695622779606024207"
+  },
+  {
+   "id": "a486",
+   "title": "QCon 上海 2026：从 Agent 到 Loop，AI 正在怎样重构软件工程",
+   "summary": "InfoQ 主办的 QCon 上海站即将开幕，主题聚焦 AI 如何从单点 Agent 演进为贯穿研发流程的 Loop，重构软件工程范式。",
+   "content": "QCon 是国内一线技术大会，这次主题「从 Agent 到 Loop」值得关注——它讨论的不是某个工具，而是 AI 如何嵌入需求、编码、测试、部署的完整研发循环。对准备秋招的同学，大会的议题列表本身就是一份「企业当前在招什么能力」的清单：Agent 编排、AI 代码评审、自动化测试生成等。建议去官网翻议题和讲师背景，挑 2-3 个和你方向匹配的（比如前端方向看 AI 辅助 UI 生成，工业软件方向看 AI 在仿真流程中的落地），把关键词记下来对照自己的技能树补短板。不一定去现场，但议题列表值得当求职情报读。",
+   "source": "InfoQ中文",
+   "date": "2026-10-12",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent",
+    "AI 研发流程"
+   ],
+   "value": "**大会议题列表就是一份「企业正在招什么」的免费情报，比刷招聘 JD 更早看到趋势。**",
+   "courses": "对应《软件工程》《软件项目管理》，帮助理解工业界研发流程的演进方向",
+   "tags": [
+    "行业动态",
+    "求职就业",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "大会主题反映企业级 AI 研发的真实落地方向，可当求职情报读",
+    "重点关注 Agent 编排、AI 代码评审、自动化测试生成等议题",
+    "建议对照议题清单自查技能缺口，针对性补课"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/DpieQJ598YdxQC8Ymjso?utm_source=rss&utm_medium=article",
+   "cover": "img/a486.webp"
+  },
+  {
+   "id": "a487",
+   "title": "DatI 0.7.2 实战：让 Agent 直接对数据库做受控读写，而不只是查数",
+   "summary": "开源项目 DatI 发布 0.7.2，演示如何让大模型 Agent 在受控前提下对数据库执行增删改查，并用「记录国庆行程与花费」做完整实战。",
+   "content": "大多数 Text-to-SQL 工具只敢让 AI 生成 SELECT 查询，因为写操作风险太高。DatI 的思路是：在数据库接入层做受控的 CRUD 和业务语义沉淀，让 Agent 能安全地写入数据。文章用「记录国庆假期行程与花费」这个生活化场景，完整走了一遍从自然语言到数据落库的流程。对软件工程专业同学，这是一个很好的全栈练手项目——涉及后端 API、数据库设计、LLM 调用三块，做完可以写进简历；对信息安全专业同学，重点看它的权限控制和写操作审计机制，这是 AI 应用安全的典型场景。",
+   "source": "开源中国",
+   "date": "2026-10-12",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Text-to-SQL",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个能写进简历的全栈+AI 项目模板，同时暴露了 AI 写数据库的安全设计要点。**",
+   "courses": "对应《数据库原理》《Web 后端开发》，可作为课程设计或毕设选题",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "演示 Agent 如何安全地对数据库执行 CRUD，而非只读查询",
+    "完整实战：自然语言→数据落库，涉及后端+数据库+LLM 三块",
+    "安全方向可研究其写操作权限控制与审计设计"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502970"
+  },
+  {
+   "id": "a488",
+   "title": "RXThinkCMF v2.6.0 发布：Laravel13 + Vue3 + TS 的企业级中台脚手架",
+   "summary": "基于 Laravel13、Vue3、TypeScript、ElementPlus 的前后端分离中台框架更新，内置按钮级 RBAC 权限、用户角色菜单等企业常用模块。",
+   "content": "这个框架的价值在于「开箱即用的企业级权限体系」——RBAC 精细到按钮和方法级别，还集成了用户、角色、菜单、部门、日志、数据字典等模块。对软件工程专业同学，如果你想做一个「看起来像企业项目」的课设或毕设，直接基于它二次开发比从零搭快得多，而且技术栈（Vue3 + TS + Laravel）在招聘市场上是加分项。信息安全专业同学可以重点研究它的权限模型设计，理解企业系统怎么做访问控制。注意 Laravel 是 PHP 技术栈，如果你主攻 Java，可以只参考它的权限设计思路，不必上手。",
+   "source": "开源中国",
+   "date": "2026-10-12",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Vue3",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "课设/毕设/简历加分",
+   "value": "**想快速做出一个「有企业味」的全栈项目，这类中台脚手架是最省力的起点。**",
+   "courses": "对应《Web 应用开发》《软件工程》，可作为课程设计或毕业设计基础框架",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "开箱即用的企业级 RBAC 权限体系，精细到按钮和方法级别",
+    "Vue3 + TypeScript + Laravel13 技术栈，适合做「像企业项目」的课设",
+    "安全方向可研究其访问控制模型设计"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/502964"
+  },
   {
    "id": "a478",
    "title": "Linus 用 Claude Code 写的内核补丁已推送到个人仓库",
@@ -26,7 +203,7 @@
     "工业软件",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 92,
    "brief": [
     "Linus 亲自推送 LLM 辅助编写的 Linux 内核分支，非玩笑",
@@ -4041,185 +4218,6 @@
    "origTitle": "How to Break the AI Coding Agent Fix Loop",
    "link": "https://www.freecodecamp.org/news/how-to-break-the-ai-coding-agent-fix-loop/",
    "cover": "img/a367.webp"
-  },
-  {
-   "id": "a368",
-   "title": "从Agent协议到语义运行时：MCP之后Agent架构往哪走",
-   "summary": "文章梳理了Agentic系统的演进路径：从MCP工具调用协议，走向带语义理解与自愈能力的Agent运行时。",
-   "content": "如果你在课设里接过MCP（Model Context Protocol）给大模型挂工具，这篇能帮你理解下一步。当前Agent已经能通过MCP调工具、通过A2A互相通信，但作者认为这还不够——协议只解决了「怎么调」，没解决「调错了怎么办」。语义运行时的思路是在协议层之上加一层意图理解与自愈机制，让Agent能根据目标动态调整调用策略，而不是死板执行。对软件工程学生，这相当于从「写死接口调用」进化到「运行时动态编排」，和微服务里的服务网格、熔断降级是同一类架构思想。想往AI应用开发方向走的同学，这是值得关注的架构趋势。",
-   "source": "DEV Community",
-   "date": "2026-10-05",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MCP",
-    "Agent架构"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "**理解Agent运行时的分层设计，是AI应用开发岗面试的加分项。**",
-   "courses": "《软件体系结构》分层与编排思想，可作为毕设架构选型参考。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Agent架构正从MCP协议层向语义运行时演进",
-    "协议解决「怎么调」，运行时解决「调错怎么办」",
-    "核心是意图理解、动态编排与自愈能力",
-    "类比微服务的服务网格与熔断降级思想"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "From Agent Protocols to Semantic Agent Runtimes",
-   "link": "https://dev.to/fullagenticstack/from-agent-protocols-to-semantic-agent-runtimes-479m",
-   "cover": "img/a368.webp"
-  },
-  {
-   "id": "a369",
-   "title": "快手DataAgent：大数据生产与分析如何用Agent做智能化",
-   "summary": "QCon上海分享，快手介绍其DataAgent如何把Agent能力接入大数据生产与分析链路，覆盖数据开发与查询场景。",
-   "content": "这是少数直接对口「数据+Agent」工程实践的中文分享。快手DataAgent要解决的问题是：数据开发和分析的门槛高，写SQL、配任务、查口径都依赖人工。他们的思路是把Agent嵌入数据生产链路，让自然语言能驱动数据查询和任务生成。对信息安全与管理、软件工程的同学，这里有两个可迁移点：一是Agent与结构化数据（SQL/数仓）结合的工程模式，二是企业级数据权限与安全如何在这种新交互下管控——Agent能查数据，权限边界怎么划？做课设如果涉及数据平台或管理系统，可以参考这种「自然语言→SQL→权限校验」的分层设计。",
-   "source": "InfoQ中文",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent",
-    "大数据"
-   ],
-   "diff": 2,
-   "scene": "简历加分",
-   "value": "**Agent接数据平台时，权限校验层怎么设计，是安全专业能切入的工程点。**",
-   "courses": "《数据库原理》SQL与权限、《大数据技术》数仓，课设做数据平台时可参考分层设计。",
-   "tags": [
-    "AI工具",
-    "行业动态",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "快手分享DataAgent在大数据生产分析中的落地实践",
-    "核心是自然语言驱动数据查询与任务生成",
-    "涉及Agent与SQL/数仓结合的工程模式",
-    "数据权限与安全管控是落地关键难点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/yVWAQGCZCzI838JESA1b?utm_source=rss&utm_medium=article",
-   "cover": "img/a369.webp"
-  },
-  {
-   "id": "a370",
-   "title": "AI面试官正在筛简历：技术能筛人，但筛不出人的价值",
-   "summary": "钛媒体讨论AI面试官的普及与争议：自动化筛选提升了效率，但也带来误判与公平性问题。",
-   "content": "这篇对求职季的同学有直接参考价值。AI面试官已经在不少企业落地，它做的事包括简历关键词匹配、视频面试微表情与语音分析、自动打分排序。作为求职者，你要知道它的筛选逻辑：关键词密度、结构化表达、岗位JD匹配度往往权重很高。所以简历里把课程项目、技术栈、量化结果写清楚，比堆砌形容词有用得多。同时文章也点出问题——AI筛不出潜力、动机和团队适配度，误判率不低。对信息安全专业同学，这里还有个延伸点：AI面试采集的人脸、语音属于敏感个人信息，合规边界在哪，是值得关注的方向。",
-   "source": "钛媒体",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**了解AI面试的筛选逻辑，比盲目投简历更能提高通过率。**",
-   "courses": "《职业发展与就业指导》，求职准备阶段直接应用；信息安全方向可延伸至个人信息保护。",
-   "tags": [
-    "求职就业",
-    "行业动态",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "AI面试官已用于简历筛选、视频面试打分",
-    "筛选逻辑偏重关键词匹配与JD匹配度",
-    "求职建议：简历写清技术栈与量化结果",
-    "涉及人脸语音等敏感信息的合规问题"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8159479.html"
-  },
-  {
-   "id": "a360",
-   "title": "LibreCAD 2D绘图架构全链路拆解：从鼠标点击到屏幕像素，Action与命令系统怎么设计",
-   "summary": "以开源CAD软件LibreCAD源码为例，从main()入口梳理Qt应用初始化、菜单/工具栏/QAction关系，再深入Action与命令系统的实现。",
-   "content": "如果你在做工业软件实验班的课设，或者想找一份能写进简历的C++/Qt项目，LibreCAD是极好的拆解对象。这篇文章从main()程序入口讲起，先带你走一遍Qt应用初始化、配置加载、主界面创建的启动链路，再重点分析菜单、工具栏与QAction的绑定关系，最后落到Action与命令系统——也就是「用户点一下鼠标，命令怎么被分发、状态怎么被管理、图形怎么被重绘」这条全链路。建议对照源码边读边画调用图，重点看命令对象的注册与撤销/重做机制，这是CAD类工业软件的核心骨架，面试聊项目时能讲清楚这套设计，比堆功能有说服力得多。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "C++",
-    "Qt"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**读懂一套真实CAD软件的架构骨架，是工业软件方向最硬的项目谈资**",
-   "courses": "对应《面向对象程序设计》《软件体系结构》，可作为课程设计或毕业设计的源码分析素材",
-   "tags": [
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "从main()入口梳理Qt应用启动与界面创建全流程",
-    "解析菜单/工具栏/QAction的绑定关系",
-    "重点讲Action与命令系统的分发与状态管理",
-    "建议对照源码画调用图，理解撤销/重做机制"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692498648035311659"
-  },
-  {
-   "id": "a361",
-   "title": "Pi Pod沙箱架构：自托管Agent执行环境，怎么做网络与密钥隔离",
-   "summary": "Pi Pod把Pi编码Agent框架包进隔离沙箱，跑在自己的服务器上，重点解决网络隔离与密钥隔离两个安全问题。",
-   "content": "Agent能执行代码，就意味着它能读你的环境变量、连你的内网、发你的密钥——这是信息安全专业最该关心的新攻击面。Pi Pod的思路值得抄：把Pi这个轻量Agent框架整个塞进沙箱，在自托管服务器上运行，网络层面限制出站访问，密钥层面做隔离注入，Agent拿不到明文凭证。文章讲的是架构设计而非调参，适合你用来理解「不可信代码执行」这个经典安全命题在Agent时代的新形态。做信息安全课设时，可以照着这个思路写一个简易沙箱demo：用容器或命名空间隔离进程，用代理拦截出站请求，再对比一下不做隔离时的风险，报告就有了。",
-   "source": "DEV Community",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Docker"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**理解Agent沙箱的网络与密钥隔离设计，是信安方向切入AI安全的最短路径**",
-   "courses": "对应《网络安全》《系统安全》，可作为安全课程设计或CTF沙箱逃逸方向的延伸阅读",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Agent执行代码带来的密钥泄露与内网渗透风险",
-    "沙箱做网络隔离：限制出站访问",
-    "密钥隔离注入，Agent拿不到明文凭证",
-    "可照着写一个简易沙箱demo做课设"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Pi Pod's Sandbox Architecture: Self-Hosted Agent Execution with Network and Secret Isolation",
-   "link": "https://dev.to/mech_app_ai/pi-pods-sandbox-architecture-self-hosted-agent-execution-with-network-and-secret-isolation-38bk",
-   "cover": "img/a361.webp"
   }
  ],
  "jobs": [
