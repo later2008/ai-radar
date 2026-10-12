@@ -1,6 +1,183 @@
 {
- "updatedAt": "2026-10-11 21:20",
+ "updatedAt": "2026-10-12 00:10",
  "news": [
+  {
+   "id": "a473",
+   "title": "用AI代码智能体优化软件架构的5种实操方法",
+   "summary": "InfoQ 总结出把 AI 编码智能体嵌入架构重构流程的五种做法，覆盖依赖梳理、模块拆分、接口收敛等场景。",
+   "content": "很多同学用 Copilot、Claude Code 只停留在「补全一个函数」，但真正的价值在于让智能体读懂整个仓库再动刀。这篇文章给出五种可落地路径：让智能体先产出模块依赖图、用自然语言描述目标架构让它生成迁移 PR、对循环依赖做自动化拆分、为遗留代码补测试再重构、以及把架构决策记录（ADR）喂给智能体做一致性检查。做工业软件实验班的同学尤其值得看——工业软件代码库往往又老又大，人工重构成本极高，这正是 AI 智能体最能出活的地方。建议拿自己的课设仓库试一遍「先补测试再重构」这条链路。",
+   "source": "InfoQ中文",
+   "date": "2026-10-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "AI Coding Agent",
+    "软件架构"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把 AI 编码工具从「补全函数」升级到「重构架构」，是简历上能写出差异化的一条实践线。**",
+   "courses": "对应《软件工程》《软件体系结构》，可直接作为课程设计中的重构环节方法论",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "五种方法都围绕「让智能体读懂整个仓库」而非单文件补全",
+    "重点场景：遗留系统重构、循环依赖拆分、架构一致性检查",
+    "工业软件方向的老代码库最适合用这套流程降本",
+    "可先在个人课设仓库跑通「补测试→重构」闭环"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/soRObi5sjdTTUM95zLJK?utm_source=rss&utm_medium=article",
+   "cover": "img/a473.webp"
+  },
+  {
+   "id": "a474",
+   "title": "Uber 把 K8s 扩容的「意图」和「执行」拆开了，为什么值得学",
+   "summary": "Uber 在 Kubernetes 平台上将扩容意图与执行操作解耦，解决了自动扩缩容中策略与动作耦合导致的误判问题。",
+   "content": "自动扩缩容写不好，线上就是雪崩。Uber 的做法是把「我要扩到多少」和「怎么扩」分成两层：上层只负责根据指标算出目标容量（意图），下层负责安全地执行节点/容器调度（执行）。好处是策略可以独立迭代、执行层可以做限流和回滚，不会因为一个错误的扩容决策直接把集群打爆。对信息安全专业的同学，这套思路同样适用于权限系统设计——「谁想做什么」和「实际执行」分离，是审计和最小权限的基础。做课设如果涉及容器编排，可以照这个分层写进架构文档。",
+   "source": "InfoQ中文",
+   "date": "2026-10-11",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Kubernetes",
+    "系统架构"
+   ],
+   "value": "**「意图与执行解耦」是分布式系统和权限系统通用的架构范式，面试聊架构时很好用。**",
+   "courses": "对应《云计算》《分布式系统》，可作为课程设计架构分层参考",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "核心思想：扩容决策（意图）与扩容动作（执行）分层解耦",
+    "收益是策略可独立迭代、执行层可限流回滚",
+    "同一思路可迁移到权限系统：授权意图与执行动作分离",
+    "课设涉及 K8s 时可直接引用这套分层写架构文档"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/2SNgaiHoK808v22dl5SJ?utm_source=rss&utm_medium=article",
+   "cover": "img/a474.webp"
+  },
+  {
+   "id": "a475",
+   "title": "Linear 用 1000+ PR 从 styled-components 迁到 StyleX，前端迁移实战复盘",
+   "summary": "Linear 团队通过一千多次 PR 把样式方案从 styled-components 迁移到 Meta 的 StyleX，完整披露了渐进式迁移策略。",
+   "content": "前端同学迟早会遇到「老项目样式方案要换」的活，Linear 这次迁移是难得的公开样本。他们没有大爆炸式重写，而是用 1000 多次小 PR 逐步替换，保证每一步都能回滚、CI 都能过。关键点包括：先建立新旧方案的共存层、用 codemod 批量改写重复模式、把样式类型检查接进 CI 防止回退。做前端方向的同学，这套「大规模渐进式重构」的方法论比具体用哪个样式库更重要——面试被问「你怎么迁移一个老项目」时，这就是标准答案的骨架。",
+   "source": "InfoQ中文",
+   "date": "2026-10-10",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "CSS-in-JS"
+   ],
+   "diff": 2,
+   "scene": "简历加分/求职准备",
+   "value": "**大规模渐进式重构的公开实战样本，前端面试讲「老项目迁移」时的标准答案骨架。**",
+   "courses": "对应《Web前端开发》，可作为课程设计重构方案的参考范式",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "用 1000+ 小 PR 渐进迁移，而非一次性重写，每步可回滚",
+    "关键手段：新旧方案共存层 + codemod 批量改写 + CI 类型检查",
+    "方法论比具体样式库更重要，适用于任何大规模重构",
+    "面试「如何迁移老项目」可直接套用这套框架"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YLOUT8CrDm0NPWgHL8LG?utm_source=rss&utm_medium=article",
+   "cover": "img/a475.webp"
+  },
+  {
+   "id": "a476",
+   "title": "Aurora DSQL 引入外键约束：分布式 SQL 为什么一直不敢做外键",
+   "summary": "亚马逊云科技在 Aurora DSQL 中引入外键约束，解决了分布式数据库长期因跨节点一致性代价而回避外键的难题。",
+   "content": "学数据库时老师都会讲外键，但真到分布式数据库，外键几乎被集体放弃——因为跨节点校验引用完整性代价太高。Aurora DSQL 这次把外键做进去了，值得关注的是它怎么在分布式事务下保证约束不被绕过。对软件工程和信息安全专业的同学，这题的价值在于理解「一致性 vs 可用性」的经典权衡：外键是数据完整性的第一道防线，缺了它，脏数据就得靠应用层兜底，而应用层兜底往往就是漏洞来源。做课设用 MySQL 时顺手想想：如果表被拆到三个节点，你的外键还成立吗？",
+   "source": "InfoQ中文",
+   "date": "2026-10-10",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "分布式数据库",
+    "SQL"
+   ],
+   "value": "**理解分布式数据库为何长期放弃外键，是数据库课和面试里区分度很高的一问。**",
+   "courses": "对应《数据库原理》，可结合分库分表章节讨论约束失效",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "分布式数据库长期回避外键，核心原因是跨节点一致性代价",
+    "外键缺失会把数据完整性压力推给应用层，容易埋下安全漏洞",
+    "理解「一致性 vs 可用性」权衡的绝佳现实案例",
+    "课设用 MySQL 时可延伸思考分库分表后的约束失效问题"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/BjjSS0zaS5OpvRB2OcfF?utm_source=rss&utm_medium=article",
+   "cover": "img/a476.webp"
+  },
+  {
+   "id": "a477",
+   "title": "模型开放了，AI 能力为什么还是复用不起来？",
+   "summary": "文章分析模型权重开放后 AI 能力仍难复用的根因：缺少统一的接口契约、上下文约定和评测标准。",
+   "content": "很多人以为开源模型一发，能力就能随便搬。现实是：同一个模型换个提示词模板、换个工具调用格式，效果就崩。文章指出问题出在三层缺失——接口契约不统一（各家 function calling 格式不同）、上下文约定不统一（历史怎么截断、工具结果怎么回填）、评测标准不统一（没法判断换了环境是否还达标）。对做 AI 应用开发的同学，这直接对应工程实践：写 LLM 应用时把「提示词模板 + 工具 schema + 上下文裁剪策略」抽成独立可替换层，别硬编码在业务里。",
+   "source": "InfoQ中文",
+   "date": "2026-10-10",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM 应用",
+    "Function Calling"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做 LLM 应用时把提示词、工具 schema、上下文策略分层抽象，是换模型不返工的关键。**",
+   "courses": "对应《人工智能导论》《软件工程》，可作为 AI 应用课设的架构规范",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "模型开放 ≠ 能力可复用，卡点在接口契约、上下文约定、评测标准三层",
+    "function calling 格式各家不统一是主要摩擦点",
+    "工程建议：把提示词模板、工具 schema、上下文裁剪抽成可替换层",
+    "做 AI 应用课设时按这个分层组织代码，后期换模型成本极低"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/rKRPT18fGxtjipPAeaLa?utm_source=rss&utm_medium=article",
+   "cover": "img/a477.webp"
+  },
   {
    "id": "a466",
    "title": "Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时",
@@ -23,7 +200,7 @@
     "前端开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Vue2 靠重写 7 个数组方法实现响应式，索引赋值和 length 修改不触发更新",
@@ -4039,217 +4216,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7692743968832520201"
-  },
-  {
-   "id": "a355",
-   "title": "AI Agent 进入系统层：OpenShell、Sandlock 等开源项目在解决什么",
-   "summary": "AI Agent 正从应用层下沉到系统层，Linux 提供底座，AIOS、OpenShell、Sandlock 等项目探索权限、Sandbox、Policy 与安全运行的基础设施。",
-   "content": "当 Agent 能读写文件、执行命令、调用外部服务时，「它能干什么」就变成了「它被允许干什么」——这正是信息安全专业的核心命题。这篇文章梳理了 Agent 下沉到系统层后的几个关键问题：权限如何最小化、沙箱如何隔离、策略如何下发与审计。对信安方向的同学，这是把「操作系统安全」「访问控制」这些课本概念接到 AI 时代的最佳切口：你可以顺着 Sandlock 这类项目看它怎么用 Linux 的 namespace、seccomp 做隔离，再对比传统沙箱的差异。对软件工程方向的同学，理解这层基础设施有助于你在做 Agent 应用时知道边界在哪、哪些操作必须走审批。建议至少把一个项目的 README 和架构图读透。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Linux"
-   ],
-   "value": "**看懂 Agent 系统层的权限与沙箱设计，是信安学生切入 AI 安全最对口的入口。**",
-   "courses": "对应《操作系统》《信息安全技术》，可作安全方向课程报告或毕设选题背景。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "Agent 从应用层下沉系统层，核心是权限、沙箱、策略与审计",
-    "涉及 Linux namespace、seccomp 等操作系统安全机制",
-    "信安方向可借此把课本访问控制概念接到 AI 场景"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692615195568832552"
-  },
-  {
-   "id": "a356",
-   "title": "Vue defineModel：把 v-model 的「契约」讲清楚",
-   "summary": "从手写 modelValue prop + update:modelValue emit 的繁琐写法讲起，说明 defineModel 如何把 v-model 的双向绑定契约收敛成一行声明。",
-   "content": "写过 Vue 组件的人都有过这种体验：声明 modelValue prop、声明 update:modelValue emit、再在 computed 的 get/set 之间来回接，还得祈祷两处事件名拼写一致。defineModel 把这套契约收敛成一行声明，本质是编译器帮你生成 prop 和 emit。对前端方向的同学，重点不是记住 API，而是理解「v-model 在组件上到底是什么」——它是一个 prop 加一个约定命名的事件，这个心智模型能帮你在自定义表单组件、封装工业软件里的参数配置面板时少踩坑。建议拿你课设里的一个表单组件改造一遍，对比改造前后的代码量和可读性，顺手把 Vue 3 的编译宏（defineProps/defineEmits/defineModel）一起理清。",
-   "source": "DEV Community",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vue"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**一次改造就搞懂 Vue 组件 v-model 的本质，前端课设表单组件立刻受益。**",
-   "courses": "对应《Web 前端开发》，做 Vue 课设时用于封装表单与配置面板组件。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "defineModel 把 v-model 的 prop + emit 契约收敛为一行声明",
-    "核心是理解 v-model 在组件上的本质约定",
-    "建议拿课设表单组件做一次改造对比"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Vue defineModel: The v-model Contract, Explained",
-   "link": "https://dev.to/parsajiravand/vue-definemodel-the-v-model-contract-explained-fc1",
-   "cover": "img/a356.webp"
-  },
-  {
-   "id": "a357",
-   "title": "9 秒删库、700 个 AI 失控：Agent 时代的安全为什么是前提",
-   "summary": "以「9 秒删库」「700 个 AI 失控」等事件为引，讨论 AI 从工具变成「同事」后，安全从可选项变成前提的现实。",
-   "content": "这篇文章的标题就是最好的警示：9 秒删库意味着一次误操作的破坏窗口极短，700 个 AI 失控意味着自动化规模一旦上去，单点策略失效会被成倍放大。对信息安全与管理专业的同学，这是把「风险管理」「访问控制」「最小权限原则」从考卷搬到真实场景的素材——你可以顺着文章梳理一条攻击/事故链：谁有权限、权限从哪来、有没有二次确认、日志能不能追溯。对软件工程方向的同学，启示是设计任何带自动化执行能力的系统时，删除、批量修改这类高危操作必须有人工确认或软删除兜底。建议把文中案例整理成一份「高危操作清单」，写进你课设的设计文档里，是很加分的工程意识体现。",
-   "source": "钛媒体",
-   "date": "2026-10-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**把真实事故拆成权限与审计链条，是信安学生最实用的风险意识训练。**",
-   "courses": "对应《信息安全技术》《软件工程》，可作课设设计文档中的安全设计章节素材。",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "以删库、AI 失控事件说明自动化规模放大安全风险",
-    "可梳理权限来源、二次确认、日志追溯的事故链",
-    "设计自动化系统时高危操作需人工确认或软删除"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8153885.html"
-  },
-  {
-   "id": "a358",
-   "title": "Cloudflare 把 1.1.1.1 DNS 缓存内存占用削减了 100TB",
-   "summary": "Cloudflare 分享如何通过数据结构与缓存策略优化，把 1.1.1.1 公共 DNS 服务的内存占用削减 100TB 量级。",
-   "content": "100TB 这个数字背后是典型的工程优化问题：在超大规模下，缓存的数据结构选择、键的编码方式、过期策略都会直接换算成真金白银的内存成本。对软件工程专业的同学，这类文章的价值不在「云厂商八卦」，而在于它展示了「性能优化」在真实系统里长什么样——不是刷题里的 O(n) 到 O(log n)，而是内存布局、序列化开销、淘汰策略的综合权衡。建议读的时候重点抓两点：他们改了什么数据结构、为什么这样改能省内存。然后把思路迁移到你自己写过的缓存模块（比如课设里的本地缓存或 Redis 使用），想想有没有可以压缩的空间。信息安全方向的同学也可关注 DNS 这类基础服务的可用性与抗攻击设计。",
-   "source": "InfoQ中文",
-   "date": "2026-10-05",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "DNS"
-   ],
-   "diff": 3,
-   "scene": "求职准备",
-   "value": "**从真实系统学性能优化思路，比刷算法题更接近工程面试的追问点。**",
-   "courses": "对应《数据结构》《计算机网络》，可作性能优化专题的阅读材料。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "超大规模 DNS 缓存的内存优化，量级达 100TB",
-    "核心是数据结构、键编码与淘汰策略的权衡",
-    "可把优化思路迁移到自己的缓存模块课设"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/XWJ8G6GaFmNL74xpSgjU?utm_source=rss&utm_medium=article",
-   "cover": "img/a358.webp"
-  },
-  {
-   "id": "a359",
-   "title": "学习 Agent 开发（10）：延迟工具 deferred tools 与渐进式加载",
-   "summary": "当工具数量变多时，description 和 schema 会吃掉大量 token 并降低模型输出准确率，接入 MCP 时尤其明显，文章介绍渐进式加载工具的解法。",
-   "content": "这是一个非常具体、非常工程化的坑：工具一多，光是工具描述和参数 schema 就占掉大量上下文，模型还容易选错工具。文章给出的思路是「渐进式加载」——先只暴露少量工具，按需再展开，Anthropic 和 OpenAI 都提供了相应机制。对做 Agent 应用的同学，这是从「能跑通 demo」到「能上规模」之间必须跨过的一步。建议你动手做一个对比实验：同一个任务，分别用「一次性塞 20 个工具」和「渐进式加载」两种方案跑，记录 token 消耗和工具选择准确率。这个实验数据本身就是很好的简历素材，也让你真正理解上下文预算这个约束。信息安全方向可顺带思考：工具暴露面越小，被诱导滥用的风险也越低。",
-   "source": "掘金",
-   "date": "2026-10-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**掌握渐进式工具加载，是 Agent 应用从 demo 走向可用的关键一步。**",
-   "courses": "对应《人工智能导论》《软件工程》，可作 AI 应用方向课设或毕设的优化点。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "工具过多会挤占上下文并降低模型选择准确率",
-    "解法是渐进式加载，Anthropic/OpenAI 均有支持",
-    "建议做「全量 vs 渐进」的 token 与准确率对比实验"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7692742889171566607"
-  },
-  {
-   "id": "wk-20261005",
-   "title": "【AI风向标周报】第1期（10.05-10.11）",
-   "summary": "本周精选：8 个 AI Agent 跑在 Su、Java 生态近期大更新：Torna等 5 条资讯；京东等 1 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、1 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. 8 个 AI Agent 跑在 Supabase Edge Functions + Vercel 上：一套可抄的多智能体生产架构\n   一套可复用的多 Agent 生产架构，直接提升你毕设和简历的技术含量。\n   原文：https://dev.to/domoniqueluchin/building-a-multi-agent-voice-command-center-how-we-deployed-8-ai-agents-on-supabase-edge-functions-and-vercel-48el\n2. Java 生态近期大更新：TornadoVM 7.0、Groovy 6.0、GraalVM、Quarkus、Gradle、Maven 全梳理\n   一次看清 Java 生态最新动向，帮你判断该学什么、项目该升什么。\n   原文：https://www.infoq.cn/article/8s5fm3AAfw7ya1qdWl5Q?utm_source=rss&utm_medium=article\n3. AI客服自信撒谎致Booking损失1400欧：日志缺失才是真问题\n   做AI应用不写日志，出事时你连甩锅都甩不出去。\n   原文：https://dev.to/kevinbarrett/why-we-left-sleekflow-after-its-ai-agent-started-confidently-lying-to-customers-fjb\n4. 谷歌用 AI + 差分模糊测试把 C 语言依赖库改写为 Rust\n   学会「AI 改写 + 差分测试验证」这套组合拳，你就掌握了老代码现代化改造的可信方法论。\n   原文：https://www.infoq.cn/article/LVsjSV4pIlh3Liz0KZZE?utm_source=rss&utm_medium=article\n5. Agent 写的 PR 回滚率 6.1% 还是 14.5%？取决于厂商\n   能拿出「我们组 AI 提交回滚率是多少」的实测数据，比任何「熟练使用 AI」的自我描述都硬。\n   原文：https://dev.to/cole_halton_42f71d71b809b/agent-prs-revert-at-61-or-145-depending-on-the-vendor-55ph\n\n【本周精选岗位】\n1. 京东 · 京东技术行 2027届/不限 技术实习（AI/大模型、云计算大数据、搜推广告、安全）\n   实习 ｜ 北京\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时\n   把「数组不更新」从玄学变成可复现的知识点，前端面试与课设都用得上。\n   获取：https://juejin.cn/post/7694928086820995072\n2. Spring AI Alibaba 实战：Agent 执行 shell 命令时，沙箱如何拦住家目录密钥泄露\n   学会给 AI Agent 加安全沙箱，是信息安全方向求职的差异化亮点\n   获取：https://juejin.cn/post/7694952423996080154\n3. Claude 动态多 Agent 工作流公测：116k 行代码库实测，主 Agent 写计划、多 Agent 分阶段跑\n   学会多 Agent 任务编排，比只会写 prompt 更能拉开求职差距。\n   获取：https://www.oschina.net/news/50……",
-   "source": "AI风向标·编辑部",
-   "date": "2026-10-11",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：8 个 AI Agent 跑在 Supabase Edge Functions + Vercel 上：一套可抄的多智能体生产架构",
-    "精选岗位 Top1：京东 · 京东技术行 2027届/不限 技术实习（AI/大模型、云计算大数据、搜推广告、安全）",
-    "实用工具 Top3：Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时"
-   ],
-   "link": "",
-   "cover": "img/a445.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-10-05",
-    "end": "2026-10-11",
-    "news": [
-     "a381",
-     "a445",
-     "a366",
-     "a408",
-     "a434"
-    ],
-    "jobs": [
-     "j36"
-    ],
-    "tools": [
-     "a466",
-     "a458",
-     "a449"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
