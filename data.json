@@ -1,6 +1,217 @@
 {
- "updatedAt": "2026-10-14 11:11",
+ "updatedAt": "2026-10-14 14:57",
  "news": [
+  {
+   "id": "a519",
+   "title": "PentAGI：开源全自主渗透测试多智能体系统，自带20+专业工具箱",
+   "summary": "安全公司VXControl开源了PentAGI，一个可自托管的渗透测试多智能体系统，内置20多个专业安全工具，能自主完成信息收集、漏洞扫描、利用等渗透测试流程。",
+   "content": "PentAGI把渗透测试的完整流程拆解给多个AI Agent协作完成：侦察Agent负责信息收集，扫描Agent调用nmap、sqlmap等工具探测漏洞，利用Agent尝试攻击，还有报告Agent自动生成渗透报告。你可以在本地Docker环境自托管部署，接入自己的LLM API。对信息安全专业的同学来说，这是理解「AI+安全」落地的绝佳样本——既能学渗透测试的标准化流程（对应《渗透测试》课程），又能研究多Agent编排架构。建议先跑通官方Demo，再阅读其Agent调度源码，理解工具调用链的设计。",
+   "source": "掘金",
+   "date": "2026-10-14",
+   "cat": "tool",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**信息安全专业学生理解AI驱动渗透测试的最佳开源实践样本，可直接用于课设或安全竞赛项目。**",
+   "courses": "对应《渗透测试》《网络安全》课程，可作为课程设计或毕业设计的项目基础",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "开源可自托管，支持Docker本地部署，接入自有LLM API",
+    "内置20+安全工具（nmap、sqlmap等），多Agent分工协作",
+    "覆盖侦察→扫描→利用→报告全渗透流程",
+    "适合作为「AI+安全」方向的学习和课设项目基础"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696339475548569634"
+  },
+  {
+   "id": "a520",
+   "title": "Spring AI Alibaba停更：Java程序员的技术选型风险课",
+   "summary": "2026年10月Spring AI Alibaba宣布停止更新，大量基于该框架构建AI应用的Java开发者面临迁移困境，引发对技术选型与开源项目可持续性的讨论。",
+   "content": "这件事对Java方向的同学是活生生的技术选型案例。Spring AI Alibaba曾是Java生态接入大模型的主流方案，很多团队基于它搭建了AI应用。停更意味着：已投入的代码需要迁移、依赖的云资源可能浪费、后续安全补丁无人维护。教训有三：一是选型时评估项目背后的商业支持和社区活跃度，别只看Star数；二是核心业务避免过度绑定单一框架，做好抽象层隔离；三是关注Spring AI官方版等替代方案。如果你正在做AI相关的Java课设或实习项目，建议直接调研Spring AI官方版或其他活跃方案，避免踩坑。",
+   "source": "掘金",
+   "date": "2026-10-14",
+   "cat": "industry",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Spring AI"
+   ],
+   "value": "**用真实停更事件教你做技术选型风险评估，Java方向求职面试的高频讨论话题。**",
+   "courses": "对应《软件工程》《Java Web开发》课程，可作为技术选型与架构设计的案例分析",
+   "tags": [
+    "Java全栈",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "Spring AI Alibaba于2026年10月停止更新，影响大量Java AI应用",
+    "技术选型需评估社区活跃度、商业支持和可持续性",
+    "建议Java方向同学关注Spring AI官方版等替代方案",
+    "核心业务应做好抽象隔离，避免过度绑定单一框架"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696355057992548361"
+  },
+  {
+   "id": "a521",
+   "title": "Agent上下文与记忆管理实战：从Harness到AgentScope的完整实现",
+   "summary": "以订单助手连续对话为例，系统讲解Agent上下文组装的Harness模式、模型窗口预算管理、AgentScope 2.x摘要压缩、Mem0与ReMe记忆模式及多实例会话恢复。",
+   "content": "做AI应用开发绕不开一个问题：对话轮次一多，上下文就爆了。这篇文章用订单助手的实际场景串起了完整方案：Harness负责组装上下文（系统提示+历史+工具结果），模型窗口预算控制token不超限，AgentScope 2.x做摘要压缩把长对话浓缩，Mem0和ReMe提供长期记忆存储，Codex本地存储解决多实例会话恢复。对软件工程专业的同学，这是从「会调API」到「会做工程」的关键一跃。建议跟着文章代码跑一遍，理解每种记忆策略的适用场景和取舍，这在AI应用开发岗位面试中很加分。",
+   "source": "掘金",
+   "date": "2026-10-14",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AgentScope",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**掌握Agent记忆管理是从「会调API」进阶到「会做AI工程」的分水岭，面试高频考点。**",
+   "courses": "对应《人工智能导论》《软件工程》课程，可用于AI应用开发课设的上下文管理模块",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Harness模式：系统提示+历史+工具结果的上下文组装方案",
+    "模型窗口预算管理，防止token超限",
+    "AgentScope 2.x摘要压缩 + Mem0/ReMe长期记忆",
+    "多实例会话恢复的本地存储方案"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696329381885034515"
+  },
+  {
+   "id": "a522",
+   "title": "Java与Spring Boot服务的安全合规原则：金融级实践指南",
+   "summary": "面向金融科技、数字银行等受监管领域，系统梳理Java和Spring Boot服务的安全与合规设计原则，强调安全应贯穿开发全流程而非上线前检查。",
+   "content": "很多同学做项目时把安全当成最后补的检查项，但在金融、医疗等受监管行业，这种做法会直接导致项目失败。这篇文章从Java/Spring Boot服务出发，讲了认证授权（Spring Security）、敏感数据加密、审计日志、输入校验、依赖漏洞扫描等核心原则，并强调安全要左移到设计阶段。对信息安全专业的同学，这是把安全知识落到具体技术栈的桥梁；对Java方向的同学，这是写出「生产级」代码的必修课。建议对照文章清单检查自己的课设项目，补上缺失的安全环节。",
+   "source": "DEV Community",
+   "date": "2026-10-14",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Spring Security"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**把安全知识落到Java技术栈的实操指南，让你的课设项目从「能跑」升级到「生产级」。**",
+   "courses": "对应《网络安全》《Java Web开发》课程，可用于课设项目的安全加固",
+   "tags": [
+    "Java全栈",
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "安全左移：在设计阶段就考虑认证、加密、审计",
+    "Spring Security认证授权 + 敏感数据加密实践",
+    "依赖漏洞扫描与输入校验的工程化落地",
+    "金融/医疗等受监管领域的合规要求"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Security & Compliance Principles for Java and Spring Boot Services",
+   "link": "https://dev.to/said_olano/security-compliance-principles-for-java-and-spring-boot-services-4nni",
+   "cover": "img/a522.webp"
+  },
+  {
+   "id": "a523",
+   "title": "免费React资源时间线组件：FullCalendar付费版的替代方案",
+   "summary": "介绍一个开源的React资源时间线组件，支持人员/房间/机器等资源维度与时间轴交叉展示，可替代FullCalendar的付费Premium版本。",
+   "content": "资源时间线（左侧是人员/房间/设备，顶部是时间轴）是排课系统、会议室预约、设备调度等场景的刚需组件，但FullCalendar等主流库把它放在付费版里。这个开源React组件免费提供了同等能力，支持拖拽调整、资源分组、时间缩放等交互。对前端方向的同学，这是一个可以直接用在课设里的实用组件——比如做实验室设备预约系统、课程表工具。建议clone下来跑通Demo，重点看它的虚拟滚动和拖拽实现，这两个是前端性能优化的经典场景，面试也常问。",
+   "source": "DEV Community",
+   "date": "2026-10-14",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**免费替代付费日历组件，排课/预约类课设的前端利器，源码可学虚拟滚动与拖拽。**",
+   "courses": "对应《Web前端开发》课程，可直接用于课设中的日历/排课模块",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "开源免费的React资源时间线组件，替代FullCalendar付费版",
+    "支持人员/房间/设备等资源维度与时间轴交叉展示",
+    "含拖拽调整、资源分组、时间缩放等交互",
+    "适合排课、预约、调度类课设项目直接使用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "A free React resource timeline (a FullCalendar Premium alternative)",
+   "link": "https://dev.to/mdobaid311/a-free-react-resource-timeline-a-fullcalendar-premium-alternative-25fb",
+   "cover": "img/a523.webp"
+  },
+  {
+   "id": "a524",
+   "title": "BucketForge v1.14.0发布：Rust+Tauri开源多云存储管理器",
+   "summary": "原Nebula项目正式更名BucketForge，基于Rust+Tauri构建的开源多云对象存储管理工具发布v1.14.0，新增指定Bucket访问权限功能。",
+   "content": "BucketForge是一个跨云对象存储（S3、OSS、COS等）的桌面管理工具，用Rust写后端逻辑、Tauri做跨平台桌面壳。这次更新支持了「AccessKey只有单个Bucket权限」的场景——以前必须要有ListBuckets权限才能用，现在受限权限的密钥也能正常操作。对软件工程专业的同学，这个项目的技术栈值得关注：Tauri是Electron的轻量替代（体积小、内存占用低），Rust做系统级工具越来越主流。如果你做云存储相关的课设，或者想学Tauri桌面开发，可以研究它的源码架构。",
+   "source": "开源中国",
+   "date": "2026-10-14",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "Tauri"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**学习Rust+Tauri桌面开发与多云存储管理的实战项目，云存储课设的参考实现。**",
+   "courses": "对应《云计算》《软件工程》课程，可作为云存储管理课设的参考项目",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "基于Rust+Tauri的开源多云对象存储管理桌面工具",
+    "v1.14.0新增指定Bucket访问权限支持",
+    "Tauri是Electron的轻量替代方案，值得学习",
+    "支持S3、OSS、COS等多种云存储协议"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503012"
+  },
   {
    "id": "a513",
    "title": "Spring Boot/Framework/Data/Security 同步发布第二个里程碑版本，Java 全栈该关注什么",
@@ -26,7 +237,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "Boot/Framework/Data/Security/Integration 五个项目同步进入第二个里程碑",
@@ -4028,218 +4239,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502867"
-  },
-  {
-   "id": "a403",
-   "title": "Termexo v0.10.11：用 MCP 让一个 Agent 去操控 Claude Code、Codex 等五种编程 Agent",
-   "summary": "Termexo 是 Windows 平台的 MIT 开源工作台，通过本地 MCP 协议统一操控 Claude Code、Codex、OpenCode、Grok Build、Antigravity CLI 五种编程 Agent。",
-   "content": "如果你已经在用 AI 写代码，这条能帮你把工具链串起来。MCP（Model Context Protocol）正在成为 Agent 之间通信的事实标准，Termexo 做的事就是：用一个 Agent 调度另外几个编程 Agent，统一在终端里跑。对学生最直接的价值是——你可以在一个界面里对比不同 Agent 对同一道算法题、同一个课设模块的产出质量，顺便理解 MCP 的请求/响应结构和状态回传机制。建议拿《数据结构》或《Java 程序设计》的作业当测试集，记录各 Agent 的正确率和返工次数，这本身就是一份不错的实践报告素材。",
-   "source": "开源中国",
-   "date": "2026-10-07",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用一个工具横向对比多个编程 Agent，同时搞懂 MCP 协议怎么用**",
-   "courses": "《软件工程》《Java 程序设计》——用多 Agent 对比完成课设模块并记录质量数据",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "通过本地 MCP 统一操控五种主流编程 Agent",
-    "MCP 正成为 Agent 间通信的事实标准，值得提前熟悉",
-    "可用来横向对比不同 Agent 的代码产出质量",
-    "Windows x64、MIT 开源，安装门槛低"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502851"
-  },
-  {
-   "id": "a404",
-   "title": "两名工程师两个月写出 4 万行 Rust：Perplexity 因 DynamoDB 太贵太慢自研数据库",
-   "summary": "Perplexity 两名工程师用两个月、约 4 万行 Rust 代码替换了 DynamoDB，原因是成本高且延迟不达标。",
-   "content": "这不是让你去写数据库，而是让你看清一个工程决策的完整链条：先量化问题（成本、P99 延迟），再评估替代方案（继续用托管服务 vs 自研），最后才是技术选型（Rust 换性能）。对软件工程专业的同学，这条最适合用在《软件工程》或《数据库原理》的案例分析作业里：把「什么时候该自研、什么时候该买服务」的权衡写成一份决策文档，列出成本、人力、运维复杂度三个维度的对比。另外，4 万行 Rust 由两人两个月完成，也说明现代工程里 AI 辅助编码对产能的实际影响，值得在简历项目里体现你对工程效率的认知。",
-   "source": "InfoQ中文",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "value": "**学会用成本与延迟数据支撑技术选型，而不是凭喜好选框架**",
-   "courses": "《软件工程》《数据库原理》——作为技术选型与架构决策的案例分析材料",
-   "tags": [
-    "通用开发",
-    "行业动态",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "触发自研的原因是成本与延迟双超标，而非技术炫技",
-    "决策链条：量化问题→评估方案→技术选型",
-    "适合做「自研 vs 托管服务」的工程决策案例分析",
-    "Rust 在高性能基础设施中的地位进一步巩固"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4AMw7Bt3UHqw48qmQTpS?utm_source=rss&utm_medium=article",
-   "cover": "img/a404.webp"
-  },
-  {
-   "id": "a405",
-   "title": "苹果权限高墙被 Meta AI 助手「借道」绕过：一次真实的越权路径分析",
-   "summary": "Meta AI 助手通过间接方式绕过了苹果系统的权限限制，暴露出移动端权限模型在 AI 助手场景下的新攻击面。",
-   "content": "信息安全方向的同学重点看这条。传统权限模型假设「用户主动授权、应用被动执行」，但 AI 助手会代替用户去调用其他能力，于是出现了「借道」——助手本身没拿到权限，却通过它能调用的组件间接完成了越权操作。这正是《信息安全技术》里讲的 confused deputy（混淆代理）问题在 AI 时代的翻版。建议你把它整理成一个攻击链分析：入口是什么、中间经过了哪些组件、最终触达了什么数据、哪一层本该拦住。这类分析写进简历的安全项目栏，比只写「熟悉 OWASP Top 10」具体得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**掌握 AI 助手场景下的越权分析思路，是安全岗面试的加分项**",
-   "courses": "《信息安全技术》《移动应用安全》——用于攻击链分析与威胁建模作业",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "AI 助手代用户调用能力，产生新的越权路径",
-    "本质是 confused deputy 问题在移动端的再现",
-    "分析要点：入口、调用链、最终触达数据、缺失的拦截层",
-    "适合作为安全课的攻击链分析作业"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/s2Rt9t0yqUFk6VYV33Mh?utm_source=rss&utm_medium=article",
-   "cover": "img/a405.webp"
-  },
-  {
-   "id": "a406",
-   "title": "Claude Code 工程最佳实践：怎么把 AI 编码助手真正接进项目流程",
-   "summary": "开源中国整理了一份 Claude Code 的工程化使用实践，覆盖项目上下文组织、任务拆分与代码审查衔接等环节。",
-   "content": "很多人用 AI 写代码还停留在「贴一段需求、复制一段结果」，效率提升有限。这份实践的价值在于把 AI 编码放进工程流程：怎么给足项目上下文、怎么把大任务拆成可验证的小步、怎么让 AI 产出直接进入代码审查环节。对软件工程专业的同学，建议你按它的思路改造一次课设流程——先写清楚模块接口和约束，再让 AI 生成实现，最后自己跑测试并记录返工点。做完你会发现，AI 产出质量主要取决于你给的约束是否明确，这本身就是《软件工程》里需求规格说明书的实战训练。",
-   "source": "开源中国",
-   "date": "2026-10-08",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/求职准备",
-   "value": "**把 AI 编码从「复制粘贴」升级为可审查的工程流程，直接提升课设质量**",
-   "courses": "《软件工程》——用需求规格说明书约束 AI 产出，训练需求表达能力",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "重点在流程而非提示词技巧：上下文、任务拆分、审查衔接",
-    "AI 产出质量取决于约束是否明确，与需求规格能力直接相关",
-    "建议用一次课设完整走一遍该流程并记录返工点",
-    "可与 MDP 主数据平台 1.6.0 的前后端提交记录对照参考"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502869"
-  },
-  {
-   "id": "a397",
-   "title": "Docker 官方开源 Docker Agent：把 AI 智能体塞进容器里跑",
-   "summary": "Docker 官方在 GitHub 发布 docker-agent 项目，让 AI Agent 以容器化方式运行，天然获得隔离、资源限制和可复现环境。",
-   "content": "Docker 官方新开源的 docker-agent，核心思路是把 AI 智能体当成一个容器化进程来管理：镜像里打包好工具链和依赖，运行时用 Docker 的命名空间、cgroup 做隔离和资源上限。对软件工程和信息安全专业的同学来说，这东西有两个直接价值：一是做课设时可以把「调 LLM + 执行代码」的流程封装成镜像，环境不再互相污染；二是安全方向可以拿它当靶子，研究 Agent 逃逸、权限过大、挂载宿主机目录等风险。建议先跑通官方示例，再尝试自己写一个只读文件系统的受限 Agent 镜像。",
-   "source": "Hacker News",
-   "date": "2026-10-07",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用容器隔离 AI Agent，是当前工程落地和安全防护的最小可行方案。**",
-   "courses": "对应《操作系统》《云计算/容器技术》，课设可用它做隔离环境演示。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "Docker 官方出品，Agent 运行在容器内，天然隔离",
-    "可复现环境，适合课设和团队协作",
-    "安全方向可研究容器逃逸与权限边界",
-    "上手门槛低，会 Dockerfile 就能改"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Docker Agent",
-   "link": "https://github.com/docker/docker-agent",
-   "cover": "img/a397.webp"
-  },
-  {
-   "id": "a398",
-   "title": "高权限 AI Agent 怎么防？Blast-Radius 分析与硬边界设计",
-   "summary": "一篇工程向文章，讲如何用爆炸半径分析和硬边界把高权限 AI Agent 关进笼子，避免它误删数据或越权调用。",
-   "content": "文章针对「给 Agent 开了高权限后怎么不出事」这个真问题，提出两步：先做 blast-radius（爆炸半径）分析——列出 Agent 能碰到的所有资源，评估最坏情况下会炸多大；再设硬边界——用独立进程、只读挂载、网络白名单、独立凭证把范围钉死，而不是靠提示词求它「别乱来」。信息安全与管理专业的同学可以直接把这套思路写进课程设计或安全方案里：先画资产图，再逐条给缓解措施。软件工程同学在做自动化脚本时也该学这个习惯，别让一个脚本拿到生产库的写权限。",
-   "source": "DEV Community",
-   "date": "2026-10-08",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent",
-    "权限控制"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分/求职准备",
-   "value": "**高权限 Agent 的安全不是靠提示词，而是靠可验证的边界设计。**",
-   "courses": "对应《信息安全导论》《系统安全》，可作课程设计的安全设计参考。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "先算爆炸半径，再设硬边界，不靠提示词约束",
-    "硬边界手段：独立进程、只读挂载、网络白名单、最小权限凭证",
-    "可直接套用到课程设计的安全方案章节",
-    "对做自动化脚本的开发者同样适用"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Containment by Design: Securing High-Privilege AI Agents with Blast-Radius Analysis and Hard Boundaries",
-   "link": "https://dev.to/tamizuddin/containment-by-design-securing-high-privilege-ai-agents-with-blast-radius-analysis-and-hard-3iln",
-   "cover": "img/a398.webp"
   }
  ],
  "jobs": [
