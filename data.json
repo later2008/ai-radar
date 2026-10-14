@@ -1,6 +1,146 @@
 {
- "updatedAt": "2026-10-13 17:25",
+ "updatedAt": "2026-10-14 02:49",
  "news": [
+  {
+   "id": "a509",
+   "title": "DjangoAdmin v2.7.3 发布：FastAPI+Vue3+TS 的企业级中台脚手架，带按钮级 RBAC",
+   "summary": "基于 FastAPI、Vue3、TypeScript、ElementPlus、Vite 的前后端分离数据中台方案，内置按钮/方法级权限管控与用户、角色、菜单、部门、日志等模块。",
+   "content": "如果你正在做课设或想攒一个能写进简历的后台项目，这套脚手架值得直接拉下来读源码。它把企业里最常被问到的三件事都做完了：一是 RBAC 权限细化到按钮和方法级，二是用户/角色/权限菜单/部门/职级/日志/数据字典/行政区划等基础模块开箱即用，三是前后端分离，前端 Vue3+TS+Vite，后端 FastAPI。建议用法：先跑通登录与权限链路，再挑一个模块（比如系统日志）自己重写一遍接口和页面，理解「菜单-角色-接口」三者如何联动。面试被问「权限怎么设计」时，你能讲出具体实现而不是背概念。",
+   "source": "开源中国",
+   "date": "2026-10-14",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "Java"
+   ],
+   "stack": [
+    "FastAPI",
+    "Vue3"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一套能直接跑通并讲清 RBAC 权限链路的企业级中台脚手架，课设与简历双用。**",
+   "courses": "对应《Web 应用开发》《软件工程课程设计》，可直接作为课程设计底座并练习前后端联调。",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "FastAPI + Vue3 + TypeScript + ElementPlus + Vite 前后端分离",
+    "RBAC 权限管控细化到按钮及方法级别",
+    "内置用户/角色/菜单/部门/日志/字典等基础模块",
+    "适合作为课设底座或二次开发练手项目"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503005"
+  },
+  {
+   "id": "a510",
+   "title": "Cloudflare Worker Previews 的坑：看着像隔离环境，实际仍会连生产",
+   "summary": "Cloudflare 新推出的 Worker Previews 预览环境被指出隔离不彻底，预览代码仍可能触达生产资源，做边缘函数部署时要当心。",
+   "content": "这条对做后端和运维方向的同学是实打实的避坑贴。核心问题：预览环境（Preview）本意是让你在不影响线上的前提下试代码，但 Worker Previews 的隔离边界并不彻底，预览实例仍可能连接到生产资源。放到课程和实习场景里，这对应两个必须养成的习惯：一是任何「预览/测试环境」都要先确认它到底连的是哪套数据库、哪套密钥；二是环境变量与密钥要按环境隔离，别把生产 token 塞进预览配置。做课设部署到 Serverless 平台时，建议自己画一张「代码→环境→资源」的连线图，确认没有越界。",
+   "source": "InfoQ中文",
+   "date": "2026-10-14",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Cloudflare Workers"
+   ],
+   "value": "**提醒你「预览环境≠安全隔离」，部署 Serverless 前先确认它连的是哪套生产资源。**",
+   "courses": "对应《信息安全技术》《云计算与分布式系统》，可作为环境隔离与配置安全的案例分析。",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Worker Previews 隔离不彻底，预览仍可能连生产",
+    "提醒：测试/预览环境必须确认连接的真实资源",
+    "环境变量与密钥应按环境严格隔离",
+    "Serverless 部署前先画清代码到资源的连线"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Jf88XAvrK0zmBj2Ud2OD?utm_source=rss&utm_medium=article",
+   "cover": "img/a510.webp"
+  },
+  {
+   "id": "a511",
+   "title": "分布式编排 ≠ Agent 推理：别把两件事画进同一张架构图",
+   "summary": "很多「AI Agent 编排」架构图把「决定下一步做什么」和「可靠地跑分布式任务」混为一谈，作者主张把推理与编排职责拆开。",
+   "content": "这篇适合已经写过一点 Agent demo、准备往工程化走的同学。作者指出常见误区：把「推理（决定下一步做什么）」和「编排（可靠地执行分布式工作）」画成一层。实际工程里这是两套关注点——推理关心提示、上下文、工具选择；编排关心重试、幂等、超时、状态持久化、失败恢复。建议做法：在你的课设 Agent 项目里，把这两层拆成独立模块，推理层只输出「计划」，编排层负责执行与重试。这样既好测试，也能在简历上写「实现了带重试与状态恢复的任务编排」，比只写「调用大模型 API」有分量得多。",
+   "source": "DEV Community",
+   "date": "2026-10-14",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**教你把自己的 Agent 项目从「调 API」升级成「有编排层」的工程作品。**",
+   "courses": "对应《软件体系结构》《分布式系统》，可作为分层设计与任务编排的实践参考。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "推理=决定下一步做什么，编排=可靠执行分布式工作",
+    "常见错误是把两者合并成同一层架构",
+    "拆分后推理层只出计划，编排层管重试/幂等/状态",
+    "拆分带来可测试性，也是简历上的工程亮点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Distributed Orchestration vs Agent Reasoning",
+   "link": "https://dev.to/tercelyi/distributed-orchestration-vs-agent-reasoning-2efm",
+   "cover": "img/a511.webp"
+  },
+  {
+   "id": "a512",
+   "title": "编程智能体怎么挑工具：20 年技术品牌在 Agent 眼里可能一文不值",
+   "summary": "InfoQ 讨论编程智能体（Coding Agent）选择首选工具时的实际依据，指出传统技术品牌积累在 Agent 决策中的权重正在下降。",
+   "content": "这条对正在用 Copilot、Cursor、Claude Code 之类工具写代码的同学有直接参考价值。核心观点：编程智能体选工具时，看的不是这个库「品牌多响、历史多久」，而是文档结构是否清晰、类型定义是否完整、错误信息是否可解析、示例是否可直接执行——也就是「机器可读性」。对你的实际启发有两点：一是自己写项目时，README、类型注解、函数注释写清楚，不只是给人看，也是给 AI 看，能显著提高补全准确率；二是选技术栈时，优先选文档和类型友好的库，长期开发效率更高。",
+   "source": "InfoQ中文",
+   "date": "2026-10-13",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Coding Agent"
+   ],
+   "value": "**让你明白「代码写得让 AI 读得懂」正在变成一项实打实的开发技能。**",
+   "courses": "对应《软件工程》《程序设计》，可作为代码规范与文档质量的现实动机。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Agent 选工具看的是文档/类型/错误信息的机器可读性",
+    "传统技术品牌与历史积累的权重在下降",
+    "写清 README、类型注解、注释能提升 AI 补全质量",
+    "选型时优先考虑文档与类型友好的库"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/MrxaqhrQBMrZTcSGEgL1?utm_source=rss&utm_medium=article",
+   "cover": "img/a512.webp"
+  },
   {
    "id": "a504",
    "title": "Gemini老兵团队押注Coding Agent：刚亮相就传被英伟达收购",
@@ -25,7 +165,7 @@
     "求职就业",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Coding Agent 能读整个仓库、规划改动、跑测试，不只是代码补全",
@@ -4094,144 +4234,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/MwQyLYzgSiD16x36k9Ef?utm_source=rss&utm_medium=article",
    "cover": "img/a389.webp"
-  },
-  {
-   "id": "a390",
-   "title": "用 Harness 工程做 SRE 可控生产环境：QCon 上海实战分享",
-   "summary": "InfoQ 带来 QCon 上海议题，讲如何用 Harness 平台把 SRE 的发布、回滚、可观测性做成可控流水线，适合想往运维/后端方向走的同学。",
-   "content": "Harness 是一套覆盖 CI/CD、特性开关、混沌工程的工程平台，这次分享的重点是「可控」：怎么让生产环境的每一次变更都可回滚、可观测、可审计。对信息安全与软件工程专业来说，这类内容直接对应企业里真实的上线流程——不是写完代码就完事，而是要设计灰度、监控、回滚预案。如果你在准备后端或安全运维岗的面试，把「发布流水线 + 可观测性 + 故障演练」这条链路讲清楚，比只会背八股加分得多。建议结合课设的部署环节，试着用 GitHub Actions 或 Jenkins 复刻一个最小可控发布流程。",
-   "source": "InfoQ中文",
-   "date": "2026-10-07",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "CI/CD",
-    "SRE"
-   ],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**把「可控发布」讲成自己的项目经验，是后端和运维岗面试的实打实加分项。**",
-   "courses": "对应《软件工程》《信息安全运维》，可用于课设部署环节的流程设计",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Harness 覆盖 CI/CD、特性开关、混沌工程",
-    "核心是让生产变更可回滚、可观测、可审计",
-    "对应企业真实上线流程，面试常问",
-    "可用 GitHub Actions/Jenkins 做最小复刻练手"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/WvTYmUCLl28HKFvWHpZ2?utm_source=rss&utm_medium=article",
-   "cover": "img/a390.webp"
-  },
-  {
-   "id": "a391",
-   "title": "Shaders：给 React/Vue/Svelte 用的 WebGPU 着色器组件库",
-   "summary": "一个把 WebGPU 着色器封装成前端组件的开源库，支持 React、Vue、Svelte、Solid 和原生 JS，前端同学可以低成本给页面加 GPU 特效。",
-   "content": "WebGPU 是浏览器里跑 GPU 计算和图形的新标准，但直接写着色器对前端来说门槛不低。这个库把常见着色器效果封装成组件，React、Vue、Svelte、Solid 都能直接用，等于把「GPU 特效」变成了几行标签。对前端方向的同学，这是练手 WebGPU 和图形编程的省力入口：可以先跑通官方示例，再改参数理解 uniform、片元着色器怎么工作。注意 WebGPU 目前浏览器兼容性还不完整，做课程展示或作品集页面时记得留降级方案。工业软件方向如果涉及三维可视化，也值得关注这条技术线。",
-   "source": "Hacker News",
-   "date": "2026-10-07",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "工业软件"
-   ],
-   "stack": [
-    "WebGPU",
-    "React"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用几行组件就能给作品集加上 GPU 特效，是前端简历里少见的差异化亮点。**",
-   "courses": "对应《Web 前端开发》《计算机图形学》，可用于课设的可视化展示环节",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "把 WebGPU 着色器封装成 React/Vue/Svelte 等框架组件",
-    "降低前端接入 GPU 特效的门槛",
-    "可作 WebGPU/图形编程的入门练手项目",
-    "注意浏览器兼容性，需准备降级方案"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Shaders, WebGPU Components for React, Vue, Svelte, Solid, JavaScript and Framer",
-   "link": "https://github.com/shader-effects-inc/shaders",
-   "cover": "img/a391.webp"
-  },
-  {
-   "id": "a392",
-   "title": "Palantir 旧访谈翻红：企业级 AI 订单拼的不只是模型",
-   "summary": "钛媒体复盘 Palantir 旧访谈，指出企业级 AI 项目成败往往取决于认知与信任，而非模型参数，对想进 B 端软件方向的同学有参考价值。",
-   "content": "Palantir 是做企业级数据与 AI 平台的老牌公司，这篇翻红的访谈核心观点是：好产品也会丢单，客户对一件事的认知有时比客观技术指标更能左右决策。放到国内 B 端软件和工业软件的语境里同样成立——甲方买的不只是功能，还有可解释性、交付确定性和责任边界。对工业软件实验班的同学，这提示你在做课设或实习项目时，除了把功能做出来，还要想清楚「怎么向非技术决策者说明价值」。这类软技能在 B 端岗位面试里经常被追问，提前有意识地去表达，比单纯堆技术点更有效。",
-   "source": "钛媒体",
-   "date": "2026-10-07",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**理解 B 端软件的成交逻辑，帮你在工业软件方向的项目表达上更贴近真实需求。**",
-   "courses": "对应《软件工程》《项目管理》，可用于课设的需求分析与汇报环节",
-   "tags": [
-    "工业软件",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "企业级 AI 项目成败常取决于客户认知与信任",
-    "B 端软件卖的是确定性、可解释性和责任边界",
-    "工业软件方向需练习向非技术方讲清价值",
-    "面试 B 端岗位常被追问这类软技能"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8160164.html"
-  },
-  {
-   "id": "a393",
-   "title": "OpenRouter 榜单争议：中国模型烧掉六成 Token，定价权却在别人手里",
-   "summary": "钛媒体拆解 OpenRouter 三张榜单背后的度量衡问题：匿名模型靠免费冲榜，中国模型贡献大量 Token 却拿不到对应收益，涉及平台准入与定价权。",
-   "content": "OpenRouter 是聚合各家大模型 API 的中转平台，它的周榜被不少厂商当成营销素材。这篇文章点出一个关键问题：榜单的所有权在平台手里，冲榜证明的是获客能力而非模型实力；中国模型消耗了大量 Token，换回的营收份额却很小。对信息安全与管理专业的同学，这是一个典型的「平台准入权、定价权、情报权」案例，可以拿来分析第三方平台依赖带来的供应链风险。做安全合规或平台治理方向的课设时，这种「度量衡被别人掌握」的视角，比单纯讲技术漏洞更有深度。",
-   "source": "钛媒体",
-   "date": "2026-10-07",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**用真实平台案例理解「度量衡被第三方掌握」的供应链风险，写进安全课设很有说服力。**",
-   "courses": "对应《信息安全管理》《平台治理》，可作课设的案例分析素材",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "OpenRouter 榜单由平台掌握，冲榜≠模型实力",
-    "中国模型贡献大量 Token 但营收分成有限",
-    "涉及平台准入权、定价权、情报权三重风险",
-    "可作信息安全/平台治理课设的分析案例"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8160102.html"
   }
  ],
  "jobs": [
