@@ -1,6 +1,367 @@
 {
- "updatedAt": "2026-10-15 03:13",
+ "updatedAt": "2026-10-15 10:53",
  "news": [
+  {
+   "id": "a525",
+   "title": "手写 ReAct 还是用 LangChain？一篇讲清 Agent 框架选型",
+   "summary": "作者把 Agent 核心逻辑从 LangChain 里搬出来手写，复盘框架封装带来的可控性与调试成本。",
+   "content": "LangChain 用 @tool 注册工具、AgentExecutor 封装 ReAct 循环，两周的活两天能干完，这是它的价值。但作者发现：一旦要精细控制重试、上下文裁剪、工具调用顺序，框架的黑盒就开始反噬——报错栈深、状态难追踪、升级即破坏。文章给出判断标准：原型期用框架快速验证，进入需要可观测性和稳定交付的阶段，就把核心循环手写出来，框架只保留工具注册和模型适配层。对做课设和实习项目的同学，这是很实用的架构决策参考。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LangChain",
+    "ReAct"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**帮你判断什么时候该用框架、什么时候该自己写，少走架构弯路**",
+   "courses": "对应《软件工程》《人工智能导论》，课程项目做 Agent 时可直接套用这套分层思路",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "框架适合原型期快速验证，核心循环手写适合需要精细控制的阶段",
+    "黑盒封装会导致报错栈深、状态难追踪、升级破坏兼容",
+    "建议分层：框架管工具注册与模型适配，自己管循环与重试"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696450345804152847"
+  },
+  {
+   "id": "a526",
+   "title": "Agent 明明 LLM 调用很快，为什么整体还是慢？关键路径分析法",
+   "summary": "把 Agent 延迟拆到模型调用、工具执行、队列等待、任务调度四段，用 Trace 找关键路径。",
+   "content": "Agent 慢，往往不是模型慢。文章提出一套可复用的排查方法：先用 Trace 还原执行依赖图，区分关键路径与非关键路径；再给每段设延迟预算，做瓶颈映射；最后用受控测试逐项验证。典型结论是工具串行执行和队列等待经常才是大头，把可并行的工具调用并发化，收益远大于换更快的模型。这套方法对写后端、做性能优化的同学是通用技能，面试聊项目时也能讲出方法论而不是「感觉慢」。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Trace",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "求职准备/课设",
+   "value": "**教你用工程化方法定位 Agent 性能瓶颈，而不是靠猜**",
+   "courses": "对应《软件工程》《分布式系统》，性能优化实验和毕业设计可直接引用",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "延迟分散在模型调用、工具执行、队列等待、任务调度四段",
+    "用 Trace 还原依赖图，区分关键路径与非关键路径",
+    "给每段设延迟预算，优先并发化可并行的工具调用"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696505327531802634"
+  },
+  {
+   "id": "a527",
+   "title": "从手写 ReAct 到框架选型：AI Agent 开发完整实践",
+   "summary": "以真实业务场景为主线，从零手写 ReAct 循环，再对比主流框架的取舍。",
+   "content": "这篇是系列文章的开篇，用一个模拟业务场景贯穿始终：先不借助任何框架，手写 Thought-Action-Observation 循环，把 Agent 的最小内核跑通；再引入 AG2 等框架，对比工具注册、状态管理、多轮记忆的封装程度。对刚接触 Agent 的同学，先手写一遍能真正理解 ReAct 的每一步在干什么，之后用框架才不会「只会调 API 不懂原理」。建议配合课程设计边读边敲。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "ReAct",
+    "AG2"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**手写一遍 ReAct，比直接调框架更能建立 Agent 开发的底层认知**",
+   "courses": "对应《人工智能导论》《软件工程》，可作为课程设计选题起点",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "先手写 ReAct 循环理解 Thought-Action-Observation 内核",
+    "再对比 AG2 等框架在工具注册、状态管理上的封装",
+    "适合作为入门 Agent 开发的第一个动手项目"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696466781288726528"
+  },
+  {
+   "id": "a528",
+   "title": "用 MCP 给 AI Agent 安全访问内部 API：完整实战",
+   "summary": "freeCodeCamp 教程，用 MCP 协议让 Agent 安全调用内部 notes API，含权限边界设计。",
+   "content": "场景很真实：团队有个内部值班笔记 API，记录谁在值班、哪些天禁止发布、runbook 放哪。直接给 Agent 开 API Key 风险太大，教程用 MCP（Model Context Protocol）把访问封装成受控工具：只暴露必要的读接口、限制参数范围、加审计日志。这是目前企业落地 Agent 的主流做法，也是「Agent 怎么安全接系统」这个问题的标准答案。英文原文，但代码为主，读起来不吃力。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 3,
+   "scene": "求职准备/简历加分",
+   "value": "**掌握 MCP 安全接入，是 Agent 工程岗和安全的交叉加分项**",
+   "courses": "对应《信息安全技术》《软件工程》，安全方向的课程设计可直接参考",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "用 MCP 把内部 API 封装成受控工具，而非直接发 API Key",
+    "只暴露必要读接口、限制参数范围、加审计日志",
+    "企业级 Agent 落地的标准安全接入方式"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Give an AI Agent Safe Access to an Internal API with MCP",
+   "link": "https://www.freecodecamp.org/news/how-to-give-ai-agent-safe-access-internal-api-mcp/",
+   "cover": "img/a528.webp"
+  },
+  {
+   "id": "a529",
+   "title": "自研 AI 扫描器从漏洞检测打到 RCE 全过程",
+   "summary": "记录用自研 AI 扫描器在本地环境发现并确认 RCE 漏洞的完整流程，全程分钟级。",
+   "content": "作者把目标框架源码打包接入自研 AI 扫描器，从拿到代码到确认漏洞只用了分钟级。文章完整还原了发现流程：源码打包、权限获取、AI 辅助的漏洞模式识别、人工验证到 RCE 确认。全程在本地环境测试，不涉及真实外部系统。对信息安全专业的同学，这是一条很具体的「AI + 安全」技能路线——不是让 AI 替你打靶，而是把 AI 当扫描器的推理引擎，你负责验证和判断。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "求职准备/简历加分",
+   "value": "**展示「AI+安全」的实战路径，安全岗简历里很能打的项目经历**",
+   "courses": "对应《网络攻防》《信息安全技术》，渗透测试实验可延伸此思路",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "AI 扫描器作为推理引擎，人工负责漏洞验证与确认",
+    "完整流程：源码打包→权限获取→模式识别→RCE 确认",
+    "全程本地环境，可安全复现学习"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696461528958435371"
+  },
+  {
+   "id": "a530",
+   "title": "OpenCode 2.0 发布：让模型自己写脚本调度工具",
+   "summary": "AI 编程工具 OpenCode 2.0 大改版，新增常驻后台服务，支持模型写脚本调度工具链。",
+   "content": "OpenCode 2.0 号称吸收数百万日活用户经验，核心变化是从「客户端/服务器模型」真正落地为常驻后台服务，并支持模型自己写脚本去调度工具。对天天用 AI 编程的同学，这意味着 Agent 能更自主地组合命令行工具完成任务，而不是每次都要你手动喂上下文。值得花半小时升级体验，重点观察它在多步任务上的稳定性——这也是当前 AI 编程工具的真实分水岭。",
+   "source": "开源中国",
+   "date": "2026-10-15",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "OpenCode"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**升级你的 AI 编程工作流，体验模型自主调度工具的边界**",
+   "courses": "对应《软件工程》《程序设计》，日常编码和课程项目都能用",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "从客户端/服务器模型升级为常驻后台服务",
+    "支持模型写脚本自主调度工具链",
+    "重点观察多步任务的稳定性表现"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503031/opencode-2-0"
+  },
+  {
+   "id": "a531",
+   "title": "Anthropic 宣布弃用 Git？先别慌，看清 AI 编程工具链的变化",
+   "summary": "Anthropic 宣布弃用 Git 引发讨论，背后是 AI 编程时代版本控制与协作方式的重新设计。",
+   "content": "标题很炸，但值得冷静看：Anthropic 弃用的是自家内部工作流对 Git 的依赖，转向更适合 AI 生成代码的版本管理方式。对学生的实际影响是——Git 依然要学，它是团队协作和代码审查的基础；但要开始关注 AI 编程时代的新工具链，比如变更追溯、生成代码的审计与回滚。别被标题带节奏，也别完全无视，这代表一种趋势信号。",
+   "source": "爱范儿",
+   "date": "2026-10-14",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**别被标题带偏，但要知道 AI 正在重塑版本控制与协作流程**",
+   "courses": "对应《软件工程》，版本控制章节可结合此趋势讨论",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "弃用的是内部工作流对 Git 的依赖，不是 Git 本身被淘汰",
+    "Git 仍是团队协作与代码审查的基础，必须掌握",
+    "关注 AI 生成代码的审计、追溯与回滚等新需求"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1684269?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a531.webp"
+  },
+  {
+   "id": "a532",
+   "title": "微软致谢 23 个漏洞，背后是智谱 GLM 与一位白帽",
+   "summary": "微软一次性致谢 23 个漏洞，其中智谱 GLM 模型与一位顶级白帽参与发现。",
+   "content": "微软一口气致谢 23 个漏洞，参与方包括智谱 GLM 模型和一位顶级白帽。这条新闻的价值在于：AI 辅助漏洞挖掘已经从概念走向被大厂正式致谢的阶段。对信息安全专业的同学，这意味着「会用 AI 做漏洞挖掘」正在成为可写进简历的硬技能——前提是你懂漏洞原理，能判断 AI 给出的线索是真是假。纯靠 AI 扫是扫不出致谢名单的。",
+   "source": "InfoQ中文",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**AI+安全已进入大厂认可阶段，是安全方向值得押注的技能组合**",
+   "courses": "对应《网络攻防》《信息安全技术》，可结合漏洞挖掘实验展开",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "AI 辅助漏洞挖掘已被大厂正式致谢，进入实用阶段",
+    "会用 AI 挖洞正成为安全岗的可写简历技能",
+    "前提是懂漏洞原理，能验证 AI 给出的线索"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/JZZ6JSvRBq3R579uy8V3?utm_source=rss&utm_medium=article",
+   "cover": "img/a532.webp"
+  },
+  {
+   "id": "a533",
+   "title": "从 App 到 Agent：字节 Supabase 的 Agent-Native 规模化实践",
+   "summary": "QCon 上海分享，字节跳动 Supabase 团队讲 Agent-Native 架构如何规模化落地。",
+   "content": "字节跳动 Supabase 团队在 QCon 上海分享从 App 到 Agent 的架构演进：如何把传统应用改造成 Agent-Native 形态，并在规模化场景下解决状态管理、工具编排、成本控制问题。这类大厂架构分享对准备校招的同学价值很高——面试聊「你怎么理解 Agent 工程化」时，能讲出真实生产环境的取舍，比背概念强得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Supabase"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**大厂真实生产环境的 Agent 架构取舍，面试谈资含金量高**",
+   "courses": "对应《软件工程》《分布式系统》，架构设计课程可参考",
+   "tags": [
+    "通用开发",
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "讲 Agent-Native 架构的规模化落地实践",
+    "覆盖状态管理、工具编排、成本控制等工程问题",
+    "校招面试聊 Agent 工程化的高质量素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/kvzkXDXpKOXILlfirftW?utm_source=rss&utm_medium=article",
+   "cover": "img/a533.webp"
+  },
+  {
+   "id": "a534",
+   "title": "阶跃 Step 5 Preview 开源：600B 稀疏 MoE，面向长程 Agent",
+   "summary": "阶跃开放 Step 5 Preview 权重，600B 稀疏 MoE、百万 token 上下文，原生支持文本与视觉。",
+   "content": "阶跃把 Step 5 Preview 权重放出来了：稀疏 MoE 架构，总参 600B、每 token 只激活 27B，支持 100 万 token 上下文，原生支持文本和视觉输入，面向 AI 编程、软件工程等长程 Agent 任务。对想自己部署模型做实验的同学，这是难得的可下载大模型——但 600B 总参对显存要求极高，个人机器基本跑不动，更适合关注它的架构设计和长上下文处理思路，或走量化版本。",
+   "source": "开源中国",
+   "date": "2026-10-15",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MoE"
+   ],
+   "diff": 3,
+   "scene": "练手",
+   "value": "**了解长程 Agent 模型的前沿架构，但别指望个人机器跑得动**",
+   "courses": "对应《人工智能导论》《机器学习》，模型架构章节可作案例",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "600B 稀疏 MoE，每 token 仅激活 27B，支持百万 token 上下文",
+    "面向 AI 编程、软件工程等长程 Agent 任务",
+    "个人机器难直接部署，建议关注架构思路或量化版本"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503035/stepfun-ai-step-5-preview"
+  },
+  {
+   "id": "a535",
+   "title": "Agent 如何走向可靠交付与持续进化：从 Harness 到 Loop",
+   "summary": "InfoQ 文章讨论 Agent 从测试脚手架到持续进化闭环的工程化路径。",
+   "content": "文章梳理 Agent 工程化的两个阶段：Harness（测试脚手架，用固定用例验证 Agent 行为是否稳定）和 Loop（持续进化闭环，让 Agent 根据反馈迭代）。核心观点是 Agent 不能只靠「跑起来」，必须建立可回归的评测集和反馈机制。对做课程设计或实习项目的同学，这套思路能直接套用：先给你的 Agent 写测试用例，再谈优化。",
+   "source": "InfoQ中文",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**教你给 Agent 建评测集，让项目从「能跑」变成「可靠」**",
+   "courses": "对应《软件工程》《软件测试》，测试章节的现代应用案例",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Harness 阶段：用固定用例回归测试 Agent 行为稳定性",
+    "Loop 阶段：建立反馈机制让 Agent 持续迭代",
+    "先写评测集再谈优化，是 Agent 工程化的基本纪律"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/xKkEswgSftEcGrkK6oTY?utm_source=rss&utm_medium=article",
+   "cover": "img/a535.webp"
+  },
   {
    "id": "a519",
    "title": "PentAGI：开源全自主渗透测试多智能体系统，自带20+专业工具箱",
@@ -3855,390 +4216,6 @@
    "origTitle": "From Ghost to Guardrails: Building a Local-First AI Agent Runtime with Sandboxing, Memory, and Audit Trails",
    "link": "https://dev.to/tamizuddin/from-ghost-to-guardrails-building-a-local-first-ai-agent-runtime-with-sandboxing-memory-and-2dah",
    "cover": "img/a414.webp"
-  },
-  {
-   "id": "a415",
-   "title": "微软把 Windows 重定位为「Agent 的家」：本地跑小模型，云端跑大推理",
-   "summary": "微软发布《Building Windows for hybrid intelligence》，提出本地/云端混合的 Agent 中间层架构，并让沙箱机制转正，为 AI 应用提供系统级运行环境。",
-   "content": "这条不是消费电子新闻，而是平台级架构信号：Windows 正在把「本地小模型处理隐私任务、云端大模型处理长推理」做成系统能力，并提供沙箱作为 Agent 的标准运行环境。对开发者的实际影响是——未来 Windows 应用会多出一层 Agent 中间层 API，本地推理、文件访问、权限控制都有统一入口。软件工程和工业软件方向的同学值得关注：工业软件大量运行在 Windows 上，如果 Agent 能力下沉到系统层，桌面端工业软件的交互范式可能被改写。建议结合《操作系统》《软件工程》跟踪其 API 设计，作为技术选型的前瞻输入。",
-   "source": "开源中国",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Windows",
-    "AI Agent"
-   ],
-   "value": "**系统级 Agent 中间层会改变 Windows 桌面开发方式，工业软件方向同学应提前了解其 API 走向。**",
-   "courses": "对应《操作系统》《软件工程》，可作为技术选型与架构演进的分析素材。",
-   "tags": [
-    "行业动态",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "本地/云端混合推理：隐私任务本地跑，重推理上云",
-    "沙箱从实验特性转为系统级正式能力",
-    "Agent 中间层将成为 Windows 应用的新开发接口",
-    "工业软件大量基于 Windows，桌面端交互范式可能被重塑"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502895"
-  },
-  {
-   "id": "a416",
-   "title": "用 Rust 复刻掘金 Markdown 阅读体验：一个纯阅读器的实现思路",
-   "summary": "作者用 Rust 写了一个专注阅读的 Markdown 阅读器，解决「写和读体验割裂」的问题，文中分享了技术选型与渲染实现。",
-   "content": "痛点很真实：Markdown 写起来爽，读起来别扭，很多人靠复制到网页编辑器里看效果。作者用 Rust 做了个纯阅读器，重点在渲染质量和阅读体验。对软件工程同学，这是一个「小而完整」的项目范例：需求明确、技术栈清晰（Rust + Markdown 渲染）、可交付。如果你在准备简历项目，这类工具型作品比 CRUD 管理系统更能体现工程品味。可以借鉴的点：如何做 Markdown 渲染管线、如何处理代码高亮与主题、如何打包分发桌面应用。建议配合《程序设计》《软件工程》使用，作为个人项目的选题模板。",
-   "source": "掘金",
-   "date": "2026-10-08",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Markdown"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**工具型小项目是简历差异化的捷径，本文提供了从痛点发现到技术落地的完整示范。**",
-   "courses": "对应《程序设计》《软件工程》，可作为个人项目或课程设计的选题参考。",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "小而完整的工具型项目，适合作为简历作品",
-    "涉及 Markdown 解析与渲染管线设计",
-    "Rust 桌面应用的技术选型与打包思路可复用",
-    "比传统 CRUD 课设更能体现工程品味"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694182755944480831"
-  },
-  {
-   "id": "a417",
-   "title": "Cloudflare 详解从 WordPress 迁移到 EmDash 的全过程",
-   "summary": "Cloudflare 公开了将 WordPress 站点迁移到自研 EmDash 的完整工程实践，涉及数据迁移、性能与架构取舍。",
-   "content": "这是一篇典型的「大型系统迁移」复盘，价值在于方法论而非具体产品：如何评估迁移成本、如何做数据一致性校验、如何灰度切换、迁移后性能如何对比。软件工程专业的同学在《软件工程》《数据库原理》里学到的迁移与重构理论，在这里有真实工业案例对照。虽然多数人不会遇到 WordPress 迁移，但「遗留系统替换」是工业软件和企业级开发中的高频场景，面试时聊起这类工程权衡会很加分。建议重点看它的迁移步骤拆解和风险控制部分。",
-   "source": "InfoQ中文",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "WordPress"
-   ],
-   "value": "**遗留系统迁移是工业界刚需能力，这篇复盘提供了可直接套用的迁移方法论。**",
-   "courses": "对应《软件工程》《数据库原理》，用于理解真实项目中的迁移与重构流程。",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "大型系统迁移的完整工程方法论：评估、校验、灰度、对比",
-    "遗留系统替换是企业开发和工业软件的高频场景",
-    "可作为《软件工程》课程中重构与迁移章节的真实案例",
-    "面试中讨论工程权衡的优质素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/hGCTSjQKOsqqz0lVUgfx?utm_source=rss&utm_medium=article",
-   "cover": "img/a417.webp"
-  },
-  {
-   "id": "a407",
-   "title": "Docker 官方 Agent 工具发布：YAML 声明式定义、任意 MCP、OCI 镜像分发",
-   "summary": "Docker 推出官方 CLI 插件 Docker Agent，用 YAML 声明式配置定义 AI Agent，支持工具挂载、多 Agent 编排，并通过 OCI 镜像分发。",
-   "content": "Docker Desktop 4.63+ 装好后直接 `docker agent` 就能用，Homebrew 也能装。核心思路是把 Agent 当成一个可构建、可运行、可分享的制品：YAML 里写清楚模型、工具、MCP 服务，然后像分发镜像一样分发 Agent。对软件工程和工业软件方向的同学来说，这是把「AI 能力」纳入现有工程流水线的最短路径——你不需要学新框架，只要会写 YAML 和 Dockerfile。建议在课设里试一次：把某个课程项目的构建/测试脚本包成一个 Agent，用 YAML 声明它能调哪些工具，再 push 到 registry 分享给同学。信息安全方向可以顺带研究 MCP 工具的权限边界问题。",
-   "source": "开源中国",
-   "date": "2026-10-08",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Docker",
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用你已经会的 Docker 和 YAML 就能定义、运行、分享 AI Agent，是把 AI 接入工程流水线的最低门槛入口。**",
-   "courses": "《软件工程》《云计算/容器技术》：把课设项目的构建测试流程封装成 Agent，作为课程设计加分项。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "Docker 官方 CLI 插件，`docker agent` 直接可用，需 Docker Desktop 4.63+",
-    "YAML 声明式定义 Agent，支持工具、多 Agent 编排、任意 MCP",
-    "Agent 以 OCI 镜像形式分发，可复用现有容器生态",
-    "适合把 AI 能力接入已有工程流水线，学习成本低"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502889"
-  },
-  {
-   "id": "a408",
-   "title": "谷歌用 AI + 差分模糊测试把 C 语言依赖库改写为 Rust",
-   "summary": "谷歌借助 AI 与差分模糊测试，将 C 语言依赖库迁移到 Rust，用测试对拍保证行为一致。",
-   "content": "这条对工业软件方向特别有价值：大量工业软件底层是 C/C++ 老库，内存安全问题多，但重写风险极高。谷歌的做法是「AI 翻译 + 差分模糊测试验证」——同一组输入分别喂给 C 原版和 Rust 新版，比对输出是否一致，不一致就说明改写有问题。这套方法论可以直接搬进你的课程项目：如果你在做一个 C 语言的课设，可以尝试用 AI 把某个模块翻成 Rust，再写一组对拍测试。信息安全方向更该关注：内存安全漏洞（缓冲区溢出、UAF）是 C 系代码的长期痛点，Rust 迁移是当前业界主流缓解路线。",
-   "source": "InfoQ中文",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "Rust",
-    "C"
-   ],
-   "value": "**学会「AI 改写 + 差分测试验证」这套组合拳，你就掌握了老代码现代化改造的可信方法论。**",
-   "courses": "《程序设计基础（C）》《软件测试》：用差分测试思想给课设代码写对拍验证。",
-   "tags": [
-    "工业软件",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "AI 负责代码翻译，差分模糊测试负责验证行为一致性",
-    "差分测试思路：同输入喂新旧两版，比对输出",
-    "针对 C/C++ 内存安全问题，Rust 迁移是业界主流路线",
-    "方法论可迁移到自己的课设：AI 改写 + 对拍测试"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/LVsjSV4pIlh3Liz0KZZE?utm_source=rss&utm_medium=article",
-   "cover": "img/a408.webp"
-  },
-  {
-   "id": "a409",
-   "title": "SwarmReconGuard：检测分布式 Agent 侦察攻击",
-   "summary": "自主 Agent 带来新的侦察威胁模型——攻击者把系统探测分散到成百上千个身份上，每个请求都合法、低频，但整体在拼凑攻击面。",
-   "content": "这是信息安全与管理专业值得认真读的一篇。传统入侵检测看的是「单个 IP 高频扫描」，但 Agent 时代攻击者可以租用大量 Agent 身份，每个只发一两次请求，速率低、认证合法，单点看完全正常，只有把整个群体的行为聚合起来才能看出是在做系统测绘。文章给出的是检测思路：跨身份的行为关联与群体级异常检测。对你的直接用处：做安全课设或毕业设计时，「基于行为聚合的异常检测」是个有真实威胁模型支撑的选题，比泛泛的「IDS 实现」有说服力得多。",
-   "source": "DEV Community",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**「分布式低频侦察」是 Agent 时代的新攻击面，理解它能让你的安全课设选题从泛泛而谈变成有真实威胁模型支撑。**",
-   "courses": "《网络安全》《入侵检测》：作为课设选题方向，实现群体级行为聚合检测。",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "新威胁模型：侦察行为分散到大量合法身份，单点检测失效",
-    "检测思路是跨身份行为关联 + 群体级异常聚合",
-    "适合作为安全方向课设/毕设选题：有真实威胁模型支撑",
-    "涉及日志聚合、行为基线、异常检测等可落地技术点"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "SwarmReconGuard: Detecting Distributed Agent Reconnaissance",
-   "link": "https://dev.to/mech_app_ai/swarmreconguard-detecting-distributed-agent-reconnaissance-4p52",
-   "cover": "img/a409.webp"
-  },
-  {
-   "id": "a410",
-   "title": "ts-rust：用 LLM 把 TypeScript 编译器、类型检查器和 LSP 移植到 Rust",
-   "summary": "有人用 LLM 把 TypeScript 的编译器、类型检查器和语言服务器整体移植到 Rust，项目已开源在 GitHub。",
-   "content": "前端方向的同学值得点进去看。TypeScript 编译器（tsc）是前端工具链里最重的部分之一，用 Go/Rust 重写以提速是近两年的明确趋势（参考 tsgo）。这个项目更进一步：整个移植过程由 LLM 完成。不管最终质量如何，它至少说明一件事——「用 AI 做大规模代码迁移」已经从论文走进了真实仓库。对你的用处有两层：一是了解前端工具链正在被重写，面试聊到构建性能时有话可说；二是可以拿它当案例，研究 LLM 做跨语言迁移时哪些地方容易出错（类型系统、边界条件、性能语义），这正是软件工程课上讲的「可维护性」的现实版本。",
-   "source": "Hacker News",
-   "date": "2026-10-08",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "TypeScript"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**看懂「前端工具链正在被系统语言重写」这条趋势线，你在面试聊构建性能时就不是只会背 webpack 配置。**",
-   "courses": "《编译原理》《Web 前端开发》：结合编译原理课理解类型检查器与 LSP 的实现。",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "TypeScript 编译器/类型检查器/LSP 被 LLM 整体移植到 Rust",
-    "反映前端工具链「用系统语言重写提速」的明确趋势",
-    "可作为研究 LLM 跨语言代码迁移失败模式的真实案例",
-    "面试聊构建性能、工具链演进时可作为谈资"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Port of the TypeScript compiler, checker and lsp to Rust, by LLM",
-   "link": "https://github.com/pingdotgg/ts-rust",
-   "cover": "img/a410.webp"
-  },
-  {
-   "id": "a411",
-   "title": "Libra：面向 Agent 的 AI 原生版本控制系统，兼容 Git 并记录「怎么做的」",
-   "summary": "Libra 是兼容 Git 的 AI 原生版本控制系统，除了代码历史，还记录工作是如何完成的，并把这份记忆存在仓库里。",
-   "content": "Git 记录的是「代码变成了什么样」，但记录不了「为什么这么改、当时问了 AI 什么、试了哪几条路」。Libra 想补上这一层：兼容 Git，同时把 Agent 的创作过程（提示、决策、尝试路径）一并存进仓库。对软件工程专业的学生，这直接关联到两个现实问题：一是团队协作时，AI 生成的代码如何追溯责任与意图；二是课程项目里，如何向老师证明「这部分是我设计的，不是 AI 一把梭的」。建议做法：在下一个课设里试着记录你的 AI 交互过程（哪怕是手动记 markdown），这本身就是很好的工程习惯，也能在答辩时讲清楚设计决策。",
-   "source": "开源中国",
-   "date": "2026-10-08",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Git"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「AI 怎么帮你写的」也纳入版本管理，答辩时你能讲清楚每个设计决策的来龙去脉。**",
-   "courses": "《软件工程》《软件配置管理》：结合 Git 课程理解版本控制从「代码历史」到「创作历史」的扩展。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "兼容 Git，额外记录 Agent 的工作过程与决策路径",
-    "解决「AI 生成代码如何追溯意图与责任」的问题",
-    "课设答辩时可用于说明设计决策来源，而非只展示结果",
-    "可先用 markdown 手动记录 AI 交互过程作为轻量替代"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/p/libra-vcs"
-  },
-  {
-   "id": "a412",
-   "title": "SuperMap iClient-JavaScript：基于 Leaflet/OpenLayers/MapboxGL 的 GIS Web 客户端",
-   "summary": "SuperMap 开源的现代 GIS Web 客户端，基于 Leaflet、OpenLayers、MapboxGL-JS，并集成 ECharts、D3、MapV 等可视化库。",
-   "content": "这是国产 GIS 厂商 SuperMap 的前端地图库，908 星、近期仍在更新。为什么值得软件工程和工业软件方向关注：GIS 是工业软件里少见的「前端技术栈直接对口」的领域——智慧城市、电力管网、物流调度、应急指挥这些系统，前端几乎都靠这类地图库渲染。它同时支持 Leaflet、OpenLayers、MapboxGL 三套底层，意味着你学一套 API 就能覆盖多种地图引擎。建议用法：找一个开源地图数据（如 GeoJSON 格式的广州路网），用 iClient 做一个带图层切换和热力图的课设 demo，比纯 CRUD 项目在简历上更有辨识度。",
-   "source": "GitHub",
-   "date": "2026-10-08",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "工业软件"
-   ],
-   "stack": [
-    "JavaScript",
-    "Leaflet"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**想进智慧城市、电力、物流这类工业软件公司，一个能跑的地图可视化 demo 比十个 CRUD 项目都管用。**",
-   "courses": "《Web 前端开发》《GIS 原理》：用 iClient 完成地图图层与空间数据可视化课设。",
-   "tags": [
-    "前端开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "国产 GIS 前端库，同时支持 Leaflet/OpenLayers/MapboxGL 三种引擎",
-    "集成 ECharts、D3、MapV，可视化能力开箱可用",
-    "GIS 是工业软件中前端技术栈直接对口的典型领域",
-    "用 GeoJSON 数据做地图可视化课设，简历辨识度高"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "SuperMap/iClient-JavaScript",
-   "link": "https://github.com/SuperMap/iClient-JavaScript",
-   "cover": "img/a412.webp"
-  },
-  {
-   "id": "a401",
-   "title": "TypeScript 编译成原生程序实测：启动快 12 倍，运行慢 7.5 倍，值不值得用？",
-   "summary": "TypeScript 现在可以编译为原生可执行程序，冷启动速度提升约 12 倍，但运行时性能下降约 7.5 倍。文章给出了具体基准测试与适用边界。",
-   "content": "对前端和全栈同学来说，这条值得花 10 分钟读：它回答了一个很实际的问题——什么时候该把 TS 编译成原生程序。结论很清晰：CLI 工具、冷启动敏感的 Serverless 函数、构建脚本这类「跑一次就退出」的场景收益巨大；而长时间运行、计算密集的服务端逻辑反而会变慢。建议你在自己的课设或小工具里做一次对照实验：同一份 TS 代码分别用 Node 直跑和原生编译跑，记录启动耗时和循环计算耗时，把数据写进实验报告或简历项目描述里，比空谈「了解编译原理」有说服力得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-08",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript",
-    "Node.js"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**教你判断 TS 原生编译该用在哪，并给出可复现的基准测试方法**",
-   "courses": "《Web 前端开发》《编译原理》——把编译产物性能差异做成课程实验对比数据",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "TS 可编译为原生程序，冷启动快约 12 倍",
-    "长时运行场景性能下降约 7.5 倍，需按场景选型",
-    "适合 CLI、Serverless、构建脚本，不适合计算密集服务",
-    "建议自己跑一次基准测试，数据可写进简历"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/BchL2TVhSF2dwyrCogVO?utm_source=rss&utm_medium=article",
-   "cover": "img/a401.webp"
-  },
-  {
-   "id": "a402",
-   "title": "Apollo 3.0 转向 Agent First：配置中心开始给 AI Agent 开权限，安全边界怎么划？",
-   "summary": "Apollo 3.0 提出面向 Agent 的配置管理，让 AI 能读取、修改、发布和回滚配置，同时强调权限与敏感配置的隔离设计。",
-   "content": "这条对信息安全与软件工程两个方向都有用。背景是：Agent 已经进入编码、测试、运维流程，自然也要读写配置。但配置中心连着生产环境，还可能存着数据库密码、密钥，直接开放给 Agent 等于把生产控制权交出去。Apollo 3.0 的思路是给 Agent 单独设计权限模型、操作审计和回滚机制。你可以把它当成一个现成的课程设计题目：在《信息安全》课上做一份「Agent 访问配置中心的威胁建模」，列出越权读取、误改配置、回滚失败三类风险和对策；或者用 Apollo 搭个本地环境，实测一次 Agent 改配置的完整链路。",
-   "source": "开源中国",
-   "date": "2026-10-08",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "Java"
-   ],
-   "stack": [
-    "Apollo"
-   ],
-   "value": "**理解 Agent 接入生产系统时的权限与审计设计，是安全方向的高频面试题**",
-   "courses": "《信息安全技术》《软件体系结构》——用于威胁建模作业或配置中心权限设计案例",
-   "tags": [
-    "信息安全",
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "Apollo 3.0 让 Agent 参与配置读取、修改、发布、回滚",
-    "核心矛盾：Agent 需要权限，但配置含生产控制与敏感信息",
-    "涉及权限模型、审计日志、回滚机制三类设计",
-    "可做威胁建模课设或本地环境实测"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502867"
   }
  ],
  "jobs": [
