@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-14 14:57",
+ "updatedAt": "2026-10-15 03:13",
  "news": [
   {
    "id": "a519",
@@ -25,7 +25,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "开源可自托管，支持Docker本地部署，接入自有LLM API",
