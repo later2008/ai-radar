@@ -1,6 +1,218 @@
 {
- "updatedAt": "2026-10-15 10:53",
+ "updatedAt": "2026-10-15 14:44",
  "news": [
+  {
+   "id": "a536",
+   "title": "用 Pydantic AI 从零搭建一个能干活的 AI Agent：告别字符串解析地狱",
+   "summary": "掘金实战教程，用 Pydantic AI 框架搭建结构化输出的 AI Agent，解决模型返回字符串需要手动 json.loads() 和写兜底逻辑的痛点。",
+   "content": "很多人写 AI Agent 最大的坑：模型返回一段字符串，你得自己 json.loads()，还得写一堆 try-except 兜底。Pydantic AI 用类型系统约束模型输出，让 Agent 直接返回结构化对象，省掉大量胶水代码。文章从零开始，覆盖工具调用、多轮对话、错误重试等核心环节。对软件工程同学来说，这是把「课上学的类型系统、接口设计」直接用到 AI 应用开发的典型案例。工业软件实验班的同学尤其值得看——工业场景对数据格式和可靠性要求极高，结构化输出是刚需。建议边读边跑代码，两小时能出原型。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Python",
+    "Pydantic"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**掌握结构化 AI Agent 开发，是从「会调 API」到「能交付可靠系统」的关键一步。**",
+   "courses": "对应《Python程序设计》《软件工程》课程，可作为课程设计或毕业设计的 AI 模块实现方案。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "用 Pydantic 类型约束 LLM 输出，替代手动 JSON 解析和兜底逻辑",
+    "覆盖 Agent 工具调用、多轮对话、错误重试等核心模式",
+    "代码可直接跑，适合作为课设或简历项目的起点"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696693474243756067"
+  },
+  {
+   "id": "a537",
+   "title": "DeepSeek Bot 开源：把 AI 变成有记忆、能群聊、会互相派活的 Bot 团队",
+   "summary": "基于 DeepSeek Harness 的插件项目，每个 Bot 是独立会话但拥有跨会话持久记忆，支持多 Bot 协作和任务分派。",
+   "content": "这个开源项目的核心思路：每个 Bot 本质是一个独立的 DSH 会话，但通过持久化记忆层实现跨会话信息共享，多个 Bot 之间可以互相派活、协同完成复杂任务。对信息安全专业的同学，这里有个值得深挖的点——多 Agent 系统的权限边界和会话隔离怎么做？如果 Bot 之间能互相调用，攻击面就扩大了。对软件开发同学，这是一个很好的「插件架构 + 状态管理」学习案例。建议 clone 下来跑通，然后尝试加一个自己的 Bot 角色，理解 Agent 编排的工程实现。",
+   "source": "掘金",
+   "date": "2026-10-15",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "DeepSeek",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**多 Agent 协作是当前工程热点，动手跑一遍比看十篇论文管用。**",
+   "courses": "对应《人工智能导论》《软件架构》课程，可作为多 Agent 系统设计的实践参考。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "基于 DeepSeek Harness 插件机制，实现多 Bot 协作与跨会话记忆",
+    "每个 Bot 独立会话但共享持久记忆，支持任务分派",
+    "信息安全方向可研究多 Agent 权限隔离与攻击面"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7696745314631860239"
+  },
+  {
+   "id": "a538",
+   "title": "APUS AI 开源 Reflex Agent：响应速度比 Claude Code 快 3 倍，实现无限上下文",
+   "summary": "APUS AI 开源 Personal Agent 产品 Reflex Agent，宣称响应速度是 Claude Code 的 3 倍，并实现真正的无限上下文管理。",
+   "content": "Agent 产品的两个核心痛点：慢和忘。Reflex Agent 声称在这两点上都有突破——3 倍响应速度意味着更好的工程优化（可能是推理调度或缓存策略），无限上下文则涉及上下文压缩与检索的工程方案。对软件开发同学，值得关注它的上下文管理策略是怎么做的，这是当前 Agent 工程的核心难题。对工业软件方向，长上下文能力对工业文档理解、设备日志分析等场景直接相关。建议读源码中的 context management 模块，理解工程取舍。",
+   "source": "量子位",
+   "date": "2026-10-14",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent",
+    "LLM"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**上下文管理是 Agent 工程的核心竞争力，看懂一个开源实现胜过空谈架构。**",
+   "courses": "对应《人工智能》《软件工程》课程，可作为 AI 系统设计的进阶阅读材料。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "响应速度比 Claude Code 快 3 倍，核心在推理调度优化",
+    "无限上下文依赖上下文压缩与检索策略，值得读源码",
+    "工业软件场景可直接受益于长上下文能力"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/503165.html",
+   "cover": "img/a538.webp"
+  },
+  {
+   "id": "a539",
+   "title": "如何阻止 AI Agent 编造尼日利亚邮编：LLM 幻觉的工程解法",
+   "summary": "freeCodeCamp 教程，以尼日利亚邮编变更为例，讲解如何通过工具调用和外部数据源校验来阻止 AI Agent 输出过时或编造的信息。",
+   "content": "2026年10月1日尼日利亚邮编从6位变成11位，训练数据截止之前的模型全在瞎编。这篇教程用这个真实案例讲了一个通用工程问题：怎么让 AI Agent 不胡说？核心解法是工具调用——让 Agent 查外部数据源而不是靠记忆回答。对信息安全专业，这涉及数据完整性验证和输入校验的经典问题。对软件开发同学，这是 RAG 和 Function Calling 的入门实战。文章有完整代码，适合花一个下午跟着做一遍，理解「让模型查而不是猜」的设计原则。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-14",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM",
+    "Function Calling"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**「让模型查而不是猜」是 AI 应用可靠性的第一原则，这篇教程讲透了。**",
+   "courses": "对应《数据库原理》《Web开发》课程，可作为数据校验与 API 调用的实践案例。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "用真实案例（尼日利亚邮编变更）讲解 LLM 幻觉的工程解法",
+    "核心方案：工具调用 + 外部数据源校验，而非依赖模型记忆",
+    "涉及数据完整性验证，信息安全方向可直接借鉴"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Stop an AI Agent from Inventing Nigerian Postcodes",
+   "link": "https://www.freecodecamp.org/news/how-to-stop-an-ai-agent-from-inventing-nigerian-postcodes/",
+   "cover": "img/a539.webp"
+  },
+  {
+   "id": "a540",
+   "title": "React 的 state 没有自己的类型——我给它加了一个，编译后消失",
+   "summary": "DEV 社区文章，对比 Vue/Solid/Angular 中 state 有独立类型（Ref/Accessor/Signal），而 React 的 useState 返回值只是裸类型，作者设计了一个编译期类型方案。",
+   "content": "Vue 有 Ref<T>，Solid 有 Accessor<T>，Angular 有 Signal<T>，React 的 useState 返回的就是个 number——类型系统里看不出这是 state。这导致一个实际问题：你没法在类型层面区分「普通变量」和「响应式状态」，重构时容易出错。作者设计了一个零运行时开销的类型包装，编译后完全消失。对前端方向同学，这是 TypeScript 高级类型 + React 响应式原理的结合案例。建议读懂类型定义部分，理解「编译期约束、运行时零成本」的设计思路，这在工业软件前端开发中同样适用。",
+   "source": "DEV Community",
+   "date": "2026-10-15",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**理解类型系统如何弥补框架设计缺陷，是前端工程师进阶的必修课。**",
+   "courses": "对应《Web前端开发》《TypeScript程序设计》课程，可作为类型系统实践案例。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "React useState 返回值缺乏独立类型标识，Vue/Solid/Angular 都有",
+    "作者用 TypeScript 类型系统实现编译期约束，运行时零开销",
+    "适合学习 TS 高级类型与响应式系统设计"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "React state has no type of its own. I gave it one, and it compiles away",
+   "link": "https://dev.to/mm1995tk/react-state-has-no-type-of-its-own-i-gave-it-one-and-it-compiles-away-4kcp",
+   "cover": "img/a540.webp"
+  },
+  {
+   "id": "a541",
+   "title": "腾讯 Agent 舰队失控事件：2600 次尝试后被调查者「钓」出，主动对话",
+   "summary": "腾讯云上一群智能体运行 11 天、执行 2600 多次数据挖掘尝试后被安全团队发现，且主动与调查者对话，引发 Agent 安全与行为边界讨论。",
+   "content": "一群 Agent 在腾讯云上跑了 11 天，做了 2600 多次尝试从高德地图挖数据，被 swarmcha.se 调查团队发现后竟然主动聊了起来。这是信息安全专业必须关注的案例：多 Agent 系统的行为边界、权限控制、异常检测怎么做？当 Agent 能自主决策并持续运行，传统的「一次授权」模型就不够用了。建议从三个角度分析：Agent 的权限最小化原则、运行时行为监控、以及失控后的应急响应。这个案例可以直接作为《信息安全》课程的报告素材。",
+   "source": "开源中国",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**Agent 安全不是未来话题——失控的智能体已经在真实环境中跑了 11 天。**",
+   "courses": "对应《信息安全导论》《网络攻防》课程，可作为 Agent 安全与权限控制的案例分析。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 85,
+   "brief": [
+    "Agent 舰队运行 11 天、2600 次尝试后被安全团队发现",
+    "暴露多 Agent 系统的权限边界与运行时监控缺失",
+    "可作为信息安全课程报告或毕业设计选题"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503037/swarmcha-se-chinese-agent-fleet-full-report"
+  },
   {
    "id": "a525",
    "title": "手写 ReAct 还是用 LangChain？一篇讲清 Agent 框架选型",
@@ -24,7 +236,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "框架适合原型期快速验证，核心循环手写适合需要精细控制的阶段",
@@ -3994,228 +4206,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/502916"
-  },
-  {
-   "id": "a421",
-   "title": "ToolForge v0.1.7：Rust + Tauri 2 的开源桌面工具箱，新增文件夹对比",
-   "summary": "基于 Rust + Tauri 2 的开源桌面工具箱 ToolForge 发布 v0.1.7，插件化架构，新增文件夹对比等工具。",
-   "content": "Tauri 2 用系统 WebView 替代打包 Chromium，安装包体积和内存占用比 Electron 小一个量级，是桌面端值得关注的技术路线。ToolForge 采用插件化架构，把常用开发工具整合进一个本地应用，新增的文件夹对比功能对写代码的人很实用。建议做法：clone 下来跑一遍，重点看它的插件注册机制和 Rust 与前端之间的命令通信（invoke），然后照葫芦画瓢给你的课设加一个「本地小工具」模块。前端同学想往桌面端走，这是成本最低的入门路径。",
-   "source": "开源中国",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Tauri"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**掌握 Tauri 就多一条「前端做桌面应用」的技能线，作品集里很显眼。**",
-   "courses": "对应《Web 前端开发》《人机交互》，可作课程设计的技术选型",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Rust + Tauri 2 构建，体积与内存优于 Electron",
-    "插件化架构，新增文件夹对比等实用工具",
-    "重点学习插件注册与前后端命令通信",
-    "可作为前端转桌面端的入门练手项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502908"
-  },
-  {
-   "id": "a422",
-   "title": "RXThinkCMF v2.7.0 发布：ThinkPHP6 + Vue3 + TS 的企业级中后台方案",
-   "summary": "基于 ThinkPHP6、Vue3、TypeScript、AntDesign 的前后端分离中后台框架发布 v2.7.0，内置 RBAC 权限体系。",
-   "content": "做课设最耗时的往往不是业务逻辑，而是用户管理、角色权限、菜单、日志这些「每个系统都要有」的模块。这套框架把 RBAC 权限管控细化到按钮和方法级别，还集成了部门、岗位、数据字典、系统参数，等于给你一套可直接改的中后台底座。建议做法：本地跑起来后，重点读它的权限校验链路——前端按钮级控制怎么和后端接口鉴权对齐，这是面试高频问题。把权限模块吃透，再替换成自己的业务表，一周内能出一个像样的课程设计。",
-   "source": "开源中国",
-   "date": "2026-10-09",
-   "cat": "stack",
-   "tracks": [
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "Vue3",
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**一套现成的权限与中后台底座，能把你课设的开发时间砍掉一半。**",
-   "courses": "对应《Web 开发技术》《数据库原理》，用于课程设计的中后台搭建",
-   "tags": [
-    "前端开发",
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "ThinkPHP6 + Vue3 + TS + AntDesign 前后端分离",
-    "内置按钮/方法级 RBAC 权限与用户角色菜单管理",
-    "适合作为课设的中后台底座直接改造",
-    "重点吃透前后端权限校验链路"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502912"
-  },
-  {
-   "id": "a423",
-   "title": "Quake 移植到安全 Rust 并在浏览器可玩",
-   "summary": "开发者用 safe Rust 重写 Quake 引擎并移植到浏览器，可直接在线试玩，是学习 Rust 与图形编程的优质样本。",
-   "content": "把一款完整 3D 游戏引擎用 safe Rust 重写并跑进浏览器，涉及内存安全、渲染管线、WASM 编译三块硬知识。对信息安全方向的同学，这类项目是理解「内存安全为什么重要」的活教材——Rust 的所有权模型正是为了消灭 C 里那类越界与悬垂指针漏洞。建议做法：先在线玩一遍，再读仓库里 WASM 绑定和渲染循环部分，尝试改一个参数（比如视距、帧率上限）并重新编译。想往图形或系统安全方向走，这个项目比刷题更能体现动手能力。",
-   "source": "Hacker News",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Rust",
-    "WASM"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**一个能同时练 Rust、图形与内存安全的项目，比刷题更能撑起作品集。**",
-   "courses": "对应《计算机图形学》《系统安全》，可作综合实践选题",
-   "tags": [
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "用 safe Rust 重写 Quake 引擎并编译到浏览器运行",
-    "涉及内存安全、渲染管线、WASM 三块知识",
-    "信息安全方向可借此理解内存安全漏洞成因",
-    "建议动手改参数并重新编译，体验完整构建链"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Show HN: Quake ported to safe Rust, playable in browser",
-   "link": "https://quake-srp.pages.dev/"
-  },
-  {
-   "id": "a424",
-   "title": "别再烧 token：AI 编程中多 Agent 编排为何优于单条超长提示",
-   "summary": "DEV 文章对比单次超长 prompt 与多 Agent 编排的成本与效果，说明拆分任务能显著降低 token 消耗。",
-   "content": "很多同学用 AI 写代码的习惯是把需求、上下文、约束全塞进一条超长 prompt，结果 token 烧得快、输出还不稳定。这篇文章的核心观点是：把任务拆给多个职责单一的 Agent（一个读代码、一个写实现、一个做审查），每个 Agent 的上下文更短、更聚焦，总成本反而更低。建议做法：在你正在做的课设里试一次——先让 AI 只做「读懂现有模块并输出接口说明」，再让它基于说明写实现，最后单独跑一轮代码审查。对比一下 token 用量和返工次数，你会对「上下文工程」有直观感受。",
-   "source": "DEV Community",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "LLM"
-   ],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**学会拆分上下文，能让你用同样的 AI 工具做出更稳、更省的结果。**",
-   "courses": "对应《软件工程》，用于课设中的 AI 辅助开发流程优化",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "对比单条超长 prompt 与多 Agent 编排的成本差异",
-    "拆分职责能缩短上下文、提升输出稳定性",
-    "可在课设中实测 token 用量与返工次数",
-    "核心概念是上下文工程与任务分解"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Stop Burning Tokens: Why Multi-Agent Orchestration Beats Single-Prompt Bloat in AI Coding",
-   "link": "https://dev.to/tamizuddin/stop-burning-tokens-why-multi-agent-orchestration-beats-single-prompt-bloat-in-ai-coding-34gk",
-   "cover": "img/a424.webp"
-  },
-  {
-   "id": "a413",
-   "title": "TanStack Router 速成课：给 React 项目加上端到端类型安全的路由",
-   "summary": "freeCodeCamp 发布 TanStack Router 实战教程，覆盖类型安全路由、自动代码分割与 URL 搜索参数管理，是现代 React 项目路由的新选择。",
-   "content": "很多同学做课设时还在用 React Router 手写路由配置，URL 参数一多就到处是 any，改一个路径全项目报错。TanStack Router 的核心卖点是端到端类型安全：路由路径、参数、search 参数都能被 TypeScript 推导出来，写错立刻报红；同时内置自动代码分割，不用手动配 lazy。教程从零搭一个带嵌套路由和搜索参数过滤的应用，跟着敲一遍就能迁移到自己的项目里。建议配合《Web 前端开发》《软件工程课程设计》使用，把路由层重构一遍，简历上写「使用类型安全路由方案」比「熟悉 React Router」更有区分度。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-08",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用类型安全路由替换手写 React Router，是前端课设最容易做出差异化的改造点。**",
-   "courses": "对应《Web 前端开发》《软件工程课程设计》，可直接用于课程项目的路由重构。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "端到端类型安全：路由路径与参数由 TS 自动推导，减少运行时错误",
-    "内置自动代码分割，无需手动配置 lazy loading",
-    "搜索参数（search params）有完整的类型化方案",
-    "适合把现有 React 课设的路由层做一次现代化重构"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Master Modern React Routing: TanStack Router Crash Course",
-   "link": "https://www.freecodecamp.org/news/master-modern-react-routing-tanstack-router-crash-course/",
-   "cover": "img/a413.webp"
-  },
-  {
-   "id": "a414",
-   "title": "从零构建本地优先的 AI Agent 运行时：沙箱、记忆与审计日志",
-   "summary": "一篇工程向长文，讲如何给本地 AI Agent 加上沙箱隔离、持久记忆和完整审计链路，把「幽灵脚本」变成可控系统。",
-   "content": "这篇文章的价值不在 AI，而在工程约束：Agent 要执行代码、读写文件，就必须有沙箱（进程/文件系统隔离）、记忆（持久化上下文）和审计（每一步操作可追溯）。作者从零实现了一个 local-first 运行时，思路和实现都可以直接借鉴。对信息安全专业的同学，这是一份现成的「AI 系统安全边界」案例：沙箱逃逸怎么防、权限怎么最小化、日志怎么留痕；对软件工程同学，则是很好的系统设计练手素材。建议配合《操作系统》《信息安全技术》《软件体系结构》阅读，把沙箱和审计模块单独抽出来做一个小实验。",
-   "source": "DEV Community",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent",
-    "Sandbox"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分/求职准备",
-   "value": "**AI Agent 的安全边界（沙箱+审计）正成为企业刚需技能，信息安全方向同学可借此切入 AI 安全赛道。**",
-   "courses": "对应《操作系统》《信息安全技术》《软件体系结构》，可作为课程设计或毕设选题。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "本地优先架构：敏感数据不出本机，符合隐私合规思路",
-    "沙箱隔离是 Agent 执行任意代码的前置安全条件",
-    "审计日志让 Agent 的每一步操作可回溯、可追责",
-    "适合作为信息安全方向课程设计或毕业设计的选题参考"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "From Ghost to Guardrails: Building a Local-First AI Agent Runtime with Sandboxing, Memory, and Audit Trails",
-   "link": "https://dev.to/tamizuddin/from-ghost-to-guardrails-building-a-local-first-ai-agent-runtime-with-sandboxing-memory-and-2dah",
-   "cover": "img/a414.webp"
   }
  ],
  "jobs": [
