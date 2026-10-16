@@ -1,6 +1,151 @@
 {
- "updatedAt": "2026-10-16 10:42",
+ "updatedAt": "2026-10-16 14:36",
  "news": [
+  {
+   "id": "a551",
+   "title": "Spring Boot 3 + Kafka 实战：生产者、消费者、重试与死信队列",
+   "summary": "大多数 Kafka 教程只讲「发消息-收消息」的顺利路径，而真正难的是消费者处理失败时怎么办。本文系统讲解 Spring Boot 3 事件驱动微服务中的重试机制与死信主题（DLT）配置。",
+   "content": "如果你正在学《Java Web 开发》或做微服务课设，Kafka 的「快乐路径」很容易跑通，但面试官和真实生产环境更关心：一条坏消息卡住整个分区怎么办？这篇文章从 Spring Boot 3 出发，手把手配置 @KafkaListener 的 errorHandler、DefaultErrorHandler 的退避重试策略，以及 @DltHandler 把无法处理的消息路由到死信主题。建议你本地用 Docker 起一个 Kafka，把文中的重试次数、退避间隔改成不同值，观察日志里消息如何从主 topic 流向 DLT。这套「重试+死信」模式是分布式系统的通用套路，写进简历的微服务项目里会显得很扎实。",
+   "source": "DEV Community",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Kafka"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**掌握 Kafka 重试与死信队列，让你的微服务项目从「能跑」升级到「扛得住」**",
+   "courses": "对应《Java Web 开发》《分布式系统》，可把课设的订单/消息模块改造成带 DLT 的可靠消费链路",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Spring Boot 3 中配置 Kafka 消费者的重试与退避策略",
+    "用 @DltHandler 实现死信主题，避免坏消息阻塞分区",
+    "本地 Docker 起 Kafka 即可复现全部代码",
+    "重试+死信是分布式系统通用模式，适合写进简历"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Event-driven Spring Boot 3 microservices with Kafka: producers, consumers, retries and dead-letter topics",
+   "link": "https://dev.to/someswarduddi/event-driven-spring-boot-3-microservices-with-kafka-producers-consumers-retries-and-dead-letter-26ek",
+   "cover": "img/a551.webp"
+  },
+  {
+   "id": "a552",
+   "title": "离线发票工具的 7 个边界用例：JavaScript、PDF 生成与安全",
+   "summary": "做一个发票生成器看起来很简单：几个输入框、加法、导出 PDF。但作者实测了 7 个容易被忽略的边界情况，涉及浮点精度、PDF 中文字体、本地数据安全等。",
+   "content": "这个项目对软件工程和信息安全专业的同学都很有参考价值。作者用纯 JavaScript（零依赖）做了一个离线发票工具，踩了 7 个坑：金额用浮点数相加导致 0.1+0.2 精度问题（必须用整数分或 decimal 库）、PDF 导出时中英文字体缺失、离线场景下 localStorage 存敏感数据的风险、以及输入校验绕过等。信息安全方向的同学可以重点关注「本地存储敏感信息」和「客户端校验不可信」这两点，正好对应《Web 安全》里的内容。前端同学则能学到如何用 jsPDF 或 pdf-lib 生成带中文的 PDF。建议拿它当课程设计题目，把 7 个用例写成测试。",
+   "source": "DEV Community",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "JavaScript",
+    "PDF"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一个「小工具」暴露的 7 个工程与安全细节，比做十个 CRUD 更能提升代码质量意识**",
+   "courses": "对应《Web 前端开发》《Web 安全》，可把发票工具作为课设，把边界用例写成单元测试",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "浮点精度问题：金额计算必须用整数分或 decimal 库",
+    "PDF 导出中文字体缺失是常见坑，需内嵌字体",
+    "离线工具存敏感数据到 localStorage 存在安全风险",
+    "客户端校验不可信，服务端必须重新校验"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Seven Edge Cases I Tested in an Offline Invoice Tool (JavaScript, PDF, Security)",
+   "link": "https://dev.to/livasticvm1primary/seven-edge-cases-i-tested-in-an-offline-invoice-tool-javascript-pdf-security-3pl5",
+   "cover": "img/a552.webp"
+  },
+  {
+   "id": "a553",
+   "title": "给 n8n AI Agent 加上免费实时联网搜索：n8n-nodes-agentsearch 插件",
+   "summary": "n8n 的 AI Agent 只知道自己训练时学到的知识，加上工作流传给它的内容。通过 n8n-nodes-agentsearch 插件，可以给 Agent 免费接入实时网页搜索能力。",
+   "content": "如果你在玩 AI Agent 或做自动化工作流，n8n 是个上手很快的低代码平台。但默认的 AI Agent 无法联网，回答时效性问题就会胡编。这个插件通过接入免费搜索 API，让 Agent 在生成回答前先检索实时网页。操作路径：在 n8n 里安装社区节点 n8n-nodes-agentsearch，把它接到 AI Agent 的 tool 接口上，Agent 就会自主决定何时调用搜索。对软件工程的同学来说，这是理解「Agent + 工具调用（function calling）」最直观的练手项目，比看论文快得多。建议用它做一个「每日技术资讯摘要」工作流，顺便熟悉 API 调用和 JSON 处理。",
+   "source": "DEV Community",
+   "date": "2026-10-16",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "n8n"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**用低代码方式亲手搭一个会联网的 AI Agent，比看十篇 Agent 原理文章都管用**",
+   "courses": "对应《人工智能导论》《软件工程》，可作为课程项目的自动化模块或毕业设计的辅助工具",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "n8n 低代码平台可快速搭建 AI Agent 工作流",
+    "安装 n8n-nodes-agentsearch 社区节点即可接入实时搜索",
+    "直观理解 Agent 的工具调用（function calling）机制",
+    "适合做「每日资讯摘要」类自动化练手项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "n8n AI Agent Web Search: Add Free Live Search with n8n-nodes-agentsearch",
+   "link": "https://dev.to/agentsearchhq/n8n-ai-agent-web-search-add-free-live-search-with-n8n-nodes-agentsearch-1ek3",
+   "cover": "img/a553.webp"
+  },
+  {
+   "id": "a554",
+   "title": "从「会用工具」到「能创造工具」：开源生态如何赋能 AI 人才培养",
+   "summary": "在 2026 中国—中亚青年科学家人工智能对话活动上，开源中国副总裁李晨与高校、中学教育者探讨 AI 时代科技人才培养路径，强调开源生态对学生从「用工具」到「造工具」的转变价值。",
+   "content": "这条行业动态值得关注的点在于：企业招聘时越来越看重「你是否参与过开源、能否创造工具」，而不只是「你会不会用某个框架」。对软件工程和信息安全专业的同学来说，这意味着简历上「参与开源项目」「提交过 PR」的权重在上升。具体怎么做？从给学校课设项目开源开始，到给 GitHub 上活跃的中小型项目修 bug、补文档，都是低门槛的切入点。信息安全方向的同学可以关注开源安全工具（如 Semgrep、Trivy）的规则贡献。这条新闻本身信息量有限，但它指出的趋势——「创造工具的能力」正在成为区分度——值得你在规划学习路径时参考。",
+   "source": "开源中国",
+   "date": "2026-10-16",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**开源贡献正在成为简历区分度，现在开始给项目提 PR 还不晚**",
+   "courses": "对应《软件工程》《开源文化与社区》，可把开源贡献纳入课程实践或毕业设计选题",
+   "tags": [
+    "行业动态",
+    "求职就业",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "企业招聘越来越看重开源参与和造工具的能力",
+    "从课设开源、给中小项目修 bug 是低门槛切入点",
+    "信息安全方向可贡献开源安全工具的检测规则",
+    "「会用工具」到「能创造工具」是能力分水岭"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503064"
+  },
   {
    "id": "a547",
    "title": "Linus 用 Claude Code 改 Linux 内核，结果代码里还是留了 Bug",
@@ -25,7 +170,7 @@
     "信息安全",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Linus 用 Claude Code 改 Linux 内核，代码仍有 Bug",
@@ -4055,148 +4200,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/490gIS9Bk0NmylN7GIt1?utm_source=rss&utm_medium=article",
    "cover": "img/a435.webp"
-  },
-  {
-   "id": "a436",
-   "title": "Bevy 0.20 发布：着色器换 WESL，光追渲染器转正，为场景编辑器铺路",
-   "summary": "开源 Rust 游戏引擎 Bevy 0.20 发布，实时路径追踪渲染器 Solari 转正，着色器语言切换为 WESL，全部重量级特性都在为场景编辑器做准备。",
-   "content": "Bevy 是 Rust 生态最活跃的游戏引擎，0.20 这个版本值得动手党关注：Solari 路径追踪渲染器转正，默认关掉 ReSTIR 换取更稳的去噪表现，配合 DLSS-RR 提升画质；着色器语言换成 WESL，语法更接近现代 WGSL 工具链。对软件工程（工业软件实验班）的同学，Bevy 的 ECS 架构是很好的学习样本——组件、系统、查询分离的设计，和工业软件里数据流与渲染解耦的思路相通。建议路径：先用 cargo 跑通官方 examples，再挑一个渲染示例改 WESL 着色器，观察编译期检查带来的收益。Rust 的借用检查会劝退一部分人，但正是它让引擎能安全地做并行系统调度。",
-   "source": "开源中国",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Bevy"
-   ],
-   "diff": 3,
-   "scene": "练手/课设",
-   "value": "**想理解 ECS 架构和实时渲染管线，Bevy 是目前门槛最低、文档最全的开源入口。**",
-   "courses": "《计算机图形学》《软件体系结构》——用 Bevy 的 ECS 讲组件化架构与渲染管线",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "Solari 路径追踪渲染器转正，默认关闭 ReSTIR 换取更稳去噪",
-    "着色器语言切换为 WESL，工具链更现代",
-    "ECS 架构与工业软件中数据流/渲染解耦思路相通",
-    "建议从官方 examples 入手，改一个 WESL 着色器练手"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502913/bevy-engine-0-20"
-  },
-  {
-   "id": "a437",
-   "title": "AI Agent 框架刷到 6 万星，合并冲突却零星：最热趋势其实是回归基本功",
-   "summary": "一篇开发者文章指出，AI Agent 框架动辄数万 GitHub 星，但真正决定项目成败的仍是版本控制、代码审查、合并冲突处理这些基本功。",
-   "content": "这篇文章的观察很扎心：Agent 框架每月都有新项目冲上 5 万星，但团队里真正卡住进度的是合并冲突、分支策略、代码审查这些「零星」问题。对软件工程专业的同学，这其实是个明确的信号——AI 工具降低了写代码的门槛，却没有降低协作的门槛，反而因为 AI 提交变多，冲突和审查压力更大。建议把精力放在三件事上：熟练 Git 分支模型（feature/release/hotfix）、能读懂并解决复杂合并冲突、会写清晰的 commit message 和 PR 描述。这些在面试和实习中都是硬通货，而且不会因为工具换代而贬值。",
-   "source": "DEV Community",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Git",
-    "代码审查"
-   ],
-   "diff": 1,
-   "scene": "求职准备/课设",
-   "value": "**AI 让写代码变便宜，但让「把代码合进主干」变贵，Git 协作能力现在比任何时候都值钱。**",
-   "courses": "《软件工程》《程序设计综合实践》——团队项目中的分支管理与代码审查",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 框架热度高，但团队瓶颈仍在合并冲突与代码审查",
-    "AI 提交变多会放大协作成本，而非降低",
-    "优先练 Git 分支模型、冲突解决、PR 描述",
-    "协作基本功不会因工具换代而贬值"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/tamizuddin/60k-stars-for-ai-agent-frameworks-zero-stars-for-merge-conflicts-why-the-hottest-developer-trend-1hfa",
-   "cover": "img/a437.webp"
-  },
-  {
-   "id": "a438",
-   "title": "从开源 CLI 到付费 Mac 应用：一个独立开发者的产品化复盘",
-   "summary": "作者复盘自己把开源清理工具 Mole 从命令行项目做成付费 Mac 应用的全过程，讲清哪些做法真正有效。",
-   "content": "这篇复盘的价值在于它讲的是「工程能力如何变成产品」，而不是空谈独立开发。作者从开源 CLI 起步，逐步加上图形界面、签名分发、付费授权，踩过的坑包括：CLI 用户和 GUI 用户的需求完全不同、开源协议与商业授权的边界、macOS 沙盒与权限申请。对软件工程和信息安全方向的同学，这里有两条可迁移的经验：一是权限申请与最小权限原则在桌面应用里同样关键，清理类工具天然要碰文件系统，如何设计权限边界是安全设计题；二是「先做 CLI 验证核心逻辑，再包 GUI」是很务实的开发顺序，课设里也可以照这个节奏走。",
-   "source": "少数派",
-   "date": "2026-10-08",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "CLI",
-    "macOS"
-   ],
-   "diff": 2,
-   "scene": "简历加分/练手",
-   "value": "**「CLI 先行、GUI 后包」的节奏，能让你在课设里用最少时间做出可演示、可讲清的作品。**",
-   "courses": "《程序设计综合实践》《信息安全导论》——从命令行工具到桌面应用的权限设计",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "先做 CLI 验证核心逻辑，再包 GUI，是务实的开发顺序",
-    "CLI 用户与 GUI 用户需求差异大，不能简单套壳",
-    "清理类工具涉及文件系统权限，最小权限设计是安全题",
-    "开源协议与商业授权的边界要提前想清楚"
-   ],
-   "buzz": [],
-   "link": "https://sspai.com/post/113843",
-   "cover": "img/a438.webp"
-  },
-  {
-   "id": "a425",
-   "title": "MyBatis 持久层框架完整教程：从 JDBC 痛点讲到 XML 映射实战",
-   "summary": "一篇面向初学者的 MyBatis 教程，梳理了 MyBatis 的由来、核心概念与基本用法，帮助理解它如何简化 JDBC 开发。",
-   "content": "很多同学写 Java Web 课设时，还在用 JDBC 手写 Connection、PreparedStatement、ResultSet，代码又长又容易出错。MyBatis 就是为解决这个问题而生的持久层框架，前身是 Apache 的 iBatis，2010 年更名。它把 SQL 写在 XML 或注解里，由框架负责参数映射和结果集封装，你只需要关注 SQL 本身。这篇教程适合作为入门材料，建议配合你的数据库课设一起看：先跑通一个单表 CRUD，再尝试动态 SQL（if/foreach）和关联查询。掌握 MyBatis 后，再学 MyBatis-Plus 或 Spring Data JPA 会轻松很多，也是 Java 后端求职的常见考点。",
-   "source": "掘金",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "MyBatis",
-    "JDBC"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**用一篇教程打通 JDBC 到 MyBatis 的过渡，直接服务你的 Java 课设和后端面试。**",
-   "courses": "对应《数据库原理》《Java Web 开发》，可把课设的数据访问层从 JDBC 换成 MyBatis 实践",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "MyBatis 是简化 JDBC 开发的持久层框架，SQL 与 Java 代码解耦",
-    "核心用法：XML 映射文件 + Mapper 接口，配合动态 SQL",
-    "建议用课设单表 CRUD 练手，再扩展到关联查询",
-    "是 Java 后端面试高频考点，后续可衔接 MyBatis-Plus"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694466939382267938"
   }
  ],
  "jobs": [
