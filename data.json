@@ -1,6 +1,147 @@
 {
- "updatedAt": "2026-10-16 02:22",
+ "updatedAt": "2026-10-16 10:42",
  "news": [
+  {
+   "id": "a547",
+   "title": "Linus 用 Claude Code 改 Linux 内核，结果代码里还是留了 Bug",
+   "summary": "Linux 之父 Linus Torvalds 尝试用 Claude Code 辅助修改内核代码，但最终提交的代码中仍存在缺陷，引发对 AI 编程可靠性的讨论。",
+   "content": "这条新闻对软件工程和信息安全专业的同学都很实用。它说明两件事：一是 AI 编程工具已经能进入 Linux 内核这种级别的工程，值得你认真学；二是 AI 生成的代码不能盲信，必须自己 review 和测试。建议你在课程设计或开源贡献中，把 AI 当「副驾驶」而不是「代驾」，重点练好代码审查和单元测试能力。信息安全方向的同学更要留意：AI 生成的代码可能引入漏洞，安全审计流程不能省。",
+   "source": "InfoQ中文",
+   "date": "2026-10-16",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**AI 编程工具能提效，但代码审查和安全测试才是你的核心竞争力。**",
+   "courses": "对应《软件工程》《操作系统》《代码审计》课程，可用来讨论 AI 辅助开发的质量保障。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "Linus 用 Claude Code 改 Linux 内核，代码仍有 Bug",
+    "AI 编程工具已能进入系统级工程，但可靠性仍需人工把关",
+    "建议在课设中把 AI 当辅助，重点练代码审查与测试"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/hRw4BZQQUW14sqYMo5F6?utm_source=rss&utm_medium=article",
+   "cover": "img/a547.webp"
+  },
+  {
+   "id": "a548",
+   "title": "Ubuntu 26.10 发布：Rust 重写 coreutils 全面落地，安全栈大更新",
+   "summary": "Ubuntu 26.10 正式发布，Rust 版 coreutils 全面替换 GNU 版本，并引入后量子就绪的包签名和 TPM 全盘加密。",
+   "content": "这次更新对信息安全专业尤其有价值。Rust 重写 coreutils 意味着系统底层工具的内存安全大幅提升，减少缓冲区溢出等经典漏洞；后量子签名和 TPM 全盘加密则是密码学前沿落地。建议你在虚拟机里装一个 Ubuntu 26.10，亲手试试 uutils 的 Rust 命令，对比 GNU 版本的行为差异；安全方向的同学可以研究 TPM 加密的配置流程，作为《系统安全》课程的实践素材。",
+   "source": "开源中国",
+   "date": "2026-10-16",
+   "cat": "stack",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "Ubuntu"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**Rust 重写系统工具 + 后量子加密，是系统安全方向最值得动手跟进的底层变化。**",
+   "courses": "对应《操作系统》《系统安全》《密码学》课程，可做 TPM 加密和 uutils 对比实验。",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Ubuntu 26.10 用 Rust 重写 coreutils 全面落地",
+    "引入后量子包签名和 TPM 全盘加密",
+    "适合在虚拟机实践系统安全与密码学配置"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503050/ubuntu-26-10-stonking-stingray-released"
+  },
+  {
+   "id": "a549",
+   "title": "Pi 发布全新 Agent Harness，把 MCP 装进核心",
+   "summary": "Pi 推出新的 Agent Harness 框架，并将此前批评过的 MCP 协议纳入核心支持，方便开发者构建智能体应用。",
+   "content": "如果你在做 AI 应用或课程设计，这条值得关注。Agent Harness 本质是帮你管理工具调用、上下文和任务编排的框架，MCP 则是模型与外部工具通信的协议。把 MCP 装进核心意味着你可以更标准地接入数据库、文件系统等外部能力。建议用 Python 或 TypeScript 跑一遍官方示例，理解 Agent 如何调用工具，这对做「智能助手」类课设或求职 AI 应用岗都有直接帮助。",
+   "source": "InfoQ中文",
+   "date": "2026-10-16",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "MCP",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**掌握 Agent 框架和 MCP 协议，是切入 AI 应用开发最实用的入口。**",
+   "courses": "对应《人工智能导论》《软件工程》课程，可用于智能体应用开发实践。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Pi 发布 Agent Harness 框架，核心集成 MCP 协议",
+    "MCP 标准化模型与外部工具的通信",
+    "适合做智能助手类课设或 AI 应用岗准备"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/hQOHf1ZXoBs7uMpWJQss?utm_source=rss&utm_medium=article",
+   "cover": "img/a549.webp"
+  },
+  {
+   "id": "a550",
+   "title": "量子位智库发布 Agent 落地报告：拆解企业智能化六大断点",
+   "summary": "量子位智库发布 Agent 企业落地报告，梳理六大断点并给出全链路破局框架，帮助理解智能体在真实业务中的落地难点。",
+   "content": "这份报告适合想了解 AI 工程化落地的同学。它不讲空泛概念，而是拆解企业引入 Agent 时遇到的数据、流程、权限、评估等六大断点。你可以把它当作《软件工程》或《项目管理》的案例材料，理解一个 AI 功能从 demo 到生产要跨多少坑。求职 AI 应用或工业软件方向时，能聊清楚这些断点，比只会调 API 更有竞争力。",
+   "source": "量子位",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**理解 Agent 落地的真实断点，比会调 API 更能打动面试官。**",
+   "courses": "对应《软件工程》《项目管理》课程，可作为 AI 落地案例分析。",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "报告拆解企业 Agent 落地六大断点",
+    "覆盖数据、流程、权限、评估等工程问题",
+    "适合作为 AI 工程化落地的案例学习材料"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/503614.html",
+   "cover": "img/a550.webp"
+  },
   {
    "id": "a542",
    "title": "GitLab 爆未认证数据外泄漏洞，你的课程项目仓库可能中招",
@@ -25,7 +166,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "漏洞可被未认证利用，无需登录即可外泄数据",
@@ -4056,151 +4197,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7694466939382267938"
-  },
-  {
-   "id": "a426",
-   "title": "OpenAI 开源 Codex Security CLI：Agent 驱动的漏洞扫描如何做验证、修复与 CI 集成",
-   "summary": "OpenAI 发布开源 TypeScript SDK「Codex Security」，用 Agent 并行发现漏洞、用 LLM 推理验证结果并生成修复，可接入 CI 流程。",
-   "content": "这不是又一个静态分析工具，而是 Agent 驱动的安全扫描器：它调度多个并行发现 worker，再用 LLM 推理验证告警是否真实，最后生成补丁，并可集成进 CI。对信息安全与管理专业的同学来说，这代表安全工具链正在从「规则匹配」转向「Agent + 推理」。建议这样用：先读它的架构设计（发现-验证-修复三段式），理解为什么需要 LLM 做误报过滤；再动手把它接进一个自己的 GitHub 仓库 CI，观察扫描报告格式。这类「AI + 安全」的工程能力，正在成为安全岗位的新加分项，也是你课程设计可以借鉴的架构。",
-   "source": "DEV Community",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript",
-    "CI/CD"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**让你看到 AI Agent 如何改造安全扫描流程，是信息安全方向简历上少见的差异化项目。**",
-   "courses": "对应《网络安全》《软件安全测试》，可作为课程项目的架构参考或直接接入 CI 实践",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "开源 TypeScript SDK，Agent 驱动而非传统静态分析",
-    "三段式流程：并行发现 → LLM 验证 → 生成修复补丁",
-    "可集成 CI，适合作为安全课设或简历项目",
-    "反映安全工具链向 Agent + 推理演进的趋势"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/mech_app_ai/openais-codex-security-cli-how-agent-driven-vulnerability-scanning-handles-validation-patching-3oj9",
-   "cover": "img/a426.webp"
-  },
-  {
-   "id": "a427",
-   "title": "Jenkins + Docker 部署 Vben Admin 前端 CI/CD 踩坑全记录",
-   "summary": "一篇实战记录，讲述如何用 Jenkins + Docker 为基于 Monorepo 架构的 Vben Admin 前端项目搭建 CI/CD，并记录排查过程。",
-   "content": "前端项目上了规模之后，手动打包部署很容易出错，CI/CD 就成了必备技能。这篇记录针对 Vben Admin 5.x 这种 Monorepo 架构，用 Jenkins + Docker 搭建流水线，把踩过的坑和排查思路都写了出来。对软件工程专业的同学来说，价值在于：它不是一个玩具 demo，而是真实项目里的工程问题——Monorepo 下依赖安装、构建缓存、镜像分层、环境变量注入，每一条都可能卡住你。建议你拿自己的课设或毕设项目跟着做一遍，哪怕只是本地起个 Jenkins 容器跑通「提交代码 → 自动构建 → 生成镜像」这条链路，写进简历也比「熟悉 Git」有说服力得多。",
-   "source": "掘金",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Jenkins",
-    "Docker"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**把「会写前端」升级为「能交付前端」，CI/CD 实战是简历上实打实的工程能力证明。**",
-   "courses": "对应《软件工程》《软件项目管理》，可结合课设完成一次自动化构建部署实践",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "针对 Vben Admin 5.x Monorepo 的 Jenkins + Docker 流水线",
-    "覆盖依赖安装、构建缓存、镜像分层等真实工程坑点",
-    "建议用课设/毕设项目跟做一遍完整链路",
-    "CI/CD 实战经验是前端求职的差异化亮点"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694502106560200744"
-  },
-  {
-   "id": "a428",
-   "title": "WSS 让 Server 安全调用 Desktop 本地工具（下）：Ticket、人工确认、幂等与断线对账",
-   "summary": "系列文章下篇，讲解如何通过 WebSocket Secure 让服务端安全调用用户桌面本地工具，重点解决鉴权、人工确认、幂等和断线对账问题。",
-   "content": "上篇搭好了对话应用，但 AI 能用的工具都在 Server 上，看不到用户电脑本地的东西。这篇解决的是「Server 如何安全地反向调用 Desktop 本地工具」——听起来像远程控制，实际是很多 AI 桌面应用的刚需。核心难点有四：用 Ticket 做一次性鉴权、关键操作要人工确认、请求要保证幂等避免重复执行、断线后如何对账补状态。这些不是炫技，而是分布式系统里真实存在的可靠性问题。建议你在做「本地 AI 助手」类课设或毕设时参考这套设计，尤其是幂等和断线重连的处理，面试聊到 WebSocket 或分布式调用时能讲出细节，比只会说「用过 WebSocket」强很多。",
-   "source": "掘金",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "WebSocket",
-    "Node.js"
-   ],
-   "diff": 3,
-   "scene": "简历加分/课设",
-   "value": "**把 WebSocket 从「会连」讲到「可靠」，幂等与断线对账是能写进简历的分布式实战细节。**",
-   "courses": "对应《计算机网络》《分布式系统》，可作为课设中实时通信模块的设计参考",
-   "tags": [
-    "通用开发",
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "解决 Server 安全调用 Desktop 本地工具的工程问题",
-    "四个关键点：Ticket 鉴权、人工确认、幂等、断线对账",
-    "适合本地 AI 助手类课设/毕设参考",
-    "幂等与重连设计是面试可展开的技术细节"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694508180046905363"
-  },
-  {
-   "id": "a429",
-   "title": "Java 查找并高亮 Word 文字：精确匹配与正则模糊查找实战",
-   "summary": "一篇 Java 操作 Word 文档的实战文章，讲解如何精确查找和用正则表达式模糊查找文字并高亮标记。",
-   "content": "需求很具体：把 Word 报告里涉及「风险」的文字标出来方便检查，还要支持只标记某一段、或用正则做模糊匹配。这类「Java 处理 Office 文档」的需求在工业软件和企业信息化场景里非常常见——报表生成、合同审查、文档批注都绕不开。技术上是基于 Apache POI 或类似库操作 Word 的 run 级别文本。建议你把它当成一个小工具项目练手：先实现精确查找高亮，再加正则支持，最后封装成可复用的工具类。工业软件实验班的同学尤其值得关注，因为很多工业场景的文档处理需求就是这种「看起来简单、细节很多」的活，能独立搞定就是竞争力。",
-   "source": "掘金",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "Java",
-    "Apache POI"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**文档处理是工业软件里的高频刚需，能独立封装 Word 操作工具类就是实打实的工程能力。**",
-   "courses": "对应《Java 程序设计》《软件工程》，可作为课程项目中的文档处理模块实践",
-   "tags": [
-    "Java全栈",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Java 操作 Word 实现文字查找与高亮，支持精确和正则两种模式",
-    "基于文档 run 级别文本处理，细节较多",
-    "适合封装成可复用工具类作为练手项目",
-    "工业软件/企业信息化场景常见需求"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694457332278493193"
   }
  ],
  "jobs": [
