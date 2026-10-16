@@ -1,6 +1,176 @@
 {
- "updatedAt": "2026-10-15 14:44",
+ "updatedAt": "2026-10-16 02:22",
  "news": [
+  {
+   "id": "a542",
+   "title": "GitLab 爆未认证数据外泄漏洞，你的课程项目仓库可能中招",
+   "summary": "GitLab 披露一个可被利用实现未认证数据外泄的漏洞，攻击者无需登录即可读取敏感数据。凡是用 GitLab 托管代码的团队都应尽快升级并检查访问日志。",
+   "content": "这次 GitLab 的漏洞关键词是「未认证数据外泄」——不需要账号密码，攻击者就能把仓库里的东西拿走。对信息安全与管理专业的同学，这是一次极好的真实案例：去读官方安全公告，看它的 CVE 编号、影响版本、修复版本，再对照你们《网络安全》《渗透测试》课上学过的漏洞分类，判断它属于越权访问还是信息泄露。对软件工程的同学，重点是运维动作：登录你们课程设计用的 GitLab 实例，确认版本号，能升级就升级；不能升级就检查是否有异常 clone/pull 记录，把私有仓库里的密钥、数据库口令全部轮换一遍。很多同学把 token、数据库密码直接写进代码提交，这类漏洞一旦被利用就是灾难。建议把这次事件写成一份 1 页的漏洞分析报告，放进简历里的安全实践项目。",
+   "source": "InfoQ中文",
+   "date": "2026-10-16",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "GitLab"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一次真实漏洞事件，正好用来练「查版本—升级—轮换密钥」的完整应急流程。**",
+   "courses": "对应《网络安全》《信息安全技术》，可做漏洞分析课程报告",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "漏洞可被未认证利用，无需登录即可外泄数据",
+    "第一步：确认自建 GitLab 版本并升级到修复版",
+    "第二步：轮换仓库中硬编码的 token、数据库口令",
+    "可写成漏洞分析报告，作为安全方向简历素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/DfJZA7hp0OhKMpaAIfG0?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a543",
+   "title": "用 TypeScript + Python + MCP 搭一套可靠的 Agent 工作流",
+   "summary": "一篇实操向文章，讲如何用 TypeScript、Python 和 MCP 协议在多个 AI Agent 之间做可靠的任务交接，避免流程断链。",
+   "content": "Agent 单打独斗已经不够了，真正难的是「A 干完怎么把活干净地交给 B」。这篇文章用 TypeScript 和 Python 两种语言演示，配合 MCP（Model Context Protocol）做 Agent 之间的结构化交接。对软件工程的同学，价值在于它把「Agent 编排」拆成了可实现的工程问题：任务状态怎么定义、失败怎么重试、上下文怎么传递。你可以直接照着做一个最小 demo——比如一个 Agent 负责查资料、一个负责写代码、一个负责跑测试，用 MCP 串起来。这比只会调 API 高一个层次，面试聊到「你做过什么 AI 项目」时，能讲清楚状态机和错误处理，比说「我调过 GPT」有说服力得多。前端方向的同学可以重点看 TypeScript 那部分，和你们学的类型系统直接接得上。",
+   "source": "DEV Community",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "TypeScript",
+    "MCP"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把「Agent 编排」从概念变成能写进简历的工程 demo。**",
+   "courses": "对应《软件工程》《Web 开发》，可作为综合实践项目选题",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "核心问题：多 Agent 之间如何可靠交接任务",
+    "技术栈：TypeScript + Python + MCP 协议",
+    "可做一个「查资料→写代码→跑测试」三 Agent 最小 demo",
+    "面试可讲状态定义、失败重试、上下文传递"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/murthyg/how-to-build-reliable-work-handoffs-between-ai-agents-in-typescript-1neh",
+   "cover": "img/a543.webp"
+  },
+  {
+   "id": "a544",
+   "title": "Agent 热潮把 AI 推向端侧，软件人该关注什么",
+   "summary": "钛媒体分析 Agent 热潮如何带动端侧 AI 落地，算力从云端下沉到设备端，正在改变应用开发的形态。",
+   "content": "这篇文章讲的是趋势：AI 推理正在从云端往手机、PC、车机这些端侧设备迁移。对信息工程学院的同学，别只当新闻看，要问「这对我写代码有什么影响」。端侧意味着模型要在有限内存和算力下跑，于是量化、剪枝、模型压缩这些技术从论文变成了工程需求；也意味着应用架构变了——以前是「前端调云端 API」，以后可能是「本地模型 + 云端兜底」的混合架构。软件工程和工业软件方向的同学，可以顺着这个思路想：工业设备上的本地推理、离线质检、边缘计算网关，都是端侧 AI 的落地场景。建议在课程设计里尝试一次本地小模型部署（比如用 ONNX Runtime 跑一个量化模型），比纯调云端 API 更能体现工程能力。",
+   "source": "钛媒体",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "ONNX"
+   ],
+   "value": "**端侧 AI 是下一个工程岗需求点，早一步动手部署本地模型就早一步占位。**",
+   "courses": "对应《人工智能导论》《嵌入式系统》，可做端侧部署实验",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "趋势：AI 推理从云端下沉到手机、PC、工业设备",
+    "技术影响：量化、剪枝、模型压缩成为工程需求",
+    "架构变化：本地模型 + 云端兜底的混合模式",
+    "可尝试用 ONNX Runtime 做一次本地模型部署"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8170161.html"
+  },
+  {
+   "id": "a545",
+   "title": "阶跃星辰开源 Step 5 Preview 权重，长程 Agent 拼的是上下文管理",
+   "summary": "阶跃星辰开放 Step 5 Preview 模型权重，文章指出长程 Agent 的竞争焦点已转向上下文管理与训练系统。",
+   "content": "模型权重开源这件事，对学生的直接价值是「能下载、能跑、能改」。Step 5 Preview 主打长程 Agent 场景，而文章点出的关键洞察是：Agent 能不能干长活，瓶颈不在模型本身，而在上下文管理——怎么记住几十步之前的信息、怎么压缩历史、怎么在超长对话里不丢关键状态。这对软件工程的同学是个很好的切入点：你不需要训练模型，但可以研究上下文管理策略，比如滑动窗口、摘要压缩、向量检索召回，这些都是纯软件工程问题，用 Python 就能实现和对比。信息安全方向的同学则可以关注开源权重的合规与安全边界。建议拿它做一个「长任务 Agent」小项目，重点记录不同上下文策略下的任务成功率，这份对比数据在面试时很能打。",
+   "source": "InfoQ中文",
+   "date": "2026-10-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "value": "**开源权重给了你练手素材，上下文管理才是能自己动手的工程题。**",
+   "courses": "对应《人工智能导论》《数据结构》，可做长上下文策略对比实验",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Step 5 Preview 权重已开源，可下载本地运行",
+    "核心洞察：长程 Agent 的瓶颈是上下文管理，不是模型",
+    "可实现的工程点：滑动窗口、摘要压缩、向量检索召回",
+    "做一份不同上下文策略的成功率对比，面试有料"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/EwqsJX6f03ODRac6Kk4c?utm_source=rss&utm_medium=article",
+   "cover": "img/a545.webp"
+  },
+  {
+   "id": "a546",
+   "title": "Skill 描述字符预算实测：Claude Code 的 30000 字符上限怎么算",
+   "summary": "作者实测 Claude Code 的 skill 描述字符预算：1M token 窗口下真实上限 30000 字符，且日文字符按两个计。",
+   "content": "这是一篇很「抠细节」的实测文，但细节恰恰是工程能力的体现。作者发现 Claude Code 2.1.296 在 1M token 窗口下，skill 描述的真实预算是 30000 字符，而且日文字符按两个字符计算——也就是说非 ASCII 字符会吃掉双倍配额。对软件工程的同学，这背后是字符编码和 token 计数的老问题：UTF-8 下一个中文字符占 3 字节，很多系统按字节或按码点计数，结果和预期对不上。你在写配置文件、做输入校验、设计 API 限额时都会踩这个坑。建议动手验证一下：写个脚本统计一段中英文混合文本的字符数、字节数、码点数，看看三者差多少。这种「边界条件敏感」的习惯，正是从学生代码走向生产代码的分水岭。",
+   "source": "DEV Community",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**一个字符计数的坑，练的是「边界条件敏感」的工程习惯。**",
+   "courses": "对应《程序设计基础》《Web 开发》，可做字符编码验证小实验",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "实测：Claude Code 1M 窗口下 skill 描述上限 30000 字符",
+    "坑点：日文等非 ASCII 字符按两个字符计算",
+    "本质是字符编码与 token 计数的经典问题",
+    "动手写脚本对比字符数/字节数/码点数差异"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/rulestack/our-skill-description-test-passed-at-2304-of-10000-characters-while-claude-codes-listing-sat-at-2bp6",
+   "cover": "img/a546.webp"
+  },
   {
    "id": "a536",
    "title": "用 Pydantic AI 从零搭建一个能干活的 AI Agent：告别字符串解析地狱",
@@ -26,7 +196,7 @@
     "通用开发",
     "工业软件"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "用 Pydantic 类型约束 LLM 输出，替代手动 JSON 解析和兜底逻辑",
@@ -4031,181 +4201,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7694457332278493193"
-  },
-  {
-   "id": "a430",
-   "title": "乱序 HTML 流技术从 JavaScript 框架迁移到浏览器原生",
-   "summary": "InfoQ 报道，原本由 JavaScript 框架实现的乱序 HTML 流式渲染技术，正在被浏览器原生支持，可能改变前端流式渲染的实现方式。",
-   "content": "流式渲染是提升首屏体验的重要手段，过去要靠 React、Vue 等框架或第三方库在 JS 层实现「乱序 HTML 流」——先到先渲染，不等前面慢的部分。现在浏览器开始原生支持这套机制，意味着未来前端框架可能不再需要自己造轮子，渲染性能和实现复杂度都会改善。对前端方向的同学来说，这是一个值得关注的标准演进信号：它会影响你未来写 SSR、流式组件时的技术选型。建议先理解「为什么需要乱序流」（慢数据不阻塞快数据），再关注浏览器原生 API 的落地进度。面试聊到 SSR 或性能优化时，能提到这个趋势会很加分。",
-   "source": "InfoQ中文",
-   "date": "2026-10-09",
-   "cat": "industry",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "HTML",
-    "JavaScript"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**理解流式渲染的底层演进，让你在 SSR 和性能优化话题上比只会用框架的人多一层认知。**",
-   "courses": "对应《Web 前端开发》《计算机网络》，可结合 SSR 课设理解流式渲染原理",
-   "tags": [
-    "前端开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "乱序 HTML 流式渲染从 JS 框架层下沉到浏览器原生",
-    "核心价值：慢数据不阻塞快数据，提升首屏体验",
-    "影响未来 SSR 和流式组件的技术选型",
-    "关注标准演进，面试聊性能优化时可展开"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/BEgaPOXCCtDaPGJiCtSi?utm_source=rss&utm_medium=article",
-   "cover": "img/a430.webp"
-  },
-  {
-   "id": "a431",
-   "title": "Immutable JavaScript：从源头减少状态意外修改引发的 Bug",
-   "summary": "一篇讲解 JavaScript 不可变数据理念的文章，分析状态被意外修改为何是常见 Bug 来源，以及如何用不可变方式规避。",
-   "content": "写 JS 应用时最常见的 Bug 之一，就是某处代码悄悄改了一个对象，导致另一处依赖它的逻辑出错——这类问题往往很难排查。不可变（Immutable）的核心思想是：不直接修改原数据，而是生成新副本。React 的状态更新、Redux 的 reducer 都建立在这个理念上。建议你这样练：先写一段会因共享引用而出错的代码，再用展开运算符或 structuredClone 改成不可变写法，对比差异。理解这一点，你在写 React 组件或调试「数据莫名其妙变了」的问题时会快很多，也是前端面试中状态管理话题的基础。",
-   "source": "DEV Community",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**搞懂不可变数据，能让你少踩一大半「数据莫名变了」的坑，也是状态管理的地基。**",
-   "courses": "对应《Web 前端开发》，可结合 React 课设理解状态更新为何要返回新对象",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "状态意外修改（state mutation）是 JS 常见 Bug 来源",
-    "不可变思想：不修改原数据，生成新副本",
-    "是 React 状态更新和 Redux reducer 的基础理念",
-    "建议用对比代码练习，理解共享引用问题"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/aisyah_kartina/immutable-javascript-499k",
-   "cover": "img/a431.webp"
-  },
-  {
-   "id": "a418",
-   "title": "openJiuwen 开源企业级 AgentOS：多智能体协同还能自我进化",
-   "summary": "openJiuwen 发布并开源企业级 AgentOS，主打多 Agent 协同与自我进化，面向企业规模化落地智能体。",
-   "content": "如果你在课设里做过「调一次大模型 API 就完事」的小工具，会发现真正难的是让多个 Agent 分工、传状态、失败重试。AgentOS 这类框架把调度、记忆、工具调用、权限收敛成一层基础设施，正好补上从 Demo 到可运行系统的缺口。建议做法：先读它的架构文档，画出「任务分解—Agent 路由—结果汇总」的时序图，再用它重写你课设里的多步任务（比如自动生成接口文档并跑测试）。面试聊到 Agent 编排时，你能讲清调度与状态管理，比只会写 prompt 强很多。",
-   "source": "量子位",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Agent",
-    "LLM"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**把「会调 API」升级成「会编排多 Agent 系统」，是当前后端与 AI 应用岗的加分项。**",
-   "courses": "对应《软件工程》《人工智能导论》，可作课程设计的多智能体架构参考",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "开源企业级 AgentOS，核心是多 Agent 协同与自我进化",
-    "解决 Agent 从单次调用到可运行系统的编排问题",
-    "可用来重写课设中的多步任务流程",
-    "面试可讲清任务分解、路由与状态管理"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/502106.html"
-  },
-  {
-   "id": "a419",
-   "title": "从 Demo 到生产：AI Agent 落地到底缺什么？",
-   "summary": "InfoQ 文章拆解 AI Agent 从演示到生产环境的真实差距，涉及工程化、可观测性与稳定性。",
-   "content": "很多同学的「AI 项目」止步于本地跑通一个 demo，一上真实流量就崩：超时、幻觉、成本失控、无法回滚。这篇文章的价值在于把差距讲成工程问题——可观测性、失败重试、幂等、评测集、灰度发布，全是软件工程课上的老概念在新场景的复用。建议边读边对照自己的课设：有没有日志？有没有失败兜底？有没有一个能自动跑的评测用例集？把这几项补上，你的项目在简历里就能从「做过」变成「上线过」。",
-   "source": "InfoQ中文",
-   "date": "2026-10-09",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "简历加分/求职准备",
-   "value": "**学会用工程化标准审视 AI 项目，是从「做过 demo」到「能上线」的分水岭。**",
-   "courses": "对应《软件工程》《软件测试》，用于课设的稳定性与评测设计",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "聚焦 Agent 从演示到生产环境的工程化差距",
-    "涉及可观测性、重试、幂等、评测与灰度",
-    "可直接对照检查自己的课设项目",
-    "把软件工程老概念迁移到 AI 场景"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/PLEWse6sEviMN99iLE93?utm_source=rss&utm_medium=article",
-   "cover": "img/a419.webp"
-  },
-  {
-   "id": "a420",
-   "title": "纯 Uya 从零实现的 CLI 编程 Agent 开源，不写一行 Python",
-   "summary": "一个不依赖 Python、不引入 C 代码、纯 Uya 编写的 CLI 编程 Agent 开源，展示脱离主流框架的实现路径。",
-   "content": "现在写 Agent 几乎默认装 LangChain、配一堆依赖，框架本身反而成了最复杂的部分。这个项目用纯 Uya 从零实现 CLI 编程 Agent，价值不在语言本身，而在「不依赖框架」的思路：会话状态怎么存、token 溢出怎么截断、工具调用怎么解析，全都要自己写一遍。建议把它当阅读材料，挑「会话管理」和「工具调用解析」两个模块精读，再用你熟悉的 Java 或 TypeScript 复刻一个最小版本。这种「手写一遍」的经历，比简历上写「熟悉 LangChain」有说服力得多。",
-   "source": "开源中国",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Agent",
-    "CLI"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**手写一遍 Agent 核心逻辑，比只会调框架更能证明你的工程理解力。**",
-   "courses": "对应《程序设计》《软件工程》，可作综合实训的自主实现选题",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "纯 Uya 实现，不依赖 Python 与 C 代码",
-    "核心看点是脱离框架后的会话与工具调用实现",
-    "建议精读会话管理、工具调用解析两个模块",
-    "可用 Java/TS 复刻最小版本作为练手项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502916"
   }
  ],
  "jobs": [
