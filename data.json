@@ -1,6 +1,219 @@
 {
- "updatedAt": "2026-10-17 02:15",
+ "updatedAt": "2026-10-17 10:10",
  "news": [
+  {
+   "id": "a559",
+   "title": "Anthropic 因小数点分隔符缺失多收100倍费用：国际化校验漏洞实录",
+   "summary": "一位开发者充值100美元API额度却被扣10000美元，根因是缺少小数分隔符校验层，把西班牙语区的\"100,00\"解析成10000。",
+   "content": "这个 bug 值得每个写支付/金额逻辑的同学抄进笔记：金额从表单到后端要经过 locale 解析、类型转换、单位换算三层，任何一层默认「点号是小数点」都会在逗号小数点的地区炸掉。文章拆解了完整链路——前端输入未做 locale 归一化，后端直接把字符串转数字，缺少显式校验和金额上限保护。对应到你的课设：凡是涉及金额、汇率、计量单位的功能，先写一个 normalizeAmount(input, locale) 函数并配单测，再用边界值（0.01、100,00、1.000,00）跑一遍。信息安全方向的同学可以顺手把它当输入校验与业务风控的反面案例。",
+   "source": "DEV Community",
+   "date": "2026-10-17",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "国际化",
+    "输入校验"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**金额与单位处理必须显式做 locale 归一化，否则一个逗号就是100倍资损。**",
+   "courses": "《软件工程》需求与缺陷分析、《Web应用安全》输入校验章节，可直接作为课设案例",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "根因：缺少小数分隔符校验层，\"100,00\"被解析为10000",
+    "金额处理必须做 locale 归一化 + 上限校验 + 单测",
+    "适合作为输入校验/业务风控的反面教材"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/mech_app_ai/anthropics-100x-overcharge-bug-what-internationalization-failures-reveal-about-agent-payment-3e58",
+   "cover": "img/a559.webp"
+  },
+  {
+   "id": "a560",
+   "title": "Claude Code 团队怎么做代码评审：可借鉴的 AI 辅助 Review 流程",
+   "summary": "Anthropic 的 Claude Code 团队公开了他们的代码评审实践，HN 上 348 分、328 条讨论，核心是把 AI 放进评审链路而非替代评审。",
+   "content": "对软工学生最有用的是流程而不是工具：他们把评审拆成「提交前自检—AI 预审—人工定夺」三段，AI 负责找遗漏的边界条件、命名与重复代码，人负责架构判断和业务正确性。你可以直接搬到课程设计：用 Git 分支 + PR 模板强制写变更说明，提交前让 AI 按清单过一遍（空指针、异常吞掉、SQL 拼接、日志泄露敏感信息），再请同学做人工评审并留评论记录。信息安全方向可额外加一条：AI 预审必须检查硬编码密钥与越权接口。这套流程写进简历的「工程规范」一栏比堆技术名词更有说服力。",
+   "source": "Hacker News",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Git",
+    "Code Review"
+   ],
+   "diff": 1,
+   "scene": "课设/简历加分",
+   "value": "**把 AI 放进评审链路而不是替代评审，课程设计的代码质量能直接上一个档次。**",
+   "courses": "《软件工程》代码评审与配置管理，可直接用于课程设计 PR 流程",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "三段式：提交前自检 → AI 预审 → 人工定夺",
+    "AI 查边界条件/重复代码，人管架构与业务正确性",
+    "可加安全项：硬编码密钥、越权接口、日志泄露"
+   ],
+   "buzz": [],
+   "link": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+   "cover": "img/a560.webp"
+  },
+  {
+   "id": "a561",
+   "title": "OpenAI Agents SDK 接自建兼容 API：Chat Completions、Responses 与追踪陷阱",
+   "summary": "实操文：把 openai-agents 从官方端点切到自建 OpenAI 兼容服务，讲清 Responses 与 Chat Completions 的差异和 tracing 默认回传问题。",
+   "content": "如果你在做「调用大模型的课设/毕设」，这篇能省你半天踩坑。要点：SDK 默认走 Responses API 并把 trace 上报到 OpenAI，指向自建服务时要显式关掉 tracing 或改上报地址，否则请求会莫名失败或数据外流；工具调用（tool calling）在不同兼容实现上的字段支持不一致，需按 Chat Completions 格式降级。动手建议：写一个薄封装层统一 base_url、模型名、超时与重试，把 trace 开关做成配置项，再用一个带工具调用的最小 demo 验证端到端。信息安全方向注意：trace 里可能带用户输入，别把内部数据发到第三方。",
+   "source": "DEV Community",
+   "date": "2026-10-17",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python",
+    "LLM SDK"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**接自建大模型服务前先关掉默认 tracing，否则调试和合规两头踩坑。**",
+   "courses": "《人工智能导论》/毕业设计中的大模型调用模块，可直接复用封装层",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "默认走 Responses API 且 trace 回传 OpenAI，自建服务需显式关闭",
+    "兼容实现的 tool calling 字段不一致，必要时降级到 Chat Completions",
+    "封装 base_url/超时/重试/trace 开关，做最小可跑 demo"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/amankumar_apiclaw/openai-agents-sdk-on-a-custom-openai-compatible-api-chat-completions-responses-and-the-tracing-184d",
+   "cover": "img/a561.webp"
+  },
+  {
+   "id": "a562",
+   "title": "Akka 在65个开源项目中实测「基于规格的 AI 交付」",
+   "summary": "Akka 团队用规格驱动的方式让 AI 在 65 个开源项目上生成并交付代码，检验规格描述能否约束 AI 产出。",
+   "content": "这条对工业软件实验班的同学有直接参考价值：所谓「基于规格的 AI 交付」，是先把接口契约、状态机、错误码写成机器可读的规格，再让 AI 按规格生成实现和测试，最后用规格做验收。它回答了一个现实问题——AI 写代码快，但怎么证明写对了？答案是规格即验收标准。你可以小规模复现：给课设的一个模块写 OpenAPI 或类型签名 + 前置/后置条件，让 AI 生成实现，再用属性测试（property-based testing）验证。工业软件场景尤其吃这套，因为设备协议、控制流程最怕「看起来能跑」。",
+   "source": "InfoQ中文",
+   "date": "2026-10-17",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "规格驱动开发",
+    "属性测试"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**AI 生成代码的可信度来自规格与属性测试，而不是「跑通了」。**",
+   "courses": "《软件工程》形式化规格与测试、《工业软件导论》协议建模",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "规格先行：接口契约/状态机/错误码作为 AI 生成的输入与验收标准",
+    "用属性测试验证 AI 产出，而非只看能否编译",
+    "工业软件协议与控制流程最适合规格驱动"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/uGNQwpOt5GGAKm2XlEZC?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a563",
+   "title": "跨平台书摘管理工具作者复盘：从3万条划线到一款 App",
+   "summary": "一位开发者从微信读书的 3 万条笔记出发，做了跨平台书摘管理工具，完整复盘了数据抓取、同步与跨端实现。",
+   "content": "适合当「个人项目从 0 到 1」的范本读，重点看三件事：一是数据来源与清洗（3 万条划线怎么去重、打标签、建索引），二是跨平台方案选型（同一套数据在桌面与移动端如何同步），三是产品取舍（为什么不做成又一个笔记软件）。对前端方向的同学，可以照着做一个自己的「课设级」版本：本地 SQLite 存书摘、全文检索、导出 Markdown，再套一层 Electron 或 Tauri。做完至少能讲清楚数据建模、检索与跨端同步三个工程问题，面试时比「做过 TodoList」有料得多。",
+   "source": "少数派",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Tauri",
+    "SQLite"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**用「书摘管理」这类真实数据量的个人项目，替代千篇一律的 TodoList。**",
+   "courses": "《Web前端开发》综合项目、《数据库原理》索引与全文检索实践",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "看数据清洗与索引设计：3万条笔记如何去重与检索",
+    "跨平台选型与同步策略是核心工程点",
+    "可复刻为 Tauri/Electron + SQLite 的个人项目"
+   ],
+   "buzz": [],
+   "link": "https://sspai.com/post/115688",
+   "cover": "img/a563.webp"
+  },
+  {
+   "id": "a564",
+   "title": "拾趣 Magpie v0.1.14 发布 Windows 版：跨平台划词 AI 工具",
+   "summary": "开源划词 AI 工具拾趣发布 Windows 版，支持划词翻译、解释、总结，以及图片/视频/扫描件文字框选识别。",
+   "content": "这是一个可以直接装来用的效率工具：划选或双击文字弹出浮动条，做翻译、解释、总结，结果可写入 Obsidian、预填日历；图片和扫描文档支持框选 OCR。对学生最实用的场景是读英文文档和论文时边读边查，以及把零散笔记直接落到 Obsidian。想学实现的话，它的技术点很典型：全局快捷键与划词监听、悬浮窗、OCR 调用、多平台适配——正好是桌面端开发的一套完整练习。注意 OCR 与翻译可能走云端，处理涉密或未公开材料时先看隐私设置。",
+   "source": "开源中国",
+   "date": "2026-10-16",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "OCR",
+    "桌面端"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**读英文文档的效率工具，同时是桌面端划词+OCR 的现成技术样本。**",
+   "courses": "《人机交互》/桌面应用开发课程的工具选型与实现参考",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "划词翻译/解释/总结，支持框选 OCR 与 Obsidian 写入",
+    "适合读英文文档、论文时边读边记",
+    "实现涉及全局快捷键、悬浮窗、OCR、多平台适配"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503067/magpie-0-1-14-released-windows-ver"
+  },
   {
    "id": "a555",
    "title": "Java 生态近期更新：JobRunr 9、OpenXava 8、Quarkus、LangChain4j 等",
@@ -26,7 +239,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "JobRunr 9：Java 分布式任务调度，支持持久化与重试",
@@ -3994,212 +4207,6 @@
    "origTitle": "AgentWorkforce/relay",
    "link": "https://github.com/AgentWorkforce/relay",
    "cover": "img/a448.webp"
-  },
-  {
-   "id": "a439",
-   "title": "ToolForge v0.1.8 发布：Rust+Tauri 2 开源桌面工具箱新增 11 款工具",
-   "summary": "基于 Rust + Tauri 2 构建的开源桌面工具箱 ToolForge 更新到 v0.1.8，一口气新增 11 款工具，覆盖文档处理、数据转换、开发辅助与系统管理。",
-   "content": "ToolForge 是一个用 Rust + Tauri 2 写的开源桌面工具箱，把日常开发、文件处理、效率工具整合进一个应用。这次 v0.1.8 新增 11 款工具，涵盖文档处理、数据转换、开发辅助、系统管理。对软件工程同学来说，它的价值有两层：一是直接用，替代一堆零散小工具；二是当源码读——Tauri 是当下桌面端跨平台的热门方案，前端用 Web 技术、后端用 Rust，正好把你在《Web 前端开发》和系统编程课上学的东西串起来。想找课设或简历项目，可以试着给它加一个自己写的小工具并提 PR。",
-   "source": "开源中国",
-   "date": "2026-10-10",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Rust",
-    "Tauri"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**想入门 Rust 桌面开发又缺项目？直接读它的源码或提一个工具 PR，比看教程快。**",
-   "courses": "《Web 前端开发》《程序设计基础》：把前端页面与 Rust 后端 IPC 通信的完整链路走一遍",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Rust + Tauri 2 技术栈，前后端分离的桌面应用范例",
-    "新增 11 款工具，可直接替代零散效率软件",
-    "适合作为课设/开源贡献的练手项目，门槛不高"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502937"
-  },
-  {
-   "id": "a440",
-   "title": "DjangoAdmin v2.8.2 发布：Flask+Vue3+TS 的企业级后台，带按钮级 RBAC 权限",
-   "summary": "DjangoAdmin 敏捷开发框架的 Flask + NaiveVue 版本发布 v2.8.2，基于 Flask、Vue3、TypeScript、NaiveUI、Vite 重构，内置细到按钮和方法级别的 RBAC 权限体系。",
-   "content": "这套框架用 Flask + Vue3 + TypeScript + NaiveUI + Vite 做前后端分离，内置用户、角色、权限菜单、部门、职级岗位、系统日志、数据字典、任务调度等模块，权限控制细到按钮和方法级别。对 Java/后端方向的同学，它是一份很好的「企业后台长什么样」的参照物：你可以对照着理解 RBAC 模型怎么落地、前后端如何约定接口、菜单权限怎么动态下发。做课程设计或毕设需要后台管理系统时，可以直接拿它当脚手架，把精力放在业务逻辑而不是重复造登录鉴权。",
-   "source": "开源中国",
-   "date": "2026-10-10",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Flask",
-    "Vue3"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**毕设要写后台管理系统？先看它怎么设计权限和菜单，能省你两周时间。**",
-   "courses": "《数据库原理》《Web 应用开发》：对照其 RBAC 表结构理解多对多权限建模",
-   "tags": [
-    "通用开发",
-    "前端开发",
-    "Java全栈"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Flask + Vue3 + TS 全栈脚手架，开箱即用",
-    "RBAC 权限细到按钮和方法级，是理解权限模型的活教材",
-    "适合课设/毕设直接当后台底座，省掉重复开发"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502930"
-  },
-  {
-   "id": "a441",
-   "title": "Agent-Ready 设计系统正在重塑前端技术栈：为人和为机器同时设计",
-   "summary": "DEV 社区文章讨论「Agent-Ready」设计系统如何改变前端栈——当 AI Agent 要直接消费和操作你的界面时，组件、语义和 API 该怎么设计。",
-   "content": "过去十年设计系统是给人看的，现在多了一类消费者：AI Agent。文章讨论的是，当 Agent 需要读取页面结构、调用组件能力时，前端要额外提供什么——稳定的语义化标记、可被程序理解的组件元数据、以及面向机器的接口约定。对前端方向的同学，这是个值得提前布局的方向：你写的组件未来可能同时被用户和 Agent 调用。建议结合《Web 前端开发》里的语义化 HTML 与组件设计章节，试着给自己项目里的组件补一份「机器可读」的描述文件，作为简历上的差异化亮点。",
-   "source": "DEV Community",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "简历加分/求职准备",
-   "value": "**前端下一个增量在「让 Agent 能用你的组件」，现在动手做个小 demo 就是先发优势。**",
-   "courses": "《Web 前端开发》：把语义化 HTML、组件设计原则延伸到机器可读场景",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "前端组件未来要同时服务人和 AI Agent 两类消费者",
-    "核心是语义化标记 + 组件元数据 + 机器可读接口",
-    "可作为前端方向简历的差异化项目方向"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Designing for Both Humans and Machines: How 'Agent-Ready' Design Systems Are Reshaping the Frontend Stack",
-   "link": "https://dev.to/tamizuddin/designing-for-both-humans-and-machines-how-agent-ready-design-systems-are-reshaping-the-frontend-1co6",
-   "cover": "img/a441.webp"
-  },
-  {
-   "id": "a442",
-   "title": "用 Eurydice 把 Rust 编译成可读的 C：跨语言移植与安全审计的新思路",
-   "summary": "LWN 文章介绍 Eurydice 工具链，能把 Rust 代码编译成人类可读的 C 代码，用于把 Rust 项目移植到只有 C 工具链的环境，或对 Rust 实现做安全审计。",
-   "content": "Eurydice 做的事情很有意思：不是把 Rust 编译成机器码，而是翻译成可读的 C。用途有两个——把 Rust 库移植到嵌入式等只有 C 编译器的平台，以及让安全审计人员能读懂 Rust 实现到底干了什么。对信息安全方向的同学，这提供了一条审计思路：当关键组件用 Rust 写、你又需要逐行确认内存安全与边界处理时，转成 C 再对照阅读比直接啃 Rust 泛型友好得多。对工业软件方向，嵌入式平台往往只有 C 工具链，这类翻译工具是引入现代语言的实际路径。",
-   "source": "Hacker News",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**想进安全审计或嵌入式方向，理解「Rust 如何映射到 C」是稀缺的加分技能。**",
-   "courses": "《编译原理》《信息安全导论》：从语言翻译视角理解内存安全与边界检查如何落地",
-   "tags": [
-    "信息安全",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "把 Rust 翻译成可读 C，而非机器码",
-    "用于嵌入式移植和安全审计两类场景",
-    "信息安全方向可借此审计 Rust 实现的内存与边界处理"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Compiling Rust to readable C with Eurydice",
-   "link": "https://lwn.net/Articles/1055211/"
-  },
-  {
-   "id": "a443",
-   "title": "ChatGPT 标题被塞色情赌博广告：中文语料污染给开发者的警示",
-   "summary": "ChatGPT 生成的标题里频繁出现色情、赌博类小广告，根源指向训练数据中的中文互联网垃圾语料污染。",
-   "content": "这条新闻表面是八卦，对信息安全与做数据相关开发的同学却是实打实的案例。它说明：训练数据的来源治理没做好，模型输出会直接变成垃圾广告的传播渠道。如果你以后做爬虫、数据清洗、或任何要喂给模型的数据管道，这就是反面教材——数据源白名单、内容过滤、异常模式检测一个都不能少。可以结合《信息安全导论》里的数据安全与内容合规章节，自己写个小脚本统计某批文本里的可疑关键词分布，作为课程实践。",
-   "source": "爱范儿",
-   "date": "2026-10-10",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/求职准备",
-   "value": "**做数据相关开发，这条新闻就是「不治理数据源会出什么事」的现成案例。**",
-   "courses": "《信息安全导论》：数据来源治理与内容合规的真实反面案例",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "训练语料污染会直接污染模型输出，不只是「脏数据」问题",
-    "做数据管道时要加来源白名单与内容过滤",
-    "可作为数据安全/内容合规的课程实践素材"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1683545?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a443.webp"
-  },
-  {
-   "id": "a444",
-   "title": "个人 AI Agent 卡在生态接入而非模型能力：平台开放才是瓶颈",
-   "summary": "钛媒体分析指出，中国个人 AI Agent 进展缓慢的约束不在模型能力，而在竞争对手是否允许 Agent 进入自家服务、以及按什么商业条款合作。",
-   "content": "这条对做后端和系统集成的同学有直接参考价值。文章的核心判断是：模型已经够用，卡点在生态——Agent 要替用户操作别的 App，就得有接口、有授权、有商业协议。换句话说，未来几年大量工程工作量会落在「系统间集成」上：OAuth 授权、开放 API 设计、权限边界、调用计费。这些正是《软件工程》和《Web 应用开发》里接口设计部分的延伸。想往平台/中台方向走的同学，可以留意各家开放平台的接口规范，这是比刷算法更贴近实际岗位的技能。",
-   "source": "钛媒体",
-   "date": "2026-10-10",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**想进平台或中台团队，先把开放 API 与授权体系搞明白，比多刷一百道题有用。**",
-   "courses": "《软件工程》《Web 应用开发》：系统集成与接口设计的现实约束",
-   "tags": [
-    "行业动态",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 落地瓶颈是生态接入与商业条款，不是模型能力",
-    "工程重心转向系统集成：授权、开放 API、权限边界",
-    "平台/中台方向的同学应关注开放平台接口规范"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8163541.html"
   }
  ],
  "jobs": [
