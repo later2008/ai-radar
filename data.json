@@ -1,6 +1,153 @@
 {
- "updatedAt": "2026-10-16 14:36",
+ "updatedAt": "2026-10-17 02:15",
  "news": [
+  {
+   "id": "a555",
+   "title": "Java 生态近期更新：JobRunr 9、OpenXava 8、Quarkus、LangChain4j 等",
+   "summary": "InfoQ 汇总了近期 Java 生态的一批版本更新，覆盖任务调度、低代码框架、云原生运行时和 LLM 集成库。",
+   "content": "JobRunr 9 是 Java 的分布式后台任务调度库，适合做订单超时、定时报表这类需求；OpenXava 8 走的是「用注解生成业务应用」的低代码路线；Quarkus 主打云原生、启动快、内存占用低；LangChain4j 则是把大模型接进 Java 项目的常用封装。对软件工程的同学来说，这一条的价值在于：课程设计里「定时任务」「后台管理」「接个 AI 接口」这三类需求，都能找到现成的 Java 方案，不必一上来就自己写调度器。建议挑一个（比如 JobRunr）跑通官方 demo，理解持久化任务和重试机制。",
+   "source": "InfoQ中文",
+   "date": "2026-10-17",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "JobRunr",
+    "Quarkus"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一次看清 Java 后端在调度、低代码、云原生、AI 接入四个方向上的现成轮子，课设选型不用从零造。**",
+   "courses": "《Java 程序设计》《软件体系结构》：作为课程设计技术选型与框架调研素材",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "JobRunr 9：Java 分布式任务调度，支持持久化与重试",
+    "OpenXava 8：注解驱动的低代码业务应用框架",
+    "Quarkus 与 LangChain4j：云原生运行时 + Java 侧 LLM 接入",
+    "适合作为课设中定时任务/后台管理/AI 接口的技术选型参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AF1qxLVCRls3R6MdWwBh?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a556",
+   "title": "用 Claude Code 写 Playwright E2E 测试一个月：哪些真能用",
+   "summary": "一位日本公司的 QA 负责人把 AI 编码代理放进生产级 E2E 测试流水线，用了一个月后给出实话。",
+   "content": "作者不是做玩具项目，而是让 Claude Code 参与生产 QA 流水线里的 Playwright 端到端测试编写。这类一线复盘比「AI 能写代码」的口号有用得多：它会告诉你 AI 擅长生成重复的选择器定位、样板化的用例结构，而在断言设计、不稳定用例（flaky test）排查上仍然要人来兜底。对信息安全与管理专业的同学，E2E 测试是理解「系统行为验证」的入口；对软件工程的同学，Playwright 本身也是简历上能写的技能。建议照着文章思路，给自己课设项目补一套 3～5 条 E2E 用例，体验 AI 生成 + 人工修正的流程。",
+   "source": "DEV Community",
+   "date": "2026-10-17",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Playwright",
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**看清 AI 写测试的真实边界，顺手把 Playwright 这项可写进简历的技能练起来。**",
+   "courses": "《软件测试技术》：作为 E2E 自动化测试与 AI 辅助测试的实践案例",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "真实场景：生产 QA 流水线而非 demo 项目",
+    "AI 擅长生成样板用例与选择器，断言与 flaky 排查仍需人工",
+    "Playwright 是可直接写进简历的 E2E 测试技能",
+    "可复用到自己课设项目的自动化测试环节"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I Let Claude Code Write My Playwright Tests for a Month. Here's What Actually Worked",
+   "link": "https://dev.to/nagayashion/i-let-claude-code-write-my-playwright-tests-for-a-month-heres-what-actually-worked-15e3",
+   "cover": "img/a556.webp"
+  },
+  {
+   "id": "a557",
+   "title": "AI 一轮就写完代码和测试，CI 变绿说明不了什么",
+   "summary": "文章指出：当代理同时生成实现和测试时，测试通过只证明「自己验自己」，不能证明逻辑正确。",
+   "content": "这是很多同学用 AI 写课设时踩的坑：让模型一次性输出功能代码和单元测试，跑通了就以为没问题。问题在于测试是按同一份（可能有误的）理解写的，等于自己出题自己判卷。正确做法是把验证锚定在「权威状态」上——数据库里的真实数据、接口的实际返回、业务规则的独立校验。对软件工程和信息安全专业都直接相关：前者关系到代码质量与测试有效性，后者关系到「验证不能被被测方自己定义」这一安全思维。建议下次让 AI 写代码时，测试用例由你自己按需求文档先写，再让 AI 补实现。",
+   "source": "DEV Community",
+   "date": "2026-10-17",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**纠正「AI 写完测试跑绿就完事」的坏习惯，学会把验证锚在独立事实上。**",
+   "courses": "《软件测试技术》《信息安全导论》：测试有效性与验证独立性",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "AI 同时写实现和测试时，绿灯不等于正确",
+    "验证要锚定权威状态：真实数据、接口返回、独立业务校验",
+    "与信息安全中「验证方与被验证方分离」的思路一致",
+    "实操建议：测试先自己按需求写，再让 AI 补实现"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your Agent Wrote the Code and Its Test in One Turn. Green CI Proves Less",
+   "link": "https://dev.to/gabrielanhaia/your-agent-wrote-the-code-and-its-test-in-one-turn-green-ci-proves-less-5ff0",
+   "cover": "img/a557.webp"
+  },
+  {
+   "id": "a558",
+   "title": "免费全书：为 Agent 的工具调用、护栏、循环与业务结果搭测试框架",
+   "summary": "freeCodeCamp 发布的完整书籍，讲怎么用代码验证 Agent 工作流的执行过程与业务结果，而不是只看最终回答。",
+   "content": "这本书的核心观点和上一条呼应：一个漂亮的最终回答，不能证明 Agent 的工作流是对的。它给出的方法是从权威状态出发，验证工具调用是否合规、护栏是否生效、循环有没有失控、业务结果是否达成。对信息安全与管理专业的同学，这里面「护栏（guardrails）」和「工具调用审计」直接对应 AI 应用的安全边界问题；对软件工程的同学，这是一套可以照着搭的测试脚手架思路。全书免费、带代码，适合作为课程设计里「给 AI 功能加测试」的参考手册，不必从头读完，按章节查用即可。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-16",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**拿到一套可落地的 Agent 测试方法论，把「AI 功能怎么验」从玄学变成工程问题。**",
+   "courses": "《软件测试技术》《人工智能导论》：AI 应用的可靠性与安全验证",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "免费完整书籍，附代码实现",
+    "覆盖工具调用、护栏、循环控制、业务结果四类验证",
+    "与 AI 应用的安全边界、审计需求直接相关",
+    "适合按需查阅，作为 AI 功能测试的脚手架参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Agentic AI Reliability: Build a Testing Harness for Tool Use, Guardrails, Loops, & Workflow Outcomes [Full Book]",
+   "link": "https://www.freecodecamp.org/news/agentic-ai-reliability-book-build-a-testing-harness/",
+   "cover": "img/a558.webp"
+  },
   {
    "id": "a551",
    "title": "Spring Boot 3 + Kafka 实战：生产者、消费者、重试与死信队列",
@@ -26,7 +173,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Spring Boot 3 中配置 Kafka 消费者的重试与退避策略",
@@ -4053,153 +4200,6 @@
    ],
    "buzz": [],
    "link": "https://www.tmtpost.com/8163541.html"
-  },
-  {
-   "id": "a432",
-   "title": "联想 TianxiCode 以 71% 解决率登顶 SWE-bench-Live 全球第一",
-   "summary": "联想天禧自研代码智能体框架 TianxiCode 在 SWE-bench-Live 上以 71% 问题解决率拿下全球第一，超过多款主流代码 Agent。",
-   "content": "SWE-bench-Live 是当前最贴近真实仓库的代码修复评测集，题目来自真实 issue 与 PR，比静态题库更能反映 Agent 的工程能力。TianxiCode 拿到 71% 解决率，说明「读仓库—定位缺陷—改代码—跑测试」这条链路已经能稳定跑通。对软件工程和工业软件方向的同学，值得关注两点：一是它验证了「测试驱动 + 上下文检索」是代码 Agent 的核心范式，你在做课程项目时可以照这个思路组织自己的 AI 辅助流程；二是国产框架登顶意味着国内企业级代码助手会加速落地，简历上写「熟悉代码 Agent 工作流、会用 SWE-bench 类评测验证效果」会比只写「会用 Copilot」更有区分度。建议动手跑一次开源评测子集，理解失败案例集中在哪。",
-   "source": "量子位",
-   "date": "2026-10-09",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "AI Agent",
-    "SWE-bench"
-   ],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**代码 Agent 的评测标准已从「会写片段」转向「能修真实仓库」，这是你准备实习面试时最该补的一课。**",
-   "courses": "《软件工程》《软件测试》——把 Agent 修复流程当作持续集成的一环来理解",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "SWE-bench-Live 基于真实 issue/PR，比静态题库更贴近工程实际",
-    "71% 解决率说明代码 Agent 已能稳定完成「定位—修改—验证」闭环",
-    "国产框架登顶，企业级代码助手落地会加速",
-    "建议自己跑一遍评测子集，理解失败模式"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/502422.html",
-   "cover": "img/a432.webp"
-  },
-  {
-   "id": "a433",
-   "title": "TRAE 把 Code 与 Work 合并：一个入口同时管代码和任务",
-   "summary": "字节 TRAE 将代码模式与工作流模式合并为统一入口，减少在编辑器与任务面板之间来回切换。",
-   "content": "TRAE 这次合并的本质是把「写代码」和「跑任务」放进同一个上下文：你在一个界面里既能改文件，也能让 Agent 去执行构建、跑测试、整理需求。对做课设和团队项目的同学，实际收益是减少上下文丢失——以前在 IDE 改完代码还要切到另一个工具描述任务，现在描述一次即可。建议这样用：把「读需求文档→列任务清单→改代码→跑测试」写成一条固定 prompt 模板，让 Agent 按模板执行，你只做 review。注意两点：一是合并后权限更大，务必在独立分支上操作，避免 Agent 直接改主干；二是任务描述越具体，返工越少。工业软件方向的同学可以拿它试着重构一段老代码，观察它能否保持接口不变。",
-   "source": "量子位",
-   "date": "2026-10-09",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "TRAE",
-    "AI 编程助手"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把 AI 编程工具从「补全器」用成「任务执行器」，是拉开同学之间效率差距的关键一步。**",
-   "courses": "《软件工程》《程序设计综合实践》——用统一入口管理项目任务与代码变更",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Code 与 Work 合并，减少编辑器与任务面板之间的上下文切换",
-    "适合把「需求→任务→改码→测试」固化成 prompt 模板",
-    "Agent 权限变大，务必在独立分支操作",
-    "可用它做老代码重构练习，重点看接口是否保持不变"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/502426.html",
-   "cover": "img/a433.webp"
-  },
-  {
-   "id": "a434",
-   "title": "Agent 写的 PR 回滚率 6.1% 还是 14.5%？取决于厂商",
-   "summary": "一项新预印本指出，不同厂商的代码 Agent 提交的 PR 回滚率差异巨大，从 6.1% 到 14.5% 不等，单一数字无法回答「Agent 代码是否更差」。",
-   "content": "这篇来自德州理工的预印本最有价值的地方，是它拒绝给你一个笼统结论：Agent 生成的 PR 回滚率在不同厂商之间差了一倍以上（6.1% vs 14.5%）。对信息安全与管理专业的同学，这直接对应「代码供应链风险」——你引入的 AI 生成代码，其质量取决于工具与流程，而不是「AI 行不行」这种笼统判断。建议做法：在团队项目里给 AI 生成的提交打标记（commit message 前缀或标签），统计回滚率和返工原因，形成自己的小数据集；面试时能说出「我统计过我们组 AI 提交的回滚率是 X%，主要失败原因是 Y」，比空谈「会用 AI」有说服力得多。",
-   "source": "DEV Community",
-   "date": "2026-10-10",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "代码审查",
-    "Git"
-   ],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**能拿出「我们组 AI 提交回滚率是多少」的实测数据，比任何「熟练使用 AI」的自我描述都硬。**",
-   "courses": "《软件测试》《软件工程》——把 AI 生成代码纳入代码审查与质量度量",
-   "tags": [
-    "行业动态",
-    "求职就业",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "不同厂商代码 Agent 的 PR 回滚率从 6.1% 到 14.5%，差异显著",
-    "单一指标无法判断 Agent 代码质量，需按工具和流程分开看",
-    "对应代码供应链风险，属于信息安全关注范围",
-    "建议给 AI 提交打标记并统计回滚率，形成可讲的数据"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/cole_halton_42f71d71b809b/agent-prs-revert-at-61-or-145-depending-on-the-vendor-55ph",
-   "cover": "img/a434.webp"
-  },
-  {
-   "id": "a435",
-   "title": "谷歌办公 Agent 可独立建号、创建子 Agent，还能调用 Claude",
-   "summary": "谷歌推出办公场景 Agent，拥有独立账号、能派生子 Agent，并可跨模型调用 Claude，把「@ 一下派活」变成现实。",
-   "content": "这条新闻对软件工程学生的价值不在办公场景本身，而在它的架构模式：主 Agent 持有独立身份、按需创建子 Agent、跨模型调用外部能力。这正是当前 Agent 工程的主流设计——编排层与执行层分离、能力通过工具接口暴露。你在做课程项目时完全可以照搬这个结构：一个调度 Agent 负责拆解任务，若干子 Agent 分别负责检索、写代码、跑测试，每个子 Agent 只拿最小权限。信息安全方向的同学要特别注意「独立账号 + 子 Agent」带来的权限扩散问题：子 Agent 继承多少权限、调用外部模型时数据流向哪里，都是要写进设计文档的风险点。",
-   "source": "InfoQ中文",
-   "date": "2026-10-09",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "AI Agent",
-    "权限管理"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**「主 Agent 编排 + 子 Agent 执行 + 最小权限」这套结构，是你做 AI 相关课设时最值得抄的架构。**",
-   "courses": "《软件体系结构》《信息安全导论》——用 Agent 编排案例讲分层与权限控制",
-   "tags": [
-    "AI工具",
-    "行业动态",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "架构要点：主 Agent 独立身份 + 派生子 Agent + 跨模型调用",
-    "可照搬到课设：调度层与执行层分离，子 Agent 最小权限",
-    "权限扩散与数据外流是信息安全方向必须评估的风险",
-    "跨模型调用说明工具接口抽象比绑定单一模型更重要"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/490gIS9Bk0NmylN7GIt1?utm_source=rss&utm_medium=article",
-   "cover": "img/a435.webp"
   }
  ],
  "jobs": [
