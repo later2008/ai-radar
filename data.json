@@ -1,6 +1,156 @@
 {
- "updatedAt": "2026-10-18 21:50",
+ "updatedAt": "2026-10-18 16:29",
  "news": [
+  {
+   "id": "a584",
+   "title": "Java密封类+穷尽模式匹配：用switch把状态机写死",
+   "summary": "一篇讲透Java sealed interface与switch穷尽性检查的文章，编译器帮你兜住漏分支。",
+   "content": "Java 17的sealed类配合21+的模式匹配switch，能让编译器在漏写分支时直接报错——这对写订单状态机、协议报文解析特别有用。文章用完整代码演示：先定义sealed interface Shape permits Circle, Rect，再在switch里按类型解构，去掉default也能编译通过，新增子类时所有switch自动报错提示你补分支。这比传统if-else instanceof链安全得多，也比枚举+抽象方法更灵活。建议你在课设里把「订单状态流转」或「报文类型分发」改写成这种写法，面试时讲「如何让编译器保证分支完整性」是加分项。",
+   "source": "Hacker News",
+   "date": "2026-10-18",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java 21",
+    "Pattern Matching"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**用编译器替代人肉检查分支遗漏，Java后端代码健壮性直接上一档**",
+   "courses": "《面向对象程序设计(Java)》——把课程里的继承多态例子升级成密封类+模式匹配",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "sealed+permits限定子类，switch可省default",
+    "新增子类时编译器强制你补全所有分支",
+    "适合状态机、协议解析、AST遍历场景",
+    "对比枚举和if-else instanceof链的取舍"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Java sealed classes and exhaustive pattern matching",
+   "link": "https://neilmadden.blog/2026/04/24/java-sealed-classes-and-exhaustive-pattern-matching/"
+  },
+  {
+   "id": "a585",
+   "title": "上下文窗口与Agent记忆：为什么你的AI助手总「忘事」",
+   "summary": "从token边界解释AI Agent的失忆行为，并给出记忆分层设计的实操思路。",
+   "content": "很多人调AI Agent时发现它忘了十分钟前定的规则，根因不是模型笨，而是上下文窗口是硬边界——窗口外的内容对模型完全不可见。文章把Agent记忆拆成三层：窗口内的即时上下文、外挂的检索记忆（向量库/文件）、以及结构化的长期状态（数据库）。实操建议：把「必须遵守的规则」放在每次请求的固定前缀位置，把历史对话做摘要压缩后再回填，把项目事实存成可检索的文档而不是塞进对话。你做课设里的AI问答或智能客服时，这套分层能直接套用，避免把整个聊天记录无脑拼进prompt导致超长和费用爆炸。",
+   "source": "DEV Community",
+   "date": "2026-10-18",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM",
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**搞懂Agent记忆分层，你的AI课设才不会一聊长了就失忆**",
+   "courses": "《人工智能导论》/毕业设计——设计AI应用时规划上下文与记忆存储方案",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "上下文窗口是硬边界，窗口外内容模型完全看不到",
+    "记忆分三层：窗口内上下文、检索记忆、结构化长期状态",
+    "规则放固定前缀，历史对话先摘要再回填",
+    "课设做AI问答/客服可直接套用这套分层"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Everything You Need to Know About Context Windows and Agent Memory",
+   "link": "https://dev.to/tdk-cli/everything-you-need-to-know-about-context-windows-and-agent-memory-16pg",
+   "cover": "img/a585.webp"
+  },
+  {
+   "id": "a586",
+   "title": "用FalkorDB搭跨Agent图记忆：让AI记得住还能解释为什么记得",
+   "summary": "把Agent记忆存进图数据库，检索时能给出「为什么召回这条」的可解释链路。",
+   "content": "Agent失忆的工程解法之一是外挂记忆库，但向量检索只能给相似度，说不清召回理由。这篇用FalkorDB（图数据库）做记忆存储：实体是节点、关系是边，Agent的每次事实写入变成一次图更新，召回时沿关系路径返回，天然带解释。文章给出完整搭建步骤：定义schema、写入对话事实、按多跳关系查询、接入Agent循环。对信安方向也有启发——图记忆可以做访问控制，按关系限定Agent能读到哪些节点。适合有一定后端基础的同学做进阶课设，涉及图数据库建模和Cypher查询语法。",
+   "source": "DEV Community",
+   "date": "2026-10-18",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "FalkorDB",
+    "Cypher"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**给AI Agent加可解释的图记忆，是简历上少见的差异化项目**",
+   "courses": "《数据库原理》——把关系建模思路延伸到图数据库与Cypher查询",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "图数据库存Agent记忆，召回沿关系路径可解释",
+    "实体为节点、关系为边，写入即更新图",
+    "可结合权限做Agent记忆的访问控制",
+    "需要Cypher查询与图建模基础"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building Continuum: Cross-Agent Graph Memory with Explainable Recall Using FalkorDB",
+   "link": "https://dev.to/himanshu_jha_de18b7f5726d/building-continuum-cross-agent-graph-memory-with-explainable-recall-using-falkordb-37o8",
+   "cover": "img/a586.webp"
+  },
+  {
+   "id": "a587",
+   "title": "用JavaScript手写冒泡与快排：算法课代码落地版",
+   "summary": "把课堂上的排序算法用JS实现一遍，附复杂度对比和真实UI排序场景。",
+   "content": "算法课讲冒泡和快排，但很多同学只会背复杂度不会写。这篇用JavaScript把两种排序完整实现，并解释为什么前端场景下排序选择有讲究：小数组冒泡够用，列表渲染数据量大时快排的O(n log n)明显更稳。文章还提到JS内置sort的稳定性与比较函数陷阱——不传比较函数会按字符串排序，[10,9,1]会排成[1,10,9]，这是课设和笔试的高频坑。建议你照着敲一遍，再用console.time测不同数据规模下的耗时，把结果写进实验报告，比抄伪代码有说服力。",
+   "source": "DEV Community",
+   "date": "2026-10-18",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**把算法课伪代码变成能跑的JS并实测性能，实验报告直接加分**",
+   "courses": "《数据结构与算法》——排序章节的代码实现与性能实测",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "冒泡与快排的JS完整实现与复杂度对比",
+    "JS sort不传比较函数会按字符串排序，是高频坑",
+    "用console.time实测不同规模耗时写进实验报告",
+    "前端列表渲染场景下的排序选择考量"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Bubble Sort and Quick Sort in JavaScript",
+   "link": "https://dev.to/devindev/ecrire-un-article-complet-sur-les-algorhytme-en-javascriptavec-exemples-de-code-explications-2bd",
+   "cover": "img/a587.webp"
+  },
   {
    "id": "a579",
    "title": "Cloudflare 修复容器跨租户数据泄露：多租户隔离到底该怎么做",
@@ -22,7 +172,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "跨租户泄露本质是隔离边界设计问题，不是单个补丁能解决的",
@@ -4048,186 +4198,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7694917909773271074"
-  },
-  {
-   "id": "a471",
-   "title": "Hermes Agent 协作篇：Gateway、Profile、Delegation 与 Kanban 怎么用",
-   "summary": "深入讲解 Hermes Agent 的消息网关、配置档案、任务委派和看板机制，适合想搭建多 Agent 协作系统的开发者。",
-   "content": "单 Agent 能做的事有限，真正落地要解决的是「多个 Agent 怎么分工、怎么通信、任务怎么排队」。这篇是 Hermes Agent 系列的第四部分，讲清了四个核心概念：Gateway 负责接入消息平台（相当于前台），Profile 定义 Agent 的身份与能力，Delegation 实现任务下发给子 Agent，Kanban 则管理任务状态流转。如果你在做课设里的智能助手、或者想给团队搭一个内部自动化工具，这套架构可以直接借鉴。建议先理解 Gateway 与 Profile 的解耦设计，再动手跑一个「主 Agent 接单、子 Agent 干活」的最小例子，比一上来啃全部文档高效得多。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Hermes Agent"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**想搭多 Agent 协作系统，这套 Gateway/Profile/Delegation 分层设计可以直接抄架构。**",
-   "courses": "对应《软件体系结构》《人工智能导论》，可作为智能系统课程设计的架构参考。",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "Gateway 是消息接入层，Profile 定义 Agent 身份与能力，两者解耦",
-    "Delegation 负责把任务下发给子 Agent，Kanban 管理任务状态流转",
-    "建议先跑通「主 Agent 接单 + 子 Agent 干活」的最小闭环"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7695030462259527730"
-  },
-  {
-   "id": "a472",
-   "title": "2026 最新 Rust 入门教程（六）：枚举与模式匹配",
-   "summary": "Rust 入门系列第六章，从结构体过渡到枚举，讲解 Rust 枚举如何携带数据以及模式匹配的基本用法。",
-   "content": "Rust 的枚举和 C/Java 的枚举完全不是一个东西：它的每个变体可以携带不同类型和数量的数据，配合 match 做模式匹配，是 Rust 表达「一个值可能是几种形态之一」的核心手段。这也是 Option<T> 和 Result<T,E> 能取代 null 和异常的基础。本章从结构体自然过渡到枚举，适合已经会一门语言的你快速上手。建议边读边写：用枚举定义一个「网络请求状态」（加载中/成功带数据/失败带错误），再用 match 处理每种情况，体会编译器如何强制你处理所有分支。工业软件方向对内存安全和可靠性要求高，Rust 值得提前布局。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**Rust 枚举+模式匹配是理解内存安全语言设计的关键一步，工业软件方向值得提前学。**",
-   "courses": "对应《程序设计基础》《系统编程》，可作为第二语言选修的入门材料。",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "Rust 枚举的变体可以携带不同类型的数据，和 C/Java 枚举完全不同",
-    "match 模式匹配强制穷尽所有分支，是 Option/Result 取代 null 与异常的基础",
-    "建议用「网络请求状态」枚举练手，体会编译器的穷尽性检查"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694952423996653594"
-  },
-  {
-   "id": "a458",
-   "title": "Spring AI Alibaba 实战：Agent 执行 shell 命令时，沙箱如何拦住家目录密钥泄露",
-   "summary": "一篇纯 Java 实现的 Agent 安全防护教程，用四层过滤机制拦截 shell 命令执行中的敏感信息泄露。",
-   "content": "这篇是 Spring AI Alibaba 系列第八篇，场景很真实：你让 Agent 执行 shell 命令，它却读到了家目录里的密钥文件。作者用四层纯 Java 的\"筛子\"把伤害拦下来——命令白名单、路径限制、输出脱敏、权限校验。对信息安全专业来说，这是一份难得的 Agent 安全实战案例，涉及命令注入、最小权限原则、敏感信息过滤等核心概念。对软件工程同学，它展示了如何在 Java 生态里给 AI Agent 加安全层。建议结合《网络安全》《Java 程序设计》课程，把代码跑一遍，理解每一层过滤的绕过风险。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "信息安全"
-   ],
-   "stack": [
-    "Spring AI",
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会给 AI Agent 加安全沙箱，是信息安全方向求职的差异化亮点**",
-   "courses": "《网络安全》《Java 程序设计》——可作为课程设计的安全模块",
-   "tags": [
-    "信息安全",
-    "Java全栈",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "四层纯 Java 过滤：命令白名单、路径限制、输出脱敏、权限校验",
-    "真实场景：Agent 执行 shell 时读到家目录密钥",
-    "涉及命令注入、最小权限、敏感信息过滤等安全核心概念",
-    "Spring AI Alibaba 系列教程，Java 生态可直接复用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694952423996080154"
-  },
-  {
-   "id": "a459",
-   "title": "Spring AI Alibaba 实战：不写一行埋点，用 Micrometer 追踪 Agent 每一步",
-   "summary": "利用 Micrometer 的 Observation API 实现 Agent 链路追踪，零埋点代码即可看清每一步执行。",
-   "content": "Agent 调了哪些工具、每步耗时多少、哪里卡住了——这篇教程用 Micrometer 的 Observation API 把链路追踪讲透，关键是不需要手写 tracing 埋点。对 Java 方向的同学，这是可观测性（Observability）的入门实战，也是微服务面试高频考点。软件工程专业做课设时，给 Agent 加上链路追踪能让项目显得专业很多。建议结合《软件工程》《分布式系统》课程，理解 Observation、Span、Trace 的关系，把代码集成到自己的 Agent 项目里。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring AI",
-    "Micrometer"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**掌握链路追踪，让你的 Java 项目从'能跑'升级到'可观测'**",
-   "courses": "《软件工程》《分布式系统》——课设中加可观测性模块",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Micrometer Observation API 实现零埋点链路追踪",
-    "看清 Agent 每步工具调用与耗时",
-    "可观测性是微服务面试高频考点",
-    "可直接集成到自己的 Agent 课设项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694932886454059035"
-  },
-  {
-   "id": "wk-20261012",
-   "title": "【AI风向标周报】第1期（10.12-10.18）",
-   "summary": "本周精选：千问 Go 实测：退差价、约保养、订、Artifactory 高危漏洞正被等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. 千问 Go 实测：退差价、约保养、订球场，一句话把事办完\n   个人 Agent 的交互与编排设计，是前端和后端都能练手的真实需求样本。\n   原文：https://www.qbitai.com/2026/10/502849.html\n2. Artifactory 高危漏洞正被积极利用：可绕过认证获取管理员权限\n   供应链安全不是理论，你每天拉的依赖包就可能是攻击入口。\n   原文：https://www.infoq.cn/article/CSNMcSceutWCGQhZcL7D?utm_source=rss&utm_medium=article\n3. Linus 用 Claude Code 写的内核补丁已推送到个人仓库\n   AI 写内核代码已成现实，学会审查和验证 AI 产出比会写代码更值钱。\n   原文：https://www.oschina.net/news/502978/linus-torvalds-used-claude-code\n4. Agent 热潮把 AI 推向端侧，软件人该关注什么\n   端侧 AI 是下一个工程岗需求点，早一步动手部署本地模型就早一步占位。\n   原文：https://www.tmtpost.com/8170161.html\n5. Cloudflare 修复容器跨租户数据泄露：多租户隔离到底该怎么做\n   多租户隔离是云安全面试高频题，这个真实事故是最好的案例素材\n   原文：https://www.infoq.cn/article/YmllSwKbZXY0bcVjjw70?utm_source=rss&utm_medium=article\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. 用 TypeScript + Python + MCP 搭一套可靠的 Agent 工作流\n   把「Agent 编排」从概念变成能写进简历的工程 demo。\n   获取：https://dev.to/murthyg/how-to-build-reliable-work-handoffs-between-ai-agents-in-typescript-1neh\n2. Spring Boot 3 + Kafka 实战：生产者、消费者、重试与死信队列\n   掌握 Kafka 重试与死信队列，让你的微服务项目从「能跑」升级到「扛得住」\n   获取：https://dev.to/someswarduddi/event-driven-spring-boot-3-microservices-with-kafka-producers-consumers-retries-and-dead-letter-26ek\n3. GitHub Copilot 进阶：用自定义指令和 MCP 让 AI 读懂你的整个代码库\n   把 Copilot 从「补全工具」升级为「懂你项目的 AI 队友」，是当前最容易被面试官问到的工程实践。\n   获取：https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-10-18",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：千问 Go 实测：退差价、约保养、订球场，一句话把事办完",
-    "精选岗位 Top0：—",
-    "实用工具 Top3：用 TypeScript + Python + MCP 搭一套可靠的 Agent 工作流"
-   ],
-   "link": "",
-   "cover": "img/a479.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-10-12",
-    "end": "2026-10-18",
-    "news": [
-     "a508",
-     "a479",
-     "a478",
-     "a544",
-     "a579"
-    ],
-    "jobs": [],
-    "tools": [
-     "a543",
-     "a551",
-     "a484"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
