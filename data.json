@@ -1,6 +1,139 @@
 {
- "updatedAt": "2026-10-17 13:31",
+ "updatedAt": "2026-10-18 02:15",
  "news": [
+  {
+   "id": "a570",
+   "title": "Aspire 13.6 发布：Java/Rust 第一方托管 + 持久化遥测仪表盘",
+   "summary": "微软 Aspire 13.6 新增第一方 Java 与 Rust 托管支持，并加入可持久化的仪表盘遥测，方便本地与云端统一观测分布式应用。",
+   "content": "Aspire 是 .NET 生态的分布式应用编排工具，这次 13.6 把 Java 和 Rust 提升为第一方托管资源——意味着你写 Spring Boot 服务时，可以直接在 Aspire 的 AppHost 里声明、启动、注入连接串，和 .NET 服务混编调试。持久化遥测仪表盘则把 OpenTelemetry 的 trace/metrics 存下来，重启后还能回看，排查课设里多服务调用的时序问题很实用。对软件工程同学来说，这是理解「服务编排 + 可观测性」两个工程化概念的低成本入口：不用自己写 docker-compose 和 Jaeger，一条命令拉起整套依赖。工业软件实验班做多模块系统集成时，也可用它统一管理 Java 后端与前端服务的启动顺序。",
+   "source": "InfoQ中文",
+   "date": "2026-10-18",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Aspire",
+    "OpenTelemetry"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**用最低成本体验服务编排与可观测性，是分布式课设的脚手架**",
+   "courses": "《软件体系结构》《分布式系统》课设中编排多服务并演示调用链",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 62,
+   "brief": [
+    "Java/Rust 成为第一方托管资源，可与 .NET 服务混编编排",
+    "遥测数据持久化，重启后仍可回看 trace/metrics",
+    "一条命令拉起多服务依赖，省去手写 compose 与观测栈"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4BUR4DmMxSBxyzYh6Fxz?utm_source=rss&utm_medium=article",
+   "cover": "img/a570.webp"
+  },
+  {
+   "id": "a571",
+   "title": "Cloudflare 要建公共 CA，签发抗量子 TLS 证书",
+   "summary": "Cloudflare 计划推出公共证书颁发机构，用于签发量子安全（后量子算法）的 TLS 证书，推动 PQC 在 Web 传输层的落地。",
+   "content": "TLS 证书是整个 HTTPS 信任链的根，现在主流用的是 RSA/ECC，理论上会被未来的量子计算机用 Shor 算法攻破。Cloudflare 要做公共 CA 签发后量子证书，等于把 PQC 从论文推进到浏览器能实际校验的证书链里。信息安全专业的同学值得关注两点：一是后量子签名算法（如 ML-DSA）如何嵌进 X.509 证书结构，二是证书透明度、吊销机制在换算法后怎么适配。建议结合《密码学》里的公钥体系章节，用 openssl 生成一张自签 PQC 证书跑一遍握手，理解「算法替换」在协议层要改哪些字段。这也是「先存后解」攻击下迁移时间表的现实注脚。",
+   "source": "InfoQ中文",
+   "date": "2026-10-16",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "TLS",
+    "PQC"
+   ],
+   "value": "**后量子密码从论文走向证书链，是密码学课程最鲜活的落地案例**",
+   "courses": "《密码学》《网络安全协议》中讲公钥基础设施与算法迁移",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "公共 CA 将签发后量子算法 TLS 证书，进入实际信任链",
+    "关注 ML-DSA 等签名算法如何嵌入 X.509 结构",
+    "可用 openssl 自签 PQC 证书实测握手流程"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/CoGZq3xgQhZI4rBH8pjA?utm_source=rss&utm_medium=article",
+   "cover": "img/a571.webp"
+  },
+  {
+   "id": "a572",
+   "title": "Android 安全状态库支持组件级安全校验",
+   "summary": "谷歌 Android 安全状态库新增组件级安全校验能力，应用可针对单个组件判断设备安全状态，而非整机一刀切。",
+   "content": "以往 Android 应用判断设备是否安全（是否 root、是否被篡改），往往整机一个结论，粒度太粗。新的安全状态库支持组件级校验，意味着你可以只对支付、密钥存储这类敏感模块要求高强度证明，普通界面照常运行，用户体验和安全强度可以分级。信息安全同学可以借此理解「最小信任边界」：不是所有代码都值得付同样的验证成本。动手方向是用 Play Integrity 类接口做一次分级校验 demo，对比整机校验与组件校验在误报率、可用性上的差异。移动安全课设、App 加固方案设计都能直接用上，也是面试里讲「安全与体验权衡」的好素材。",
+   "source": "InfoQ中文",
+   "date": "2026-10-16",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Android"
+   ],
+   "value": "**组件级安全校验是「最小信任边界」的工程范本，移动安全课设可直接引用**",
+   "courses": "《移动应用安全》中设计分级完整性校验方案",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "安全校验粒度从整机细化到单个组件",
+    "敏感模块高强度校验，普通功能不受影响",
+    "可做分级校验 demo，对比误报率与可用性"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/yZh3MeRrBa7IbsB1PrUp?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a573",
+   "title": "彻底关闭 Windows 11 遥测、Recall 与后台广告的 2026 实操指南",
+   "summary": "一篇英文实操文，逐步讲解如何在 Windows 11 24H2 上关闭诊断遥测、Copilot Recall 快照与系统后台推广内容。",
+   "content": "24H2 的诊断数据采集比以往更激进，Recall 还会周期性截屏存本地。这篇文章按步骤给出关闭路径：组策略/注册表关遥测、禁用 DiagTrack 服务、关闭 Recall 快照、清理开始菜单与锁屏推广项。对信息安全专业来说，它的价值不在「照做」，而在「读懂每个开关背后的数据流」——哪些是系统服务、哪些是计划任务、哪些走网络回传。建议在虚拟机里逐项操作并用 Wireshark 抓包对比前后流量差异，写成一份《终端数据外泄面收敛》实验报告。这比背概念更能体现你对主机侧隐私控制的理解，也是安全运维岗的常见实操题。",
+   "source": "DEV Community",
+   "date": "2026-10-18",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Windows"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把「关遥测」做成抓包对比实验，比照抄步骤更能体现主机安全功底**",
+   "courses": "《操作系统安全》《主机安全运维》实验课做终端数据外泄面收敛",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "覆盖遥测、Recall 截屏、后台推广三类数据外泄面",
+    "涉及组策略、注册表、服务与计划任务多层开关",
+    "建议虚拟机内操作并抓包对比前后流量"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Completely Disable Windows 11 Telemetry, Copilot Recall, and Background Ads (2026 Step-by-Step Guide)",
+   "link": "https://dev.to/techboss/how-to-completely-disable-windows-11-telemetry-copilot-recall-and-background-ads-2026-42bm",
+   "cover": "img/a573.webp"
+  },
   {
    "id": "a565",
    "title": "AI生成的代码怎么进工程体系？给软件工程学生的落地清单",
@@ -26,7 +159,7 @@
     "AI工具",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "AI 生成代码需走 PR 评审、单测、静态扫描，不能直接合并",
@@ -4065,148 +4198,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7694932886453682203"
-  },
-  {
-   "id": "a449",
-   "title": "Claude 动态多 Agent 工作流公测：116k 行代码库实测，主 Agent 写计划、多 Agent 分阶段跑",
-   "summary": "Anthropic 把 Claude Managed Agents 动态工作流放进公测，主 agent 生成计划后跨多个 agent 分阶段执行并合并结果，官方在 116k 行代码库上做了对比实验。",
-   "content": "多 Agent 编排正在从「玩具 demo」变成工程实践。Claude 这套动态工作流的思路很值得抄进你的课设：不是让一个模型硬啃整个任务，而是先由主 agent 拆解计划，再把子任务分发给不同 agent 并行/分阶段执行，最后合并结果。官方用 116k 行代码库做验证，说明它面向的是真实规模的工程负载，而不是几百行的小脚本。对软件工程和信息安全专业的同学，这意味着两件事：一是「任务分解 + 结果校验」的编排能力，比会写 prompt 更值钱；二是多 agent 并行执行天然带来权限与数据边界问题——agent 能读哪些文件、能调哪些接口，就是安全设计的活。建议拿它重构一次你的课程设计：把「写代码、跑测试、改 bug」拆成三个 agent 角色，体会编排和单体的差别。",
-   "source": "开源中国",
-   "date": "2026-10-10",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Claude",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**学会多 Agent 任务编排，比只会写 prompt 更能拉开求职差距。**",
-   "courses": "《软件工程》课程设计可用它做任务分解与协作流程演示；《信息安全》可延伸讨论 agent 权限最小化。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "主 agent 写计划，跨多 agent 分阶段执行后合并结果",
-    "官方在 116k 行代码库上做对比实验，面向真实工程负载",
-    "可用来重构课设：把写码/测试/修 bug 拆成不同 agent 角色",
-    "多 agent 并行会放大权限与数据边界问题，是安全设计切入点"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502951"
-  },
-  {
-   "id": "a450",
-   "title": "金融监管领域的 Harness 实践：用知识与数据让 Agent 稳定运行",
-   "summary": "InfoQ 分享金融监管场景下用 Harness 工程化约束 Agent 的实践，核心是让知识与数据驱动 Agent 输出稳定、可审计的结果。",
-   "content": "金融监管是典型的「错一次就出事」场景，所以它对 Agent 的要求不是聪明，而是稳定、可追溯、可复现。这篇文章的价值在于给出了一套工程化思路：把领域知识（规则、条款、口径）和真实数据作为约束层，套在 Agent 外面，而不是指望模型自己记住。对信息安全与管理专业的同学，这就是「合规 + 安全」的落地样本——监管规则本身可以形式化成校验规则，Agent 的每一步输出都要能对上规则、留下审计日志。对软件工程同学，Harness 这种「外层编排 + 内层模型」的分层设计，是写任何 AI 应用都该有的架构直觉。建议把它当作「如何让 AI 系统可审计」的案例读，做安全类课设时直接借鉴分层结构。",
-   "source": "InfoQ中文",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "Harness"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**学会给 AI 系统加约束层和审计日志，是安全方向最实用的工程能力。**",
-   "courses": "《信息安全》可作合规与审计案例；《软件体系结构》可讲分层编排设计。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "金融监管场景要求 Agent 稳定、可追溯、可复现，而非追求聪明",
-    "用领域知识与真实数据做约束层，套在模型外面",
-    "监管规则可形式化为校验规则，输出留审计日志",
-    "分层架构（外层编排 + 内层模型）是 AI 应用的通用设计直觉"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/SuqGY4FQ95AVzs1S0KSV?utm_source=rss&utm_medium=article",
-   "cover": "img/a450.webp"
-  },
-  {
-   "id": "a451",
-   "title": "你的 AI Agent 不是员工，是爆炸半径：一次误发银行审计到高管群的教训",
-   "summary": "DEV 社区复盘：某个人理财 Agent 把银行审计信息发进了公司高管 Slack 频道，暴露了 Agent 权限过大带来的数据泄露风险。",
-   "content": "这个事故值得每个做 AI 应用的同学抄进笔记：一个理财 Agent 把用户的银行审计和最大月度支出清单，误发到了公司「高管团队」频道。问题不在模型「理解错了」，而在于它被授予了过大的权限和过宽的可见范围——作者的说法很精准：Agent 不是你的员工，是你的爆炸半径。对信息安全与管理专业，这就是最典型的越权与最小权限原则反面教材：Agent 应该按任务授予最小数据访问范围，敏感输出要有二次确认或脱敏，跨频道/跨租户发送必须做目标校验。对软件工程同学，写任何调用外部 API 或消息推送的 AI 功能时，都要问一句「它最坏能造成多大破坏」。建议在课设里给 Agent 加上权限白名单和发送前确认，作为安全设计亮点写进报告。",
-   "source": "DEV Community",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 1,
-   "scene": "课设/简历加分",
-   "value": "**给 Agent 做最小权限和发送前确认，是能直接写进简历的安全实践。**",
-   "courses": "《信息安全》讲最小权限与越权防护；《软件工程》课设可加权限白名单设计。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "真实事故：理财 Agent 把银行审计误发到公司高管 Slack 频道",
-    "根因是权限过大、可见范围过宽，而非模型理解错误",
-    "最小权限 + 敏感输出二次确认 + 发送目标校验是基本防线",
-    "写 AI 功能时先问「它最坏能造成多大破坏」"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Your AI Agent Is Not Your Employee. It Is Your Blast Radius.",
-   "link": "https://dev.to/yanoai/your-ai-agent-is-not-your-employee-it-is-your-blast-radius-52ih",
-   "cover": "img/a451.webp"
-  },
-  {
-   "id": "a452",
-   "title": "DDR5 一年涨近 10 倍，DDR4 主板回归：装机成本正在改写开发环境预算",
-   "summary": "AI 热挤占内存产能导致 DDR5 价格暴涨，技嘉等厂商重新推出支持 DDR4 的主板，32GB DDR5 套装已涨到 620 美元。",
-   "content": "这条不是消费电子八卦，而是直接影响你钱包和开发环境的事实。AI 训练吃掉了主要内存厂商的产能，DDR5 一年内价格可能涨了高达 10 倍，32GB 的 Corsair Vengeance DDR5 套装现在要 620 美元；厂商被迫回头做支持 DDR4 的 Intel LGA 1700 和 AMD AM4 主板。对要跑本地大模型、Docker 多容器、虚拟机做安全实验的同学，内存就是硬门槛：以前 32GB 是舒适线，现在可能得重新算预算。实用建议有三条：一是实验室/组队共享一台大内存机器比各自升级划算；二是优先用学校机房或云主机跑重负载，本地只做编码；三是买二手 DDR4 平台做练手机，性价比反而回来了。",
-   "source": "Solidot",
-   "date": "2026-10-10",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**看懂内存涨价，才能合理规划你的本地开发与实验环境预算。**",
-   "courses": "《操作系统》《信息安全》实验课涉及虚拟机与容器，可据此规划实验环境资源。",
-   "tags": [
-    "行业动态",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "AI 挤占产能，DDR5 一年涨近 10 倍，32GB 套装约 620 美元",
-    "厂商回归 DDR4 主板（LGA 1700 / AM4），老平台性价比回升",
-    "跑本地大模型、Docker、虚拟机做安全实验对内存需求最高",
-    "建议共享大内存机器或用云主机，本地只做编码"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85574"
   }
  ],
  "jobs": [
