@@ -1,6 +1,176 @@
 {
- "updatedAt": "2026-10-18 02:15",
+ "updatedAt": "2026-10-18 10:24",
  "news": [
+  {
+   "id": "a574",
+   "title": "ProcHub v0.7.0 上线命令行：进程、配置、WSL 全能在终端管",
+   "summary": "开源跨平台进程管理工具 ProcHub（Wails+Go+Vue 3）发布 v0.7.0，新增 CLI，可在终端启停进程、跟踪日志、改配置、管 WSL，并能接入脚本。",
+   "content": "ProcHub 用 Wails + Go + Vue 3 写成，是桌面进程管理工具，这次把能力搬进终端：进程启停、日志跟踪、配置修改、WSL 管理都能用命令完成，还能写进脚本做自动化。对软件工程学生来说，它是一个完整的小型全栈项目样本：Go 后端、Vue 3 前端、Wails 桌面壳，源码可读。建议做法：clone 下来跑通，读一遍 CLI 子命令的参数解析与进程管理实现，再试着加一个自己的子命令（比如按端口查进程）。这比刷教程更能理解「工具类软件怎么设计接口」。",
+   "source": "开源中国",
+   "date": "2026-10-18",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Go",
+    "Vue 3"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个可读可改的全栈桌面工具源码，比刷教程更能练出工程能力。**",
+   "courses": "对应《面向对象程序设计》《Web 前端开发》：作为课程设计参考项目，学 CLI 设计与前后端通信。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "新增 CLI：进程启停/日志跟踪/配置修改/WSL 管理",
+    "技术栈 Wails + Go + Vue 3，源码可读可改",
+    "可接入脚本，适合做自动化小工具练手",
+    "建议动手加一个自定义子命令"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503071"
+  },
+  {
+   "id": "a575",
+   "title": "Termexo v0.10.14：Windows 本地 AI 编程工作台接入 Pi Agent",
+   "summary": "面向 Windows 的本地优先 AI 编程工作台 Termexo 更新，新增 Pi Agent，覆盖安装启动、会话恢复、任务执行、状态事件与本地 MCP 接入。",
+   "content": "Termexo 是本地优先的 AI 编程工作台，用来组织项目、Agent 终端和任务。v0.10.14 接入 Pi Agent，支持原生会话恢复、任务执行、状态事件和本地 MCP。对准备走开发岗的同学，值得关注的是它体现的两个趋势：一是「本地优先」——代码和上下文不出本机，涉及企业项目时这是硬需求；二是 MCP 作为 Agent 与工具对接的标准接口，正在被各类工具采纳。建议装一个试用，重点看它如何把一次编码任务拆给 Agent 执行、状态事件怎么回传，再对照自己写过的脚本想想哪些环节可以自动化。",
+   "source": "开源中国",
+   "date": "2026-10-17",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**亲手体验本地 AI 编程工作台，理解 MCP 与 Agent 任务编排的真实形态。**",
+   "courses": "对应《软件工程》《人工智能导论》：课程项目中可用它辅助编码，并记录 Agent 协作流程写进实践报告。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Windows 本地优先 AI 编程工作台，代码不上云",
+    "新增 Pi Agent：会话恢复、任务执行、状态事件",
+    "支持本地 MCP 接入，是当前 Agent 工具对接的主流协议",
+    "适合观察「AI 辅助编码」的工程化落地方式"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503070"
+  },
+  {
+   "id": "a576",
+   "title": "清华开源智能体操作系统：任务成本降 83%，AI 记忆可查可改",
+   "summary": "清华团队开源一套智能体操作系统，原生支持 MCP，宣称任务成本降低 83%，且 AI 记忆可查询、可修改。",
+   "content": "这条的价值不在「降本 83%」这个数字，而在两个工程点：一是原生支持 MCP，说明 Agent 与外部工具的对接正在标准化，你写的工具函数只要按 MCP 暴露，就能被不同 Agent 复用；二是「记忆可查可改」，把 Agent 的长期记忆做成可审计的数据结构，而不是黑盒。对软件工程和信息安全两个专业都直接相关：前者可以研究它的任务调度与工具注册机制，后者可以想「记忆可改」带来的投毒与越权风险。建议读 README 和架构图，跑一个最小 demo，把 MCP 工具注册流程走通一遍。",
+   "source": "量子位",
+   "date": "2026-10-17",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**MCP + 可审计记忆是 Agent 工程化的两个关键接口，早看懂早用上。**",
+   "courses": "对应《人工智能导论》《信息安全导论》：可作课程设计选题，做 MCP 工具接入或记忆篡改风险分析。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": true,
+   "heat": 66,
+   "brief": [
+    "原生支持 MCP，工具对接标准化",
+    "AI 记忆可查可改，便于审计与调试",
+    "任务成本降 83%（官方口径，需自行验证）",
+    "安全视角：可改记忆意味着投毒与越权面"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/503935.html",
+   "cover": "img/a576.webp"
+  },
+  {
+   "id": "a577",
+   "title": "AI 让游戏反编译变得太容易，协作逆向工程网站 decomp.dev 宣布关闭",
+   "summary": "运营多年的协作游戏逆向工程网站 decomp.dev 宣布关闭，管理员称前沿 AI 模型让反编译又快又简单，人工社区协作模式已瓦解。",
+   "content": "decomp.dev 靠大量志愿者花数年做「匹配反编译」，让反编译出的 C 代码与原版逐字节一致。管理员说，GPT-6-Astra 这类模型已能轻松完成这类工作，社区再也分不清哪些成果是人做的、哪些是 AI 做的，于是关站。对信息安全与管理专业，这是一条很实在的行业信号：逆向的门槛在快速下降，攻防两侧都在被 AI 拉平。学《逆向工程》《软件安全》时，别只背工具操作，要理解二进制结构、调用约定、符号恢复这些底层原理——AI 能加速流程，但判断结果对不对仍然靠人。同时注意：反编译商业软件在很多地区涉及法律风险。",
+   "source": "Solidot",
+   "date": "2026-10-17",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**逆向门槛被 AI 拉低，靠的是底层原理和合法边界意识，不是工具熟练度。**",
+   "courses": "对应《逆向工程》《软件安全》：作为课程案例讨论 AI 对逆向工程流程与合规边界的影响。",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "人工协作反编译模式被 AI 冲击，网站关停",
+    "逆向门槛下降，攻防两侧同时被 AI 拉平",
+    "底层原理（二进制结构、调用约定）仍是判断力来源",
+    "反编译涉及版权与法律边界，别踩线"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85638"
+  },
+  {
+   "id": "a578",
+   "title": "Meta 发布开放权重多模态模型 Muse Spark Open：8160 亿参数、100 万 Token 上下文",
+   "summary": "Meta 发布开放权重多模态模型 Muse Spark Open，总参数 8160 亿、激活 420 亿，支持 100 万 Token 上下文，并针对苹果 MLX 与 Apple Silicon 统一内存优化。",
+   "content": "这条对学生的实际意义是「开放权重」四个字：模型能下载、能在本地跑，意味着你可以拿它做课程项目而不必依赖付费 API。技术细节也值得看：MoE 结构总参数 8160 亿、激活 420 亿，所以推理成本远低于参数规模给人的印象；100 万 Token 上下文适合处理长文档和整仓库代码；用苹果 MLX 框架针对统一内存优化，两台顶配 Mac Studio 就能装下。当然，宿舍电脑跑不动全量模型，建议用它的量化版本或小参数变体做实验，重点练「本地部署 + 提示词 + 简单 RAG」这条链路。",
+   "source": "Solidot",
+   "date": "2026-10-16",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MLX"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**开放权重模型让本地部署成为课设可行方案，重点练「部署+提示词+RAG」链路。**",
+   "courses": "对应《机器学习》《人工智能导论》：课程设计可用开放权重模型做本地问答或代码辅助原型。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "开放权重，可下载本地部署，不依赖付费 API",
+    "MoE：总参数 8160 亿，激活仅 420 亿",
+    "100 万 Token 上下文，适合长文档与整仓库代码",
+    "针对苹果 MLX 与统一内存优化"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85634"
+  },
   {
    "id": "a570",
    "title": "Aspire 13.6 发布：Java/Rust 第一方托管 + 持久化遥测仪表盘",
@@ -26,7 +196,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "Java/Rust 成为第一方托管资源，可与 .NET 服务混编编排",
@@ -4020,184 +4190,6 @@
    "origTitle": "500B Tokens Later: Letting AI Agents Decompile a First-Person Shooter",
    "link": "https://momo5502.com/posts/2026-10-09-game-decompilation/",
    "cover": "img/a464.webp"
-  },
-  {
-   "id": "a465",
-   "title": "AI 时代移动端稳定性保障：柯南 AI Agent 的工程实践",
-   "summary": "QCon 上海分享：如何用 AI Agent 做移动端稳定性监控与故障定位。",
-   "content": "移动端崩溃、卡顿、ANR 的排查一直靠人肉看日志。这个 QCon 分享讲柯南 AI Agent 如何自动化稳定性保障：日志聚类、异常归因、根因定位。对软件工程同学，这是 AI Agent 在运维/质量领域的落地案例，涉及日志分析、异常检测、Agent 编排。建议结合《软件测试》《移动应用开发》课程，思考能否把类似思路用在自己的 App 课设里做崩溃监控。",
-   "source": "InfoQ中文",
-   "date": "2026-10-11",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**AI + 稳定性是移动端开发的新方向，面试可聊**",
-   "courses": "《软件测试》《移动应用开发》——课设中加崩溃监控",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "AI Agent 自动化移动端稳定性监控与故障定位",
-    "涉及日志聚类、异常归因、根因定位",
-    "AI Agent 在运维/质量领域的落地案例",
-    "可借鉴到自己的 App 课设做崩溃监控"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/FTtTLqvzJeMiE03IowFP?utm_source=rss&utm_medium=article",
-   "cover": "img/a465.webp"
-  },
-  {
-   "id": "a454",
-   "title": "T3 Code：把 Claude Code、Codex、Cursor 收进一个开源多 Agent 控制台",
-   "summary": "T3 Code 是一个开源的多 Agent 控制台，可在同一应用里管理和切换 Claude Code、Codex、Cursor 等编码 Agent，免去多窗口来回切换。",
-   "content": "写课设或做项目时，很多人会同时开着 Claude Code、Codex、Cursor 好几个 Agent 窗口，切来切去很乱。T3 Code 的思路是做一个统一的桌面控制台，把这些编码 Agent 集中管理，任务、会话、上下文都能在一个界面里调度。对软件工程和信息安全方向的同学来说，它的价值不在于“又一个 AI 工具”，而在于让你观察多 Agent 协作的工程结构——怎么分发任务、怎么隔离上下文、怎么汇总结果。你可以拿它跑一个真实的小项目（比如给工业软件实验班的课设加个模块），对比单 Agent 和多 Agent 在拆解任务、改代码、写测试上的差异，把过程整理成简历里的“AI 辅助开发实践”。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Claude Code",
-    "Cursor"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用一个工具把多个编码 Agent 管起来，顺便理解多 Agent 协作的工程结构。**",
-   "courses": "对应《软件工程》《软件项目实训》，可作为团队开发中 AI 辅助流程的实践素材。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "开源多 Agent 控制台，统一管理 Claude Code/Codex/Cursor",
-    "适合观察多 Agent 任务分发与上下文隔离的工程实现",
-    "可结合课设做单 Agent vs 多 Agent 的对比实验"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694908808570437673"
-  },
-  {
-   "id": "a455",
-   "title": "6MB 的 JS 运行时 xuan：基于 QuickJS，内置 MQTT/串口/FFI，可编译成独立二进制",
-   "summary": "xuan（玄）是面向物联网与嵌入式设备的轻量级 JavaScript 运行时，约 6MB、毫秒级启动，内置 MQTT、串口和 FFI，还能把 JS 编译成独立二进制。",
-   "content": "嵌入式开发长期是 C/C++ 的地盘，但 xuan 这类项目在尝试把 JS 塞进资源受限的设备。它基于 QuickJS，体积约 6MB、毫秒级启动，内置 MQTT、串口和 FFI，还能把 JS 直接编译成独立二进制。对工业软件实验班的同学，这正好是一个“软件能力下沉到设备侧”的样本：你可以用它写一个采集串口数据、通过 MQTT 上报的小程序，跑在开发板或树莓派上，理解运行时、事件循环、FFI 在嵌入式场景里怎么落地。对信息安全方向，也可以研究 JS 运行时在设备端的攻击面。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "QuickJS",
-    "JavaScript"
-   ],
-   "diff": 3,
-   "scene": "课设/练手/简历加分",
-   "value": "**把 JS 运行时搬到嵌入式设备上，是理解工业软件“设备侧”的一个具体入口。**",
-   "courses": "对应《嵌入式系统》《物联网技术》，可做串口采集+MQTT 上报的课程设计。",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "基于 QuickJS 的轻量 JS 运行时，约 6MB、毫秒级启动",
-    "内置 MQTT/串口/FFI，可编译为独立二进制",
-    "适合做设备侧数据采集与上报的练手项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694888649712844809"
-  },
-  {
-   "id": "a456",
-   "title": "Cloudflare 拦了 urllib 默认 UA，我两个月后才发现：一个真实的上线事故复盘",
-   "summary": "作者的开源 Python 混淆器 pyobfus 激活一直失败，两个月后才定位到是 Cloudflare 拦截了 urllib 的默认 User-Agent。",
-   "content": "这是一个很典型的“上线后才暴露”的问题：作者卖的 Python 混淆器 pyobfus，客户激活一直失败，排查两个月才发现是 Cloudflare 把 urllib 的默认 User-Agent 拦了。对信息安全与管理专业的同学，这个案例的价值在于它把几个知识点串起来了——HTTP 请求头、User-Agent 识别、WAF/CDN 的拦截策略、以及客户端与服务端联调时的排错思路。你可以照着复现：用 Python 的 urllib 和 requests 分别请求一个开了 Cloudflare 的站点，对比默认 UA 和自定义 UA 的结果，再抓包看响应码和头信息。这类“请求被中间层拦掉”的问题，在以后做接口对接、爬虫合规、安全测试时都会遇到。",
-   "source": "DEV Community",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "urllib"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**一个 HTTP 请求头引发的线上事故，是理解 WAF 与排错思路的好案例。**",
-   "courses": "对应《计算机网络》《Web 安全》，可做请求头与 WAF 拦截的实验。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "真实事故：urllib 默认 UA 被 Cloudflare 拦截导致激活失败",
-    "涉及 HTTP 头、WAF 拦截、客户端排错等知识点",
-    "可复现对比 urllib/requests 默认 UA 与自定义 UA 的差异"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Cloudflare blocked urllib's default User-Agent, and it took me two months to notice.",
-   "link": "https://dev.to/zhurong2020/cloudflare-blocked-urllibs-default-user-agent-and-it-took-me-two-months-to-notice-3k8e",
-   "cover": "img/a456.webp"
-  },
-  {
-   "id": "a457",
-   "title": "Docker 部署 WordPress：用容器把开源 CMS 跑起来",
-   "summary": "用 Docker 快速部署 WordPress，搭建可自托管的内容管理平台，顺带练习容器、镜像、数据卷和端口映射。",
-   "content": "WordPress 是最常见的开源 CMS，但直接装环境容易踩坑。用 Docker 部署的好处是：一条 compose 命令就能把 Web 服务、数据库、数据卷串起来，你只需要理解镜像、容器、端口映射、持久化存储这几个概念。对软件工程的同学，这是一个成本很低的容器入门项目——可以本地跑，也可以放到云服务器上，再配个反向代理和 HTTPS。做完之后你对“一个 Web 应用从代码到上线需要哪些组件”会有具体感受，这在以后做课设部署、面试聊项目时都用得上。注意别只抄命令，把 docker-compose.yml 每一行搞懂。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Docker",
-    "WordPress"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**用容器跑通一个完整 Web 应用，是理解部署链路最省力的方式。**",
-   "courses": "对应《Web 开发》《云计算与虚拟化》，可作为课程设计的部署环节。",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "用 Docker Compose 一键部署 WordPress + 数据库",
-    "练习镜像、容器、数据卷、端口映射等容器基础",
-    "可延伸做反向代理与 HTTPS 配置"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694932886453682203"
   }
  ],
  "jobs": [
