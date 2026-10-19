@@ -1,6 +1,281 @@
 {
- "updatedAt": "2026-10-19 02:31",
+ "updatedAt": "2026-10-19 12:07",
  "news": [
+  {
+   "id": "a593",
+   "title": "Spring AI 2.0.1 生产实践与 2.x 迁移：九层破坏性变更陷阱清单",
+   "summary": "Spring AI 2.0.1 系列第 24 章，系统梳理 2.0.x 的九层破坏性变更、AOT 编译注意事项与生产调优要点，逐条拆到源码。",
+   "content": "如果你在课设或实习里用 Spring Boot 接大模型，Spring AI 是绕不开的框架。这篇是系列深度解析的生产实践篇：先给结论再拆源码，把 2.0.x 的破坏性变更按坐标层、配置层等九个层面列清楚，并讲 AOT 编译下哪些反射写法会炸、线程池与超时怎么调。建议对照自己项目里的 pom 版本逐条核对，尤其注意从 1.x 升级时依赖坐标和自动配置的变化。读完后把「陷阱清单」存成自己的迁移 checklist，面试被问「你如何做框架升级」时这就是现成素材。",
+   "source": "掘金",
+   "date": "2026-10-19",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI",
+    "Spring Boot"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**Java 后端接大模型的框架升级避坑指南，直接对应你的 Spring 项目**",
+   "courses": "《Java Web 开发》《软件框架技术》——课程项目接入 LLM 时按此排查版本兼容",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "九层破坏性变更逐条拆到源码，可当迁移 checklist",
+    "AOT 编译下反射/动态代理的坑要提前排查",
+    "含生产调优：线程池、超时、重试配置"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698256886344859674"
+  },
+  {
+   "id": "a594",
+   "title": "DeepSeek 自研 Agent 搜索上线：千次 5 元、搜不到不收钱",
+   "summary": "DeepSeek 给 Agent 装上自研搜索能力，按次计费且失败不收费，价格远低于 Tavily 等海外方案。",
+   "content": "做 RAG 或 Agent 项目时，搜索 API 的成本往往是压死课程项目的最后一根稻草——Tavily 免费额度用完就得掏钱。DeepSeek 这次把搜索做成按次计费、失败不收费，千次约 5 元，量级只有海外方案的零头。对学生的实际意义：你的「智能问答」「论文检索助手」类课设可以低成本跑通真实联网检索链路，不用再靠爬虫硬凑。动手建议：先用免费额度把 Agent 的 tool-calling 流程调通，把搜索封装成独立函数便于换供应商，注意失败重试与结果去重，别把计费次数浪费在无效 query 上。",
+   "source": "钛媒体",
+   "date": "2026-10-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Agent",
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**用极低成本给课设 Agent 接上真实联网搜索能力**",
+   "courses": "《人工智能导论》《Web 应用开发》——课程项目实现联网问答时选用",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "按次计费、失败不收费，适合学生低成本跑通联网检索",
+    "价格约为 Tavily 的零头，课程项目预算可控",
+    "建议把搜索封装成独立模块，方便换供应商"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8173434.html"
+  },
+  {
+   "id": "a595",
+   "title": "谷歌开源 Harness：支持 OpenCode 与 Codex，国内开发者实测可接入",
+   "summary": "谷歌开源 Harness 编码智能体框架，兼容 OpenCode、Codex 等工具，国内开发者实测接入可行。",
+   "content": "编码 Agent 的生态正在从「一家一个 CLI」走向可插拔框架。Harness 开源后支持 OpenCode 和 Codex，意味着你可以用同一套配置切换不同代码模型后端，国内开发者实测也能接。对学生最直接的用法：在毕设或团队项目里搭一个「自动改 bug / 写单测」的本地 Agent，把仓库规范、测试命令写进配置，让它跑 lint 和测试再提交。注意点：先在小仓库验证权限边界，别让 Agent 直接 push 主干；把 prompt 与工具配置纳入版本管理，方便复现。这类经历写进简历，比「会用 Copilot 补全」有分量得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Harness",
+    "Codex"
+   ],
+   "diff": 2,
+   "scene": "简历加分/练手",
+   "value": "**亲手搭一个编码 Agent 工作流，是简历上比「会用 AI 补全」更硬的经历**",
+   "courses": "《软件工程》《程序设计实践》——团队项目引入自动化代码审查",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "统一框架兼容 OpenCode、Codex，可切换模型后端",
+    "适合搭本地「自动改 bug/写单测」Agent",
+    "务必限制权限，别让 Agent 直接推主干"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AD1M3mJ2SH1dJrTA1r5q?utm_source=rss&utm_medium=article",
+   "cover": "img/a595.webp"
+  },
+  {
+   "id": "a596",
+   "title": "YOLO Data Agent v1.0.2：不让大模型直接写 SQL 的数据问答方案",
+   "summary": "开源数据智能 Agent 新版本，针对「AI 报数对不上报表」问题，改用可信链路而非让大模型直接生成 SQL。",
+   "content": "「问上个月华东区 GMV，AI 答得头头是道但和报表对不上」——这是所有 NL2SQL 课设都会踩的坑。根因是把 SQL 生成权直接交给大模型，口径、聚合、多轮上下文全靠猜。YOLO Data Agent 的思路是把语义层、指标口径和 SQL 生成拆开，让模型只做意图理解，数值由受控链路产出。对软件工程和信息安全同学都有用：前者可借鉴其分层架构做数据库课设；后者能从中理解「为什么不能让 LLM 直连生产库」——权限收敛、SQL 白名单、审计日志都是现成的安全设计案例。",
+   "source": "开源中国",
+   "date": "2026-10-19",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "NL2SQL",
+    "Agent"
+   ],
+   "value": "**做数据问答课设前先看它，少走「AI 报数对不上」的弯路**",
+   "courses": "《数据库原理》《信息安全导论》——NL2SQL 项目与 LLM 数据访问安全案例",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "核心思路：语义层与 SQL 生成解耦，避免口径漂移",
+    "多轮追问时保持指标口径一致",
+    "安全视角：LLM 不应直连生产库，需白名单与审计"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503098"
+  },
+  {
+   "id": "a597",
+   "title": "用 tmux 管住编码 Agent：会话、send-keys 与能力边界",
+   "summary": "一篇实操指南，讲如何用 tmux 会话管理多个 AI 编码 Agent，通过 send-keys 编排任务并认识其局限。",
+   "content": "同时开三个编码 Agent 改不同模块，终端窗口乱成一团？这篇指南给出一套工程化做法：用 tmux 会话隔离每个 Agent 的工作目录，用 send-keys 脚本化下发指令，再用 pane 抓取输出做日志。核心价值不在 tmux 本身，而在「把 Agent 当长时任务进程来管」的思路——断线不丢上下文、可批量重放、出错能回看完整交互。上手门槛低，Linux 课或服务器上练半小时就够。建议配合 git worktree，让每个 Agent 在独立分支干活，合并前人工 review，避免互相覆盖。",
+   "source": "Hacker News",
+   "date": "2026-10-19",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "tmux",
+    "Git"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**学会把 AI Agent 当长时进程管理，多任务并行不再手忙脚乱**",
+   "courses": "《Linux 操作系统》——shell 与终端复用实操延伸",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "tmux 会话隔离多个 Agent，断线不丢上下文",
+    "send-keys 脚本化下发指令，可批量重放",
+    "配合 git worktree 让每个 Agent 独立分支"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling",
+   "link": "https://crystl.dev/guides/tmux-for-ai-agents/",
+   "cover": "img/a597.webp"
+  },
+  {
+   "id": "a598",
+   "title": "Karmada 从 CNCF 毕业：多集群 Kubernetes 管理进入成熟期",
+   "summary": "Kubernetes 多集群项目 Karmada 完成 CNCF 毕业，标志多集群调度与容灾方案获得社区背书。",
+   "content": "CNCF 毕业意味着项目 API 稳定、生产可用、有足够多的采用者，选型时风险显著降低。Karmada 解决的是「一套控制面管多个 K8s 集群」：跨集群调度、故障迁移、灰度发布。对本科生来说，单机 kind 就能起两个集群做实验，把 Deployment 下发到成员集群、模拟一个集群宕机看迁移效果，是很好的云原生练手项目。信息安全方向可以关注多集群下的策略一致性与 RBAC 边界——集群多了，权限最容易失控。写在简历上，「多集群容灾实验」比「会 kubectl」具体得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Kubernetes",
+    "Karmada"
+   ],
+   "value": "**云原生选型的风向标，也是多集群容灾练手项目的起点**",
+   "courses": "《云计算技术》——容器编排实验扩展为多集群场景",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "CNCF 毕业代表 API 稳定、生产可用",
+    "kind 本地起双集群即可做跨集群调度实验",
+    "安全视角：多集群 RBAC 与策略一致性易失控"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4t84hFyjYP6gq9KNWE60?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a599",
+   "title": "OpenTelemetry 的 Kubernetes 属性处理器转稳定版：可观测性落地更省心",
+   "summary": "随着可观测性模式成熟，OpenTelemetry 将 Kubernetes Attribute Processor 提升为稳定版本。",
+   "content": "微服务课设里日志散落各处、出问题只能靠 print 排查，是可观测性缺失的典型症状。OpenTelemetry 的 K8s Attribute Processor 稳定后，采集端能自动给日志、指标、链路打上 pod、namespace、node 等资源属性，你在 Grafana 里就能按服务维度直接过滤，不用手写一堆标签。实操路径：本地 kind 起集群 → 部署 OTel Collector → 应用接入 SDK → 在 Jaeger 看跨服务调用链。这套链路是后端实习面试的高频加分项，也顺带让你理解「日志里为什么要带 trace_id」。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "OpenTelemetry",
+    "Kubernetes"
+   ],
+   "value": "**把「会打日志」升级成「会做可观测性」，实习面试的实打实加分项**",
+   "courses": "《软件工程》《分布式系统》——微服务项目接入链路追踪",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "自动为遥测数据附加 pod/namespace 等 K8s 属性",
+    "本地 kind + Collector + Jaeger 即可跑通全链路",
+    "后端实习面试高频考点：trace_id 与跨服务追踪"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/zBfzQbuxFmP1qrIpZWTG?utm_source=rss&utm_medium=article",
+   "cover": "img/a599.webp"
+  },
+  {
+   "id": "a600",
+   "title": "Cloudflare 推出面向 AI 代理的 CLI，Wrangler 逐步停用",
+   "summary": "Cloudflare 发布专为 AI 代理设计的命令行工具，并计划逐步停用现有 Wrangler。",
+   "content": "如果你用 Cloudflare Workers 部署过课设后端，Wrangler 这个名字不陌生。官方现在推出面向 AI 代理的 CLI 并逐步停用 Wrangler，信号很明确：部署工具正在为「Agent 自动执行」重新设计——命令输出更结构化、更适合被程序解析和重试。对学生的影响是：新项目直接学新 CLI，老教程里的 Wrangler 命令可能陆续失效，跟着博客抄命令时要留意版本。建议在个人小项目上试一次部署流程，理解「CLI 输出可被 Agent 消费」这个设计趋势，面试聊工具链演进时能说出所以然。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Cloudflare Workers"
+   ],
+   "diff": 2,
+   "scene": "练手",
+   "value": "**前端部署工具链正在为 Agent 重写，别照着旧教程抄命令**",
+   "courses": "《Web 前端开发》——Serverless 部署实践",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "新 CLI 面向 Agent 自动执行设计，输出更结构化",
+    "Wrangler 逐步停用，老教程命令会失效",
+    "建议小项目实测一次部署流程"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Ddda0DF68laqfoqa4Lju?utm_source=rss&utm_medium=article",
+   "cover": "img/a600.webp"
+  },
   {
    "id": "a588",
    "title": "OpenCode 2.0 发布：插件体系大改，旧插件全部失效",
@@ -23,7 +298,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "2.0 为破坏性升级，旧插件全部失效",
@@ -3920,286 +4195,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/h86bNjSBdJRBYwxP4Xgt?utm_source=rss&utm_medium=article",
    "cover": "img/a480.webp"
-  },
-  {
-   "id": "a481",
-   "title": "AI Agent 量产关：89% 的试点倒在生产门口",
-   "summary": "报告指出 89% 的 AI Agent 试点项目无法进入生产环境，安全、可靠性和工程化能力成为主要瓶颈。",
-   "content": "这个数据对正在学 AI 应用开发的同学很有参考价值：Demo 能跑通和生产能用之间隔着巨大的工程鸿沟。文章提到的问题集中在权限控制、异常处理、可观测性和安全边界——这些恰好是《软件工程》《网络安全技术》里的核心议题。对软件工程（含工业软件实验班）的同学，如果你在做 Agent 相关的课设或项目，别只关注「能不能跑」，要思考「出错怎么办、权限怎么控、日志怎么查」。对信息安全专业，Agent 接入企业系统后的权限滥用和数据泄露是新的攻击面。建议在简历项目里体现你对生产级可靠性的理解，这比多做一个 Demo 更能打动面试官。",
-   "source": "安全客",
-   "date": "2026-10-12",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**Agent 项目能不能上生产，考的是工程化和安全意识，不是模型调得多好。**",
-   "courses": "对应《软件工程》《网络安全技术》，可用于分析 AI 系统的生产化瓶颈与安全边界。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "89% 的 AI Agent 试点无法进入生产环境",
-    "瓶颈在权限控制、异常处理、可观测性与安全边界",
-    "对应软件工程与安全课程中的工程化核心议题",
-    "简历项目应体现生产级可靠性思考，而非只做 Demo"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316218"
-  },
-  {
-   "id": "a482",
-   "title": "React 性能优化三件套：useCallback、useMemo、useReducer 怎么用",
-   "summary": "一篇面向 React 开发者的实践文章，讲解 useCallback、useMemo 和 useReducer 三个 Hook 的使用场景与区别。",
-   "content": "前端同学做课设或项目时经常遇到「组件莫名重渲染」「状态逻辑越写越乱」的问题，这三个 Hook 就是解药。useCallback 缓存函数引用，避免子组件因父组件每次渲染生成新函数而无效更新；useMemo 缓存计算结果，适合开销大的派生数据；useReducer 把复杂状态逻辑集中管理，比一堆 useState 更清晰。建议结合《Web 前端开发》课程，在一个真实的列表或表单页面里分别用上这三个 Hook，用 React DevTools 的 Profiler 观察渲染次数变化。注意别滥用：缓存本身有成本，简单计算用 useMemo 反而更慢。把优化前后的对比写进课设报告，是很好的加分点。",
-   "source": "DEV Community",
-   "date": "2026-10-12",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**掌握这三个 Hook，前端课设的性能和代码组织能明显上一个台阶。**",
-   "courses": "对应《Web 前端开发》，可在 React 课设中实践性能优化并记录前后对比。",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "useCallback 缓存函数引用，减少子组件无效重渲染",
-    "useMemo 缓存高开销计算结果，useReducer 集中管理复杂状态",
-    "用 React DevTools Profiler 验证优化效果",
-    "避免滥用缓存，简单场景反而增加开销"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "useCallback, useMemo, and useReducer in React",
-   "link": "https://dev.to/mahalakshmi_c_48a15c7871b/usecallback-usememo-and-usereducer-in-react-14ib",
-   "cover": "img/a482.webp"
-  },
-  {
-   "id": "a483",
-   "title": "Jync v1.4.0 发布：异构数据库实时同步支持断点续传与表内并行",
-   "summary": "异构数据库实时同步工具 Jync 发布 v1.4.0，初始全量装载改为 keyset 分块加检查点，支持崩溃后续传和表内并行。",
-   "content": "做数据中台或工业软件项目的同学，迟早会遇到「把 Oracle 的数据同步到 MySQL」这类需求。Jync 这次升级解决的是全量装载的可靠性问题：以前一条流式查询拉整表，中途崩了就得重来；现在改成 keyset 分块加每块提交，进程被杀也能从上一块继续。单列整数主键的表还能开表内并行，最多 8 个 worker 切不重叠区间同时拉。这些设计思路值得学：keyset 分页比 offset 分页在大数据量下更稳，检查点机制是任何长任务都要考虑的容错手段。建议结合《数据库原理》课程，在实验环境里搭一个 Oracle 到 MySQL 的同步链路，观察分块和并行对吞吐的影响。",
-   "source": "开源中国",
-   "date": "2026-10-11",
-   "cat": "tool",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Oracle",
-    "MySQL"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**异构数据库同步的容错设计思路，比工具本身更值得学。**",
-   "courses": "对应《数据库原理》，可在实验中搭建 Oracle 到 MySQL 同步链路并观察分块并行效果。",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "全量装载改为 keyset 分块 + 检查点，崩溃后可断点续传",
-    "单列整数主键表支持表内并行，最多 8 个 worker",
-    "keyset 分页和检查点机制是长任务容错的通用思路",
-    "适合在数据库课程实验中搭建异构同步链路验证"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502960"
-  },
-  {
-   "id": "a473",
-   "title": "用AI代码智能体优化软件架构的5种实操方法",
-   "summary": "InfoQ 总结出把 AI 编码智能体嵌入架构重构流程的五种做法，覆盖依赖梳理、模块拆分、接口收敛等场景。",
-   "content": "很多同学用 Copilot、Claude Code 只停留在「补全一个函数」，但真正的价值在于让智能体读懂整个仓库再动刀。这篇文章给出五种可落地路径：让智能体先产出模块依赖图、用自然语言描述目标架构让它生成迁移 PR、对循环依赖做自动化拆分、为遗留代码补测试再重构、以及把架构决策记录（ADR）喂给智能体做一致性检查。做工业软件实验班的同学尤其值得看——工业软件代码库往往又老又大，人工重构成本极高，这正是 AI 智能体最能出活的地方。建议拿自己的课设仓库试一遍「先补测试再重构」这条链路。",
-   "source": "InfoQ中文",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "AI Coding Agent",
-    "软件架构"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**把 AI 编码工具从「补全函数」升级到「重构架构」，是简历上能写出差异化的一条实践线。**",
-   "courses": "对应《软件工程》《软件体系结构》，可直接作为课程设计中的重构环节方法论",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "五种方法都围绕「让智能体读懂整个仓库」而非单文件补全",
-    "重点场景：遗留系统重构、循环依赖拆分、架构一致性检查",
-    "工业软件方向的老代码库最适合用这套流程降本",
-    "可先在个人课设仓库跑通「补测试→重构」闭环"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/soRObi5sjdTTUM95zLJK?utm_source=rss&utm_medium=article",
-   "cover": "img/a473.webp"
-  },
-  {
-   "id": "a474",
-   "title": "Uber 把 K8s 扩容的「意图」和「执行」拆开了，为什么值得学",
-   "summary": "Uber 在 Kubernetes 平台上将扩容意图与执行操作解耦，解决了自动扩缩容中策略与动作耦合导致的误判问题。",
-   "content": "自动扩缩容写不好，线上就是雪崩。Uber 的做法是把「我要扩到多少」和「怎么扩」分成两层：上层只负责根据指标算出目标容量（意图），下层负责安全地执行节点/容器调度（执行）。好处是策略可以独立迭代、执行层可以做限流和回滚，不会因为一个错误的扩容决策直接把集群打爆。对信息安全专业的同学，这套思路同样适用于权限系统设计——「谁想做什么」和「实际执行」分离，是审计和最小权限的基础。做课设如果涉及容器编排，可以照这个分层写进架构文档。",
-   "source": "InfoQ中文",
-   "date": "2026-10-11",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes",
-    "系统架构"
-   ],
-   "value": "**「意图与执行解耦」是分布式系统和权限系统通用的架构范式，面试聊架构时很好用。**",
-   "courses": "对应《云计算》《分布式系统》，可作为课程设计架构分层参考",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "核心思想：扩容决策（意图）与扩容动作（执行）分层解耦",
-    "收益是策略可独立迭代、执行层可限流回滚",
-    "同一思路可迁移到权限系统：授权意图与执行动作分离",
-    "课设涉及 K8s 时可直接引用这套分层写架构文档"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/2SNgaiHoK808v22dl5SJ?utm_source=rss&utm_medium=article",
-   "cover": "img/a474.webp"
-  },
-  {
-   "id": "a475",
-   "title": "Linear 用 1000+ PR 从 styled-components 迁到 StyleX，前端迁移实战复盘",
-   "summary": "Linear 团队通过一千多次 PR 把样式方案从 styled-components 迁移到 Meta 的 StyleX，完整披露了渐进式迁移策略。",
-   "content": "前端同学迟早会遇到「老项目样式方案要换」的活，Linear 这次迁移是难得的公开样本。他们没有大爆炸式重写，而是用 1000 多次小 PR 逐步替换，保证每一步都能回滚、CI 都能过。关键点包括：先建立新旧方案的共存层、用 codemod 批量改写重复模式、把样式类型检查接进 CI 防止回退。做前端方向的同学，这套「大规模渐进式重构」的方法论比具体用哪个样式库更重要——面试被问「你怎么迁移一个老项目」时，这就是标准答案的骨架。",
-   "source": "InfoQ中文",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "CSS-in-JS"
-   ],
-   "diff": 2,
-   "scene": "简历加分/求职准备",
-   "value": "**大规模渐进式重构的公开实战样本，前端面试讲「老项目迁移」时的标准答案骨架。**",
-   "courses": "对应《Web前端开发》，可作为课程设计重构方案的参考范式",
-   "tags": [
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "用 1000+ 小 PR 渐进迁移，而非一次性重写，每步可回滚",
-    "关键手段：新旧方案共存层 + codemod 批量改写 + CI 类型检查",
-    "方法论比具体样式库更重要，适用于任何大规模重构",
-    "面试「如何迁移老项目」可直接套用这套框架"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YLOUT8CrDm0NPWgHL8LG?utm_source=rss&utm_medium=article",
-   "cover": "img/a475.webp"
-  },
-  {
-   "id": "a476",
-   "title": "Aurora DSQL 引入外键约束：分布式 SQL 为什么一直不敢做外键",
-   "summary": "亚马逊云科技在 Aurora DSQL 中引入外键约束，解决了分布式数据库长期因跨节点一致性代价而回避外键的难题。",
-   "content": "学数据库时老师都会讲外键，但真到分布式数据库，外键几乎被集体放弃——因为跨节点校验引用完整性代价太高。Aurora DSQL 这次把外键做进去了，值得关注的是它怎么在分布式事务下保证约束不被绕过。对软件工程和信息安全专业的同学，这题的价值在于理解「一致性 vs 可用性」的经典权衡：外键是数据完整性的第一道防线，缺了它，脏数据就得靠应用层兜底，而应用层兜底往往就是漏洞来源。做课设用 MySQL 时顺手想想：如果表被拆到三个节点，你的外键还成立吗？",
-   "source": "InfoQ中文",
-   "date": "2026-10-10",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "分布式数据库",
-    "SQL"
-   ],
-   "value": "**理解分布式数据库为何长期放弃外键，是数据库课和面试里区分度很高的一问。**",
-   "courses": "对应《数据库原理》，可结合分库分表章节讨论约束失效",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "分布式数据库长期回避外键，核心原因是跨节点一致性代价",
-    "外键缺失会把数据完整性压力推给应用层，容易埋下安全漏洞",
-    "理解「一致性 vs 可用性」权衡的绝佳现实案例",
-    "课设用 MySQL 时可延伸思考分库分表后的约束失效问题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/BjjSS0zaS5OpvRB2OcfF?utm_source=rss&utm_medium=article",
-   "cover": "img/a476.webp"
-  },
-  {
-   "id": "a477",
-   "title": "模型开放了，AI 能力为什么还是复用不起来？",
-   "summary": "文章分析模型权重开放后 AI 能力仍难复用的根因：缺少统一的接口契约、上下文约定和评测标准。",
-   "content": "很多人以为开源模型一发，能力就能随便搬。现实是：同一个模型换个提示词模板、换个工具调用格式，效果就崩。文章指出问题出在三层缺失——接口契约不统一（各家 function calling 格式不同）、上下文约定不统一（历史怎么截断、工具结果怎么回填）、评测标准不统一（没法判断换了环境是否还达标）。对做 AI 应用开发的同学，这直接对应工程实践：写 LLM 应用时把「提示词模板 + 工具 schema + 上下文裁剪策略」抽成独立可替换层，别硬编码在业务里。",
-   "source": "InfoQ中文",
-   "date": "2026-10-10",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM 应用",
-    "Function Calling"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**做 LLM 应用时把提示词、工具 schema、上下文策略分层抽象，是换模型不返工的关键。**",
-   "courses": "对应《人工智能导论》《软件工程》，可作为 AI 应用课设的架构规范",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "模型开放 ≠ 能力可复用，卡点在接口契约、上下文约定、评测标准三层",
-    "function calling 格式各家不统一是主要摩擦点",
-    "工程建议：把提示词模板、工具 schema、上下文裁剪抽成可替换层",
-    "做 AI 应用课设时按这个分层组织代码，后期换模型成本极低"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/rKRPT18fGxtjipPAeaLa?utm_source=rss&utm_medium=article",
-   "cover": "img/a477.webp"
   }
  ],
  "jobs": [
