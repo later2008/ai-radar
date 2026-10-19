@@ -1,6 +1,174 @@
 {
- "updatedAt": "2026-10-18 16:29",
+ "updatedAt": "2026-10-19 02:31",
  "news": [
+  {
+   "id": "a588",
+   "title": "OpenCode 2.0 发布：插件体系大改，旧插件全部失效",
+   "summary": "开源 AI 编码工具 OpenCode 升级到 2.0，官方称是一次“重大改造”，旧版插件全部报废，需要按新接口重写。",
+   "content": "如果你在用 OpenCode 这类终端 AI 编码工具写课设或做项目，这次升级要留意：2.0 对插件体系做了破坏性重构，旧插件无法直接迁移。对学生来说，实际影响是：一、升级前先备份项目配置和自定义插件；二、如果你写过小插件（比如自定义命令、代码检查钩子），正好借机读一遍新插件 API，理解“工具调用—上下文注入—结果回传”这条链路，这是 AI 编码工具最核心的工程结构；三、团队协作项目里不要盲目全员升级，先在分支上验证。这类“破坏性升级”在真实工程中很常见，学会读迁移说明、评估影响面，比会用一个工具更值钱。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "OpenCode"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**理解 AI 编码工具的插件机制与破坏性升级应对，是工程素养的实战练习。**",
+   "courses": "《软件工程》/《程序设计》课程项目中的开发工具链实践",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "2.0 为破坏性升级，旧插件全部失效",
+    "升级前备份配置与自写插件",
+    "借机读懂插件 API 与工具调用链路",
+    "团队项目先在分支验证再统一升级"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/IK5AWDwovCu5lx3e3mhc?utm_source=rss&utm_medium=article",
+   "cover": "img/a588.webp"
+  },
+  {
+   "id": "a589",
+   "title": "FastAPI+Vue3+TS 企业级中台框架 v2.7.3：细到按钮级的 RBAC 权限怎么落地",
+   "summary": "DjangoAdmin 敏捷开发框架的 FastAPI+AntdVue 版本更新，技术栈为 FastAPI、Vue3、TypeScript、AntDesign、Vite，内置按钮与方法级 RBAC 权限体系。",
+   "content": "这个项目对软件工程专业很实用：它把“用户—角色—权限菜单—部门—岗位—日志—数据字典”这一整套后台通用模块做成了可运行的前后端分离模板，权限控制细到按钮和方法级。你可以这样用：一、作为课设或毕业设计的后台骨架，省掉登录鉴权、菜单权限这些重复劳动；二、重点读它的 RBAC 设计——前端如何按权限渲染按钮、后端如何在接口方法上做校验，这是面试常问的点；三、前端部分用 Vue3+TS+AntDesign，正好对照《Web 前端开发》练组件化与类型定义。注意别只当“拿来就用”的脚手架，把权限模型画成 ER 图，才算真学会。",
+   "source": "开源中国",
+   "date": "2026-10-19",
+   "cat": "stack",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "FastAPI",
+    "Vue3"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一套可直接复用的后台骨架，重点价值在按钮级 RBAC 权限设计的可读实现。**",
+   "courses": "《Web 前端开发》《数据库原理》课设后台搭建",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "前后端分离企业级中台模板，模块齐全",
+    "权限细到按钮级与方法级，值得精读",
+    "可作课设/毕设后台骨架，省重复开发",
+    "建议画出 RBAC 权限模型图加深理解"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503075"
+  },
+  {
+   "id": "a590",
+   "title": "AI 编码助手在 EVM 调试上为何“胡说”：5 个可测试技能包的拆解思路",
+   "summary": "作者分析 Claude Code、Cursor 等 AI 编码助手调试 Solidity 回滚交易时频繁幻觉的原因，并给出把调试能力拆成可测试技能包的做法。",
+   "content": "这篇虽是区块链场景，但方法论对信息安全与软件工程学生通用：AI 编码助手在“报错信息少、状态不可见”的场景下最容易编造原因。作者的思路是把调试拆成可验证的小技能——先复现、再定位、再验证假设，每一步都有可检验的输出，而不是让模型一口气给结论。你可以迁移到自己的项目：用 AI 改 bug 时，要求它先给出“如何验证这个猜测”的命令或测试用例，再让它改代码；对安全方向的同学，这正好对应漏洞复现与验证的流程思维。别把 AI 当答案机，把它当需要你设计验证步骤的助手。",
+   "source": "DEV Community",
+   "date": "2026-10-19",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**学会给 AI 设“可验证步骤”，比让它直接给答案更能提升调试与安全分析能力。**",
+   "courses": "《软件测试》《网络与信息安全》中的缺陷复现与验证",
+   "tags": [
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "AI 在信息不足的调试场景最易幻觉",
+    "把调试拆成可验证的小步骤/技能包",
+    "要求 AI 先给验证方法再给修改",
+    "可迁移到漏洞复现与安全测试流程"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/theweb3wizard00/why-ai-coding-agents-hallucinate-on-evm-bugs-and-how-we-packaged-5-testable-skills-to-fix-it-4pha",
+   "cover": "img/a590.webp"
+  },
+  {
+   "id": "a591",
+   "title": "DeepSeek V4.1 Flash 更新：更快更便宜，主打“许愿式编程”",
+   "summary": "DeepSeek V4.1 Flash 更新至 1017 版本，基准测试提升的同时缩短运行时间与输出长度，官方称在多个 Harness 下达到性能-费用更优。",
+   "content": "对预算有限的学生来说，模型“更便宜更快”比“更强”更实际。这次更新值得关注两点：一是输出长度缩短、耗时下降，意味着同样任务 token 花费更低，适合日常写代码、改注释、生成测试这类高频小任务；二是官方提到“许愿式编程”，即用自然语言描述需求直接产出可运行代码，你可以拿它做课设原型快速起步。但要注意：生成结果必须自己跑通、自己写测试，尤其是涉及权限校验、输入校验的代码，别直接上线。建议对比一下同题在旧版与新版上的输出质量，形成自己的“模型选型”判断。",
+   "source": "极客公园",
+   "date": "2026-10-18",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**更低的调用成本让学生能高频用 AI 辅助编码，但验证环节不能省。**",
+   "courses": "《程序设计》课设原型开发与代码评审",
+   "tags": [
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "新版更快更省，适合高频小任务",
+    "可快速生成课设原型代码",
+    "生成结果必须自测，安全相关代码不可直用",
+    "做同题新旧版本对比，形成选型判断"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/372512",
+   "cover": "img/a591.webp"
+  },
+  {
+   "id": "a592",
+   "title": "生产级 Agent 怎么造：QCon 上海议题，重点在工程化而非 Demo",
+   "summary": "QCon 上海议题聚焦“生产级 Agent”，讨论把智能体从演示推进到可上线系统所需的工程实践。",
+   "content": "“会跑的 Demo”和“能上线的 Agent”差在哪？这类议题的价值在于给出工程清单：可观测性（每步调用可追踪）、失败重试与降级、工具调用的权限与沙箱、成本与延迟控制、评测集与回归。对软件工程和信息安全学生，这正好是课程知识的落点：日志与监控对应《软件工程》，沙箱与权限对应《网络与信息安全》。建议做法：在自己的课设里加一个最小 Agent 功能（比如自动查数据库并生成报表），然后强制补上日志、超时、失败兜底三件事，写进设计文档——这比堆功能更能体现工程能力。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备/简历加分",
+   "value": "**把 Agent 当工程项目做：可观测、可兜底、可评测，才是面试能讲的东西。**",
+   "courses": "《软件工程》系统设计，《网络与信息安全》权限与隔离",
+   "tags": [
+    "AI工具",
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "区分 Demo 与生产级：可观测、重试、降级、沙箱",
+    "工具调用需权限控制与隔离",
+    "用评测集与回归保证质量",
+    "课设中加最小 Agent 并补齐日志与兜底"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/oZHrjYAsXvjOZXRwLt6T?utm_source=rss&utm_medium=article",
+   "cover": "img/a592.webp"
+  },
   {
    "id": "a584",
    "title": "Java密封类+穷尽模式匹配：用switch把状态机写死",
@@ -25,7 +193,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "sealed+permits限定子类，switch可省default",
@@ -4032,172 +4200,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/rKRPT18fGxtjipPAeaLa?utm_source=rss&utm_medium=article",
    "cover": "img/a477.webp"
-  },
-  {
-   "id": "a466",
-   "title": "Vue 数组响应式更新踩坑实录：一个看板卡了 18 小时",
-   "summary": "作者在用户行为分析看板上被 Vue 数组更新机制坑了 18 小时，复盘了 Vue 2/3 数组响应式的差异与正确写法。",
-   "content": "Vue 对数组的响应式处理一直是新手最容易翻车的地方：Vue 2 靠重写 push/pop/splice 等七个方法生效，直接 arr[0]=x 或改 length 不会触发更新；Vue 3 用 Proxy 后大部分场景正常，但把数组整体替换、在 setup 里解构 reactive 数组、或对 ref 数组忘记 .value 时依然会静默失效。这篇文章用真实事故复盘了排查过程，值得你花 20 分钟读完。建议边读边在本地起一个 Vite+Vue3 项目复现每种失效场景，把「为什么没更新」变成肌肉记忆。前端方向面试常问响应式原理，这段经历可以直接写进简历项目描述。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vue"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**把「数组不更新」从玄学变成可复现的知识点，前端面试与课设都用得上。**",
-   "courses": "对应《Web 前端开发》《人机交互界面设计》，可把踩坑复现过程写进课程设计报告的问题排查章节。",
-   "tags": [
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Vue2 靠重写 7 个数组方法实现响应式，索引赋值和 length 修改不触发更新",
-    "Vue3 Proxy 覆盖大部分场景，但解构 reactive、忘记 ref .value 仍会失效",
-    "建议本地复现每种失效场景，理解响应式边界比背 API 更重要"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694928086820995072"
-  },
-  {
-   "id": "a467",
-   "title": "GitHub Actions + Docker + ACR/GHCR：一条流水线自动构建发布镜像",
-   "summary": "手把手教你用 GitHub Actions 把 Docker 镜像自动构建并推送到阿里云 ACR 和 GitHub GHCR，实现提交即发布。",
-   "content": "这套组合是当前中小团队最省钱的 CI/CD 方案：代码 push 到 GitHub 触发 Actions，构建 Docker 镜像后同时推送到阿里云 ACR（国内拉取快）和 GHCR（免费、和仓库同源）。文章给出了完整的 workflow yaml，包括多架构构建、镜像 tag 策略（分支名+commit sha+latest）、以及用 Secrets 管理 ACR 账号密码的写法。建议你拿自己的课设项目练一遍：把 Spring Boot 或 Node 服务打成镜像，配好流水线，以后每次改代码自动出新镜像。这是简历上「熟悉 CI/CD」最实在的证明，也是软件工程课程里配置管理章节的落地实践。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Docker",
-    "GitHub Actions"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一次配置，终身自动部署，是简历上「会 CI/CD」最有说服力的证据。**",
-   "courses": "对应《软件工程》《软件项目管理》，可作为课程项目持续集成环节的实践材料。",
-   "tags": [
-    "通用开发",
-    "Java全栈",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "GitHub Actions 触发构建，一次推送同时发到 ACR 和 GHCR",
-    "镜像 tag 建议用 commit sha + 分支名，避免 latest 覆盖导致回滚困难",
-    "账号密码放 GitHub Secrets，不要硬编码进 yaml"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694961880853118976"
-  },
-  {
-   "id": "a468",
-   "title": "用 Python 解析 class 文件 access_flags，看懂 JVM 字节码结构",
-   "summary": "通过解析 .class 文件顶层的 access_flags 字段，直观理解 Java 字节码文件格式与访问修饰符的二进制表示。",
-   "content": "很多人学 JVM 只背「class 文件包含魔数、版本号、常量池」，却从没真正打开过一个 class 文件。这篇文章用 Python 读取 class 文件头，按字节解析出 access_flags，再用 GUI 展示 ACC_PUBLIC、ACC_FINAL、ACC_INTERFACE 等标志位。动手做完你会彻底明白：为什么接口的方法默认是 public abstract、为什么 final 类不能被继承——这些在字节码层面就是几个 bit。建议用 javac 编译一个自己写的类，再用脚本解析对比，配合 javap -v 交叉验证。这是《Java 虚拟机》课程最直观的入门实验，也是理解 Java 安全机制（如字节码校验）的第一步。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "信息安全"
-   ],
-   "stack": [
-    "Java",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**亲手解析一次 class 文件，JVM 规范和 Java 安全机制不再是背诵题。**",
-   "courses": "对应《Java 程序设计》《Java 虚拟机原理》，可作为字节码章节的实验作业。",
-   "tags": [
-    "Java全栈",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "access_flags 是 class 文件顶层的一个 u2 字段，用位掩码表示类/方法的访问权限",
-    "用 Python 按字节读取并解析，比死记 JVM 规范直观得多",
-    "配合 javap -v 交叉验证，可延伸到字节码校验与 Java 安全"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694932886454435867"
-  },
-  {
-   "id": "a469",
-   "title": "开源工具 Who Arrives：一行命令查公网 IP、地区、时区与网络信息",
-   "summary": "免费开源的连接信息查询工具，支持通过 fields 参数定制返回字段，适合调试网络与排查代理配置。",
-   "content": "做前后端联调或爬虫时，经常需要确认「我的请求到底从哪个 IP 出去的」——尤其是挂了代理、用了云函数或容器之后。Who Arrives 是一个开源小工具，能一次性返回公网 IP、近似地理位置、时区和网络信息，还支持 fields 参数只取你需要的字段，方便脚本里直接调用。建议把它加进你的调试工具箱：写爬虫前先查出口 IP 是否被目标站封禁，部署到云服务器后确认出口地区是否符合预期。信息安全方向的同学可以用它验证代理链路是否生效、是否存在 IP 泄露。工具本身开源，代码量不大，也适合作为学习 HTTP 请求与 API 设计的练手项目。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**网络调试与代理验证的顺手工具，信息安全方向排查 IP 泄露时尤其好用。**",
-   "courses": "对应《计算机网络》《Web 应用安全》，可用于实验课验证 NAT、代理与出口 IP 的关系。",
-   "tags": [
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "一次查询返回公网 IP、地区、时区、网络信息",
-    "支持 fields 参数定制返回字段，便于脚本集成",
-    "可用于验证代理是否生效、排查爬虫出口 IP 被封问题"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7695079160248123446"
-  },
-  {
-   "id": "a470",
-   "title": "LLM 驱动自动化测试（九）：MetaGPT 多智能体框架下沉到移动端测试",
-   "summary": "介绍如何把 MetaGPT 这类通用多智能体框架用于 Android 自动化测试，让 Agent 自己分析需求并生成测试用例。",
-   "content": "这个系列已经更到第九篇，本篇讲的是把 MetaGPT（一个「多智能体软件公司」框架）内置的 Android 测试 demo 拆开看：它如何让不同角色的 Agent 分别做需求分析、用例设计、脚本生成与执行。对软件工程和信息安全专业来说，这代表测试岗的下一波技能栈——不是写更多 Selenium 脚本，而是会编排 Agent 完成测试任务。建议你先跑通官方 demo，再尝试把被测对象换成自己的课设 App，观察 Agent 生成的用例覆盖率如何。测试与质量保障是就业面很宽的方向，懂 LLM 测试编排的应届生目前还很少。",
-   "source": "掘金",
-   "date": "2026-10-11",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "MetaGPT"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**测试岗正在被 Agent 重构，会编排 LLM 测试流程的应届生目前是稀缺资源。**",
-   "courses": "对应《软件测试》《软件工程》，可作为自动化测试章节的拓展实践。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "MetaGPT 用多角色 Agent 分别负责需求分析、用例设计、脚本生成与执行",
-    "把通用 Agent 框架下沉到移动端测试，是测试岗的新技能方向",
-    "建议跑通 demo 后换成自己的课设 App 实测覆盖率"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7694917909773271074"
   }
  ],
  "jobs": [
