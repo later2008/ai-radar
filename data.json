@@ -1,6 +1,193 @@
 {
- "updatedAt": "2026-10-20 10:57",
+ "updatedAt": "2026-10-20 14:44",
  "news": [
+  {
+   "id": "a619",
+   "title": "月下载9000万次的AI网关LiteLLM曝双漏洞：低权限账号即可窃取全部API密钥",
+   "summary": "广泛用于统一接入各家大模型的网关 LiteLLM 被披露两个漏洞，低权限用户可越权读取其他租户的 API Key。",
+   "content": "LiteLLM 是很多团队用来统一管理 OpenAI、Claude 等多家模型密钥的代理网关，月下载量约 9000 万次。这次披露的两个漏洞本质是越权访问与密钥泄露：攻击者只需一个低权限账号，就能读到同一实例里别人的 API Key，进而盗刷额度、伪造调用。对信息安全专业的同学，这是典型的「认证授权设计缺陷 + 敏感凭据管理」案例：可以拿它对照《Web 安全》里的越权漏洞章节，自己搭一个 LiteLLM 实例，用两个不同权限的 key 复现横向越权，再写一份修复建议（租户隔离、密钥加密存储、最小权限）。做课设或毕设用到模型网关的，务必先查版本。",
+   "source": "安全客",
+   "date": "2026-10-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "LiteLLM"
+   ],
+   "diff": 2,
+   "scene": "课设/安全练手",
+   "value": "**一个现成的越权漏洞靶场，比刷十道理论题更能理解凭据管理**",
+   "courses": "《Web 安全》《网络安全技术》：作为越权与密钥管理案例做复现实验",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "漏洞类型：越权访问导致 API 密钥泄露",
+    "影响面：月下载 9000 万次，多租户部署风险最高",
+    "可复现：自建实例用高低权限 key 对比测试",
+    "修复方向：租户隔离、密钥加密、最小权限"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316257",
+   "cover": "img/a619.webp"
+  },
+  {
+   "id": "a620",
+   "title": "用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）",
+   "summary": "freeCodeCamp 教程：不依赖现成框架，从模型调用、工具注册到循环调度，手写一个 Agent 运行骨架。",
+   "content": "大部分 Agent 教程止步于「给模型几个工具然后循环」，但真正难的是工程部分：工具如何注册与校验参数、多轮循环何时终止、出错如何重试、上下文怎么裁剪。这篇教程用 TypeScript 从零搭一个 harness，把这些环节一个个实现出来。对软件工程的同学，这是很好的「读源码不如写一遍」练习：前端方向可以顺手把工具调用结果渲染成界面；想投 AI 应用岗的，把这个项目放进简历比写「熟悉 LangChain」有说服力得多。建议先跑通最小闭环，再自己加一个「工具调用失败自动重试」的扩展。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-20",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**手写一遍 harness，比背框架 API 更能讲清楚 Agent 到底怎么跑起来**",
+   "courses": "《Web 前端开发》《软件工程》：作为综合实践项目，训练模块设计与异常处理",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "从零实现 Agent 循环、工具注册、参数校验",
+    "重点在工程细节：终止条件、重试、上下文裁剪",
+    "TypeScript 实现，前端同学可直接接 UI",
+    "可扩展点：失败重试、日志追踪"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Build an AI Agent Harness from Scratch in TypeScript",
+   "link": "https://www.freecodecamp.org/news/how-to-build-an-ai-agent-harness-from-scratch-in-typescript/",
+   "cover": "img/a620.webp"
+  },
+  {
+   "id": "a621",
+   "title": "让编码 Agent 自己在浏览器里验收前端改动",
+   "summary": "教程思路：给编码 Agent 接上浏览器自动化，改完代码自己打开页面截图、点按钮、看控制台报错，再决定是否算完成。",
+   "content": "用 AI 写前端最常见的坑是：Agent 说「已完成」，但没人打开过页面——样式错位、接口 404、控制台一片红。这篇教程的做法是给 Agent 加一个浏览器验证环节：改完代码后自动启动页面、截图、点击关键元素、抓取 console 错误，把结果回灌给模型判断是否通过。对前端方向的同学，这正好串起《Web 前端开发》和自动化测试：可以用 Playwright 自己搭一个最小版本，先做「截图 + 控制台报错采集」，再逐步加交互断言。做完你会对「AI 生成代码如何验收」有实感，面试聊 AI 辅助开发也有的说。",
+   "source": "freeCodeCamp",
+   "date": "2026-10-20",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Playwright"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会给 AI 产出加自动验收，是把 AI 编程真正用进项目的前提**",
+   "courses": "《Web 前端开发》：结合自动化测试完成页面验收流程",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "核心：Agent 改完代码自动开浏览器验证",
+    "采集截图、console 报错、关键交互结果",
+    "可用 Playwright 实现最小版本",
+    "解决「AI 说做完了其实没跑通」的痛点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Make Your Coding Agent Check Its Work in the Browser",
+   "link": "https://www.freecodecamp.org/news/how-to-make-your-coding-agent-check-its-work-in-the-browser/",
+   "cover": "img/a621.webp"
+  },
+  {
+   "id": "a622",
+   "title": "一个开源的 Java PDF 信函生成库，适合当课程设计参考",
+   "summary": "开发者发布开源 Java 库 Letter Generator，把信函排版、字段填充、导出 PDF 的重复工作封装起来。",
+   "content": "生成 PDF 信函听起来简单，真做起来要处理模板占位符替换、中文字体嵌入、分页与页边距、批量导出等细节。这个开源 Java 库把这些封装成 API，输入数据即可产出排版规整的 PDF。对 Java 方向的同学，这是很好的「读一个小而完整的开源项目」素材：可以对照《Java 程序设计》里的 IO 流与面向对象设计，看它如何抽象模板与渲染器；也可以直接用在课设里做「批量生成证明/通知单」功能。建议动手改一处：加上中文字体支持或批量循环导出，比单纯调用更有收获。",
+   "source": "DEV Community",
+   "date": "2026-10-20",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**小而完整的 Java 开源项目，既能直接用又能当源码教材**",
+   "courses": "《Java 程序设计》：作为 IO 与面向对象设计的阅读与改造案例",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "封装模板填充 + PDF 导出，减少重复劳动",
+    "可读源码学习接口抽象与 IO 处理",
+    "练手建议：补中文字体、批量导出",
+    "适合课设中的报表/单据生成模块"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I built an open-source Java library for generating PDF letters",
+   "link": "https://dev.to/nunosilva/i-built-an-open-source-java-library-for-generating-pdf-letters-42ie",
+   "cover": "img/a622.webp"
+  },
+  {
+   "id": "a623",
+   "title": "Cloudflare 把 TypeScript 移植到 Rust：Tsrs 项目解读",
+   "summary": "Cloudflare 博客介绍 Tsrs——用 Rust 重写 TypeScript 工具链的移植项目，涉及解析、类型检查与性能取舍。",
+   "content": "Tsrs 是把 TypeScript 编译器相关能力用 Rust 重写的移植项目，Cloudflare 在博客里讲了动机与工程难点：如何保持语义一致、如何处理类型系统的复杂度、性能收益从哪来。对软件工程（含工业软件实验班）的同学，这类「用系统级语言重写成熟工具链」的案例很有参考价值——工业软件里大量 CAD/CAE 内核也是从 C++/脚本层逐步迁移到更安全的实现。不必读完全部细节，重点看它如何做兼容性测试与渐进式替换，这套方法论写进课程报告或毕设方案都站得住。",
+   "source": "Hacker News",
+   "date": "2026-10-20",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "TypeScript"
+   ],
+   "diff": 3,
+   "scene": "技术调研",
+   "value": "**看懂一次大型工具链重写，就懂了工业软件迁移的通用套路**",
+   "courses": "《编译原理》《软件体系结构》：作为工具链实现与重构的调研案例",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "TypeScript 工具链的 Rust 移植实践",
+    "看点：语义兼容、渐进替换、性能取舍",
+    "与工业软件内核迁移思路相通",
+    "适合作为技术调研报告素材"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Tsrs: A Port of TypeScript to Rust",
+   "link": "https://blog.cloudflare.com/typescript-rust-port/",
+   "cover": "img/a623.webp"
+  },
   {
    "id": "a613",
    "title": "AI生成的代码看不懂就重写：首席架构师的5条Agent编程原则",
@@ -24,7 +211,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "AI生成代码超出理解范围时应丢弃重写，而非直接合并",
@@ -3996,187 +4183,6 @@
    ],
    "buzz": [],
    "link": "https://www.qbitai.com/2026/10/502849.html"
-  },
-  {
-   "id": "a497",
-   "title": "修复漏洞的 PR 刚提交，攻击几分钟后就来了：AI 正在击穿开源安全流程",
-   "summary": "AI 让攻击者能在补丁合并后的几分钟内逆向出漏洞并发动攻击，传统「先合并再发版」的开源安全节奏被打穿。",
-   "content": "过去开源漏洞的窗口期以天计，现在以分钟计：安全研究者提交修复 PR 后，攻击者用 AI 分析 diff 就能反推出未修复版本的可利用点。对信息安全与管理专业的同学，这件事直接改变你的工作方式——漏洞管理不再是「扫描+打补丁」，而要加上「补丁提交即视为已公开」的假设。建议在课程设计里做一个小实验：拿一个开源项目的 CVE 修复 commit，用本地模型分析 diff 并尝试还原攻击路径，体会 AI 辅助漏洞挖掘的速度。同时留意供应链安全：依赖锁定、SBOM、私有镜像源这些手段会重新变成刚需。",
-   "source": "InfoQ中文",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "SBOM"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**安全岗的漏洞响应节奏已被 AI 改写，早一天理解就多一分竞争力。**",
-   "courses": "对应《网络安全》《软件安全》，可把「补丁公开即漏洞公开」写进课程报告的威胁模型章节。",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "补丁 PR 公开即等于漏洞公开，窗口期从「天」压缩到「分钟」",
-    "AI 可自动分析 commit diff 反推可利用点，攻击门槛大幅下降",
-    "防御侧要转向依赖锁定、SBOM、私有源等供应链手段",
-    "适合做漏洞复现/供应链安全的课设选题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/R7OkT6DCUifdCQqAvwtJ?utm_source=rss&utm_medium=article",
-   "cover": "img/a497.webp"
-  },
-  {
-   "id": "a498",
-   "title": "AI 编程智能体让代码量涨 30%，交付量却没变：瓶颈已经转移",
-   "summary": "哈佛对 718 家公司的研究显示，引入 AI 编程智能体后代码产出增加约 30%，但真正交付的成果几乎没变。",
-   "content": "这条对准备求职的软件工程同学很关键：企业已经不缺「能写代码的人」，缺的是能把代码变成可交付价值的人。研究指出瓶颈从「写」转移到了评审、测试、集成和需求澄清——也就是人机协作中的判断环节。落到你的学习上：别只练「让 AI 帮我写完这个功能」，要练「怎么验证 AI 写的代码是对的」。具体做法：给 AI 生成的模块补单元测试、做 code review 记录、用 CI 卡住质量门禁。这些能力在面试里比「我会用 Cursor」有说服力得多，也是工业软件实验班做课设时最容易被忽略的一环。",
-   "source": "DEV Community",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "CI"
-   ],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**会写代码不再稀缺，能验证和交付 AI 产出的人才稀缺。**",
-   "courses": "对应《软件工程》《软件测试》，课设中把 CI 质量门禁和测试覆盖率作为交付标准。",
-   "tags": [
-    "通用开发",
-    "求职就业",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "718 家公司数据：代码量 +30%，交付量基本持平",
-    "瓶颈从编码转移到评审、测试、集成、需求澄清",
-    "求职应突出「验证 AI 产出」的能力而非「会用 AI 写代码」",
-    "课设中给 AI 生成代码补测试和 review 记录，可直接写进简历"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/skillstack/the-bottleneck-moved-ai-coding-agents-write-30-more-code-but-teams-ship-the-same-53mm",
-   "cover": "img/a498.webp"
-  },
-  {
-   "id": "a499",
-   "title": "Claude 开始自己写程序管理 Agent：Anthropic 披露动态工作流架构",
-   "summary": "Anthropic 公开 Claude 的动态工作流架构，模型可以自己生成代码来编排和管理子 Agent，而不是依赖固定流程。",
-   "content": "传统 Agent 是「人写死流程，模型填空」，动态工作流是「模型自己写编排代码」。这意味着 Agent 的可靠性问题从提示词工程转移到了代码生成与沙箱执行上——对软件工程学生来说，这恰好是你能发力的地方：如何给模型生成的编排代码做权限隔离、超时控制、失败回滚。建议动手做一个最小版本：用 Claude/GPT 的 function calling，让模型输出一段 Python 编排脚本，你在受限沙箱里执行并记录调用链。这个项目既能体现工程能力，又能讲清楚「为什么不能直接 exec 模型输出」的安全边界，面试时是很好的谈资。",
-   "source": "InfoQ中文",
-   "date": "2026-10-13",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Function Calling",
-    "沙箱"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**掌握「模型生成代码的安全执行」是 Agent 方向最值钱的工程能力。**",
-   "courses": "对应《软件工程》《网络安全》，可把沙箱与权限隔离作为课程设计的安全模块。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Agent 编排从「人写流程」变为「模型生成编排代码」",
-    "核心工程问题变成沙箱执行、权限隔离、超时与回滚",
-    "可做一个「模型生成编排脚本 + 受限沙箱执行」的最小项目",
-    "安全边界（禁止直接 exec 模型输出）是面试加分点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/8La5gsJVOOF5BvFiLAUF?utm_source=rss&utm_medium=article",
-   "cover": "img/a499.webp"
-  },
-  {
-   "id": "a500",
-   "title": "纯 Rust 重写 Word：5 天 6000+ star，净室实现读写 .docx",
-   "summary": "WordCraft 用纯 Rust 净室重实现 Word 核心工作流，支持 ribbon、样式、表格、修订与 .docx 读写，5 天涨到 6185 star。",
-   "content": "对工业软件实验班的同学，这是一个极好的「文档格式与桌面应用架构」学习样本。它做对了两件难事：一是净室实现——不碰原代码，只按公开规范（OOXML）重造，这正是工业软件绕开专利与兼容性陷阱的常规打法；二是用 Rust 做文档模型与渲染分离。你可以从中学到 .docx 本质是 zip + XML 包，用 Python 的 zipfile 十分钟就能拆开看结构，再对照它的数据模型理解「样式继承」「修订追踪」怎么建模。课设选题建议：实现一个只读的 .docx 解析器，输出段落/表格/样式树，工作量可控又能写进简历。",
-   "source": "开源中国",
-   "date": "2026-10-13",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "OOXML"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**想进工业软件，先搞懂文档格式与净室实现这套工程方法论。**",
-   "courses": "对应《工业软件导论》《数据结构》，把 .docx 解析作为课程设计题目。",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "净室实现是工业软件规避专利与兼容风险的常见工程路径",
-    ".docx = zip + OOXML，用 Python zipfile 即可拆解学习",
-    "可借鉴其文档模型与渲染分离的架构思路",
-    "课设建议：实现只读 .docx 解析器，输出样式树"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503003"
-  },
-  {
-   "id": "a501",
-   "title": "Rust 借用检查器被曝 11 年历史的不健全性 Bug",
-   "summary": "Rust 官方仓库出现一个存在 11 年的 soundness 缺陷，说明即便是内存安全语言，类型系统实现本身也可能有漏洞。",
-   "content": "这条对信息安全方向的同学价值在于思维训练：Rust 常被宣传为「内存安全」，但安全来自类型系统的正确性，而类型系统是人写的，就会有 bug。这个 issue 讨论的是借用检查器的不健全性（unsoundness）——意味着在特定代码模式下，编译器放行了本不该通过的程序。你不必读懂全部细节，但应该建立两个认知：一是「语言安全保证」是有前提的，二是形式化验证与编译器测试是安全研究的重要分支。动手建议：用 Miri 跑一段 unsafe 代码，观察未定义行为检测，理解工具链如何为安全兜底。这类话题在安全岗面试中属于能拉开差距的加分项。",
-   "source": "Hacker News",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Miri"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**理解「安全语言也不绝对安全」，是安全思维成熟的标志。**",
-   "courses": "对应《程序设计》《网络安全》，可在课程报告中讨论类型系统与内存安全的关系。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Rust 的 soundness 依赖类型系统实现，实现本身可能有 11 年未发现的缺陷",
-    "建立「语言安全保证有前提」的认知，避免盲目信任工具链",
-    "可用 Miri 检测 unsafe 代码的未定义行为，理解安全兜底机制",
-    "形式化验证与编译器测试是安全研究的进阶方向"
-   ],
-   "buzz": [],
-   "link": "https://github.com/rust-lang/rust/issues/164250",
-   "cover": "img/a501.webp"
   }
  ],
  "jobs": [
