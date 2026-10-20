@@ -1,6 +1,182 @@
 {
- "updatedAt": "2026-10-19 16:51",
+ "updatedAt": "2026-10-20 02:44",
  "news": [
+  {
+   "id": "a608",
+   "title": "GitHub Copilot 会话无缝迁回 VS Code：不丢上下文、不丢代码改动",
+   "summary": "GitHub 官方教程：把在 Copilot 应用里跑起来的 Agent 会话原样搬进 VS Code，对话、代码改动、工作上下文全部保留。",
+   "content": "很多同学在 Copilot 独立应用里让 Agent 改了半天代码，最后发现还是想在 VS Code 里逐行 review、跑测试、提交。这篇官方教程讲的就是「迁移会话」：把 Agent 的对话历史、已产生的 diff 和当前工作上下文一起带进编辑器，而不是重新描述一遍需求。对做课设和毕业设计的同学很实用——先用 Agent 快速搭骨架，再回到 IDE 里精修、调试、写注释，避免「AI 写完我看不懂」的尴尬。建议配合 Git 分支使用：迁移前先 commit 一次，出问题随时回滚。",
+   "source": "GitHub Blog",
+   "date": "2026-10-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "GitHub Copilot",
+    "VS Code"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/求职准备",
+   "value": "**学会把 AI 生成结果接回本地工程流程，而不是被工具锁死**",
+   "courses": "《软件工程》《Web 应用开发》课设中用于快速原型+人工精修",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "Agent 会话可从 Copilot 应用迁移到 VS Code，保留对话与代码改动",
+    "适合「AI 先搭骨架、IDE 里精修」的工作流",
+    "迁移前先 commit，便于回滚对比"
+   ],
+   "buzz": [],
+   "link": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+   "cover": "img/a608.webp"
+  },
+  {
+   "id": "a609",
+   "title": "MERN 全栈实战指南：MongoDB+Express+React+Node 一条龙搭起来",
+   "summary": "DEV 社区一篇面向初学者的 MERN 全栈实操文，从前后端到数据库串起完整链路。",
+   "content": "MERN 是 React 生态里最常见的全栈组合：MongoDB 存数据、Express 写接口、React 做页面、Node 跑服务端。这篇文章的价值不在新技术，而在于把「前端调接口—后端写路由—数据库建模」这条链路完整走一遍，正好对应你们课设里最缺的那部分工程经验。建议边看边动手：先跑通一个带增删改查的待办或图书管理小项目，再补上 JWT 登录和错误处理。注意 MERN 与课程里的 Java/Spring 路线不同，但 REST 接口设计、分层思想是通用的，面试讲项目时同样能打。",
+   "source": "DEV Community",
+   "date": "2026-10-20",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "React",
+    "Node.js"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一个能跑的全栈小项目，把前后端和数据库真正串起来**",
+   "courses": "《Web 应用开发》《数据库原理》课设可直接套用其分层结构",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "覆盖 MongoDB/Express/React/Node 四层完整链路",
+    "适合作为第一个全栈课设的技术选型参考",
+    "接口设计与分层思想可迁移到 Java 后端"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/ansh_sheladiya/building-a-mern-stack-application-a-practical-guide-with-javascript-58j5",
+   "cover": "img/a609.webp"
+  },
+  {
+   "id": "a610",
+   "title": "测试 Agent 的「失败记忆」：错一次就记住，下次不再犯",
+   "summary": "QCon 上海分享：测试 Agent 如何通过记忆机制从失败用例中持续学习，减少重复踩坑。",
+   "content": "这篇讲的是把「失败经验」沉淀成 Agent 的可复用记忆：同一个接口、同一类断言失败后，Agent 下次能直接调出历史结论，而不是从零重试。对软件工程和信息安全方向的同学都有借鉴意义——你们写单元测试、做接口自动化时，失败原因往往反复出现（环境没起、字段类型不对、鉴权过期）。可以照着这个思路，在自己的测试脚本里加一个「失败原因 → 修复动作」的本地知识库，用最简单的 JSON 或 SQLite 存都行。这是把 AI 能力落到工程实践的好切口，写进简历比「会用 ChatGPT」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-20",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent",
+    "自动化测试"
+   ],
+   "diff": 3,
+   "scene": "简历加分/求职准备",
+   "value": "**把「AI+测试」做成一个有记忆、可复现的工程项目**",
+   "courses": "《软件测试》《软件工程》课程中用于自动化测试实践",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "核心思路：把测试失败原因沉淀为可检索记忆",
+    "可用 JSON/SQLite 在本地实现简化版",
+    "适合包装成自动化测试方向的简历项目"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/ZyjObqGawfurPFLBQONd?utm_source=rss&utm_medium=article",
+   "cover": "img/a610.webp"
+  },
+  {
+   "id": "a611",
+   "title": "Lyft 把流式计算迁到 Flink Kubernetes Operator：一份真实迁移复盘",
+   "summary": "Lyft 公开将流式集群迁移至 Flink Kubernetes Operator 的工程实践，涉及部署、运维与稳定性。",
+   "content": "流式计算 + Kubernetes 是当前大数据后端的主流组合，这篇是少见的工业级迁移复盘。对工业软件实验班的同学来说，重点不是 Lyft 用了什么，而是它暴露的问题：状态如何持久化、任务如何滚动升级、故障如何自动恢复。这些正是「把程序跑起来」和「把系统运维好」之间的差距。建议对照课程里的容器与部署知识，自己在 minikube 上跑一个 Flink 作业，体验 Operator 声明式部署和手工部署的区别。面试聊到分布式、容器编排时，这类一手案例比背概念更能体现深度。",
+   "source": "InfoQ中文",
+   "date": "2026-10-20",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Flink",
+    "Kubernetes"
+   ],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**理解「跑得起来」到「运维得住」之间的工程差距**",
+   "courses": "《云计算与容器技术》《大数据处理》中的部署与运维章节",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "真实企业级流式计算集群迁移案例",
+    "关注状态持久化、滚动升级、故障恢复",
+    "可在 minikube 上动手复现简化版"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/pvgeXQQbbt4TsPKeMMEL?utm_source=rss&utm_medium=article",
+   "cover": "img/a611.webp"
+  },
+  {
+   "id": "a612",
+   "title": "阿里云 7 个「样板间」：AI 原生研发组织到底怎么改流程",
+   "summary": "阿里云总结 7 个团队样本，讲 AI 原生研发组织在需求、编码、测试环节的实际改造。",
+   "content": "「AI 原生研发」这个词被说烂了，这篇难得给了 7 个具体团队的做法：需求怎么拆给 Agent、代码评审怎么加 AI 预检、测试用例怎么自动生成。对即将实习的同学，价值在于提前知道企业里 AI 工具是怎么嵌进研发流程的——不是「打开对话框问一句」，而是有规范、有门禁、有人审。建议对照自己小组课设的协作方式，试着加一条「AI 生成代码必须人工 review 并写变更说明」的规则，既练流程意识，也能在面试时讲出你对工程规范的思考。",
+   "source": "InfoQ中文",
+   "date": "2026-10-19",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**提前了解企业里 AI 是怎么被「管起来」用的**",
+   "courses": "《软件工程》中的团队协作与代码评审环节",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "7 个团队样本，覆盖需求/编码/评审/测试环节",
+    "重点在流程与规范，而非模型能力",
+    "可迁移为小组课设的 AI 使用规范"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/2uG3W14THqtLhb5Vou51?utm_source=rss&utm_medium=article",
+   "cover": "img/a612.webp"
+  },
   {
    "id": "a601",
    "title": "llama.cpp 本地跑 9B 模型：推理服务、工具调用与微调数据全流程",
@@ -23,7 +199,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "本地推理服务 + 工具定义下发 + 结果回传，三步搭出可用的 Agent 后端",
@@ -3999,188 +4175,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/QPf1GXbpDxhcCHHP4xfo",
    "cover": "img/a492.webp"
-  },
-  {
-   "id": "a493",
-   "title": "CloudDM 4.4.0 发布：新增 Kafka、SAP HANA 数据源，带 SQL 审核与数据脱敏",
-   "summary": "开源数据库管理工具 CloudDM 更新，新增 Kafka 与 SAP HANA 数据源，提供统一 Web 访问、权限控制、数据脱敏、SQL 审核与数据库 CI/CD。",
-   "content": "CloudDM 是一款免费开源的团队化数据库管理工具，4.4.0 新增 Kafka 数据源（支持 Topic 浏览、消息消费、TLS/SASL 认证）和 SAP HANA 数据源。对信息工程学院的同学来说，它的价值在于「一站式看到企业数据库运维长什么样」：权限控制、数据脱敏、SQL 审核、CI/CD 流程。信息安全专业可以重点研究它的脱敏与审计模块，这是数据安全合规的刚需；软件工程同学可以拿它当课设的后台数据管理面板，省去自己写 CRUD 的时间。工业软件方向注意 SAP HANA 的接入，制造业 MES/ERP 场景常见。",
-   "source": "开源中国",
-   "date": "2026-10-13",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "Kafka",
-    "SAP HANA"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**一个能直接当课设后台、又能学到企业级数据安全实践的开源工具。**",
-   "courses": "《数据库原理》SQL 实践、《信息安全》数据脱敏与审计，可做课程实验平台",
-   "tags": [
-    "工业软件",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "开源免费，可本地部署，适合课设当数据管理后台",
-    "数据脱敏 + SQL 审核 + 审计，是信息安全合规的现成参考实现",
-    "新增 Kafka 数据源，方便做实时数据管道练习",
-    "SAP HANA 接入对工业软件/制造业方向有参考价值"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502992"
-  },
-  {
-   "id": "a494",
-   "title": "FocusAny v2.3.0：本地 AI 工具条，把搜索、插件、大模型、MCP 收进一个快捷键",
-   "summary": "开源本地 AI 工具条 FocusAny 发布 v2.3.0，主打稳定性修复，集成全局搜索、插件、大模型、MCP 与工作流，全部收在一个快捷键呼出的面板里。",
-   "content": "FocusAny 是一个本地运行的 AI 工具条，按快捷键呼出面板，里面集成了全局搜索、插件系统、大模型调用、MCP 和工作流。v2.3.0 没加新功能，专心修稳定性：崩溃日志本地可查、界面优化、数据存放位置透明。对学生的实用点在于：它是开源的，你可以读源码学「一个桌面端 AI 工具怎么组织插件和 MCP 调用」，也能自己改一个专属的课设助手。注意它是本地工具，数据不出机器，对隐私敏感的场景友好。适合想练桌面端开发或想搭个人效率工具的同学。",
-   "source": "开源中国",
-   "date": "2026-10-12",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**想自己动手做一个 AI 效率工具？这是现成的开源脚手架。**",
-   "courses": "《人机交互》《软件工程》课程设计，可作为桌面应用开发参考",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "开源可读源码，是学习桌面端 AI 工具架构的好样本",
-    "集成 MCP 与插件系统，可对照理解 Agent 工具调用",
-    "本地运行、数据不出机器，隐私友好",
-    "v2.3.0 专注稳定性，崩溃日志本地可查"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502979"
-  },
-  {
-   "id": "a495",
-   "title": "用 Rust-WASM 把 Supabase 边缘函数冷启动从 300ms 砍下来",
-   "summary": "DEV 社区实战文，讲如何用 Rust 编译成 WASM 替换 TypeScript 边缘函数，显著降低 Supabase Edge Functions 的冷启动延迟。",
-   "content": "Supabase Edge Functions 用 TypeScript 写时，首个请求冷启动常要 300-400ms，对实时推流、遥测这类场景是致命的。作者的方案是用 Rust 编译成 WASM 来跑边缘函数，把冷启动压下来。这篇文章对前端和通用开发同学都有价值：一是理解「冷启动」这个 Serverless 核心痛点，二是看到 WASM 作为跨语言运行时的实际用途。你不需要会写 Rust，但要能讲清「为什么 WASM 启动比 JS 引擎初始化快」。建议拿它对照自己部署过的 Vercel/云函数项目，思考延迟优化的取舍。",
-   "source": "DEV Community",
-   "date": "2026-10-13",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "WASM"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "**搞懂边缘计算冷启动与 WASM，前端简历上多一个别人没有的技术点。**",
-   "courses": "《Web 开发》《编译原理》WASM 部分，可做性能优化专题实验",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "冷启动是 Serverless 的核心痛点，300ms 对实时场景是硬伤",
-    "Rust + WASM 是当前边缘计算降延迟的主流方案之一",
-    "理解 WASM 作为跨语言运行时的定位，前端同学尤其值得看",
-    "不需要会 Rust，但要能讲清原理，面试可聊"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "slashing cold‑start latency of Supabase edge functions with Rust‑WASM",
-   "link": "https://dev.to/cpkxwdev/slashing-cold-start-latency-of-supabase-edge-functions-with-rust-wasm-2d2m",
-   "cover": "img/a495.webp"
-  },
-  {
-   "id": "a496",
-   "title": "一份让 Claude Code 不再瞎猜的 CLAUDE.md 模板（免费）",
-   "summary": "DEV 社区分享的 CLAUDE.md 配置模板，通过明确告诉 AI 测试怎么跑、哪些文件不能碰、输出格式要求，让 Claude Code 不再每次会话都「失忆」。",
-   "content": "每次开新会话，Claude Code 就像一个能力很强但失忆的新员工：不知道你的测试怎么跑、哪些文件是禁区、你要的是三行状态更新而不是三段废话。这篇给出一个 CLAUDE.md 模板，把这些项目约定写死在文件里，让 AI 每次都能读到。对学生的实用价值很直接：你在做课设或团队项目时，把「怎么跑测试」「代码规范」「禁止改动的目录」写进 CLAUDE.md，AI 生成代码的返工率会明显下降。这是最低成本的 AI 编程提效手段，五分钟就能配好，建议今天就在自己的项目里试。",
-   "source": "DEV Community",
-   "date": "2026-10-13",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**五分钟配置，立刻让 AI 写代码少犯低级错误，性价比最高的提效技巧。**",
-   "courses": "《软件工程》编码规范与团队协作，可直接用于课程项目",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "CLAUDE.md 是 Claude Code 的项目级约定文件，AI 每次会话自动读取",
-    "写明测试命令、禁区文件、输出格式，能大幅减少返工",
-    "配置成本极低，五分钟见效，适合所有用 AI 写代码的同学",
-    "团队协作时统一 CLAUDE.md，能对齐 AI 生成代码的风格"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "The CLAUDE.md That Finally Made Claude Code Stop Guessing (Free Template)",
-   "link": "https://dev.to/zezhang_dev/the-claudemd-that-finally-made-claude-code-stop-guessing-free-template-2p27",
-   "cover": "img/a496.webp"
-  },
-  {
-   "id": "a484",
-   "title": "GitHub Copilot 进阶：用自定义指令和 MCP 让 AI 读懂你的整个代码库",
-   "summary": "GitHub 官方教程，教你通过自定义指令、自定义 Agent 和 MCP 服务器（如 Playwright）让 Copilot 真正理解项目上下文，而不是只会补全单行代码。",
-   "content": "很多同学用 Copilot 只停留在「Tab 补全」，其实它支持在仓库里放自定义指令文件（如 .github/copilot-instructions.md），把项目的技术栈、命名规范、目录结构写进去，Copilot 生成的代码就会贴合你的工程约定。更进一步，可以配置自定义 Agent 和接入 MCP 服务器（比如 Playwright），让 AI 能真正调用浏览器、跑测试。对做课设和准备秋招的同学来说，这套配置能直接写进简历——「熟悉 AI 辅助研发工作流，能配置 MCP 工具链」。建议拿你正在做的课程项目仓库练手，先写一份 instructions 文件，再尝试接一个 MCP server。",
-   "source": "GitHub Blog",
-   "date": "2026-10-12",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "GitHub Copilot",
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**把 Copilot 从「补全工具」升级为「懂你项目的 AI 队友」，是当前最容易被面试官问到的工程实践。**",
-   "courses": "对应《软件工程》《Web 应用开发》课程项目，可在团队协作中统一 AI 编码规范",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "用 copilot-instructions.md 把项目规范喂给 AI，生成代码更贴合工程约定",
-    "自定义 Agent + MCP 服务器（如 Playwright）让 Copilot 能调用外部工具",
-    "可直接写进简历的「AI 辅助研发工作流」实践经历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
-   "link": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
-   "cover": "img/a484.webp"
   }
  ],
  "jobs": [
