@@ -1,6 +1,242 @@
 {
- "updatedAt": "2026-10-21 02:38",
+ "updatedAt": "2026-10-21 11:11",
  "news": [
+  {
+   "id": "a633",
+   "title": "Agent 删库频发：数据库防呆机制为何在 AI 面前失效",
+   "summary": "InfoQ 分析多起 AI Agent 误删生产数据库事故，指出传统权限与防呆设计难以约束自主执行的 Agent。",
+   "content": "过去一年里，Agent 自动执行 SQL、调用运维脚本导致的删库事故反复出现。文章的核心观点是：几十年前数据库就有的防呆机制（二次确认、只读账号、回收站、备份恢复）默认「操作者是人」，而 Agent 会绕过交互确认、批量重试、把危险命令当普通工具调用。对信息安全与管理专业的同学，这是一份现成的风险分析素材：你可以顺着文章梳理「最小权限 + 人工审批 + 操作审计 + 可回滚」四层防线，在课程设计里做一个 Agent 工具调用的权限网关 Demo，比空谈「AI 安全」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "SQL"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI 时代的权限与审计」讲清楚，是信息安全方向面试的高频加分点**",
+   "courses": "《数据库系统》《信息安全导论》——用作访问控制与审计章节的案例分析",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "Agent 自主执行会绕过人类交互式确认，传统防呆失效",
+    "核心对策是最小权限、危险操作人工审批、全量审计日志",
+    "可做成「Agent 工具调用权限网关」课设项目"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/2Z056Q54wWa6vAIQKsqJ?utm_source=rss&utm_medium=article",
+   "cover": "img/a633.webp"
+  },
+  {
+   "id": "a634",
+   "title": "PHP 两个 RCE 漏洞遭提前泄露，紧急补丁今日发布",
+   "summary": "CVE-2026-109618 与 CVE-2026-109619 均为远程代码执行漏洞，因信息泄露补丁被迫提前发布。",
+   "content": "PHP 安全团队原定周四披露，因漏洞细节提前外泄，把补丁提前到 10 月 21 日 14:00 UTC。两个编号都是 RCE 级别，意味着攻击者可在服务器上执行任意代码。给信息安全与管理专业的实操建议：一是立刻排查你手上的课设、社团网站、实习项目里有没有暴露在公网的 PHP 服务，升级到最新小版本；二是把这次事件当作「漏洞披露流程」的活教材——为什么提前泄露会放大风险窗口、企业应急响应该怎么排优先级。顺手在本地搭个靶场复现同类漏洞，比背概念有用。",
+   "source": "开源中国",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**一次真实的漏洞应急事件，直接对应你的漏洞管理与应急响应知识**",
+   "courses": "《网络安全技术》《Web 安全》——作为漏洞披露与应急响应案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "两个漏洞均为 RCE 级别，危害为任意代码执行",
+    "因细节泄露，补丁发布时间被迫提前",
+    "排查自建/实习项目中的公网 PHP 服务并升级"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503132/php-cve-2026-109618-cve-2026-109619-rce"
+  },
+  {
+   "id": "a635",
+   "title": "DeepSeek 开源推理框架：单集群日吞吐 155 万亿 Token，KVCache 可存 7 天",
+   "summary": "新框架把 KVCache 生命周期拉长到 7 天，显著提升大模型推理集群的吞吐与复用率。",
+   "content": "这条对软件工程（工业软件实验班）的同学价值在于「系统设计视角」：日吞吐 155 万亿 Token 不是模型能力，而是调度、批处理、缓存复用这些工程手段堆出来的。KVCache 能保存 7 天，本质是把「重复前缀的算力」换成「存储换计算」，和你在《操作系统》里学的缓存层次、在《数据结构》里学的 LRU 淘汰是同一套思路的放大版。建议做法：读一遍框架文档的架构图，用本地小模型跑一次带前缀缓存的推理对比，把吞吐和延迟数据写进简历项目描述，比写「了解大模型」具体得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-21",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "DeepSeek"
+   ],
+   "diff": 3,
+   "scene": "简历加分/进阶学习",
+   "value": "**把「缓存换算力」的工程思维落到可量化的实验数据上**",
+   "courses": "《操作系统》《数据结构》——缓存与调度策略的真实工业案例",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "核心是调度 + 批处理 + KVCache 长周期复用",
+    "本质是「存储换算力」的缓存设计问题",
+    "可本地做前缀缓存前后吞吐对比实验"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/NBXP966Bz3eqr6Qidvaf?utm_source=rss&utm_medium=article",
+   "cover": "img/a635.webp"
+  },
+  {
+   "id": "a636",
+   "title": "Anthropic 初级岗位招聘一年半降 33%，Agent 工时是员工的 6 倍",
+   "summary": "AI 公司自身在压缩初级岗位，同时内部 Agent 承担的工作时长已远超人类员工。",
+   "content": "这不是八卦，是就业信号。Anthropic 这类头部 AI 公司初级岗位占比一年半骤降 33%，同时内部 Agent 的运行工时是员工的 6 倍——说明「写基础代码、跑测试、做数据整理」这类入门工作正在被自动化吃掉。对软件工程和信息安全专业的现实含义：入门门槛从「会写 CRUD」抬到「会设计、会评审 AI 产出、会做安全与质量把关」。可执行的动作是把课程设计做成「我主导 + AI 辅助」的形态，能讲清楚哪些部分由你决策、如何验证 AI 生成的代码，这在面试里比刷题数量更能区分人。",
+   "source": "InfoQ中文",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**看清入门岗位正在被重构，提前把能力锚点从「会写」移到「会审」**",
+   "courses": "《软件工程》——需求评审与代码质量控制环节的现实参照",
+   "tags": [
+    "求职就业",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "初级岗位收缩，基础编码类工作被 Agent 承接",
+    "能力重心转向设计、评审、验证与安全把关",
+    "课设要能说清「人决策 + AI 执行」的分工"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/bTVDaYaUJy2OvNlyuHgz?utm_source=rss&utm_medium=article",
+   "cover": "img/a636.webp"
+  },
+  {
+   "id": "a637",
+   "title": "EasyGoAdmin v2.8.0：GoFrame + Vue3 + TS 一键生成后台模块",
+   "summary": "基于 GoFrame v2、Vue3、TypeScript、Element Plus 的前后端分离敏捷框架，内置代码生成器。",
+   "content": "对做课设和毕设的同学，这类「脚手架 + 代码生成器」框架的实际价值是省掉 60% 的重复劳动：建好表结构，一键生成整个模块的增删改查、菜单和权限节点，你只需要写业务逻辑和接口校验。技术栈是 GoFrame v2 + Vue3 + TypeScript + Element Plus，前端部分和你学的 Vue 课程直接对口，后端可以当作「非 Java 技术栈」的对照学习。建议用法：拿它搭一个带 RBAC 权限的后台管理系统作为课设底座，重点把权限模型和接口鉴权讲清楚，这比从零手写更能体现工程能力。",
+   "source": "开源中国",
+   "date": "2026-10-21",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Vue3",
+    "GoFrame"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**用代码生成器把课设的重复劳动砍掉，把时间花在权限与业务逻辑上**",
+   "courses": "《Web 应用开发》《软件工程》——课程设计快速搭建后台系统",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "建表后一键生成 CRUD、菜单与权限节点",
+    "前端 Vue3 + TS + Element Plus，与课程直接衔接",
+    "适合作为课设/毕设的后台管理底座"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503126"
+  },
+  {
+   "id": "a638",
+   "title": "Linux 7.4 合入约 1.7 万行 Rust 内核代码，Zerocopy 连跨八个版本",
+   "summary": "Rust for Linux 提交大规模更新，Zerocopy 库一次性推进八个版本，强化字节与结构体的安全转换。",
+   "content": "这条对工业软件实验班和系统方向的同学有实际参考价值：内核级代码正在用 Rust 解决 C 语言长期的内存安全问题，而 Zerocopy 负责的是「原始字节序列 ↔ 结构化类型」的安全转换——这正是你在《计算机组成原理》《操作系统》里学的内存布局、字节序、类型对齐的工程落地。不必去读内核补丁，但可以拿 Rust 写一个用 serde/zerocopy 做二进制协议解析的小 Demo（比如解析一个自定义报文头），体会「零拷贝 + 编译期安全」相比 C 手写 memcpy 的优势，这在嵌入式、工业通信类岗位面试里是加分项。",
+   "source": "开源中国",
+   "date": "2026-10-21",
+   "cat": "stack",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "Linux"
+   ],
+   "diff": 3,
+   "scene": "进阶学习/简历加分",
+   "value": "**用一个小 Demo 把「内存安全」从概念变成你能讲清楚的技术点**",
+   "courses": "《计算机组成原理》《操作系统》——内存布局与类型对齐的实际应用",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Rust 在内核中承担内存安全职责，规模持续扩大",
+    "Zerocopy 解决字节序列与结构体间的安全转换",
+    "可用 Rust 写二进制协议解析 Demo 练手"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503125"
+  },
+  {
+   "id": "a639",
+   "title": "飞书豆包办 AI 先锋大赛：企业招人先看「能不能用 AI 把事做成」",
+   "summary": "比赛以真实业务问题为赛题，考察参赛者用 AI 工具解决实际问题的落地能力。",
+   "content": "这类比赛对在校生最实际的作用是「简历素材 + 面试话题」：赛题来自真实业务场景，你要交付的不是算法论文，而是一套能跑通、能说清投入产出的小方案。建议组队时按「一个懂业务梳理 + 一个懂前端交互 + 一个懂数据与接口」配置，用飞书多维表格或豆包搭一个自动化流程，把「原来人工几小时 → 现在几分钟」的对比数据记下来。信息安全方向的同学可以专门做「AI 工作流中的数据脱敏与权限边界」这一角度，差异化更明显。",
+   "source": "量子位",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "简历加分/求职准备",
+   "value": "**用一次比赛换来一段能讲清「我怎么用 AI 解决真问题」的面试故事**",
+   "courses": "《软件工程》——需求分析与方案落地的实践场景",
+   "tags": [
+    "求职就业",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "赛题来自真实业务问题，重落地不重论文",
+    "产出要能量化效率提升，作为简历与面试素材",
+    "信安同学可从数据脱敏与权限边界切入"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/504608.html",
+   "cover": "img/a639.webp"
+  },
   {
    "id": "a624",
    "title": "虚拟线程不是无限并发：Java 后端该限流的其实是这些资源",
@@ -25,7 +261,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "虚拟线程只降低线程成本，不提升下游承载能力",
@@ -313,7 +549,8 @@
     "适合已有单 Agent 基础后的进阶项目"
    ],
    "buzz": [],
-   "link": "https://github.com/NVIDIA/NeMo-Agent-Toolkit"
+   "link": "https://github.com/NVIDIA/NeMo-Agent-Toolkit",
+   "cover": "img/a632.webp"
   },
   {
    "id": "a619",
@@ -3934,247 +4171,6 @@
    "origTitle": "A free React resource timeline (a FullCalendar Premium alternative)",
    "link": "https://dev.to/mdobaid311/a-free-react-resource-timeline-a-fullcalendar-premium-alternative-25fb",
    "cover": "img/a523.webp"
-  },
-  {
-   "id": "a524",
-   "title": "BucketForge v1.14.0发布：Rust+Tauri开源多云存储管理器",
-   "summary": "原Nebula项目正式更名BucketForge，基于Rust+Tauri构建的开源多云对象存储管理工具发布v1.14.0，新增指定Bucket访问权限功能。",
-   "content": "BucketForge是一个跨云对象存储（S3、OSS、COS等）的桌面管理工具，用Rust写后端逻辑、Tauri做跨平台桌面壳。这次更新支持了「AccessKey只有单个Bucket权限」的场景——以前必须要有ListBuckets权限才能用，现在受限权限的密钥也能正常操作。对软件工程专业的同学，这个项目的技术栈值得关注：Tauri是Electron的轻量替代（体积小、内存占用低），Rust做系统级工具越来越主流。如果你做云存储相关的课设，或者想学Tauri桌面开发，可以研究它的源码架构。",
-   "source": "开源中国",
-   "date": "2026-10-14",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Tauri"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**学习Rust+Tauri桌面开发与多云存储管理的实战项目，云存储课设的参考实现。**",
-   "courses": "对应《云计算》《软件工程》课程，可作为云存储管理课设的参考项目",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "基于Rust+Tauri的开源多云对象存储管理桌面工具",
-    "v1.14.0新增指定Bucket访问权限支持",
-    "Tauri是Electron的轻量替代方案，值得学习",
-    "支持S3、OSS、COS等多种云存储协议"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503012"
-  },
-  {
-   "id": "a513",
-   "title": "Spring Boot/Framework/Data/Security 同步发布第二个里程碑版本，Java 全栈该关注什么",
-   "summary": "Spring 生态多个核心项目同时进入第二个里程碑版本，涉及 Boot、Framework、Data、Security 与 Integration。",
-   "content": "Spring 全家桶的里程碑版本是判断下一阶段技术走向的风向标。对软件工程专业的同学来说，重点看三块：Framework 的底层容器与 AOP 变化，Data 的 ORM/仓储抽象调整，Security 的认证授权链路更新。这些内容直接对应你课设里的 Spring Boot 后端项目——如果你正在做图书管理、订单系统一类的课程设计，提前了解新版本的配置方式和废弃 API，能避免照着过时教程踩坑。建议做法：在本地用 Maven 拉一个 milestone 依赖，跑通一个最小 REST 接口 + JPA 查询 + 登录鉴权，记录与稳定版的差异，写进你的技术笔记，面试聊到 Spring 版本演进时就是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-10-14",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Spring Security"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**Spring 是 Java 岗面试必问项，跟进里程碑版本能让你在课设和面试里都领先一步。**",
-   "courses": "对应《Java Web 开发》《企业级应用开发》，可直接用于课程设计的后端框架选型与升级验证。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Boot/Framework/Data/Security/Integration 五个项目同步进入第二个里程碑",
-    "重点看 Security 鉴权链路与 Data 仓储抽象的变化",
-    "用最小 REST + JPA + 登录 demo 验证新版本兼容性"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/bjowsAJHMwfAzRMqu4qJ?utm_source=rss&utm_medium=article",
-   "cover": "img/a513.webp"
-  },
-  {
-   "id": "a514",
-   "title": "别让 Java 字符串拼接偷偷吃掉内存：循环里 + 拼接导致 QPS 200 就 Full GC",
-   "summary": "一次压测中订单服务 QPS 刚到 200 就频繁 Full GC，元凶是循环内的字符串拼接生成数 GB 垃圾对象。",
-   "content": "这是一个非常典型的 Java 性能事故复盘：在循环里用 + 拼接日志字符串，每次迭代都创建新的 String 和 StringBuilder 临时对象，年轻代被瞬间打满，触发频繁 Young GC 甚至 Full GC。正确做法是循环外用 StringBuilder，或直接用占位符日志框架（如 SLF4J 的 {} 占位），避免无谓对象分配。对软件工程同学来说，这题几乎每年都出现在 Java 岗笔试和面试里，也是《Java 程序设计》课程里字符串不可变性的真实应用场景。建议你亲手写一段循环拼接代码，用 jvisualvm 或 jstat 观察 GC 次数对比，把数据截图放进实验报告，比背概念有用得多。",
-   "source": "掘金",
-   "date": "2026-10-14",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java",
-    "JVM"
-   ],
-   "diff": 1,
-   "scene": "课设/求职准备",
-   "value": "**字符串拼接是 Java 面试高频考点，也是你课设代码里最容易埋的性能雷。**",
-   "courses": "对应《Java 程序设计》《数据结构与算法》，可作为 JVM 内存与 GC 章节的实操案例。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "循环内 + 拼接字符串会生成大量临时对象，打爆年轻代",
-    "改用 StringBuilder 或 SLF4J 占位符日志可显著降低 GC 压力",
-    "用 jstat/jvisualvm 实测 GC 次数对比，写进实验报告"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696317274467254307"
-  },
-  {
-   "id": "a515",
-   "title": "Gemini 4 Argon 全球上线，官方押注 Coding 与网络安全防御",
-   "summary": "Google DeepMind 发布 Gemini 4 Argon，明确把 coding 和 cyber defense 作为核心方向。",
-   "content": "大模型厂商把「网络安全防御」单独拎出来作为主打方向，这在以往很少见，对信息安全与管理专业的同学是个明确信号：AI 正在进入安全运营、漏洞分析、威胁检测这些岗位的日常工作流。你可以做的具体事情：用 Gemini 或同类模型辅助分析一段可疑的 Web 日志、解释一个 CVE 漏洞的成因、生成一份基础的渗透测试检查清单，然后人工核对它的结论是否准确。这个过程本身就是「AI 辅助安全分析」的实战训练，也是《网络安全》《渗透测试》课程之外能写进简历的项目经历。注意不要盲信模型输出，安全领域容错率极低，验证能力才是你的核心竞争力。",
-   "source": "开源中国",
-   "date": "2026-10-14",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Gemini"
-   ],
-   "value": "**AI 进入网络安全防御是明确趋势，信息安全专业学生应尽早练习用大模型辅助安全分析。**",
-   "courses": "对应《网络安全技术》《渗透测试》，可作为 AI 辅助安全分析的课外实践方向。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Gemini 4 Argon 把 cyber defense 列为三大主打方向之一",
-    "可用于日志分析、CVE 解读、渗透测试清单生成等安全场景",
-    "安全领域必须人工复核模型结论，验证能力是核心"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503010/google-deepmind-gemini4-models-argon"
-  },
-  {
-   "id": "a516",
-   "title": "Agent 驱动的逆向工程工具 REA：Node.js 全栈二进制与多格式分析",
-   "summary": "开源项目 REA 基于 Node.js 构建，用 AI Agent 辅助二进制逆向与多格式文件分析。",
-   "content": "逆向工程一直是信息安全里门槛较高的方向，REA 的思路是用 Agent 把「读汇编、识别函数、推断结构」这些重复劳动自动化，人负责判断和验证。对信息安全与管理专业的学生来说，这是一个很好的入门跳板：你不需要一上来就啃 IDA 的复杂操作，可以先跑通 REA 的分析流程，观察它如何对一段二进制做函数识别和格式解析，再对照《汇编语言》《软件逆向》课程里的知识理解它的判断依据。建议拿一个自己编译的小程序做实验对象，记录 Agent 的分析结果与人工分析的差异，这既是课程实验的延伸，也是简历上「AI + 安全工具」的差异化项目。",
-   "source": "掘金",
-   "date": "2026-10-14",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Node.js"
-   ],
-   "diff": 3,
-   "scene": "简历加分/课设",
-   "value": "**逆向工程 + AI Agent 是安全岗的稀缺组合，REA 给了你一个低门槛的实战入口。**",
-   "courses": "对应《汇编语言》《软件逆向工程》，可作为逆向分析实验的辅助工具。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "REA 用 Agent 自动化二进制函数识别与多格式分析",
-    "适合作为逆向工程入门跳板，降低 IDA 上手门槛",
-    "用自编译小程序做实验，对比 Agent 与人工分析结果"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696355057992892425"
-  },
-  {
-   "id": "a517",
-   "title": "sqltoy-orm 6.0.6 发版：一套 SQL 适配 25 种数据库方言，信创换库首选",
-   "summary": "国产 ORM 框架 sqltoy 发布 6.0.6，支持 Oracle 到达梦、金仓、瀚高等 25 种数据库方言。",
-   "content": "信创替换是当前国内政企项目的硬需求，痛点不在于换数据库本身，而在于每一条 SQL 都要重新适配。sqltoy 主打「一套 SQL 全库运行」，覆盖达梦、金仓、瀚高、神通等国产数据库方言，这对工业软件实验班和软件工程的同学有直接价值：如果你参与的信创类课设或实习项目需要同时兼容 MySQL 和国产库，用 sqltoy 能省掉大量方言改写工作。建议做法：搭一个 Spring Boot + sqltoy 的最小项目，同一段查询分别在 MySQL 和达梦上跑通，体会 ORM 层屏蔽方言差异的机制，这比单纯背「信创」概念更能写进简历。",
-   "source": "开源中国",
-   "date": "2026-10-14",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "sqltoy",
-    "Spring Boot"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**信创是工业软件方向的就业风口，掌握一套国产数据库适配方案能直接提升你的项目竞争力。**",
-   "courses": "对应《数据库原理》《企业级应用开发》，可用于信创类课程设计的数据库适配环节。",
-   "tags": [
-    "Java全栈",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "sqltoy 支持 25 种数据库方言，覆盖主流国产数据库",
-    "信创项目换库时无需重写每条 SQL",
-    "用 Spring Boot + sqltoy 在 MySQL 与达梦上跑通同一查询"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503009"
-  },
-  {
-   "id": "a518",
-   "title": "iFreeSftp v0.8.0 发布：双窗格多标签的国产开源 SFTP 客户端",
-   "summary": "国内首款开源 SFTP 工具 iFreeSftp 更新到 v0.8.0，支持双窗格多标签与服务端命令通道。",
-   "content": "部署课设项目、上传服务器文件、在本地和云主机之间搬代码，是每个软件工程学生都会遇到的日常。iFreeSftp 是 Windows 平台免安装的开源 SFTP 客户端，双窗格多标签的设计让本地与服务器、服务器与服务器之间的文件传输更直观，还带服务端命令通道，省去来回切终端。对信息安全专业的同学，它也可以作为练习 SFTP/SSH 协议配置、密钥认证、端口转发的实操工具。建议你在部署课程设计时用它替代命令行 scp，顺便观察它的连接日志，理解 SSH 握手和认证过程，这对《计算机网络》《Linux 系统管理》的理解很有帮助。",
-   "source": "开源中国",
-   "date": "2026-10-14",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "SFTP",
-    "SSH"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**部署课设和上传服务器文件的高频工具，顺带能练 SSH 认证原理。**",
-   "courses": "对应《计算机网络》《Linux 系统管理》，用于课程设计的服务器部署环节。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Windows 免安装开源 SFTP 客户端，双窗格多标签",
-    "带服务端命令通道，减少终端切换",
-    "可用于练习 SSH 密钥认证与端口转发"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503017"
   }
  ],
  "jobs": [
