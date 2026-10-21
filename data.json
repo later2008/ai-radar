@@ -1,6 +1,320 @@
 {
- "updatedAt": "2026-10-20 14:44",
+ "updatedAt": "2026-10-21 02:38",
  "news": [
+  {
+   "id": "a624",
+   "title": "虚拟线程不是无限并发：Java 后端该限流的其实是这些资源",
+   "summary": "Java 21 虚拟线程让线程变便宜，但把「线程便宜」误读成「系统可无限并发」是后端最常见的坑，文章讲清楚真正该限制的资源。",
+   "content": "很多同学在课设里把线程池换成虚拟线程，就以为 QPS 能随便涨。实际上虚拟线程只解决了「线程栈内存贵」这一个问题，数据库连接池、下游 HTTP 连接、CPU 核数、堆内存这些瓶颈一个都没消失。文章给出的实践是：用 Semaphore 显式限制对数据库和第三方接口的并发数，用结构化并发（StructuredTaskScope）管理任务生命周期，监控上重点看连接池等待时间和 GC 而不是线程数。做秒杀、订单类课设时，这套思路能直接写进设计文档。",
+   "source": "掘金",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java 21",
+    "虚拟线程"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把「线程便宜≠系统无限并发」讲透，Java 后端性能设计的必读一课**",
+   "courses": "《Java 程序设计》《分布式系统》——可作并发编程章节的延伸案例",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "虚拟线程只降低线程成本，不提升下游承载能力",
+    "用 Semaphore 限流数据库连接、外部 API 并发",
+    "结构化并发管理任务生命周期，避免线程泄漏",
+    "监控重点从线程数转向连接池等待与 GC"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698661900759285823"
+  },
+  {
+   "id": "a625",
+   "title": "Spring Cloud Gateway 统一加解密：请求体只能读一次，我踩了三天坑",
+   "summary": "在网关层给对外接口做统一加解密时，请求体流被消费后无法二次读取，是 Gateway 过滤器最典型的翻车点。",
+   "content": "支付、会员、钱包这些对外接口如果每个服务各写一套加解密，改一次密钥要改十个地方，所以公司选择在网关统一处理。真正卡住的是：Gateway 基于 WebFlux，请求体是 DataBuffer 流，解密过滤器读完之后，下游路由拿到的 body 就是空的。解决方案是用 ServerWebExchangeUtils 缓存请求体、改写 Content-Length，或者用 ModifyRequestBodyGatewayFilterFactory 重写 body。另外要区分哪些路径需要解密，避免把健康检查也拦下来。做微服务课设、准备 Java 后端面试的同学，这类网关过滤器实战经验很值钱。",
+   "source": "掘金",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Spring Cloud Gateway",
+    "WebFlux"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**网关统一加解密的真实踩坑记录，微服务安全改造可直接照抄思路**",
+   "courses": "《信息安全技术》《Web 应用开发》——网关层加密与请求处理的结合案例",
+   "tags": [
+    "Java全栈",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "WebFlux 请求体是流，读一次就没了，必须缓存重写",
+    "用 ModifyRequestBody 过滤器改写 body 与 Content-Length",
+    "按路径白名单决定是否走加解密，避免误伤健康检查",
+    "密钥集中管理，避免各服务重复实现"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698673592326668324"
+  },
+  {
+   "id": "a626",
+   "title": "Java AI 框架怎么选：Spring AI、LangChain4j 还是自己写",
+   "summary": "用智能客服选型吵架的真实场景，拆解 Spring AI 与 LangChain4j 的适用边界和取舍标准。",
+   "content": "团队要做智能客服，三个人吵了三天：一个说 Spring AI 官方出品稳，一个说 LangChain4j 生态全，一个说直接调 HTTP 最省事。文章给出的判断维度很实用：一是看你已有的技术栈，Spring Boot 项目接 Spring AI 心智负担最小；二是看要不要复杂的 RAG、工具调用编排，需要就上 LangChain4j；三是看团队能不能接受框架快速迭代带来的破坏性变更。对软件工程的同学来说，这正好是「技术选型」这个软技能的训练材料——面试被问「为什么用这个框架」时，能讲出权衡比会调 API 更重要。",
+   "source": "掘金",
+   "date": "2026-10-21",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI",
+    "LangChain4j"
+   ],
+   "value": "**把 Java AI 框架选型讲成可复用的决策框架，面试和项目都用得上**",
+   "courses": "《软件工程》——技术选型与架构决策的实例",
+   "tags": [
+    "Java全栈",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "选型看已有技术栈、RAG 复杂度、框架稳定性三条线",
+    "Spring Boot 项目优先 Spring AI，复杂编排考虑 LangChain4j",
+    "框架迭代快，注意破坏性变更与版本锁定",
+    "面试常问「为什么选它」，要能讲出权衡"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698620283800404002"
+  },
+  {
+   "id": "a627",
+   "title": "DeepSeek 开源大规模推理框架 DeepInfer，新模型推理代码将持续放出",
+   "summary": "DeepSeek 把内部推理框架 DeepInfer 全面开源，支撑 V4.1 Flash 的高吞吐低延迟服务，推理代码后续持续更新。",
+   "content": "DeepSeek 在开源模型、TileLang 编译工具、推理算子库之后，又把内部推理框架 DeepInfer 开源了，官方称已用它跑起 V4.1 Flash 的大规模推理服务。对信息工程学院的同学，这件事的价值不在「又一个开源项目」，而在于它是一份可读的工业级系统代码：批处理调度、KV Cache 管理、算子融合这些课上讲的概念，能在真实代码里看到怎么落地。想往 AI 基础设施方向走的同学，可以拿它对照《操作系统》《并行计算》的知识点读；做毕设涉及模型部署的，也可以直接拿来做推理后端。",
+   "source": "极客公园",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "DeepSeek",
+    "推理框架"
+   ],
+   "value": "**工业级推理框架开源，是读懂大模型部署底层的最好教材**",
+   "courses": "《操作系统》《并行计算》——调度与缓存管理的真实实现参考",
+   "tags": [
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "DeepInfer 支撑 V4.1 Flash 的高吞吐低延迟推理",
+    "可对照操作系统、并行计算课程读工业级代码",
+    "适合作为模型部署类毕设的推理后端",
+    "后续新模型推理代码会持续更新"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/372650",
+   "cover": "img/a627.webp"
+  },
+  {
+   "id": "a628",
+   "title": "3 位 Java Champion 怎么用 Copilot：人负责结果，AI 负责提速",
+   "summary": "GitHub 采访三位 Java Champion，讲 Copilot 在真实 Java 项目里的用法边界：加速开发，但责任仍在人。",
+   "content": "三位 Java Champion 的共识是：Copilot 最值钱的场景不是「帮你写完整个类」，而是补样板代码、写单元测试、解释陌生代码库、生成正则和 SQL 这类高频小任务。他们强调的纪律是——AI 生成的代码必须自己读懂再提交，测试先行让 AI 补测试用例，review 时重点看边界条件。对准备实习面试的同学，这其实是一份「怎么用 AI 而不被 AI 拖累」的行为准则，写进简历的项目里也能体现工程素养。",
+   "source": "GitHub Blog",
+   "date": "2026-10-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "GitHub Copilot"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**给 Java 学生一份「用 AI 写代码但不背锅」的实操纪律**",
+   "courses": "《软件工程》——代码评审与 AI 辅助开发的规范讨论",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Copilot 擅长样板代码、单测、解释陌生代码",
+    "AI 生成代码必须读懂再提交，责任在人",
+    "测试先行，让 AI 补测试用例效率最高",
+    "review 重点放在边界条件与异常路径"
+   ],
+   "buzz": [],
+   "link": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
+   "cover": "img/a628.webp"
+  },
+  {
+   "id": "a629",
+   "title": "用 Python 搭一个反爬网页抓取 MCP Server，给 Claude/Cursor 供干净 Markdown",
+   "summary": "手把手用 Python 写一个带反反爬处理的 MCP Server，把网页转成干净 Markdown 供 AI 助手调用。",
+   "content": "MCP（Model Context Protocol）是现在给 Claude Desktop、Cursor 这类 AI 客户端接外部能力的标准方式。这篇教程从零搭一个抓取服务：处理 User-Agent、限速、重试，把 HTML 用解析库转成干净 Markdown 再返回给模型，避免把整页噪声塞进上下文。对信息安全专业的同学，这里顺带覆盖了反爬与反反爬的攻防视角；对软件工程的同学，这是一个完整的「协议 + 服务端 + 第三方调用」小项目，放简历上比 CRUD 有辨识度。建议先跑通本地 stdio 模式，再考虑部署。",
+   "source": "DEV Community",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**一个能写进简历的 MCP 实战项目，同时练到爬虫与 AI 工具链**",
+   "courses": "《Python 程序设计》《网络爬虫》——协议服务端与反爬策略的综合练习",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "MCP 是给 Claude/Cursor 接外部工具的标准协议",
+    "抓取层要处理 UA、限速、重试与失败降级",
+    "HTML 转干净 Markdown 能显著省 token、提准确率",
+    "先跑通本地 stdio 模式再考虑远程部署"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/johann_schiffer/how-to-build-an-anti-bot-web-scraping-mcp-server-for-claude-cursor-with-clean-markdown-extraction-55d6",
+   "cover": "img/a629.webp"
+  },
+  {
+   "id": "a630",
+   "title": "用 Socket.io + JavaScript 做实时应用：聊天、通知、协同看板",
+   "summary": "从零讲清 Socket.io 的连接、房间、广播机制，是前端做实时功能最省力的入门路径。",
+   "content": "聊天、实时通知、协同看板、订单追踪，本质都是「不刷新页面也能拿到新数据」。文章从 WebSocket 与 Socket.io 的关系讲起，覆盖连接建立、房间（room）划分、广播与定向推送、断线重连这些必备机制。前端课设里加一个实时功能，往往比多做十个静态页面更能体现能力。建议动手做一个多房间聊天室：两个浏览器窗口互发消息，再故意断网看重连行为，把事件模型吃透。后端用 Node 起服务即可，不需要复杂环境。",
+   "source": "DEV Community",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Socket.io",
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**给课设加一个实时功能的最低成本路径，前端简历的加分项**",
+   "courses": "《Web 前端开发》——前后端实时通信章节的动手案例",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Socket.io 封装了 WebSocket，自带重连与降级",
+    "用 room 做消息分组，广播与定向推送要分清",
+    "断线重连与消息补偿是实时功能的真实难点",
+    "多房间聊天室是最小可用的练手项目"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/ansh_sheladiya/building-real-time-applications-with-socketio-and-javascript-4hdg",
+   "cover": "img/a630.webp"
+  },
+  {
+   "id": "a631",
+   "title": "GenUI SDK v1.4.0：React 三框架渲染、Vue 出码与 Agent 生态升级",
+   "summary": "生成式 UI SDK 更新，支持三大主流框架渲染与 Vue 出码，把 AI 生成的界面直接落成可运行代码。",
+   "content": "GenUI 这类 SDK 解决的是「AI 生成界面之后怎么办」的问题：模型吐出的是结构描述，SDK 负责把它渲染成 React/Vue 组件，甚至直接出码成可维护的工程文件。v1.4.0 补齐了 React 渲染、Vue 出码、物料体系开放和 Playground 体验。对前端方向的同学，值得关注的是「出码」这条链路——它决定了 AI 生成的东西是玩具还是能进仓库的代码。可以拿它做个低代码表单生成的小 demo，理解 schema 驱动渲染的思路，这在很多中后台项目里是真实需求。",
+   "source": "掘金",
+   "date": "2026-10-21",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React",
+    "Vue"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**想搞懂 AI 生成 UI 怎么落地成代码，这是当前少有的完整链路**",
+   "courses": "《Web 前端开发》——组件化与 schema 驱动渲染的延伸阅读",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "GenUI 把 AI 生成的结构描述渲染成真实组件",
+    "v1.4.0 补齐 React 渲染与 Vue 出码能力",
+    "出码质量决定 AI 生成代码能否进生产仓库",
+    "schema 驱动渲染是中后台低代码的通用思路"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698677378389835812"
+  },
+  {
+   "id": "a632",
+   "title": "NVIDIA NeMo Agent Toolkit：把多个 AI Agent 编排起来跑",
+   "summary": "NVIDIA 开源的 Python 库，用于连接和优化多 Agent 协作，近 7 日仍在活跃更新。",
+   "content": "单 Agent 做 demo 容易，多个 Agent 分工协作、传递上下文、控制成本就难了。NeMo Agent Toolkit 提供的是编排层能力：定义 Agent 之间的连接、工具注册、执行流程与性能分析。对软件工程的同学，可以把它当成「分布式系统思想在 AI 应用上的投影」——服务发现、编排、可观测性这些概念换了个场景又出现了。适合已经跑通过单 Agent demo、想进一步做多 Agent 项目的同学。注意它是 Python 生态，Java 方向的同学看架构思路即可。",
+   "source": "GitHub",
+   "date": "2026-10-21",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "Agent"
+   ],
+   "diff": 3,
+   "scene": "练手/简历加分",
+   "value": "**多 Agent 编排的工程化参考，把分布式思维迁移到 AI 应用**",
+   "courses": "《软件工程》《分布式系统》——编排与可观测性概念的跨场景应用",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "面向多 Agent 的编排、工具注册与执行流程管理",
+    "可观测性与性能分析是它的重点能力之一",
+    "Python 生态，Java 同学重点看编排设计思路",
+    "适合已有单 Agent 基础后的进阶项目"
+   ],
+   "buzz": [],
+   "link": "https://github.com/NVIDIA/NeMo-Agent-Toolkit"
+  },
   {
    "id": "a619",
    "title": "月下载9000万次的AI网关LiteLLM曝双漏洞：低权限账号即可窃取全部API密钥",
@@ -24,7 +338,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "漏洞类型：越权访问导致 API 密钥泄露",
@@ -3861,328 +4175,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503017"
-  },
-  {
-   "id": "a509",
-   "title": "DjangoAdmin v2.7.3 发布：FastAPI+Vue3+TS 的企业级中台脚手架，带按钮级 RBAC",
-   "summary": "基于 FastAPI、Vue3、TypeScript、ElementPlus、Vite 的前后端分离数据中台方案，内置按钮/方法级权限管控与用户、角色、菜单、部门、日志等模块。",
-   "content": "如果你正在做课设或想攒一个能写进简历的后台项目，这套脚手架值得直接拉下来读源码。它把企业里最常被问到的三件事都做完了：一是 RBAC 权限细化到按钮和方法级，二是用户/角色/权限菜单/部门/职级/日志/数据字典/行政区划等基础模块开箱即用，三是前后端分离，前端 Vue3+TS+Vite，后端 FastAPI。建议用法：先跑通登录与权限链路，再挑一个模块（比如系统日志）自己重写一遍接口和页面，理解「菜单-角色-接口」三者如何联动。面试被问「权限怎么设计」时，你能讲出具体实现而不是背概念。",
-   "source": "开源中国",
-   "date": "2026-10-14",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "FastAPI",
-    "Vue3"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**一套能直接跑通并讲清 RBAC 权限链路的企业级中台脚手架，课设与简历双用。**",
-   "courses": "对应《Web 应用开发》《软件工程课程设计》，可直接作为课程设计底座并练习前后端联调。",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "FastAPI + Vue3 + TypeScript + ElementPlus + Vite 前后端分离",
-    "RBAC 权限管控细化到按钮及方法级别",
-    "内置用户/角色/菜单/部门/日志/字典等基础模块",
-    "适合作为课设底座或二次开发练手项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503005"
-  },
-  {
-   "id": "a510",
-   "title": "Cloudflare Worker Previews 的坑：看着像隔离环境，实际仍会连生产",
-   "summary": "Cloudflare 新推出的 Worker Previews 预览环境被指出隔离不彻底，预览代码仍可能触达生产资源，做边缘函数部署时要当心。",
-   "content": "这条对做后端和运维方向的同学是实打实的避坑贴。核心问题：预览环境（Preview）本意是让你在不影响线上的前提下试代码，但 Worker Previews 的隔离边界并不彻底，预览实例仍可能连接到生产资源。放到课程和实习场景里，这对应两个必须养成的习惯：一是任何「预览/测试环境」都要先确认它到底连的是哪套数据库、哪套密钥；二是环境变量与密钥要按环境隔离，别把生产 token 塞进预览配置。做课设部署到 Serverless 平台时，建议自己画一张「代码→环境→资源」的连线图，确认没有越界。",
-   "source": "InfoQ中文",
-   "date": "2026-10-14",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Cloudflare Workers"
-   ],
-   "value": "**提醒你「预览环境≠安全隔离」，部署 Serverless 前先确认它连的是哪套生产资源。**",
-   "courses": "对应《信息安全技术》《云计算与分布式系统》，可作为环境隔离与配置安全的案例分析。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Worker Previews 隔离不彻底，预览仍可能连生产",
-    "提醒：测试/预览环境必须确认连接的真实资源",
-    "环境变量与密钥应按环境严格隔离",
-    "Serverless 部署前先画清代码到资源的连线"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Jf88XAvrK0zmBj2Ud2OD?utm_source=rss&utm_medium=article",
-   "cover": "img/a510.webp"
-  },
-  {
-   "id": "a511",
-   "title": "分布式编排 ≠ Agent 推理：别把两件事画进同一张架构图",
-   "summary": "很多「AI Agent 编排」架构图把「决定下一步做什么」和「可靠地跑分布式任务」混为一谈，作者主张把推理与编排职责拆开。",
-   "content": "这篇适合已经写过一点 Agent demo、准备往工程化走的同学。作者指出常见误区：把「推理（决定下一步做什么）」和「编排（可靠地执行分布式工作）」画成一层。实际工程里这是两套关注点——推理关心提示、上下文、工具选择；编排关心重试、幂等、超时、状态持久化、失败恢复。建议做法：在你的课设 Agent 项目里，把这两层拆成独立模块，推理层只输出「计划」，编排层负责执行与重试。这样既好测试，也能在简历上写「实现了带重试与状态恢复的任务编排」，比只写「调用大模型 API」有分量得多。",
-   "source": "DEV Community",
-   "date": "2026-10-14",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**教你把自己的 Agent 项目从「调 API」升级成「有编排层」的工程作品。**",
-   "courses": "对应《软件体系结构》《分布式系统》，可作为分层设计与任务编排的实践参考。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "推理=决定下一步做什么，编排=可靠执行分布式工作",
-    "常见错误是把两者合并成同一层架构",
-    "拆分后推理层只出计划，编排层管重试/幂等/状态",
-    "拆分带来可测试性，也是简历上的工程亮点"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Distributed Orchestration vs Agent Reasoning",
-   "link": "https://dev.to/tercelyi/distributed-orchestration-vs-agent-reasoning-2efm",
-   "cover": "img/a511.webp"
-  },
-  {
-   "id": "a512",
-   "title": "编程智能体怎么挑工具：20 年技术品牌在 Agent 眼里可能一文不值",
-   "summary": "InfoQ 讨论编程智能体（Coding Agent）选择首选工具时的实际依据，指出传统技术品牌积累在 Agent 决策中的权重正在下降。",
-   "content": "这条对正在用 Copilot、Cursor、Claude Code 之类工具写代码的同学有直接参考价值。核心观点：编程智能体选工具时，看的不是这个库「品牌多响、历史多久」，而是文档结构是否清晰、类型定义是否完整、错误信息是否可解析、示例是否可直接执行——也就是「机器可读性」。对你的实际启发有两点：一是自己写项目时，README、类型注解、函数注释写清楚，不只是给人看，也是给 AI 看，能显著提高补全准确率；二是选技术栈时，优先选文档和类型友好的库，长期开发效率更高。",
-   "source": "InfoQ中文",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Coding Agent"
-   ],
-   "value": "**让你明白「代码写得让 AI 读得懂」正在变成一项实打实的开发技能。**",
-   "courses": "对应《软件工程》《程序设计》，可作为代码规范与文档质量的现实动机。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 选工具看的是文档/类型/错误信息的机器可读性",
-    "传统技术品牌与历史积累的权重在下降",
-    "写清 README、类型注解、注释能提升 AI 补全质量",
-    "选型时优先考虑文档与类型友好的库"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/MrxaqhrQBMrZTcSGEgL1?utm_source=rss&utm_medium=article",
-   "cover": "img/a512.webp"
-  },
-  {
-   "id": "a504",
-   "title": "Gemini老兵团队押注Coding Agent：刚亮相就传被英伟达收购",
-   "summary": "一支来自 Gemini 的资深团队推出面向代码生成的 Coding Agent 产品，刚亮相就传出被英伟达收购的消息。",
-   "content": "Coding Agent 正在成为大模型落地最扎实的方向之一：它不是让你补全一行代码，而是能读懂整个仓库、自己规划改动、跑测试、提 PR。这支 Gemini 老兵团队的产品逻辑值得软件工程同学关注——它背后是「上下文工程 + 工具调用 + 任务分解」的组合拳，而不是单纯堆模型参数。对你们来说，重点不是追这条融资八卦，而是去体验这类工具在真实项目里的边界：它能不能读懂你们课设里 Spring Boot 的分层结构？能不能在改一个接口时自动同步前端调用？建议拿自己的课程项目做一次对照实验，记录它改对了什么、改错了什么，这本身就是简历上能讲的技术判断力。",
-   "source": "InfoQ中文",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Coding Agent"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**Coding Agent 是当前最贴近软件工程就业的 AI 方向，早实测早建立判断力。**",
-   "courses": "对应《软件工程》《Java Web 开发》，可把 Agent 接入课程项目做代码审查与重构实验",
-   "tags": [
-    "通用开发",
-    "求职就业",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Coding Agent 能读整个仓库、规划改动、跑测试，不只是代码补全",
-    "核心能力是上下文工程+工具调用+任务分解，不是堆参数",
-    "建议用自己的课设项目实测其边界，记录成败案例",
-    "这类实测经验可直接写进简历的技术判断部分"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/LQjytCZpPdgOE5PrWU59?utm_source=rss&utm_medium=article",
-   "cover": "img/a504.webp"
-  },
-  {
-   "id": "a505",
-   "title": "SpaceXSI 把 X Premium、Grok 和 Cursor 打包成一个订阅，最低 8 美元",
-   "summary": "新订阅把社交平台会员、Grok 大模型和 Cursor 编程工具捆绑，价格从 8 到 200 美元每月。",
-   "content": "这条对你们最实际的信息是：Cursor 这类 AI 编程工具正在被大厂打包进订阅体系，说明它已经从「极客玩具」变成「生产力标配」。对学生来说，重点是评估成本与收益——Cursor 的 Tab 补全和多文件编辑在写 Java 后端、调前端组件时确实省时间，但前提是你能看懂它生成的代码，否则就是给自己埋坑。建议做法：先用免费额度在一个小项目上跑两周，统计「它帮你省了多少时间」和「你花了多少时间 debug 它的输出」，再决定要不要付费。别为了跟风订阅，工具的价值取决于你的代码阅读能力。",
-   "source": "TechCrunch AI",
-   "date": "2026-10-13",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Cursor"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**AI 编程工具已进入订阅化阶段，学会算清「省时 vs 埋坑」这笔账比跟风订阅更重要。**",
-   "courses": "对应《程序设计基础》《Web 前端开发》，可在课程作业中用 Cursor 辅助编码并对比手写效率",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Cursor 被纳入大厂订阅体系，说明 AI 编程工具已成生产力标配",
-    "学生应先评估成本收益，而非盲目付费",
-    "用免费额度实测两周，统计省时与 debug 成本",
-    "看不懂的生成代码就是技术债，代码阅读能力是前提"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "SpaceXSI bundles X Premium, Grok, and Cursor into one subscription",
-   "link": "https://techcrunch.com/2026/10/13/spacexsi-bundles-x-premium-grok-and-cursor-into-one-subscription/",
-   "cover": "img/a505.webp"
-  },
-  {
-   "id": "a506",
-   "title": "Anthropic 工程师谈如何让 AI Agent 可信：信息溯源是核心",
-   "summary": "IEEE Spectrum 专访 Anthropic 工程师 Gurmeet Saran，讲述如何保证 Claude 等 AI Agent 回答复杂问题时信息来源可靠。",
-   "content": "这篇采访的价值在于它把「AI Agent 可信」拆成了工程问题：Agent 回答问题时，它的信息从哪来、经过哪些工具、有没有被污染，都需要可追溯。对信息安全与管理专业的同学，这直接对应你们要学的「数据来源可信」「日志审计」「权限边界」——Agent 能调用工具，就意味着它能读文件、发请求，攻击面比传统程序大得多。建议把这篇当作案例素材：梳理一个 Agent 系统的信任链（用户输入→检索→工具调用→输出），标出每个环节可能被注入或篡改的位置。这套分析思路可以直接用在《信息安全导论》的课程报告里。",
-   "source": "IEEE Spectrum AI",
-   "date": "2026-10-12",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**Agent 安全是信息安全专业的新增长点，信任链分析能力现在就该练。**",
-   "courses": "对应《信息安全导论》《网络安全》，可作为 Agent 信任链风险分析的案例素材",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "AI Agent 可信的核心是信息溯源与工具调用链可审计",
-    "Agent 能读文件、发请求，攻击面远大于传统程序",
-    "可梳理「输入→检索→工具调用→输出」信任链找风险点",
-    "分析框架可直接用于信息安全课程报告"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Meet the Anthropic Engineer Keeping Its AI Agent Trustworthy",
-   "link": "https://spectrum.ieee.org/anthropic-engineer-ai-agent",
-   "cover": "img/a506.webp"
-  },
-  {
-   "id": "a507",
-   "title": "Meta 发布 Muse Wonder 系列，主打个人与专业 Agentic 任务 SOTA",
-   "summary": "Meta 推出 Muse Wonder 和 Muse Wonder Full 两款模型，官方称在个人与专业 Agent 任务上达到 SOTA，并称其为迈向「个人超级智能」的一步。",
-   "content": "Meta 这次的关键词是「Agentic 任务」——不是聊天，而是让模型自主完成多步骤操作。对软件工程同学，值得关注的是它宣称的「专业任务」能力，通常意味着代码生成、工具调用、长流程规划。但别被 SOTA 跑分带节奏：模型能力再强，落到你们手里还是要通过 API 或工具链集成。建议做法是等它开放接口后，用一个小场景验证——比如让它根据一份需求文档自动生成 REST 接口骨架和对应的单元测试，看它能不能处理你们课设里常见的 CRUD 逻辑。跑分是厂商的，能不能用是你的。",
-   "source": "开源中国",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "LLM API"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**新模型的价值在于能否接入你的开发流程，跑分只是入场券。**",
-   "courses": "对应《软件工程》《Java Web 开发》，可尝试用其 API 生成接口骨架与单元测试",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Muse Wonder 主打 Agentic 多步骤任务，非单纯对话",
-    "「专业任务」通常含代码生成、工具调用、长流程规划",
-    "别迷信跑分，重点看能否集成进自己的项目",
-    "可用「需求文档→接口骨架+单测」小场景做验证"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/502995/meta-ai-muse-wonder"
-  },
-  {
-   "id": "a508",
-   "title": "千问 Go 实测：退差价、约保养、订球场，一句话把事办完",
-   "summary": "千问 Go 展示个人 Agent 能力，用户丢一句话进去，Agent 自动完成退差价、预约保养、订球场等跨应用操作。",
-   "content": "这条看似是消费场景，但技术内核对你们很有用：它演示了「自然语言→任务分解→多工具调用→结果回传」的完整 Agent 链路。前端同学可以关注它的交互设计——用户只给一句话，系统怎么把中间步骤可视化、怎么处理失败重试；后端同学可以关注它的工具编排层，本质是一个带状态的任务调度器。建议把它当作需求样本：如果让你实现一个「校园版千问 Go」，比如一句话完成「查空教室→预约→同步到课表」，你会怎么设计接口和状态机？这种拆解练习比看十篇 Agent 综述都实在。",
-   "source": "量子位",
-   "date": "2026-10-13",
-   "cat": "industry",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**个人 Agent 的交互与编排设计，是前端和后端都能练手的真实需求样本。**",
-   "courses": "对应《Web 前端开发》《软件工程》，可作为 Agent 任务编排与状态机的设计练习",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "展示「自然语言→任务分解→多工具调用→结果回传」完整链路",
-    "前端可关注中间步骤可视化与失败重试设计",
-    "后端本质是带状态的任务调度与工具编排",
-    "可练手设计「校园版一句话办事」Agent 的接口与状态机"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/502849.html"
   }
  ],
  "jobs": [
