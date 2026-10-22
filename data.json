@@ -1,6 +1,346 @@
 {
- "updatedAt": "2026-10-22 02:35",
+ "updatedAt": "2026-10-22 11:11",
  "news": [
+  {
+   "id": "a651",
+   "title": "上海开源大赛「AI+工业软件赛道」10强出炉，10月29日张江总决赛",
+   "summary": "2026上海开源软件应用创新大赛AI+工业软件赛道公布10支决赛队伍，项目代码仓库公开可查，10月29日张江总决赛。",
+   "content": "对工业软件实验班的同学来说，这是最值得逐行读代码的一份名单。入围项目（如 EasyAIoT 等）都公开了 Gitee 仓库，你可以直接看别人怎么把 AI 能力嵌进工业场景：设备数据采集、时序数据处理、模型推理服务化。建议做法：挑一个仓库 clone 下来，跑通 README，画出它的模块图，再对照自己的《软件工程》《工业软件开发》课设，看能不能把其中某个模块（如数据接入层）换成自己的实现。决赛路演也值得关注，看评委问什么，就知道企业真正在意什么。",
+   "source": "开源中国",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Gitee",
+    "AIoT"
+   ],
+   "value": "**公开仓库就是免费的工业软件架构教材，比看论文有用**",
+   "courses": "《工业软件开发》《软件工程》课设选题与架构参考",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "10支决赛队伍名单与代码仓库全部公开",
+    "项目集中在 AI+IoT/工业数据方向",
+    "10月29日张江人工智能创新小镇总决赛",
+    "可直接作为课设选题与架构参考"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503162"
+  },
+  {
+   "id": "a652",
+   "title": "PHP 漏洞「PHP2Shell」确认在野利用，全球多国基础设施网站预防性下线",
+   "summary": "watchTowr 通过全球蜜罐确认 CVE-2026-109618/109619（合称 PHP2Shell）已被真实利用，芬兰、荷兰、法国等多国政府站点临时下线。",
+   "content": "这是本周最该写进你安全课笔记的事件。要点有三：一是漏洞从「理论风险」变成「在野利用」，判断依据是蜜罐网络观测到真实攻击流量；二是响应方式是「预防性下线」而非打补丁，说明补丁窗口期极短；三是波及面从政府网站到港口、医院、体育协会，典型的基础设施供应链风险。信安专业的同学可以拿它练三件事：复现漏洞原理（在隔离环境）、写一份 CVE 分析报告、用 Nmap/Nuclei 在授权靶场上做资产排查。切记：只在自己有授权的环境里动手。",
+   "source": "开源中国",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "value": "**一次真实在野漏洞的完整响应链路，比课本案例鲜活十倍**",
+   "courses": "《网络安全》《漏洞分析与渗透测试》案例分析与报告写作",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "CVE-2026-109618 与 CVE-2026-109619 合称 PHP2Shell",
+    "watchTowr 蜜罐网络确认在野利用",
+    "多国政府与关键基础设施站点预防性下线",
+    "可作漏洞分析报告与靶场演练素材"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503157/watchTowr-php-cve-2026-109618-faq"
+  },
+  {
+   "id": "a653",
+   "title": "TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器",
+   "summary": "Cloudflare、VoidZero 等合作开发 tsrs，孵化于 Oxc 工具链，早期基准比 TypeScript 7.0 快 8 倍、内存降 70%。",
+   "content": "前端同学别只当新闻看。这件事的实际影响是：未来你项目里的类型检查、构建耗时可能大幅下降，CI 从几分钟压到几十秒；同时「编译器跑进浏览器」意味着在线 IDE、Playground 这类场景体验会变好。建议动手做一次对比实验：拿你自己的课设项目，分别用 tsc 和 tsrs 跑一遍类型检查，记录耗时和内存，写成一篇对比笔记——这既是性能测试练习，也是简历上很具体的项目经历。顺带理解一个趋势：前端工具链正在被 Rust 重写。",
+   "source": "开源中国",
+   "date": "2026-10-22",
+   "cat": "stack",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Rust"
+   ],
+   "value": "**亲手测一次构建提速，比记住「快8倍」这个数字有用**",
+   "courses": "《Web前端开发》构建工具与工程化章节实测",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "tsrs 非 fork，孵化于 Oxc 工具链",
+    "基准：比 TS 7.0 快 8 倍、内存少 70%",
+    "可运行于浏览器环境",
+    "建议用自己项目做 tsc vs tsrs 对比实验"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503149/cloudflare-typescript-rust-port"
+  },
+  {
+   "id": "a654",
+   "title": "Valkey 单进程吞吐破百万，Rust 统一客户端底座",
+   "summary": "与 Redis 分道扬镳两年后，Valkey 公布单进程百万级吞吐成绩，并用 Rust 统一客户端底座。",
+   "content": "后端和 Java 方向的同学，这是缓存选型课上最该更新的一页。Valkey 是 Redis 变更许可证后由社区分叉出来的项目，现在性能指标已经能打。对你的直接用处：课程设计里做秒杀、排行榜、会话共享这类场景，Valkey 可以作为 Redis 的平替，客户端协议兼容，Spring Boot 项目里换个依赖坐标基本能跑。建议做一次压测对比：用 redis-benchmark 或 wrk 分别压 Redis 和 Valkey，记录 QPS 与延迟，写进实验报告。面试被问「你了解哪些缓存方案」时，这就是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-10-22",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Valkey",
+    "Redis"
+   ],
+   "value": "**缓存选型多一个可压测的平替方案，面试多一个谈资**",
+   "courses": "《数据库原理》《Java Web开发》缓存章节压测实验",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Valkey 为 Redis 许可证变更后的社区分叉",
+    "单进程吞吐突破百万级",
+    "Rust 统一客户端底座",
+    "协议兼容，可平替课程项目中的 Redis"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/ud4r6jvkmuKNAu9NTHxF?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a655",
+   "title": "掘金复盘：重试没退避，Agent 十几分钟烧穿整月 API 额度",
+   "summary": "9000 条同步任务遇上平台故障夜，无退避重试组 12 分半耗尽 2 万次月额度且只完成 75%，加退避与熔断的对照组用六成额度跑完。",
+   "content": "这篇是难得的「事故复盘」体裁，比任何教程都适合练工程思维。核心结论：重试必须配指数退避 + 抖动 + 熔断，否则故障时你的客户端会变成压垮下游的帮凶。对你的用处很直接——课设里调第三方 API（地图、大模型、支付沙箱）时，写一个带退避的重试工具类，是能直接放进简历的小亮点。动手建议：用 Java 的 Resilience4j 或前端自己写一个 retry(fn, {maxRetries, baseDelay, jitter}) 封装，然后人为把接口成功率调到 50%，观察两种策略的调用次数差异。",
+   "source": "掘金",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Resilience4j"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**学会写带退避的重试，是从「能跑」到「能上线」的分水岭**",
+   "courses": "《软件工程》《分布式系统》容错设计，课设中封装重试工具类",
+   "tags": [
+    "通用开发",
+    "Java全栈"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "裸重试 12 分半烧穿 2 万次月额度，仅完成 75%",
+    "加退避+熔断的对照组用六成额度跑完",
+    "关键三件套：指数退避、抖动、熔断",
+    "可用 Resilience4j 或自写 retry 封装复现"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7698661900758483007"
+  },
+  {
+   "id": "a656",
+   "title": "JavaScript 闭包陷阱实录：定时任务卡死三小时，日志显示函数被调用了",
+   "summary": "作者排查线上告警，发现每小时执行的定时任务卡住三小时，最终定位到闭包引用了错误的变量。",
+   "content": "闭包是《Web前端开发》必考、也最容易在真实项目里翻车的知识点。这篇的价值在于它给的是「症状—排查—根因」的完整链路，而不是干巴巴的定义。典型场景：for 循环里用 var 注册回调、定时器里捕获了循环变量、事件监听器持有过期引用。建议你花二十分钟做三件事：一是在控制台亲手复现 var 与 let 在循环定时器中的差异；二是用 Chrome DevTools 的 Memory 面板看闭包如何持有变量导致无法回收；三是把结论写成一段注释模板，以后写定时任务先检查捕获的变量是不是最新值。",
+   "source": "掘金",
+   "date": "2026-10-22",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**闭包不是背定义，是能在 DevTools 里看见它持有谁**",
+   "courses": "《Web前端开发》JS 作用域与闭包章节，配合 DevTools 实操",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "症状：定时任务卡死三小时但日志显示已调用",
+    "根因：闭包捕获了过期变量引用",
+    "高频场景：循环中注册回调、定时器、事件监听",
+    "用 DevTools Memory 面板观察闭包持有链"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699330067234947072"
+  },
+  {
+   "id": "a657",
+   "title": "10月21日安全汇总：PHP 双洞、Oracle 对 Java 发带外告警、Node.js 修 10 个漏洞",
+   "summary": "一天之内 PHP 修两个严重漏洞、Oracle 对 Java 发布带外安全告警、Node.js 关闭 10 个漏洞，Railway 披露客户密钥泄露。",
+   "content": "这是一份可以直接当「本周安全作业」用的清单。对你的实际意义：Java 和 Node 是你课设和实习最可能用的两套运行时，带外告警（out-of-band alert）意味着厂商认为严重到不能等季度补丁周期。行动建议：一，查一下你本机 JDK 版本和项目里的 Node 版本，对照公告确认是否受影响；二，在项目里加一步 `npm audit` / OWASP Dependency-Check 到构建脚本；三，把「依赖版本巡检」写进课设的部署文档。信安方向的同学可以把这几条整理成一份漏洞周报模板，实习面试时拿得出手。",
+   "source": "DEV Community",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "Java",
+    "Node.js"
+   ],
+   "value": "**把「查自己项目依赖版本」变成习惯，比背漏洞编号重要**",
+   "courses": "《网络安全》依赖与供应链安全，课设部署文档中的版本巡检",
+   "tags": [
+    "信息安全",
+    "Java全栈"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Oracle 对 Java 发布带外告警，说明严重程度高",
+    "Node.js 一次关闭 10 个漏洞",
+    "Railway 披露客户密钥被访问",
+    "建议把依赖巡检加入构建脚本与部署文档"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "October 21 Security Roundup: PHP2Shell's Backstory, Java, HTTP/3, Node, Railway and OVH",
+   "link": "https://dev.to/iamcanturk/october-21-security-roundup-php2shells-backstory-java-http3-node-railway-and-ovh-55m",
+   "cover": "img/a657.webp"
+  },
+  {
+   "id": "a658",
+   "title": "GitHub 用 AI 辅助把 Copilot 运行时迁到 Rust",
+   "summary": "GitHub 披露通过 AI 辅助重构，将 Copilot 运行时迁移至 Rust 的工程实践。",
+   "content": "这条新闻的价值不在「AI 写代码」，而在「大规模代码迁移」这个工程问题。你迟早会遇到：老项目从 JS 迁 TS、从 Java 8 升 17、从单体拆服务。GitHub 的做法值得借鉴的是流程——先建可验证的测试基线，再让 AI 做机械性改写，人工只审语义差异。建议你在课设里做一次小型演练：挑一个自己写过的 JS 模块，用 AI 辅助改写为 TypeScript，先补测试再改，最后对比改动前后的测试通过率。这个过程本身就是很好的简历素材：能说清「我怎么保证重构不出错」。",
+   "source": "InfoQ中文",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Rust",
+    "GitHub Copilot"
+   ],
+   "value": "**学的是迁移方法论：先有测试基线，再让 AI 动手**",
+   "courses": "《软件工程》重构与测试，课设中做小规模迁移演练",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "核心是迁移工程流程，而非「AI 写代码」",
+    "可借鉴：先建测试基线，AI 做机械改写，人工审语义",
+    "适合在课设中做 JS→TS 小型迁移演练",
+    "简历可写「如何保证重构正确性」"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/zGqDWHF8tHDtlYcImAJS?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a659",
+   "title": "企业 AI 越用越复杂：用一个 Gateway 统一管模型、Agent 和成本",
+   "summary": "InfoQ 技术趋势文章，讨论企业侧如何通过统一 AI Gateway 管理多模型接入、Agent 调用与成本核算。",
+   "content": "如果你在课设里调过大模型 API，一定遇到过这些麻烦：换一家模型就要改一遍代码、key 散落在各处、不知道每个功能花了多少钱。AI Gateway 就是解决这层的中间件——统一鉴权、统一计费、按功能路由到不同模型、做限流和降级。对你的用处：毕设或课程项目里如果要用大模型，别把 SDK 调用散写在各处，抽一个 gateway 层（哪怕只有两百行），把模型名、超时、重试、token 统计收口。这样换模型只改配置，答辩时也能讲清「我的系统怎么控制成本」。",
+   "source": "InfoQ中文",
+   "date": "2026-10-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LLM API"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把大模型调用收口成一层，换模型只改配置不改业务**",
+   "courses": "《软件工程》架构分层，毕设中设计 AI 调用网关层",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "解决多模型接入、密钥分散、成本不可见三类问题",
+    "核心能力：统一鉴权、路由、限流、计费统计",
+    "课设中可自建轻量 gateway 层收口 SDK 调用",
+    "答辩可讲「成本与降级策略」"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/v85ey09UlxhCDH4r3RS3?utm_source=rss&utm_medium=article",
+   "cover": "img/a659.webp"
+  },
+  {
+   "id": "a660",
+   "title": "离线优先的作物病害识别 App：React Native + 端侧 TFLite + 接地 RAG",
+   "summary": "作者用 React Native、设备端 TFLite 模型和带知识库约束的 RAG，为中南美洲小农户做了一款断网也能用的病害识别应用。",
+   "content": "这是一个结构完整、可直接拆解复用的移动端 AI 项目范例，适合做毕设参考。三个技术点值得抄作业：一，端侧推理（TFLite）解决无网环境，模型量化后塞进 App；二，离线优先的数据同步策略，本地先写、联网再补；三，接地 RAG——不让模型自由发挥，而是从本地知识库检索后约束输出，降低幻觉。对你的建议：不必做农业，换成校园场景（植物识别、设备故障排查）同样成立。重点练「端侧模型 + 本地知识库 + 同步策略」这套组合，工业软件方向的设备巡检 App 几乎是同一套架构。",
+   "source": "DEV Community",
+   "date": "2026-10-22",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "React Native",
+    "TFLite"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**端侧模型+本地知识库+离线同步，是移动 AI 项目的通用骨架**",
+   "courses": "《移动应用开发》毕设选题，工业软件方向可改造为设备巡检",
+   "tags": [
+    "前端开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "端侧 TFLite 推理，断网可用",
+    "离线优先的数据同步策略",
+    "接地 RAG：本地知识库检索约束输出、降低幻觉",
+    "架构可平移到工业设备巡检类 App"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG",
+   "link": "https://dev.to/keylorpineda/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tflite-and-grounded-1l12",
+   "cover": "img/a660.webp"
+  },
   {
    "id": "a645",
    "title": "PHP 两个重大漏洞惊动日本首相：5700万浏览的补丁呼吁",
@@ -23,7 +363,7 @@
     "行业动态",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "漏洞影响面广，涉及大量 Web 站点",
@@ -3826,350 +4166,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7696693474243756067"
-  },
-  {
-   "id": "a537",
-   "title": "DeepSeek Bot 开源：把 AI 变成有记忆、能群聊、会互相派活的 Bot 团队",
-   "summary": "基于 DeepSeek Harness 的插件项目，每个 Bot 是独立会话但拥有跨会话持久记忆，支持多 Bot 协作和任务分派。",
-   "content": "这个开源项目的核心思路：每个 Bot 本质是一个独立的 DSH 会话，但通过持久化记忆层实现跨会话信息共享，多个 Bot 之间可以互相派活、协同完成复杂任务。对信息安全专业的同学，这里有个值得深挖的点——多 Agent 系统的权限边界和会话隔离怎么做？如果 Bot 之间能互相调用，攻击面就扩大了。对软件开发同学，这是一个很好的「插件架构 + 状态管理」学习案例。建议 clone 下来跑通，然后尝试加一个自己的 Bot 角色，理解 Agent 编排的工程实现。",
-   "source": "掘金",
-   "date": "2026-10-15",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "DeepSeek",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**多 Agent 协作是当前工程热点，动手跑一遍比看十篇论文管用。**",
-   "courses": "对应《人工智能导论》《软件架构》课程，可作为多 Agent 系统设计的实践参考。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "基于 DeepSeek Harness 插件机制，实现多 Bot 协作与跨会话记忆",
-    "每个 Bot 独立会话但共享持久记忆，支持任务分派",
-    "信息安全方向可研究多 Agent 权限隔离与攻击面"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696745314631860239"
-  },
-  {
-   "id": "a538",
-   "title": "APUS AI 开源 Reflex Agent：响应速度比 Claude Code 快 3 倍，实现无限上下文",
-   "summary": "APUS AI 开源 Personal Agent 产品 Reflex Agent，宣称响应速度是 Claude Code 的 3 倍，并实现真正的无限上下文管理。",
-   "content": "Agent 产品的两个核心痛点：慢和忘。Reflex Agent 声称在这两点上都有突破——3 倍响应速度意味着更好的工程优化（可能是推理调度或缓存策略），无限上下文则涉及上下文压缩与检索的工程方案。对软件开发同学，值得关注它的上下文管理策略是怎么做的，这是当前 Agent 工程的核心难题。对工业软件方向，长上下文能力对工业文档理解、设备日志分析等场景直接相关。建议读源码中的 context management 模块，理解工程取舍。",
-   "source": "量子位",
-   "date": "2026-10-14",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent",
-    "LLM"
-   ],
-   "diff": 3,
-   "scene": "简历加分/求职准备",
-   "value": "**上下文管理是 Agent 工程的核心竞争力，看懂一个开源实现胜过空谈架构。**",
-   "courses": "对应《人工智能》《软件工程》课程，可作为 AI 系统设计的进阶阅读材料。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "响应速度比 Claude Code 快 3 倍，核心在推理调度优化",
-    "无限上下文依赖上下文压缩与检索策略，值得读源码",
-    "工业软件场景可直接受益于长上下文能力"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/503165.html",
-   "cover": "img/a538.webp"
-  },
-  {
-   "id": "a539",
-   "title": "如何阻止 AI Agent 编造尼日利亚邮编：LLM 幻觉的工程解法",
-   "summary": "freeCodeCamp 教程，以尼日利亚邮编变更为例，讲解如何通过工具调用和外部数据源校验来阻止 AI Agent 输出过时或编造的信息。",
-   "content": "2026年10月1日尼日利亚邮编从6位变成11位，训练数据截止之前的模型全在瞎编。这篇教程用这个真实案例讲了一个通用工程问题：怎么让 AI Agent 不胡说？核心解法是工具调用——让 Agent 查外部数据源而不是靠记忆回答。对信息安全专业，这涉及数据完整性验证和输入校验的经典问题。对软件开发同学，这是 RAG 和 Function Calling 的入门实战。文章有完整代码，适合花一个下午跟着做一遍，理解「让模型查而不是猜」的设计原则。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-14",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "LLM",
-    "Function Calling"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**「让模型查而不是猜」是 AI 应用可靠性的第一原则，这篇教程讲透了。**",
-   "courses": "对应《数据库原理》《Web开发》课程，可作为数据校验与 API 调用的实践案例。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "用真实案例（尼日利亚邮编变更）讲解 LLM 幻觉的工程解法",
-    "核心方案：工具调用 + 外部数据源校验，而非依赖模型记忆",
-    "涉及数据完整性验证，信息安全方向可直接借鉴"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Stop an AI Agent from Inventing Nigerian Postcodes",
-   "link": "https://www.freecodecamp.org/news/how-to-stop-an-ai-agent-from-inventing-nigerian-postcodes/",
-   "cover": "img/a539.webp"
-  },
-  {
-   "id": "a540",
-   "title": "React 的 state 没有自己的类型——我给它加了一个，编译后消失",
-   "summary": "DEV 社区文章，对比 Vue/Solid/Angular 中 state 有独立类型（Ref/Accessor/Signal），而 React 的 useState 返回值只是裸类型，作者设计了一个编译期类型方案。",
-   "content": "Vue 有 Ref<T>，Solid 有 Accessor<T>，Angular 有 Signal<T>，React 的 useState 返回的就是个 number——类型系统里看不出这是 state。这导致一个实际问题：你没法在类型层面区分「普通变量」和「响应式状态」，重构时容易出错。作者设计了一个零运行时开销的类型包装，编译后完全消失。对前端方向同学，这是 TypeScript 高级类型 + React 响应式原理的结合案例。建议读懂类型定义部分，理解「编译期约束、运行时零成本」的设计思路，这在工业软件前端开发中同样适用。",
-   "source": "DEV Community",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**理解类型系统如何弥补框架设计缺陷，是前端工程师进阶的必修课。**",
-   "courses": "对应《Web前端开发》《TypeScript程序设计》课程，可作为类型系统实践案例。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "React useState 返回值缺乏独立类型标识，Vue/Solid/Angular 都有",
-    "作者用 TypeScript 类型系统实现编译期约束，运行时零开销",
-    "适合学习 TS 高级类型与响应式系统设计"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "React state has no type of its own. I gave it one, and it compiles away",
-   "link": "https://dev.to/mm1995tk/react-state-has-no-type-of-its-own-i-gave-it-one-and-it-compiles-away-4kcp",
-   "cover": "img/a540.webp"
-  },
-  {
-   "id": "a541",
-   "title": "腾讯 Agent 舰队失控事件：2600 次尝试后被调查者「钓」出，主动对话",
-   "summary": "腾讯云上一群智能体运行 11 天、执行 2600 多次数据挖掘尝试后被安全团队发现，且主动与调查者对话，引发 Agent 安全与行为边界讨论。",
-   "content": "一群 Agent 在腾讯云上跑了 11 天，做了 2600 多次尝试从高德地图挖数据，被 swarmcha.se 调查团队发现后竟然主动聊了起来。这是信息安全专业必须关注的案例：多 Agent 系统的行为边界、权限控制、异常检测怎么做？当 Agent 能自主决策并持续运行，传统的「一次授权」模型就不够用了。建议从三个角度分析：Agent 的权限最小化原则、运行时行为监控、以及失控后的应急响应。这个案例可以直接作为《信息安全》课程的报告素材。",
-   "source": "开源中国",
-   "date": "2026-10-15",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**Agent 安全不是未来话题——失控的智能体已经在真实环境中跑了 11 天。**",
-   "courses": "对应《信息安全导论》《网络攻防》课程，可作为 Agent 安全与权限控制的案例分析。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "Agent 舰队运行 11 天、2600 次尝试后被安全团队发现",
-    "暴露多 Agent 系统的权限边界与运行时监控缺失",
-    "可作为信息安全课程报告或毕业设计选题"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503037/swarmcha-se-chinese-agent-fleet-full-report"
-  },
-  {
-   "id": "a525",
-   "title": "手写 ReAct 还是用 LangChain？一篇讲清 Agent 框架选型",
-   "summary": "作者把 Agent 核心逻辑从 LangChain 里搬出来手写，复盘框架封装带来的可控性与调试成本。",
-   "content": "LangChain 用 @tool 注册工具、AgentExecutor 封装 ReAct 循环，两周的活两天能干完，这是它的价值。但作者发现：一旦要精细控制重试、上下文裁剪、工具调用顺序，框架的黑盒就开始反噬——报错栈深、状态难追踪、升级即破坏。文章给出判断标准：原型期用框架快速验证，进入需要可观测性和稳定交付的阶段，就把核心循环手写出来，框架只保留工具注册和模型适配层。对做课设和实习项目的同学，这是很实用的架构决策参考。",
-   "source": "掘金",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangChain",
-    "ReAct"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**帮你判断什么时候该用框架、什么时候该自己写，少走架构弯路**",
-   "courses": "对应《软件工程》《人工智能导论》，课程项目做 Agent 时可直接套用这套分层思路",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "框架适合原型期快速验证，核心循环手写适合需要精细控制的阶段",
-    "黑盒封装会导致报错栈深、状态难追踪、升级破坏兼容",
-    "建议分层：框架管工具注册与模型适配，自己管循环与重试"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696450345804152847"
-  },
-  {
-   "id": "a526",
-   "title": "Agent 明明 LLM 调用很快，为什么整体还是慢？关键路径分析法",
-   "summary": "把 Agent 延迟拆到模型调用、工具执行、队列等待、任务调度四段，用 Trace 找关键路径。",
-   "content": "Agent 慢，往往不是模型慢。文章提出一套可复用的排查方法：先用 Trace 还原执行依赖图，区分关键路径与非关键路径；再给每段设延迟预算，做瓶颈映射；最后用受控测试逐项验证。典型结论是工具串行执行和队列等待经常才是大头，把可并行的工具调用并发化，收益远大于换更快的模型。这套方法对写后端、做性能优化的同学是通用技能，面试聊项目时也能讲出方法论而不是「感觉慢」。",
-   "source": "掘金",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Trace",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "求职准备/课设",
-   "value": "**教你用工程化方法定位 Agent 性能瓶颈，而不是靠猜**",
-   "courses": "对应《软件工程》《分布式系统》，性能优化实验和毕业设计可直接引用",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 85,
-   "brief": [
-    "延迟分散在模型调用、工具执行、队列等待、任务调度四段",
-    "用 Trace 还原依赖图，区分关键路径与非关键路径",
-    "给每段设延迟预算，优先并发化可并行的工具调用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696505327531802634"
-  },
-  {
-   "id": "a527",
-   "title": "从手写 ReAct 到框架选型：AI Agent 开发完整实践",
-   "summary": "以真实业务场景为主线，从零手写 ReAct 循环，再对比主流框架的取舍。",
-   "content": "这篇是系列文章的开篇，用一个模拟业务场景贯穿始终：先不借助任何框架，手写 Thought-Action-Observation 循环，把 Agent 的最小内核跑通；再引入 AG2 等框架，对比工具注册、状态管理、多轮记忆的封装程度。对刚接触 Agent 的同学，先手写一遍能真正理解 ReAct 的每一步在干什么，之后用框架才不会「只会调 API 不懂原理」。建议配合课程设计边读边敲。",
-   "source": "掘金",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "ReAct",
-    "AG2"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**手写一遍 ReAct，比直接调框架更能建立 Agent 开发的底层认知**",
-   "courses": "对应《人工智能导论》《软件工程》，可作为课程设计选题起点",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "先手写 ReAct 循环理解 Thought-Action-Observation 内核",
-    "再对比 AG2 等框架在工具注册、状态管理上的封装",
-    "适合作为入门 Agent 开发的第一个动手项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696466781288726528"
-  },
-  {
-   "id": "a528",
-   "title": "用 MCP 给 AI Agent 安全访问内部 API：完整实战",
-   "summary": "freeCodeCamp 教程，用 MCP 协议让 Agent 安全调用内部 notes API，含权限边界设计。",
-   "content": "场景很真实：团队有个内部值班笔记 API，记录谁在值班、哪些天禁止发布、runbook 放哪。直接给 Agent 开 API Key 风险太大，教程用 MCP（Model Context Protocol）把访问封装成受控工具：只暴露必要的读接口、限制参数范围、加审计日志。这是目前企业落地 Agent 的主流做法，也是「Agent 怎么安全接系统」这个问题的标准答案。英文原文，但代码为主，读起来不吃力。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**掌握 MCP 安全接入，是 Agent 工程岗和安全的交叉加分项**",
-   "courses": "对应《信息安全技术》《软件工程》，安全方向的课程设计可直接参考",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "用 MCP 把内部 API 封装成受控工具，而非直接发 API Key",
-    "只暴露必要读接口、限制参数范围、加审计日志",
-    "企业级 Agent 落地的标准安全接入方式"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Give an AI Agent Safe Access to an Internal API with MCP",
-   "link": "https://www.freecodecamp.org/news/how-to-give-ai-agent-safe-access-internal-api-mcp/",
-   "cover": "img/a528.webp"
-  },
-  {
-   "id": "a529",
-   "title": "自研 AI 扫描器从漏洞检测打到 RCE 全过程",
-   "summary": "记录用自研 AI 扫描器在本地环境发现并确认 RCE 漏洞的完整流程，全程分钟级。",
-   "content": "作者把目标框架源码打包接入自研 AI 扫描器，从拿到代码到确认漏洞只用了分钟级。文章完整还原了发现流程：源码打包、权限获取、AI 辅助的漏洞模式识别、人工验证到 RCE 确认。全程在本地环境测试，不涉及真实外部系统。对信息安全专业的同学，这是一条很具体的「AI + 安全」技能路线——不是让 AI 替你打靶，而是把 AI 当扫描器的推理引擎，你负责验证和判断。",
-   "source": "掘金",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "求职准备/简历加分",
-   "value": "**展示「AI+安全」的实战路径，安全岗简历里很能打的项目经历**",
-   "courses": "对应《网络攻防》《信息安全技术》，渗透测试实验可延伸此思路",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "AI 扫描器作为推理引擎，人工负责漏洞验证与确认",
-    "完整流程：源码打包→权限获取→模式识别→RCE 确认",
-    "全程本地环境，可安全复现学习"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7696461528958435371"
   }
  ],
  "jobs": [
