@@ -1,6 +1,204 @@
 {
- "updatedAt": "2026-10-21 14:55",
+ "updatedAt": "2026-10-22 02:35",
  "news": [
+  {
+   "id": "a645",
+   "title": "PHP 两个重大漏洞惊动日本首相：5700万浏览的补丁呼吁",
+   "summary": "PHP 官方披露两个重大安全漏洞，日本首相罕见在 X 上连夜呼吁国民打补丁，推文浏览量超 5700 万。",
+   "content": "一个开源语言的漏洞让一国首相连夜发声，这在安全史上极罕见。对信息安全与管理专业的同学，这是活教材：漏洞披露→应急响应→公众沟通的完整链条。建议做三件事：①去 PHP 官方 security 公告页读原始 CVE 描述，练习写一份「影响面+修复建议」的内部通告；②在本地 Docker 起一个旧版 PHP 环境，用公开 PoC 复现（务必隔离网络）；③把这次事件整理进你的漏洞管理课程报告，对比 CVSS 评分与实际处置优先级。软件工程同学也要记住：你写的每个依赖都可能成为别人的紧急事件。",
+   "source": "开源中国",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "value": "**用真实高危漏洞事件练一遍「披露→复现→通告」的完整安全响应流程**",
+   "courses": "对应《网络安全》《漏洞分析与渗透测试》，可作应急响应章节案例",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "漏洞影响面广，涉及大量 Web 站点",
+    "首相级公众沟通，是应急响应经典案例",
+    "可本地复现，适合写进课程报告"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503146"
+  },
+  {
+   "id": "a646",
+   "title": "PingCAP 遭大规模泄露：黑客称窃取 10.6TB、涉 18 万条组织记录",
+   "summary": "知名数据库厂商 PingCAP 被指遭大规模数据泄露，黑客声称拿走 10.6TB 数据、涉及约 18 万条组织记录。",
+   "content": "数据库厂商自己成为数据泄露主角，讽刺但值得深挖。信息安全同学请把它当案例拆解：先判断攻击面——是代码仓库、CI/CD 凭证还是对象存储配置错误？再对照《数据安全法》与个人信息保护要求，列出企业应做的分级分类、最小权限、密钥轮换措施。动手部分：用开源工具（如 trufflehog）扫一遍自己的 GitHub 仓库，看有没有硬编码的 token 和数据库密码——这是学生项目最常见的真实漏洞。软件工程同学则要养成「配置即代码、密钥不进仓库」的习惯。",
+   "source": "InfoQ中文",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**借大厂泄露事件复盘攻击面，并立刻自查自己仓库里的硬编码密钥**",
+   "courses": "对应《信息安全导论》《数据库安全》，可作数据泄露案例分析作业",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "数据库厂商自身泄露，攻击面值得复盘",
+    "可对照数据安全法规做合规分析",
+    "用 trufflehog 自查仓库硬编码密钥"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/2KQlziFu7oBa9Q2ZEZyr?utm_source=rss&utm_medium=article",
+   "cover": "img/a646.webp"
+  },
+  {
+   "id": "a647",
+   "title": "OpenAI 挑战 COBOL：老系统代码迁移准确率从 5.4% 飙到 97.9%",
+   "summary": "OpenAI 展示用模型迁移 COBOL 遗留系统代码，准确率从 5.4% 提升至 97.9%，直指金融、制造等行业的存量老系统。",
+   "content": "这条对工业软件实验班最有价值：制造业、金融业大量核心系统仍跑在 COBOL 上，迁移是刚需也是就业缺口。别只看数字，要问三个问题：97.9% 的评测集是什么？剩下 2.1% 错在哪（多半是隐式数据精度和文件 I/O）？迁移后如何做回归验证？动手建议：找一段 COBOL 计算利息的示例，让大模型翻成 Java，再自己写 JUnit 对拍验证结果是否一致——这就是「AI 辅助迁移 + 人工验证」的真实工作流。简历上写「做过遗留系统迁移验证」比写「会用 ChatGPT」值钱得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-21",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "Java"
+   ],
+   "stack": [
+    "Java",
+    "COBOL"
+   ],
+   "value": "**抓住遗留系统迁移这一真实就业缺口，练「AI 翻译+人工对拍验证」工作流**",
+   "courses": "对应《软件工程》《编译原理》，可作课程设计中的代码迁移与测试专题",
+   "tags": [
+    "工业软件",
+    "Java全栈",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "COBOL 遗留系统迁移是真实产业需求",
+    "准确率数字要追问评测集与失败类型",
+    "用 Java 重写+对拍验证，做成课设项目"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk?utm_source=rss&utm_medium=article",
+   "cover": "img/a647.webp"
+  },
+  {
+   "id": "a648",
+   "title": "用 Node.js 搭 AI 自动化工作流：把大模型接进你的 JavaScript 项目",
+   "summary": "DEV 教程演示如何用 Node.js 把 AI 能力嵌入业务流程，替代为每种场景手写规则的做法。",
+   "content": "前端和通用开发同学最容易上手的一条。核心思路：把「调模型」封装成一个 Node 服务，输入结构化数据、输出结构化结果，再用传统代码做校验和兜底——AI 负责模糊判断，代码负责确定性。动手路径：用 Express 起一个接口，接一个兼容 OpenAI 格式的模型 API，做一个「课设需求文档→任务拆解清单」的小工具；重点练三件事：prompt 模板化、JSON 输出校验（zod）、失败重试与超时。做完你就理解了什么叫「AI 不是替代代码，而是嵌进代码」。",
+   "source": "DEV Community",
+   "date": "2026-10-22",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Node.js",
+    "JavaScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用 Node.js 把大模型封装成带校验和兜底的可复用服务，而不是只会聊天**",
+   "courses": "对应《Web 开发》《软件工程》，可作课程设计中的 AI 功能模块",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Node.js + 模型 API，前端同学门槛低",
+    "重点练结构化输出校验与失败兜底",
+    "可做成课设辅助小工具，写进简历"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AI Automation Using Node.js: Build Intelligent Workflows with JavaScript",
+   "link": "https://dev.to/ansh_sheladiya/ai-automation-using-nodejs-build-intelligent-workflows-with-javascript-19h8",
+   "cover": "img/a648.webp"
+  },
+  {
+   "id": "a649",
+   "title": "Google 发布 Rust 风格指南：团队级代码规范的参考样本",
+   "summary": "Google 公开其内部 Rust 风格指南，覆盖命名、错误处理、所有权使用等约定。",
+   "content": "不一定学 Rust，但一定要学会「读风格指南」。这份文档的价值在于示范：一个工业级团队如何把语言特性写成可执行的规范——比如什么时候用 Result 而不是 panic、借用何时该拆分函数。对你的用法：①写 Java/前端时对照 Clippy 式思维，给小组项目定一份 20 条的编码约定；②课设答辩时展示「我们团队有 code style 文档并配了 lint」，这是加分项；③想进大厂的同学，提前适应「规范先于个人偏好」的工程文化。花 40 分钟通读目录即可，不必逐条背。",
+   "source": "Hacker News",
+   "date": "2026-10-21",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 1,
+   "scene": "课设/团队协作/求职准备",
+   "value": "**借大厂风格指南，给小组项目立一份能落地的编码规范并配 lint**",
+   "courses": "对应《程序设计基础》《软件工程》，用于团队项目代码规范制定",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "学的是规范写法，不是 Rust 语法本身",
+    "可仿照给小组项目写编码约定",
+    "配 lint 工具，答辩时是加分项"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Rust Style Guide",
+   "link": "https://google.github.io/styleguide/rustguide.html"
+  },
+  {
+   "id": "a650",
+   "title": "AWS Lambda 支持长时间运行负载：无服务器不再只适合短任务",
+   "summary": "AWS Lambda 扩展对长时间运行工作负载的支持，无服务器架构的适用边界进一步外扩。",
+   "content": "以前 Lambda 15 分钟上限把批处理、长任务挡在门外，现在边界松动了。对软件工程同学的意义：你课设里的「定时爬取+清洗+入库」这类任务，可以不再自己买服务器运维。动手建议：用免费额度写一个函数，触发方式选定时事件，处理一份 CSV 后写入对象存储，观察冷启动耗时和计费粒度。重点理解三个概念：冷启动、按调用计费、无状态设计——面试问「什么时候不该用 Serverless」时，你能答出长连接、重计算、强一致事务这几类反例，就赢了一半。",
+   "source": "InfoQ中文",
+   "date": "2026-10-22",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AWS Lambda"
+   ],
+   "value": "**用免费额度亲手跑一个定时无服务器任务，搞懂冷启动与计费边界**",
+   "courses": "对应《云计算》《Web 开发》，可作课程设计中部署方案的选型依据",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "长任务支持扩大 Serverless 适用场景",
+    "用免费额度做定时数据处理练手",
+    "面试常问「何时不该用 Serverless」"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0vwVMhufb66SBofWsvRz?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a640",
    "title": "PHP 8.2–8.5 曝两项严重 RCE 漏洞，官方紧急发版，请立即升级",
@@ -25,7 +223,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "受影响版本：PHP 8.2 / 8.3 / 8.4 / 8.5 主线",
@@ -3972,200 +4170,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7696461528958435371"
-  },
-  {
-   "id": "a530",
-   "title": "OpenCode 2.0 发布：让模型自己写脚本调度工具",
-   "summary": "AI 编程工具 OpenCode 2.0 大改版，新增常驻后台服务，支持模型写脚本调度工具链。",
-   "content": "OpenCode 2.0 号称吸收数百万日活用户经验，核心变化是从「客户端/服务器模型」真正落地为常驻后台服务，并支持模型自己写脚本去调度工具。对天天用 AI 编程的同学，这意味着 Agent 能更自主地组合命令行工具完成任务，而不是每次都要你手动喂上下文。值得花半小时升级体验，重点观察它在多步任务上的稳定性——这也是当前 AI 编程工具的真实分水岭。",
-   "source": "开源中国",
-   "date": "2026-10-15",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "OpenCode"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**升级你的 AI 编程工作流，体验模型自主调度工具的边界**",
-   "courses": "对应《软件工程》《程序设计》，日常编码和课程项目都能用",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "从客户端/服务器模型升级为常驻后台服务",
-    "支持模型写脚本自主调度工具链",
-    "重点观察多步任务的稳定性表现"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503031/opencode-2-0"
-  },
-  {
-   "id": "a531",
-   "title": "Anthropic 宣布弃用 Git？先别慌，看清 AI 编程工具链的变化",
-   "summary": "Anthropic 宣布弃用 Git 引发讨论，背后是 AI 编程时代版本控制与协作方式的重新设计。",
-   "content": "标题很炸，但值得冷静看：Anthropic 弃用的是自家内部工作流对 Git 的依赖，转向更适合 AI 生成代码的版本管理方式。对学生的实际影响是——Git 依然要学，它是团队协作和代码审查的基础；但要开始关注 AI 编程时代的新工具链，比如变更追溯、生成代码的审计与回滚。别被标题带节奏，也别完全无视，这代表一种趋势信号。",
-   "source": "爱范儿",
-   "date": "2026-10-14",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Git"
-   ],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**别被标题带偏，但要知道 AI 正在重塑版本控制与协作流程**",
-   "courses": "对应《软件工程》，版本控制章节可结合此趋势讨论",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "弃用的是内部工作流对 Git 的依赖，不是 Git 本身被淘汰",
-    "Git 仍是团队协作与代码审查的基础，必须掌握",
-    "关注 AI 生成代码的审计、追溯与回滚等新需求"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1684269?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a531.webp"
-  },
-  {
-   "id": "a532",
-   "title": "微软致谢 23 个漏洞，背后是智谱 GLM 与一位白帽",
-   "summary": "微软一次性致谢 23 个漏洞，其中智谱 GLM 模型与一位顶级白帽参与发现。",
-   "content": "微软一口气致谢 23 个漏洞，参与方包括智谱 GLM 模型和一位顶级白帽。这条新闻的价值在于：AI 辅助漏洞挖掘已经从概念走向被大厂正式致谢的阶段。对信息安全专业的同学，这意味着「会用 AI 做漏洞挖掘」正在成为可写进简历的硬技能——前提是你懂漏洞原理，能判断 AI 给出的线索是真是假。纯靠 AI 扫是扫不出致谢名单的。",
-   "source": "InfoQ中文",
-   "date": "2026-10-15",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**AI+安全已进入大厂认可阶段，是安全方向值得押注的技能组合**",
-   "courses": "对应《网络攻防》《信息安全技术》，可结合漏洞挖掘实验展开",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "AI 辅助漏洞挖掘已被大厂正式致谢，进入实用阶段",
-    "会用 AI 挖洞正成为安全岗的可写简历技能",
-    "前提是懂漏洞原理，能验证 AI 给出的线索"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/JZZ6JSvRBq3R579uy8V3?utm_source=rss&utm_medium=article",
-   "cover": "img/a532.webp"
-  },
-  {
-   "id": "a533",
-   "title": "从 App 到 Agent：字节 Supabase 的 Agent-Native 规模化实践",
-   "summary": "QCon 上海分享，字节跳动 Supabase 团队讲 Agent-Native 架构如何规模化落地。",
-   "content": "字节跳动 Supabase 团队在 QCon 上海分享从 App 到 Agent 的架构演进：如何把传统应用改造成 Agent-Native 形态，并在规模化场景下解决状态管理、工具编排、成本控制问题。这类大厂架构分享对准备校招的同学价值很高——面试聊「你怎么理解 Agent 工程化」时，能讲出真实生产环境的取舍，比背概念强得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-15",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Supabase"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**大厂真实生产环境的 Agent 架构取舍，面试谈资含金量高**",
-   "courses": "对应《软件工程》《分布式系统》，架构设计课程可参考",
-   "tags": [
-    "通用开发",
-    "求职就业",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "讲 Agent-Native 架构的规模化落地实践",
-    "覆盖状态管理、工具编排、成本控制等工程问题",
-    "校招面试聊 Agent 工程化的高质量素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/kvzkXDXpKOXILlfirftW?utm_source=rss&utm_medium=article",
-   "cover": "img/a533.webp"
-  },
-  {
-   "id": "a534",
-   "title": "阶跃 Step 5 Preview 开源：600B 稀疏 MoE，面向长程 Agent",
-   "summary": "阶跃开放 Step 5 Preview 权重，600B 稀疏 MoE、百万 token 上下文，原生支持文本与视觉。",
-   "content": "阶跃把 Step 5 Preview 权重放出来了：稀疏 MoE 架构，总参 600B、每 token 只激活 27B，支持 100 万 token 上下文，原生支持文本和视觉输入，面向 AI 编程、软件工程等长程 Agent 任务。对想自己部署模型做实验的同学，这是难得的可下载大模型——但 600B 总参对显存要求极高，个人机器基本跑不动，更适合关注它的架构设计和长上下文处理思路，或走量化版本。",
-   "source": "开源中国",
-   "date": "2026-10-15",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MoE"
-   ],
-   "diff": 3,
-   "scene": "练手",
-   "value": "**了解长程 Agent 模型的前沿架构，但别指望个人机器跑得动**",
-   "courses": "对应《人工智能导论》《机器学习》，模型架构章节可作案例",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "600B 稀疏 MoE，每 token 仅激活 27B，支持百万 token 上下文",
-    "面向 AI 编程、软件工程等长程 Agent 任务",
-    "个人机器难直接部署，建议关注架构思路或量化版本"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503035/stepfun-ai-step-5-preview"
-  },
-  {
-   "id": "a535",
-   "title": "Agent 如何走向可靠交付与持续进化：从 Harness 到 Loop",
-   "summary": "InfoQ 文章讨论 Agent 从测试脚手架到持续进化闭环的工程化路径。",
-   "content": "文章梳理 Agent 工程化的两个阶段：Harness（测试脚手架，用固定用例验证 Agent 行为是否稳定）和 Loop（持续进化闭环，让 Agent 根据反馈迭代）。核心观点是 Agent 不能只靠「跑起来」，必须建立可回归的评测集和反馈机制。对做课程设计或实习项目的同学，这套思路能直接套用：先给你的 Agent 写测试用例，再谈优化。",
-   "source": "InfoQ中文",
-   "date": "2026-10-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**教你给 Agent 建评测集，让项目从「能跑」变成「可靠」**",
-   "courses": "对应《软件工程》《软件测试》，测试章节的现代应用案例",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Harness 阶段：用固定用例回归测试 Agent 行为稳定性",
-    "Loop 阶段：建立反馈机制让 Agent 持续迭代",
-    "先写评测集再谈优化，是 Agent 工程化的基本纪律"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/xKkEswgSftEcGrkK6oTY?utm_source=rss&utm_medium=article",
-   "cover": "img/a535.webp"
   }
  ],
  "jobs": [
