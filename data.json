@@ -1,6 +1,149 @@
 {
- "updatedAt": "2026-10-22 14:56",
+ "updatedAt": "2026-10-23 02:39",
  "news": [
+  {
+   "id": "a667",
+   "title": "PHP 曝出「世纪漏洞」：无需登录即可远程执行代码，全球约七成网站受影响",
+   "summary": "PHP 紧急修复两个严重漏洞，攻击者无需登录即可远程执行代码，大量使用 PHP 的网站面临数据、密码与令牌泄露风险。",
+   "content": "这条新闻对信息安全与管理专业的同学是活教材。漏洞的核心是「无需认证的远程代码执行」（RCE），属于 Web 安全里危害最高的一类：攻击者不用账号密码就能在服务器上跑任意命令。建议你做三件事：一是去查官方补丁公告，看清影响版本与修复方式，理解「输入校验缺失→命令拼接→RCE」的链路；二是在本地用 Docker 起一个旧版本 PHP 环境，在授权范围内复现并验证补丁前后差异，写进课程实验报告；三是回头检查自己课设里的表单、文件上传、命令调用接口，是否也存在同类拼接风险。别只记结论，要能讲清攻击面在哪。",
+   "source": "爱范儿",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**用真实高危漏洞练手，把 Web 安全从概念变成能复现、能修复的能力。**",
+   "courses": "对应《Web 安全》《网络安全技术》课程，可作为漏洞分析与渗透测试实验案例。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "漏洞类型为未授权远程代码执行（RCE），危害等级最高",
+    "影响面广：大量网站使用 PHP，数据与登录令牌可能泄露",
+    "可在本地 Docker 环境复现，注意仅在授权范围内测试",
+    "借此复盘自己课设中的输入校验与命令拼接问题"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1685507?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a667.webp"
+  },
+  {
+   "id": "a668",
+   "title": "Windows-MCP：让 AI 直接操作 Windows 桌面的开源 MCP 服务器（Python，1 万星）",
+   "summary": "一个用 Python 写的 MCP Server，把 Windows 桌面操作暴露给 AI 客户端，让模型能点击、输入、读取界面。",
+   "content": "对软件工程和信息安全同学都值得一看。它实现的是 MCP（Model Context Protocol）协议的服务端，把「操作 Windows 界面」封装成工具供 AI 调用。你可以这样用：第一，读它的代码结构，学习一个 MCP Server 如何定义工具、处理请求、做权限与异常控制，这是当前 AI 应用开发很实用的工程范式；第二，本地跑起来，接一个支持 MCP 的客户端，做个小自动化脚本（比如批量整理文件、填表），当课设加分项；第三，从安全视角想一层——让 AI 拥有桌面控制权意味着什么风险，权限边界该怎么设计，这正好是信安方向的思考题。",
+   "source": "GitHub",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Python",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一个万星项目同时练 AI 工具调用开发和权限安全思维。**",
+   "courses": "对应《Python 程序设计》《人工智能应用开发》，可作课程设计选题参考。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Python 实现的 MCP Server，把 Windows 桌面操作封装为 AI 可调用工具",
+    "适合学习 MCP 协议与 AI 工具调用的工程实现",
+    "可做本地自动化小项目，作为课设或简历亮点",
+    "安全视角：桌面控制权限的边界与风险值得单独分析"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "CursorTouch/Windows-MCP",
+   "link": "https://github.com/CursorTouch/Windows-MCP"
+  },
+  {
+   "id": "a669",
+   "title": "Docker 为什么「怪」：一篇讲清容器行为背后逻辑的实践文",
+   "summary": "作者从实际使用出发，解释 Docker 中那些反直觉的行为到底是怎么来的，适合已经上手但常被坑的人。",
+   "content": "很多同学用 Docker 只是复制粘贴 docker run，一出问题就懵。这篇文章的价值在于解释「为什么」：镜像分层、容器生命周期、网络与卷的默认行为，为什么会导致你看到的现象。建议带着问题读——把你课设里部署后端服务时踩过的坑列出来（端口不通、数据丢失、构建缓存不更新），逐个对照文章找原因。读完做一件事：给自己项目写一份 Dockerfile 和 docker-compose，把数据库、后端、前端串起来，并写清每个配置项为什么这么写。这是 Java 全栈和通用开发都绕不开的基本功。",
+   "source": "Hacker News",
+   "date": "2026-10-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把 Docker 从「会敲命令」提升到「懂为什么」，直接服务项目部署与面试。**",
+   "courses": "对应《软件工程》《云计算与容器技术》，用于课设部署环节。",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "解释 Docker 反直觉行为背后的机制，而非命令罗列",
+    "适合已会用但常踩坑的同学查漏补缺",
+    "配套练习：为自己的全栈课设写 Dockerfile 与 compose",
+    "部署能力是后端岗位面试的常见考察点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Docker is weird",
+   "link": "https://codeandcake.dev/posts/2026-10-22-docker-is-weird"
+  },
+  {
+   "id": "a670",
+   "title": "上下文语言模型：让模型自主管理上下文，降本又提性能",
+   "summary": "介绍通过模型自主管理上下文来提升效果、降低计算成本的思路，属于 AI 应用层的工程优化方向。",
+   "content": "如果你在做带大模型的课设（比如智能问答、代码助手），迟早会遇到上下文塞不下、token 费用高、长对话变傻的问题。这篇讲的是让模型自己决定保留、压缩、丢弃哪些上下文，而不是无脑全塞。对你的实际用法：一是在调用大模型 API 的项目里，设计一个简单的上下文管理策略（摘要旧对话、按相关性检索历史），对比效果与成本；二是理解「检索 + 上下文裁剪」这套组合拳，是当前 AI 应用开发的主流工程手段；三是把它写进项目文档，说明你的取舍依据，比只调 API 更有说服力。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**学会上下文管理，让你的 AI 课设既省钱又答得准。**",
+   "courses": "对应《人工智能导论》《软件工程》，可用于 AI 应用类课程设计。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "核心问题：长上下文带来的成本与效果衰减",
+    "思路是让模型自主管理上下文的保留与压缩",
+    "可在自己的 AI 课设中实现简易上下文管理策略并对比效果",
+    "工程取舍写进文档，比单纯调 API 更能体现能力"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Pwu4FNskSB2cbKV9BZKq?utm_source=rss&utm_medium=article",
+   "cover": "img/a670.webp"
+  },
   {
    "id": "a661",
    "title": "PHP 史诗级漏洞「PHP2Shell」已在野利用：无需登录即可远程执行代码，全球约七成网站受影响",
@@ -24,7 +167,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 92,
    "brief": [
     "CVE-2026-109618/109619 合称 PHP2Shell，已确认在野利用",
@@ -4017,147 +4160,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503064"
-  },
-  {
-   "id": "a547",
-   "title": "Linus 用 Claude Code 改 Linux 内核，结果代码里还是留了 Bug",
-   "summary": "Linux 之父 Linus Torvalds 尝试用 Claude Code 辅助修改内核代码，但最终提交的代码中仍存在缺陷，引发对 AI 编程可靠性的讨论。",
-   "content": "这条新闻对软件工程和信息安全专业的同学都很实用。它说明两件事：一是 AI 编程工具已经能进入 Linux 内核这种级别的工程，值得你认真学；二是 AI 生成的代码不能盲信，必须自己 review 和测试。建议你在课程设计或开源贡献中，把 AI 当「副驾驶」而不是「代驾」，重点练好代码审查和单元测试能力。信息安全方向的同学更要留意：AI 生成的代码可能引入漏洞，安全审计流程不能省。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**AI 编程工具能提效，但代码审查和安全测试才是你的核心竞争力。**",
-   "courses": "对应《软件工程》《操作系统》《代码审计》课程，可用来讨论 AI 辅助开发的质量保障。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "Linus 用 Claude Code 改 Linux 内核，代码仍有 Bug",
-    "AI 编程工具已能进入系统级工程，但可靠性仍需人工把关",
-    "建议在课设中把 AI 当辅助，重点练代码审查与测试"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/hRw4BZQQUW14sqYMo5F6?utm_source=rss&utm_medium=article",
-   "cover": "img/a547.webp"
-  },
-  {
-   "id": "a548",
-   "title": "Ubuntu 26.10 发布：Rust 重写 coreutils 全面落地，安全栈大更新",
-   "summary": "Ubuntu 26.10 正式发布，Rust 版 coreutils 全面替换 GNU 版本，并引入后量子就绪的包签名和 TPM 全盘加密。",
-   "content": "这次更新对信息安全专业尤其有价值。Rust 重写 coreutils 意味着系统底层工具的内存安全大幅提升，减少缓冲区溢出等经典漏洞；后量子签名和 TPM 全盘加密则是密码学前沿落地。建议你在虚拟机里装一个 Ubuntu 26.10，亲手试试 uutils 的 Rust 命令，对比 GNU 版本的行为差异；安全方向的同学可以研究 TPM 加密的配置流程，作为《系统安全》课程的实践素材。",
-   "source": "开源中国",
-   "date": "2026-10-16",
-   "cat": "stack",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "Ubuntu"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**Rust 重写系统工具 + 后量子加密，是系统安全方向最值得动手跟进的底层变化。**",
-   "courses": "对应《操作系统》《系统安全》《密码学》课程，可做 TPM 加密和 uutils 对比实验。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Ubuntu 26.10 用 Rust 重写 coreutils 全面落地",
-    "引入后量子包签名和 TPM 全盘加密",
-    "适合在虚拟机实践系统安全与密码学配置"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503050/ubuntu-26-10-stonking-stingray-released"
-  },
-  {
-   "id": "a549",
-   "title": "Pi 发布全新 Agent Harness，把 MCP 装进核心",
-   "summary": "Pi 推出新的 Agent Harness 框架，并将此前批评过的 MCP 协议纳入核心支持，方便开发者构建智能体应用。",
-   "content": "如果你在做 AI 应用或课程设计，这条值得关注。Agent Harness 本质是帮你管理工具调用、上下文和任务编排的框架，MCP 则是模型与外部工具通信的协议。把 MCP 装进核心意味着你可以更标准地接入数据库、文件系统等外部能力。建议用 Python 或 TypeScript 跑一遍官方示例，理解 Agent 如何调用工具，这对做「智能助手」类课设或求职 AI 应用岗都有直接帮助。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "MCP",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**掌握 Agent 框架和 MCP 协议，是切入 AI 应用开发最实用的入口。**",
-   "courses": "对应《人工智能导论》《软件工程》课程，可用于智能体应用开发实践。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Pi 发布 Agent Harness 框架，核心集成 MCP 协议",
-    "MCP 标准化模型与外部工具的通信",
-    "适合做智能助手类课设或 AI 应用岗准备"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/hQOHf1ZXoBs7uMpWJQss?utm_source=rss&utm_medium=article",
-   "cover": "img/a549.webp"
-  },
-  {
-   "id": "a550",
-   "title": "量子位智库发布 Agent 落地报告：拆解企业智能化六大断点",
-   "summary": "量子位智库发布 Agent 企业落地报告，梳理六大断点并给出全链路破局框架，帮助理解智能体在真实业务中的落地难点。",
-   "content": "这份报告适合想了解 AI 工程化落地的同学。它不讲空泛概念，而是拆解企业引入 Agent 时遇到的数据、流程、权限、评估等六大断点。你可以把它当作《软件工程》或《项目管理》的案例材料，理解一个 AI 功能从 demo 到生产要跨多少坑。求职 AI 应用或工业软件方向时，能聊清楚这些断点，比只会调 API 更有竞争力。",
-   "source": "量子位",
-   "date": "2026-10-15",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**理解 Agent 落地的真实断点，比会调 API 更能打动面试官。**",
-   "courses": "对应《软件工程》《项目管理》课程，可作为 AI 落地案例分析。",
-   "tags": [
-    "AI工具",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "报告拆解企业 Agent 落地六大断点",
-    "覆盖数据、流程、权限、评估等工程问题",
-    "适合作为 AI 工程化落地的案例学习材料"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/503614.html",
-   "cover": "img/a550.webp"
   }
  ],
  "jobs": [
