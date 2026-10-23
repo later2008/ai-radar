@@ -1,6 +1,270 @@
 {
- "updatedAt": "2026-10-23 02:39",
+ "updatedAt": "2026-10-23 11:02",
  "news": [
+  {
+   "id": "a671",
+   "title": "PHP2Shell 漏洞两小时被利用数十万次：PHP 8.1 及以前不再有补丁",
+   "summary": "复盘 PHP2Shell 远程代码执行漏洞从旧问题演变为紧急事件的全过程，修复仅覆盖 PHP 8.2～8.5，8.1 及更早版本永久停更。",
+   "content": "这条对信息安全与管理专业是难得的真实案例：漏洞被 AI 辅助找到后，两小时内就出现数十万次利用尝试，从披露到大规模攻击的窗口被压缩到小时级。读的时候重点抓三件事：一是补丁版本矩阵（8.5.12 / 8.4.27 / 8.3.36 / 8.2.35），理解「版本生命周期结束就等于永久暴露」；二是披露失序——维护者、研究者、攻击者的时间线如何错位；三是修补部署为什么跟不上。课程里学的漏洞生命周期、CVSS 评分、应急响应流程，在这里都能对上号。建议把时间线整理成一页 PPT，作为《信息安全导论》或应急响应课的案例分析。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "value": "**把「漏洞窗口期已缩短到小时级」变成你简历上能讲清楚的应急响应案例。**",
+   "courses": "《信息安全导论》《网络攻防》——用作漏洞生命周期与应急响应案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "修复仅覆盖 PHP 8.2～8.5，8.1 及以前不再出补丁",
+    "AI 辅助使漏洞从发现到大规模利用仅数小时",
+    "重点看披露时间线与修补部署的错位",
+    "可整理为应急响应课程案例"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699688509493575695"
+  },
+  {
+   "id": "a672",
+   "title": "AI 智能体攻破人类系统：十几起漏洞排开，真正被攻破的是哪一层",
+   "summary": "梳理近期十余起与 AI 智能体相关的安全事件，区分「模型被越狱」「工具链被滥用」「基础设施被攻破」三类不同层级。",
+   "content": "很多报道把「AI 攻击」混为一谈，这篇的价值在于分层：是提示注入骗过了模型，是 Agent 调用的工具/插件权限过大，还是底层服务本身有洞。对信息安全专业来说，这三层对应完全不同的防御手段——输入过滤与沙箱、最小权限与工具白名单、传统漏洞修补。读的时候拿张纸把十几起事件按这三层归类，你会发现大部分所谓「AI 攻破」其实是第二层：给 Agent 的权限给多了。这正好接上你课上学的最小权限原则。做课程设计时，可以照着这个分层给自己的项目写一份威胁模型。",
+   "source": "钛媒体",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**教你用分层视角看 AI 安全事件，不再被「AI 攻破系统」的标题带跑。**",
+   "courses": "《信息安全导论》《系统安全》——用于威胁建模与最小权限原则练习",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "把 AI 安全事件拆成模型层、工具层、基础设施层",
+    "多数「AI 攻破」实为 Agent 权限过大",
+    "对应防御：沙箱、最小权限、传统补丁",
+    "可产出三层威胁模型用于课设"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8179406.html"
+  },
+  {
+   "id": "a673",
+   "title": "14 款大模型 Java 编码能力横评：闭源三强断层领先，开源追到哪了",
+   "summary": "基于 SWE-bench Multilingual、DeepSWE 等 6 个基准，从算法、工程、调试、长程任务四个维度评测 14 款主流模型的 Java 编码能力。",
+   "content": "软件工程专业现在几乎人人用 AI 写 Java，但很少有人知道不同模型在「写个 CRUD」和「修一个跨文件的编译错误」上差距有多大。这篇横评的看点是维度拆解：算法题、工程改造、调试定位、长程多步任务，恰好对应你从《Java 程序设计》到《软件工程》课程的能力阶梯。实用做法是：挑两三个你常用的模型，在同一个课设任务（比如给 Spring Boot 项目加一个带校验的接口）上跑一遍，对比它们改错的能力，而不是只看谁生成的代码好看。结论可以直接写进实习面试的自我介绍：我知道什么任务该交给 AI，什么必须自己盯。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "value": "**让你在「用 AI 写 Java」这件事上有数据支撑的判断，而不是凭感觉。**",
+   "courses": "《Java 程序设计》《软件工程》——用于评估 AI 辅助编码的适用边界",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "6 个基准、4 个维度拆解 Java 编码能力",
+    "长程任务与调试定位比算法题更能拉开差距",
+    "建议用自己的课设任务做小规模复现对比",
+    "结论可用于实习面试谈 AI 协作方式"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699685792612302883"
+  },
+  {
+   "id": "a674",
+   "title": "Java 性能优化实战：一个循环里的时间格式化，把 TPS 从 2 万打到 200",
+   "summary": "双十一压测中订单服务出现 5 秒 GC 停顿、TPS 从 2 万跌到 200，根因是循环内高频创建的时间格式化对象。",
+   "content": "这是典型的「面试能背、上手就忘」的性能问题：SimpleDateFormat 非线程安全、循环里反复 new 对象、短命对象把年轻代打爆，最终触发长 GC 停顿。对软件工程专业来说，这条的用法不是读完感叹，而是复现：自己写一个循环 10 万次格式化的 demo，用 jstat -gc 观察 GC 次数和停顿，再把 SimpleDateFormat 换成 DateTimeFormatter 或把对象提到循环外，对比数据。做完你就同时掌握了三件事——对象创建成本、GC 日志怎么看、性能问题怎么定位。这套流程写进简历的「项目难点」里，比任何形容词都有说服力。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一个十分钟能复现的实验，把「性能优化」从背概念变成能拿出数据的能力。**",
+   "courses": "《Java 程序设计》《软件工程》——用于 GC 与对象生命周期实验",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "根因：循环内高频创建非线程安全的时间格式化对象",
+    "用 jstat -gc 观察 GC 次数与停顿做前后对比",
+    "替换为 DateTimeFormatter 或对象外提",
+    "产出可量化的性能优化小实验"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699688509493542927"
+  },
+  {
+   "id": "a675",
+   "title": "别急着上 Agent：先厘清它的工程边界——可观测、可评测、可中止",
+   "summary": "Agent 的工程价值在于处理无法写成固定流程、但能靠环境反馈逼近目标的任务，前提是具备可观测、可授权、可中止、可恢复的边界。",
+   "content": "这篇对做课设的同学很实用：它给了一套判断标准，帮你决定某个功能到底该不该用 Agent。核心观点是——如果任务能写成固定流程，就用普通代码，别上模型；只有当任务无法穷举、需要根据反馈逐步调整时才值得。更关键的是工程边界清单：可观测（日志能追到每一步）、可评测（有指标判断好坏）、可授权（能限制它能做什么）、可中止与可恢复。你在做毕业设计或大作业时，如果打算接一个大模型，就按这五条给自己的设计写一段说明，答辩时老师问「为什么用 AI」你就有答案了。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**给你一套答辩时能说清楚的「为什么这里该用/不该用 Agent」的判断标准。**",
+   "courses": "《软件工程》——用于系统设计方案的选型论证",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "能写成固定流程的任务不该用 Agent",
+    "五条工程边界：可观测、可评测、可授权、可中止、可恢复",
+    "可直接用于毕设/课设的方案论证",
+    "避免「为了用 AI 而用 AI」"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699676691753156662"
+  },
+  {
+   "id": "a676",
+   "title": "AgentScope-Java 实战：把 Agent 的记忆搬进 Redis",
+   "summary": "手把手讲 AgentScope-Java 的状态存储体系，两种内置实现加 Redis 扩展，把 Agent 的会话记忆持久化。",
+   "content": "Java 方向的同学想做 AI 应用，最缺的往往不是调模型，而是「状态放哪」。这篇实战正好补上：Agent 的多轮记忆如果只放内存，服务一重启就没了，多实例部署还会串话，所以要用 Redis 做外部状态存储。跟着做你能练到三样东西：Spring 生态里接 Redis 的标准写法、序列化与过期策略怎么选、以及 Agent 状态这种「半结构化数据」的建模。建议把它接到你自己的课设上——比如给一个问答小工具加上多轮记忆，重启后还能接着聊。这个改造工作量不大，但写在简历上是实打实的工程经验。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "Redis"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用一次 Redis 接入，把「AI 应用」从 demo 变成能重启不丢状态的工程。**",
+   "courses": "《Java 程序设计》《数据库原理》——用于状态持久化与缓存设计练习",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Agent 记忆需外部持久化，否则重启即丢、多实例串话",
+    "练 Redis 接入、序列化与过期策略",
+    "可给课设小工具加多轮记忆作为改造点",
+    "产出可写进简历的 Java + AI 工程经验"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699645097805594660"
+  },
+  {
+   "id": "a677",
+   "title": "开源工具把老 PHP 站点自动升级到 PHP 8.5，应对 PHP2Shell 漏洞",
+   "summary": "针对 PHP2Shell 漏洞，作者开源了一个自动把旧 PHP 站点升级到 8.5 的工具，解决「知道要打补丁但改不动」的现实问题。",
+   "content": "这条的看点不是 PHP 本身，而是「漏洞修复的最后一公里」：补丁发布了，但大量老站点因为语法不兼容、依赖老旧而升不上去，于是长期暴露。作者的做法是用工具自动做语法迁移。对信息安全专业，这提醒你应急响应的完整链条包括「资产清点—补丁验证—兼容性改造—回归测试」，缺一环就等于没修。对软件工程专业，可以看看这类迁移工具怎么做代码改写（AST 解析还是正则替换），这是工业软件里很典型的一类需求。哪怕你不写 PHP，读一遍它的迁移策略也有收获。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "工业软件"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**让你明白漏洞修复卡在「改不动」上，而遗留系统改造正是工业软件的核心技能。**",
+   "courses": "《信息安全导论》《软件工程》——用于理解补丁管理与遗留系统迁移",
+   "tags": [
+    "信息安全",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "补丁发布 ≠ 修复完成，兼容性改造是常被忽略的一环",
+    "应急响应完整链条：清点、验证、改造、回归",
+    "可观察迁移工具的代码改写策略（AST vs 正则）",
+    "与工业软件中的遗留系统改造同源"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699680016263381030"
+  },
+  {
+   "id": "a678",
+   "title": "给团队共享一份默认安全的 Claude Code 权限配置 settings.json",
+   "summary": "从个人习惯到团队规范：如何写一份默认拒绝、按需放行的 Claude Code 共享权限配置。",
+   "content": "一个人用 AI 编码工具时，权限就是随手点「是」或「否」；一个团队用，就必须有统一配置，否则每个人的机器上跑着不同的信任边界。这篇讲的是 settings.json 里怎么设默认拒绝、白名单放行哪些命令。对信息安全专业，这就是最小权限原则在 AI 工具上的落地；对软件工程专业，这是团队协作规范的一部分。实用做法：把你们小组课设的仓库加一份这样的配置，规定哪些命令（如 git status、mvn test）自动放行，哪些（如 rm、curl 外网）必须人工确认。成本很低，但答辩时讲「我们考虑了 AI 工具的安全边界」是加分项。",
+   "source": "DEV Community",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**一份配置文件，把「最小权限」从课本概念变成你小组仓库里的实际规范。**",
+   "courses": "《信息安全导论》《软件工程》——用于团队协作规范与权限设计",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "团队使用 AI 编码工具需要统一的权限配置",
+    "默认拒绝 + 命令白名单是最小权限的落地",
+    "可给小组课设仓库加一份共享配置",
+    "答辩时可作为工程规范亮点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code permissions for teams: a shared settings.json that is safe by default",
+   "link": "https://dev.to/aiworkspacebuilder/claude-code-permissions-for-teams-a-shared-settingsjson-that-is-safe-by-default-39ne",
+   "cover": "img/a678.webp"
+  },
   {
    "id": "a667",
    "title": "PHP 曝出「世纪漏洞」：无需登录即可远程执行代码，全球约七成网站受影响",
@@ -24,7 +288,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "漏洞类型为未授权远程代码执行（RCE），危害等级最高",
@@ -72,7 +336,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "CursorTouch/Windows-MCP",
-   "link": "https://github.com/CursorTouch/Windows-MCP"
+   "link": "https://github.com/CursorTouch/Windows-MCP",
+   "cover": "img/a668.webp"
   },
   {
    "id": "a669",
@@ -3868,298 +4133,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503067/magpie-0-1-14-released-windows-ver"
-  },
-  {
-   "id": "a555",
-   "title": "Java 生态近期更新：JobRunr 9、OpenXava 8、Quarkus、LangChain4j 等",
-   "summary": "InfoQ 汇总了近期 Java 生态的一批版本更新，覆盖任务调度、低代码框架、云原生运行时和 LLM 集成库。",
-   "content": "JobRunr 9 是 Java 的分布式后台任务调度库，适合做订单超时、定时报表这类需求；OpenXava 8 走的是「用注解生成业务应用」的低代码路线；Quarkus 主打云原生、启动快、内存占用低；LangChain4j 则是把大模型接进 Java 项目的常用封装。对软件工程的同学来说，这一条的价值在于：课程设计里「定时任务」「后台管理」「接个 AI 接口」这三类需求，都能找到现成的 Java 方案，不必一上来就自己写调度器。建议挑一个（比如 JobRunr）跑通官方 demo，理解持久化任务和重试机制。",
-   "source": "InfoQ中文",
-   "date": "2026-10-17",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "JobRunr",
-    "Quarkus"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**一次看清 Java 后端在调度、低代码、云原生、AI 接入四个方向上的现成轮子，课设选型不用从零造。**",
-   "courses": "《Java 程序设计》《软件体系结构》：作为课程设计技术选型与框架调研素材",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "JobRunr 9：Java 分布式任务调度，支持持久化与重试",
-    "OpenXava 8：注解驱动的低代码业务应用框架",
-    "Quarkus 与 LangChain4j：云原生运行时 + Java 侧 LLM 接入",
-    "适合作为课设中定时任务/后台管理/AI 接口的技术选型参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AF1qxLVCRls3R6MdWwBh?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a556",
-   "title": "用 Claude Code 写 Playwright E2E 测试一个月：哪些真能用",
-   "summary": "一位日本公司的 QA 负责人把 AI 编码代理放进生产级 E2E 测试流水线，用了一个月后给出实话。",
-   "content": "作者不是做玩具项目，而是让 Claude Code 参与生产 QA 流水线里的 Playwright 端到端测试编写。这类一线复盘比「AI 能写代码」的口号有用得多：它会告诉你 AI 擅长生成重复的选择器定位、样板化的用例结构，而在断言设计、不稳定用例（flaky test）排查上仍然要人来兜底。对信息安全与管理专业的同学，E2E 测试是理解「系统行为验证」的入口；对软件工程的同学，Playwright 本身也是简历上能写的技能。建议照着文章思路，给自己课设项目补一套 3～5 条 E2E 用例，体验 AI 生成 + 人工修正的流程。",
-   "source": "DEV Community",
-   "date": "2026-10-17",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Playwright",
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**看清 AI 写测试的真实边界，顺手把 Playwright 这项可写进简历的技能练起来。**",
-   "courses": "《软件测试技术》：作为 E2E 自动化测试与 AI 辅助测试的实践案例",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "真实场景：生产 QA 流水线而非 demo 项目",
-    "AI 擅长生成样板用例与选择器，断言与 flaky 排查仍需人工",
-    "Playwright 是可直接写进简历的 E2E 测试技能",
-    "可复用到自己课设项目的自动化测试环节"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "I Let Claude Code Write My Playwright Tests for a Month. Here's What Actually Worked",
-   "link": "https://dev.to/nagayashion/i-let-claude-code-write-my-playwright-tests-for-a-month-heres-what-actually-worked-15e3",
-   "cover": "img/a556.webp"
-  },
-  {
-   "id": "a557",
-   "title": "AI 一轮就写完代码和测试，CI 变绿说明不了什么",
-   "summary": "文章指出：当代理同时生成实现和测试时，测试通过只证明「自己验自己」，不能证明逻辑正确。",
-   "content": "这是很多同学用 AI 写课设时踩的坑：让模型一次性输出功能代码和单元测试，跑通了就以为没问题。问题在于测试是按同一份（可能有误的）理解写的，等于自己出题自己判卷。正确做法是把验证锚定在「权威状态」上——数据库里的真实数据、接口的实际返回、业务规则的独立校验。对软件工程和信息安全专业都直接相关：前者关系到代码质量与测试有效性，后者关系到「验证不能被被测方自己定义」这一安全思维。建议下次让 AI 写代码时，测试用例由你自己按需求文档先写，再让 AI 补实现。",
-   "source": "DEV Community",
-   "date": "2026-10-17",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**纠正「AI 写完测试跑绿就完事」的坏习惯，学会把验证锚在独立事实上。**",
-   "courses": "《软件测试技术》《信息安全导论》：测试有效性与验证独立性",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "AI 同时写实现和测试时，绿灯不等于正确",
-    "验证要锚定权威状态：真实数据、接口返回、独立业务校验",
-    "与信息安全中「验证方与被验证方分离」的思路一致",
-    "实操建议：测试先自己按需求写，再让 AI 补实现"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Your Agent Wrote the Code and Its Test in One Turn. Green CI Proves Less",
-   "link": "https://dev.to/gabrielanhaia/your-agent-wrote-the-code-and-its-test-in-one-turn-green-ci-proves-less-5ff0",
-   "cover": "img/a557.webp"
-  },
-  {
-   "id": "a558",
-   "title": "免费全书：为 Agent 的工具调用、护栏、循环与业务结果搭测试框架",
-   "summary": "freeCodeCamp 发布的完整书籍，讲怎么用代码验证 Agent 工作流的执行过程与业务结果，而不是只看最终回答。",
-   "content": "这本书的核心观点和上一条呼应：一个漂亮的最终回答，不能证明 Agent 的工作流是对的。它给出的方法是从权威状态出发，验证工具调用是否合规、护栏是否生效、循环有没有失控、业务结果是否达成。对信息安全与管理专业的同学，这里面「护栏（guardrails）」和「工具调用审计」直接对应 AI 应用的安全边界问题；对软件工程的同学，这是一套可以照着搭的测试脚手架思路。全书免费、带代码，适合作为课程设计里「给 AI 功能加测试」的参考手册，不必从头读完，按章节查用即可。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**拿到一套可落地的 Agent 测试方法论，把「AI 功能怎么验」从玄学变成工程问题。**",
-   "courses": "《软件测试技术》《人工智能导论》：AI 应用的可靠性与安全验证",
-   "tags": [
-    "AI工具",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "免费完整书籍，附代码实现",
-    "覆盖工具调用、护栏、循环控制、业务结果四类验证",
-    "与 AI 应用的安全边界、审计需求直接相关",
-    "适合按需查阅，作为 AI 功能测试的脚手架参考"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Agentic AI Reliability: Build a Testing Harness for Tool Use, Guardrails, Loops, & Workflow Outcomes [Full Book]",
-   "link": "https://www.freecodecamp.org/news/agentic-ai-reliability-book-build-a-testing-harness/",
-   "cover": "img/a558.webp"
-  },
-  {
-   "id": "a551",
-   "title": "Spring Boot 3 + Kafka 实战：生产者、消费者、重试与死信队列",
-   "summary": "大多数 Kafka 教程只讲「发消息-收消息」的顺利路径，而真正难的是消费者处理失败时怎么办。本文系统讲解 Spring Boot 3 事件驱动微服务中的重试机制与死信主题（DLT）配置。",
-   "content": "如果你正在学《Java Web 开发》或做微服务课设，Kafka 的「快乐路径」很容易跑通，但面试官和真实生产环境更关心：一条坏消息卡住整个分区怎么办？这篇文章从 Spring Boot 3 出发，手把手配置 @KafkaListener 的 errorHandler、DefaultErrorHandler 的退避重试策略，以及 @DltHandler 把无法处理的消息路由到死信主题。建议你本地用 Docker 起一个 Kafka，把文中的重试次数、退避间隔改成不同值，观察日志里消息如何从主 topic 流向 DLT。这套「重试+死信」模式是分布式系统的通用套路，写进简历的微服务项目里会显得很扎实。",
-   "source": "DEV Community",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Kafka"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**掌握 Kafka 重试与死信队列，让你的微服务项目从「能跑」升级到「扛得住」**",
-   "courses": "对应《Java Web 开发》《分布式系统》，可把课设的订单/消息模块改造成带 DLT 的可靠消费链路",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Spring Boot 3 中配置 Kafka 消费者的重试与退避策略",
-    "用 @DltHandler 实现死信主题，避免坏消息阻塞分区",
-    "本地 Docker 起 Kafka 即可复现全部代码",
-    "重试+死信是分布式系统通用模式，适合写进简历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Event-driven Spring Boot 3 microservices with Kafka: producers, consumers, retries and dead-letter topics",
-   "link": "https://dev.to/someswarduddi/event-driven-spring-boot-3-microservices-with-kafka-producers-consumers-retries-and-dead-letter-26ek",
-   "cover": "img/a551.webp"
-  },
-  {
-   "id": "a552",
-   "title": "离线发票工具的 7 个边界用例：JavaScript、PDF 生成与安全",
-   "summary": "做一个发票生成器看起来很简单：几个输入框、加法、导出 PDF。但作者实测了 7 个容易被忽略的边界情况，涉及浮点精度、PDF 中文字体、本地数据安全等。",
-   "content": "这个项目对软件工程和信息安全专业的同学都很有参考价值。作者用纯 JavaScript（零依赖）做了一个离线发票工具，踩了 7 个坑：金额用浮点数相加导致 0.1+0.2 精度问题（必须用整数分或 decimal 库）、PDF 导出时中英文字体缺失、离线场景下 localStorage 存敏感数据的风险、以及输入校验绕过等。信息安全方向的同学可以重点关注「本地存储敏感信息」和「客户端校验不可信」这两点，正好对应《Web 安全》里的内容。前端同学则能学到如何用 jsPDF 或 pdf-lib 生成带中文的 PDF。建议拿它当课程设计题目，把 7 个用例写成测试。",
-   "source": "DEV Community",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "JavaScript",
-    "PDF"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**一个「小工具」暴露的 7 个工程与安全细节，比做十个 CRUD 更能提升代码质量意识**",
-   "courses": "对应《Web 前端开发》《Web 安全》，可把发票工具作为课设，把边界用例写成单元测试",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "浮点精度问题：金额计算必须用整数分或 decimal 库",
-    "PDF 导出中文字体缺失是常见坑，需内嵌字体",
-    "离线工具存敏感数据到 localStorage 存在安全风险",
-    "客户端校验不可信，服务端必须重新校验"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Seven Edge Cases I Tested in an Offline Invoice Tool (JavaScript, PDF, Security)",
-   "link": "https://dev.to/livasticvm1primary/seven-edge-cases-i-tested-in-an-offline-invoice-tool-javascript-pdf-security-3pl5",
-   "cover": "img/a552.webp"
-  },
-  {
-   "id": "a553",
-   "title": "给 n8n AI Agent 加上免费实时联网搜索：n8n-nodes-agentsearch 插件",
-   "summary": "n8n 的 AI Agent 只知道自己训练时学到的知识，加上工作流传给它的内容。通过 n8n-nodes-agentsearch 插件，可以给 Agent 免费接入实时网页搜索能力。",
-   "content": "如果你在玩 AI Agent 或做自动化工作流，n8n 是个上手很快的低代码平台。但默认的 AI Agent 无法联网，回答时效性问题就会胡编。这个插件通过接入免费搜索 API，让 Agent 在生成回答前先检索实时网页。操作路径：在 n8n 里安装社区节点 n8n-nodes-agentsearch，把它接到 AI Agent 的 tool 接口上，Agent 就会自主决定何时调用搜索。对软件工程的同学来说，这是理解「Agent + 工具调用（function calling）」最直观的练手项目，比看论文快得多。建议用它做一个「每日技术资讯摘要」工作流，顺便熟悉 API 调用和 JSON 处理。",
-   "source": "DEV Community",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "n8n"
-   ],
-   "diff": 1,
-   "scene": "练手/简历加分",
-   "value": "**用低代码方式亲手搭一个会联网的 AI Agent，比看十篇 Agent 原理文章都管用**",
-   "courses": "对应《人工智能导论》《软件工程》，可作为课程项目的自动化模块或毕业设计的辅助工具",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "n8n 低代码平台可快速搭建 AI Agent 工作流",
-    "安装 n8n-nodes-agentsearch 社区节点即可接入实时搜索",
-    "直观理解 Agent 的工具调用（function calling）机制",
-    "适合做「每日资讯摘要」类自动化练手项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "n8n AI Agent Web Search: Add Free Live Search with n8n-nodes-agentsearch",
-   "link": "https://dev.to/agentsearchhq/n8n-ai-agent-web-search-add-free-live-search-with-n8n-nodes-agentsearch-1ek3",
-   "cover": "img/a553.webp"
-  },
-  {
-   "id": "a554",
-   "title": "从「会用工具」到「能创造工具」：开源生态如何赋能 AI 人才培养",
-   "summary": "在 2026 中国—中亚青年科学家人工智能对话活动上，开源中国副总裁李晨与高校、中学教育者探讨 AI 时代科技人才培养路径，强调开源生态对学生从「用工具」到「造工具」的转变价值。",
-   "content": "这条行业动态值得关注的点在于：企业招聘时越来越看重「你是否参与过开源、能否创造工具」，而不只是「你会不会用某个框架」。对软件工程和信息安全专业的同学来说，这意味着简历上「参与开源项目」「提交过 PR」的权重在上升。具体怎么做？从给学校课设项目开源开始，到给 GitHub 上活跃的中小型项目修 bug、补文档，都是低门槛的切入点。信息安全方向的同学可以关注开源安全工具（如 Semgrep、Trivy）的规则贡献。这条新闻本身信息量有限，但它指出的趋势——「创造工具的能力」正在成为区分度——值得你在规划学习路径时参考。",
-   "source": "开源中国",
-   "date": "2026-10-16",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**开源贡献正在成为简历区分度，现在开始给项目提 PR 还不晚**",
-   "courses": "对应《软件工程》《开源文化与社区》，可把开源贡献纳入课程实践或毕业设计选题",
-   "tags": [
-    "行业动态",
-    "求职就业",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "企业招聘越来越看重开源参与和造工具的能力",
-    "从课设开源、给中小项目修 bug 是低门槛切入点",
-    "信息安全方向可贡献开源安全工具的检测规则",
-    "「会用工具」到「能创造工具」是能力分水岭"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503064"
   }
  ],
  "jobs": [
