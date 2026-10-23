@@ -1,6 +1,211 @@
 {
- "updatedAt": "2026-10-23 11:02",
+ "updatedAt": "2026-10-23 14:44",
  "news": [
+  {
+   "id": "a679",
+   "title": "用GUI+反射可视化EnumSet内部位图：RegularEnumSet增减元素全过程",
+   "summary": "借反射把EnumSet内部的long位向量变化画到GUI上，直观理解JDK集合的位运算实现。",
+   "content": "日常写Java时EnumSet用得不少，但多数人不知道枚举常量不超过64个时拿到的是RegularEnumSet——底层就是一个long，每个枚举常量占一位。这篇用反射拿到elements字段，配合JavaFX/Swing把每次add/remove后的二进制位图实时画出来，能清楚看到位掩码是怎么翻转的。对软件工程专业来说，这是把《Java程序设计》里的位运算、枚举、集合框架和反射串起来的一次小实验，代码量不大，适合当课程设计的小模块或面试时讲清楚\"你读过JDK源码吗\"。建议自己动手复现一遍，再顺手读一下EnumSet的源码注释。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java",
+    "JavaFX"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把JDK源码从\"看得懂\"变成\"看得见\"，是Java基础课最划算的一次动手实验。**",
+   "courses": "《Java程序设计》/《数据结构》：用于集合框架与位运算章节的课后实验",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "RegularEnumSet用单个long做位向量，最多支持64个枚举常量",
+    "反射读取elements字段，GUI实时展示二进制位变化",
+    "串起位运算、枚举、集合框架、反射四个知识点",
+    "可作为课设小模块或JDK源码阅读的入门练习"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699871906379677737"
+  },
+  {
+   "id": "a680",
+   "title": "PHP高危漏洞引发全球紧急下线：AI两天挖穿、修复拖两个月的攻防时间差",
+   "summary": "AI把漏洞发现速度提高十倍，但补丁与运维能力没跟上，69.3%的网站跑在PHP上。",
+   "content": "这轮PHP高危漏洞（PHP2Shell）导致欧洲多国政府网站、荷兰数字身份系统紧急下线。值得信息安全与管理专业同学注意的不是漏洞本身，而是文章点出的结构性矛盾：AI让漏洞挖掘从\"几周\"压缩到\"两天\"，而修复、验证、上线补丁仍然要按月计，维护PHP的基金会月预算不到700美元。也就是说，攻击面的扩张速度已经超过防守方的工程能力。建议结合《Web安全》课程，自己搭一套PHP环境复现漏洞成因，再写一份包含资产梳理、补丁窗口、应急下线的处置方案——这类\"攻防时间差\"分析在求职面试里比背OWASP Top10更有说服力。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "value": "**理解\"发现速度≠修复速度\"，是安全从业者做风险沟通的基本功。**",
+   "courses": "《Web安全》/《网络安全应急响应》：用于漏洞复现与应急处置方案设计",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "AI把漏洞发现周期从数周压缩到两天，修复仍以月计",
+    "69.3%的网站运行在PHP上，维护方预算极低",
+    "防守方的瓶颈是工程与运维能力，不是检测工具",
+    "可结合Web安全课做漏洞复现+应急响应方案"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699688375545085995"
+  },
+  {
+   "id": "a681",
+   "title": "Claude Code接入Cloudflare 3.7万星安全审计Skill：六阶段工作流与按需裁剪",
+   "summary": "拆解security-audit-skill的六阶段审计流程，解决全量扫描烧Token的问题。",
+   "content": "Cloudflare开源的security-audit-skill在GitHub上有3.7万星，本质是把安全审计拆成六个阶段的可复用Agent Skill，配合Claude Code调用。文章重点讲的是工程取舍：全量扫描一次烧掉的Token成本很高，实际项目里要按改动范围裁剪审计范围，只对高风险模块跑完整流程。对信息安全专业，这是一份\"AI辅助代码审计\"的落地模板；对软件工程专业，可以学它怎么把复杂任务拆成可复用的Skill结构。建议拿自己课设的仓库跑一遍，记录误报率和耗时，写进简历比\"会用AI写代码\"具体得多。",
+   "source": "掘金",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把\"AI帮我审代码\"变成有流程、有裁剪、有指标的工程实践。**",
+   "courses": "《软件安全》/《软件工程》：用于代码审计实践与AI辅助开发流程",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "六阶段工作流把安全审计拆成可复用的Agent Skill",
+    "全量扫描成本高，需按改动范围裁剪审计范围",
+    "Anthropic已将Agent Skills捐赠给AAIF，生态在标准化",
+    "可对自己课设仓库实测误报率与耗时"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699654593328840745"
+  },
+  {
+   "id": "a682",
+   "title": "runc是什么：Docker背后那个真正创建容器的运行时",
+   "summary": "从docker run到Linux namespace与cgroup，讲清runc在容器链路中的位置。",
+   "content": "执行docker run时，Linux内核其实并不知道\"容器\"是什么——真正干活的是runc：它调用clone创建namespace、写cgroup限制资源、pivot_root切换根文件系统，最后exec启动进程。文章把这套链路拆开讲了一遍。对软件工程和信息安全两个专业都实用：开发侧，理解容器隔离边界能帮你排查\"本地能跑线上不能跑\"的环境问题；安全侧，namespace和cgroup配置不当就是容器逃逸的入口。建议在Linux虚拟机上用runc手动跑一个容器，不借助Docker，把OCI bundle的config.json看一遍，比背Docker命令有用得多。",
+   "source": "DEV Community",
+   "date": "2026-10-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "Linux"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**搞懂runc，才算真正理解容器隔离的边界在哪里。**",
+   "courses": "《操作系统》/《云计算与容器技术》：用于进程隔离与容器原理章节",
+   "tags": [
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "runc是OCI运行时实现，负责namespace、cgroup与根文件系统切换",
+    "内核层面没有\"容器\"概念，隔离靠namespace+cgroup组合",
+    "容器逃逸多源于隔离配置不当，安全方向必读",
+    "建议脱离Docker用runc手动起容器，读一遍config.json"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "runc: qué es y cómo funciona el runtime detrás de Docker",
+   "link": "https://dev.to/lu1tr0n/runc-que-es-y-como-funciona-el-runtime-detras-de-docker-5535",
+   "cover": "img/a682.webp"
+  },
+  {
+   "id": "a683",
+   "title": "ToolForge v0.2.1：Rust+Tauri插件化桌面工具箱，新增20+在线插件",
+   "summary": "一个学生可参考的开源桌面工具项目，WASM插件运行时+在线插件市场是亮点。",
+   "content": "ToolForge基于Rust+Tauri 2构建，v0.2.1新增20多款在线插件并上线插件下载统计，此前版本已完善WASM插件运行时和在线插件市场。对软件工程（含工业软件实验班）的同学，这个项目的价值不在工具本身，而在架构：插件化拆分、WASM沙箱运行时、插件分发与统计，这套设计思路和工业软件里常见的\"平台+插件\"形态高度相似。建议读它的插件接口定义和WASM加载部分，然后给自己课设加一个最小插件机制——简历上\"做过插件化架构\"比\"做过一个工具箱\"有分量。",
+   "source": "开源中国",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust",
+    "Tauri"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学它的插件化架构，比用它的功能更值钱。**",
+   "courses": "《软件体系结构》/《工业软件开发》：用于插件化架构设计参考",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "Rust+Tauri 2构建，体积小、跨平台",
+    "WASM插件运行时+在线插件市场，架构可借鉴",
+    "插件化设计思路与工业软件平台形态相通",
+    "适合作为课设架构参考，而非直接使用"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503170"
+  },
+  {
+   "id": "a684",
+   "title": "AI Agent改写CPU价值：Token变成行动后，算力竞争不再只拼GPU",
+   "summary": "Agent执行工具调用、状态管理、并发调度时，CPU成为新的瓶颈环节。",
+   "content": "文章的核心判断是：当Agent从\"生成文本\"走向\"执行行动\"，负载结构变了——工具调用、上下文管理、多轮状态维护、并发编排这些环节大量消耗CPU，而不是GPU。对软件工程专业，这意味着后端服务的性能优化对象在变化：以前优化推理吞吐，现在要关注Agent调度层的线程模型、序列化开销和状态存储。建议结合《操作系统》的调度章节，自己写一个简易Agent执行器，压测不同并发下的CPU占用，理解\"Token不空转\"背后的工程含义。这类认知在面试AI应用开发岗时是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**理解Agent负载结构变化，才知道后端该优化哪里。**",
+   "courses": "《操作系统》/《分布式系统》：用于并发调度与性能分析",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Agent执行工具调用与状态管理，CPU负载占比上升",
+    "后端优化对象从推理吞吐转向调度层与状态存储",
+    "可自写简易Agent执行器做并发压测",
+    "AI应用开发岗面试的差异化认知点"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/AkDgwN6h72cqUOJ35Zok?utm_source=rss&utm_medium=article",
+   "cover": "img/a684.webp"
+  },
   {
    "id": "a671",
    "title": "PHP2Shell 漏洞两小时被利用数十万次：PHP 8.1 及以前不再有补丁",
@@ -21,7 +226,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "修复仅覆盖 PHP 8.2～8.5，8.1 及以前不再出补丁",
@@ -3920,219 +4125,6 @@
    ],
    "buzz": [],
    "link": "https://www.qbitai.com/2026/10/503701.html"
-  },
-  {
-   "id": "a559",
-   "title": "Anthropic 因小数点分隔符缺失多收100倍费用：国际化校验漏洞实录",
-   "summary": "一位开发者充值100美元API额度却被扣10000美元，根因是缺少小数分隔符校验层，把西班牙语区的\"100,00\"解析成10000。",
-   "content": "这个 bug 值得每个写支付/金额逻辑的同学抄进笔记：金额从表单到后端要经过 locale 解析、类型转换、单位换算三层，任何一层默认「点号是小数点」都会在逗号小数点的地区炸掉。文章拆解了完整链路——前端输入未做 locale 归一化，后端直接把字符串转数字，缺少显式校验和金额上限保护。对应到你的课设：凡是涉及金额、汇率、计量单位的功能，先写一个 normalizeAmount(input, locale) 函数并配单测，再用边界值（0.01、100,00、1.000,00）跑一遍。信息安全方向的同学可以顺手把它当输入校验与业务风控的反面案例。",
-   "source": "DEV Community",
-   "date": "2026-10-17",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "国际化",
-    "输入校验"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**金额与单位处理必须显式做 locale 归一化，否则一个逗号就是100倍资损。**",
-   "courses": "《软件工程》需求与缺陷分析、《Web应用安全》输入校验章节，可直接作为课设案例",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "根因：缺少小数分隔符校验层，\"100,00\"被解析为10000",
-    "金额处理必须做 locale 归一化 + 上限校验 + 单测",
-    "适合作为输入校验/业务风控的反面教材"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/mech_app_ai/anthropics-100x-overcharge-bug-what-internationalization-failures-reveal-about-agent-payment-3e58",
-   "cover": "img/a559.webp"
-  },
-  {
-   "id": "a560",
-   "title": "Claude Code 团队怎么做代码评审：可借鉴的 AI 辅助 Review 流程",
-   "summary": "Anthropic 的 Claude Code 团队公开了他们的代码评审实践，HN 上 348 分、328 条讨论，核心是把 AI 放进评审链路而非替代评审。",
-   "content": "对软工学生最有用的是流程而不是工具：他们把评审拆成「提交前自检—AI 预审—人工定夺」三段，AI 负责找遗漏的边界条件、命名与重复代码，人负责架构判断和业务正确性。你可以直接搬到课程设计：用 Git 分支 + PR 模板强制写变更说明，提交前让 AI 按清单过一遍（空指针、异常吞掉、SQL 拼接、日志泄露敏感信息），再请同学做人工评审并留评论记录。信息安全方向可额外加一条：AI 预审必须检查硬编码密钥与越权接口。这套流程写进简历的「工程规范」一栏比堆技术名词更有说服力。",
-   "source": "Hacker News",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Git",
-    "Code Review"
-   ],
-   "diff": 1,
-   "scene": "课设/简历加分",
-   "value": "**把 AI 放进评审链路而不是替代评审，课程设计的代码质量能直接上一个档次。**",
-   "courses": "《软件工程》代码评审与配置管理，可直接用于课程设计 PR 流程",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "三段式：提交前自检 → AI 预审 → 人工定夺",
-    "AI 查边界条件/重复代码，人管架构与业务正确性",
-    "可加安全项：硬编码密钥、越权接口、日志泄露"
-   ],
-   "buzz": [],
-   "link": "https://claude.dev/blog/solving-code-review-at-anthropic/",
-   "cover": "img/a560.webp"
-  },
-  {
-   "id": "a561",
-   "title": "OpenAI Agents SDK 接自建兼容 API：Chat Completions、Responses 与追踪陷阱",
-   "summary": "实操文：把 openai-agents 从官方端点切到自建 OpenAI 兼容服务，讲清 Responses 与 Chat Completions 的差异和 tracing 默认回传问题。",
-   "content": "如果你在做「调用大模型的课设/毕设」，这篇能省你半天踩坑。要点：SDK 默认走 Responses API 并把 trace 上报到 OpenAI，指向自建服务时要显式关掉 tracing 或改上报地址，否则请求会莫名失败或数据外流；工具调用（tool calling）在不同兼容实现上的字段支持不一致，需按 Chat Completions 格式降级。动手建议：写一个薄封装层统一 base_url、模型名、超时与重试，把 trace 开关做成配置项，再用一个带工具调用的最小 demo 验证端到端。信息安全方向注意：trace 里可能带用户输入，别把内部数据发到第三方。",
-   "source": "DEV Community",
-   "date": "2026-10-17",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "LLM SDK"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**接自建大模型服务前先关掉默认 tracing，否则调试和合规两头踩坑。**",
-   "courses": "《人工智能导论》/毕业设计中的大模型调用模块，可直接复用封装层",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "默认走 Responses API 且 trace 回传 OpenAI，自建服务需显式关闭",
-    "兼容实现的 tool calling 字段不一致，必要时降级到 Chat Completions",
-    "封装 base_url/超时/重试/trace 开关，做最小可跑 demo"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/amankumar_apiclaw/openai-agents-sdk-on-a-custom-openai-compatible-api-chat-completions-responses-and-the-tracing-184d",
-   "cover": "img/a561.webp"
-  },
-  {
-   "id": "a562",
-   "title": "Akka 在65个开源项目中实测「基于规格的 AI 交付」",
-   "summary": "Akka 团队用规格驱动的方式让 AI 在 65 个开源项目上生成并交付代码，检验规格描述能否约束 AI 产出。",
-   "content": "这条对工业软件实验班的同学有直接参考价值：所谓「基于规格的 AI 交付」，是先把接口契约、状态机、错误码写成机器可读的规格，再让 AI 按规格生成实现和测试，最后用规格做验收。它回答了一个现实问题——AI 写代码快，但怎么证明写对了？答案是规格即验收标准。你可以小规模复现：给课设的一个模块写 OpenAPI 或类型签名 + 前置/后置条件，让 AI 生成实现，再用属性测试（property-based testing）验证。工业软件场景尤其吃这套，因为设备协议、控制流程最怕「看起来能跑」。",
-   "source": "InfoQ中文",
-   "date": "2026-10-17",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "规格驱动开发",
-    "属性测试"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "**AI 生成代码的可信度来自规格与属性测试，而不是「跑通了」。**",
-   "courses": "《软件工程》形式化规格与测试、《工业软件导论》协议建模",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "规格先行：接口契约/状态机/错误码作为 AI 生成的输入与验收标准",
-    "用属性测试验证 AI 产出，而非只看能否编译",
-    "工业软件协议与控制流程最适合规格驱动"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/uGNQwpOt5GGAKm2XlEZC?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a563",
-   "title": "跨平台书摘管理工具作者复盘：从3万条划线到一款 App",
-   "summary": "一位开发者从微信读书的 3 万条笔记出发，做了跨平台书摘管理工具，完整复盘了数据抓取、同步与跨端实现。",
-   "content": "适合当「个人项目从 0 到 1」的范本读，重点看三件事：一是数据来源与清洗（3 万条划线怎么去重、打标签、建索引），二是跨平台方案选型（同一套数据在桌面与移动端如何同步），三是产品取舍（为什么不做成又一个笔记软件）。对前端方向的同学，可以照着做一个自己的「课设级」版本：本地 SQLite 存书摘、全文检索、导出 Markdown，再套一层 Electron 或 Tauri。做完至少能讲清楚数据建模、检索与跨端同步三个工程问题，面试时比「做过 TodoList」有料得多。",
-   "source": "少数派",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Tauri",
-    "SQLite"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**用「书摘管理」这类真实数据量的个人项目，替代千篇一律的 TodoList。**",
-   "courses": "《Web前端开发》综合项目、《数据库原理》索引与全文检索实践",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "看数据清洗与索引设计：3万条笔记如何去重与检索",
-    "跨平台选型与同步策略是核心工程点",
-    "可复刻为 Tauri/Electron + SQLite 的个人项目"
-   ],
-   "buzz": [],
-   "link": "https://sspai.com/post/115688",
-   "cover": "img/a563.webp"
-  },
-  {
-   "id": "a564",
-   "title": "拾趣 Magpie v0.1.14 发布 Windows 版：跨平台划词 AI 工具",
-   "summary": "开源划词 AI 工具拾趣发布 Windows 版，支持划词翻译、解释、总结，以及图片/视频/扫描件文字框选识别。",
-   "content": "这是一个可以直接装来用的效率工具：划选或双击文字弹出浮动条，做翻译、解释、总结，结果可写入 Obsidian、预填日历；图片和扫描文档支持框选 OCR。对学生最实用的场景是读英文文档和论文时边读边查，以及把零散笔记直接落到 Obsidian。想学实现的话，它的技术点很典型：全局快捷键与划词监听、悬浮窗、OCR 调用、多平台适配——正好是桌面端开发的一套完整练习。注意 OCR 与翻译可能走云端，处理涉密或未公开材料时先看隐私设置。",
-   "source": "开源中国",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "OCR",
-    "桌面端"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**读英文文档的效率工具，同时是桌面端划词+OCR 的现成技术样本。**",
-   "courses": "《人机交互》/桌面应用开发课程的工具选型与实现参考",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "划词翻译/解释/总结，支持框选 OCR 与 Obsidian 写入",
-    "适合读英文文档、论文时边读边记",
-    "实现涉及全局快捷键、悬浮窗、OCR、多平台适配"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503067/magpie-0-1-14-released-windows-ver"
   }
  ],
  "jobs": [
