@@ -1,6 +1,136 @@
 {
- "updatedAt": "2026-10-24 02:38",
+ "updatedAt": "2026-10-24 10:19",
  "news": [
+  {
+   "id": "a691",
+   "title": "React 19.3 新增 browser() API：仅客户端渲染成为一等公民",
+   "summary": "React 19.3 引入 browser() API，把纯客户端渲染（CSR）从“框架默认行为”提升为可显式声明的能力，减少 SSR 与 CSR 混用时的水合问题。",
+   "content": "以前做课设，用 Vite + React 默认就是纯客户端渲染，但一旦引入 Next.js 或需要 SSR 的模板，就得手动处理 window 未定义、水合不一致等坑。browser() API 的意义在于：让“这个组件/入口只在浏览器跑”变成框架能识别的声明，而不是靠 useEffect 里判断 typeof window 的土办法。建议在《Web前端开发》课程的大作业里，用 React 19.3 重写一个带图表、地图的页面，对比加不加 browser() 时首屏报错和调试成本的变化，写进实验报告就是现成的技术亮点。",
+   "source": "InfoQ中文",
+   "date": "2026-10-24",
+   "cat": "stack",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**前端课设里绕不开的 SSR/CSR 边界问题，这次框架给了官方答案**",
+   "courses": "《Web前端开发》：用于大作业中客户端渲染组件的组织与调试",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "browser() 让纯客户端渲染可显式声明，不再依赖运行时判断 window",
+    "适合处理图表、地图、localStorage 等只能在浏览器运行的逻辑",
+    "课设中对比 SSR/CSR 混用的水合报错，可作为实验报告素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/jNX6EAzqP34xRjqUMU1N?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a692",
+   "title": "PHP2Shell 双 RCE 在野利用：WordPress、Drupal 中招，nginx 另有洞",
+   "summary": "PHP2Shell 组合漏洞已遭在野利用，影响 WordPress、Drupal 等 PHP 生态，nginx 侧还存在独立漏洞，文章拆解成因与修复优先级。",
+   "content": "这条对信息安全与管理专业是典型的“漏洞链”案例：单个组件看似无害，串起来就是 RCE。建议按三步读：第一，先看漏洞触发路径，画出从 HTTP 请求到命令执行的调用链，对应《Web安全》里的注入与文件包含章节；第二，注意“修复顺序”这个工程细节——先补哪一层能最快切断利用链，这是企业应急响应的真实思路；第三，在自己的 LAMP/LNMP 实验环境里复现（仅限本地靶场），用 Burp 抓包验证修复前后差异。找实习面试时，能讲清一条完整漏洞链比背十个名词有用。",
+   "source": "掘金",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP",
+    "nginx"
+   ],
+   "value": "**一条真实在野 RCE 漏洞链，是 Web 安全课最好的实战教材**",
+   "courses": "《Web安全》：用于漏洞链分析与应急修复顺序的案例教学",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "PHP2Shell 是组合型 RCE，已在野利用，WordPress/Drupal 均在影响范围",
+    "nginx 侧存在独立漏洞，修复要分优先级而非一次性全打补丁",
+    "建议在本地靶场复现调用链，作为《Web安全》实验或面试素材"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699033523931725850"
+  },
+  {
+   "id": "a693",
+   "title": "Claude Code 实战：非科班也能独立做完一个产品，边界在哪",
+   "summary": "作者用 Claude Code 从零完成一个互联网产品，复盘 AI 编程在需求拆解、联调、部署各环节的实际能力与踩坑点。",
+   "content": "别被标题里的“外行人”误导——重点不是“不用学编程了”，而是看作者在哪一步仍然必须懂技术：需求拆成可执行任务、报错定位、数据库设计、部署配置。建议带着问题读：他把哪些工作完全交给 AI，哪些必须自己判断？然后拿自己的课设做对照实验——用 Claude Code 生成一个 CRUD 模块，记录 AI 一次通过率、你需要改几轮、哪些错误它反复犯。这份记录本身就是简历上“AI 辅助开发实践”的素材，也能帮你想清楚《软件工程》里需求分析与架构设计为什么不能省。",
+   "source": "掘金",
+   "date": "2026-10-24",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把 AI 编程工具当“结对程序员”用，先摸清它哪里靠不住**",
+   "courses": "《软件工程》：用于需求拆解与 AI 辅助开发流程的实践对照",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 65,
+   "brief": [
+    "重点看 AI 在需求拆解、调试、部署环节的能力边界，而非“零基础做产品”",
+    "可对照自己课设做实验：记录 AI 生成代码的一次通过率与返工点",
+    "产出的实践记录可作为简历中 AI 辅助开发的经历"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699732988154937359"
+  },
+  {
+   "id": "a694",
+   "title": "Shopify 免运费进度条：Liquid + JavaScript 手写一个购物车组件",
+   "summary": "教程用 Liquid 模板语言加原生 JavaScript，实现购物车免运费进度条，涉及金额计算、实时更新与边界处理。",
+   "content": "这是一个小而完整的“状态驱动 UI”练习：购物车金额变化 → 计算距免运费门槛的差额 → 更新进度条宽度和文案。技术点不复杂但很典型——模板层（Liquid）负责首屏渲染，JS 负责交互更新，两者数据要一致，这正是前端课设里最容易出 bug 的地方。虽然 Shopify 生态离国内就业较远，但你可以把同样的思路搬到 Vue/React 的电商课设里：用 computed 算差额、用 watch 触发动画。做完顺手把“金额为 0”“已达标”“跨档位”三个边界写进测试用例，就是加分项。",
+   "source": "DEV Community",
+   "date": "2026-10-24",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**一个 30 分钟能做完的购物车小组件，练的是状态同步的基本功**",
+   "courses": "《Web前端开发》：用于状态驱动 UI 与边界处理的练习",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "典型的状态驱动 UI：金额变化驱动进度条与文案更新",
+    "模板层与 JS 层数据一致性是主要坑点，可迁移到 Vue/React 课设",
+    "补齐 0 元、已达标、跨档位等边界用例，提升课设完成度"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Build a free shipping progress bar for Shopify with Liquid and JavaScript",
+   "link": "https://dev.to/brix_tech/build-a-free-shipping-progress-bar-for-shopify-with-liquid-and-javascript-1a0j",
+   "cover": "img/a694.webp"
+  },
   {
    "id": "a685",
    "title": "恶意 LiteLLM v1.107.0 投毒 PyPI/Docker Hub：Python 一启动就执行任意代码",
@@ -26,7 +156,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "恶意版本为 LiteLLM v1.107.0，PyPI 与 Docker Hub 双渠道投毒",
@@ -3993,138 +4123,6 @@
    ],
    "buzz": [],
    "link": "https://www.solidot.org/story?sid=85638"
-  },
-  {
-   "id": "a578",
-   "title": "Meta 发布开放权重多模态模型 Muse Spark Open：8160 亿参数、100 万 Token 上下文",
-   "summary": "Meta 发布开放权重多模态模型 Muse Spark Open，总参数 8160 亿、激活 420 亿，支持 100 万 Token 上下文，并针对苹果 MLX 与 Apple Silicon 统一内存优化。",
-   "content": "这条对学生的实际意义是「开放权重」四个字：模型能下载、能在本地跑，意味着你可以拿它做课程项目而不必依赖付费 API。技术细节也值得看：MoE 结构总参数 8160 亿、激活 420 亿，所以推理成本远低于参数规模给人的印象；100 万 Token 上下文适合处理长文档和整仓库代码；用苹果 MLX 框架针对统一内存优化，两台顶配 Mac Studio 就能装下。当然，宿舍电脑跑不动全量模型，建议用它的量化版本或小参数变体做实验，重点练「本地部署 + 提示词 + 简单 RAG」这条链路。",
-   "source": "Solidot",
-   "date": "2026-10-16",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MLX"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**开放权重模型让本地部署成为课设可行方案，重点练「部署+提示词+RAG」链路。**",
-   "courses": "对应《机器学习》《人工智能导论》：课程设计可用开放权重模型做本地问答或代码辅助原型。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "开放权重，可下载本地部署，不依赖付费 API",
-    "MoE：总参数 8160 亿，激活仅 420 亿",
-    "100 万 Token 上下文，适合长文档与整仓库代码",
-    "针对苹果 MLX 与统一内存优化"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85634"
-  },
-  {
-   "id": "a570",
-   "title": "Aspire 13.6 发布：Java/Rust 第一方托管 + 持久化遥测仪表盘",
-   "summary": "微软 Aspire 13.6 新增第一方 Java 与 Rust 托管支持，并加入可持久化的仪表盘遥测，方便本地与云端统一观测分布式应用。",
-   "content": "Aspire 是 .NET 生态的分布式应用编排工具，这次 13.6 把 Java 和 Rust 提升为第一方托管资源——意味着你写 Spring Boot 服务时，可以直接在 Aspire 的 AppHost 里声明、启动、注入连接串，和 .NET 服务混编调试。持久化遥测仪表盘则把 OpenTelemetry 的 trace/metrics 存下来，重启后还能回看，排查课设里多服务调用的时序问题很实用。对软件工程同学来说，这是理解「服务编排 + 可观测性」两个工程化概念的低成本入口：不用自己写 docker-compose 和 Jaeger，一条命令拉起整套依赖。工业软件实验班做多模块系统集成时，也可用它统一管理 Java 后端与前端服务的启动顺序。",
-   "source": "InfoQ中文",
-   "date": "2026-10-18",
-   "cat": "tool",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Aspire",
-    "OpenTelemetry"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**用最低成本体验服务编排与可观测性，是分布式课设的脚手架**",
-   "courses": "《软件体系结构》《分布式系统》课设中编排多服务并演示调用链",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Java/Rust 成为第一方托管资源，可与 .NET 服务混编编排",
-    "遥测数据持久化，重启后仍可回看 trace/metrics",
-    "一条命令拉起多服务依赖，省去手写 compose 与观测栈"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4BUR4DmMxSBxyzYh6Fxz?utm_source=rss&utm_medium=article",
-   "cover": "img/a570.webp"
-  },
-  {
-   "id": "a571",
-   "title": "Cloudflare 要建公共 CA，签发抗量子 TLS 证书",
-   "summary": "Cloudflare 计划推出公共证书颁发机构，用于签发量子安全（后量子算法）的 TLS 证书，推动 PQC 在 Web 传输层的落地。",
-   "content": "TLS 证书是整个 HTTPS 信任链的根，现在主流用的是 RSA/ECC，理论上会被未来的量子计算机用 Shor 算法攻破。Cloudflare 要做公共 CA 签发后量子证书，等于把 PQC 从论文推进到浏览器能实际校验的证书链里。信息安全专业的同学值得关注两点：一是后量子签名算法（如 ML-DSA）如何嵌进 X.509 证书结构，二是证书透明度、吊销机制在换算法后怎么适配。建议结合《密码学》里的公钥体系章节，用 openssl 生成一张自签 PQC 证书跑一遍握手，理解「算法替换」在协议层要改哪些字段。这也是「先存后解」攻击下迁移时间表的现实注脚。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "TLS",
-    "PQC"
-   ],
-   "value": "**后量子密码从论文走向证书链，是密码学课程最鲜活的落地案例**",
-   "courses": "《密码学》《网络安全协议》中讲公钥基础设施与算法迁移",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "公共 CA 将签发后量子算法 TLS 证书，进入实际信任链",
-    "关注 ML-DSA 等签名算法如何嵌入 X.509 结构",
-    "可用 openssl 自签 PQC 证书实测握手流程"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/CoGZq3xgQhZI4rBH8pjA?utm_source=rss&utm_medium=article",
-   "cover": "img/a571.webp"
-  },
-  {
-   "id": "a572",
-   "title": "Android 安全状态库支持组件级安全校验",
-   "summary": "谷歌 Android 安全状态库新增组件级安全校验能力，应用可针对单个组件判断设备安全状态，而非整机一刀切。",
-   "content": "以往 Android 应用判断设备是否安全（是否 root、是否被篡改），往往整机一个结论，粒度太粗。新的安全状态库支持组件级校验，意味着你可以只对支付、密钥存储这类敏感模块要求高强度证明，普通界面照常运行，用户体验和安全强度可以分级。信息安全同学可以借此理解「最小信任边界」：不是所有代码都值得付同样的验证成本。动手方向是用 Play Integrity 类接口做一次分级校验 demo，对比整机校验与组件校验在误报率、可用性上的差异。移动安全课设、App 加固方案设计都能直接用上，也是面试里讲「安全与体验权衡」的好素材。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Android"
-   ],
-   "value": "**组件级安全校验是「最小信任边界」的工程范本，移动安全课设可直接引用**",
-   "courses": "《移动应用安全》中设计分级完整性校验方案",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "安全校验粒度从整机细化到单个组件",
-    "敏感模块高强度校验，普通功能不受影响",
-    "可做分级校验 demo，对比误报率与可用性"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/yZh3MeRrBa7IbsB1PrUp?utm_source=rss&utm_medium=article"
   }
  ],
  "jobs": [
