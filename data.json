@@ -1,6 +1,220 @@
 {
- "updatedAt": "2026-10-23 14:44",
+ "updatedAt": "2026-10-24 02:38",
  "news": [
+  {
+   "id": "a685",
+   "title": "恶意 LiteLLM v1.107.0 投毒 PyPI/Docker Hub：Python 一启动就执行任意代码",
+   "summary": "攻击者在 PyPI 与 Docker Hub 上发布被篡改的 LiteLLM 1.107.0，Python 进程启动即触发任意代码执行，官方已给出缓解步骤。",
+   "content": "LiteLLM 是很多团队用来统一调用各家大模型的 Python 封装库，这次被投毒的版本在 import 或启动阶段就会执行攻击者代码，等于把服务器直接交出去。对信息安全与管理专业的同学，这是一份现成的供应链安全案例：可以复现「依赖混淆 + 版本锁定」的检测思路，用 pip-audit、hash 校验、私有镜像源白名单做防护；软件工程同学则要记住：requirements.txt 里写死版本号还不够，锁文件 + 哈希校验才是底线。做课设时若要用第三方 AI SDK，先在虚拟环境里跑一遍，别直接装到本机全局环境。",
+   "source": "DEV Community",
+   "date": "2026-10-24",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "LiteLLM"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**一次真实的 AI 供应链投毒事件，是理解依赖安全最省力的入口**",
+   "courses": "《网络安全技术》《软件工程》课程中作为供应链安全案例，实验课可做依赖审计演练",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "恶意版本为 LiteLLM v1.107.0，PyPI 与 Docker Hub 双渠道投毒",
+    "触发点在 Python 启动/导入阶段，无需业务调用即中招",
+    "防护手段：锁文件 + 哈希校验、pip-audit、私有源白名单",
+    "建议在隔离虚拟环境或容器中安装第三方 AI SDK"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Malicious LiteLLM v1.107.0 on PyPI/Docker Hub Executes Arbitrary Code on Python Start: Mitigation Steps Available",
+   "link": "https://dev.to/romdevin/malicious-litellm-v11070-on-pypidocker-hub-executes-arbitrary-code-on-python-start-mitigation-1cgi",
+   "cover": "img/a685.webp"
+  },
+  {
+   "id": "a686",
+   "title": "用 JavaScript 构建安全 Web 应用：输入校验、密钥管理与 API 防护清单",
+   "summary": "一篇面向 Web 开发者的安全实践清单，覆盖输入校验、密钥泄露、API 端点加固等高频翻车点。",
+   "content": "文章的核心观点很直接：安全不是上线后再补的活，而是写第一行代码时就该有的习惯。它把常见问题拆成可执行项——所有用户输入在服务端二次校验、密钥绝不进前端 bundle、API 端点做鉴权与限流、Cookie 加 HttpOnly/SameSite、依赖定期审计。对前端方向的同学，这些正好对应你写 Vue/React 项目时最容易忽略的地方：很多人把 token 直接塞 localStorage 就交付了。建议拿自己的课设项目对照清单逐条自查，改完写进 README，面试聊项目安全时就是现成素材。",
+   "source": "DEV Community",
+   "date": "2026-10-24",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "课设/简历加分",
+   "value": "**一张能直接套在自己 Web 课设上的安全自查清单**",
+   "courses": "《Web 应用开发》《网络安全技术》中作为前端安全实践参考",
+   "tags": [
+    "前端开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "安全要在编码阶段介入，而非上线后补救",
+    "重点：服务端二次校验、密钥不进前端、API 鉴权限流",
+    "Cookie 建议 HttpOnly + SameSite，token 别裸放 localStorage",
+    "可直接拿课设项目做逐条自查"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building Secure Web Applications with JavaScript: Essential Best Practices",
+   "link": "https://dev.to/ansh_sheladiya/building-secure-web-applications-with-javascript-essential-best-practices-14h7",
+   "cover": "img/a686.webp"
+  },
+  {
+   "id": "a687",
+   "title": "PHP 爆出可远程执行代码的严重漏洞，全球紧急「拔网线」",
+   "summary": "PHP 紧急修复两个严重漏洞，攻击者无需登录即可远程执行代码，大量站点被迫临时下线。",
+   "content": "这次漏洞的危险点在于「无需登录、远程执行」，意味着只要服务暴露在公网就可能被打。虽然 PHP 不是你们的主语言，但漏洞成因值得所有写后端的人警惕：反序列化、参数解析边界、默认配置过于宽松，这些坑在 Java 的 Fastjson、Spring 里同样出现过。信息安全方向的同学可以顺着这个事件去查 CVE 详情与补丁 diff，练习「漏洞公告 → 影响面评估 → 修复验证」的完整流程；Java 方向的同学则对照检查自己项目里有没有不安全的反序列化入口。",
+   "source": "爱范儿",
+   "date": "2026-10-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**借一次真实 RCE 事件，把「漏洞响应流程」练成可写进简历的技能**",
+   "courses": "《网络安全技术》《Java Web 开发》中对照反序列化漏洞讲解",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "两个严重漏洞均可未授权远程执行代码",
+    "成因涉及反序列化与参数解析边界，Java 生态有同类问题",
+    "可练习漏洞公告解读、影响面评估、补丁验证流程",
+    "检查自己项目中的反序列化入口与默认配置"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1685446?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a687.webp"
+  },
+  {
+   "id": "a688",
+   "title": "GitLab 19.4 发布：新增目标驱动型智能体，强化 CI 成本控制",
+   "summary": "GitLab 19.4 引入目标驱动型智能体并加强流水线成本控制，对日常用 GitLab 做课设与团队协作的学生有直接影响。",
+   "content": "目标驱动型智能体指的是你给它一个目标（比如「修复这条流水线失败」），它自己拆步骤去执行，而不是一问一答。对软件工程学生更实用的是成本控制部分：CI 分钟数、Runner 资源消耗可视化，团队做课程项目时最容易出现流水线乱跑、额度提前耗光。建议在《软件工程》课程项目的 .gitlab-ci.yml 里加上缓存与阶段裁剪，配合新版的用量面板看效果。工业软件实验班做持续集成演示时，这也是个能讲清楚的工程化案例。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "GitLab CI"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把 CI 成本意识提前建立起来，团队课设不再烧光流水线额度**",
+   "courses": "《软件工程》持续集成与 DevOps 章节的实操工具",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "新增目标驱动型智能体，可自主拆解任务执行",
+    "强化 CI 成本与 Runner 资源可视化",
+    "课设项目可借用量面板优化 .gitlab-ci.yml",
+    "适合作为《软件工程》持续集成章节的实例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/c6KGCCmGuad5wbAcCG61?utm_source=rss&utm_medium=article",
+   "cover": "img/a688.webp"
+  },
+  {
+   "id": "a689",
+   "title": "Spotify 用 AI 赋能开发，月代码变更量翻倍",
+   "summary": "Spotify 披露引入 AI 辅助开发后月代码变更量翻倍，同时给出了配套的评审与质量保障做法。",
+   "content": "代码变更量翻倍本身不是成绩，值得学的是它背后的工程配套：更细的提交粒度、自动化的静态检查与测试覆盖、以及把 AI 生成代码纳入同一套评审流程。对准备求职的同学，这条新闻的价值在于回答面试常问的「你怎么用 AI 写代码又不失控」——答案是流程而不是工具。建议在自己的课设里实践：AI 生成的每个函数都要有对应单测，提交信息写清楚改动意图，用 Git 历史证明你能管住 AI 产出。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "求职准备",
+   "value": "**学会用工程流程驾驭 AI 产出，这是面试里最容易被追问的点**",
+   "courses": "《软件工程》代码评审与质量保障章节的讨论素材",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "AI 辅助后月代码变更量翻倍，但重点在配套流程",
+    "关键做法：细粒度提交、静态检查、AI 代码同样走评审",
+    "面试可答「如何用 AI 又不失控」：靠流程不靠工具",
+    "课设中给 AI 生成代码补单测并规范提交信息"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/rVqEbaXeaJ91UWlQF4F9?utm_source=rss&utm_medium=article",
+   "cover": "img/a689.webp"
+  },
+  {
+   "id": "a690",
+   "title": "PostgreSQL 19 延期背后：AI 找 Bug 太快，人类修 Bug 跟不上",
+   "summary": "AI 辅助代码审查大幅提升了缺陷发现速度，反而让 PostgreSQL 19 的修复节奏承压，引发对「发现与修复失衡」的讨论。",
+   "content": "这件事的启示不是「AI 太强」，而是工程节奏被打乱后的应对方式。当静态分析与 AI 审查能在一天内报出上百个问题，团队必须做优先级分级：哪些是阻塞发布的、哪些可以进 backlog、哪些是误报。对软件工程学生，这正好对应《软件工程》里的缺陷管理与发布管理——建议在课设中试着用 AI 审查工具扫一遍自己的代码，然后按严重程度分类处理，记录处理决策。这套「分级 + 决策记录」的做法，比单纯堆功能更能体现工程素养。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "PostgreSQL"
+   ],
+   "diff": 2,
+   "scene": "课设",
+   "value": "**理解「发现快于修复」的失衡，学会用缺陷分级管理工程节奏**",
+   "courses": "《软件工程》缺陷管理与发布管理章节的鲜活案例",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "AI 审查让缺陷发现速度远超人工修复速度",
+    "应对关键是缺陷分级与发布节奏管理",
+    "课设可实践：AI 扫描 → 分级 → 记录处理决策",
+    "体现的是工程素养，而非工具使用量"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Q6mgHWCSqV6KeZzee3NT?utm_source=rss&utm_medium=article",
+   "cover": "img/a690.webp"
+  },
   {
    "id": "a679",
    "title": "用GUI+反射可视化EnumSet内部位图：RegularEnumSet增减元素全过程",
@@ -55,7 +269,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "AI把漏洞发现周期从数周压缩到两天，修复仍以月计",
@@ -3911,220 +4125,6 @@
    ],
    "buzz": [],
    "link": "https://www.infoq.cn/article/yZh3MeRrBa7IbsB1PrUp?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a573",
-   "title": "彻底关闭 Windows 11 遥测、Recall 与后台广告的 2026 实操指南",
-   "summary": "一篇英文实操文，逐步讲解如何在 Windows 11 24H2 上关闭诊断遥测、Copilot Recall 快照与系统后台推广内容。",
-   "content": "24H2 的诊断数据采集比以往更激进，Recall 还会周期性截屏存本地。这篇文章按步骤给出关闭路径：组策略/注册表关遥测、禁用 DiagTrack 服务、关闭 Recall 快照、清理开始菜单与锁屏推广项。对信息安全专业来说，它的价值不在「照做」，而在「读懂每个开关背后的数据流」——哪些是系统服务、哪些是计划任务、哪些走网络回传。建议在虚拟机里逐项操作并用 Wireshark 抓包对比前后流量差异，写成一份《终端数据外泄面收敛》实验报告。这比背概念更能体现你对主机侧隐私控制的理解，也是安全运维岗的常见实操题。",
-   "source": "DEV Community",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Windows"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**把「关遥测」做成抓包对比实验，比照抄步骤更能体现主机安全功底**",
-   "courses": "《操作系统安全》《主机安全运维》实验课做终端数据外泄面收敛",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "覆盖遥测、Recall 截屏、后台推广三类数据外泄面",
-    "涉及组策略、注册表、服务与计划任务多层开关",
-    "建议虚拟机内操作并抓包对比前后流量"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Completely Disable Windows 11 Telemetry, Copilot Recall, and Background Ads (2026 Step-by-Step Guide)",
-   "link": "https://dev.to/techboss/how-to-completely-disable-windows-11-telemetry-copilot-recall-and-background-ads-2026-42bm",
-   "cover": "img/a573.webp"
-  },
-  {
-   "id": "a565",
-   "title": "AI生成的代码怎么进工程体系？给软件工程学生的落地清单",
-   "summary": "InfoQ 讨论 AI 生成代码进入真实工程体系的路径：评审、测试、可追溯与责任边界，而不是「生成完就合并」。",
-   "content": "现在用 Copilot、通义灵码写课设，代码能跑就交；但企业里 AI 生成的代码要过 code review、静态扫描、单测覆盖率和依赖审计。这篇文章值得你在做课程项目时提前练：给 AI 生成代码单独建分支，强制走 PR 评审，补上单元测试再合并；对生成代码标注来源，方便追溯。信息安全方向的同学还可以关注生成代码里的硬编码密钥、不安全依赖问题。把这套流程写进简历项目描述，比只写「会用 AI 写代码」有说服力得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Git",
-    "CI/CD"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「会用AI写代码」升级成「能让AI代码安全进主干」，是面试官真正想听的工程能力。**",
-   "courses": "对应《软件工程》《软件测试》，课程项目里直接实践 PR 评审+单测流程",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "AI 生成代码需走 PR 评审、单测、静态扫描，不能直接合并",
-    "给生成代码标注来源，便于追溯与责任划分",
-    "注意生成代码中的硬编码密钥与不安全依赖",
-    "把流程写进项目描述，是简历加分项"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/8iKz8xNQvxDfeuxH1QLA?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a566",
-   "title": "生产级大模型平台工程实战手册：从Demo到上线的坑",
-   "summary": "InfoQ 整理大模型平台工程化实战：模型服务部署、推理性能、监控与成本控制。",
-   "content": "学生做 AI 课设常止步于「本地跑通一个模型」，而企业关心的是并发、延迟、显存和成本。这份手册覆盖模型服务化（推理框架选型）、限流降级、日志监控、Token 成本核算等环节。建议做法：拿你课设里的问答 Demo，用 FastAPI 包一层服务，加请求队列和超时，再用压测工具看 QPS 与 P99 延迟，把数据写进项目 README。工业软件实验班的同学可思考如何把模型服务嵌入现有产线系统。这套经验对 Java 后端同学同样适用——服务治理思路是相通的。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "FastAPI",
-    "Docker"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**把「跑通模型」变成「能扛并发的服务」，是从课设走向实习的关键一步。**",
-   "courses": "对应《软件工程》《分布式系统》，课设中实践服务化与压测",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "覆盖模型服务化、限流降级、监控与成本核算",
-    "用 FastAPI 包一层服务并压测 QPS/P99，数据写进 README",
-    "Java 后端同学可迁移服务治理思路",
-    "工业软件方向可思考模型服务嵌入产线系统"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/xQLd004RGWrzFhwqBOyC?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a567",
-   "title": "openEuler Summit 2026 议程：Agentic Infra 操作系统方向",
-   "summary": "开源中国发布 Agentic Infra 操作系统大会暨 openEuler Summit 2026 邀请，聚焦 AI 基础设施与操作系统生态。",
-   "content": "openEuler 是国内主流的开源服务器操作系统，信创与工业场景用得很多。这次大会主题是 Agentic Infra，即面向 AI Agent 的基础设施，涉及容器调度、资源隔离、内核优化等。对信息安全与管理专业的同学，openEuler 的加固配置、审计日志、SELinux 策略是很好的练手素材；软件工程同学可以关注其软件包构建与 CI 流程。建议：在虚拟机装一个 openEuler，跑通一次 RPM 打包或安全基线检查，写进实验报告。这类国产化栈经验在国企、制造业信息化岗位很吃香。",
-   "source": "开源中国",
-   "date": "2026-10-16",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "openEuler",
-    "Linux"
-   ],
-   "value": "**国产化操作系统是信创岗位的硬门槛，装一台虚拟机练手成本极低。**",
-   "courses": "对应《操作系统》《信息安全技术》，实验课可做安全基线加固",
-   "tags": [
-    "工业软件",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "openEuler 是信创与工业场景常用开源服务器系统",
-    "信息安全方向可练加固配置、审计日志、SELinux",
-    "软件工程方向可练 RPM 打包与 CI 流程",
-    "国产化栈经验在国企/制造业岗位有优势"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503062"
-  },
-  {
-   "id": "a568",
-   "title": "模域ModelSphere：开源一站式生产级AI部署平台",
-   "summary": "范式智能联合睿思智联推出开源生产级 AI 部署平台「模域」，面向模型上线与运维。",
-   "content": "学生部署模型常卡在环境依赖、GPU 调度、服务编排上。模域定位一站式生产级部署，若真开源可用，可作为课设的部署底座：把训练好的小模型打包上线，体验从镜像构建到服务暴露的完整链路。建议先看它的架构文档和部署示例，判断是否支持你手头的 PyTorch 模型与单卡环境。注意甄别「生产级」宣传与实际成熟度，先在本地或实验室服务器试跑，别直接上课程演示环境。对工业软件方向，可思考模型部署如何对接产线数据接口。",
-   "source": "量子位",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Docker",
-    "PyTorch"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**给课设模型找一个能一键上线的部署底座，省下折腾环境的时间。**",
-   "courses": "对应《软件工程》《云计算》，课设部署环节可试用",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "一站式模型部署，覆盖镜像构建到服务暴露",
-    "先在本地/实验室服务器试跑，别直接上演示环境",
-    "关注是否支持你的 PyTorch 模型与单卡环境",
-    "工业软件方向可思考对接产线数据接口"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/503829.html",
-   "cover": "img/a568.webp"
-  },
-  {
-   "id": "a569",
-   "title": "Gemini 4 发布并限时 API 半价：学生项目调模型的省钱窗口",
-   "summary": "谷歌发布 Gemini 4，API 限时半价，对做 AI 应用课设的学生是低成本试错机会。",
-   "content": "做 AI 应用课设，模型 API 费用常是痛点。Gemini 4 上线并限时半价，意味着你可以用更低成本跑通一个完整应用：比如课程问答机器人、代码审查助手。实操建议：用环境变量管理 API Key（别硬编码进仓库，这是安全专业的基本功），加一层简单缓存减少重复调用，记录每次调用的 Token 消耗做成本表。对比国内模型做一次效果与价格的小评测，写进实验报告，比单纯「调通接口」更有内容。注意半价是限时的，别把长期方案押在上面。",
-   "source": "量子位",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Gemini API",
-    "Python"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**趁限时半价把 AI 应用课设跑完整，同时练好密钥管理与成本核算。**",
-   "courses": "对应《人工智能导论》《Web开发》，课设中接入大模型 API",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "限时半价适合课设阶段低成本试错",
-    "API Key 用环境变量管理，禁止硬编码进仓库",
-    "加缓存并记录 Token 消耗，做成本对比表",
-    "做一次国内外模型效果/价格小评测，写进报告"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/503701.html"
   }
  ],
  "jobs": [
