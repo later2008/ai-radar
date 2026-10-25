@@ -1,6 +1,174 @@
 {
- "updatedAt": "2026-10-25 10:43",
+ "updatedAt": "2026-10-25 22:10",
  "news": [
+  {
+   "id": "a711",
+   "title": "150行Python给AI Agent工具调用加四层防护：Schema校验+白名单+熔断",
+   "summary": "用标准库150行实现AI Agent工具调用的四层拦截：Schema校验、暴露收敛、权限白名单、运行时熔断，附5个可运行场景。",
+   "content": "AI Agent 能调工具之后，最怕的不是它不会用，而是它乱用——参数填错、越权调用、死循环刷接口。这篇给出一份不依赖第三方库的 Python 实现：第一层用 JSON Schema 卡参数类型和必填项；第二层只把必要工具暴露给模型，减少误选；第三层按角色做工具白名单；第四层在运行时统计调用频次和异常，触发熔断。作者强调 60%–75% 的失败源于参数填错而非选错工具，所以校验层收益最大。建议你在课设里把这段代码抄进自己的 Agent demo，改造成「学生只能查成绩、不能改成绩」的权限模型，跑通后再补日志与告警。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用150行代码把「AI乱调工具」变成可拦截、可演示的安全模块，信安方向简历上很能打。**",
+   "courses": "对应《Python程序设计》《信息安全导论》，可作为课程设计中的Agent权限控制子模块。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "四层防线：Schema校验→暴露收敛→权限白名单→运行时熔断",
+    "纯标准库实现，约150行，可直接跑",
+    "统计显示多数失败来自参数错误，校验层性价比最高",
+    "可改造成课程项目里的权限控制模块"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700194552505892891"
+  },
+  {
+   "id": "a712",
+   "title": "AI Agent误调用工具的四层工程防线：从参数校验到高危二次确认",
+   "summary": "拆解Agent工具误调用的四层防线及每层失效边界，重点讲高危操作的二次人工确认设计。",
+   "content": "上一篇讲怎么写，这篇讲为什么这么写、哪里会失效。作者把防线拆成四层：Schema 约束参数结构、按场景收敛工具分类、权限白名单限定可调用集合、运行时风控加高危操作二次确认。关键洞察是「模型选错工具不是主因」，大量事故来自参数边界（金额、ID、时间范围）没卡住。文中给出每层的失效边界，比如白名单挡不住合法工具被滥用、二次确认在异步任务里会失效。做工业软件方向的同学尤其值得读：设备参数下发、工单状态变更这类操作，天然需要「高危二次确认」这一层，可以直接映射到你们的生产管理系统课设里。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "工业软件"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**教你给「会动手的AI」设计安全边界，工业软件与信安场景都能直接套用。**",
+   "courses": "对应《软件工程》《信息安全技术》，可在生产管理系统课设中设计指令下发审批流程。",
+   "tags": [
+    "信息安全",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "四层防线各有失效边界，不能只靠单层",
+    "高危操作必须二次确认，异步场景要特殊处理",
+    "参数边界（金额/ID/时间）是最容易漏的地方",
+    "适合映射到工业软件中的设备指令下发场景"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700327310138687498"
+  },
+  {
+   "id": "a713",
+   "title": "wxa-runner：让小程序跑进普通浏览器，直接接Playwright做无头E2E",
+   "summary": "开源项目让微信小程序在浏览器里用官方基础库运行，解决Linux CI无法跑小程序自动化测试的痛点。",
+   "content": "微信开发者工具只有 Windows/macOS 版，Linux CI 上跑不了，小程序自动化测试长期靠手工。wxa-runner 的思路是在普通浏览器里加载微信官方基础库，把小程序跑起来，从而能直接接 Playwright 做无头端到端测试。对前端方向的同学，这是一个很好的「测试工程化」练手素材：你可以拿自己做过的小程序课设，写几条 Playwright 用例，覆盖登录、列表加载、下单流程，再挂到 GitHub Actions 上。面试时讲「我给小程序搭了CI自动化测试」，比只讲页面写得多漂亮有说服力得多。注意这类方案与官方运行时存在差异，断言要选稳定的业务节点。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Playwright"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**给小程序项目补上可进CI的自动化测试，是前端简历里少见的加分项。**",
+   "courses": "对应《Web前端开发》《软件测试》，可把小程序课设改造成带E2E用例的完整项目。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "解决Linux CI无法运行微信开发者工具的问题",
+    "浏览器内加载官方基础库，可接Playwright",
+    "适合给小程序课设补E2E测试并接入CI",
+    "与官方运行时存在差异，断言需选稳定节点"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700090632083308594"
+  },
+  {
+   "id": "a714",
+   "title": "WebGIS+AI智能体：一句话处理CAD图纸，支持MCP接入AI编辑器",
+   "summary": "唯杰地图智能体平台用自然语言完成CAD图纸叠加地图、坐标转换、图片转DXF、构件识别与智能审图。",
+   "content": "这个平台把 GIS 与 CAD 打通：图纸叠加地图后自动定坐标系、做坐标转换与参数解算、图片转可编辑 DXF、构件识别与智能审图，全部用一句话触发，并支持 MCP 接入 AI 编辑器。对工业软件实验班的同学，价值不在「用这个平台」，而在看清它背后的技术栈：坐标系与投影变换、DXF 解析、构件语义识别、审图规则引擎——这些正是 CAD/CAE 二次开发的核心能力。建议把它当作需求样本，在自己的课程设计里挑一个小切口实现，比如「上传图纸图片→识别图框与标题栏→输出结构化字段」，比空谈智能体更有产出。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "industry",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**看清「AI+CAD」背后的坐标变换与图纸解析能力，工业软件方向选题从这里找切口。**",
+   "courses": "对应《计算机图形学》《CAD技术基础》，可作为工业软件实验班课程设计的选题参考。",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "打通GIS与CAD：坐标转换、图片转DXF、构件识别、智能审图",
+    "支持MCP接入AI编辑器，可被Agent调用",
+    "背后是投影变换、DXF解析、规则引擎等工业软件核心能力",
+    "建议挑一个小切口自己实现，而非只做平台使用者"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699886793819832320"
+  },
+  {
+   "id": "a715",
+   "title": "Java位图实战：用GUI看EnumSet增删元素时long数组怎么变",
+   "summary": "用可视化界面拆解JumboEnumSet的long数组位图，展示130个常量下add/remove/clear时elements与size的变化。",
+   "content": "EnumSet 是 Java 集合里最容易被背答案、却最少被真正理解的一个：RegularEnumSet 用一个 long 存 64 位，超过 64 个常量就切到 JumboEnumSet 用 long 数组。这篇文章用 GUI 把内部 elements 数组和 size 字段的变化一步步画出来，130 个常量下 add、remove、clear 时位图怎么翻转一目了然。对准备 Java 面试的同学，这是理解「位运算做集合」的最佳入口；对做课设的同学，可以照着写一个自己的可视化调试小工具，练手 Swing/JavaFX 的同时把集合源码读进去。建议配合 JDK 源码一起看，重点搞清 complementOf、range 这类静态工厂的边界处理。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把EnumSet源码从「背结论」变成「看得见」，Java面试与课设都用得上。**",
+   "courses": "对应《Java程序设计》《数据结构》，可在集合章节配合源码阅读做可视化演示。",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "RegularEnumSet用单个long，超64个常量切JumboEnumSet",
+    "GUI逐步展示elements位图与size的变化",
+    "是理解位运算实现集合的最佳入口",
+    "可仿写可视化调试工具，顺带练JavaFX/Swing"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700211887543582783"
+  },
   {
    "id": "a705",
    "title": "250行纯标准库给Agent造出站门：SSRF防护与出站边界实战",
@@ -25,7 +193,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "250行纯标准库实现，无第三方依赖，可直接读源码",
@@ -3941,173 +4109,47 @@
    "cover": "img/a597.webp"
   },
   {
-   "id": "a598",
-   "title": "Karmada 从 CNCF 毕业：多集群 Kubernetes 管理进入成熟期",
-   "summary": "Kubernetes 多集群项目 Karmada 完成 CNCF 毕业，标志多集群调度与容灾方案获得社区背书。",
-   "content": "CNCF 毕业意味着项目 API 稳定、生产可用、有足够多的采用者，选型时风险显著降低。Karmada 解决的是「一套控制面管多个 K8s 集群」：跨集群调度、故障迁移、灰度发布。对本科生来说，单机 kind 就能起两个集群做实验，把 Deployment 下发到成员集群、模拟一个集群宕机看迁移效果，是很好的云原生练手项目。信息安全方向可以关注多集群下的策略一致性与 RBAC 边界——集群多了，权限最容易失控。写在简历上，「多集群容灾实验」比「会 kubectl」具体得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes",
-    "Karmada"
-   ],
-   "value": "**云原生选型的风向标，也是多集群容灾练手项目的起点**",
-   "courses": "《云计算技术》——容器编排实验扩展为多集群场景",
+   "id": "wk-20261019",
+   "title": "【AI风向标周报】第1期（10.19-10.25）",
+   "summary": "本周精选：TypeScript 编译器 Rus、14 款大模型 Java 编码能力横等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器\n   亲手测一次构建提速，比记住「快8倍」这个数字有用\n   原文：https://www.oschina.net/news/503149/cloudflare-typescript-rust-port\n2. 14 款大模型 Java 编码能力横评：闭源三强断层领先，开源追到哪了\n   让你在「用 AI 写 Java」这件事上有数据支撑的判断，而不是凭感觉。\n   原文：https://juejin.cn/post/7699685792612302883\n3. PHP 两个重大漏洞惊动日本首相：5700万浏览的补丁呼吁\n   用真实高危漏洞事件练一遍「披露→复现→通告」的完整安全响应流程\n   原文：https://www.oschina.net/news/503146\n4. OpenAI 挑战 COBOL：老系统代码迁移准确率从 5.4% 飙到 97.9%\n   抓住遗留系统迁移这一真实就业缺口，练「AI 翻译+人工对拍验证」工作流\n   原文：https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk?utm_source=rss&utm_medium=article\n5. PHP 史诗级漏洞「PHP2Shell」已在野利用：无需登录即可远程执行代码，全球约七成网站受影响\n   用一个真实 RCE 漏洞把「输入校验」从考点变成手感\n   原文：https://www.oschina.net/news/503157/watchtowr-php-cve-2026-109618-faq\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. 用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）\n   手写一遍 harness，比背框架 API 更能讲清楚 Agent 到底怎么跑起来\n   获取：https://www.freecodecamp.org/news/how-to-build-an-ai-agent-harness-from-scratch-in-typescript/\n2. 虚拟线程不是无限并发：Java 后端该限流的其实是这些资源\n   把「线程便宜≠系统无限并发」讲透，Java 后端性能设计的必读一课\n   获取：https://juejin.cn/post/7698661900759285823\n3. 150行Python给AI Agent工具调用加四层防护：Schema校验+白名单+熔断\n   用150行代码把「AI乱调工具」变成可拦截、可演示的安全模块，信安方向简历上很能打。\n   获取：https://juejin.cn/post/7700194552505892891\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
+   "source": "AI风向标·编辑部",
+   "date": "2026-10-25",
+   "cat": "weekly",
    "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "CNCF 毕业代表 API 稳定、生产可用",
-    "kind 本地起双集群即可做跨集群调度实验",
-    "安全视角：多集群 RBAC 与策略一致性易失控"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4t84hFyjYP6gq9KNWE60?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a599",
-   "title": "OpenTelemetry 的 Kubernetes 属性处理器转稳定版：可观测性落地更省心",
-   "summary": "随着可观测性模式成熟，OpenTelemetry 将 Kubernetes Attribute Processor 提升为稳定版本。",
-   "content": "微服务课设里日志散落各处、出问题只能靠 print 排查，是可观测性缺失的典型症状。OpenTelemetry 的 K8s Attribute Processor 稳定后，采集端能自动给日志、指标、链路打上 pod、namespace、node 等资源属性，你在 Grafana 里就能按服务维度直接过滤，不用手写一堆标签。实操路径：本地 kind 起集群 → 部署 OTel Collector → 应用接入 SDK → 在 Jaeger 看跨服务调用链。这套链路是后端实习面试的高频加分项，也顺带让你理解「日志里为什么要带 trace_id」。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "OpenTelemetry",
-    "Kubernetes"
-   ],
-   "value": "**把「会打日志」升级成「会做可观测性」，实习面试的实打实加分项**",
-   "courses": "《软件工程》《分布式系统》——微服务项目接入链路追踪",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "自动为遥测数据附加 pod/namespace 等 K8s 属性",
-    "本地 kind + Collector + Jaeger 即可跑通全链路",
-    "后端实习面试高频考点：trace_id 与跨服务追踪"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zBfzQbuxFmP1qrIpZWTG?utm_source=rss&utm_medium=article",
-   "cover": "img/a599.webp"
-  },
-  {
-   "id": "a600",
-   "title": "Cloudflare 推出面向 AI 代理的 CLI，Wrangler 逐步停用",
-   "summary": "Cloudflare 发布专为 AI 代理设计的命令行工具，并计划逐步停用现有 Wrangler。",
-   "content": "如果你用 Cloudflare Workers 部署过课设后端，Wrangler 这个名字不陌生。官方现在推出面向 AI 代理的 CLI 并逐步停用 Wrangler，信号很明确：部署工具正在为「Agent 自动执行」重新设计——命令输出更结构化、更适合被程序解析和重试。对学生的影响是：新项目直接学新 CLI，老教程里的 Wrangler 命令可能陆续失效，跟着博客抄命令时要留意版本。建议在个人小项目上试一次部署流程，理解「CLI 输出可被 Agent 消费」这个设计趋势，面试聊工具链演进时能说出所以然。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Cloudflare Workers"
-   ],
-   "diff": 2,
-   "scene": "练手",
-   "value": "**前端部署工具链正在为 Agent 重写，别照着旧教程抄命令**",
-   "courses": "《Web 前端开发》——Serverless 部署实践",
-   "tags": [
-    "前端开发",
+    "周报汇总",
+    "求职就业",
     "AI工具",
     "行业动态"
    ],
    "featured": false,
-   "heat": 50,
+   "heat": 99,
    "brief": [
-    "新 CLI 面向 Agent 自动执行设计，输出更结构化",
-    "Wrangler 逐步停用，老教程命令会失效",
-    "建议小项目实测一次部署流程"
+    "精选资讯 Top5：TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器",
+    "精选岗位 Top0：—",
+    "实用工具 Top3：用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）"
    ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Ddda0DF68laqfoqa4Lju?utm_source=rss&utm_medium=article",
-   "cover": "img/a600.webp"
-  },
-  {
-   "id": "a588",
-   "title": "OpenCode 2.0 发布：插件体系大改，旧插件全部失效",
-   "summary": "开源 AI 编码工具 OpenCode 升级到 2.0，官方称是一次“重大改造”，旧版插件全部报废，需要按新接口重写。",
-   "content": "如果你在用 OpenCode 这类终端 AI 编码工具写课设或做项目，这次升级要留意：2.0 对插件体系做了破坏性重构，旧插件无法直接迁移。对学生来说，实际影响是：一、升级前先备份项目配置和自定义插件；二、如果你写过小插件（比如自定义命令、代码检查钩子），正好借机读一遍新插件 API，理解“工具调用—上下文注入—结果回传”这条链路，这是 AI 编码工具最核心的工程结构；三、团队协作项目里不要盲目全员升级，先在分支上验证。这类“破坏性升级”在真实工程中很常见，学会读迁移说明、评估影响面，比会用一个工具更值钱。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "OpenCode"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**理解 AI 编码工具的插件机制与破坏性升级应对，是工程素养的实战练习。**",
-   "courses": "《软件工程》/《程序设计》课程项目中的开发工具链实践",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "2.0 为破坏性升级，旧插件全部失效",
-    "升级前备份配置与自写插件",
-    "借机读懂插件 API 与工具调用链路",
-    "团队项目先在分支验证再统一升级"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/IK5AWDwovCu5lx3e3mhc?utm_source=rss&utm_medium=article",
-   "cover": "img/a588.webp"
-  },
-  {
-   "id": "a589",
-   "title": "FastAPI+Vue3+TS 企业级中台框架 v2.7.3：细到按钮级的 RBAC 权限怎么落地",
-   "summary": "DjangoAdmin 敏捷开发框架的 FastAPI+AntdVue 版本更新，技术栈为 FastAPI、Vue3、TypeScript、AntDesign、Vite，内置按钮与方法级 RBAC 权限体系。",
-   "content": "这个项目对软件工程专业很实用：它把“用户—角色—权限菜单—部门—岗位—日志—数据字典”这一整套后台通用模块做成了可运行的前后端分离模板，权限控制细到按钮和方法级。你可以这样用：一、作为课设或毕业设计的后台骨架，省掉登录鉴权、菜单权限这些重复劳动；二、重点读它的 RBAC 设计——前端如何按权限渲染按钮、后端如何在接口方法上做校验，这是面试常问的点；三、前端部分用 Vue3+TS+AntDesign，正好对照《Web 前端开发》练组件化与类型定义。注意别只当“拿来就用”的脚手架，把权限模型画成 ER 图，才算真学会。",
-   "source": "开源中国",
-   "date": "2026-10-19",
-   "cat": "stack",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "FastAPI",
-    "Vue3"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一套可直接复用的后台骨架，重点价值在按钮级 RBAC 权限设计的可读实现。**",
-   "courses": "《Web 前端开发》《数据库原理》课设后台搭建",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "前后端分离企业级中台模板，模块齐全",
-    "权限细到按钮级与方法级，值得精读",
-    "可作课设/毕设后台骨架，省重复开发",
-    "建议画出 RBAC 权限模型图加深理解"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503075"
+   "link": "",
+   "cover": "img/a647.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-10-19",
+    "end": "2026-10-25",
+    "news": [
+     "a653",
+     "a673",
+     "a645",
+     "a647",
+     "a661"
+    ],
+    "jobs": [],
+    "tools": [
+     "a620",
+     "a624",
+     "a711"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [
