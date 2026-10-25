@@ -1,6 +1,177 @@
 {
- "updatedAt": "2026-10-24 13:54",
+ "updatedAt": "2026-10-25 02:26",
  "news": [
+  {
+   "id": "a700",
+   "title": "Prompt工程岗位暴涨486%但67%旧岗消失：Langfuse+Promptfoo+GEPA链路怎么搭",
+   "summary": "猎聘数据显示Prompt相关岗位需求暴涨486%，但67%的传统岗位已消失；博主给出「Langfuse管版本追踪→Promptfoo做回归监控→GEPA自动优化」的可落地链路。",
+   "content": "这条对软件工程和信息安全同学都有用：它讲的不是「Prompt写得好不好」，而是一套工程化的AI应用质量保障流程。Langfuse负责版本管理与调用链追踪，Promptfoo做回归测试和错误监控，指标干净后再接GEPA做自动优化——本质是把「提示词」当成代码来管：有版本、有测试、有监控、有迭代。你可以直接把这套链路搬进课设：比如给一个RAG问答系统加Promptfoo测试集，跑通「改一版Prompt→自动回归→看指标」的闭环。面试时能讲清楚「我怎么保证AI功能不退化」，比只会调API高一个档次。注意别被「Prompt已死」的标题带偏，死的是手工作坊式调参，活的是工程化。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Langfuse",
+    "Promptfoo"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把提示词工程变成可测试、可监控的软件工程流程，是AI应用岗的硬通货。**",
+   "courses": "《软件工程》课程设计中的测试与质量保障环节，可作为AI模块的回归测试方案",
+   "tags": [
+    "AI工具",
+    "求职就业",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "Prompt岗位需求暴涨486%，但67%旧岗位消失，说明要的是工程化能力而非调参",
+    "链路：Langfuse管版本追踪→Promptfoo回归监控→GEPA自动优化",
+    "把Prompt当代码管：有版本、有测试集、有指标、有迭代",
+    "可直接用于课设RAG项目，形成「改Prompt→自动回归」闭环"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699989560454217763"
+  },
+  {
+   "id": "a701",
+   "title": "React闭包陷阱实战：useEffect里定时器「永远迟到」的计数器怎么修",
+   "summary": "直播礼物特效场景中，WebSocket推送的数量在useEffect定时器里读到陈旧state，导致动画计数器总是慢半拍；文章给出依赖数组、函数式更新、useRef等修法。",
+   "content": "这是前端面试和课设都会踩的坑：useEffect里的setInterval回调捕获的是首次渲染的state，后续WebSocket推来的新值它根本看不到，于是计数器「永远迟到」。核心解法有三条：一是把用到的state放进依赖数组并在清理函数里clearInterval；二是用setState(prev=>prev+1)的函数式更新绕开闭包；三是把最新值存进useRef，定时器只读ref.current。文章结合直播礼物特效的真实场景讲，比纯理论好懂。建议你打开自己的React课设，搜一遍所有useEffect+setInterval/setTimeout，逐个检查依赖数组是否漏项——这是最容易被面试官追问的点。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**闭包陷阱是React面试高频题，修一次就永久记住。**",
+   "courses": "《Web前端开发》React章节，可直接用于课设中的实时数据展示模块",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "useEffect内定时器捕获首次渲染的state，导致读到陈旧值",
+    "修法：补全依赖数组+清理函数、函数式更新、useRef存最新值",
+    "真实场景：WebSocket推送+动画计数器",
+    "自查方法：全局搜useEffect+定时器，检查依赖数组"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699859514523664399"
+  },
+  {
+   "id": "a702",
+   "title": "HTTP2Shell漏洞：Brotli解码器越界写CVSS 9.2，Node与Python同时中招",
+   "summary": "Google Brotli解码器1.0.3–1.2.0存在越界写漏洞CVE-2026-111497（CVSS v4.0 9.2），2月已修复但10月才大规模暴露，影响Node、Python等运行时。",
+   "content": "这是信息安全与管理专业必须关注的一类漏洞：不是业务代码写错，而是底层压缩库Brotli的解码器存在越界写，攻击者构造恶意压缩数据即可触发，CVSS v4.0评分9.2属严重级。更值得学的是它的时间线——2月就修好，10月才炸，说明「补丁发布≠风险解除」，依赖链上大量未升级的服务仍在裸奔。对你的实际用法：一是立刻检查自己项目和服务器上brotli相关依赖版本，用npm ls/ pip show定位；二是在《网络安全》课设里把它做成一个依赖漏洞扫描与修复的案例；三是理解「供应链漏洞」的排查思路——查CVE、看影响版本区间、评估可达性、升级验证。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Node.js",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**学会用CVE+版本区间+可达性评估一条依赖漏洞，是安全岗的基本功。**",
+   "courses": "《网络安全技术》漏洞分析与依赖供应链安全章节，可做课程案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "CVE-2026-111497：Brotli解码器越界写，CVSS v4.0 9.2",
+    "影响1.0.3–1.2.0版本，波及Node、Python等运行时",
+    "2月修复10月爆发，说明依赖未升级的风险窗口很长",
+    "实操：查依赖版本→对照影响区间→升级→回归验证"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700059276316590131"
+  },
+  {
+   "id": "a703",
+   "title": "智能任务调度Agent：拓扑排序+优先级抢占+资源感知，替代人工编排",
+   "summary": "技术文档介绍智能任务调度Agent的设计：通过动态拓扑排序处理依赖、优先级抢占处理紧急任务、资源感知分配提升利用率，替代人工编排。",
+   "content": "这个项目对工业软件实验班尤其对口：产线排程、批处理作业、CI流水线，本质都是「带依赖关系的任务在有限资源下怎么排」。文档给的三个抓手很实在：动态拓扑排序解决任务依赖（A完成才能跑B），优先级抢占解决紧急插队，资源感知分配避免把任务塞给已满载的节点。你可以把它做成一个课设：用Java或Python实现一个调度器，输入DAG任务图+资源池，输出执行序列，再加个可视化看板。难点在抢占时的状态保存与回滚，以及死锁/循环依赖检测。这套东西写进简历，比「增删改查管理系统」有辨识度得多，工业软件方向面试很吃这个。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "工业软件",
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**调度算法是工业软件的核心竞争力，一个能跑的调度器胜过十个管理系统。**",
+   "courses": "《数据结构与算法》《操作系统》进程调度章节，可延伸到工业软件排程课设",
+   "tags": [
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "三大机制：动态拓扑排序管依赖、优先级抢占管紧急、资源感知管分配",
+    "典型场景：产线排程、批处理作业、CI流水线",
+    "课设可做：DAG任务图+资源池→执行序列+可视化",
+    "难点：抢占时状态保存回滚、循环依赖检测"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699818345806430251"
+  },
+  {
+   "id": "a704",
+   "title": "Java生态近期动态：LangChain4j、Grails 8、Open Liberty、Infinispan、Spock",
+   "summary": "InfoQ汇总Java近期新闻，涵盖Grails 8、Open Liberty、GlassFish、Infinispan、LangChain4j、Spock等框架与工具的版本更新。",
+   "content": "这条适合当「技术雷达」扫一眼，重点看两个：LangChain4j——Java生态里做LLM应用集成的主流库，如果你走Java全栈又想碰AI功能，它是比Python方案更贴合你技术栈的入口，课设里可以用它给Spring Boot项目加一个带工具调用的问答模块；Spock——基于Groovy的测试框架，写出来的测试比JUnit更具描述性，适合在《软件测试》课里对比体验。其余如Grails 8、Open Liberty、Infinispan属于企业级框架和缓存中间件，知道它们在演进即可，不必深挖。建议做法：挑LangChain4j，花半天跑通官方quickstart，把它接进你现有的Java课设。",
+   "source": "InfoQ中文",
+   "date": "2026-10-25",
+   "cat": "stack",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "LangChain4j",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**Java选手做AI功能，LangChain4j是最短路径。**",
+   "courses": "《Java企业级开发》扩展AI集成模块，或《软件测试》中的Spock对比实验",
+   "tags": [
+    "Java全栈",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "重点看LangChain4j：Java生态集成LLM的主流库，贴合Java全栈路线",
+    "Spock测试框架可对比JUnit，用于软件测试课",
+    "Grails 8/Open Liberty/Infinispan属企业级演进，了解即可",
+    "行动项：跑通LangChain4j quickstart并接入现有Spring Boot课设"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/BHWP4JJDeExZZWsifFlg?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a695",
    "title": "开发者用 Claude 改造电视系统：一次「大逆向」实战",
@@ -57,7 +228,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "两个严重漏洞均可未授权远程执行代码",
@@ -3940,184 +4111,6 @@
    "origTitle": "Building Continuum: Cross-Agent Graph Memory with Explainable Recall Using FalkorDB",
    "link": "https://dev.to/himanshu_jha_de18b7f5726d/building-continuum-cross-agent-graph-memory-with-explainable-recall-using-falkordb-37o8",
    "cover": "img/a586.webp"
-  },
-  {
-   "id": "a587",
-   "title": "用JavaScript手写冒泡与快排：算法课代码落地版",
-   "summary": "把课堂上的排序算法用JS实现一遍，附复杂度对比和真实UI排序场景。",
-   "content": "算法课讲冒泡和快排，但很多同学只会背复杂度不会写。这篇用JavaScript把两种排序完整实现，并解释为什么前端场景下排序选择有讲究：小数组冒泡够用，列表渲染数据量大时快排的O(n log n)明显更稳。文章还提到JS内置sort的稳定性与比较函数陷阱——不传比较函数会按字符串排序，[10,9,1]会排成[1,10,9]，这是课设和笔试的高频坑。建议你照着敲一遍，再用console.time测不同数据规模下的耗时，把结果写进实验报告，比抄伪代码有说服力。",
-   "source": "DEV Community",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把算法课伪代码变成能跑的JS并实测性能，实验报告直接加分**",
-   "courses": "《数据结构与算法》——排序章节的代码实现与性能实测",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "冒泡与快排的JS完整实现与复杂度对比",
-    "JS sort不传比较函数会按字符串排序，是高频坑",
-    "用console.time实测不同规模耗时写进实验报告",
-    "前端列表渲染场景下的排序选择考量"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Bubble Sort and Quick Sort in JavaScript",
-   "link": "https://dev.to/devindev/ecrire-un-article-complet-sur-les-algorhytme-en-javascriptavec-exemples-de-code-explications-2bd",
-   "cover": "img/a587.webp"
-  },
-  {
-   "id": "a579",
-   "title": "Cloudflare 修复容器跨租户数据泄露：多租户隔离到底该怎么做",
-   "summary": "Cloudflare 披露并修复了其容器平台中的跨租户数据泄露漏洞，涉及多租户环境下的隔离边界问题。",
-   "content": "多租户隔离是云原生安全的核心命题：同一台宿主机上跑着不同客户的容器，一旦隔离边界被突破，就是跨租户数据泄露。这次 Cloudflare 的问题值得信息安全与管理专业的同学精读：它暴露的不是某个 CVE，而是「共享内核/共享运行时」架构下的信任边界设计缺陷。建议对照课程里的访问控制模型（BLP、Biba）和容器安全章节，画一张信任边界图，思考：容器运行时、网络命名空间、存储卷挂载点分别在哪一层做隔离？如果你在做课设时用 Docker Compose 起多服务，顺手练一下 seccomp、user namespace、只读根文件系统这些加固手段，写进简历就是实打实的云安全经验。",
-   "source": "InfoQ中文",
-   "date": "2026-10-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "云原生"
-   ],
-   "value": "**多租户隔离是云安全面试高频题，这个真实事故是最好的案例素材**",
-   "courses": "《信息安全技术》《操作系统安全》：对照访问控制模型分析容器隔离边界",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "跨租户泄露本质是隔离边界设计问题，不是单个补丁能解决的",
-    "重点复习容器运行时、命名空间、存储挂载三层隔离",
-    "课设可用 Docker 练 seccomp / user namespace / 只读根文件系统加固",
-    "面试常问：多租户 SaaS 的数据隔离方案怎么选"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YmllSwKbZXY0bcVjjw70?utm_source=rss&utm_medium=article",
-   "cover": "img/a579.webp"
-  },
-  {
-   "id": "a580",
-   "title": "开源一站式生产级 AI 部署平台「模域 ModelSphere」发布",
-   "summary": "范式智能联合睿思智联推出开源的生产级 AI 部署平台，覆盖模型部署到上线的工程链路。",
-   "content": "学生做 AI 项目最痛的一环不是调模型，而是「怎么让它在服务器上稳定跑起来」——推理服务、显存调度、多模型版本管理、监控告警，这些在课堂里几乎不教。ModelSphere 定位是开源的一站式生产级部署平台，正好补这块工程短板。建议软件工程（工业软件实验班）的同学拿它做两件事：一是把课程里训好的小模型部署上去，走通「训练→打包→部署→压测」全链路；二是读它的架构文档，理解生产级平台怎么做资源隔离和灰度发布。工业软件方向尤其值得看，因为产线侧的模型部署对稳定性和可运维性要求远高于实验室 demo。",
-   "source": "InfoQ中文",
-   "date": "2026-10-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "AI 部署",
-    "开源"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「会调模型」升级成「能把模型部署上线」，这是求职时最明显的分水岭**",
-   "courses": "《软件工程》《云计算》：作为部署实践案例，走通模型上线全流程",
-   "tags": [
-    "AI工具",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "补上「模型训完怎么上线」的工程课，课堂基本不教",
-    "练通训练→打包→部署→压测全链路，可写进简历项目",
-    "重点读架构文档里的资源隔离与灰度发布设计",
-    "工业软件场景对部署稳定性要求更高，值得对照思考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/VZPlIIdGRg062mgwJe5y?utm_source=rss&utm_medium=article",
-   "cover": "img/a580.webp"
-  },
-  {
-   "id": "a581",
-   "title": "DeepSeek 发布 V4.1-Flash-1017，并开放自研搜索 API",
-   "summary": "DeepSeek 新版本主打性价比，同时开放了自研搜索 API，可用于构建带联网检索能力的应用。",
-   "content": "对做课设和毕业设计的同学来说，这次更新有两个实际抓手：一是新模型主打性价比，意味着你可以用很低成本跑通一个完整应用而不必担心 token 账单；二是开放的搜索 API 让「RAG + 实时检索」不再需要自己搭爬虫和向量库。建议软件工程的同学做一个最小闭环：用搜索 API 拉实时结果 → 喂给模型做摘要 → 前端展示引用来源，这就是一个能写进简历的检索增强应用。注意工程细节：给检索结果加超时和降级、对模型输出做引用溯源，这两点在答辩时最容易被追问。信息安全方向可以顺带研究检索内容注入的风险。",
-   "source": "量子位",
-   "date": "2026-10-17",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "DeepSeek API",
-    "RAG"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用搜索 API + 模型做一个带引用的 RAG 小应用，是性价比最高的简历项目之一**",
-   "courses": "《人工智能导论》《Web 应用开发》：作为检索增强应用的实践素材",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "低成本跑通完整 AI 应用，适合课设和毕设",
-    "搜索 API 省掉自建爬虫和向量库的工作量",
-    "最小闭环：检索→摘要→前端展示引用来源",
-    "务必做超时降级和引用溯源，答辩必被问"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/504067.html"
-  },
-  {
-   "id": "a582",
-   "title": "无审查模型不再拒答，然后它把你的 Agent 搞崩了",
-   "summary": "开发者实测发现，去掉安全对齐的模型虽然不再拒绝请求，但会破坏 Agent 的稳定运行，甚至引发账号封禁。",
-   "content": "这篇开发者实录对做 Agent 项目的同学是个警钟。作者让 Codex 测试一个逆向工程工具，结果四年老账号被封；更麻烦的是，无审查模型在 Agent 链路里会自行「发明」安全边界，导致工具调用越权、行为不可预测。对信息安全与管理专业尤其有价值：它说明 Agent 的安全问题不在模型单点，而在「模型 + 工具权限 + 执行环境」整条链路。实操建议：给你的 Agent 加三层约束——工具白名单、参数校验、危险操作二次确认；日志要能回溯每一次工具调用。做课设时别图省事直接给 Agent 开 shell 权限，这是最典型的翻车姿势。",
-   "source": "DEV Community",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "LLM 安全"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**做 Agent 项目前先想清楚权限边界，否则一次越权调用就能让你丢掉账号甚至数据**",
-   "courses": "《信息安全技术》《软件工程》：作为 Agent 权限设计与审计的案例",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 安全是链路问题，不是模型单点问题",
-    "三层约束：工具白名单、参数校验、危险操作二次确认",
-    "工具调用日志必须可回溯，便于事后审计",
-    "课设里别直接给 Agent 开 shell 或文件写权限"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/rentierdigital/uncensored-ai-models-stop-refusing-then-they-break-your-agent-2k3m",
-   "cover": "img/a582.webp"
   }
  ],
  "jobs": [
