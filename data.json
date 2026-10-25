@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-10-25 22:10",
+ "updatedAt": "2026-10-25 17:04",
  "news": [
+  {
+   "id": "a716",
+   "title": "Linux基金会报告：AI写代码快52%，但1/4 PR是「AI垃圾」，维护者更累了",
+   "summary": "Linux基金会新报告量化了AI编码的真实收益与代价：提交速度提升52%，但约四分之一PR为低质量「AI垃圾」，开源维护者审查负担显著加重。",
+   "content": "报告给出的数字很值得软件工程专业同学记下来：AI让代码产出快了52%，但约25%的PR属于低质量、重复或缺乏上下文的「AI垃圾」。这意味着团队瓶颈从「写」转移到「审」——评审、测试、合并的成本被放大。对你的直接启示：用Copilot/Claude写课设代码没问题，但提交前必须自己读懂每一行、写清commit message和PR描述、补上单元测试，否则你就是在给队友和老师制造垃圾PR。做小组项目时，可以约定「AI生成代码必须附测试+说明」的规则，这本身就是简历上能讲的工程实践。",
+   "source": "InfoQ中文",
+   "date": "2026-10-25",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "value": "**AI能帮你写代码，但读懂、测通、说清楚的责任仍然在你身上。**",
+   "courses": "《软件工程》课程中把「AI辅助+人工评审+单测」写进团队开发规范",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "AI编码提速52%，但约1/4 PR为低质量「AI垃圾」",
+    "瓶颈从写代码转向代码评审与测试",
+    "提交AI代码前必须自读、写清PR描述、补单测",
+    "小组项目可约定AI代码必须附测试与说明"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/9TSuUDxrUSGS26XTA2yB?utm_source=rss&utm_medium=article",
+   "cover": "img/a716.webp"
+  },
+  {
+   "id": "a717",
+   "title": "Cloudflare OHTTP网关：中继转发但不解密，隐私代理怎么做到的",
+   "summary": "Cloudflare推出OHTTP网关，作为中继转发加密请求却拒绝解密内容，把「转发」与「看见」解耦，是隐私增强技术的工程落地案例。",
+   "content": "OHTTP（Oblivious HTTP）的核心是把「谁发的」和「发了什么」拆开：客户端把请求加密给目标服务器，再套一层发给网关，网关只看到密文和外层地址，无法解密内容。Cloudflare的网关明确拒绝解密通过它传入的请求，等于用架构而非承诺来保证隐私。对信息安全与管理专业的同学，这是活教材：密码学协议如何落地成可运营的服务、信任边界画在哪里、日志与合规怎么处理。建议对照RFC 9458读一遍协议流程，用Wireshark抓一次请求观察分层封装，比背概念有用得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-25",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "HTTP"
+   ],
+   "value": "**隐私不是靠承诺，而是靠「网关看不到明文」的架构设计保证的。**",
+   "courses": "《网络安全》《密码学》中作为隐私增强技术（PET）与信任边界的实例讲解",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "OHTTP把「发送者身份」与「请求内容」解耦",
+    "网关只转发密文，架构上无法解密",
+    "对照RFC 9458理解双层封装流程",
+    "可用抓包工具观察请求分层，加深理解"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4647jBOxmf3Ut0i1aVbx?utm_source=rss&utm_medium=article",
+   "cover": "img/a717.webp"
+  },
+  {
+   "id": "a718",
+   "title": "「模型提议、Rust验证」：本地Gemma做初筛，Rust兜底校验的可靠流水线",
+   "summary": "一个开源实践：用本地运行的Gemma模型对招聘信息做初步分类，再由Rust程序做确定性校验，把「概率输出」变成「可信任结果」。",
+   "content": "这个项目的架构思路比它做的事更值钱：LLM输出天生不确定，所以不让它直接决定结果，而是让它「提议」，再用Rust写确定性规则做「验证」。好处是省钱（本地小模型）、可控（规则可测）、可解释（出错能定位是模型还是规则）。对软件工程和工业软件实验班的同学，这正是AI应用落地的标准姿势——模型负责模糊判断，代码负责硬约束。可以照着做一个课设：本地跑Ollama+小模型做简历/岗位分类，用Java或Rust写校验层和单元测试，重点讲清「哪些交给模型、哪些必须写死」。",
+   "source": "DEV Community",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把不确定的模型输出夹在确定性的代码校验之间，是AI应用能上生产的关键套路。**",
+   "courses": "《软件工程》《程序设计》中作为「AI组件+确定性校验」的分层设计练习",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "LLM只做「提议」，确定性代码做「验证」",
+    "本地小模型省成本，规则层保证可测可解释",
+    "适合改造成课设：模型分类+代码校验双层架构",
+    "关键设计问题：哪些判断能交给模型，哪些必须写死"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The Model Proposes, Rust Verifies: Triaging Job Postings with a Local Gemma",
+   "link": "https://dev.to/lymah/the-model-proposes-rust-verifies-triaging-job-postings-with-a-local-gemma-1gen",
+   "cover": "img/a718.webp"
+  },
+  {
+   "id": "a719",
+   "title": "DecisionDrop：开源权重AI Agent，自动调研、对比并给出决策建议",
+   "summary": "一个Hacktoberfest开源项目，用开放权重模型搭建能自主检索、横向对比并输出决策建议的Agent，代码可读可改。",
+   "content": "DecisionDrop做的是「帮我做选择」这件事：给定一个决策问题，Agent会拆解维度、检索资料、做对比表，最后给出带理由的推荐。对本科生来说，价值不在用它选手机，而在读它的源码学Agent工程：任务如何拆解、工具如何编排、结果如何结构化输出、如何避免模型胡编。建议拿它当模板，改造成「课程/实习岗位对比助手」或「工业软件选型对比助手」，把检索源换成你们专业相关的数据。注意开放权重模型本地部署对显存有要求，先在小模型上跑通流程再换大模型。",
+   "source": "DEV Community",
+   "date": "2026-10-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "练手/课设/简历加分",
+   "value": "**读一个完整Agent项目的源码，比看十篇Agent科普更能学会怎么编排工具。**",
+   "courses": "《人工智能导论》《软件工程》课程设计中作为Agent应用参考实现",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "开源Agent：拆解维度→检索→对比→给建议",
+    "适合读源码学Agent编排与结构化输出",
+    "可改造成岗位/技术选型对比助手",
+    "本地部署注意显存，先用小模型跑通流程"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "DecisionDrop: An Open-Weight AI Agent That Researches, Compares, and Recommends Decisions",
+   "link": "https://dev.to/sairitvik_mallela/decisiondrop-an-open-weight-ai-agent-that-researches-compares-and-recommends-decisions-2c3f",
+   "cover": "img/a719.webp"
+  },
+  {
+   "id": "a720",
+   "title": "讯飞谈Agent进企业核心流程：别让Token空转，关键是接进业务系统",
+   "summary": "讯飞分享企业级Agent落地经验，强调Agent要嵌入真实业务流程而非停在Demo，核心是让每次模型调用都产生业务价值。",
+   "content": "「让Token不空转」这句话点出了企业Agent的通病：Demo里很惊艳，一进生产就发现模型调用了一堆却没人用结果。讯飞的做法是把Agent接到企业核心流程里——工单、审批、知识库检索，让输出直接驱动下一步动作，而不是生成一段没人看的文字。对准备求职的同学，这是面试高频考点：你做的AI项目，输出被谁消费？有没有闭环？建议在课设里刻意设计「输出→动作」链路，比如把分类结果写回数据库触发工单流转，而不是只打印在控制台。",
+   "source": "InfoQ中文",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "value": "**AI项目能不能落地，取决于输出有没有人消费、有没有触发下一步动作。**",
+   "courses": "《软件工程》需求分析与系统设计中练习「AI输出驱动业务动作」的闭环设计",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "企业Agent的关键是嵌入业务流程形成闭环",
+    "「Token不空转」=每次调用都要有业务消费方",
+    "面试常问：你的AI输出被谁使用、如何闭环",
+    "课设中设计「输出→写库→触发动作」链路"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Lo9TLlRdvy4II38yaex0?utm_source=rss&utm_medium=article",
+   "cover": "img/a720.webp"
+  },
   {
    "id": "a711",
    "title": "150行Python给AI Agent工具调用加四层防护：Schema校验+白名单+熔断",
@@ -25,7 +200,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "四层防线：Schema校验→暴露收敛→权限白名单→运行时熔断",
@@ -3932,224 +4107,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503084"
-  },
-  {
-   "id": "a593",
-   "title": "Spring AI 2.0.1 生产实践与 2.x 迁移：九层破坏性变更陷阱清单",
-   "summary": "Spring AI 2.0.1 系列第 24 章，系统梳理 2.0.x 的九层破坏性变更、AOT 编译注意事项与生产调优要点，逐条拆到源码。",
-   "content": "如果你在课设或实习里用 Spring Boot 接大模型，Spring AI 是绕不开的框架。这篇是系列深度解析的生产实践篇：先给结论再拆源码，把 2.0.x 的破坏性变更按坐标层、配置层等九个层面列清楚，并讲 AOT 编译下哪些反射写法会炸、线程池与超时怎么调。建议对照自己项目里的 pom 版本逐条核对，尤其注意从 1.x 升级时依赖坐标和自动配置的变化。读完后把「陷阱清单」存成自己的迁移 checklist，面试被问「你如何做框架升级」时这就是现成素材。",
-   "source": "掘金",
-   "date": "2026-10-19",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring AI",
-    "Spring Boot"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**Java 后端接大模型的框架升级避坑指南，直接对应你的 Spring 项目**",
-   "courses": "《Java Web 开发》《软件框架技术》——课程项目接入 LLM 时按此排查版本兼容",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "九层破坏性变更逐条拆到源码，可当迁移 checklist",
-    "AOT 编译下反射/动态代理的坑要提前排查",
-    "含生产调优：线程池、超时、重试配置"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698256886344859674"
-  },
-  {
-   "id": "a594",
-   "title": "DeepSeek 自研 Agent 搜索上线：千次 5 元、搜不到不收钱",
-   "summary": "DeepSeek 给 Agent 装上自研搜索能力，按次计费且失败不收费，价格远低于 Tavily 等海外方案。",
-   "content": "做 RAG 或 Agent 项目时，搜索 API 的成本往往是压死课程项目的最后一根稻草——Tavily 免费额度用完就得掏钱。DeepSeek 这次把搜索做成按次计费、失败不收费，千次约 5 元，量级只有海外方案的零头。对学生的实际意义：你的「智能问答」「论文检索助手」类课设可以低成本跑通真实联网检索链路，不用再靠爬虫硬凑。动手建议：先用免费额度把 Agent 的 tool-calling 流程调通，把搜索封装成独立函数便于换供应商，注意失败重试与结果去重，别把计费次数浪费在无效 query 上。",
-   "source": "钛媒体",
-   "date": "2026-10-19",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent",
-    "RAG"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**用极低成本给课设 Agent 接上真实联网搜索能力**",
-   "courses": "《人工智能导论》《Web 应用开发》——课程项目实现联网问答时选用",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 75,
-   "brief": [
-    "按次计费、失败不收费，适合学生低成本跑通联网检索",
-    "价格约为 Tavily 的零头，课程项目预算可控",
-    "建议把搜索封装成独立模块，方便换供应商"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8173434.html"
-  },
-  {
-   "id": "a595",
-   "title": "谷歌开源 Harness：支持 OpenCode 与 Codex，国内开发者实测可接入",
-   "summary": "谷歌开源 Harness 编码智能体框架，兼容 OpenCode、Codex 等工具，国内开发者实测接入可行。",
-   "content": "编码 Agent 的生态正在从「一家一个 CLI」走向可插拔框架。Harness 开源后支持 OpenCode 和 Codex，意味着你可以用同一套配置切换不同代码模型后端，国内开发者实测也能接。对学生最直接的用法：在毕设或团队项目里搭一个「自动改 bug / 写单测」的本地 Agent，把仓库规范、测试命令写进配置，让它跑 lint 和测试再提交。注意点：先在小仓库验证权限边界，别让 Agent 直接 push 主干；把 prompt 与工具配置纳入版本管理，方便复现。这类经历写进简历，比「会用 Copilot 补全」有分量得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Harness",
-    "Codex"
-   ],
-   "diff": 2,
-   "scene": "简历加分/练手",
-   "value": "**亲手搭一个编码 Agent 工作流，是简历上比「会用 AI 补全」更硬的经历**",
-   "courses": "《软件工程》《程序设计实践》——团队项目引入自动化代码审查",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "统一框架兼容 OpenCode、Codex，可切换模型后端",
-    "适合搭本地「自动改 bug/写单测」Agent",
-    "务必限制权限，别让 Agent 直接推主干"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AD1M3mJ2SH1dJrTA1r5q?utm_source=rss&utm_medium=article",
-   "cover": "img/a595.webp"
-  },
-  {
-   "id": "a596",
-   "title": "YOLO Data Agent v1.0.2：不让大模型直接写 SQL 的数据问答方案",
-   "summary": "开源数据智能 Agent 新版本，针对「AI 报数对不上报表」问题，改用可信链路而非让大模型直接生成 SQL。",
-   "content": "「问上个月华东区 GMV，AI 答得头头是道但和报表对不上」——这是所有 NL2SQL 课设都会踩的坑。根因是把 SQL 生成权直接交给大模型，口径、聚合、多轮上下文全靠猜。YOLO Data Agent 的思路是把语义层、指标口径和 SQL 生成拆开，让模型只做意图理解，数值由受控链路产出。对软件工程和信息安全同学都有用：前者可借鉴其分层架构做数据库课设；后者能从中理解「为什么不能让 LLM 直连生产库」——权限收敛、SQL 白名单、审计日志都是现成的安全设计案例。",
-   "source": "开源中国",
-   "date": "2026-10-19",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "NL2SQL",
-    "Agent"
-   ],
-   "value": "**做数据问答课设前先看它，少走「AI 报数对不上」的弯路**",
-   "courses": "《数据库原理》《信息安全导论》——NL2SQL 项目与 LLM 数据访问安全案例",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "核心思路：语义层与 SQL 生成解耦，避免口径漂移",
-    "多轮追问时保持指标口径一致",
-    "安全视角：LLM 不应直连生产库，需白名单与审计"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503098"
-  },
-  {
-   "id": "a597",
-   "title": "用 tmux 管住编码 Agent：会话、send-keys 与能力边界",
-   "summary": "一篇实操指南，讲如何用 tmux 会话管理多个 AI 编码 Agent，通过 send-keys 编排任务并认识其局限。",
-   "content": "同时开三个编码 Agent 改不同模块，终端窗口乱成一团？这篇指南给出一套工程化做法：用 tmux 会话隔离每个 Agent 的工作目录，用 send-keys 脚本化下发指令，再用 pane 抓取输出做日志。核心价值不在 tmux 本身，而在「把 Agent 当长时任务进程来管」的思路——断线不丢上下文、可批量重放、出错能回看完整交互。上手门槛低，Linux 课或服务器上练半小时就够。建议配合 git worktree，让每个 Agent 在独立分支干活，合并前人工 review，避免互相覆盖。",
-   "source": "Hacker News",
-   "date": "2026-10-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "tmux",
-    "Git"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**学会把 AI Agent 当长时进程管理，多任务并行不再手忙脚乱**",
-   "courses": "《Linux 操作系统》——shell 与终端复用实操延伸",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "tmux 会话隔离多个 Agent，断线不丢上下文",
-    "send-keys 脚本化下发指令，可批量重放",
-    "配合 git worktree 让每个 Agent 独立分支"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling",
-   "link": "https://crystl.dev/guides/tmux-for-ai-agents/",
-   "cover": "img/a597.webp"
-  },
-  {
-   "id": "wk-20261019",
-   "title": "【AI风向标周报】第1期（10.19-10.25）",
-   "summary": "本周精选：TypeScript 编译器 Rus、14 款大模型 Java 编码能力横等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器\n   亲手测一次构建提速，比记住「快8倍」这个数字有用\n   原文：https://www.oschina.net/news/503149/cloudflare-typescript-rust-port\n2. 14 款大模型 Java 编码能力横评：闭源三强断层领先，开源追到哪了\n   让你在「用 AI 写 Java」这件事上有数据支撑的判断，而不是凭感觉。\n   原文：https://juejin.cn/post/7699685792612302883\n3. PHP 两个重大漏洞惊动日本首相：5700万浏览的补丁呼吁\n   用真实高危漏洞事件练一遍「披露→复现→通告」的完整安全响应流程\n   原文：https://www.oschina.net/news/503146\n4. OpenAI 挑战 COBOL：老系统代码迁移准确率从 5.4% 飙到 97.9%\n   抓住遗留系统迁移这一真实就业缺口，练「AI 翻译+人工对拍验证」工作流\n   原文：https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk?utm_source=rss&utm_medium=article\n5. PHP 史诗级漏洞「PHP2Shell」已在野利用：无需登录即可远程执行代码，全球约七成网站受影响\n   用一个真实 RCE 漏洞把「输入校验」从考点变成手感\n   原文：https://www.oschina.net/news/503157/watchtowr-php-cve-2026-109618-faq\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. 用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）\n   手写一遍 harness，比背框架 API 更能讲清楚 Agent 到底怎么跑起来\n   获取：https://www.freecodecamp.org/news/how-to-build-an-ai-agent-harness-from-scratch-in-typescript/\n2. 虚拟线程不是无限并发：Java 后端该限流的其实是这些资源\n   把「线程便宜≠系统无限并发」讲透，Java 后端性能设计的必读一课\n   获取：https://juejin.cn/post/7698661900759285823\n3. 150行Python给AI Agent工具调用加四层防护：Schema校验+白名单+熔断\n   用150行代码把「AI乱调工具」变成可拦截、可演示的安全模块，信安方向简历上很能打。\n   获取：https://juejin.cn/post/7700194552505892891\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-10-25",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器",
-    "精选岗位 Top0：—",
-    "实用工具 Top3：用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）"
-   ],
-   "link": "",
-   "cover": "img/a647.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-10-19",
-    "end": "2026-10-25",
-    "news": [
-     "a653",
-     "a673",
-     "a645",
-     "a647",
-     "a661"
-    ],
-    "jobs": [],
-    "tools": [
-     "a620",
-     "a624",
-     "a711"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
