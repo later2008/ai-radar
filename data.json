@@ -1,6 +1,215 @@
 {
- "updatedAt": "2026-10-25 02:26",
+ "updatedAt": "2026-10-25 10:43",
  "news": [
+  {
+   "id": "a705",
+   "title": "250行纯标准库给Agent造出站门：SSRF防护与出站边界实战",
+   "summary": "作者用250行Python标准库实现Agent工具调用的出站请求白名单与校验网关，防止模型被诱导访问内网或外发敏感数据。",
+   "content": "Agent能调用工具后，真正的风险不在模型输出，而在它发出的每一个HTTP请求：内网地址探测、云元数据接口、把上下文里的密钥外发。这篇只交付代码，用250行纯标准库实现一层出站边界——域名/IP白名单、私网段拦截、重定向逐跳复检、超时与体积上限。对信息安全与管理专业，这就是SSRF防护的最小可运行样本，可直接对照OWASP SSRF条目理解；对软件工程同学，它演示了「不可信输入经过校验层再落地」的工程范式。建议动手复现后，把它接进自己课设里的任何一次外部API调用，再写一份绕过测试用例清单。",
+   "source": "掘金",
+   "date": "2026-10-24",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「模型不可信」翻译成一行行可测的出站校验代码，是安全方向最实用的练手素材。**",
+   "courses": "《网络安全技术》《Web应用安全》——作为SSRF防护实验的参考实现",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "250行纯标准库实现，无第三方依赖，可直接读源码",
+    "覆盖私网段/元数据地址拦截、重定向逐跳复检",
+    "本质是SSRF防护在Agent场景的落地",
+    "可改写为课设中的统一出站网关模块"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7699774243807772735"
+  },
+  {
+   "id": "a706",
+   "title": "从Loop到Runtime：Agent循环如何找工具、校验参数、回写上下文",
+   "summary": "掘金长文拆解rpi Agent Loop与Cordis的职责边界：模型只提出edit_file调用，真正改文件的是运行时。",
+   "content": "文章开头那句很关键：模型可以输出一个edit_file调用，但文件不会因为一段JSON就改变。程序要做四件事——找到工具、校验参数、执行修改、把结果写回上下文再决定下一步。这就是Agent Loop与Runtime的分界：Loop管「想什么、下一步做什么」，Runtime管「能不能做、怎么做、做完怎么记账」。对软件工程（含工业软件实验班）同学，这是把「函数调用」升级成「可审计执行链」的必修结构，也是很多课设里AI功能写崩的根因。建议照它的分层，把自己项目里的工具调用拆成注册表+参数schema校验+执行器+结果回填四段，再补上失败重试与幂等。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "TypeScript"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**看懂这层边界，你的AI功能才不会写成「一调用就崩、崩了查不到」的黑盒。**",
+   "courses": "《软件工程》《面向对象程序设计》——用于AI模块的分层设计与可审计执行链",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "讲清Agent Loop与Runtime的职责边界",
+    "工具注册、参数校验、执行、结果回写四段式结构",
+    "指出「模型输出≠副作用发生」这一常见误区",
+    "适合作为课设中AI模块的分层参考"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700157305413468195"
+  },
+  {
+   "id": "a707",
+   "title": "2026年为什么还有人重写API调试工具：一个轻量HTTP客户端的取舍",
+   "summary": "作者因Postman强制登录与300MB体积，自己写了一个API调试工具，讲清这类工具的核心功能边界。",
+   "content": "起因很朴素：只想发一个HTTP请求，却要登录、装300多MB。这篇讲的是「一个API调试工具到底需要什么」——请求构造、Header/Query管理、环境变量、历史记录、响应断言，其余都是增值项。对软件工程同学，价值有两层：一是立刻能用的替代方案，课设联调、对接后端接口不必被登录墙卡住；二是它其实是一份需求清单，如果你要写课程设计里的「接口测试小工具」，照着这个功能集裁剪就是合理范围。建议读完后对比自己常用的调试方式，把环境变量与集合复用这两点迁移到日常联调流程里。",
+   "source": "掘金",
+   "date": "2026-10-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**先想清楚工具的最小功能集，再决定用现成的还是自己写，这是工程判断力的起点。**",
+   "courses": "《Web开发技术》《软件测试》——用于接口联调与接口测试实践",
+   "tags": [
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "列出API调试工具的最小功能集：请求构造、环境变量、历史、断言",
+    "轻量替代方案，规避登录与体积问题",
+    "可作为「接口测试工具」类课设的需求模板",
+    "对日常前后端联调有直接提效"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700156802533834803"
+  },
+  {
+   "id": "a708",
+   "title": "Argus开源平台用AI Agent做威胁狩猎：安全专业该关注什么",
+   "summary": "新开源网络安全平台Argus用AI Agent在网络环境中主动搜寻威胁，而非被动等告警。",
+   "content": "威胁狩猎（Threat Hunting）与告警响应的差别在于：没人告诉你哪里有问题，你要主动假设攻击者已在场内，然后去找痕迹。Argus把这个过程交给AI Agent：给定狩猎假设，Agent自主编排查询、拉取日志与端点数据、串联证据。对信息安全与管理专业，值得关注的是它的编排层设计——Agent如何被约束在只读查询范围内、如何记录每一步取证动作以保证可复核，这比「用了大模型」重要得多。建议把它当作一个开源样本读架构图，对照《入侵检测与响应》里的狩猎流程，思考哪些步骤可以自动化、哪些必须留人工判定。",
+   "source": "DEV Community",
+   "date": "2026-10-25",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**安全岗面试问「你怎么用AI做检测」时，能讲清权限边界与取证链的人明显更占优。**",
+   "courses": "《入侵检测与响应》《网络安全技术》——威胁狩猎流程与自动化边界讨论",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI Agent用于主动威胁狩猎，而非被动告警",
+    "关注点应是Agent的权限约束与取证可复核性",
+    "可作为安全课程中狩猎流程自动化的案例",
+    "开源项目，适合读架构而非直接上生产"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Argus Open-Source Platform Deploys AI Agents for Threat Hunting",
+   "link": "https://dev.to/madhavsharma99/argus-open-source-platform-deploys-ai-agents-for-threat-hunting-4d1c",
+   "cover": "img/a708.webp"
+  },
+  {
+   "id": "a709",
+   "title": "讯飞星辰TaaS平台：把Agent推进企业核心流程的工程约束",
+   "summary": "科大讯飞发布星辰TaaS平台，主打让Token消耗对应真实业务产出，而非空转。",
+   "content": "「让Token不空转」这句话对做企业侧开发的人有实际含义：Agent在企业流程里跑，成本按Token计，但价值必须落在工单闭环、审批通过率、数据准确率上。TaaS（Token as a Service）本质是把模型调用包装成可计量、可编排、可审计的服务层。对软件工程同学，值得记的是这类平台暴露的接口形态——任务编排、工具注册、调用链追踪、配额与计费，这几乎就是你在课设里手写Agent时缺的那几块。不必现在就用它，但可以把它当参照，检查自己项目里有没有「调用记录」和「失败可回溯」这两项。",
+   "source": "量子位",
+   "date": "2026-10-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**看清平台暴露的那几类接口，就知道自己手写Agent时漏了哪一层。**",
+   "courses": "《软件工程》《企业级应用开发》——服务层设计与调用链可观测性",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "TaaS把模型调用包装为可计量可审计的服务层",
+    "关注任务编排、工具注册、调用链追踪、配额计费四类接口",
+    "可作为自建Agent项目的功能对照清单",
+    "企业侧落地强调业务指标而非模型指标"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/505083.html",
+   "cover": "img/a709.webp"
+  },
+  {
+   "id": "a710",
+   "title": "Blender到Three.js工作流：无头环境下的模型导出与前端加载",
+   "summary": "一篇从Blender建模到Three.js网页加载的完整工作流梳理，聚焦导出设置与无头环境下的验证。",
+   "content": "前端做3D展示，卡人的往往不是Three.js的API，而是Blender导出那一步：单位比例、轴向、材质是否烘焙、贴图路径是否相对。这篇把工作流串起来，并强调在无头（headless）环境下跑一遍导出与加载验证，避免「本地能看、部署就白屏」。对前端方向同学，这是课设做3D展示页、作品集做交互演示的实用路径；对工业软件实验班，同样的流程可用于设备模型的网页端轻量化预览。建议动手时先固定一套导出预设（glTF/GLB、+Y向上、贴图打包），再写个最小加载页验证，别一上来就堆后处理。",
+   "source": "DEV Community",
+   "date": "2026-10-25",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "Three.js",
+    "Blender"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**3D展示的门槛在导出那一步，固定一套预设能省掉大半调试时间。**",
+   "courses": "《计算机图形学》《Web前端开发》——3D模型网页加载与可视化",
+   "tags": [
+    "前端开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "重点是Blender导出设置而非Three.js API",
+    "glTF/GLB、轴向、贴图打包是三大坑",
+    "无头环境验证可提前暴露部署问题",
+    "可迁移到工业设备模型的网页预览"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Blender to Three.js Workflow: An AI Agent's Headless Review",
+   "link": "https://dev.to/heygalatea/blender-to-threejs-workflow-an-ai-agents-headless-review-1fo2",
+   "cover": "img/a710.webp"
+  },
   {
    "id": "a700",
    "title": "Prompt工程岗位暴涨486%但67%旧岗消失：Langfuse+Promptfoo+GEPA链路怎么搭",
@@ -25,7 +234,7 @@
     "求职就业",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "Prompt岗位需求暴涨486%，但67%旧岗位消失，说明要的是工程化能力而非调参",
@@ -3899,218 +4108,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503075"
-  },
-  {
-   "id": "a590",
-   "title": "AI 编码助手在 EVM 调试上为何“胡说”：5 个可测试技能包的拆解思路",
-   "summary": "作者分析 Claude Code、Cursor 等 AI 编码助手调试 Solidity 回滚交易时频繁幻觉的原因，并给出把调试能力拆成可测试技能包的做法。",
-   "content": "这篇虽是区块链场景，但方法论对信息安全与软件工程学生通用：AI 编码助手在“报错信息少、状态不可见”的场景下最容易编造原因。作者的思路是把调试拆成可验证的小技能——先复现、再定位、再验证假设，每一步都有可检验的输出，而不是让模型一口气给结论。你可以迁移到自己的项目：用 AI 改 bug 时，要求它先给出“如何验证这个猜测”的命令或测试用例，再让它改代码；对安全方向的同学，这正好对应漏洞复现与验证的流程思维。别把 AI 当答案机，把它当需要你设计验证步骤的助手。",
-   "source": "DEV Community",
-   "date": "2026-10-19",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "练手/求职准备",
-   "value": "**学会给 AI 设“可验证步骤”，比让它直接给答案更能提升调试与安全分析能力。**",
-   "courses": "《软件测试》《网络与信息安全》中的缺陷复现与验证",
-   "tags": [
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "AI 在信息不足的调试场景最易幻觉",
-    "把调试拆成可验证的小步骤/技能包",
-    "要求 AI 先给验证方法再给修改",
-    "可迁移到漏洞复现与安全测试流程"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/theweb3wizard00/why-ai-coding-agents-hallucinate-on-evm-bugs-and-how-we-packaged-5-testable-skills-to-fix-it-4pha",
-   "cover": "img/a590.webp"
-  },
-  {
-   "id": "a591",
-   "title": "DeepSeek V4.1 Flash 更新：更快更便宜，主打“许愿式编程”",
-   "summary": "DeepSeek V4.1 Flash 更新至 1017 版本，基准测试提升的同时缩短运行时间与输出长度，官方称在多个 Harness 下达到性能-费用更优。",
-   "content": "对预算有限的学生来说，模型“更便宜更快”比“更强”更实际。这次更新值得关注两点：一是输出长度缩短、耗时下降，意味着同样任务 token 花费更低，适合日常写代码、改注释、生成测试这类高频小任务；二是官方提到“许愿式编程”，即用自然语言描述需求直接产出可运行代码，你可以拿它做课设原型快速起步。但要注意：生成结果必须自己跑通、自己写测试，尤其是涉及权限校验、输入校验的代码，别直接上线。建议对比一下同题在旧版与新版上的输出质量，形成自己的“模型选型”判断。",
-   "source": "极客公园",
-   "date": "2026-10-18",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**更低的调用成本让学生能高频用 AI 辅助编码，但验证环节不能省。**",
-   "courses": "《程序设计》课设原型开发与代码评审",
-   "tags": [
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "新版更快更省，适合高频小任务",
-    "可快速生成课设原型代码",
-    "生成结果必须自测，安全相关代码不可直用",
-    "做同题新旧版本对比，形成选型判断"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/372512",
-   "cover": "img/a591.webp"
-  },
-  {
-   "id": "a592",
-   "title": "生产级 Agent 怎么造：QCon 上海议题，重点在工程化而非 Demo",
-   "summary": "QCon 上海议题聚焦“生产级 Agent”，讨论把智能体从演示推进到可上线系统所需的工程实践。",
-   "content": "“会跑的 Demo”和“能上线的 Agent”差在哪？这类议题的价值在于给出工程清单：可观测性（每步调用可追踪）、失败重试与降级、工具调用的权限与沙箱、成本与延迟控制、评测集与回归。对软件工程和信息安全学生，这正好是课程知识的落点：日志与监控对应《软件工程》，沙箱与权限对应《网络与信息安全》。建议做法：在自己的课设里加一个最小 Agent 功能（比如自动查数据库并生成报表），然后强制补上日志、超时、失败兜底三件事，写进设计文档——这比堆功能更能体现工程能力。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "求职准备/简历加分",
-   "value": "**把 Agent 当工程项目做：可观测、可兜底、可评测，才是面试能讲的东西。**",
-   "courses": "《软件工程》系统设计，《网络与信息安全》权限与隔离",
-   "tags": [
-    "AI工具",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "区分 Demo 与生产级：可观测、重试、降级、沙箱",
-    "工具调用需权限控制与隔离",
-    "用评测集与回归保证质量",
-    "课设中加最小 Agent 并补齐日志与兜底"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/oZHrjYAsXvjOZXRwLt6T?utm_source=rss&utm_medium=article",
-   "cover": "img/a592.webp"
-  },
-  {
-   "id": "a584",
-   "title": "Java密封类+穷尽模式匹配：用switch把状态机写死",
-   "summary": "一篇讲透Java sealed interface与switch穷尽性检查的文章，编译器帮你兜住漏分支。",
-   "content": "Java 17的sealed类配合21+的模式匹配switch，能让编译器在漏写分支时直接报错——这对写订单状态机、协议报文解析特别有用。文章用完整代码演示：先定义sealed interface Shape permits Circle, Rect，再在switch里按类型解构，去掉default也能编译通过，新增子类时所有switch自动报错提示你补分支。这比传统if-else instanceof链安全得多，也比枚举+抽象方法更灵活。建议你在课设里把「订单状态流转」或「报文类型分发」改写成这种写法，面试时讲「如何让编译器保证分支完整性」是加分项。",
-   "source": "Hacker News",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java 21",
-    "Pattern Matching"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**用编译器替代人肉检查分支遗漏，Java后端代码健壮性直接上一档**",
-   "courses": "《面向对象程序设计(Java)》——把课程里的继承多态例子升级成密封类+模式匹配",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "sealed+permits限定子类，switch可省default",
-    "新增子类时编译器强制你补全所有分支",
-    "适合状态机、协议解析、AST遍历场景",
-    "对比枚举和if-else instanceof链的取舍"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Java sealed classes and exhaustive pattern matching",
-   "link": "https://neilmadden.blog/2026/04/24/java-sealed-classes-and-exhaustive-pattern-matching/"
-  },
-  {
-   "id": "a585",
-   "title": "上下文窗口与Agent记忆：为什么你的AI助手总「忘事」",
-   "summary": "从token边界解释AI Agent的失忆行为，并给出记忆分层设计的实操思路。",
-   "content": "很多人调AI Agent时发现它忘了十分钟前定的规则，根因不是模型笨，而是上下文窗口是硬边界——窗口外的内容对模型完全不可见。文章把Agent记忆拆成三层：窗口内的即时上下文、外挂的检索记忆（向量库/文件）、以及结构化的长期状态（数据库）。实操建议：把「必须遵守的规则」放在每次请求的固定前缀位置，把历史对话做摘要压缩后再回填，把项目事实存成可检索的文档而不是塞进对话。你做课设里的AI问答或智能客服时，这套分层能直接套用，避免把整个聊天记录无脑拼进prompt导致超长和费用爆炸。",
-   "source": "DEV Community",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "LLM",
-    "RAG"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**搞懂Agent记忆分层，你的AI课设才不会一聊长了就失忆**",
-   "courses": "《人工智能导论》/毕业设计——设计AI应用时规划上下文与记忆存储方案",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "上下文窗口是硬边界，窗口外内容模型完全看不到",
-    "记忆分三层：窗口内上下文、检索记忆、结构化长期状态",
-    "规则放固定前缀，历史对话先摘要再回填",
-    "课设做AI问答/客服可直接套用这套分层"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Everything You Need to Know About Context Windows and Agent Memory",
-   "link": "https://dev.to/tdk-cli/everything-you-need-to-know-about-context-windows-and-agent-memory-16pg",
-   "cover": "img/a585.webp"
-  },
-  {
-   "id": "a586",
-   "title": "用FalkorDB搭跨Agent图记忆：让AI记得住还能解释为什么记得",
-   "summary": "把Agent记忆存进图数据库，检索时能给出「为什么召回这条」的可解释链路。",
-   "content": "Agent失忆的工程解法之一是外挂记忆库，但向量检索只能给相似度，说不清召回理由。这篇用FalkorDB（图数据库）做记忆存储：实体是节点、关系是边，Agent的每次事实写入变成一次图更新，召回时沿关系路径返回，天然带解释。文章给出完整搭建步骤：定义schema、写入对话事实、按多跳关系查询、接入Agent循环。对信安方向也有启发——图记忆可以做访问控制，按关系限定Agent能读到哪些节点。适合有一定后端基础的同学做进阶课设，涉及图数据库建模和Cypher查询语法。",
-   "source": "DEV Community",
-   "date": "2026-10-18",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "FalkorDB",
-    "Cypher"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**给AI Agent加可解释的图记忆，是简历上少见的差异化项目**",
-   "courses": "《数据库原理》——把关系建模思路延伸到图数据库与Cypher查询",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "图数据库存Agent记忆，召回沿关系路径可解释",
-    "实体为节点、关系为边，写入即更新图",
-    "可结合权限做Agent记忆的访问控制",
-    "需要Cypher查询与图建模基础"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building Continuum: Cross-Agent Graph Memory with Explainable Recall Using FalkorDB",
-   "link": "https://dev.to/himanshu_jha_de18b7f5726d/building-continuum-cross-agent-graph-memory-with-explainable-recall-using-falkordb-37o8",
-   "cover": "img/a586.webp"
   }
  ],
  "jobs": [
