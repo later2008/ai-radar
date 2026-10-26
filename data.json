@@ -1,6 +1,173 @@
 {
- "updatedAt": "2026-10-25 17:04",
+ "updatedAt": "2026-10-26 02:25",
  "news": [
+  {
+   "id": "a721",
+   "title": "Reqmango：Docker 一键自建的项目管理工具，需求分诊还能自动去重",
+   "summary": "开源团队级项目管理工具 Reqmango 支持 Docker 一键部署、数据自持，内置 Intake 分诊，自动给出需求类型、优先级与疑似重复建议。",
+   "content": "Jira 好用但云端贵、数据不在自己手里，这是很多团队的真实痛点。Reqmango 用 Docker Compose 就能跑起来，工作项类型、工作流、自动化这些概念和 Jira 基本对齐，迁移成本低。最值得看的是它的 Intake 分诊模块：新需求进来先由规则/模型给出类型、优先级和疑似重复项，拿不准的再转人工，等于把「需求池清洗」这件苦活自动化了一半。对软工同学来说，这是一个非常好的课设选题参考——你可以照着它的思路，用 Spring Boot + Vue 写一个精简版需求管理系统，把「去重算法」和「优先级打分」做成自己的亮点。",
+   "source": "开源中国",
+   "date": "2026-10-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker",
+    "项目管理"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**想做一个像样的需求管理系统课设，先拆一遍它的分诊与工作流设计**",
+   "courses": "《软件工程》需求分析与项目管理章节，可直接作为课程设计原型",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "Docker 一键部署，数据留在自己服务器，适合校内项目/小团队",
+    "Intake 分诊：自动判定需求类型、优先级、疑似重复",
+    "工作流与自动化概念对齐 Jira，学习成本低",
+    "可作为软件工程课设的架构参考与功能清单"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503197"
+  },
+  {
+   "id": "a722",
+   "title": "单台 VPS 部署 FastAPI+PostgreSQL：HTTPS、备份、回滚，不用 K8s",
+   "summary": "一篇实操文，讲清一台 VPS 上把 FastAPI + PostgreSQL 用 Docker Compose 部署上线，并补齐 HTTPS、自动备份与版本回滚。",
+   "content": "很多同学做完课设只会本地跑，一到「部署上线」就卡住，其实一台几十块的 VPS 就够了，不需要 Kubernetes。这篇文章把几件「无聊但必须做对」的事讲透了：反向代理 + 自动证书搞定 HTTPS；数据库定时 dump 到对象存储或本地目录，并验证能恢复；镜像打 tag，出问题一条命令回滚到上一版。建议你照着做一遍，把整个流程写成 docker-compose.yml + 一个 deploy.sh 放进 GitHub，简历上「有独立部署上线经验」比「熟悉 Linux 命令」有说服力得多。",
+   "source": "DEV Community",
+   "date": "2026-10-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Docker",
+    "PostgreSQL"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把课设真正部署到公网并配好备份回滚，是简历上最容易被追问也最容易加分的点**",
+   "courses": "《计算机网络》HTTP/HTTPS 与《数据库》备份恢复，可结合作业实操",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "单机 Docker Compose 部署，替代过度设计的 K8s",
+    "HTTPS 证书自动化、数据库定时备份与恢复验证",
+    "镜像 tag + 一键回滚，避免上线翻车",
+    "产出可复用的 compose 文件与部署脚本，直接进简历"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/devkit_shop/deploying-fastapi-postgresql-to-a-single-vps-with-docker-compose-https-backups-and-rollbacks-jb4",
+   "cover": "img/a722.webp"
+  },
+  {
+   "id": "a723",
+   "title": "给 AI 编码助手立规矩：RuleMine 解决「Agent 忘了自己说过的话」",
+   "summary": "开发者发现编码 Agent 反复遗忘项目约定，于是做了 RuleMine，把规则沉淀成可复用、可注入的约束文件。",
+   "content": "用 Copilot、Cursor 这类编码 Agent 时，最烦的是它每次都「重新认识你」：命名规范、目录结构、禁止使用的库，说一遍忘一遍。RuleMine 的思路是把这些约定写成结构化的规则文件，在每次会话开始时注入上下文，让 Agent 稳定遵守。这件事的价值不在于用哪个工具，而在于「规则工程」这个习惯：你完全可以在自己的仓库里建一个 rules 目录，把代码风格、接口约定、提交规范写清楚，再让 Agent 读取。做团队项目时，这套东西能显著减少返工，也是面试聊 AI 协作开发时很好的谈资。",
+   "source": "DEV Community",
+   "date": "2026-10-26",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI 编码助手"
+   ],
+   "diff": 1,
+   "scene": "练手/团队项目",
+   "value": "**学会给 AI 编码助手写「项目规则」，比换十个工具更能提升协作效率**",
+   "courses": "《软件工程》编码规范与团队协作，可作为小组项目的约定文档模板",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "核心思路：把项目约定沉淀为结构化规则文件，会话时注入",
+    "解决编码 Agent 上下文遗忘、风格漂移问题",
+    "可自己动手在仓库建 rules 目录，零成本落地",
+    "团队协作与 AI 辅助开发场景的加分经验"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/lillliant/my-coding-agent-forgot-its-own-advice-so-i-built-rulemine-5dfe",
+   "cover": "img/a723.webp"
+  },
+  {
+   "id": "a724",
+   "title": "CircleCI 发布 Machine Runner Orchestrator：自托管 CI 执行机可集中编排",
+   "summary": "CircleCI 推出 Machine Runner Orchestrator，用于统一管理和编排自托管构建执行机集群。",
+   "content": "CI/CD 是软工和信息安全同学都绕不开的一环。这次更新解决的是「自托管 Runner 一多就管不过来」的问题：多台构建机如何统一注册、分配任务、做健康检查与扩缩容。对在校生来说，未必用得上 CircleCI 本身，但你要理解这套模型——Runner 是执行单元，Orchestrator 是调度层，本质和 Jenkins 的 Agent 管理、GitLab Runner 的注册机制是一回事。建议在课程项目里用 GitHub Actions 或 Jenkins 搭一条「提交即构建、构建即测试」的流水线，把自托管 Runner 跑通一次，面试聊 DevOps 时就有具体细节可讲。",
+   "source": "InfoQ中文",
+   "date": "2026-10-26",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "CI/CD"
+   ],
+   "value": "**理解 Runner 与调度层的分工，是搭好第一条 CI 流水线的前提**",
+   "courses": "《软件工程》持续集成章节，可结合课程项目搭建流水线",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "解决自托管构建机集群的统一注册、调度与健康检查",
+    "概念可迁移到 Jenkins Agent、GitLab Runner 管理",
+    "建议在课设中搭一条提交触发构建+测试的流水线",
+    "信息安全方向可延伸思考构建机隔离与凭据管理"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/y7YQmP1p42Uj69H1C6uf?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a725",
+   "title": "Google 改隐私条款：Gmail、相册数据可被用于个性化广告",
+   "summary": "Google 新隐私政策 10 月 16 日生效，在用户选择开启的前提下，Gmail 与相册内容可参与个性化广告投放。",
+   "content": "这条对信息安全与管理专业的同学是活教材。要点有两个：一是「默认关闭、需用户主动选择」，这是合规设计里的 opt-in 原则；二是政策文本里「不会基于云端硬盘、Gmail、相册内容投放广告，除非你选择允许」这种表述，正是隐私政策里最容易做文章的地方——字面上保护了你，但把开关交给了用户自己。建议拿这份新条款做一次逐条拆解练习：找出数据收集范围、用途、共享对象、用户权利四类条款，对照《个人信息保护法》的告知同意要求看差异。这类文本分析能力，在隐私合规、等保测评岗位面试中很实用。",
+   "source": "Solidot",
+   "date": "2026-10-24",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**拿真实隐私条款做逐条拆解，是信息安全专业最便宜的合规实战训练**",
+   "courses": "《信息安全法律法规》《数据安全与隐私保护》告知同意原则案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "新政策采用 opt-in：需用户主动开启才用于广告",
+    "隐私政策措辞存在「原则+例外」的典型结构",
+    "可做一次条款拆解练习，对照个人信息保护法",
+    "隐私合规、数据治理岗位的实战分析素材"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85698"
+  },
   {
    "id": "a716",
    "title": "Linux基金会报告：AI写代码快52%，但1/4 PR是「AI垃圾」，维护者更累了",
@@ -22,7 +189,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "AI编码提速52%，但约1/4 PR为低质量「AI垃圾」",
@@ -3944,169 +4111,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7698227087581380608"
-  },
-  {
-   "id": "a603",
-   "title": "Docker 开机启动顺序优化：解决 CentOS/Ubuntu 网络未就绪导致端口映射失效",
-   "summary": "针对开机时网络未就绪、网络重启后容器端口映射失效的问题，给出 CentOS/Ubuntu 下 Docker 启动顺序的调整方法。",
-   "content": "这个坑很典型：服务器重启后容器起来了，但端口映射不通，排查半天发现是 Docker 比网络先启动。文章给出在 CentOS 和 Ubuntu 上调整 Docker 服务启动顺序、加依赖与等待逻辑的做法，覆盖开机场景和网络服务重启场景。对做课设要部署后端、或者给实验室搭测试环境的同学很实用——容器“起来了但访问不了”是高频故障。建议在自己的云服务器上复现一次故障再修复，把 systemd 单元配置和排查命令记进运维笔记，面试问部署问题时能直接讲。",
-   "source": "掘金",
-   "date": "2026-10-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Docker"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**解决“容器起来了却访问不了”的高频部署故障，是后端岗面试的加分细节**",
-   "courses": "对应《操作系统》《软件项目实践》，用于课程项目部署环境搭建",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "故障现象：容器已启动但端口映射不通，根因是启动顺序",
-    "给出 CentOS/Ubuntu 下 systemd 依赖与等待的调整方法",
-    "覆盖开机与网络重启两类场景",
-    "复现+修复一次，即可作为部署排查经验写进简历"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698247718679216154"
-  },
-  {
-   "id": "a604",
-   "title": "OpenCode 遭攻击 48 小时、大批 API 账户被刷爆：密钥泄露与额度滥用的真实案例",
-   "summary": "开源编码工具 OpenCode 遭黑客持续攻击，大量用户 API 账户额度被刷爆，官方将原因归于“蒸馏攻击”引发质疑。",
-   "content": "这是一起很值得信息安全专业细读的事件：攻击者盯上的不是代码仓库，而是用户配置里的模型 API 密钥，拿到后疯狂调用刷额度。文章复盘了 48 小时内的攻击过程、官方的归因说法以及外界的质疑。对同学们的直接提醒有三点：密钥永远不要硬编码进客户端或提交到 Git；服务端要有调用频率与额度上限；第三方工具默认不可信。建议拿这个案例做一次“密钥泄露路径”分析，写进《信息安全》课程报告，比空谈原则有说服力。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 2,
-   "value": "**用真实事故讲清 API 密钥管理与限流防护，安全课报告的现成素材**",
-   "courses": "对应《信息安全技术》《网络攻防》，可作密钥管理与访问控制案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "攻击目标是大模型 API 密钥，而非代码本身",
-    "暴露问题：客户端硬编码密钥、缺少调用限流与额度上限",
-    "官方归因“蒸馏攻击”存在争议，需批判性看待",
-    "可做密钥泄露路径分析，作为安全课程案例报告"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/K5J7yb60djWKM6vUZqwq?utm_source=rss&utm_medium=article",
-   "cover": "img/a604.webp"
-  },
-  {
-   "id": "a605",
-   "title": "DoorDash 的 Flux 在云端智能体上跑完 13 万个工程任务",
-   "summary": "DoorDash 介绍其云端智能体平台 Flux，已在内部承载约 13 万个工程任务的自动化执行。",
-   "content": "大厂把 Agent 真正用进研发流程的案例不多，这个算一个：Flux 在云端调度智能体执行工程任务，规模到了 13 万级。值得关注的不是数字，而是背后的工程问题——任务如何拆解与排队、智能体失败如何回滚、结果如何验证、权限如何隔离。对软件工程专业的同学，这是理解“AI 参与研发流程”的窗口；对想走平台方向的人，可以顺着想自己课设里哪些重复劳动能被自动化。建议读完写一段“如果给我的项目加一个 Agent 流水线”的设计，面试聊 AI 工程化时用得上。",
-   "source": "InfoQ中文",
-   "date": "2026-10-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "value": "**看清 Agent 进研发流程要解决的工程问题，而不只是模型能力**",
-   "courses": "对应《软件工程》，用于理解自动化研发流程与质量保障",
-   "tags": [
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "大厂内部 Agent 平台落地案例，规模约 13 万个工程任务",
-    "核心难点在任务拆解、失败回滚、结果验证与权限隔离",
-    "可作为理解 AI 参与研发流程的参考架构",
-    "延伸练习：为自己的项目设计一条 Agent 自动化流水线"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4IPptJpXQqX5Lr77uBFZ?utm_source=rss&utm_medium=article",
-   "cover": "img/a605.webp"
-  },
-  {
-   "id": "a606",
-   "title": "gfast 全栈快速开发框架 V3.4.2 发布：GoFrame + Vue3，内置大模型管理与流程编排",
-   "summary": "基于 GoFrame 2.10 + Vue3 + Element Plus 的前后端分离管理系统发布新版本，内置大模型管理、知识库与 SOP 流程编排。",
-   "content": "gfast 是一套开源的全栈后台管理系统，后端 GoFrame、前端 Vue3 + Element Plus，自带权限、多租户、代码生成，新版本还加了模型管理、知识库和流程编排。对软件工程同学的价值在于：它是一份可读的“企业级后台长什么样”的完整代码，权限模型、菜单路由、接口分层都能直接对照学习。想快速交一个像样的管理系统课设，也可以基于它二次开发，但要注意读懂再改，别只换皮。工业软件方向的同学可重点看它的流程编排模块设计。",
-   "source": "开源中国",
-   "date": "2026-10-19",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "前端"
-   ],
-   "stack": [
-    "GoFrame",
-    "Vue3"
-   ],
-   "diff": 2,
-   "value": "**一份可读可改的企业级全栈后台，课设底座与架构学习两用**",
-   "courses": "对应《Web 应用开发》《数据库原理》，可作管理系统课程设计基础",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "GoFrame + Vue3 全栈后台，含权限、多租户、代码生成",
-    "新增模型管理、知识库、SOP 流程编排模块",
-    "适合作为企业级后台架构的阅读样本与课设底座",
-    "二次开发前先读懂权限与分层设计，避免只换皮"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503086"
-  },
-  {
-   "id": "a607",
-   "title": "ToolForge v0.2.0：Rust + Tauri 2 开源桌面工具箱，插件市场升级新增十余款工具",
-   "summary": "基于 Rust + Tauri 2 的开源桌面工具箱发布新版本，插件市场升级并新增十余款工具，覆盖文件处理、数据转换与系统管理。",
-   "content": "Tauri 用系统 WebView 替代 Electron 打包 Chromium，安装包和内存占用都小很多，是桌面端值得学的技术栈。ToolForge 是一个真实在迭代的开源项目：Rust 写后端能力、前端用 Web 技术、插件化扩展工具。对前端方向的同学，可以读它的插件机制和前后端通信设计；想练手的，可以照着写一个自己的小工具（比如批量文件重命名、JSON 格式化），比做 TodoList 更能体现工程能力。注意 Rust 部分有学习曲线，先从插件侧切入更现实。",
-   "source": "开源中国",
-   "date": "2026-10-19",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Tauri",
-    "Rust"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用 Tauri 做桌面工具，比 TodoList 更能体现工程能力**",
-   "courses": "对应《人机交互》《Web 前端开发》，可作课程设计选题方向",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "Tauri 2 + Rust 桌面应用，体积与内存优于 Electron",
-    "插件市场机制值得读：如何定义接口、加载与隔离插件",
-    "适合作为前端同学接触桌面端与 Rust 的入门项目",
-    "练手建议：写一个批量文件处理小工具替代 TodoList"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503084"
   }
  ],
  "jobs": [
