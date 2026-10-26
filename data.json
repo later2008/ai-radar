@@ -1,6 +1,276 @@
 {
- "updatedAt": "2026-10-26 12:17",
+ "updatedAt": "2026-10-26 16:34",
  "news": [
+  {
+   "id": "a733",
+   "title": "Claude Code 与 Codex 的 Computer Use 原理拆解：AI 如何操作你的界面",
+   "summary": "从底层模型与集成方式两条线，拆解 Claude Code 和 Codex 的 Computer Use 实现差异，讲清「AI 直接操作电脑」到底靠什么跑起来。",
+   "content": "很多人以为 Computer Use 是模型自己会点鼠标，其实核心是「截图/无障碍树 → 模型决策 → 执行动作 → 回读结果」的循环，加上工具调用协议和沙箱隔离。文章对比了 Claude Code 与 Codex 在模型选型、动作空间定义、上下文压缩上的不同取舍。对软件工程学生来说，这是理解 Agent 工程化最直观的入口：你可以照着写一个最小 demo，用 Python 调模型 API + Playwright 做动作执行，把「AI 帮我点完课设系统的表单」跑通。信息安全方向的同学则可以从沙箱逃逸、动作白名单角度切入，思考权限边界怎么设计。",
+   "source": "掘金",
+   "date": "2026-10-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Playwright",
+    "LLM API"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**想入门 AI Agent 工程化，这是最省时间的原理级拆解，能直接落成 demo。**",
+   "courses": "对应《人工智能导论》《软件工程》课程设计，可作为 Agent 方向课设选题参考",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "讲清 Computer Use 的「感知-决策-执行-回读」闭环",
+    "对比两家在动作空间与上下文管理上的取舍",
+    "可动手实现最小 Agent demo（模型 API + Playwright）",
+    "安全视角：沙箱隔离与动作白名单是必答题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700850888098594870"
+  },
+  {
+   "id": "a734",
+   "title": "Vue 4 已在规划中：现在学 Vue 3 还值不值？",
+   "summary": "尤雨溪透露 Vue 4 进入规划阶段，文章回顾了 Vue 生态演进节奏，讨论前端学习者该如何安排版本学习路径。",
+   "content": "框架大版本更新对在校生最实际的问题是：课设用哪个版本、简历写哪个版本、面试问哪个版本。结论很朴素——Vue 3 的组合式 API 与 Vite 工具链在未来两三年仍是主流，Vue 4 的规划意味着你现在打的基础不会白费，但要留意响应式系统和编译期优化方向的变化。建议做法：课设继续用 Vue 3 + Vite 完整做一个带路由、状态管理、接口请求的项目；同时关注官方 RFC 仓库，养成读提案的习惯。这比追新闻标题有用得多，面试时能讲清「为什么这么设计」比会背 API 更值钱。",
+   "source": "掘金",
+   "date": "2026-10-26",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue",
+    "Vite"
+   ],
+   "value": "**帮你判断前端版本焦虑该不该有，把精力放回能写进简历的项目上。**",
+   "courses": "对应《Web 前端开发》课程，指导课设技术选型与版本决策",
+   "tags": [
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Vue 3 + Vite 仍是未来 2-3 年主流，课设放心用",
+    "关注官方 RFC 仓库，养成读提案的习惯",
+    "简历上写清项目里用到的具体能力（路由/状态/构建）",
+    "面试更看重设计取舍而非 API 记忆"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700803425820049434"
+  },
+  {
+   "id": "a735",
+   "title": "CLAUDE.md 最佳实践：给无人值守 Agent 写一份项目说明书模板",
+   "summary": "面向长期自动运行的 Agent，给出 CLAUDE.md 的写法模板：约束、命令、目录约定、禁区如何组织。",
+   "content": "CLAUDE.md 本质是给 AI 编程助手的「项目 README + 行为守则」，写好它能显著减少 AI 乱改文件、乱装依赖。文章给出的模板思路值得直接抄：先写清项目结构与构建/测试命令，再写编码规范与禁止事项，最后写「不确定时先问」的兜底规则。对软件工程学生特别实用——你可以在课程设计仓库根目录放一份，让 AI 助手按你的分层结构写代码，而不是每次生成一堆风格不一的文件。工业软件实验班的同学还可以把接口文档约定、命名规范写进去，模拟真实团队的协作约束。",
+   "source": "DEV Community",
+   "date": "2026-10-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/简历加分",
+   "value": "**十分钟配好，之后每次让 AI 写代码都少返工一半。**",
+   "courses": "对应《软件工程》课程，用于规范课设项目的协作与代码风格",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "CLAUDE.md = 项目结构 + 构建命令 + 编码规范 + 禁区",
+    "能显著减少 AI 乱改文件、乱装依赖",
+    "课设仓库根目录放一份，AI 生成代码风格更统一",
+    "可写入接口约定与命名规范，模拟团队协作"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "CLAUDE.md Best Practices: A Template for Unattended Agents",
+   "link": "https://dev.to/aobaworks/claudemd-best-practices-a-template-for-unattended-agents-1d3j",
+   "cover": "img/a735.webp"
+  },
+  {
+   "id": "a736",
+   "title": "AI 自己写勒索脚本、自己挑目标：Phantom 框架把勒索做成流水线",
+   "summary": "安全客披露俄罗斯黑客组织的 Phantom 框架，用 AI 自动生成勒索脚本、筛选目标并完成变现，攻击链条高度自动化。",
+   "content": "这条对信息安全与管理专业的同学是明确的信号：攻击侧的自动化程度在快速提升，传统「靠特征匹配」的防御思路压力更大。文章描述的链条是侦察筛选 → 载荷生成 → 投递执行 → 变现，每一环都在被 AI 加速。学习上可以这样用：把它当作威胁建模的案例，在《网络安全》课或攻防实验里复现「自动化侦察」环节（在授权靶场中），理解日志与流量侧该留什么检测点；同时思考防御侧怎么用行为基线、最小权限、备份隔离来对冲。写进简历的应该是「做过什么检测/加固」，而不是「看过什么新闻」。",
+   "source": "安全客",
+   "date": "2026-10-26",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**看清攻击自动化的真实节奏，把课程知识转成可写的防御实践。**",
+   "courses": "对应《网络安全技术》《恶意代码分析》，可作为威胁建模与靶场实验案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "攻击链条：侦察筛选→载荷生成→投递→变现，全环自动化",
+    "防御侧重点转向行为基线与最小权限",
+    "可在授权靶场复现侦察环节，理解检测点设计",
+    "简历写检测/加固实践，别写「了解勒索软件」"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316346"
+  },
+  {
+   "id": "a737",
+   "title": "ToolForge v0.2.2 发布：Rust + Tauri 桌面工具箱，支持 MCP 与插件权限管理",
+   "summary": "开源桌面工具箱 ToolForge 更新，支持 MCP、CLI 与插件级权限管理，是学习 Tauri 桌面开发与插件架构的现成样本。",
+   "content": "对想做一个「能装进简历的桌面工具」的同学，这类项目比教程更有参考价值：Rust + Tauri 2 做壳，WASM 插件市场做扩展，权限模型控制插件能干什么。你可以拆三块来学——Tauri 的前后端通信（前端页面 + Rust 命令）、插件加载与沙箱边界、MCP 协议如何让 AI Agent 调用工具。工业软件实验班的同学尤其值得看权限管理这块：桌面端工具接入外部插件时，权限粒度怎么切、怎么审计，和工业软件的扩展机制是同一类问题。建议先跑通官方 demo，再自己加一个插件。",
+   "source": "开源中国",
+   "date": "2026-10-26",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust",
+    "Tauri"
+   ],
+   "diff": 3,
+   "scene": "练手/简历加分",
+   "value": "**想做桌面工具项目，这是带插件架构和权限模型的现成参考实现。**",
+   "courses": "对应《程序设计》《软件体系结构》，可作为课程设计参考项目",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "技术栈：Rust + Tauri 2 + WASM 插件市场",
+    "可拆三块学：前后端通信、插件沙箱、MCP 调用",
+    "权限粒度与审计设计，对工业软件扩展机制有借鉴",
+    "先跑通 demo，再自己写一个插件练手"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503201"
+  },
+  {
+   "id": "a738",
+   "title": "投研 Agent 开发两年复盘：模型好选，搜索难做",
+   "summary": "一个投研 Agent 的两年开发历程复盘，指出真正的工程难点在检索质量与数据管道，而非模型选型。",
+   "content": "这篇对做课设和准备面试的同学都很有用，因为它讲的是「Agent 落地时到底卡在哪」。结论是：模型调用只是薄薄一层，真正耗时的是数据抓取清洗、检索召回与重排、结果可信度校验。你可以把它映射到自己的项目上——比如做一个「课程资料问答助手」，重点不在换个更强的模型，而在把 PDF 解析、分块策略、向量检索和引用溯源做扎实。面试时讲「我怎么把召回率从多少提到多少、怎么处理脏数据」，比讲「我用了某某大模型」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "RAG"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分/求职准备",
+   "value": "**帮你把 Agent 课设从「调 API 演示」升级成「有工程含量」的项目。**",
+   "courses": "对应《数据库原理》《人工智能导论》，可用于 RAG 类课程设计",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Agent 落地瓶颈在检索与数据管道，不在模型选型",
+    "可映射为「课程资料问答助手」课设",
+    "重点做：解析分块、向量检索、引用溯源",
+    "面试讲指标与脏数据处理，别只讲用了什么模型"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/NrUkJExfuuFOICsjVYbb?utm_source=rss&utm_medium=article",
+   "cover": "img/a738.webp"
+  },
+  {
+   "id": "a739",
+   "title": "京东广告用鲲鹏超节点把推理时延降 15%：瓶颈在通算侧不在 GPU",
+   "summary": "京东广告与华为鲲鹏合作，通过灵衢互联压缩缓存层级、重构 RPC，使端到端推理时延降低 15%，并在大促核心场景验证。",
+   "content": "这条对工业软件实验班和走 Java 后端的同学都有价值，因为它讲的是「性能优化到底优化什么」。案例里真正的瓶颈是通算侧的数据搬运与 RPC 开销，而不是 GPU 算力：把四级缓存压成两级、建共享内存池、重构通信协议，才拿到 15% 的端到端收益。学习路径很清晰——先搞懂缓存层级与内存访问延迟的量级差异，再用压测工具给自己的服务做一次端到端拆解，看时间花在计算、序列化还是网络往返上。这种「先测量再优化」的方法论，写进课设报告和面试回答都很加分。",
+   "source": "钛媒体",
+   "date": "2026-10-26",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "RPC"
+   ],
+   "value": "**学会「先测量再优化」，比记住任何性能技巧都管用。**",
+   "courses": "对应《操作系统》《计算机网络》，可作缓存与通信开销的实例讲解",
+   "tags": [
+    "工业软件",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "瓶颈常在数据搬运与 RPC，而非算力本身",
+    "手段：压缩缓存层级、共享内存池、重构通信",
+    "方法论：先端到端压测拆解，再定点优化",
+    "可对自己的后端服务做一次时延归因练习"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8181692.html"
+  },
+  {
+   "id": "a740",
+   "title": "主数据平台 1.7.0 发布：权限组审批、Feign 接口统一鉴权、移动端上线",
+   "summary": "一个开源主数据平台发布 1.7.0，新增权限组申请审核、开放平台接口在线调试、Feign 内部接口统一迁移并接入令牌鉴权。",
+   "content": "这是一个很适合 Java 全栈方向同学拆解的企业级项目更新：权限组「申请-审批」是典型的 RBAC 扩展，Feign 内部接口统一迁到 /inner/** 并加令牌鉴权，是微服务里很常见的内部调用安全实践。你可以带着三个问题读源码——权限模型怎么建表、审批流状态机怎么设计、内部接口令牌怎么签发与校验。然后把其中一块搬进自己的课设：比如给小组项目加一套「申请-审批」的权限变更流程，或者给服务间调用加上统一鉴权拦截器。这些是面试里问得出、也答得上的东西。",
+   "source": "开源中国",
+   "date": "2026-10-26",
+   "cat": "stack",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Spring Cloud",
+    "Feign"
+   ],
+   "value": "**想找企业级 Java 项目练手，这套权限与内部鉴权设计可直接借鉴。**",
+   "courses": "对应《Java Web 开发》《软件体系结构》，可用于微服务课设参考",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "RBAC 扩展：权限组申请与逐组审批的状态机设计",
+    "微服务内部接口统一路径 + 令牌鉴权的常见做法",
+    "可拆三个问题读源码：建表、状态机、令牌校验",
+    "搬进课设：加审批流或统一鉴权拦截器"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503199"
+  },
   {
    "id": "a726",
    "title": "Java静态变量初始化顺序踩坑：一次线上NPE的完整排查",
@@ -23,7 +293,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "父类静态初始化先于子类，同类别按源码顺序执行",
@@ -3810,297 +4080,106 @@
    "origTitle": "How to Make Your Coding Agent Check Its Work in the Browser",
    "link": "https://www.freecodecamp.org/news/how-to-make-your-coding-agent-check-its-work-in-the-browser/",
    "cover": "img/a621.webp"
-  },
-  {
-   "id": "a622",
-   "title": "一个开源的 Java PDF 信函生成库，适合当课程设计参考",
-   "summary": "开发者发布开源 Java 库 Letter Generator，把信函排版、字段填充、导出 PDF 的重复工作封装起来。",
-   "content": "生成 PDF 信函听起来简单，真做起来要处理模板占位符替换、中文字体嵌入、分页与页边距、批量导出等细节。这个开源 Java 库把这些封装成 API，输入数据即可产出排版规整的 PDF。对 Java 方向的同学，这是很好的「读一个小而完整的开源项目」素材：可以对照《Java 程序设计》里的 IO 流与面向对象设计，看它如何抽象模板与渲染器；也可以直接用在课设里做「批量生成证明/通知单」功能。建议动手改一处：加上中文字体支持或批量循环导出，比单纯调用更有收获。",
-   "source": "DEV Community",
-   "date": "2026-10-20",
-   "cat": "tool",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**小而完整的 Java 开源项目，既能直接用又能当源码教材**",
-   "courses": "《Java 程序设计》：作为 IO 与面向对象设计的阅读与改造案例",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "封装模板填充 + PDF 导出，减少重复劳动",
-    "可读源码学习接口抽象与 IO 处理",
-    "练手建议：补中文字体、批量导出",
-    "适合课设中的报表/单据生成模块"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "I built an open-source Java library for generating PDF letters",
-   "link": "https://dev.to/nunosilva/i-built-an-open-source-java-library-for-generating-pdf-letters-42ie",
-   "cover": "img/a622.webp"
-  },
-  {
-   "id": "a623",
-   "title": "Cloudflare 把 TypeScript 移植到 Rust：Tsrs 项目解读",
-   "summary": "Cloudflare 博客介绍 Tsrs——用 Rust 重写 TypeScript 工具链的移植项目，涉及解析、类型检查与性能取舍。",
-   "content": "Tsrs 是把 TypeScript 编译器相关能力用 Rust 重写的移植项目，Cloudflare 在博客里讲了动机与工程难点：如何保持语义一致、如何处理类型系统的复杂度、性能收益从哪来。对软件工程（含工业软件实验班）的同学，这类「用系统级语言重写成熟工具链」的案例很有参考价值——工业软件里大量 CAD/CAE 内核也是从 C++/脚本层逐步迁移到更安全的实现。不必读完全部细节，重点看它如何做兼容性测试与渐进式替换，这套方法论写进课程报告或毕设方案都站得住。",
-   "source": "Hacker News",
-   "date": "2026-10-20",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "TypeScript"
-   ],
-   "diff": 3,
-   "scene": "技术调研",
-   "value": "**看懂一次大型工具链重写，就懂了工业软件迁移的通用套路**",
-   "courses": "《编译原理》《软件体系结构》：作为工具链实现与重构的调研案例",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "TypeScript 工具链的 Rust 移植实践",
-    "看点：语义兼容、渐进替换、性能取舍",
-    "与工业软件内核迁移思路相通",
-    "适合作为技术调研报告素材"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Tsrs: A Port of TypeScript to Rust",
-   "link": "https://blog.cloudflare.com/typescript-rust-port/",
-   "cover": "img/a623.webp"
-  },
-  {
-   "id": "a613",
-   "title": "AI生成的代码看不懂就重写：首席架构师的5条Agent编程原则",
-   "summary": "一位首席架构师总结用AI Agent写代码的5条反常识原则，核心是「看不懂的AI代码宁可扔掉重写」。",
-   "content": "很多人用Cursor、Claude Code生成代码，跑通就提交，结果review时自己都讲不清逻辑。这篇文章的观点很硬：AI产出的代码如果超出你的理解范围，正确做法是丢弃重写，而不是硬塞进项目。对软件工程专业的同学来说，这直接对应《软件工程》《代码质量与测试》里的可维护性要求——你提交的每一行代码都要能对答辩老师解释清楚。建议做法：让Agent先输出设计思路和关键函数签名，你确认后再让它补全实现；每次生成控制在百行以内，边生成边读。课设里用AI提效没问题，但把AI代码当黑盒交上去，答辩现场就是翻车现场。",
-   "source": "InfoQ中文",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**教你安全地把AI编程工具用进课程项目，而不是交出自己看不懂的代码**",
-   "courses": "《软件工程》《程序设计基础》：用于课设代码规范与可维护性自查",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "AI生成代码超出理解范围时应丢弃重写，而非直接合并",
-    "先让Agent给设计思路和函数签名，确认后再补全实现",
-    "单次生成控制在百行内，边生成边读保证可解释",
-    "答辩/代码review时你必须能讲清每一行逻辑"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/tgqMEJsqXfX6YzAcOiAR?utm_source=rss&utm_medium=article",
-   "cover": "img/a613.webp"
-  },
-  {
-   "id": "a614",
-   "title": "SonarQube扫不出你的React Native漏洞：硬编码密钥与SDK版本陷阱",
-   "summary": "作者用SonarQube扫一个React Native小应用，结果零告警，但包里藏着AWS密钥和低targetSdk绕过问题。",
-   "content": "这是一篇很典型的静态扫描局限性案例：SonarQube社区版对一个React Native示例应用报告「一切正常」，但同一份代码的JS bundle里硬编码了AWS访问密钥，targetSdk设得过低还能让新系统用户绕过某些限制。对信息安全与管理专业的同学，这篇是《软件安全测试》《代码审计》的活教材：静态分析工具只覆盖它认识的规则，配置类、打包产物类、平台版本类问题它看不见。实操建议：把SonarQube当第一道筛子，再补三项检查——打包产物里grep密钥、检查AndroidManifest的targetSdkVersion、用密钥扫描工具（如gitleaks）跑CI。做安全课设时可以直接复现这个实验，写进报告里比空谈工具有说服力。",
-   "source": "DEV Community",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "前端"
-   ],
-   "stack": [
-    "SonarQube",
-    "React Native"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**让你明白静态扫描工具的盲区，学会补上密钥泄露与配置风险检查**",
-   "courses": "《软件安全测试》《代码审计》：作为静态分析局限性的实验案例",
-   "tags": [
-    "信息安全",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "SonarQube对RN应用零告警，但bundle中硬编码了AWS密钥",
-    "低targetSdkVersion可被利用绕过系统限制，静态扫描查不出",
-    "静态分析只是第一道筛子，需补密钥扫描与配置检查",
-    "可复现此实验作为安全课设/代码审计报告素材"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "SonarQube says your React Native app is fine. Here's what it can't see.",
-   "link": "https://dev.to/keel_alican_akyol/sonarqube-says-your-react-native-app-is-fine-heres-what-it-cant-see-38j6",
-   "cover": "img/a614.webp"
-  },
-  {
-   "id": "a615",
-   "title": "实测Claude Code提示缓存0到65分钟过期规律，省下真金白银",
-   "summary": "作者用0到65分钟的暂停间隔实测Claude Code的prompt cache何时失效，解释午休回来第一条消息为何又慢又贵。",
-   "content": "用AI编程工具的同学大概都遇到过：上午聊得好好的，午休回来发一句话，回复特别慢、额度还掉得快。原因是prompt cache过期了，整段对话要重新处理。这篇文章用0到65分钟的分档实测，给出了缓存失效的时间窗口。实用价值在于：把长会话拆成短会话、把大段上下文（日志、整份文件）放到会话开头一次性给、避免长时间挂起后再续聊，都能明显降低token消耗。对做课设预算有限的学生尤其有用——同样的免费额度能多跑不少轮。建议自己动手做一次小实验，记录不同间隔下的响应时间和用量，这本身就是一份不错的性能观测小报告。",
-   "source": "DEV Community",
-   "date": "2026-10-20",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**帮你摸清AI编程工具的缓存机制，用同样的额度跑更多轮**",
-   "courses": "《程序设计基础》：用于AI辅助开发中的成本与性能观测实践",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "实测0-65分钟暂停间隔下prompt cache的失效时间点",
-    "缓存过期后整段对话重算，导致首条回复变慢、用量飙升",
-    "对策：拆短会话、大上下文前置、避免长时间挂起后续聊",
-    "可自建小实验记录间隔与用量，写成性能观测报告"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "I paused Claude Code for 0 to 65 minutes to see when the prompt cache expires",
-   "link": "https://dev.to/jaehyun_cho_0dff271e0d2e5/i-paused-claude-code-for-0-to-65-minutes-to-see-when-the-prompt-cache-expires-4ggl",
-   "cover": "img/a615.webp"
-  },
-  {
-   "id": "a616",
-   "title": "DeepSeek开源推理框架DeepInfer：决定AI服务算力成本的中间层",
-   "summary": "DeepSeek开源推理框架DeepInfer，负责海量请求下的算力调度，直接决定AI服务的成本与吞吐。",
-   "content": "这次开源的不是模型而是推理框架，值得关注的点在于：训练让模型「学会」，推理框架决定模型「用得起」。它要处理的是批处理调度、显存管理、请求排队这些工程问题。对工业软件实验班的同学，这类系统软件正是「工业级软件」的典型形态——高并发、资源受限、对延迟和成本极度敏感，和你以后做的调度类、控制类工业软件在工程方法上是相通的。建议的用法：不必读完全部源码，挑调度和批处理模块看设计文档，理解「吞吐vs延迟」的权衡怎么写进架构；有余力可以本地跑起来压测一下，观察并发数变化时吞吐曲线的拐点。这比空谈「高并发」有说服力得多。",
-   "source": "开源中国",
-   "date": "2026-10-20",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "DeepInfer"
-   ],
-   "value": "**让你看到工业级系统软件如何用调度设计换取成本与吞吐**",
-   "courses": "《操作系统》《软件体系结构》：用于理解调度与资源管理在真实系统中的落地",
-   "tags": [
-    "工业软件",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "开源的是推理框架而非模型，核心是算力调度与成本控制",
-    "涉及批处理调度、显存管理、请求排队等系统工程问题",
-    "与工业软件的高并发、资源受限场景在工程方法上相通",
-    "建议读调度模块设计文档并本地压测观察吞吐拐点"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503116"
-  },
-  {
-   "id": "a617",
-   "title": "Agent会话该不该常驻？Agent Substrate用K8s思路管理长生命周期会话",
-   "summary": "文章介绍Agent Substrate：Agent会话有等待、有状态，不能像Pod一样简单常驻，需要新的调度与状态恢复机制。",
-   "content": "Kubernetes的Pod是短生命周期部署单元，但一个Agent会话可能跑几秒、等几分钟、再回来继续，中间还要保留进程和文件系统状态。如果为每次等待都保留一个常驻环境，资源浪费极大。这篇文章讨论的正是「如何像调度容器一样调度Agent会话」。对软件工程和信息安全方向的同学，这是一个很好的架构思维训练题：状态放哪、怎么快照恢复、隔离边界在哪（顺带就是安全问题——会话间文件系统不能串）。建议拿它当《软件体系结构》或课程设计的选题参考，画一张会话生命周期状态机图，比读十篇泛泛的AI文章有用。",
-   "source": "DEV Community",
-   "date": "2026-10-20",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes"
-   ],
-   "value": "**给你一个把容器调度思维迁移到Agent会话的架构训练题**",
-   "courses": "《软件体系结构》《操作系统》：用于会话生命周期与资源调度设计练习",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent会话生命周期特殊：短暂运行、长时间等待、需保留状态",
-    "核心问题是如何调度会话并做状态快照与恢复",
-    "会话隔离边界同时是安全问题，文件系统不能互相串",
-    "适合作为体系结构课设选题，画会话生命周期状态机"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "An Overview of Agent Substrate",
-   "link": "https://dev.to/yosshi_/an-overview-of-agent-substrate-501d",
-   "cover": "img/a617.webp"
-  },
-  {
-   "id": "a618",
-   "title": "AI Agent越用越贵：用可观测性平衡性能、质量与成本",
-   "summary": "文章讨论如何通过可观测性手段监控AI Agent的调用链路，在性能、输出质量和成本之间找平衡。",
-   "content": "Agent跑起来之后，问题往往不是「能不能用」而是「为什么这么贵、为什么这次慢」。可观测性在这里指三件事：记录每次调用的输入输出与耗时、统计token消耗分布、定位哪一步在反复重试。对软件工程专业的同学，这套方法和你学的日志、埋点、链路追踪是一回事，只是观测对象换成了LLM调用。实操建议：在课设里给AI调用包一层简单装饰器，记录耗时和token数，输出成表格；跑几次就能发现哪类提示词最烧钱。这个「给AI功能加监控」的小模块写进简历，比只写「调用过大模型API」具体得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "可观测性"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**教你把日志埋点技能迁移到AI调用上，做出可量化的成本优化**",
-   "courses": "《软件测试》《软件工程》：用于AI功能的监控与性能度量实践",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "可观测性三件事：调用记录、token消耗统计、重试定位",
-    "方法与日志埋点、链路追踪同源，只是观测对象换成LLM",
-    "课设中给AI调用加装饰器记录耗时与token，输出统计表",
-    "「给AI功能加监控」是可写进简历的具体项目点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4FreCLUUQb4W4AXUhXo5?utm_source=rss&utm_medium=article",
-   "cover": "img/a618.webp"
   }
  ],
  "jobs": [
+  {
+   "id": "j39",
+   "company": "佰聆数据",
+   "title": "润才计划 实习生招募",
+   "type": "实习",
+   "loc": "广州",
+   "deadline": "搜索官方公众号",
+   "salary": "",
+   "positions": [
+    "见公告"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-10-26",
+   "summary": "佰聆数据润才计划面向不限届次在校生招募实习生，工作地点广州，具体岗位以官方公告为准。适合广州地区想进入数据方向的学生。",
+   "cls": "通用技术类",
+   "plain": "数据类企业实习，为软件与数据方向学生提供本地实践机会。",
+   "courses": "数据库、数据分析、Python程序设计",
+   "hardReq": [
+    "在校生，专业不限"
+   ],
+   "plusReq": [
+    "有数据分析或编程基础"
+   ],
+   "selfLearn": [
+    "学习SQL与Python数据分析",
+    "了解数据治理与BI基本概念"
+   ],
+   "fitWho": "广州地区想进入数据行业的在校生",
+   "tips": "关注佰聆数据官方公众号获取润才计划投递方式"
+  },
+  {
+   "id": "j38",
+   "company": "同花顺",
+   "title": "2027届实习生招募计划",
+   "type": "实习",
+   "loc": "见公告",
+   "deadline": "公众号入口 http://weixin.qq.com/r/tnXt9W3EejAFrSmW9yCk",
+   "salary": "",
+   "positions": [
+    "见公告"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-10-26",
+   "summary": "同花顺面向2027届学生开放实习生招募计划，具体岗位与地点以官方公告为准。适合对金融科技方向感兴趣的在校生提前布局。",
+   "cls": "软件工程类",
+   "plain": "金融科技公司实习，对软件工程学生是了解金融业务与技术结合的机会。",
+   "courses": "数据结构、数据库、计算机网络",
+   "hardReq": [
+    "2027届在校生"
+   ],
+   "plusReq": [
+    "有金融或后端开发项目经历"
+   ],
+   "selfLearn": [
+    "复习后端开发与数据库基础",
+    "了解量化与金融数据基本概念"
+   ],
+   "fitWho": "对金融科技方向感兴趣的2027届学生",
+   "tips": "通过公众号入口查看具体岗位与截止时间后再投递"
+  },
+  {
+   "id": "j37",
+   "company": "DeepSeek",
+   "title": "2027届实习 算法/工程/产品/研究类",
+   "type": "实习",
+   "loc": "北京、杭州",
+   "deadline": "搜索官方公众号",
+   "salary": "",
+   "positions": [
+    "算法类",
+    "工程类",
+    "产品类",
+    "研究类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-10-26",
+   "summary": "DeepSeek面向2027届学生开放实习，覆盖算法、工程、产品与研究四类方向，工作地点为北京、杭州。适合想进入大模型/AI一线团队积累实习经历的同学。",
+   "cls": "软件工程类",
+   "plain": "大模型头部公司实习，对软件与算法方向学生是含金量较高的实践机会。",
+   "courses": "数据结构与算法、机器学习、操作系统",
+   "hardReq": [
+    "2027届在校生",
+    "具备算法或工程基础"
+   ],
+   "plusReq": [
+    "有大模型相关项目或论文经历"
+   ],
+   "selfLearn": [
+    "刷LeetCode并复习深度学习基础",
+    "动手复现一个开源大模型微调项目"
+   ],
+   "fitWho": "想进大模型/AI团队实习的2027届本硕学生",
+   "tips": "关注DeepSeek官方公众号获取投递入口，尽早准备简历与项目材料"
+  },
   {
    "id": "j36",
    "company": "京东",
@@ -4799,104 +4878,6 @@
    ],
    "summary": "HR SaaS 头部企业安全岗：渗透测试+漏洞推进+等保合规/风险评估，攻防与合规双修。",
    "link": "https://www.yingjiesheng.com/job-008-069-641.html"
-  },
-  {
-   "id": "j10",
-   "company": "上海人工智能实验室",
-   "title": "大模型智能体强化学习实习生（大模型中心）",
-   "type": "实习",
-   "loc": "上海",
-   "deadline": "长期有效，招满即止",
-   "positions": [
-    "智能体强化学习",
-    "奖励建模",
-    "过程监督",
-    "PPO/GRPO"
-   ],
-   "link": "https://www.shlab.org.cn/joinus/detail/7684102366311942427",
-   "source": "上海AI实验室官网",
-   "date": "2026-09-05",
-   "summary": "参与书生大模型智能体强化学习长稳训练研究：长链路信用分配、稀疏反馈、过程奖励、轨迹筛选等前沿问题；本科及以上可投，博士在读优先，顶会论文/竞赛获奖加分。",
-   "cls": "软件工程类",
-   "plain": "参与书生大模型智能体强化学习长稳训练研究：长链路信用分配、稀疏反馈、轨迹筛选等前沿问题。",
-   "courses": "机器学习基础、Python、线性代数",
-   "hardReq": [
-    "每周 5 天、持续到岗"
-   ],
-   "plusReq": [
-    "有 RL/大模型项目经历",
-    "读研规划清晰"
-   ],
-   "selfLearn": [
-    "强化学习入门（PPO/GRPO 概念）"
-   ],
-   "fitWho": "准备读研的顶尖本科生 / 硕士",
-   "tips": "科研实习是保研申硕的硬加分项；纯就业导向的同学优先选工程实习。"
-  },
-  {
-   "id": "j16",
-   "company": "群核科技（杭州）",
-   "title": "科研算法工程师（大模型与 AIGC 方向，招 20 人）",
-   "type": "社招",
-   "loc": "杭州",
-   "salary": "20000 元/月起",
-   "deadline": "9 月 4 日发布，招满即止",
-   "positions": [
-    "空间智能AI",
-    "多模态大模型",
-    "AIGC",
-    "3D生成"
-   ],
-   "link": "https://www.liepin.com/zpztxsfsx8iz8ubd/",
-   "source": "猎聘（群核官方认证职位）",
-   "date": "2026-09-04",
-   "summary": "酷家乐母公司一次放出 20 个大模型/AIGC 研发岗，面向空间智能方向；要求熟悉扩散模型/3D 生成等技术栈，顶会论文或竞赛获奖优先；可发简历至 hr@qunhemail.com 或猎聘/BOSS 搜索官方认证职位。",
-   "cls": "软件工程类",
-   "plain": "酷家乐母公司，做 3D 场景里的 AI 生成（空间智能/AIGC），一次放出 20 个研发岗。",
-   "courses": "图形学概念、Python、深度学习基础",
-   "hardReq": [
-    "社招研发岗"
-   ],
-   "plusReq": [
-    "熟悉扩散模型/3D 生成"
-   ],
-   "selfLearn": [
-    "Stable Diffusion 原理入门"
-   ],
-   "fitWho": "有深度学习基础的同学；应届可关注其校招渠道",
-   "tips": "要求熟悉扩散模型——自学成本不低，但 3D+AI 是差异化赛道。"
-  },
-  {
-   "id": "j15",
-   "company": "智谱AI",
-   "title": "智谱多岗位在招（大模型数据算法 45-75K 等）",
-   "type": "社招",
-   "loc": "北京·海淀",
-   "deadline": "长期有效",
-   "positions": [
-    "大模型数据算法 45-75K",
-    "预训练算法 40-60K",
-    "AI Native全栈 30-50K",
-    "SRE运维 30-60K"
-   ],
-   "link": "https://aiqicha.baidu.com/company_recruitmentinfo_23861067299863",
-   "source": "爱企查",
-   "date": "2026-09-03",
-   "summary": "GLM 团队多技术岗在招：大模型数据算法工程师月薪最高 75K、模型代码预训练算法 40-60K、AI Native 全栈 30-50K；非技术岗同样有 AI 溢价（大模型销售最高月薪 5 万）。",
-   "cls": "软件工程类",
-   "plain": "AI Native 全栈岗（30-50K）做 AI 应用产品全链路开发，是其中最贴合软工课程的方向；数据/预训练算法岗要求更高。",
-   "courses": "Java/TypeScript 全栈、数据库、软件工程",
-   "hardReq": [
-    "社招：算法岗要求相关经验"
-   ],
-   "plusReq": [
-    "从 0 到 1 做过 AI 应用产品"
-   ],
-   "selfLearn": [
-    "大模型 API 深度使用（结构化输出/函数调用）"
-   ],
-   "fitWho": "应届重点看 AI Native 全栈；算法岗适合硕士",
-   "tips": "薪资给得最高的全栈方向，把「AI 应用全链路」项目写进简历。"
   }
  ],
  "stats": [
