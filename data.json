@@ -1,6 +1,203 @@
 {
- "updatedAt": "2026-10-26 16:34",
+ "updatedAt": "2026-10-27 03:01",
  "news": [
+  {
+   "id": "a741",
+   "title": "React Compiler 1.0 之后，状态管理库正在被重新定义",
+   "summary": "React Compiler 自动完成 memo 化，Redux/Zustand 等状态库的定位从「性能优化」转向「跨组件数据建模」，选型逻辑要重写。",
+   "content": "React Compiler 在编译期自动插入 useMemo/useCallback，过去靠状态库解决的「重渲染」问题被大幅削弱。文章梳理了变化后的真实分工：编译器管渲染性能，状态库只管数据归属与跨组件共享。对写前端课设和实习项目的同学，直接结论是：新项目不必再为性能引入 Redux，优先 Zustand/Jotai 这类轻量方案；老项目迁移前先确认编译器对现有 hooks 写法的兼容性。建议拿自己一个 React 项目开 compiler 跑一遍，对比 bundle 与渲染次数，这比看十篇选型文有用。",
+   "source": "掘金",
+   "date": "2026-10-27",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**帮你重新理解 React 状态选型，避免在课设里堆砌过时的性能优化套路。**",
+   "courses": "《Web 前端开发》组件状态管理章节，可作课程设计选型参考。",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "Compiler 接管 memo 化，状态库不再承担性能职责",
+    "新项目优先轻量状态方案，Redux 只在复杂数据流场景保留",
+    "迁移前先验证现有 hooks 写法兼容性",
+    "动手对比编译前后渲染次数最有说服力"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7700817447419871275"
+  },
+  {
+   "id": "a742",
+   "title": "Kubernetes 1.37 发布：Metrics API 转稳定版，Rootless Kubelet 进 Beta",
+   "summary": "稳定版 Metrics API 让 HPA 与监控接入更可靠，Rootless Kubelet 提升容器运行时安全边界。",
+   "content": "K8s 1.37 的两个变化对课程和面试都有用：Metrics API 稳定意味着自定义指标伸缩（HPA）不再依赖第三方适配器的实验特性，做「云原生部署」课设时可以直接用官方指标链路；Rootless Kubelet 进 Beta，kubelet 以非 root 运行，缩小容器逃逸后的提权面，是信息安全方向理解「最小权限」的现成案例。建议在 minikube/kind 上装 1.37，跑一次 HPA 扩容实验，并记录开启 rootless 前后的权限差异，写进实验报告。",
+   "source": "InfoQ中文",
+   "date": "2026-10-27",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Kubernetes"
+   ],
+   "value": "**云原生部署与容器安全两条线的一次同步升级，课设和面试都用得上。**",
+   "courses": "《云计算与容器技术》《系统安全》实验环境搭建与权限加固。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Metrics API 稳定，HPA 自定义指标链路可官方直连",
+    "Rootless Kubelet Beta，kubelet 非 root 运行降低提权风险",
+    "本地用 kind/minikube 即可复现实验",
+    "适合作为云原生与最小权限原则的实证材料"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/TrI8l3CYeAJER9tgR5Jt?utm_source=rss&utm_medium=article",
+   "cover": "img/a742.webp"
+  },
+  {
+   "id": "a743",
+   "title": "DjangoAdmin v2.7.3：FastAPI+Vue3+TS 的企业级后台脚手架",
+   "summary": "基于 FastAPI、Vue3、TypeScript、NaiveUI 的前后端分离中台方案，内置到按钮级的 RBAC 权限体系。",
+   "content": "这个脚手架的价值不在「又一个后台模板」，而在它把权限做成了可读的工程实现：RBAC 细化到按钮和方法级别，配套用户、角色、菜单、部门、岗位、日志、字典、参数等模块。对软件工程同学，可以直接拿它当毕业设计或课程设计的底座，重点读它的权限拦截链路——后端依赖注入如何校验、前端路由与按钮如何联动，这是面试常问的「权限系统怎么设计」。注意它是脚手架不是框架，先跑通再删模块，别整包照抄。",
+   "source": "开源中国",
+   "date": "2026-10-27",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "FastAPI",
+    "Vue3"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一个能直接读权限实现的后台底座，比从零写登录鉴权省两周。**",
+   "courses": "《软件工程》《Web 应用开发》课程设计，权限模块可作为设计文档素材。",
+   "tags": [
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "权限控制细化到按钮与方法级，可直接读实现",
+    "技术栈 FastAPI+Vue3+TS+NaiveUI，前后端分离标准组合",
+    "适合作为课设/毕设底座，先跑通再裁剪",
+    "重点学习后端鉴权依赖与前端路由守卫的联动"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503223"
+  },
+  {
+   "id": "a744",
+   "title": "Zentrola 1.3.0：在 Codex、Claude Code 里查额度、管团队 Key",
+   "summary": "把订阅额度查询、成员权限与 Key 分配搬进 AI 编码客户端，减少在后台和 IDE 之间来回切换。",
+   "content": "团队用多个 Codex/Claude Code 账号时，常见痛点是：新同学要分配 Key、模型调用失败要定位是哪个账号、任务中途想知道额度还剩多少。Zentrola 通过授权把这些操作放进编码客户端内完成。对学生团队做小组项目有现实意义：如果你们共用 AI 编码工具，可以借鉴它的思路——用统一入口管理密钥与额度，而不是把 Key 写进代码或群里传。顺带提醒：任何第三方接管 Key 都有泄露风险，务必看清授权范围，这也是信息安全课上的典型供应链风险案例。",
+   "source": "开源中国",
+   "date": "2026-10-26",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**小组共用 AI 编码工具时的密钥与额度管理思路，同时是一堂供应链安全课。**",
+   "courses": "《信息安全导论》密钥管理与第三方服务风险章节。",
+   "tags": [
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "额度查询、成员与 Key 管理内嵌到 AI 编码客户端",
+    "适合多人共用 AI 编码工具的小组项目参考",
+    "第三方托管 Key 存在授权与泄露风险，需审查",
+    "可当作供应链安全的现实案例讨论"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503222"
+  },
+  {
+   "id": "a745",
+   "title": "前 Stripe 工程高管：中层技术经理三年内要么重学技术，要么退场",
+   "summary": "AI 编码工具压缩了执行层工作量，工程管理岗位的能力模型被迫重构，对求职者的技能预期也在变。",
+   "content": "这条不是八卦，是就业信号。文章核心判断：当 AI 能承担大量实现工作，只负责排期和汇报的中层管理者价值被稀释，能判断技术方案、能审 AI 产出的人更稀缺。对软件工程和信息安全学生，直接含义是：简历上「会用某框架」的权重下降，「能说清为什么这么设计、能验证 AI 生成的代码有没有漏洞」的权重上升。建议在课设里刻意练习两件事——写设计取舍说明，以及对 AI 生成代码做一次安全审查并留记录。",
+   "source": "InfoQ中文",
+   "date": "2026-10-26",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**提前知道用人单位在改什么标准，比临毕业再补简历划算。**",
+   "courses": "《软件工程》需求与设计文档写作，可强化取舍论证部分。",
+   "tags": [
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "执行层工作被 AI 压缩，纯协调型管理岗价值下降",
+    "技术判断力与 AI 产出审查能力成为稀缺项",
+    "简历应突出设计取舍与代码审查，而非框架罗列",
+    "课设中刻意留存设计说明与审查记录"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/hhxL1M65UU3Iwr4ovALT?utm_source=rss&utm_medium=article",
+   "cover": "img/a745.webp"
+  },
+  {
+   "id": "a746",
+   "title": "AWS 重构 EventBridge 自定义事件总线，面向企业级事件驱动架构",
+   "summary": "事件总线在路由、吞吐与多租户隔离上重构，事件驱动架构的落地成本进一步下降。",
+   "content": "EventBridge 自定义事件总线重构，重点在企业级场景：更清晰的事件路由规则、更好的多租户隔离与吞吐表现。对软件工程同学，事件驱动是分布式课设里最容易讲不清的部分——什么时候用消息队列、什么时候用事件总线、幂等和顺序怎么保证。建议借这次文档更新，画一张「订单创建→库存扣减→通知」的事件流转图，标出失败重试与死信处理位置，放进课程设计文档，比背概念扎实。工业软件方向的产线数据采集也常用这类模式。",
+   "source": "InfoQ中文",
+   "date": "2026-10-26",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "AWS"
+   ],
+   "value": "**把事件驱动从概念变成能画进课设文档的架构图。**",
+   "courses": "《分布式系统》《软件体系结构》异步通信与解耦设计章节。",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 44,
+   "brief": [
+    "自定义事件总线强化路由规则与多租户隔离",
+    "事件驱动适合解耦产线采集、订单等异步链路",
+    "重点补幂等、顺序与死信处理三个知识点",
+    "画一张带重试与死信的事件流转图即可吃透"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/GG9rXsevpPV9SK3uPxpq?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a733",
    "title": "Claude Code 与 Codex 的 Computer Use 原理拆解：AI 如何操作你的界面",
@@ -26,7 +223,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "讲清 Computer Use 的「感知-决策-执行-回读」闭环",
@@ -3864,222 +4061,6 @@
    "buzz": [],
    "link": "https://dev.to/johann_schiffer/how-to-build-an-anti-bot-web-scraping-mcp-server-for-claude-cursor-with-clean-markdown-extraction-55d6",
    "cover": "img/a629.webp"
-  },
-  {
-   "id": "a630",
-   "title": "用 Socket.io + JavaScript 做实时应用：聊天、通知、协同看板",
-   "summary": "从零讲清 Socket.io 的连接、房间、广播机制，是前端做实时功能最省力的入门路径。",
-   "content": "聊天、实时通知、协同看板、订单追踪，本质都是「不刷新页面也能拿到新数据」。文章从 WebSocket 与 Socket.io 的关系讲起，覆盖连接建立、房间（room）划分、广播与定向推送、断线重连这些必备机制。前端课设里加一个实时功能，往往比多做十个静态页面更能体现能力。建议动手做一个多房间聊天室：两个浏览器窗口互发消息，再故意断网看重连行为，把事件模型吃透。后端用 Node 起服务即可，不需要复杂环境。",
-   "source": "DEV Community",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Socket.io",
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**给课设加一个实时功能的最低成本路径，前端简历的加分项**",
-   "courses": "《Web 前端开发》——前后端实时通信章节的动手案例",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Socket.io 封装了 WebSocket，自带重连与降级",
-    "用 room 做消息分组，广播与定向推送要分清",
-    "断线重连与消息补偿是实时功能的真实难点",
-    "多房间聊天室是最小可用的练手项目"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/ansh_sheladiya/building-real-time-applications-with-socketio-and-javascript-4hdg",
-   "cover": "img/a630.webp"
-  },
-  {
-   "id": "a631",
-   "title": "GenUI SDK v1.4.0：React 三框架渲染、Vue 出码与 Agent 生态升级",
-   "summary": "生成式 UI SDK 更新，支持三大主流框架渲染与 Vue 出码，把 AI 生成的界面直接落成可运行代码。",
-   "content": "GenUI 这类 SDK 解决的是「AI 生成界面之后怎么办」的问题：模型吐出的是结构描述，SDK 负责把它渲染成 React/Vue 组件，甚至直接出码成可维护的工程文件。v1.4.0 补齐了 React 渲染、Vue 出码、物料体系开放和 Playground 体验。对前端方向的同学，值得关注的是「出码」这条链路——它决定了 AI 生成的东西是玩具还是能进仓库的代码。可以拿它做个低代码表单生成的小 demo，理解 schema 驱动渲染的思路，这在很多中后台项目里是真实需求。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "Vue"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**想搞懂 AI 生成 UI 怎么落地成代码，这是当前少有的完整链路**",
-   "courses": "《Web 前端开发》——组件化与 schema 驱动渲染的延伸阅读",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "GenUI 把 AI 生成的结构描述渲染成真实组件",
-    "v1.4.0 补齐 React 渲染与 Vue 出码能力",
-    "出码质量决定 AI 生成代码能否进生产仓库",
-    "schema 驱动渲染是中后台低代码的通用思路"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698677378389835812"
-  },
-  {
-   "id": "a632",
-   "title": "NVIDIA NeMo Agent Toolkit：把多个 AI Agent 编排起来跑",
-   "summary": "NVIDIA 开源的 Python 库，用于连接和优化多 Agent 协作，近 7 日仍在活跃更新。",
-   "content": "单 Agent 做 demo 容易，多个 Agent 分工协作、传递上下文、控制成本就难了。NeMo Agent Toolkit 提供的是编排层能力：定义 Agent 之间的连接、工具注册、执行流程与性能分析。对软件工程的同学，可以把它当成「分布式系统思想在 AI 应用上的投影」——服务发现、编排、可观测性这些概念换了个场景又出现了。适合已经跑通过单 Agent demo、想进一步做多 Agent 项目的同学。注意它是 Python 生态，Java 方向的同学看架构思路即可。",
-   "source": "GitHub",
-   "date": "2026-10-21",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**多 Agent 编排的工程化参考，把分布式思维迁移到 AI 应用**",
-   "courses": "《软件工程》《分布式系统》——编排与可观测性概念的跨场景应用",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "面向多 Agent 的编排、工具注册与执行流程管理",
-    "可观测性与性能分析是它的重点能力之一",
-    "Python 生态，Java 同学重点看编排设计思路",
-    "适合已有单 Agent 基础后的进阶项目"
-   ],
-   "buzz": [],
-   "link": "https://github.com/NVIDIA/NeMo-Agent-Toolkit",
-   "cover": "img/a632.webp"
-  },
-  {
-   "id": "a619",
-   "title": "月下载9000万次的AI网关LiteLLM曝双漏洞：低权限账号即可窃取全部API密钥",
-   "summary": "广泛用于统一接入各家大模型的网关 LiteLLM 被披露两个漏洞，低权限用户可越权读取其他租户的 API Key。",
-   "content": "LiteLLM 是很多团队用来统一管理 OpenAI、Claude 等多家模型密钥的代理网关，月下载量约 9000 万次。这次披露的两个漏洞本质是越权访问与密钥泄露：攻击者只需一个低权限账号，就能读到同一实例里别人的 API Key，进而盗刷额度、伪造调用。对信息安全专业的同学，这是典型的「认证授权设计缺陷 + 敏感凭据管理」案例：可以拿它对照《Web 安全》里的越权漏洞章节，自己搭一个 LiteLLM 实例，用两个不同权限的 key 复现横向越权，再写一份修复建议（租户隔离、密钥加密存储、最小权限）。做课设或毕设用到模型网关的，务必先查版本。",
-   "source": "安全客",
-   "date": "2026-10-20",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "LiteLLM"
-   ],
-   "diff": 2,
-   "scene": "课设/安全练手",
-   "value": "**一个现成的越权漏洞靶场，比刷十道理论题更能理解凭据管理**",
-   "courses": "《Web 安全》《网络安全技术》：作为越权与密钥管理案例做复现实验",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "漏洞类型：越权访问导致 API 密钥泄露",
-    "影响面：月下载 9000 万次，多租户部署风险最高",
-    "可复现：自建实例用高低权限 key 对比测试",
-    "修复方向：租户隔离、密钥加密、最小权限"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316257",
-   "cover": "img/a619.webp"
-  },
-  {
-   "id": "a620",
-   "title": "用 TypeScript 从零手写一个 AI Agent 执行框架（Harness）",
-   "summary": "freeCodeCamp 教程：不依赖现成框架，从模型调用、工具注册到循环调度，手写一个 Agent 运行骨架。",
-   "content": "大部分 Agent 教程止步于「给模型几个工具然后循环」，但真正难的是工程部分：工具如何注册与校验参数、多轮循环何时终止、出错如何重试、上下文怎么裁剪。这篇教程用 TypeScript 从零搭一个 harness，把这些环节一个个实现出来。对软件工程的同学，这是很好的「读源码不如写一遍」练习：前端方向可以顺手把工具调用结果渲染成界面；想投 AI 应用岗的，把这个项目放进简历比写「熟悉 LangChain」有说服力得多。建议先跑通最小闭环，再自己加一个「工具调用失败自动重试」的扩展。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**手写一遍 harness，比背框架 API 更能讲清楚 Agent 到底怎么跑起来**",
-   "courses": "《Web 前端开发》《软件工程》：作为综合实践项目，训练模块设计与异常处理",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "从零实现 Agent 循环、工具注册、参数校验",
-    "重点在工程细节：终止条件、重试、上下文裁剪",
-    "TypeScript 实现，前端同学可直接接 UI",
-    "可扩展点：失败重试、日志追踪"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Build an AI Agent Harness from Scratch in TypeScript",
-   "link": "https://www.freecodecamp.org/news/how-to-build-an-ai-agent-harness-from-scratch-in-typescript/",
-   "cover": "img/a620.webp"
-  },
-  {
-   "id": "a621",
-   "title": "让编码 Agent 自己在浏览器里验收前端改动",
-   "summary": "教程思路：给编码 Agent 接上浏览器自动化，改完代码自己打开页面截图、点按钮、看控制台报错，再决定是否算完成。",
-   "content": "用 AI 写前端最常见的坑是：Agent 说「已完成」，但没人打开过页面——样式错位、接口 404、控制台一片红。这篇教程的做法是给 Agent 加一个浏览器验证环节：改完代码后自动启动页面、截图、点击关键元素、抓取 console 错误，把结果回灌给模型判断是否通过。对前端方向的同学，这正好串起《Web 前端开发》和自动化测试：可以用 Playwright 自己搭一个最小版本，先做「截图 + 控制台报错采集」，再逐步加交互断言。做完你会对「AI 生成代码如何验收」有实感，面试聊 AI 辅助开发也有的说。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Playwright"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会给 AI 产出加自动验收，是把 AI 编程真正用进项目的前提**",
-   "courses": "《Web 前端开发》：结合自动化测试完成页面验收流程",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "核心：Agent 改完代码自动开浏览器验证",
-    "采集截图、console 报错、关键交互结果",
-    "可用 Playwright 实现最小版本",
-    "解决「AI 说做完了其实没跑通」的痛点"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Make Your Coding Agent Check Its Work in the Browser",
-   "link": "https://www.freecodecamp.org/news/how-to-make-your-coding-agent-check-its-work-in-the-browser/",
-   "cover": "img/a621.webp"
   }
  ],
  "jobs": [
