@@ -1,6 +1,218 @@
 {
- "updatedAt": "2026-10-27 03:01",
+ "updatedAt": "2026-10-27 11:37",
  "news": [
+  {
+   "id": "a747",
+   "title": "Docker Cloud Sandboxes：笔记本与云端一致的沙箱抽象，环境不再「我这儿能跑」",
+   "summary": "Docker 推出 Cloud Sandboxes，为本地与云端提供同一套沙箱抽象，方便开发与 CI 环境保持一致。",
+   "content": "课程实验最烦的场景：本地 Docker 跑得好好的，换台机器或上服务器就挂。Cloud Sandboxes 的思路是把「沙箱」做成统一抽象，本地和云端用同一份定义启动隔离环境，配置、依赖、端口映射都对齐。对软件工程学生，这意味着课设的复现成本降低，团队协作时不用再写「环境搭建说明」长文；对信息安全方向，沙箱隔离本身也是做恶意样本分析、漏洞复现时控制风险的基础设施。建议在《软件工程》《云计算》课设里，用它把「开发环境」和「演示环境」统一成一份配置，顺便练 Dockerfile 与容器编排。",
+   "source": "InfoQ中文",
+   "date": "2026-10-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把「环境搭建」从玄学变成可复现的配置，课设和协作都省一半扯皮。**",
+   "courses": "《软件工程》课设环境统一、《云计算》容器实验",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "本地与云端共用一套沙箱定义，减少环境漂移",
+    "适合课设复现、团队协作、CI 演示环境统一",
+    "顺带练习 Dockerfile、容器隔离与端口/依赖管理",
+    "信安方向可作样本分析与漏洞复现的隔离底座"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/gXKvW3g4KXhTTiIaJFkl?utm_source=rss&utm_medium=article",
+   "cover": "img/a747.webp"
+  },
+  {
+   "id": "a748",
+   "title": "Docker 镜像 save/load/transfer 实操：把镜像打包搬到另一台机器",
+   "summary": "一篇实操文，讲清 docker save、load 与镜像在服务器之间迁移的完整流程。",
+   "content": "很多同学只会 docker pull，一旦目标机器没网或在内网，就卡住。这篇讲的是把本地构建好的镜像用 docker save 导出成 tar，拷到另一台机器再 docker load 导入，配合 tag 与传输方式完成迁移。场景很具体：实验室机器不能连外网、答辩现场要离线演示、给同学分发你调好的环境。动手时注意镜像体积（多层合并、清理缓存）、tag 命名规范，以及导入后 docker images 校验。这是《操作系统》《云计算》里容器部分最容易考也最实用的操作，建议在课设交付时顺手写进 README。",
+   "source": "DEV Community",
+   "date": "2026-10-27",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**没网也能交付环境：一次 save/load，省掉「你那边装一下依赖」的整段对话。**",
+   "courses": "《云计算》容器实验、《操作系统》实验环境分发",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "docker save 导出 tar，docker load 在目标机导入",
+    "适用于内网、离线答辩、给同学分发环境",
+    "注意镜像体积、tag 规范与导入后校验",
+    "是容器课程实验与课设交付的高频操作"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Save, Load and Transfer Docker Image",
+   "link": "https://dev.to/janak0ff/save-load-and-transfer-docker-image-584l",
+   "cover": "img/a748.webp"
+  },
+  {
+   "id": "a749",
+   "title": "AI Agent 权限该像临时访问一样过期：任务结束就收回",
+   "summary": "文章主张 Agent 的权限应绑定具体任务并设过期时间，而不是一次性授予长期角色权限。",
+   "content": "做 Agent 项目时最常见的偷懒：给一个「读客户记录」的宽权限，任务跑完也不回收。文章指出风险点——任务范围会变，权限却不会自动收窄，于是越权访问就发生在「任务扩展」的那一刻。给出的做法是权限从任务出发：明确任务边界、授予最小权限、设定过期时间，任务结束即失效。对信息安全与管理专业，这直接对应《访问控制》《身份认证》里的最小权限与时限授权原则；对软件工程同学，做毕设或课设里的 Agent 功能时，把 token 有效期、scope 收窄写进设计文档，比事后补安全说明更有说服力。",
+   "source": "DEV Community",
+   "date": "2026-10-27",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**Agent 安全的第一课不是加密，而是「权限会过期」。**",
+   "courses": "《访问控制》《信息安全导论》最小权限与授权模型",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "权限绑定具体任务，而非宽泛角色",
+    "设置过期时间，任务结束自动失效",
+    "风险高发点是任务范围扩展的瞬间",
+    "对应最小权限、时限授权等访问控制原则"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AI Agent Permissions Should Expire Like Temporary Access",
+   "link": "https://dev.to/axec/ai-agent-permissions-should-expire-like-temporary-access-3fm1",
+   "cover": "img/a749.webp"
+  },
+  {
+   "id": "a750",
+   "title": "Agent 什么时候该叫人：全批会爬、全不批会闯祸",
+   "summary": "讨论人机协同的审批边界：哪些操作必须人工确认，哪些可自动放行。",
+   "content": "做带工具调用的 Agent，绕不开「要不要人工确认」。文章的观点很实在：全部要审批，Agent 慢到没法用；全部不审批，迟早做出你收不回来的操作。关键是按风险分级——读操作、可逆操作自动放行；写库、删数据、对外发消息、花钱这类不可逆动作强制人工确认，并保留操作日志。这对软件工程同学的毕设很直接：如果你做的是「自动处理工单/自动下单」类系统，把审批点画进流程图、把不可逆操作列成清单，答辩时就是加分项。信安方向则可结合审计日志与责任追溯来设计。",
+   "source": "DEV Community",
+   "date": "2026-10-27",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「人机审批点」画进流程图，是 Agent 项目从玩具到可交付的分界线。**",
+   "courses": "《软件工程》系统设计、《信息安全》审计与追溯",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "按操作风险分级决定是否人工确认",
+    "不可逆操作（删数据、对外发送、付费）必须审批",
+    "保留操作日志，便于追溯与审计",
+    "可直接用于毕设中的 Agent 流程设计"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "When Agents Should Ask a Human",
+   "link": "https://dev.to/tridaai/when-agents-should-ask-a-human-9mh",
+   "cover": "img/a750.webp"
+  },
+  {
+   "id": "a751",
+   "title": "UJCMS 13.2.0 发布：Java CMS 重做验证码体系，支持滑块与静默校验",
+   "summary": "国产 Java 内容管理系统 UJCMS 更新，验证码支持滑块、字符与静默校验，并可接入第三方。",
+   "content": "想找一个能读源码的 Java Web 完整项目练手，CMS 是性价比很高的选择：权限、模板、内容管理、验证码这些模块都齐全。UJCMS 13.2.0 这次重做验证码体系，支持滑块、字符、静默校验，控制台与站点主题共用统一验证组件，注册改为弹窗验证，还改进了模板错误提示（带错误编号的内联详情）。对软件工程学生，可以拿它对照《Java Web 开发》里的过滤器、拦截器、会话管理是怎么落地的；对信安方向，验证码的强度与绕过风险是现成的分析素材。建议只读关键模块源码，别整包啃。",
+   "source": "开源中国",
+   "date": "2026-10-27",
+   "cat": "stack",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**读一个真实 Java Web 项目的验证码与权限模块，比抄十篇教程管用。**",
+   "courses": "《Java Web 开发》过滤器/会话、《Web 安全》验证码分析",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "国产 Java CMS，适合作为 Java Web 完整项目阅读样本",
+    "验证码支持滑块/字符/静默校验，可接第三方",
+    "模板错误提示带编号，便于调试与二次开发",
+    "信安方向可分析验证码强度与绕过面"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503246"
+  },
+  {
+   "id": "a752",
+   "title": "GPT-6.1 Terra 降价发布，主打 Agent 场景的「打工模型」",
+   "summary": "OpenAI 发布 GPT-6.1 Terra，以更低价格面向 Agent 类任务。",
+   "content": "模型降价对学生的直接意义是：做 Agent 课设的调用成本下来了。文章把它定位为「Agent 时代的打工模型」，即频繁调用工具、跑多轮流程的场景。实操建议：在毕设里把模型调用封装成一层接口（便于换模型、控成本），对重复性任务做结果缓存，对长流程做超时与重试；同时别把业务逻辑写死在 prompt 里。软件工程同学可借此练「外部服务依赖管理」，信安同学则要关注 API Key 管理、调用日志与数据外发边界。",
+   "source": "爱范儿",
+   "date": "2026-10-27",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**模型越便宜，越考验你把「调用」封装成工程能力而不是散落各处的 prompt。**",
+   "courses": "《软件工程》外部依赖设计、《信息安全》密钥与数据边界",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 46,
+   "brief": [
+    "面向 Agent 高频调用场景，价格下探",
+    "课设中把模型调用封装成可替换的一层",
+    "做缓存、超时、重试，控制成本与稳定性",
+    "注意 API Key 管理与数据外发边界"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1686080?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a752.webp"
+  },
   {
    "id": "a741",
    "title": "React Compiler 1.0 之后，状态管理库正在被重新定义",
@@ -23,7 +235,7 @@
     "前端开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Compiler 接管 memo 化，状态库不再承担性能职责",
@@ -3851,216 +4063,6 @@
    "buzz": [],
    "link": "https://www.qbitai.com/2026/10/504608.html",
    "cover": "img/a639.webp"
-  },
-  {
-   "id": "a624",
-   "title": "虚拟线程不是无限并发：Java 后端该限流的其实是这些资源",
-   "summary": "Java 21 虚拟线程让线程变便宜，但把「线程便宜」误读成「系统可无限并发」是后端最常见的坑，文章讲清楚真正该限制的资源。",
-   "content": "很多同学在课设里把线程池换成虚拟线程，就以为 QPS 能随便涨。实际上虚拟线程只解决了「线程栈内存贵」这一个问题，数据库连接池、下游 HTTP 连接、CPU 核数、堆内存这些瓶颈一个都没消失。文章给出的实践是：用 Semaphore 显式限制对数据库和第三方接口的并发数，用结构化并发（StructuredTaskScope）管理任务生命周期，监控上重点看连接池等待时间和 GC 而不是线程数。做秒杀、订单类课设时，这套思路能直接写进设计文档。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java 21",
-    "虚拟线程"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**把「线程便宜≠系统无限并发」讲透，Java 后端性能设计的必读一课**",
-   "courses": "《Java 程序设计》《分布式系统》——可作并发编程章节的延伸案例",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "虚拟线程只降低线程成本，不提升下游承载能力",
-    "用 Semaphore 限流数据库连接、外部 API 并发",
-    "结构化并发管理任务生命周期，避免线程泄漏",
-    "监控重点从线程数转向连接池等待与 GC"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698661900759285823"
-  },
-  {
-   "id": "a625",
-   "title": "Spring Cloud Gateway 统一加解密：请求体只能读一次，我踩了三天坑",
-   "summary": "在网关层给对外接口做统一加解密时，请求体流被消费后无法二次读取，是 Gateway 过滤器最典型的翻车点。",
-   "content": "支付、会员、钱包这些对外接口如果每个服务各写一套加解密，改一次密钥要改十个地方，所以公司选择在网关统一处理。真正卡住的是：Gateway 基于 WebFlux，请求体是 DataBuffer 流，解密过滤器读完之后，下游路由拿到的 body 就是空的。解决方案是用 ServerWebExchangeUtils 缓存请求体、改写 Content-Length，或者用 ModifyRequestBodyGatewayFilterFactory 重写 body。另外要区分哪些路径需要解密，避免把健康检查也拦下来。做微服务课设、准备 Java 后端面试的同学，这类网关过滤器实战经验很值钱。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "信息安全"
-   ],
-   "stack": [
-    "Spring Cloud Gateway",
-    "WebFlux"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**网关统一加解密的真实踩坑记录，微服务安全改造可直接照抄思路**",
-   "courses": "《信息安全技术》《Web 应用开发》——网关层加密与请求处理的结合案例",
-   "tags": [
-    "Java全栈",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "WebFlux 请求体是流，读一次就没了，必须缓存重写",
-    "用 ModifyRequestBody 过滤器改写 body 与 Content-Length",
-    "按路径白名单决定是否走加解密，避免误伤健康检查",
-    "密钥集中管理，避免各服务重复实现"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698673592326668324"
-  },
-  {
-   "id": "a626",
-   "title": "Java AI 框架怎么选：Spring AI、LangChain4j 还是自己写",
-   "summary": "用智能客服选型吵架的真实场景，拆解 Spring AI 与 LangChain4j 的适用边界和取舍标准。",
-   "content": "团队要做智能客服，三个人吵了三天：一个说 Spring AI 官方出品稳，一个说 LangChain4j 生态全，一个说直接调 HTTP 最省事。文章给出的判断维度很实用：一是看你已有的技术栈，Spring Boot 项目接 Spring AI 心智负担最小；二是看要不要复杂的 RAG、工具调用编排，需要就上 LangChain4j；三是看团队能不能接受框架快速迭代带来的破坏性变更。对软件工程的同学来说，这正好是「技术选型」这个软技能的训练材料——面试被问「为什么用这个框架」时，能讲出权衡比会调 API 更重要。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring AI",
-    "LangChain4j"
-   ],
-   "value": "**把 Java AI 框架选型讲成可复用的决策框架，面试和项目都用得上**",
-   "courses": "《软件工程》——技术选型与架构决策的实例",
-   "tags": [
-    "Java全栈",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "选型看已有技术栈、RAG 复杂度、框架稳定性三条线",
-    "Spring Boot 项目优先 Spring AI，复杂编排考虑 LangChain4j",
-    "框架迭代快，注意破坏性变更与版本锁定",
-    "面试常问「为什么选它」，要能讲出权衡"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698620283800404002"
-  },
-  {
-   "id": "a627",
-   "title": "DeepSeek 开源大规模推理框架 DeepInfer，新模型推理代码将持续放出",
-   "summary": "DeepSeek 把内部推理框架 DeepInfer 全面开源，支撑 V4.1 Flash 的高吞吐低延迟服务，推理代码后续持续更新。",
-   "content": "DeepSeek 在开源模型、TileLang 编译工具、推理算子库之后，又把内部推理框架 DeepInfer 开源了，官方称已用它跑起 V4.1 Flash 的大规模推理服务。对信息工程学院的同学，这件事的价值不在「又一个开源项目」，而在于它是一份可读的工业级系统代码：批处理调度、KV Cache 管理、算子融合这些课上讲的概念，能在真实代码里看到怎么落地。想往 AI 基础设施方向走的同学，可以拿它对照《操作系统》《并行计算》的知识点读；做毕设涉及模型部署的，也可以直接拿来做推理后端。",
-   "source": "极客公园",
-   "date": "2026-10-21",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "DeepSeek",
-    "推理框架"
-   ],
-   "value": "**工业级推理框架开源，是读懂大模型部署底层的最好教材**",
-   "courses": "《操作系统》《并行计算》——调度与缓存管理的真实实现参考",
-   "tags": [
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "DeepInfer 支撑 V4.1 Flash 的高吞吐低延迟推理",
-    "可对照操作系统、并行计算课程读工业级代码",
-    "适合作为模型部署类毕设的推理后端",
-    "后续新模型推理代码会持续更新"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/372650",
-   "cover": "img/a627.webp"
-  },
-  {
-   "id": "a628",
-   "title": "3 位 Java Champion 怎么用 Copilot：人负责结果，AI 负责提速",
-   "summary": "GitHub 采访三位 Java Champion，讲 Copilot 在真实 Java 项目里的用法边界：加速开发，但责任仍在人。",
-   "content": "三位 Java Champion 的共识是：Copilot 最值钱的场景不是「帮你写完整个类」，而是补样板代码、写单元测试、解释陌生代码库、生成正则和 SQL 这类高频小任务。他们强调的纪律是——AI 生成的代码必须自己读懂再提交，测试先行让 AI 补测试用例，review 时重点看边界条件。对准备实习面试的同学，这其实是一份「怎么用 AI 而不被 AI 拖累」的行为准则，写进简历的项目里也能体现工程素养。",
-   "source": "GitHub Blog",
-   "date": "2026-10-20",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "GitHub Copilot"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**给 Java 学生一份「用 AI 写代码但不背锅」的实操纪律**",
-   "courses": "《软件工程》——代码评审与 AI 辅助开发的规范讨论",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Copilot 擅长样板代码、单测、解释陌生代码",
-    "AI 生成代码必须读懂再提交，责任在人",
-    "测试先行，让 AI 补测试用例效率最高",
-    "review 重点放在边界条件与异常路径"
-   ],
-   "buzz": [],
-   "link": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
-   "cover": "img/a628.webp"
-  },
-  {
-   "id": "a629",
-   "title": "用 Python 搭一个反爬网页抓取 MCP Server，给 Claude/Cursor 供干净 Markdown",
-   "summary": "手把手用 Python 写一个带反反爬处理的 MCP Server，把网页转成干净 Markdown 供 AI 助手调用。",
-   "content": "MCP（Model Context Protocol）是现在给 Claude Desktop、Cursor 这类 AI 客户端接外部能力的标准方式。这篇教程从零搭一个抓取服务：处理 User-Agent、限速、重试，把 HTML 用解析库转成干净 Markdown 再返回给模型，避免把整页噪声塞进上下文。对信息安全专业的同学，这里顺带覆盖了反爬与反反爬的攻防视角；对软件工程的同学，这是一个完整的「协议 + 服务端 + 第三方调用」小项目，放简历上比 CRUD 有辨识度。建议先跑通本地 stdio 模式，再考虑部署。",
-   "source": "DEV Community",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**一个能写进简历的 MCP 实战项目，同时练到爬虫与 AI 工具链**",
-   "courses": "《Python 程序设计》《网络爬虫》——协议服务端与反爬策略的综合练习",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "MCP 是给 Claude/Cursor 接外部工具的标准协议",
-    "抓取层要处理 UA、限速、重试与失败降级",
-    "HTML 转干净 Markdown 能显著省 token、提准确率",
-    "先跑通本地 stdio 模式再考虑远程部署"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/johann_schiffer/how-to-build-an-anti-bot-web-scraping-mcp-server-for-claude-cursor-with-clean-markdown-extraction-55d6",
-   "cover": "img/a629.webp"
   }
  ],
  "jobs": [
