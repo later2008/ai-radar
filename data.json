@@ -1,6 +1,200 @@
 {
- "updatedAt": "2026-10-28 03:11",
+ "updatedAt": "2026-10-28 12:08",
  "news": [
+  {
+   "id": "a764",
+   "title": "Anthropic内部系统被AI Agent 12小时攻破：会议记录、薪酬、模型讨论全泄露",
+   "summary": "一个AI Agent在12小时内攻破Anthropic内部系统，访问了会议记录、员工薪酬和内部模型讨论等敏感数据。",
+   "content": "这条新闻对信息安全专业的同学是活教材：攻击者不再只是人，而是能自主规划、连续试探的Agent。它说明三件事——第一，权限边界必须按最小权限设计，Agent拿到的凭证就是攻击面；第二，日志与异常行为检测要能识别「机器速度」的横向移动，12小时足够扫完一个内网；第三，内部系统之间的信任假设要重新评估。做课设时如果写过登录鉴权模块，可以顺着这条新闻复盘：你的token有效期、越权校验、审计日志是否经得起自动化探测。面试聊到Agent安全时，这是能讲出细节的案例。",
+   "source": "InfoQ中文",
+   "date": "2026-10-28",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "value": "**Agent时代的攻击是自动化的，权限与审计设计必须按「机器速度」重做**",
+   "courses": "对应《网络安全》《系统安全》，可作渗透与防御课程的案例分析素材",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "AI Agent可在12小时内自主完成内网渗透，速度远超人工",
+    "泄露内容含会议记录、薪酬、内部模型讨论，属高敏数据",
+    "核心教训：最小权限、凭证管理、机器速度下的异常检测"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/mFXr0u4z0XftUGUg5Wm7?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a765",
+   "title": "Docker绕过UFW：我明明DENY的3个端口，全暴露在公网",
+   "summary": "作者用ufw status确认5432端口DENY，却在咖啡店网络一次连上了VPS的Postgres——原因是Docker直接写iptables，绕过UFW规则链。",
+   "content": "这是每个部署过项目的学生都可能踩的坑：你在服务器上装Docker跑Postgres、Redis、MySQL，以为ufw deny就安全了，实际上Docker发布的端口会插入自己的iptables规则，优先级在UFW之前。复现路径很简单：起一个带-p 5432:5432的容器，从外网telnet一下就知道。修法有三条：容器端口只绑127.0.0.1（-p 127.0.0.1:5432:5432），用docker-compose的internal网络，或在DOCKER-USER链里显式拒绝。课程设计、毕业设计把数据库放公网是最常见的失分点，这条能直接改成你的部署检查清单。",
+   "source": "DEV Community",
+   "date": "2026-10-28",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Docker",
+    "UFW"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/求职准备",
+   "value": "**容器端口默认对公网开放，部署前必须验证而不是相信防火墙状态**",
+   "courses": "对应《Linux系统管理》《网络安全》，可直接用于课程设计的服务器部署检查",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Docker发布端口会写入iptables，绕过UFW的DENY规则",
+    "修复：绑定127.0.0.1、用DOCKER-USER链、或走内部网络",
+    "课设/毕设部署数据库前必查，避免裸奔在公网"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Docker Bypasses UFW: 3 Ports I Denied Were Open to the Internet",
+   "link": "https://dev.to/ji_ai/docker-bypasses-ufw-3-ports-i-denied-were-open-to-the-internet-3l45",
+   "cover": "img/a765.webp"
+  },
+  {
+   "id": "a766",
+   "title": "AI编程进入「交付能力」大考：跑通代码只是起点，交付才是分水岭",
+   "summary": "文章指出真实软件工程中生成代码只是第一步，需求理解、集成、测试与上线交付才是AI编程的真正瓶颈。",
+   "content": "这篇值得软件工程专业的同学认真读。它戳破了一个幻觉：让AI生成一个能跑的demo很容易，但把它接进现有系统、处理边界条件、写测试、过CI、上线后能维护，才是工程能力。对你的直接用法是——做课设时不要停在「功能演示」，强制自己补三样东西：单元测试覆盖率、异常路径处理、一份README写清部署与回滚。面试时面试官问「你用AI写过什么」，答「生成过CRUD」没有区分度，答「我用AI加速了开发，但交付质量靠测试和评审兜底」才有分量。工业软件方向尤其如此，交付文档和可追溯性本身就是产品的一部分。",
+   "source": "钛媒体",
+   "date": "2026-10-28",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**会用AI写代码不稀缺，能把AI产出交付上线才稀缺**",
+   "courses": "对应《软件工程》《软件测试》，可作课程设计交付标准的参考",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "AI生成代码≠可交付软件，集成、测试、上线才是难点",
+    "课设强制补测试、异常处理、部署文档三件套",
+    "面试回答要体现「AI加速+工程兜底」而非只会生成"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8184564.html"
+  },
+  {
+   "id": "a767",
+   "title": "金蝶灵基把ERP变成Agent的认知底座：工业软件方向该关注什么",
+   "summary": "金蝶灵基发布五个月后，尝试用上下文工程把ERP系统改造成Agent可调用的认知底座，涉及客户价值验证与人机交互边界。",
+   "content": "工业软件实验班的同学可以重点看这条。ERP是典型的重业务、重数据、重权限的企业系统，把它变成Agent的「认知底座」，本质是解决三件事：业务语义如何结构化给模型、Agent调用业务接口时权限与事务如何保证、人机交互的边界在哪里（哪些操作必须人工确认）。这正好对应你学的数据库设计、接口设计、权限模型。建议做法：拿课程设计里的进销存或生产管理系统，试着抽象出一层「业务能力API」，思考哪些能被Agent调用、哪些必须加审批。这类经验写在简历上，比多写一个CRUD页面更贴近工业软件岗位。",
+   "source": "钛媒体",
+   "date": "2026-10-28",
+   "cat": "industry",
+   "tracks": [
+    "工业软件"
+   ],
+   "stack": [
+    "ERP"
+   ],
+   "value": "**工业软件的下一个岗位需求：懂业务系统，也懂怎么让Agent安全调用它**",
+   "courses": "对应《企业资源计划》《数据库系统》，可作课程设计的架构演进方向",
+   "tags": [
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "ERP+Agent的核心是业务语义结构化、接口权限、人机边界",
+    "可把课设的进销存系统抽象成可被Agent调用的业务能力层",
+    "工业软件岗位看重业务系统与AI结合的理解"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8184285.html"
+  },
+  {
+   "id": "a768",
+   "title": "蚂蚁百灵开源Ling-3.1-flash-1019：Personal Agent走向真实任务",
+   "summary": "蚂蚁开源Ling-3.1-flash-1019，定位面向真实任务的Personal Agent模型。",
+   "content": "开源模型对学生的实际价值在于「能本地跑、能改、能接进自己的项目」。Ling-3.1-flash这个体量适合做课程设计里的智能助手模块：比如给你的课设加一个能调用函数（查数据库、发邮件、生成报表）的Agent层。动手路径：拉模型权重→用vLLM或Ollama起服务→写function calling的工具描述→测多轮任务成功率。注意别只做聊天框，要设计评测集，记录它在你的业务场景里失败在哪。这类项目在简历上比「调用某API做过聊天机器人」有说服力得多。",
+   "source": "量子位",
+   "date": "2026-10-28",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**开源小模型是学生做Agent项目最划算的底座，关键在评测而非演示**",
+   "courses": "对应《人工智能导论》《软件工程》，可用于课程设计的智能模块开发",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "开源可本地部署，适合接进课设做Agent功能模块",
+    "重点练function calling与多轮任务成功率评测",
+    "简历价值高于单纯调用商业API的聊天demo"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/10/505928.html"
+  },
+  {
+   "id": "a769",
+   "title": "EVEngine开源：面向AI Agent的轻量游戏引擎，自带MCP与调试服务器",
+   "summary": "EVEngine主打热重载、内置MCP与debug服务器，让Agent能像人一样截图、控制运行、调试脚本。",
+   "content": "这个项目对前端和通用开发方向都有意思，因为它示范了一种工程模式：把「调试能力」做成Agent可调用的接口。热重载缩短迭代时间，MCP服务器让Agent能截图、控制运行、读调试信息——这其实就是给AI装了一双眼睛和一只手。你可以借它的思路改造自己的项目：给课设加一个MCP服务，暴露「启动服务、查日志、截图、跑测试」几个工具，让AI助手帮你定位问题。学的是接口设计、进程控制、日志采集，而不是游戏本身。做前端的话，热重载与调试协议这块和Vite HMR的思路可以对照着看。",
+   "source": "开源中国",
+   "date": "2026-10-28",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**学会把调试能力接口化，是让AI真正帮上开发忙的关键一步**",
+   "courses": "对应《软件工程》《Web开发》，可用于课程设计的调试工具链搭建",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "核心思路：把调试能力封装成Agent可调用的MCP工具",
+    "可借鉴到自己项目：暴露启动、日志、截图、测试接口",
+    "涉及接口设计、进程控制、日志采集等实用技能"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/p/EVEngine"
+  },
   {
    "id": "a759",
    "title": "在AI Agent执行危险操作前做双重校验：Android端纵深防御实践",
@@ -25,7 +219,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Agent高风险动作需两层独立校验，不能只信LLM判断",
@@ -3882,207 +4076,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503146"
-  },
-  {
-   "id": "a646",
-   "title": "PingCAP 遭大规模泄露：黑客称窃取 10.6TB、涉 18 万条组织记录",
-   "summary": "知名数据库厂商 PingCAP 被指遭大规模数据泄露，黑客声称拿走 10.6TB 数据、涉及约 18 万条组织记录。",
-   "content": "数据库厂商自己成为数据泄露主角，讽刺但值得深挖。信息安全同学请把它当案例拆解：先判断攻击面——是代码仓库、CI/CD 凭证还是对象存储配置错误？再对照《数据安全法》与个人信息保护要求，列出企业应做的分级分类、最小权限、密钥轮换措施。动手部分：用开源工具（如 trufflehog）扫一遍自己的 GitHub 仓库，看有没有硬编码的 token 和数据库密码——这是学生项目最常见的真实漏洞。软件工程同学则要养成「配置即代码、密钥不进仓库」的习惯。",
-   "source": "InfoQ中文",
-   "date": "2026-10-21",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**借大厂泄露事件复盘攻击面，并立刻自查自己仓库里的硬编码密钥**",
-   "courses": "对应《信息安全导论》《数据库安全》，可作数据泄露案例分析作业",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "数据库厂商自身泄露，攻击面值得复盘",
-    "可对照数据安全法规做合规分析",
-    "用 trufflehog 自查仓库硬编码密钥"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/2KQlziFu7oBa9Q2ZEZyr?utm_source=rss&utm_medium=article",
-   "cover": "img/a646.webp"
-  },
-  {
-   "id": "a647",
-   "title": "OpenAI 挑战 COBOL：老系统代码迁移准确率从 5.4% 飙到 97.9%",
-   "summary": "OpenAI 展示用模型迁移 COBOL 遗留系统代码，准确率从 5.4% 提升至 97.9%，直指金融、制造等行业的存量老系统。",
-   "content": "这条对工业软件实验班最有价值：制造业、金融业大量核心系统仍跑在 COBOL 上，迁移是刚需也是就业缺口。别只看数字，要问三个问题：97.9% 的评测集是什么？剩下 2.1% 错在哪（多半是隐式数据精度和文件 I/O）？迁移后如何做回归验证？动手建议：找一段 COBOL 计算利息的示例，让大模型翻成 Java，再自己写 JUnit 对拍验证结果是否一致——这就是「AI 辅助迁移 + 人工验证」的真实工作流。简历上写「做过遗留系统迁移验证」比写「会用 ChatGPT」值钱得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-21",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "Java"
-   ],
-   "stack": [
-    "Java",
-    "COBOL"
-   ],
-   "value": "**抓住遗留系统迁移这一真实就业缺口，练「AI 翻译+人工对拍验证」工作流**",
-   "courses": "对应《软件工程》《编译原理》，可作课程设计中的代码迁移与测试专题",
-   "tags": [
-    "工业软件",
-    "Java全栈",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "COBOL 遗留系统迁移是真实产业需求",
-    "准确率数字要追问评测集与失败类型",
-    "用 Java 重写+对拍验证，做成课设项目"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/LZsVYHAH1jyOtLg6Yiwk?utm_source=rss&utm_medium=article",
-   "cover": "img/a647.webp"
-  },
-  {
-   "id": "a648",
-   "title": "用 Node.js 搭 AI 自动化工作流：把大模型接进你的 JavaScript 项目",
-   "summary": "DEV 教程演示如何用 Node.js 把 AI 能力嵌入业务流程，替代为每种场景手写规则的做法。",
-   "content": "前端和通用开发同学最容易上手的一条。核心思路：把「调模型」封装成一个 Node 服务，输入结构化数据、输出结构化结果，再用传统代码做校验和兜底——AI 负责模糊判断，代码负责确定性。动手路径：用 Express 起一个接口，接一个兼容 OpenAI 格式的模型 API，做一个「课设需求文档→任务拆解清单」的小工具；重点练三件事：prompt 模板化、JSON 输出校验（zod）、失败重试与超时。做完你就理解了什么叫「AI 不是替代代码，而是嵌进代码」。",
-   "source": "DEV Community",
-   "date": "2026-10-22",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Node.js",
-    "JavaScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用 Node.js 把大模型封装成带校验和兜底的可复用服务，而不是只会聊天**",
-   "courses": "对应《Web 开发》《软件工程》，可作课程设计中的 AI 功能模块",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Node.js + 模型 API，前端同学门槛低",
-    "重点练结构化输出校验与失败兜底",
-    "可做成课设辅助小工具，写进简历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "AI Automation Using Node.js: Build Intelligent Workflows with JavaScript",
-   "link": "https://dev.to/ansh_sheladiya/ai-automation-using-nodejs-build-intelligent-workflows-with-javascript-19h8",
-   "cover": "img/a648.webp"
-  },
-  {
-   "id": "a649",
-   "title": "Google 发布 Rust 风格指南：团队级代码规范的参考样本",
-   "summary": "Google 公开其内部 Rust 风格指南，覆盖命名、错误处理、所有权使用等约定。",
-   "content": "不一定学 Rust，但一定要学会「读风格指南」。这份文档的价值在于示范：一个工业级团队如何把语言特性写成可执行的规范——比如什么时候用 Result 而不是 panic、借用何时该拆分函数。对你的用法：①写 Java/前端时对照 Clippy 式思维，给小组项目定一份 20 条的编码约定；②课设答辩时展示「我们团队有 code style 文档并配了 lint」，这是加分项；③想进大厂的同学，提前适应「规范先于个人偏好」的工程文化。花 40 分钟通读目录即可，不必逐条背。",
-   "source": "Hacker News",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 1,
-   "scene": "课设/团队协作/求职准备",
-   "value": "**借大厂风格指南，给小组项目立一份能落地的编码规范并配 lint**",
-   "courses": "对应《程序设计基础》《软件工程》，用于团队项目代码规范制定",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "学的是规范写法，不是 Rust 语法本身",
-    "可仿照给小组项目写编码约定",
-    "配 lint 工具，答辩时是加分项"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Rust Style Guide",
-   "link": "https://google.github.io/styleguide/rustguide.html"
-  },
-  {
-   "id": "a650",
-   "title": "AWS Lambda 支持长时间运行负载：无服务器不再只适合短任务",
-   "summary": "AWS Lambda 扩展对长时间运行工作负载的支持，无服务器架构的适用边界进一步外扩。",
-   "content": "以前 Lambda 15 分钟上限把批处理、长任务挡在门外，现在边界松动了。对软件工程同学的意义：你课设里的「定时爬取+清洗+入库」这类任务，可以不再自己买服务器运维。动手建议：用免费额度写一个函数，触发方式选定时事件，处理一份 CSV 后写入对象存储，观察冷启动耗时和计费粒度。重点理解三个概念：冷启动、按调用计费、无状态设计——面试问「什么时候不该用 Serverless」时，你能答出长连接、重计算、强一致事务这几类反例，就赢了一半。",
-   "source": "InfoQ中文",
-   "date": "2026-10-22",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AWS Lambda"
-   ],
-   "value": "**用免费额度亲手跑一个定时无服务器任务，搞懂冷启动与计费边界**",
-   "courses": "对应《云计算》《Web 开发》，可作课程设计中部署方案的选型依据",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "长任务支持扩大 Serverless 适用场景",
-    "用免费额度做定时数据处理练手",
-    "面试常问「何时不该用 Serverless」"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/0vwVMhufb66SBofWsvRz?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a640",
-   "title": "PHP 8.2–8.5 曝两项严重 RCE 漏洞，官方紧急发版，请立即升级",
-   "summary": "PHP 官方发布紧急安全公告，修复两个可远程代码执行的高危漏洞，涉及 8.2 至 8.5 全部主线版本，已同步推出 8.5.12/8.4.27/8.3.36 等修复版。",
-   "content": "RCE 意味着攻击者不用登录你的服务器，就能通过构造请求在你的机器上执行任意代码——对课设里随手搭的 PHP 后端、社团网站、甚至毕设的接口服务，都是真实威胁。这次受影响的是 8.2 到 8.5 整条主线，说明不是边角料漏洞。做法很简单：先 php -v 看版本，再对照官方公告确认是否在受影响区间，然后升级到对应补丁版本；升级后跑一遍你项目的核心接口做回归。顺手把「依赖版本定期体检」写进你的项目 README，这是安全岗面试里很吃分的习惯。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**一次版本自查就能堵住的高危洞，别等被打穿才想起升级。**",
-   "courses": "对应《Web 安全》《网络安全技术》：可作为漏洞通报与补丁管理章节的真实案例。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "受影响版本：PHP 8.2 / 8.3 / 8.4 / 8.5 主线",
-    "漏洞类型为 RCE，可被远程利用，危害等级最高",
-    "先 php -v 自查，再升级到 8.5.12 / 8.4.27 / 8.3.36 等补丁版",
-    "升级后回归测试接口，并把版本体检写进项目文档"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699014849129726003"
   }
  ],
  "jobs": [
