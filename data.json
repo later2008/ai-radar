@@ -1,6 +1,109 @@
 {
- "updatedAt": "2026-10-28 16:30",
+ "updatedAt": "2026-10-29 03:37",
  "news": [
+  {
+   "id": "a776",
+   "title": "Cursor 开源 Agent SDK：把造 Bugbot 的那套工序交到你手里",
+   "summary": "Cursor 发布 Agent SDK，开放其构建 Bugbot、Security Reviewer 等托管 Agent 所用的框架，可自定义贴合团队工作流的智能体。",
+   "content": "Cursor 10 月 20 日发布的 Agent SDK，是他们做 Bugbot、Security Reviewer、Rollouts 时用的同一套框架，现在对外开放。核心价值在于：你不再只能在「用别人的 Agent 产品」和「从零造轮子」之间二选一，可以直接在成熟骨架上定义工具、约束和评审流程。对软件工程同学来说，这是理解 Agent 工程化落地的最好样本——重点看它如何做工具调用、上下文管理和失败重试。建议拿它复刻一个「代码评审 Agent」放进课程设计，比手搓 prompt 更能体现工程能力。",
+   "source": "开源中国",
+   "date": "2026-10-29",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent SDK"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**用生产级 Agent 框架做课设，比手写 prompt 更能证明工程能力**",
+   "courses": "《软件工程》《人工智能导论》：作为 Agent 工程化案例做课程设计",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "Agent SDK 源自 Cursor 内部 Bugbot/Security Reviewer 的生产框架",
+    "支持自定义工具与工作流，避免从零搭建",
+    "适合做代码评审、安全扫描类 Agent 原型",
+    "需具备一定 Node/Python 与 API 调用基础"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503287/cursor-agent-sdk"
+  },
+  {
+   "id": "a777",
+   "title": "Agent Loop 深度拆解：理解—规划—行动—观察—纠错五步循环",
+   "summary": "一篇系统讲解 Agent 最小核心循环的文章：理解目标、决定下一步、作用于环境、读取真实结果、更新状态并修正，直到满足结束条件。",
+   "content": "很多同学写 Agent 就是「调一次大模型 + 拼 prompt」，跑不通就加提示词，结果不可控。这篇文章把 Agent 还原成最小闭环：理解目标 → 决定下一步 → 作用于环境 → 读取真实结果 → 更新状态并修正 → 满足条件结束。关键在「观察」和「纠错」两步——真实环境返回的结果必须回灌给模型，否则就是自说自话。建议用 Java 或 Python 手写一个 50 行以内的循环骨架，接一个本地文件读写工具，体会状态机与终止条件的设计，这是面试聊 Agent 时最能讲清楚的部分。",
+   "source": "掘金",
+   "date": "2026-10-29",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**看懂 Agent 循环，面试聊 AI 应用才有底层逻辑可讲**",
+   "courses": "《人工智能导论》《软件工程》：作为智能体设计模式的教学补充",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "Agent = 理解/规划/行动/观察/纠错的最小闭环",
+    "「观察真实结果」是区别于单次调用的关键",
+    "终止条件与状态更新决定 Agent 是否可控",
+    "可手写 50 行骨架快速验证"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7701898942753718308"
+  },
+  {
+   "id": "a778",
+   "title": "Grafana Tempo 3.1：按查询脱敏追踪数据 + TraceQL 支持采样指标",
+   "summary": "Tempo 3.1 新增基于查询的追踪数据脱敏能力，并支持带采样机制的 TraceQL 指标，强化可观测性平台的合规与成本控制。",
+   "content": "分布式追踪里最容易被忽视的是隐私：trace 里常混着手机号、token、内部路径，一旦落库就是合规风险。Tempo 3.1 的「基于查询的脱敏」意味着可以在查询侧按规则屏蔽敏感字段，而不是靠上游自觉；TraceQL 支持采样指标则让高基数场景下的统计成本可控。对信息安全与管理专业的同学，这是理解「可观测性 + 数据合规」交叉点的好案例：日志与追踪系统本身就是数据泄露的高发区。建议在实验环境起一套 Tempo，配置脱敏规则并验证查询结果，写进安全课程报告。",
+   "source": "InfoQ中文",
+   "date": "2026-10-29",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Grafana Tempo",
+    "OpenTelemetry"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**追踪系统是数据泄露高发区，学会查询侧脱敏是安全岗的加分项**",
+   "courses": "《信息安全技术》《系统运维》：用于日志与追踪安全实验",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "查询侧脱敏，降低追踪数据泄露与合规风险",
+    "TraceQL 指标支持采样，控制高基数统计成本",
+    "适合作为日志/追踪系统安全加固的实验素材",
+    "需了解 OpenTelemetry 与基本查询语法"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YVwtY6Jwdu0IB84tDC9m?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a770",
    "title": "网站集体封杀AI Agent：亚马逊封锁Muse、银行拒绝登录，开发者怎么办",
@@ -23,7 +126,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "Agent被主流网站系统性拦截，反爬对抗升级",
@@ -3976,106 +4079,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503157/watchTowr-php-cve-2026-109618-faq"
-  },
-  {
-   "id": "a653",
-   "title": "TypeScript 编译器 Rust 移植版 tsrs：快 8 倍、内存少 70%，还能跑进浏览器",
-   "summary": "Cloudflare、VoidZero 等合作开发 tsrs，孵化于 Oxc 工具链，早期基准比 TypeScript 7.0 快 8 倍、内存降 70%。",
-   "content": "前端同学别只当新闻看。这件事的实际影响是：未来你项目里的类型检查、构建耗时可能大幅下降，CI 从几分钟压到几十秒；同时「编译器跑进浏览器」意味着在线 IDE、Playground 这类场景体验会变好。建议动手做一次对比实验：拿你自己的课设项目，分别用 tsc 和 tsrs 跑一遍类型检查，记录耗时和内存，写成一篇对比笔记——这既是性能测试练习，也是简历上很具体的项目经历。顺带理解一个趋势：前端工具链正在被 Rust 重写。",
-   "source": "开源中国",
-   "date": "2026-10-22",
-   "cat": "stack",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript",
-    "Rust"
-   ],
-   "value": "**亲手测一次构建提速，比记住「快8倍」这个数字有用**",
-   "courses": "《Web前端开发》构建工具与工程化章节实测",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "tsrs 非 fork，孵化于 Oxc 工具链",
-    "基准：比 TS 7.0 快 8 倍、内存少 70%",
-    "可运行于浏览器环境",
-    "建议用自己项目做 tsc vs tsrs 对比实验"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503149/cloudflare-typescript-rust-port"
-  },
-  {
-   "id": "a654",
-   "title": "Valkey 单进程吞吐破百万，Rust 统一客户端底座",
-   "summary": "与 Redis 分道扬镳两年后，Valkey 公布单进程百万级吞吐成绩，并用 Rust 统一客户端底座。",
-   "content": "后端和 Java 方向的同学，这是缓存选型课上最该更新的一页。Valkey 是 Redis 变更许可证后由社区分叉出来的项目，现在性能指标已经能打。对你的直接用处：课程设计里做秒杀、排行榜、会话共享这类场景，Valkey 可以作为 Redis 的平替，客户端协议兼容，Spring Boot 项目里换个依赖坐标基本能跑。建议做一次压测对比：用 redis-benchmark 或 wrk 分别压 Redis 和 Valkey，记录 QPS 与延迟，写进实验报告。面试被问「你了解哪些缓存方案」时，这就是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-10-22",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Valkey",
-    "Redis"
-   ],
-   "value": "**缓存选型多一个可压测的平替方案，面试多一个谈资**",
-   "courses": "《数据库原理》《Java Web开发》缓存章节压测实验",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Valkey 为 Redis 许可证变更后的社区分叉",
-    "单进程吞吐突破百万级",
-    "Rust 统一客户端底座",
-    "协议兼容，可平替课程项目中的 Redis"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/ud4r6jvkmuKNAu9NTHxF?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a655",
-   "title": "掘金复盘：重试没退避，Agent 十几分钟烧穿整月 API 额度",
-   "summary": "9000 条同步任务遇上平台故障夜，无退避重试组 12 分半耗尽 2 万次月额度且只完成 75%，加退避与熔断的对照组用六成额度跑完。",
-   "content": "这篇是难得的「事故复盘」体裁，比任何教程都适合练工程思维。核心结论：重试必须配指数退避 + 抖动 + 熔断，否则故障时你的客户端会变成压垮下游的帮凶。对你的用处很直接——课设里调第三方 API（地图、大模型、支付沙箱）时，写一个带退避的重试工具类，是能直接放进简历的小亮点。动手建议：用 Java 的 Resilience4j 或前端自己写一个 retry(fn, {maxRetries, baseDelay, jitter}) 封装，然后人为把接口成功率调到 50%，观察两种策略的调用次数差异。",
-   "source": "掘金",
-   "date": "2026-10-21",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Resilience4j"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**学会写带退避的重试，是从「能跑」到「能上线」的分水岭**",
-   "courses": "《软件工程》《分布式系统》容错设计，课设中封装重试工具类",
-   "tags": [
-    "通用开发",
-    "Java全栈"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "裸重试 12 分半烧穿 2 万次月额度，仅完成 75%",
-    "加退避+熔断的对照组用六成额度跑完",
-    "关键三件套：指数退避、抖动、熔断",
-    "可用 Resilience4j 或自写 retry 封装复现"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7698661900758483007"
   }
  ],
  "jobs": [
