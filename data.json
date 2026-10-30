@@ -1,6 +1,173 @@
 {
- "updatedAt": "2026-10-30 03:40",
+ "updatedAt": "2026-10-30 12:09",
  "news": [
+  {
+   "id": "a798",
+   "title": "PHP2Shell 漏洞已被实战武器化：攻击链入侵 25 台政府服务器",
+   "summary": "PHP 基金会拖延两年才修的两个 RCE 漏洞（CVE-2026-109618/109619）已被组合成 PHP2Shell 利用链，配合内核提权实际攻破 PAN-OS 防火墙等 25 台服务器。",
+   "content": "这次不是「理论漏洞」而是真实入侵：攻击者把两个 PHP RCE 串成利用链，再叠加 Fragnesia 内核提权，直接拿下 Palo Alto 防火墙这类边界设备。对信息安全与管理专业的同学，这是极好的「漏洞生命周期」案例：补丁延迟两年 → 公开 PoC → 武器化 → 边界设备沦陷。建议做三件事：一是去 NVD 读这两条 CVE 的 CVSS 向量，理解 RCE 为何是最高危；二是在本地 Docker 起一个旧版 PHP 复现（隔离网络），体会「一个参数没过滤」的后果；三是把「补丁管理 + 边界设备加固」写进你的渗透测试报告模板。",
+   "source": "开源中国",
+   "date": "2026-10-30",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PHP"
+   ],
+   "value": "**把「漏洞披露→武器化」的完整链路讲清楚，是安全课最缺的真实素材。**",
+   "courses": "对应《网络安全》《漏洞分析与渗透测试》：用作漏洞复现与补丁管理案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "两个 PHP RCE 漏洞被串联成完整利用链，并叠加内核提权",
+    "目标包括 PAN-OS 防火墙等边界设备，共 25 台服务器被控",
+    "核心教训：补丁延迟两年 = 给攻击者留足武器化时间",
+    "可作漏洞复现与补丁管理课程的实战案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503319/chained-php2shell-exploit-roots-25-servers"
+  },
+  {
+   "id": "a799",
+   "title": "官方 Claude Code 扩展被曝植入后门：AI 编码工具供应链风险",
+   "summary": "安全研究者发现官方 Claude Code 扩展中存在后门，Hacker News 讨论热度高，暴露 AI 编码工具链的供应链攻击面。",
+   "content": "你现在大概率在用 AI 编码助手写课设和项目。这条新闻提醒的是：你信任的「官方扩展」本身可能就是攻击面。扩展能读你的代码、环境变量、甚至执行命令，一旦被投毒，等于把整个开发机交出去。实操建议：一，检查你装的 AI 编码插件来源与权限，能最小权限就最小权限；二，把 API Key 放环境变量而非硬编码进代码（这条在《软件工程》课设里就该养成）；三，在隔离容器或虚拟机里跑不熟悉的 agent 工具。对信息安全方向的同学，这还是一个现成的「供应链安全」分析题：画出扩展的信任边界。",
+   "source": "Hacker News",
+   "date": "2026-10-30",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "value": "**提醒你：天天用的 AI 编码插件，本身就是一条供应链攻击路径。**",
+   "courses": "对应《信息安全导论》《软件工程》：用于供应链安全与密钥管理讨论",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "官方 Claude Code 扩展被指存在后门，HN 讨论热度 96 分",
+    "AI 编码扩展拥有读代码、读环境变量、执行命令的高权限",
+    "实操：最小权限安装、密钥走环境变量、陌生 agent 放容器跑",
+    "可作为供应链安全与信任边界分析的课程素材"
+   ],
+   "buzz": [],
+   "link": "https://cyberplace.social/@GossiTheDog/117528831681803563"
+  },
+  {
+   "id": "a800",
+   "title": "Herdr：把 IDE 界面做成纯文本文件，让 Agent 自己改",
+   "summary": "Herdr 是一个面向 coding agent 的原生宿主，界面全部由纯文本文件描述，Claude Code、Codex 等终端 agent 可直接驻留并修改界面。",
+   "content": "思路很反直觉但值得学：不让你去适应新 IDE，而是把整个界面拆成纯文本配置文件，让 agent 按需改。技术上它本质是「配置即界面」+ 终端 agent 宿主，对软件工程学生有两个可借鉴点。第一，配置驱动 UI 的思路你完全可以在课设里用：把布局、菜单写成 JSON/YAML，前端读配置渲染，改需求不用改代码。第二，理解 agent 宿主如何管理会话、文件上下文和命令执行，是现在做 AI 工具类项目的核心能力。上手成本不高，建议 clone 下来跑一遍，重点读它怎么定义界面 schema。",
+   "source": "开源中国",
+   "date": "2026-10-30",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**「配置即界面」的活样本，顺手理解 agent 宿主怎么管上下文。**",
+   "courses": "对应《人机交互》《Web 前端开发》：配置驱动 UI 与工具链设计参考",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "界面全部由纯文本文件描述，agent 可自行修改布局",
+    "支持 Claude Code、Codex 等任意终端 agent 驻留",
+    "可借鉴「配置驱动 UI」思路用于自己的课设",
+    "重点读它的界面 schema 设计与 agent 会话管理"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503317/herdr-dev-agent-ide-runtime"
+  },
+  {
+   "id": "a801",
+   "title": "CloudCanal v6.6.0 发布：Kudu 同步升级，支持 60+ 数据源互通",
+   "summary": "开源数据迁移同步工具 CloudCanal 社区版更新，强化 Kudu 同步能力，支持关系库、实时数仓、消息中间件、缓存与搜索引擎之间互迁。",
+   "content": "做毕设或课程项目时，「数据怎么从 MySQL 搬到数仓」往往是卡住的一步。CloudCanal 社区版免费，覆盖结构迁移、全量/增量同步、数据校验与订正，支持 OceanBase、TiDB、StarRocks、Doris 等国产库。对软件工程（含工业软件实验班）的同学，它的价值在于：一是给你一个不用手写 CDC 代码的现成方案，做「订单库→分析库」的实时同步 demo 半天能跑通；二是国产数据库适配全，正好对上信创相关项目需求；三是增量同步 + 数据校验的设计思路，可以直接写进你的系统设计文档。建议先用 Docker 起 MySQL 到 Doris 的最小链路。",
+   "source": "开源中国",
+   "date": "2026-10-30",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "MySQL",
+    "Doris"
+   ],
+   "diff": 2,
+   "scene": "课设/毕设",
+   "value": "**毕设要做数据同步，这是能省掉手写 CDC 的现成轮子。**",
+   "courses": "对应《数据库原理》《大数据技术》：用于数据迁移与实时同步实验",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "社区版免费，支持 60+ 数据源之间结构迁移与实时同步",
+    "本次升级重点在 Kudu 同步能力",
+    "国产库适配全：OceanBase、TiDB、StarRocks、Doris 等",
+    "建议先跑 MySQL→Doris 最小链路，理解增量同步与校验"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503315"
+  },
+  {
+   "id": "a802",
+   "title": ".NET 11 第二个候选版发布：开放生产部署许可，更新库、F#、MAUI 与 WinForms",
+   "summary": ".NET 11 RC2 带来生产环境部署许可，并对基础库、F#、MAUI 和 WinForms 做了更新。",
+   "content": "如果你在做 C# 课设或工业上位机方向，这条值得关注：RC2 已允许生产环境部署，意味着可以拿来试真实项目而不只是玩具 demo。对工业软件实验班的同学，WinForms 与 MAUI 的更新直接关系到桌面端/跨端界面开发；F# 的改进则适合做数据处理脚本。建议做法：装 SDK 后拿你现有的课设项目做一次升级验证，重点看基础库的破坏性变更清单，记录哪些 API 需要改——这份「升级踩坑记录」本身就是简历上能讲的东西。别急着上生产，先在分支上跑通测试。",
+   "source": "InfoQ中文",
+   "date": "2026-10-30",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    ".NET",
+    "C#"
+   ],
+   "value": "**做 C# 桌面/上位机的同学，这是升级验证的合适时间点。**",
+   "courses": "对应《面向对象程序设计》《桌面应用开发》：框架升级与兼容性验证",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "RC2 已开放生产环境部署许可",
+    "更新覆盖基础库、F#、MAUI、WinForms",
+    "适合工业软件方向的桌面端与跨端界面开发",
+    "建议用现有课设做升级验证并记录破坏性变更"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/A8YgLsG4VOhoJkUVq9Jq?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a792",
    "title": "Spring Boot 3.x + ShardingSphere 5.x + MyBatis-Plus 订单分库分表实战（含两个踩坑）",
@@ -25,7 +192,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "分片键选择与配置落地全流程",
@@ -3914,177 +4081,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7699688375545085995"
-  },
-  {
-   "id": "a681",
-   "title": "Claude Code接入Cloudflare 3.7万星安全审计Skill：六阶段工作流与按需裁剪",
-   "summary": "拆解security-audit-skill的六阶段审计流程，解决全量扫描烧Token的问题。",
-   "content": "Cloudflare开源的security-audit-skill在GitHub上有3.7万星，本质是把安全审计拆成六个阶段的可复用Agent Skill，配合Claude Code调用。文章重点讲的是工程取舍：全量扫描一次烧掉的Token成本很高，实际项目里要按改动范围裁剪审计范围，只对高风险模块跑完整流程。对信息安全专业，这是一份\"AI辅助代码审计\"的落地模板；对软件工程专业，可以学它怎么把复杂任务拆成可复用的Skill结构。建议拿自己课设的仓库跑一遍，记录误报率和耗时，写进简历比\"会用AI写代码\"具体得多。",
-   "source": "掘金",
-   "date": "2026-10-23",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把\"AI帮我审代码\"变成有流程、有裁剪、有指标的工程实践。**",
-   "courses": "《软件安全》/《软件工程》：用于代码审计实践与AI辅助开发流程",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "六阶段工作流把安全审计拆成可复用的Agent Skill",
-    "全量扫描成本高，需按改动范围裁剪审计范围",
-    "Anthropic已将Agent Skills捐赠给AAIF，生态在标准化",
-    "可对自己课设仓库实测误报率与耗时"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699654593328840745"
-  },
-  {
-   "id": "a682",
-   "title": "runc是什么：Docker背后那个真正创建容器的运行时",
-   "summary": "从docker run到Linux namespace与cgroup，讲清runc在容器链路中的位置。",
-   "content": "执行docker run时，Linux内核其实并不知道\"容器\"是什么——真正干活的是runc：它调用clone创建namespace、写cgroup限制资源、pivot_root切换根文件系统，最后exec启动进程。文章把这套链路拆开讲了一遍。对软件工程和信息安全两个专业都实用：开发侧，理解容器隔离边界能帮你排查\"本地能跑线上不能跑\"的环境问题；安全侧，namespace和cgroup配置不当就是容器逃逸的入口。建议在Linux虚拟机上用runc手动跑一个容器，不借助Docker，把OCI bundle的config.json看一遍，比背Docker命令有用得多。",
-   "source": "DEV Community",
-   "date": "2026-10-23",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "Linux"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**搞懂runc，才算真正理解容器隔离的边界在哪里。**",
-   "courses": "《操作系统》/《云计算与容器技术》：用于进程隔离与容器原理章节",
-   "tags": [
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "runc是OCI运行时实现，负责namespace、cgroup与根文件系统切换",
-    "内核层面没有\"容器\"概念，隔离靠namespace+cgroup组合",
-    "容器逃逸多源于隔离配置不当，安全方向必读",
-    "建议脱离Docker用runc手动起容器，读一遍config.json"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "runc: qué es y cómo funciona el runtime detrás de Docker",
-   "link": "https://dev.to/lu1tr0n/runc-que-es-y-como-funciona-el-runtime-detras-de-docker-5535",
-   "cover": "img/a682.webp"
-  },
-  {
-   "id": "a683",
-   "title": "ToolForge v0.2.1：Rust+Tauri插件化桌面工具箱，新增20+在线插件",
-   "summary": "一个学生可参考的开源桌面工具项目，WASM插件运行时+在线插件市场是亮点。",
-   "content": "ToolForge基于Rust+Tauri 2构建，v0.2.1新增20多款在线插件并上线插件下载统计，此前版本已完善WASM插件运行时和在线插件市场。对软件工程（含工业软件实验班）的同学，这个项目的价值不在工具本身，而在架构：插件化拆分、WASM沙箱运行时、插件分发与统计，这套设计思路和工业软件里常见的\"平台+插件\"形态高度相似。建议读它的插件接口定义和WASM加载部分，然后给自己课设加一个最小插件机制——简历上\"做过插件化架构\"比\"做过一个工具箱\"有分量。",
-   "source": "开源中国",
-   "date": "2026-10-23",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust",
-    "Tauri"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学它的插件化架构，比用它的功能更值钱。**",
-   "courses": "《软件体系结构》/《工业软件开发》：用于插件化架构设计参考",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "Rust+Tauri 2构建，体积小、跨平台",
-    "WASM插件运行时+在线插件市场，架构可借鉴",
-    "插件化设计思路与工业软件平台形态相通",
-    "适合作为课设架构参考，而非直接使用"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503170"
-  },
-  {
-   "id": "a684",
-   "title": "AI Agent改写CPU价值：Token变成行动后，算力竞争不再只拼GPU",
-   "summary": "Agent执行工具调用、状态管理、并发调度时，CPU成为新的瓶颈环节。",
-   "content": "文章的核心判断是：当Agent从\"生成文本\"走向\"执行行动\"，负载结构变了——工具调用、上下文管理、多轮状态维护、并发编排这些环节大量消耗CPU，而不是GPU。对软件工程专业，这意味着后端服务的性能优化对象在变化：以前优化推理吞吐，现在要关注Agent调度层的线程模型、序列化开销和状态存储。建议结合《操作系统》的调度章节，自己写一个简易Agent执行器，压测不同并发下的CPU占用，理解\"Token不空转\"背后的工程含义。这类认知在面试AI应用开发岗时是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-10-23",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**理解Agent负载结构变化，才知道后端该优化哪里。**",
-   "courses": "《操作系统》/《分布式系统》：用于并发调度与性能分析",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Agent执行工具调用与状态管理，CPU负载占比上升",
-    "后端优化对象从推理吞吐转向调度层与状态存储",
-    "可自写简易Agent执行器做并发压测",
-    "AI应用开发岗面试的差异化认知点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AkDgwN6h72cqUOJ35Zok?utm_source=rss&utm_medium=article",
-   "cover": "img/a684.webp"
-  },
-  {
-   "id": "a671",
-   "title": "PHP2Shell 漏洞两小时被利用数十万次：PHP 8.1 及以前不再有补丁",
-   "summary": "复盘 PHP2Shell 远程代码执行漏洞从旧问题演变为紧急事件的全过程，修复仅覆盖 PHP 8.2～8.5，8.1 及更早版本永久停更。",
-   "content": "这条对信息安全与管理专业是难得的真实案例：漏洞被 AI 辅助找到后，两小时内就出现数十万次利用尝试，从披露到大规模攻击的窗口被压缩到小时级。读的时候重点抓三件事：一是补丁版本矩阵（8.5.12 / 8.4.27 / 8.3.36 / 8.2.35），理解「版本生命周期结束就等于永久暴露」；二是披露失序——维护者、研究者、攻击者的时间线如何错位；三是修补部署为什么跟不上。课程里学的漏洞生命周期、CVSS 评分、应急响应流程，在这里都能对上号。建议把时间线整理成一页 PPT，作为《信息安全导论》或应急响应课的案例分析。",
-   "source": "掘金",
-   "date": "2026-10-23",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "value": "**把「漏洞窗口期已缩短到小时级」变成你简历上能讲清楚的应急响应案例。**",
-   "courses": "《信息安全导论》《网络攻防》——用作漏洞生命周期与应急响应案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "修复仅覆盖 PHP 8.2～8.5，8.1 及以前不再出补丁",
-    "AI 辅助使漏洞从发现到大规模利用仅数小时",
-    "重点看披露时间线与修补部署的错位",
-    "可整理为应急响应课程案例"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699688509493575695"
   }
  ],
  "jobs": [
