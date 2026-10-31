@@ -1,6 +1,176 @@
 {
- "updatedAt": "2026-10-31 03:24",
+ "updatedAt": "2026-10-31 11:42",
  "news": [
+  {
+   "id": "a813",
+   "title": "JavaClaw：用 Spring Boot + Spring AI 复刻 OpenClaw 的 Java 版 Agent 框架（757★）",
+   "summary": "一个基于 Spring Boot、Spring AI 与 JobRunr 构建的 Java 版 OpenClaw 开源项目，近 7 日仍在更新，适合作为 Java 全栈学生切入 Agent 开发的第一个可读源码。",
+   "content": "很多 Agent 框架是 Python 写的，Java 方向的同学想练手却无从下手。JavaClaw 用 Spring Boot 做服务骨架、Spring AI 接模型、JobRunr 跑异步任务调度，正好把「Web 后端 + AI 调用 + 定时/异步任务」三块串成一条完整链路。建议用法：先把项目跑起来，读它的 Controller 到 Service 再到模型调用的调用链，对照自己课设里的 SSM/Spring Boot 项目，看 AI 调用层是怎么被抽象成接口的；再尝试替换成国产模型 API 或加一个自定义工具函数。757 星说明有社区但不算庞大，遇到问题要自己读源码，这本身就是很好的训练。",
+   "source": "GitHub",
+   "date": "2026-10-31",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Spring AI"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**Java 方向学生少有的 Agent 实战入口，读源码即可补齐 AI 应用层经验**",
+   "courses": "《Java Web 开发》《软件框架技术》课程设计可直接借鉴其分层与异步任务设计",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "Spring Boot + Spring AI + JobRunr 三段式架构，适合对照课设项目理解分层",
+    "可替换模型 API、扩展自定义工具函数，作为简历上的 Agent 项目雏形",
+    "Java 生态 Agent 框架较少，读懂源码即可形成差异化优势"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "ClawRunr/JavaClaw",
+   "link": "https://github.com/ClawRunr/JavaClaw",
+   "cover": "img/a813.webp"
+  },
+  {
+   "id": "a814",
+   "title": "Claude Code / Codex 压缩会话时到底丢了什么：一次「进程重启」的工程视角",
+   "summary": "把编码 Agent 的上下文压缩类比为带交接说明的进程重启：写进磁盘的能回来，只在内存里的静默丢失且不报错。",
+   "content": "这篇文章的价值在于给你一个可操作的调试心智模型：Agent 的记忆就是对话本身，压缩 = 进程重启 + 一张交接便签。实践建议：一，在长任务里把关键约束（接口约定、目录结构、命名规范）写进仓库里的文件（如 CLAUDE.md、README、任务清单），而不是只口头告诉它；二，让 Agent 每完成一步就把结论落到文件或提交信息里，形成可恢复的检查点；三，发现它「忘了」前面的约定时，先查是不是被压缩掉了，而不是反复重述。做课设或大作业用 AI 辅助编码时，这套习惯能显著减少返工。",
+   "source": "DEV Community",
+   "date": "2026-10-31",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**掌握 AI 编码助手的上下文边界，避免大作业中途「失忆」返工**",
+   "courses": "《软件工程》课程设计中用于规范 AI 辅助开发流程与文档沉淀",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "压缩=进程重启，只有落盘内容能恢复，内存内容静默丢失",
+    "把接口约定、目录规范写进仓库文件而非只写在对话里",
+    "每步产出落成文件或提交，形成可恢复检查点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Tell What Claude Code and Codex Forget When They Compact a Session",
+   "link": "https://dev.to/theaicommit/how-to-tell-what-claude-code-and-codex-forget-when-they-compact-a-session-532a",
+   "cover": "img/a814.webp"
+  },
+  {
+   "id": "a815",
+   "title": "Helidon 双轨发布：一边上 JDK 27，一边保 JDK 21",
+   "summary": "Helidon 采用同时支持 JDK 27 与 JDK 21 的双轨发布策略，反映企业 Java 在「追新」与「稳 LTS」之间的现实取舍。",
+   "content": "这条对学 Java 的同学意义在「版本意识」。企业项目普遍停在 LTS（JDK 21），而框架开始适配更新的 JDK 27，于是出现双轨维护。你能直接用的：一，课设和简历项目统一用 JDK 21 LTS，别用非 LTS 版本，避免面试官质疑选型；二，了解 JDK 21 的虚拟线程、record、模式匹配等特性，这是当前 Java 岗位高频考点；三，读框架的双轨策略能理解「向后兼容」在工程上的成本，写技术方案时知道为什么要锁定依赖版本。顺带认识 Helidon 这类云原生微服务框架，和 Spring Boot 做对比。",
+   "source": "InfoQ中文",
+   "date": "2026-10-31",
+   "cat": "industry",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Helidon"
+   ],
+   "value": "**帮你建立 Java 版本选型判断力，面试和项目都不踩坑**",
+   "courses": "《Java 程序设计》《企业级应用开发》中结合 JDK 新特性章节理解",
+   "tags": [
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "企业主流仍是 JDK 21 LTS，项目选型优先 LTS",
+    "JDK 21 虚拟线程/record/模式匹配是面试高频点",
+    "理解框架双轨维护背后的兼容成本，写方案会锁版本"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/qRZCxTQbL1CwAUy28Zm8?utm_source=rss&utm_medium=article",
+   "cover": "img/a815.webp"
+  },
+  {
+   "id": "a816",
+   "title": "Sanstun：Rust 写的 sans-IO、易并行的 WireGuard 实现",
+   "summary": "Firezone 开源 Sanstun，把 WireGuard 协议逻辑与 IO 解耦，便于并行化与测试，是读网络协议实现的好样本。",
+   "content": "信息安全与管理专业的同学常觉得 VPN 协议抽象。sans-IO 的意思是：协议状态机只处理字节流进出，不碰 socket，于是可以脱离网络做单元测试、也能塞进任意运行时并行调度。建议路径：一，先补 WireGuard 的握手与密钥轮换流程（Noise 协议框架）；二，读 Sanstun 如何把「收包→状态机→发包」拆开，对照自己《计算机网络》里学的分层；三，用它的测试用例理解如何对协议实现做模糊测试与边界验证。Rust 不熟也没关系，重点是协议工程化的组织方式，写安全类课设（如简易隧道、抓包分析）时可直接借鉴。",
+   "source": "Hacker News",
+   "date": "2026-10-30",
+   "cat": "stack",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Rust",
+    "WireGuard"
+   ],
+   "value": "**用真实开源实现打通「协议理论→可测试工程」的断层**",
+   "courses": "《计算机网络》《密码学与网络安全》中 VPN 与协议实现章节的延伸阅读",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "sans-IO 把协议状态机与网络 IO 解耦，便于测试与并行",
+    "对照 WireGuard 握手/密钥轮换理解 Noise 框架",
+    "协议实现的测试与模糊测试思路可用于安全课设"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Sanstun: A sans-IO, parallel-friendly WireGuard implementation in Rust",
+   "link": "https://www.firezone.dev/blog/introducing-sanstun",
+   "cover": "img/a816.webp"
+  },
+  {
+   "id": "a817",
+   "title": "MCP 与 Claude Code 的安全审计开始有人接单了：AI 工具链也有攻击面",
+   "summary": "有开发者开始提供 Claude Code / MCP 相关的付费安全审计与定制工具服务，说明 AI 工具链的权限与数据流风险已成真实需求。",
+   "content": "MCP 让模型能调用外部工具、读文件、访问数据库，本质是把「权限」交给了一个不确定的执行者。对信息安全方向的同学，这是一块正在成形的新攻防面：工具描述可被注入、返回值可被投毒、凭证可能被越权读取。可落地的练习：一，自己写一个最小 MCP server，梳理它能触达的资源清单，做一次威胁建模；二，在课设里给 AI 调用层加输入校验与最小权限设计；三，把「AI 工具链安全」写进简历项目描述，比泛泛的「了解渗透测试」更有辨识度。注意这类付费服务本身良莠不齐，重点是学方法论而非买服务。",
+   "source": "DEV Community",
+   "date": "2026-10-31",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "value": "**提前占位 AI 工具链安全这一新兴方向，简历更有辨识度**",
+   "courses": "《信息安全管理》《系统安全》课程中结合访问控制与威胁建模练习",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "MCP 把工具权限交给模型，形成提示注入、返回值投毒等新攻击面",
+    "练习：写最小 MCP server 并做威胁建模与最小权限设计",
+    "AI 工具链安全可作为简历差异化方向"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I'm now taking on paid audits and custom tooling, starting with Claude Code / MCP security",
+   "link": "https://dev.to/stackscribe/im-now-taking-on-paid-audits-and-custom-tooling-starting-with-claude-code-mcp-security-2geh",
+   "cover": "img/a817.webp"
+  },
   {
    "id": "a808",
    "title": "Spring Boot 3 + ShardingSphere-JDBC 实战：一次跑通读写分离与分库分表",
@@ -25,7 +195,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "读写分离+分库分表一次配通，路由逻辑与业务解耦",
@@ -3904,165 +4074,6 @@
    "buzz": [],
    "link": "https://www.ifanr.com/1685223?utm_source=rss&utm_medium=rss&utm_campaign=",
    "cover": "img/a696.webp"
-  },
-  {
-   "id": "a697",
-   "title": "2026 上海开源软件应用创新大赛开源 AI 工具赛道决赛名单公布",
-   "summary": "10 支队伍晋级 10 月 29 日上海张江总决赛，项目含实时交互数字人引擎、RapidOCR 等开源 AI 工具。",
-   "content": "值得看的不是名次，是入围项目的代码仓库——名单里直接给了 Gitee 地址，等于白送一批可读的开源 AI 工具实现。建议做法：挑 2 个与你方向接近的项目（比如 OCR、数字人引擎），clone 下来跑通 demo，读它的接口设计和工程结构，再提一个 issue 或小 PR。这比空写「熟悉开源」有用得多，面试时能具体讲「我读过某项目的调度模块并修了一个边界 bug」。同时留意赛题方向，明年组队参赛时你已经有技术选型底稿。",
-   "source": "开源中国",
-   "date": "2026-10-23",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**一份带仓库地址的入围名单，等于一份现成的开源项目阅读清单。**",
-   "courses": "对应《软件工程》《开源技术》，可作课程项目选题来源",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "决赛名单附带 Gitee 仓库地址，可直接读源码",
-    "建议挑 1-2 个项目跑通并提 PR",
-    "赛题方向可作明年组队参赛的技术选型参考"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503189"
-  },
-  {
-   "id": "a698",
-   "title": "湖仓布局策略基准测试：什么时候该用 Liquid Clustering",
-   "summary": "通过基准测试对比湖仓表布局策略，给出 Liquid Clustering 的适用边界与选型建议。",
-   "content": "湖仓类内容对本科生看似遥远，但这条讲的是「数据怎么摆放决定查询快慢」这个通用工程问题，和你写 SQL、做课设数据层是同一件事。文章用基准数据说明：数据量增长、分区键基数变化、写入模式改变时，静态分区会退化，而自适应聚类能减少维护成本。建议你拿学校实验环境或本地 Spark/DuckDB 造一份百万行数据，分别用分区表和聚簇表跑同样的查询，把耗时做成表格——这就是一份能写进简历的性能调优实验，也顺带把《数据库原理》里的索引与分区讲透了。",
-   "source": "InfoQ中文",
-   "date": "2026-10-24",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Spark"
-   ],
-   "value": "**把「分区还是聚簇」变成一次可复现的性能实验，写进简历。**",
-   "courses": "对应《数据库原理》《大数据技术》，可作性能调优实验",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "核心问题：数据布局策略随数据增长会退化",
-    "用基准测试方法对比分区 vs 自适应聚类",
-    "可自造百万行数据复现，产出性能对比报告"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/lkefSu7SjjIHL1Fmk0Pv?utm_source=rss&utm_medium=article",
-   "cover": "img/a698.webp"
-  },
-  {
-   "id": "a699",
-   "title": "Agent 如何「雇人」：给构建者的实用指南",
-   "summary": "多数 Agent 框架的 human-in-the-loop 只会停下来问你，本文讨论任务需要数小时人力或你没有的技能时该怎么设计。",
-   "content": "这篇文章戳中一个真实工程痛点：你的 Agent 遇到搞不定的步骤，除了「弹窗问用户」还能怎么办？作者给出的思路是把「人」抽象成一种可调用的能力——定义任务描述、交付标准、验收与回传接口，让 Agent 像调 API 一样派活。对做课设和毕设的同学，这是很好的架构练习：把你的系统里所有「需要人判断」的环节抽成一个 HumanTask 接口，写清楚输入输出契约。做完你会发现，很多所谓「AI 工作流」的难点其实在接口设计和状态管理，而不是模型本身。",
-   "source": "DEV Community",
-   "date": "2026-10-24",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**教你把人抽象成 Agent 的一个接口，工作流设计能力直接升级。**",
-   "courses": "对应《软件工程》《软件体系结构》，可作毕设架构参考",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "把「人」抽象为可调用能力，而非阻塞式弹窗",
-    "关键是任务描述、验收标准与回传接口的设计",
-    "适合作为毕设中工作流/状态管理的架构练习"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How Can AI Agents Hire Humans? A Practical Guide for Builders",
-   "link": "https://dev.to/mercadopleis/how-can-ai-agents-hire-humans-a-practical-guide-for-builders-587b",
-   "cover": "img/a699.webp"
-  },
-  {
-   "id": "a691",
-   "title": "React 19.3 新增 browser() API：仅客户端渲染成为一等公民",
-   "summary": "React 19.3 引入 browser() API，把纯客户端渲染（CSR）从“框架默认行为”提升为可显式声明的能力，减少 SSR 与 CSR 混用时的水合问题。",
-   "content": "以前做课设，用 Vite + React 默认就是纯客户端渲染，但一旦引入 Next.js 或需要 SSR 的模板，就得手动处理 window 未定义、水合不一致等坑。browser() API 的意义在于：让“这个组件/入口只在浏览器跑”变成框架能识别的声明，而不是靠 useEffect 里判断 typeof window 的土办法。建议在《Web前端开发》课程的大作业里，用 React 19.3 重写一个带图表、地图的页面，对比加不加 browser() 时首屏报错和调试成本的变化，写进实验报告就是现成的技术亮点。",
-   "source": "InfoQ中文",
-   "date": "2026-10-24",
-   "cat": "stack",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**前端课设里绕不开的 SSR/CSR 边界问题，这次框架给了官方答案**",
-   "courses": "《Web前端开发》：用于大作业中客户端渲染组件的组织与调试",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "browser() 让纯客户端渲染可显式声明，不再依赖运行时判断 window",
-    "适合处理图表、地图、localStorage 等只能在浏览器运行的逻辑",
-    "课设中对比 SSR/CSR 混用的水合报错，可作为实验报告素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/jNX6EAzqP34xRjqUMU1N?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a692",
-   "title": "PHP2Shell 双 RCE 在野利用：WordPress、Drupal 中招，nginx 另有洞",
-   "summary": "PHP2Shell 组合漏洞已遭在野利用，影响 WordPress、Drupal 等 PHP 生态，nginx 侧还存在独立漏洞，文章拆解成因与修复优先级。",
-   "content": "这条对信息安全与管理专业是典型的“漏洞链”案例：单个组件看似无害，串起来就是 RCE。建议按三步读：第一，先看漏洞触发路径，画出从 HTTP 请求到命令执行的调用链，对应《Web安全》里的注入与文件包含章节；第二，注意“修复顺序”这个工程细节——先补哪一层能最快切断利用链，这是企业应急响应的真实思路；第三，在自己的 LAMP/LNMP 实验环境里复现（仅限本地靶场），用 Burp 抓包验证修复前后差异。找实习面试时，能讲清一条完整漏洞链比背十个名词有用。",
-   "source": "掘金",
-   "date": "2026-10-22",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "PHP",
-    "nginx"
-   ],
-   "value": "**一条真实在野 RCE 漏洞链，是 Web 安全课最好的实战教材**",
-   "courses": "《Web安全》：用于漏洞链分析与应急修复顺序的案例教学",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "PHP2Shell 是组合型 RCE，已在野利用，WordPress/Drupal 均在影响范围",
-    "nginx 侧存在独立漏洞，修复要分优先级而非一次性全打补丁",
-    "建议在本地靶场复现调用链，作为《Web安全》实验或面试素材"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699033523931725850"
   }
  ],
  "jobs": [
