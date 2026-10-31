@@ -1,6 +1,166 @@
 {
- "updatedAt": "2026-10-30 16:36",
+ "updatedAt": "2026-10-31 03:24",
  "news": [
+  {
+   "id": "a808",
+   "title": "Spring Boot 3 + ShardingSphere-JDBC 实战：一次跑通读写分离与分库分表",
+   "summary": "用 ShardingSphere-JDBC 在 Spring Boot 3 里同时落地读写分离和分库分表，把路由逻辑从业务代码里抽出来。",
+   "content": "单表数据量上来、查询压力顶不住时，手工在业务代码里判断走哪个库、写哪张表，后期维护成本极高。这篇实战用 ShardingSphere-JDBC 作为客户端中间件，配置主从数据源做读写分离，再按分片键配置分表规则，业务代码基本无感知。建议你跟着敲一遍：先本地起 MySQL 主从（或用 Docker 起两个实例模拟），配好 application.yml 里的 sharding 规则，写个订单表按 user_id 取模分片的 demo，再用日志确认 SQL 实际落到哪个库哪张表。做完这个 demo，简历上「分库分表」就不再是空话。",
+   "source": "掘金",
+   "date": "2026-10-30",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "ShardingSphere"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把「分库分表」从面试背诵变成能跑起来的项目经验**",
+   "courses": "对应《数据库原理》《Java Web 开发》，可作为课程设计的数据层方案",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "读写分离+分库分表一次配通，路由逻辑与业务解耦",
+    "本地用 Docker 起多实例即可复现，无需真实集群",
+    "重点看分片键选择与 SQL 路由日志验证"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7702434799856074786"
+  },
+  {
+   "id": "a809",
+   "title": "官方市场自动更新的 Claude Code 扩展被植入 SSH 后门近 11 小时",
+   "summary": "带 SSH 后门的恶意 Claude Code 扩展（2.1.312/2.1.313）通过 Anthropic 官方渠道分发约 11 小时，攻击者如何拿到发布账号仍未知。",
+   "content": "这是一次典型的供应链投毒：攻击者拿到官方发布账号，把带 SSH 后门的扩展版本推到「官方市场」，用户开着自动更新就会中招，窗口期近 11 小时。对信息安全与管理专业的同学，这件事的价值在于它把课本上的几个概念一次串起来了——软件供应链安全、代码签名与发布账号的权限边界、自动更新的信任模型。建议做两件事：一是复盘自己电脑上 IDE 插件、npm/pip 依赖的自动更新策略，关掉不必要的自动升级；二是把它当案例写进课程报告，分析「签名可信 ≠ 内容可信」这一环。",
+   "source": "掘金",
+   "date": "2026-10-31",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**用真实供应链投毒事件理解「签名可信≠内容可信」**",
+   "courses": "对应《信息安全导论》《软件供应链安全》，可作案例分析作业素材",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "官方渠道分发也会被投毒，自动更新是主要传播路径",
+    "核心问题：发布账号权限与签名信任模型的边界",
+    "可操作：审查本机插件/依赖的自动更新设置"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7702402013565157414"
+  },
+  {
+   "id": "a810",
+   "title": "Anthropic 的 VS Code 扩展在 Cursor 上被植入后门近 12 小时",
+   "summary": "Ars Technica 报道同一批供应链攻击的英文侧细节：攻击者如何取得 Anthropic 已验证的 Cursor 发布账号仍不清楚。",
+   "content": "英文原文补充了中文报道里缺的技术细节：受影响的是 Anthropic 在 Cursor 市场上的已验证发布账号，攻击窗口接近 12 小时，官方下架后仍未查清账号失陷路径。对信息安全专业来说，值得关注的是「已验证发布者」这个标识在扩展市场里到底提供了多少保证——它只证明账号归属，不证明这次发布的内容。读的时候重点看两点：一是事件响应时间线（发现、下架、通告各花了多久），二是官方给出的用户自查建议。顺手检查一下自己 VS Code / Cursor 里装过哪些 AI 编程插件，版本号对不对得上。",
+   "source": "Ars Technica AI",
+   "date": "2026-10-30",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**读懂一次完整的安全事件披露，学会看时间线和响应动作**",
+   "courses": "对应《信息安全导论》，可作英文技术阅读+安全案例分析双用",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "英文原文补足时间线与受影响范围",
+    "「已验证发布者」只保证账号归属，不保证内容安全",
+    "重点看事件响应时间线与官方自查建议"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+   "link": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
+   "cover": "img/a810.webp"
+  },
+  {
+   "id": "a811",
+   "title": "用 AI 编程加速鸿蒙电子书 App：原生多媒体组件的用法",
+   "summary": "以鸿蒙电子书 App 为例，讲清 Image 等原生组件加载图片、音频、视频的方式，以及 AI 编程在其中省下的重复劳动。",
+   "content": "鸿蒙的多媒体格式大多由系统底层原生支持，开发者用 Image 等组件就能加载，难点不在解码而在工程组织：列表渲染、资源缓存、页面切换状态管理。这篇用电子书 App 做例子，把「AI 生成骨架代码 + 人工调组件 API」的协作方式讲得比较具体。如果你在做移动端课设，可以借鉴它的思路：先让 AI 生成页面结构和数据模型，自己专注核对组件参数和生命周期回调——这部分 AI 最容易写错。注意别把 AI 生成的组件用法直接信了，对着官方文档核一遍 API 签名。",
+   "source": "掘金",
+   "date": "2026-10-31",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "HarmonyOS"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会「AI 出骨架、人核 API」的移动端开发协作方式**",
+   "courses": "对应《移动应用开发》，可直接用于课程设计选题",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "多媒体靠系统原生组件，难点在工程组织不在解码",
+    "AI 适合生成骨架，组件 API 与生命周期需人工核对",
+    "可迁移到任意移动端课设的页面结构搭建"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7702434964869038115"
+  },
+  {
+   "id": "a812",
+   "title": "GitHub Actions Runner Controller 0.15.0：大规模场景下的可靠性改进",
+   "summary": "ARC 0.15.0 针对大规模自托管 Runner 的稳定性问题做了改进，适合需要自建 CI 执行环境的团队。",
+   "content": "GitHub Actions Runner Controller 让你在 Kubernetes 上自托管 Actions Runner，按需扩缩容。0.15.0 主要修的是规模上去之后的可靠性问题——Runner 调度、Pod 生命周期管理这类在小型项目里根本碰不到的坑。对本科生来说，直接上 ARC 有点重，但值得知道这条路径存在：学校机房或实验室如果要给一个团队提供统一 CI 环境，自托管 Runner 比买并发额度更可控。建议的练手方式是先在 minikube 上跑通一个最小 ARC 部署，理解 Runner 如何以 Pod 形式被调度，这比背 CI 概念有用得多。",
+   "source": "InfoQ中文",
+   "date": "2026-10-31",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Kubernetes",
+    "GitHub Actions"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**理解 CI Runner 如何在 K8s 上被调度，为团队搭建可控构建环境**",
+   "courses": "对应《软件工程》《云计算》，可用于团队项目持续集成实践",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "自托管 Runner 解决并发额度与内网构建需求",
+    "0.15.0 重点在规模化后的调度与生命周期可靠性",
+    "练手路径：minikube 上跑通最小 ARC 部署"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/tNLFh02J0koQswlY5Oqe?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a803",
    "title": "PHP2Shell 漏洞开放自查：企业级 PHP 应用怎么排查",
@@ -23,7 +183,7 @@
     "信息安全",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "用官方自查工具检测自有 PHP 环境是否命中",
@@ -3903,184 +4063,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7699033523931725850"
-  },
-  {
-   "id": "a693",
-   "title": "Claude Code 实战：非科班也能独立做完一个产品，边界在哪",
-   "summary": "作者用 Claude Code 从零完成一个互联网产品，复盘 AI 编程在需求拆解、联调、部署各环节的实际能力与踩坑点。",
-   "content": "别被标题里的“外行人”误导——重点不是“不用学编程了”，而是看作者在哪一步仍然必须懂技术：需求拆成可执行任务、报错定位、数据库设计、部署配置。建议带着问题读：他把哪些工作完全交给 AI，哪些必须自己判断？然后拿自己的课设做对照实验——用 Claude Code 生成一个 CRUD 模块，记录 AI 一次通过率、你需要改几轮、哪些错误它反复犯。这份记录本身就是简历上“AI 辅助开发实践”的素材，也能帮你想清楚《软件工程》里需求分析与架构设计为什么不能省。",
-   "source": "掘金",
-   "date": "2026-10-24",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把 AI 编程工具当“结对程序员”用，先摸清它哪里靠不住**",
-   "courses": "《软件工程》：用于需求拆解与 AI 辅助开发流程的实践对照",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 65,
-   "brief": [
-    "重点看 AI 在需求拆解、调试、部署环节的能力边界，而非“零基础做产品”",
-    "可对照自己课设做实验：记录 AI 生成代码的一次通过率与返工点",
-    "产出的实践记录可作为简历中 AI 辅助开发的经历"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699732988154937359"
-  },
-  {
-   "id": "a694",
-   "title": "Shopify 免运费进度条：Liquid + JavaScript 手写一个购物车组件",
-   "summary": "教程用 Liquid 模板语言加原生 JavaScript，实现购物车免运费进度条，涉及金额计算、实时更新与边界处理。",
-   "content": "这是一个小而完整的“状态驱动 UI”练习：购物车金额变化 → 计算距免运费门槛的差额 → 更新进度条宽度和文案。技术点不复杂但很典型——模板层（Liquid）负责首屏渲染，JS 负责交互更新，两者数据要一致，这正是前端课设里最容易出 bug 的地方。虽然 Shopify 生态离国内就业较远，但你可以把同样的思路搬到 Vue/React 的电商课设里：用 computed 算差额、用 watch 触发动画。做完顺手把“金额为 0”“已达标”“跨档位”三个边界写进测试用例，就是加分项。",
-   "source": "DEV Community",
-   "date": "2026-10-24",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**一个 30 分钟能做完的购物车小组件，练的是状态同步的基本功**",
-   "courses": "《Web前端开发》：用于状态驱动 UI 与边界处理的练习",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "典型的状态驱动 UI：金额变化驱动进度条与文案更新",
-    "模板层与 JS 层数据一致性是主要坑点，可迁移到 Vue/React 课设",
-    "补齐 0 元、已达标、跨档位等边界用例，提升课设完成度"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Build a free shipping progress bar for Shopify with Liquid and JavaScript",
-   "link": "https://dev.to/brix_tech/build-a-free-shipping-progress-bar-for-shopify-with-liquid-and-javascript-1a0j",
-   "cover": "img/a694.webp"
-  },
-  {
-   "id": "a685",
-   "title": "恶意 LiteLLM v1.107.0 投毒 PyPI/Docker Hub：Python 一启动就执行任意代码",
-   "summary": "攻击者在 PyPI 与 Docker Hub 上发布被篡改的 LiteLLM 1.107.0，Python 进程启动即触发任意代码执行，官方已给出缓解步骤。",
-   "content": "LiteLLM 是很多团队用来统一调用各家大模型的 Python 封装库，这次被投毒的版本在 import 或启动阶段就会执行攻击者代码，等于把服务器直接交出去。对信息安全与管理专业的同学，这是一份现成的供应链安全案例：可以复现「依赖混淆 + 版本锁定」的检测思路，用 pip-audit、hash 校验、私有镜像源白名单做防护；软件工程同学则要记住：requirements.txt 里写死版本号还不够，锁文件 + 哈希校验才是底线。做课设时若要用第三方 AI SDK，先在虚拟环境里跑一遍，别直接装到本机全局环境。",
-   "source": "DEV Community",
-   "date": "2026-10-24",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "LiteLLM"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**一次真实的 AI 供应链投毒事件，是理解依赖安全最省力的入口**",
-   "courses": "《网络安全技术》《软件工程》课程中作为供应链安全案例，实验课可做依赖审计演练",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "恶意版本为 LiteLLM v1.107.0，PyPI 与 Docker Hub 双渠道投毒",
-    "触发点在 Python 启动/导入阶段，无需业务调用即中招",
-    "防护手段：锁文件 + 哈希校验、pip-audit、私有源白名单",
-    "建议在隔离虚拟环境或容器中安装第三方 AI SDK"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Malicious LiteLLM v1.107.0 on PyPI/Docker Hub Executes Arbitrary Code on Python Start: Mitigation Steps Available",
-   "link": "https://dev.to/romdevin/malicious-litellm-v11070-on-pypidocker-hub-executes-arbitrary-code-on-python-start-mitigation-1cgi",
-   "cover": "img/a685.webp"
-  },
-  {
-   "id": "a686",
-   "title": "用 JavaScript 构建安全 Web 应用：输入校验、密钥管理与 API 防护清单",
-   "summary": "一篇面向 Web 开发者的安全实践清单，覆盖输入校验、密钥泄露、API 端点加固等高频翻车点。",
-   "content": "文章的核心观点很直接：安全不是上线后再补的活，而是写第一行代码时就该有的习惯。它把常见问题拆成可执行项——所有用户输入在服务端二次校验、密钥绝不进前端 bundle、API 端点做鉴权与限流、Cookie 加 HttpOnly/SameSite、依赖定期审计。对前端方向的同学，这些正好对应你写 Vue/React 项目时最容易忽略的地方：很多人把 token 直接塞 localStorage 就交付了。建议拿自己的课设项目对照清单逐条自查，改完写进 README，面试聊项目安全时就是现成素材。",
-   "source": "DEV Community",
-   "date": "2026-10-24",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "课设/简历加分",
-   "value": "**一张能直接套在自己 Web 课设上的安全自查清单**",
-   "courses": "《Web 应用开发》《网络安全技术》中作为前端安全实践参考",
-   "tags": [
-    "前端开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "安全要在编码阶段介入，而非上线后补救",
-    "重点：服务端二次校验、密钥不进前端、API 鉴权限流",
-    "Cookie 建议 HttpOnly + SameSite，token 别裸放 localStorage",
-    "可直接拿课设项目做逐条自查"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building Secure Web Applications with JavaScript: Essential Best Practices",
-   "link": "https://dev.to/ansh_sheladiya/building-secure-web-applications-with-javascript-essential-best-practices-14h7",
-   "cover": "img/a686.webp"
-  },
-  {
-   "id": "a687",
-   "title": "PHP 爆出可远程执行代码的严重漏洞，全球紧急「拔网线」",
-   "summary": "PHP 紧急修复两个严重漏洞，攻击者无需登录即可远程执行代码，大量站点被迫临时下线。",
-   "content": "这次漏洞的危险点在于「无需登录、远程执行」，意味着只要服务暴露在公网就可能被打。虽然 PHP 不是你们的主语言，但漏洞成因值得所有写后端的人警惕：反序列化、参数解析边界、默认配置过于宽松，这些坑在 Java 的 Fastjson、Spring 里同样出现过。信息安全方向的同学可以顺着这个事件去查 CVE 详情与补丁 diff，练习「漏洞公告 → 影响面评估 → 修复验证」的完整流程；Java 方向的同学则对照检查自己项目里有没有不安全的反序列化入口。",
-   "source": "爱范儿",
-   "date": "2026-10-22",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "Java"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**借一次真实 RCE 事件，把「漏洞响应流程」练成可写进简历的技能**",
-   "courses": "《网络安全技术》《Java Web 开发》中对照反序列化漏洞讲解",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "两个严重漏洞均可未授权远程执行代码",
-    "成因涉及反序列化与参数解析边界，Java 生态有同类问题",
-    "可练习漏洞公告解读、影响面评估、补丁验证流程",
-    "检查自己项目中的反序列化入口与默认配置"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1685446?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a687.webp"
   }
  ],
  "jobs": [
