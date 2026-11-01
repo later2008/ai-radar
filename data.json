@@ -1,6 +1,211 @@
 {
- "updatedAt": "2026-11-01 03:24",
+ "updatedAt": "2026-11-01 20:42",
  "news": [
+  {
+   "id": "a830",
+   "title": "DeepSeek 公开 Super Agent 架构：跨会话保留上下文、多任务不再受人的注意力限制",
+   "summary": "DeepSeek Harness 团队发布《Super-agent 设计探索》，提出打破 Agent 与单次手动会话绑定，让 Agent 跨会话保持上下文并支持团队级多任务协作。",
+   "content": "做课设时你可能用过「一问一答」式 Agent：关掉窗口，上下文全丢，多任务全靠人脑记。DeepSeek 这篇架构文章的核心就是解绑：Agent 不再绑定单次会话，而是持久保存上下文、可被并行调度，从而把「多任务上限取决于人的注意力」变成「取决于系统调度」。对软件工程学生，这直接对应你写过的会话管理、状态持久化、任务队列——只是把对象从 Web 用户换成 Agent。建议读原文后，用 Spring Boot 或 Node 写一个最小「跨会话记忆 + 任务队列」demo，比空谈 Agent 有用得多。",
+   "source": "极客公园",
+   "date": "2026-11-01",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**读懂主流 Agent 架构的工程取舍，把「记忆+调度」落到自己的课设里**",
+   "courses": "《软件工程》《分布式系统》——课程设计里做多轮会话与任务调度模块",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Agent 与单次会话解绑，上下文跨会话持久化",
+    "多任务由系统调度而非人的注意力兜底",
+    "可用现有会话管理/任务队列知识复刻最小 demo"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/373243",
+   "cover": "img/a830.webp"
+  },
+  {
+   "id": "a831",
+   "title": "MiniToolDesk v1.0：纯前端离线开发者工具箱，敏感数据不出本机",
+   "summary": "一个全站纯客户端计算的开发者工具集合，断网可用，已上架 Chrome 与 Edge 扩展商店，主打无广告、不上传数据。",
+   "content": "在线 JSON 格式化、Base64 解码、时间戳转换这类小工具，很多人随手搜一个网页就用——但粘贴进去的可能是生产配置、密钥、日志。MiniToolDesk 的思路是全部在浏览器本地算，断网也能跑。对信息安全与管理专业，这是一个现成的「数据不出端」案例：你可以打开 DevTools 的 Network 面板验证它是否真的零请求，作为《Web 安全》或《数据安全》课的实证素材。对前端方向，它也是练手范本：纯前端、无后端、可打包成浏览器扩展，课设做「内部工具站」时可以直接借鉴架构。",
+   "source": "开源中国",
+   "date": "2026-10-31",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "Chrome Extension"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**既是可用的离线工具箱，也是「敏感数据不出端」的现成安全教学样本**",
+   "courses": "《Web 安全》《Web 前端开发》——验证客户端零外发、练习扩展开发",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "纯客户端计算，断网可用，无后端上传",
+    "可用 Network 面板验证零外发请求",
+    "适合作为浏览器扩展/内部工具站的前端练手项目"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503324"
+  },
+  {
+   "id": "a832",
+   "title": "一个 436 词的静态页加载 263KB JS，四分之一是从没打开过的实时客户端",
+   "summary": "作者拆解自家站点：预渲染的静态问答页仍打包了大量用不到的 JS，其中约四分之一是永不启用的实时通信客户端。",
+   "content": "这篇是典型的「性能审计复盘」，方法比结论更值钱：打开 DevTools 的 Coverage 面板，看哪些 JS 下载了却从未执行；再用打包分析看依赖树，找出被顺手 import 进来的重库。文中那个实时客户端很可能只是某处顶层 import 了 SDK，导致整包进主 chunk——解法是动态 import 或路由级代码分割。前端方向的同学，把这条流程套到自己课设的首页上跑一遍，通常能砍掉一半体积；面试聊「首屏优化」时，有真实数字比背概念强得多。",
+   "source": "DEV Community",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一套可复用的前端体积审计流程，直接产出可写进简历的优化数据**",
+   "courses": "《Web 前端开发》——课程项目首屏性能优化实践",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "用 Coverage 面板找「下载了但没执行」的 JS",
+    "重库改动态 import 或路由级分割",
+    "拿自己课设首页做一次真实瘦身，量化前后体积"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "A 436-word static page on our site downloads 263 KB of JavaScript, and a quarter of it is a realtime client we never open",
+   "link": "https://dev.to/daniel_pertu/a-436-word-static-page-on-our-site-downloads-263-kb-of-javascript-and-a-quarter-of-it-is-a-3him",
+   "cover": "img/a832.webp"
+  },
+  {
+   "id": "a833",
+   "title": "把 Step Functions 工作流包装成 AI Agent 可调用的工具：AgentCore Gateway 实践",
+   "summary": "AWS 官方系列文章，演示如何通过 AgentCore Gateway 将既有 Step Functions 编排暴露为 Agent 工具，让存量业务逻辑被大模型调用。",
+   "content": "企业里大量业务逻辑已经写成工作流编排，重写不现实。这篇的思路是加一层 Gateway，把工作流注册成 Agent 能调用的「工具」，由模型决定何时触发。对软件工程（含工业软件实验班）的同学，这对应一个很实际的场景：产线排程、质检流程已经用工作流引擎跑着，想让 AI 助手去查状态、发起任务，而不是推倒重来。建议重点看它的工具描述 schema 和鉴权设计——这是把内部系统暴露给模型时最容易出安全问题的地方，也正好接上信息安全方向的知识。",
+   "source": "DEV Community",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "AWS"
+   ],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**学会用网关把存量业务系统安全地接进 Agent，是企业落地的关键一环**",
+   "courses": "《软件体系结构》《工业软件系统集成》——系统集成与接口设计",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "存量工作流无需重写，经 Gateway 注册为 Agent 工具",
+    "关注工具描述 schema 与鉴权边界",
+    "可映射到工业场景的排程/质检流程接入"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Turning a Step Functions workflow into AI agent tools through AgentCore Gateway",
+   "link": "https://dev.to/aws-builders/turning-a-step-functions-workflow-into-ai-agent-tools-through-agentcore-gateway-4ld7",
+   "cover": "img/a833.webp"
+  },
+  {
+   "id": "a834",
+   "title": "不同 JS 框架的「AI 成本」对比：框架选择如何影响 AI 编码效果",
+   "summary": "Nolan Lawson 撰文讨论 JS 框架对 AI 辅助编码成本与效果的影响，HN 上引发 60 多条讨论。",
+   "content": "同一个需求，用不同前端框架让 AI 生成，返工率、token 消耗、调试时间差别不小——原因通常是框架的约定是否清晰、训练语料是否充足、报错信息是否可读。这篇文章值得前端方向同学在选课设技术栈时读一遍：如果你打算全程用 AI 辅助写代码，选一个「AI 熟悉、约定明确」的框架，能省下大量来回改的时间。读的时候别只看结论，注意作者的对比方法，自己也可以拿两个框架各跑一个相同页面做小实验，这本身就是个不错的简历项目。",
+   "source": "Hacker News",
+   "date": "2026-11-01",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "value": "**把「AI 辅助友好度」变成技术选型的一个显式维度**",
+   "courses": "《Web 前端开发》——课设技术选型论证",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "框架约定清晰度与语料丰富度影响 AI 生成质量",
+    "选型时把「AI 辅助友好度」纳入考量",
+    "可自建小实验：同需求两框架对比返工率"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The AI cost of JavaScript frameworks",
+   "link": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+   "cover": "img/a834.webp"
+  },
+  {
+   "id": "a835",
+   "title": "动态表增量刷新：复用已有计算结果，做性能与成本双优化",
+   "summary": "InfoQ 技术实践，讲动态表增量刷新如何通过复用历史计算结果，减少全量重算带来的算力与存储开销。",
+   "content": "增量刷新是数据链路里的经典问题：源表只变了几行，却要全量重算，成本全浪费在重复劳动上。文章的核心是「复用已有计算结果」——识别变更范围、只重算受影响分区、维护中间结果。对工业软件实验班的同学，这和产线数据看板、设备状态汇总表的刷新逻辑是同一类问题；对通用开发方向，也是理解「缓存失效策略」的好案例。建议读完后用一张小表手动推演一次增量与全量的差异，比只看结论扎实。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "数据工程"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**掌握增量计算思路，数据类与工业数据场景都用得上**",
+   "courses": "《数据库系统》《大数据处理》——增量计算与缓存失效",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "只重算受影响分区，避免全量重算",
+    "核心是变更识别 + 中间结果复用",
+    "可映射到产线看板、设备汇总表的刷新场景"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/xCFDK8KZvvDY5V1R0fqM?utm_source=rss&utm_medium=article",
+   "cover": "img/a835.webp"
+  },
   {
    "id": "a824",
    "title": "DeepSeek开源Super-Agent底座架构：Agent能跨会话保持上下文、自己找Bug提PR",
@@ -26,7 +231,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Agent从单次会话升级为常驻服务，需解决上下文持久化",
@@ -3881,207 +4086,51 @@
    "cover": "img/a720.webp"
   },
   {
-   "id": "a711",
-   "title": "150行Python给AI Agent工具调用加四层防护：Schema校验+白名单+熔断",
-   "summary": "用标准库150行实现AI Agent工具调用的四层拦截：Schema校验、暴露收敛、权限白名单、运行时熔断，附5个可运行场景。",
-   "content": "AI Agent 能调工具之后，最怕的不是它不会用，而是它乱用——参数填错、越权调用、死循环刷接口。这篇给出一份不依赖第三方库的 Python 实现：第一层用 JSON Schema 卡参数类型和必填项；第二层只把必要工具暴露给模型，减少误选；第三层按角色做工具白名单；第四层在运行时统计调用频次和异常，触发熔断。作者强调 60%–75% 的失败源于参数填错而非选错工具，所以校验层收益最大。建议你在课设里把这段代码抄进自己的 Agent demo，改造成「学生只能查成绩、不能改成绩」的权限模型，跑通后再补日志与告警。",
-   "source": "掘金",
-   "date": "2026-10-25",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用150行代码把「AI乱调工具」变成可拦截、可演示的安全模块，信安方向简历上很能打。**",
-   "courses": "对应《Python程序设计》《信息安全导论》，可作为课程设计中的Agent权限控制子模块。",
+   "id": "wk-20261026",
+   "title": "【AI风向标周报】第1期（10.26-11.01）",
+   "summary": "本周精选：Vue 4 已在规划中：现在学 Vu、Neton 1.0发布：面向AI原生等 5 条资讯；阿里巴巴、佰聆数据等 3 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、3 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. Vue 4 已在规划中：现在学 Vue 3 还值不值？\n   帮你判断前端版本焦虑该不该有，把精力放回能写进简历的项目上。\n   原文：https://juejin.cn/post/7700803425820049434\n2. Neton 1.0发布：面向AI原生开发的Kotlin/Native服务端框架\n   用第二套服务端框架反观Spring Boot，是提升框架理解力性价比最高的方式。\n   原文：https://www.oschina.net/news/503302\n3. DeepSeek 公开 Super Agent 架构：跨会话保留上下文、多任务不再受人的注意力限制\n   读懂主流 Agent 架构的工程取舍，把「记忆+调度」落到自己的课设里\n   原文：http://www.geekpark.net/news/373243\n4. AI编程进入「交付能力」大考：跑通代码只是起点，交付才是分水岭\n   会用AI写代码不稀缺，能把AI产出交付上线才稀缺\n   原文：https://www.tmtpost.com/8184564.html\n5. PHP2Shell 漏洞已被实战武器化：攻击链入侵 25 台政府服务器\n   把「漏洞披露→武器化」的完整链路讲清楚，是安全课最缺的真实素材。\n   原文：https://www.oschina.net/news/503319/chained-php2shell-exploit-roots-25-servers\n\n【本周精选岗位】\n1. 阿里巴巴 · 阿里巴巴 2027届秋招\n   校招 ｜ 见公告\n   投递：https://github.com/lijiaqi-AI-Product-Manager/job_radar\n2. 佰聆数据 · 润才计划 实习生招募\n   实习 ｜ 广州\n   投递：https://github.com/xixicc186/xixicc2027\n3. DeepSeek · 2027届实习 算法/工程/产品/研究类\n   实习 ｜ 北京、杭州\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 用SKILL.md给团队写一个「前端Review」Agent Skill，模板可直接拷进仓库\n   把前端规范写成可执行的Skill，是简历上少见的工程化亮点\n   获取：https://juejin.cn/post/7702637146160201770\n2. Spring Boot 3 + ShardingSphere-JDBC 实战：一次跑通读写分离与分库分表\n   把「分库分表」从面试背诵变成能跑起来的项目经验\n   获取：https://juejin.cn/post/7702434799856074786\n3. Claude Code 与 Codex 的 Computer Use 原理拆解：AI 如何操作你的界面\n   想入门 AI Agent 工程化，这是最省时间的原理级拆解，能直接落成 demo。\n   获取：https://juejin.cn/post/7700850888098594870\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
+   "source": "AI风向标·编辑部",
+   "date": "2026-11-01",
+   "cat": "weekly",
    "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "四层防线：Schema校验→暴露收敛→权限白名单→运行时熔断",
-    "纯标准库实现，约150行，可直接跑",
-    "统计显示多数失败来自参数错误，校验层性价比最高",
-    "可改造成课程项目里的权限控制模块"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7700194552505892891"
-  },
-  {
-   "id": "a712",
-   "title": "AI Agent误调用工具的四层工程防线：从参数校验到高危二次确认",
-   "summary": "拆解Agent工具误调用的四层防线及每层失效边界，重点讲高危操作的二次人工确认设计。",
-   "content": "上一篇讲怎么写，这篇讲为什么这么写、哪里会失效。作者把防线拆成四层：Schema 约束参数结构、按场景收敛工具分类、权限白名单限定可调用集合、运行时风控加高危操作二次确认。关键洞察是「模型选错工具不是主因」，大量事故来自参数边界（金额、ID、时间范围）没卡住。文中给出每层的失效边界，比如白名单挡不住合法工具被滥用、二次确认在异步任务里会失效。做工业软件方向的同学尤其值得读：设备参数下发、工单状态变更这类操作，天然需要「高危二次确认」这一层，可以直接映射到你们的生产管理系统课设里。",
-   "source": "掘金",
-   "date": "2026-10-25",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**教你给「会动手的AI」设计安全边界，工业软件与信安场景都能直接套用。**",
-   "courses": "对应《软件工程》《信息安全技术》，可在生产管理系统课设中设计指令下发审批流程。",
-   "tags": [
-    "信息安全",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "四层防线各有失效边界，不能只靠单层",
-    "高危操作必须二次确认，异步场景要特殊处理",
-    "参数边界（金额/ID/时间）是最容易漏的地方",
-    "适合映射到工业软件中的设备指令下发场景"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7700327310138687498"
-  },
-  {
-   "id": "a713",
-   "title": "wxa-runner：让小程序跑进普通浏览器，直接接Playwright做无头E2E",
-   "summary": "开源项目让微信小程序在浏览器里用官方基础库运行，解决Linux CI无法跑小程序自动化测试的痛点。",
-   "content": "微信开发者工具只有 Windows/macOS 版，Linux CI 上跑不了，小程序自动化测试长期靠手工。wxa-runner 的思路是在普通浏览器里加载微信官方基础库，把小程序跑起来，从而能直接接 Playwright 做无头端到端测试。对前端方向的同学，这是一个很好的「测试工程化」练手素材：你可以拿自己做过的小程序课设，写几条 Playwright 用例，覆盖登录、列表加载、下单流程，再挂到 GitHub Actions 上。面试时讲「我给小程序搭了CI自动化测试」，比只讲页面写得多漂亮有说服力得多。注意这类方案与官方运行时存在差异，断言要选稳定的业务节点。",
-   "source": "掘金",
-   "date": "2026-10-25",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Playwright"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**给小程序项目补上可进CI的自动化测试，是前端简历里少见的加分项。**",
-   "courses": "对应《Web前端开发》《软件测试》，可把小程序课设改造成带E2E用例的完整项目。",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "解决Linux CI无法运行微信开发者工具的问题",
-    "浏览器内加载官方基础库，可接Playwright",
-    "适合给小程序课设补E2E测试并接入CI",
-    "与官方运行时存在差异，断言需选稳定节点"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7700090632083308594"
-  },
-  {
-   "id": "a714",
-   "title": "WebGIS+AI智能体：一句话处理CAD图纸，支持MCP接入AI编辑器",
-   "summary": "唯杰地图智能体平台用自然语言完成CAD图纸叠加地图、坐标转换、图片转DXF、构件识别与智能审图。",
-   "content": "这个平台把 GIS 与 CAD 打通：图纸叠加地图后自动定坐标系、做坐标转换与参数解算、图片转可编辑 DXF、构件识别与智能审图，全部用一句话触发，并支持 MCP 接入 AI 编辑器。对工业软件实验班的同学，价值不在「用这个平台」，而在看清它背后的技术栈：坐标系与投影变换、DXF 解析、构件语义识别、审图规则引擎——这些正是 CAD/CAE 二次开发的核心能力。建议把它当作需求样本，在自己的课程设计里挑一个小切口实现，比如「上传图纸图片→识别图框与标题栏→输出结构化字段」，比空谈智能体更有产出。",
-   "source": "掘金",
-   "date": "2026-10-25",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**看清「AI+CAD」背后的坐标变换与图纸解析能力，工业软件方向选题从这里找切口。**",
-   "courses": "对应《计算机图形学》《CAD技术基础》，可作为工业软件实验班课程设计的选题参考。",
-   "tags": [
-    "工业软件",
+    "周报汇总",
+    "求职就业",
     "AI工具",
     "行业动态"
    ],
    "featured": false,
-   "heat": 70,
+   "heat": 99,
    "brief": [
-    "打通GIS与CAD：坐标转换、图片转DXF、构件识别、智能审图",
-    "支持MCP接入AI编辑器，可被Agent调用",
-    "背后是投影变换、DXF解析、规则引擎等工业软件核心能力",
-    "建议挑一个小切口自己实现，而非只做平台使用者"
+    "精选资讯 Top5：Vue 4 已在规划中：现在学 Vue 3 还值不值？",
+    "精选岗位 Top3：阿里巴巴 · 阿里巴巴 2027届秋招",
+    "实用工具 Top3：用SKILL.md给团队写一个「前端Review」Agent Skill，模板可直接拷进仓库"
    ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699886793819832320"
-  },
-  {
-   "id": "a715",
-   "title": "Java位图实战：用GUI看EnumSet增删元素时long数组怎么变",
-   "summary": "用可视化界面拆解JumboEnumSet的long数组位图，展示130个常量下add/remove/clear时elements与size的变化。",
-   "content": "EnumSet 是 Java 集合里最容易被背答案、却最少被真正理解的一个：RegularEnumSet 用一个 long 存 64 位，超过 64 个常量就切到 JumboEnumSet 用 long 数组。这篇文章用 GUI 把内部 elements 数组和 size 字段的变化一步步画出来，130 个常量下 add、remove、clear 时位图怎么翻转一目了然。对准备 Java 面试的同学，这是理解「位运算做集合」的最佳入口；对做课设的同学，可以照着写一个自己的可视化调试小工具，练手 Swing/JavaFX 的同时把集合源码读进去。建议配合 JDK 源码一起看，重点搞清 complementOf、range 这类静态工厂的边界处理。",
-   "source": "掘金",
-   "date": "2026-10-25",
-   "cat": "tut",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**把EnumSet源码从「背结论」变成「看得见」，Java面试与课设都用得上。**",
-   "courses": "对应《Java程序设计》《数据结构》，可在集合章节配合源码阅读做可视化演示。",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "RegularEnumSet用单个long，超64个常量切JumboEnumSet",
-    "GUI逐步展示elements位图与size的变化",
-    "是理解位运算实现集合的最佳入口",
-    "可仿写可视化调试工具，顺带练JavaFX/Swing"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7700211887543582783"
-  },
-  {
-   "id": "a705",
-   "title": "250行纯标准库给Agent造出站门：SSRF防护与出站边界实战",
-   "summary": "作者用250行Python标准库实现Agent工具调用的出站请求白名单与校验网关，防止模型被诱导访问内网或外发敏感数据。",
-   "content": "Agent能调用工具后，真正的风险不在模型输出，而在它发出的每一个HTTP请求：内网地址探测、云元数据接口、把上下文里的密钥外发。这篇只交付代码，用250行纯标准库实现一层出站边界——域名/IP白名单、私网段拦截、重定向逐跳复检、超时与体积上限。对信息安全与管理专业，这就是SSRF防护的最小可运行样本，可直接对照OWASP SSRF条目理解；对软件工程同学，它演示了「不可信输入经过校验层再落地」的工程范式。建议动手复现后，把它接进自己课设里的任何一次外部API调用，再写一份绕过测试用例清单。",
-   "source": "掘金",
-   "date": "2026-10-24",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「模型不可信」翻译成一行行可测的出站校验代码，是安全方向最实用的练手素材。**",
-   "courses": "《网络安全技术》《Web应用安全》——作为SSRF防护实验的参考实现",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "250行纯标准库实现，无第三方依赖，可直接读源码",
-    "覆盖私网段/元数据地址拦截、重定向逐跳复检",
-    "本质是SSRF防护在Agent场景的落地",
-    "可改写为课设中的统一出站网关模块"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7699774243807772735"
+   "link": "",
+   "cover": "img/a830.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-10-26",
+    "end": "2026-11-01",
+    "news": [
+     "a734",
+     "a782",
+     "a830",
+     "a766",
+     "a798"
+    ],
+    "jobs": [
+     "j40",
+     "j39",
+     "j37"
+    ],
+    "tools": [
+     "a825",
+     "a808",
+     "a733"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [
