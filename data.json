@@ -1,6 +1,166 @@
 {
- "updatedAt": "2026-11-01 16:38",
+ "updatedAt": "2026-11-01 18:24",
  "news": [
+  {
+   "id": "a841",
+   "title": "Snowflake CoCo 实践：团队级 Skill 共享与治理怎么做",
+   "summary": "InfoQ 技术实践拆解 Snowflake CoCo 如何把个人写好的 Skill 变成团队可复用、可治理的资产，解决共享与权限边界问题。",
+   "content": "很多人写 Prompt/Skill 只在自己电脑上跑得通，一进团队就乱：版本对不上、权限没人管、谁改坏了不知道。这篇实践讲的是把 Skill 当工程资产管理——统一注册、版本化、按角色授权、复用同一套调用入口。对软件工程同学来说，这正是「配置即代码」思路在 AI 工具链上的延伸：你可以照这个模式，在课设小组里给组员搭一个共享的提示词/工具库，用 Git 管版本、写清输入输出契约，答辩时就是现成的工程化亮点。信息安全方向可以重点看它的权限与审计设计。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把 AI 提示词当工程资产来管，是团队协作里最容易被忽视又最加分的一环。**",
+   "courses": "《软件工程》需求与配置管理章节，可直接作为团队协作工具链案例",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "Skill 从个人脚本升级为团队资产：注册、版本化、授权",
+    "重点在治理与权限边界，不只是「怎么写提示词」",
+    "可迁移到课设小组的共享工具库搭建"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0ap8HB0DwK6Xa1lBSNVy?utm_source=rss&utm_medium=article",
+   "cover": "img/a841.webp"
+  },
+  {
+   "id": "a842",
+   "title": "AI 幻觉也要做「预算管理」：超支之后怎么办",
+   "summary": "InfoQ 讨论把幻觉当成可度量、可预算的成本项，给出超预算后的降级与兜底思路。",
+   "content": "做课程项目接大模型 API 时，最怕的不是报错，是它一本正经地编。这篇文章的思路很工程化：先给幻觉设「预算」——哪些场景允许不确定、允许多大比例，再用校验、二次检索、人工兜底等手段把超支的部分接住。对应到你的实践：写一个带 schema 校验的返回解析层，加置信度阈值和降级分支，把「模型可能错」当成接口契约的一部分来设计。这比单纯调 prompt 更能体现系统设计能力，答辩和简历都好讲。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**给模型输出加校验和降级分支，是把 AI 项目做「能上线」的关键一步。**",
+   "courses": "《软件工程》系统设计与容错，或《信息安全》数据校验相关章节",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "把幻觉量化为可管理的预算指标",
+    "超预算后的降级、校验、兜底设计",
+    "适合写进接口层的容错方案"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/z8vQa2zzGyLiTxIZ8PXH?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a843",
+   "title": "Pinterest 用 Flink + Iceberg 解决数据分区确认难题",
+   "summary": "Pinterest 分享如何让 Flink 负责流式时间、Iceberg 负责存储记忆，最终确认数据分区归属。",
+   "content": "流批一体的老问题：流处理写进去的数据，分区到底算哪一天？Pinterest 的做法是让 Flink 管事件时间与水位线，Iceberg 管表格式与提交快照，用两边的元数据对齐来「最终确认」分区。对学 Java 后端的同学，这是一条很实在的进阶路线：先搞懂 Flink 的时间语义和水位线，再看 Iceberg 的 snapshot 与 manifest 结构，就能理解为什么大厂数据链路要这么搭。工业软件实验班做设备数据采集与时序入库时，这套思路可以直接借用。",
+   "source": "InfoQ中文",
+   "date": "2026-10-31",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "工业软件"
+   ],
+   "stack": [
+    "Flink",
+    "Iceberg"
+   ],
+   "value": "**想走大数据/工业数据链路，Flink 时间语义 + Iceberg 表格式是绕不开的一对组合。**",
+   "courses": "《数据库原理》与《大数据技术》，可作流批一体案例",
+   "tags": [
+    "Java全栈",
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Flink 管时间语义，Iceberg 管表格式与快照",
+    "分区确认靠两侧元数据对齐，而非单点判断",
+    "是 Java 后端转数据平台的典型技术栈"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/9OhgYkwYlPYgTbAvWlGz?utm_source=rss&utm_medium=article",
+   "cover": "img/a843.webp"
+  },
+  {
+   "id": "a844",
+   "title": "Agent 时代算力账本变了：CPU 重新回到 AI 服务器主桌",
+   "summary": "AI 算力采购从只堆加速卡，转向加速卡加均衡 CPU 的整机柜配置。",
+   "content": "这条对工业软件和系统方向的同学有实际意义：Agent 类负载的特点是大量调度、工具调用、状态管理，这些跑在 CPU 上，GPU 只负责重计算。结果就是服务器配置逻辑从「买卡」变成「配机柜」，CPU 与内存配比重新被重视。你不必会买服务器，但要理解这个结构——做本地部署实验、写资源调度模拟、或者面试被问「为什么 Agent 场景 CPU 不能省」时，能讲清「调度密集 vs 计算密集」的区别就够了。",
+   "source": "钛媒体",
+   "date": "2026-11-01",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**理解「调度密集 vs 计算密集」，是判断算力配置和做性能优化的底层常识。**",
+   "courses": "《计算机组成原理》与《操作系统》资源调度部分可对照理解",
+   "tags": [
+    "行业动态",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "Agent 负载调度密集，CPU 不再是配角",
+    "采购逻辑从单卡转向整机柜均衡配置",
+    "面试常问：什么负载该给 CPU、什么该给 GPU"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8189082.html"
+  },
+  {
+   "id": "a845",
+   "title": "Claude 暗改 Harness 禁止逆向游戏，紧急叫停",
+   "summary": "Claude 被发现会在回答后执行用户不可见的附加指令，用于限制逆向等行为，随后紧急调整。",
+   "content": "这事对信息安全方向是很好的讨论素材：模型侧在客户端之外偷偷加了一层「你看不到的指令」，本质是策略执行点放在了用户不可控的位置。做安全分析时可以顺着问三个问题——这层指令存在哪、能不能被观测、出问题谁负责。延伸到你自己写 Agent 应用：任何隐式行为都应该有日志和可审计记录，否则调试和合规都是黑洞。课堂上讲访问控制与审计日志时，这就是个新鲜的现实案例。",
+   "source": "量子位",
+   "date": "2026-11-01",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**任何用户看不见的自动行为，都必须有日志可审计，这是安全设计的底线。**",
+   "courses": "《信息安全导论》访问控制与审计章节的现实案例",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "模型侧存在用户不可见的附加指令层",
+    "安全视角：策略执行点、可观测性、责任归属",
+    "自建 Agent 要给隐式行为留审计日志"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/507038.html"
+  },
   {
    "id": "a836",
    "title": "开源 Rust 差分工具 OmniDiff：25 种语言代码+图片/PDF 秒级对比",
@@ -25,7 +185,7 @@
     "通用开发",
     "工业软件"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Rust 编写，支持 25 种语言代码 + 图片/PDF/压缩包等二进制格式",
@@ -3906,173 +4066,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/qJB2DapLThovtxzyOtKW?utm_source=rss&utm_medium=article",
    "cover": "img/a732.webp"
-  },
-  {
-   "id": "a721",
-   "title": "Reqmango：Docker 一键自建的项目管理工具，需求分诊还能自动去重",
-   "summary": "开源团队级项目管理工具 Reqmango 支持 Docker 一键部署、数据自持，内置 Intake 分诊，自动给出需求类型、优先级与疑似重复建议。",
-   "content": "Jira 好用但云端贵、数据不在自己手里，这是很多团队的真实痛点。Reqmango 用 Docker Compose 就能跑起来，工作项类型、工作流、自动化这些概念和 Jira 基本对齐，迁移成本低。最值得看的是它的 Intake 分诊模块：新需求进来先由规则/模型给出类型、优先级和疑似重复项，拿不准的再转人工，等于把「需求池清洗」这件苦活自动化了一半。对软工同学来说，这是一个非常好的课设选题参考——你可以照着它的思路，用 Spring Boot + Vue 写一个精简版需求管理系统，把「去重算法」和「优先级打分」做成自己的亮点。",
-   "source": "开源中国",
-   "date": "2026-10-25",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Docker",
-    "项目管理"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**想做一个像样的需求管理系统课设，先拆一遍它的分诊与工作流设计**",
-   "courses": "《软件工程》需求分析与项目管理章节，可直接作为课程设计原型",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Docker 一键部署，数据留在自己服务器，适合校内项目/小团队",
-    "Intake 分诊：自动判定需求类型、优先级、疑似重复",
-    "工作流与自动化概念对齐 Jira，学习成本低",
-    "可作为软件工程课设的架构参考与功能清单"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503197"
-  },
-  {
-   "id": "a722",
-   "title": "单台 VPS 部署 FastAPI+PostgreSQL：HTTPS、备份、回滚，不用 K8s",
-   "summary": "一篇实操文，讲清一台 VPS 上把 FastAPI + PostgreSQL 用 Docker Compose 部署上线，并补齐 HTTPS、自动备份与版本回滚。",
-   "content": "很多同学做完课设只会本地跑，一到「部署上线」就卡住，其实一台几十块的 VPS 就够了，不需要 Kubernetes。这篇文章把几件「无聊但必须做对」的事讲透了：反向代理 + 自动证书搞定 HTTPS；数据库定时 dump 到对象存储或本地目录，并验证能恢复；镜像打 tag，出问题一条命令回滚到上一版。建议你照着做一遍，把整个流程写成 docker-compose.yml + 一个 deploy.sh 放进 GitHub，简历上「有独立部署上线经验」比「熟悉 Linux 命令」有说服力得多。",
-   "source": "DEV Community",
-   "date": "2026-10-26",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Docker",
-    "PostgreSQL"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把课设真正部署到公网并配好备份回滚，是简历上最容易被追问也最容易加分的点**",
-   "courses": "《计算机网络》HTTP/HTTPS 与《数据库》备份恢复，可结合作业实操",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "单机 Docker Compose 部署，替代过度设计的 K8s",
-    "HTTPS 证书自动化、数据库定时备份与恢复验证",
-    "镜像 tag + 一键回滚，避免上线翻车",
-    "产出可复用的 compose 文件与部署脚本，直接进简历"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/devkit_shop/deploying-fastapi-postgresql-to-a-single-vps-with-docker-compose-https-backups-and-rollbacks-jb4",
-   "cover": "img/a722.webp"
-  },
-  {
-   "id": "a723",
-   "title": "给 AI 编码助手立规矩：RuleMine 解决「Agent 忘了自己说过的话」",
-   "summary": "开发者发现编码 Agent 反复遗忘项目约定，于是做了 RuleMine，把规则沉淀成可复用、可注入的约束文件。",
-   "content": "用 Copilot、Cursor 这类编码 Agent 时，最烦的是它每次都「重新认识你」：命名规范、目录结构、禁止使用的库，说一遍忘一遍。RuleMine 的思路是把这些约定写成结构化的规则文件，在每次会话开始时注入上下文，让 Agent 稳定遵守。这件事的价值不在于用哪个工具，而在于「规则工程」这个习惯：你完全可以在自己的仓库里建一个 rules 目录，把代码风格、接口约定、提交规范写清楚，再让 Agent 读取。做团队项目时，这套东西能显著减少返工，也是面试聊 AI 协作开发时很好的谈资。",
-   "source": "DEV Community",
-   "date": "2026-10-26",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI 编码助手"
-   ],
-   "diff": 1,
-   "scene": "练手/团队项目",
-   "value": "**学会给 AI 编码助手写「项目规则」，比换十个工具更能提升协作效率**",
-   "courses": "《软件工程》编码规范与团队协作，可作为小组项目的约定文档模板",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "核心思路：把项目约定沉淀为结构化规则文件，会话时注入",
-    "解决编码 Agent 上下文遗忘、风格漂移问题",
-    "可自己动手在仓库建 rules 目录，零成本落地",
-    "团队协作与 AI 辅助开发场景的加分经验"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/lillliant/my-coding-agent-forgot-its-own-advice-so-i-built-rulemine-5dfe",
-   "cover": "img/a723.webp"
-  },
-  {
-   "id": "a724",
-   "title": "CircleCI 发布 Machine Runner Orchestrator：自托管 CI 执行机可集中编排",
-   "summary": "CircleCI 推出 Machine Runner Orchestrator，用于统一管理和编排自托管构建执行机集群。",
-   "content": "CI/CD 是软工和信息安全同学都绕不开的一环。这次更新解决的是「自托管 Runner 一多就管不过来」的问题：多台构建机如何统一注册、分配任务、做健康检查与扩缩容。对在校生来说，未必用得上 CircleCI 本身，但你要理解这套模型——Runner 是执行单元，Orchestrator 是调度层，本质和 Jenkins 的 Agent 管理、GitLab Runner 的注册机制是一回事。建议在课程项目里用 GitHub Actions 或 Jenkins 搭一条「提交即构建、构建即测试」的流水线，把自托管 Runner 跑通一次，面试聊 DevOps 时就有具体细节可讲。",
-   "source": "InfoQ中文",
-   "date": "2026-10-26",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "CI/CD"
-   ],
-   "value": "**理解 Runner 与调度层的分工，是搭好第一条 CI 流水线的前提**",
-   "courses": "《软件工程》持续集成章节，可结合课程项目搭建流水线",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "解决自托管构建机集群的统一注册、调度与健康检查",
-    "概念可迁移到 Jenkins Agent、GitLab Runner 管理",
-    "建议在课设中搭一条提交触发构建+测试的流水线",
-    "信息安全方向可延伸思考构建机隔离与凭据管理"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/y7YQmP1p42Uj69H1C6uf?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a725",
-   "title": "Google 改隐私条款：Gmail、相册数据可被用于个性化广告",
-   "summary": "Google 新隐私政策 10 月 16 日生效，在用户选择开启的前提下，Gmail 与相册内容可参与个性化广告投放。",
-   "content": "这条对信息安全与管理专业的同学是活教材。要点有两个：一是「默认关闭、需用户主动选择」，这是合规设计里的 opt-in 原则；二是政策文本里「不会基于云端硬盘、Gmail、相册内容投放广告，除非你选择允许」这种表述，正是隐私政策里最容易做文章的地方——字面上保护了你，但把开关交给了用户自己。建议拿这份新条款做一次逐条拆解练习：找出数据收集范围、用途、共享对象、用户权利四类条款，对照《个人信息保护法》的告知同意要求看差异。这类文本分析能力，在隐私合规、等保测评岗位面试中很实用。",
-   "source": "Solidot",
-   "date": "2026-10-24",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**拿真实隐私条款做逐条拆解，是信息安全专业最便宜的合规实战训练**",
-   "courses": "《信息安全法律法规》《数据安全与隐私保护》告知同意原则案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "新政策采用 opt-in：需用户主动开启才用于广告",
-    "隐私政策措辞存在「原则+例外」的典型结构",
-    "可做一次条款拆解练习，对照个人信息保护法",
-    "隐私合规、数据治理岗位的实战分析素材"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85698"
   }
  ],
  "jobs": [
