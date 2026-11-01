@@ -1,6 +1,170 @@
 {
- "updatedAt": "2026-11-01 20:42",
+ "updatedAt": "2026-11-01 16:38",
  "news": [
+  {
+   "id": "a836",
+   "title": "开源 Rust 差分工具 OmniDiff：25 种语言代码+图片/PDF 秒级对比",
+   "summary": "OmniDiff 用 Rust 实现的内容感知 Git difftool，支持 25 种编程语言及配置、图片、PDF、压缩包等格式，速度可处理数万行 C++ 文件。",
+   "content": "日常 git diff 碰到二进制文件、图片或大文件就抓瞎，OmniDiff 把这些场景统一了：代码按语法结构做内容感知对比，图片、PDF、字体、压缩包也能给出可读差异，底层用 Rust 保证速度。对软件工程同学最直接的用法是把它配成 git difftool，课设里改前端样式图、对比实验数据文件、review 工业软件生成的配置文件都能用上。建议先 clone 下来跑一遍 README 的示例，再写进自己的 .gitconfig，顺手读一下它的 diff 算法实现，比只看教程更能理解「内容感知」到底省了什么。",
+   "source": "Hacker News",
+   "date": "2026-11-01",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust",
+    "Git"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把 git diff 从只能看文本升级到能看图片和二进制，课设协作时少踩坑**",
+   "courses": "《软件工程》版本控制实践、《程序设计》课程设计中的代码评审环节",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "Rust 编写，支持 25 种语言代码 + 图片/PDF/压缩包等二进制格式",
+    "可配置为 git difftool，替代默认 diff 查看器",
+    "大文件性能好，适合对比生成的配置文件与资源文件"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Show HN: OmniDiff – Opensource, super fast, content aware Git difftool, in Rust",
+   "link": "https://github.com/ivankovic/omnidiff"
+  },
+  {
+   "id": "a837",
+   "title": "SQL 查询从近 2 小时压到 30 秒：一篇可复用的性能优化实践",
+   "summary": "InfoQ 技术实践复盘了一次 SQL 查询优化全过程，把耗时近两小时的查询降到 30 秒，涉及执行计划分析与索引/改写策略。",
+   "content": "这类文章的价值不在结论而在排查路径：先看执行计划找出全表扫描和错误的连接顺序，再判断是加索引、改写子查询还是调整分页逻辑。对信息安全与软件工程的同学都实用——课设里做的管理系统一旦数据量上去就会卡，面试也常被问「慢查询怎么定位」。建议边读边在自己 MySQL 里用 EXPLAIN 复现：造一张十万行的表，写一条带子查询的统计 SQL，按文中思路逐步优化并记录每步耗时。这套「先测量再改」的习惯，比背索引八股有用得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "SQL",
+    "MySQL"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**学会用执行计划定位慢查询，课设不卡、面试能讲清楚优化过程**",
+   "courses": "《数据库原理与应用》中的查询优化与索引章节，可直接作为课设性能调优参考",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "核心方法是先读执行计划定位瓶颈，再针对性加索引或改写 SQL",
+    "适合有基本 SQL 基础、做过课程设计管理系统的同学",
+    "可本地造数据复现，形成自己的慢查询排查清单"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/adFNTX7Qiy7yYIGEmTlk?utm_source=rss&utm_medium=article",
+   "cover": "img/a837.webp"
+  },
+  {
+   "id": "a838",
+   "title": "AI 能读懂二进制了，逆向与软件供应链安全怎么变",
+   "summary": "InfoQ 讨论 AI 直接分析二进制文件的能力进展，以及它对闭源软件保护和逆向工程的影响。",
+   "content": "对信息安全与管理专业来说，这是个明确的技能信号：二进制分析的门槛在下降，过去要靠 IDA 手工啃的活，现在可以用 AI 辅助做函数识别、字符串与调用关系梳理。这不代表逆向不用学，而是「会用工具提效 + 能判断 AI 输出对不对」变成新的分水岭。建议结合《逆向工程》或 CTF 中的 crackme 题目练手：先用传统工具跑一遍，再让 AI 辅助分析同一段二进制，对比两者结论差异，记录 AI 在哪些地方会编造。这种验证习惯在安全岗位面试里是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "求职准备",
+   "value": "**提前建立「AI 辅助逆向 + 人工验证」的工作方式，安全岗面试有话说**",
+   "courses": "《逆向工程》《网络攻防》课程中的二进制分析实验，可作为方法补充",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "AI 辅助二进制分析降低逆向入门门槛，但结论需人工验证",
+    "关系到闭源软件保护与软件供应链安全评估",
+    "可用 CTF crackme 题目做传统工具与 AI 的对比实验"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/8mCjWWFLdjDA2vb51QZs?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a839",
+   "title": "Agent 删掉一行「过期」注释，却删掉了隐含的不变量",
+   "summary": "一篇开发复盘：AI Agent 在清理代码时判定某行注释冗余并删除，测试全绿，但该注释实际记录着代码必须满足的不变量。",
+   "content": "这个故事对写代码和用 AI 改代码的人都是提醒：注释分两类，一类描述「做了什么」（代码自解释后确实冗余），一类记录「为什么必须这样」（不变量、踩过的坑、业务约束），后者删了测试也发现不了。软件工程课设里如果你让 AI 帮忙重构，务必先自己标注哪些注释是约束性的。实操建议：在团队规范里约定约束性注释统一加 `INVARIANT:` 或 `WHY:` 前缀，review 时重点看这类注释有没有被动过。这比空谈「AI 不可靠」具体得多，也能直接写进课设的代码规范文档。",
+   "source": "DEV Community",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**学会保护记录不变量的注释，用 AI 重构代码时不埋暗雷**",
+   "courses": "《软件工程》代码规范与代码评审环节，可作为团队约定直接落地",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "区分描述性注释与约束性注释，后者删除后测试无法发现",
+    "给约束性注释加统一前缀，便于 review 时保护",
+    "用 AI 重构前先人工标注不可删的注释"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The Comment the Agent Called Stale Was Holding an Invariant",
+   "link": "https://dev.to/jeff_pdc/the-comment-the-agent-called-stale-was-holding-an-invariant-3pcj",
+   "cover": "img/a839.webp"
+  },
+  {
+   "id": "a840",
+   "title": "移动身份系统的密码学底座：ISO/IEC 18013-5 架构解读",
+   "summary": "InfoQ 解析 ISO/IEC 18013-5 移动驾驶证标准背后的密码学机制与企业架构设计。",
+   "content": "手机里的电子身份证、数字驾照背后就是这类标准：基于公钥基础设施做持有者绑定、用会话密钥保证出示过程不可重放。信息安全专业的同学如果只学过对称/非对称加密的概念，这篇能把它们串成一条真实工程链路。建议对照《密码学》或《应用密码学》课程，把文中涉及的签名、密钥协商、证书链画成一张时序图，再想想「如果中间人截获出示请求会怎样」。做课设时若涉及登录鉴权，也可以借鉴它的「最小信息披露」思路，而不是一股脑把用户信息全传过去。",
+   "source": "InfoQ中文",
+   "date": "2026-11-01",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**把课本密码学串成真实身份系统链路，鉴权课设有据可依**",
+   "courses": "《密码学》《信息安全技术》中的公钥基础设施与身份认证章节",
+   "tags": [
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "讲清移动身份凭证的持有者绑定、密钥协商与证书链",
+    "适合学过密码学基础、想了解工业级落地的同学",
+    "可画时序图并分析中间人攻击面，作为课设鉴权设计参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/9aUBUMmhC4s5mEJgXHDL?utm_source=rss&utm_medium=article",
+   "cover": "img/a840.webp"
+  },
   {
    "id": "a830",
    "title": "DeepSeek 公开 Super Agent 架构：跨会话保留上下文、多任务不再受人的注意力限制",
@@ -22,7 +186,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Agent 与单次会话解绑，上下文跨会话持久化",
@@ -3909,228 +4073,6 @@
    ],
    "buzz": [],
    "link": "https://www.solidot.org/story?sid=85698"
-  },
-  {
-   "id": "a716",
-   "title": "Linux基金会报告：AI写代码快52%，但1/4 PR是「AI垃圾」，维护者更累了",
-   "summary": "Linux基金会新报告量化了AI编码的真实收益与代价：提交速度提升52%，但约四分之一PR为低质量「AI垃圾」，开源维护者审查负担显著加重。",
-   "content": "报告给出的数字很值得软件工程专业同学记下来：AI让代码产出快了52%，但约25%的PR属于低质量、重复或缺乏上下文的「AI垃圾」。这意味着团队瓶颈从「写」转移到「审」——评审、测试、合并的成本被放大。对你的直接启示：用Copilot/Claude写课设代码没问题，但提交前必须自己读懂每一行、写清commit message和PR描述、补上单元测试，否则你就是在给队友和老师制造垃圾PR。做小组项目时，可以约定「AI生成代码必须附测试+说明」的规则，这本身就是简历上能讲的工程实践。",
-   "source": "InfoQ中文",
-   "date": "2026-10-25",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Git"
-   ],
-   "value": "**AI能帮你写代码，但读懂、测通、说清楚的责任仍然在你身上。**",
-   "courses": "《软件工程》课程中把「AI辅助+人工评审+单测」写进团队开发规范",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "AI编码提速52%，但约1/4 PR为低质量「AI垃圾」",
-    "瓶颈从写代码转向代码评审与测试",
-    "提交AI代码前必须自读、写清PR描述、补单测",
-    "小组项目可约定AI代码必须附测试与说明"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/9TSuUDxrUSGS26XTA2yB?utm_source=rss&utm_medium=article",
-   "cover": "img/a716.webp"
-  },
-  {
-   "id": "a717",
-   "title": "Cloudflare OHTTP网关：中继转发但不解密，隐私代理怎么做到的",
-   "summary": "Cloudflare推出OHTTP网关，作为中继转发加密请求却拒绝解密内容，把「转发」与「看见」解耦，是隐私增强技术的工程落地案例。",
-   "content": "OHTTP（Oblivious HTTP）的核心是把「谁发的」和「发了什么」拆开：客户端把请求加密给目标服务器，再套一层发给网关，网关只看到密文和外层地址，无法解密内容。Cloudflare的网关明确拒绝解密通过它传入的请求，等于用架构而非承诺来保证隐私。对信息安全与管理专业的同学，这是活教材：密码学协议如何落地成可运营的服务、信任边界画在哪里、日志与合规怎么处理。建议对照RFC 9458读一遍协议流程，用Wireshark抓一次请求观察分层封装，比背概念有用得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-25",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "HTTP"
-   ],
-   "value": "**隐私不是靠承诺，而是靠「网关看不到明文」的架构设计保证的。**",
-   "courses": "《网络安全》《密码学》中作为隐私增强技术（PET）与信任边界的实例讲解",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "OHTTP把「发送者身份」与「请求内容」解耦",
-    "网关只转发密文，架构上无法解密",
-    "对照RFC 9458理解双层封装流程",
-    "可用抓包工具观察请求分层，加深理解"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4647jBOxmf3Ut0i1aVbx?utm_source=rss&utm_medium=article",
-   "cover": "img/a717.webp"
-  },
-  {
-   "id": "a718",
-   "title": "「模型提议、Rust验证」：本地Gemma做初筛，Rust兜底校验的可靠流水线",
-   "summary": "一个开源实践：用本地运行的Gemma模型对招聘信息做初步分类，再由Rust程序做确定性校验，把「概率输出」变成「可信任结果」。",
-   "content": "这个项目的架构思路比它做的事更值钱：LLM输出天生不确定，所以不让它直接决定结果，而是让它「提议」，再用Rust写确定性规则做「验证」。好处是省钱（本地小模型）、可控（规则可测）、可解释（出错能定位是模型还是规则）。对软件工程和工业软件实验班的同学，这正是AI应用落地的标准姿势——模型负责模糊判断，代码负责硬约束。可以照着做一个课设：本地跑Ollama+小模型做简历/岗位分类，用Java或Rust写校验层和单元测试，重点讲清「哪些交给模型、哪些必须写死」。",
-   "source": "DEV Community",
-   "date": "2026-10-25",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust",
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**把不确定的模型输出夹在确定性的代码校验之间，是AI应用能上生产的关键套路。**",
-   "courses": "《软件工程》《程序设计》中作为「AI组件+确定性校验」的分层设计练习",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "LLM只做「提议」，确定性代码做「验证」",
-    "本地小模型省成本，规则层保证可测可解释",
-    "适合改造成课设：模型分类+代码校验双层架构",
-    "关键设计问题：哪些判断能交给模型，哪些必须写死"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "The Model Proposes, Rust Verifies: Triaging Job Postings with a Local Gemma",
-   "link": "https://dev.to/lymah/the-model-proposes-rust-verifies-triaging-job-postings-with-a-local-gemma-1gen",
-   "cover": "img/a718.webp"
-  },
-  {
-   "id": "a719",
-   "title": "DecisionDrop：开源权重AI Agent，自动调研、对比并给出决策建议",
-   "summary": "一个Hacktoberfest开源项目，用开放权重模型搭建能自主检索、横向对比并输出决策建议的Agent，代码可读可改。",
-   "content": "DecisionDrop做的是「帮我做选择」这件事：给定一个决策问题，Agent会拆解维度、检索资料、做对比表，最后给出带理由的推荐。对本科生来说，价值不在用它选手机，而在读它的源码学Agent工程：任务如何拆解、工具如何编排、结果如何结构化输出、如何避免模型胡编。建议拿它当模板，改造成「课程/实习岗位对比助手」或「工业软件选型对比助手」，把检索源换成你们专业相关的数据。注意开放权重模型本地部署对显存有要求，先在小模型上跑通流程再换大模型。",
-   "source": "DEV Community",
-   "date": "2026-10-25",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "练手/课设/简历加分",
-   "value": "**读一个完整Agent项目的源码，比看十篇Agent科普更能学会怎么编排工具。**",
-   "courses": "《人工智能导论》《软件工程》课程设计中作为Agent应用参考实现",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "开源Agent：拆解维度→检索→对比→给建议",
-    "适合读源码学Agent编排与结构化输出",
-    "可改造成岗位/技术选型对比助手",
-    "本地部署注意显存，先用小模型跑通流程"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "DecisionDrop: An Open-Weight AI Agent That Researches, Compares, and Recommends Decisions",
-   "link": "https://dev.to/sairitvik_mallela/decisiondrop-an-open-weight-ai-agent-that-researches-compares-and-recommends-decisions-2c3f",
-   "cover": "img/a719.webp"
-  },
-  {
-   "id": "a720",
-   "title": "讯飞谈Agent进企业核心流程：别让Token空转，关键是接进业务系统",
-   "summary": "讯飞分享企业级Agent落地经验，强调Agent要嵌入真实业务流程而非停在Demo，核心是让每次模型调用都产生业务价值。",
-   "content": "「让Token不空转」这句话点出了企业Agent的通病：Demo里很惊艳，一进生产就发现模型调用了一堆却没人用结果。讯飞的做法是把Agent接到企业核心流程里——工单、审批、知识库检索，让输出直接驱动下一步动作，而不是生成一段没人看的文字。对准备求职的同学，这是面试高频考点：你做的AI项目，输出被谁消费？有没有闭环？建议在课设里刻意设计「输出→动作」链路，比如把分类结果写回数据库触发工单流转，而不是只打印在控制台。",
-   "source": "InfoQ中文",
-   "date": "2026-10-23",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "value": "**AI项目能不能落地，取决于输出有没有人消费、有没有触发下一步动作。**",
-   "courses": "《软件工程》需求分析与系统设计中练习「AI输出驱动业务动作」的闭环设计",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "企业Agent的关键是嵌入业务流程形成闭环",
-    "「Token不空转」=每次调用都要有业务消费方",
-    "面试常问：你的AI输出被谁使用、如何闭环",
-    "课设中设计「输出→写库→触发动作」链路"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Lo9TLlRdvy4II38yaex0?utm_source=rss&utm_medium=article",
-   "cover": "img/a720.webp"
-  },
-  {
-   "id": "wk-20261026",
-   "title": "【AI风向标周报】第1期（10.26-11.01）",
-   "summary": "本周精选：Vue 4 已在规划中：现在学 Vu、Neton 1.0发布：面向AI原生等 5 条资讯；阿里巴巴、佰聆数据等 3 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、3 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. Vue 4 已在规划中：现在学 Vue 3 还值不值？\n   帮你判断前端版本焦虑该不该有，把精力放回能写进简历的项目上。\n   原文：https://juejin.cn/post/7700803425820049434\n2. Neton 1.0发布：面向AI原生开发的Kotlin/Native服务端框架\n   用第二套服务端框架反观Spring Boot，是提升框架理解力性价比最高的方式。\n   原文：https://www.oschina.net/news/503302\n3. DeepSeek 公开 Super Agent 架构：跨会话保留上下文、多任务不再受人的注意力限制\n   读懂主流 Agent 架构的工程取舍，把「记忆+调度」落到自己的课设里\n   原文：http://www.geekpark.net/news/373243\n4. AI编程进入「交付能力」大考：跑通代码只是起点，交付才是分水岭\n   会用AI写代码不稀缺，能把AI产出交付上线才稀缺\n   原文：https://www.tmtpost.com/8184564.html\n5. PHP2Shell 漏洞已被实战武器化：攻击链入侵 25 台政府服务器\n   把「漏洞披露→武器化」的完整链路讲清楚，是安全课最缺的真实素材。\n   原文：https://www.oschina.net/news/503319/chained-php2shell-exploit-roots-25-servers\n\n【本周精选岗位】\n1. 阿里巴巴 · 阿里巴巴 2027届秋招\n   校招 ｜ 见公告\n   投递：https://github.com/lijiaqi-AI-Product-Manager/job_radar\n2. 佰聆数据 · 润才计划 实习生招募\n   实习 ｜ 广州\n   投递：https://github.com/xixicc186/xixicc2027\n3. DeepSeek · 2027届实习 算法/工程/产品/研究类\n   实习 ｜ 北京、杭州\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 用SKILL.md给团队写一个「前端Review」Agent Skill，模板可直接拷进仓库\n   把前端规范写成可执行的Skill，是简历上少见的工程化亮点\n   获取：https://juejin.cn/post/7702637146160201770\n2. Spring Boot 3 + ShardingSphere-JDBC 实战：一次跑通读写分离与分库分表\n   把「分库分表」从面试背诵变成能跑起来的项目经验\n   获取：https://juejin.cn/post/7702434799856074786\n3. Claude Code 与 Codex 的 Computer Use 原理拆解：AI 如何操作你的界面\n   想入门 AI Agent 工程化，这是最省时间的原理级拆解，能直接落成 demo。\n   获取：https://juejin.cn/post/7700850888098594870\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-11-01",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：Vue 4 已在规划中：现在学 Vue 3 还值不值？",
-    "精选岗位 Top3：阿里巴巴 · 阿里巴巴 2027届秋招",
-    "实用工具 Top3：用SKILL.md给团队写一个「前端Review」Agent Skill，模板可直接拷进仓库"
-   ],
-   "link": "",
-   "cover": "img/a830.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-10-26",
-    "end": "2026-11-01",
-    "news": [
-     "a734",
-     "a782",
-     "a830",
-     "a766",
-     "a798"
-    ],
-    "jobs": [
-     "j40",
-     "j39",
-     "j37"
-    ],
-    "tools": [
-     "a825",
-     "a808",
-     "a733"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
