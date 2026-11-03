@@ -1,6 +1,201 @@
 {
- "updatedAt": "2026-11-02 20:02",
+ "updatedAt": "2026-11-03 04:42",
  "news": [
+  {
+   "id": "a863",
+   "title": "Spring Security 7 引入服务端 DPoP 与令牌交换：OAuth2 防重放攻击的新写法",
+   "summary": "Spring Security 7 支持服务端 DPoP（持有者证明令牌）和令牌交换，可防止 Bearer Token 被窃取后重放。",
+   "content": "以前做课设里的登录鉴权，JWT 一旦泄露，攻击者拿去就能用，因为 Bearer Token 谁持有谁通行。DPoP 的思路是让客户端每次请求都用私钥签一个证明，服务端校验签名与令牌绑定，窃取的令牌离开私钥就失效。Spring Security 7 把 DPoP 做进服务端，配合令牌交换可以在微服务间安全地降权传递身份。建议在《Java Web 开发》或《信息安全技术》的课程设计里，把原来的 JWT 登录改造成 DPoP 版本，用 Spring Authorization Server 跑通授权码 + DPoP 流程，面试时讲清「为什么 Bearer 不安全、DPoP 绑定了什么」就是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-03",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Spring Security",
+    "OAuth2"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把课设的 JWT 登录升级成 DPoP，是信息安全方向最拿得出手的鉴权实践**",
+   "courses": "《Java Web 开发》《信息安全技术》——课程设计的登录鉴权模块可直接替换实现",
+   "tags": [
+    "Java全栈",
+    "信息安全"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "DPoP 用客户端私钥签名请求，令牌与密钥绑定，防窃取重放",
+    "Spring Security 7 原生支持服务端 DPoP 校验与令牌交换",
+    "令牌交换用于微服务间按需降权，避免全权限令牌满天飞"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/xt0ovZNNw9HEAOv59Mcj?utm_source=rss&utm_medium=article",
+   "cover": "img/a863.webp"
+  },
+  {
+   "id": "a864",
+   "title": "中间 CA 出安全漏洞：证书链信任是怎么被击穿的",
+   "summary": "eMudhra 中间证书颁发机构曝出安全漏洞，涉及证书签发与信任链环节。",
+   "content": "浏览器地址栏的小锁靠的是证书链：根 CA 签中间 CA，中间 CA 签站点证书。中间 CA 一旦被攻破或签发流程有缺陷，攻击者就能拿到「看起来完全合法」的证书做中间人劫持，而终端用户毫无感知。这件事对信息安全专业的价值在于：把课堂上讲的 PKI 信任模型落到真实事故上。建议动手用 openssl 抓一个站点的证书链，逐级看 subject/issuer、有效期、扩展项，再查 CT 日志（crt.sh）验证证书是否公开记录；同时复习证书吊销（CRL/OCSP）为什么在实战中经常失效。写进《密码学》或《网络安全》的案例分析作业很合适。",
+   "source": "InfoQ中文",
+   "date": "2026-11-03",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "PKI"
+   ],
+   "value": "**看懂证书链和 CT 日志，你才真正理解 HTTPS 小锁背后的信任假设**",
+   "courses": "《密码学》《网络安全》——作为 PKI 与中间人攻击章节的真实案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "中间 CA 是信任链的关键节点，被攻破即可伪造任意站点证书",
+    "用 openssl s_client 抓证书链，逐级核对签发关系",
+    "CT 日志（crt.sh）可查证书是否被公开记录，是发现异常签发的实用手段"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/uIxYaSdYatN2Z7gPOaTU?utm_source=rss&utm_medium=article",
+   "cover": "img/a864.webp"
+  },
+  {
+   "id": "a865",
+   "title": "Cordonix 0.0.5：用 C11 写的 AI 编程代理本地运行时，走 MCP stdio + JSON 命令行",
+   "summary": "Cordonix 是面向 AI 编程代理的本地工具运行时，提供本地程序执行、内存文件工作区、路径查询和 Git/ripgrep 结构化适配。",
+   "content": "AI 编程代理要真正干活，得有个受控的「手」去执行命令、读写文件。Cordonix 用 C11 实现，通过 MCP stdio 服务和 JSON 命令行接口暴露能力，还带内存文件工作区和严格的编码处理，新版本加了 Windows 进程查询。对软件工程学生来说，这是理解 MCP（Model Context Protocol）协议落地的低成本样本：读它的 JSON 接口定义，就知道一个工具该怎么描述参数、返回结构化结果。建议在《软件工程》课程设计里，给自己的小工具写一层 MCP 封装，让 Claude 或本地模型能调用，比空谈「AI 辅助开发」有说服力得多。",
+   "source": "开源中国",
+   "date": "2026-11-02",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**亲手给工具包一层 MCP，比在简历上写「熟悉 AI 编程」有用十倍**",
+   "courses": "《软件工程》——课程设计中为自研工具增加 MCP 接口",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "MCP stdio 是当前 AI 代理调用本地工具的主流协议，值得提前熟悉",
+    "JSON 命令行接口 + 结构化输出，是让代理可靠解析结果的关键设计",
+    "可参考它给自己的课设工具加一层 MCP 封装"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503354"
+  },
+  {
+   "id": "a866",
+   "title": "前端框架膨胀十年：选错框架，AI 辅助开发成本直接翻倍",
+   "summary": "文章讨论前端框架数量膨胀带来的选型负担，以及框架选择如何影响 AI 辅助编码的成本与效果。",
+   "content": "前端生态十年间框架层出不穷，每个都有自己的目录约定、构建配置和状态管理范式。当开发依赖 AI 补全和生成时，框架越冷门、约定越特殊，模型见过的语料越少，生成的代码越容易跑不通，你得反复贴文档、改提示，时间成本翻倍。对软件工程学生的实际启示：课设和练手项目优先选主流栈（React/Vue + Vite），不是因为它们最好，而是工具链、报错信息和 AI 语料都最丰富；真要学新框架，先判断它是否有稳定的文档和社区。这条可以直接写进毕业设计的「技术选型」章节，讲清选型依据而不只是罗列技术名词。",
+   "source": "InfoQ中文",
+   "date": "2026-11-03",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [],
+   "value": "**框架选型不只是技术偏好，它直接决定你借助 AI 写代码时的返工率**",
+   "courses": "《Web 前端开发》——框架选型与工程化章节的讨论素材",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "冷门框架的 AI 生成质量差，调试成本会反噬开发效率",
+    "课设选型优先主流栈：文档全、报错可搜、AI 语料多",
+    "技术选型章节要写清依据，而不是堆技术名词"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/M6Q9I3DFrozJOREx9ztL?utm_source=rss&utm_medium=article",
+   "cover": "img/a866.webp"
+  },
+  {
+   "id": "a867",
+   "title": "给 AI Agent 加熔断：连续触发护栏拦截后自动隔离",
+   "summary": "一篇工程实践，讲当 AI Agent 反复触发安全护栏时，如何将其隔离以避免持续异常行为。",
+   "content": "Agent 会调工具、写文件、发请求，一旦提示被注入或逻辑跑偏，它可能反复尝试越权操作。光靠单次拦截不够，需要在编排层加计数与熔断：同一会话内护栏命中 N 次就隔离该 Agent、冻结其工具权限、转人工或降级为只读。这套思路和你学的熔断器、限流、失败重试策略是同一套工程语言，只是对象从服务换成了 Agent。信息安全方向的同学可以把它做成一个小实验：写个带工具调用的 Agent，注入一段恶意指令，观察护栏计数触发隔离的完整链路，作为《系统安全》或毕业设计的演示 demo。",
+   "source": "DEV Community",
+   "date": "2026-11-03",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把熔断器思路套到 AI Agent 上，是安全方向少见的实战切入点**",
+   "courses": "《系统安全》——访问控制与异常处置章节的扩展实验",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "护栏拦截要计数，达阈值即隔离 Agent 并冻结工具权限",
+    "本质是熔断器模式在 Agent 编排层的复用",
+    "可做提示注入 + 自动隔离的演示 demo"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/robat_das_3c6e956212f6408/quarantine-an-ai-agent-after-repeated-guardrail-blocks-2399",
+   "cover": "img/a867.webp"
+  },
+  {
+   "id": "a868",
+   "title": "Rustable：用 Rust 写的开源数据库客户端，可作为桌面端练手参考",
+   "summary": "Rustable 是一个用 Rust 构建的开源数据库客户端，支持连接数据库并执行查询。",
+   "content": "数据库客户端是典型的桌面工具：连接管理、SQL 编辑、结果表格、导出。Rustable 用 Rust 实现，对想学 Rust 又不想只写命令行玩具的同学是个不错的阅读对象——看它怎么组织连接池、怎么处理异步查询结果、怎么做错误提示。工业软件实验班的同学尤其值得关注：工业场景里大量数据存在关系库和时序库里，一个轻量、可定制的查询客户端比装个重型 IDE 更实用。建议先跑起来连本地 MySQL 试查询，再挑一个模块读源码，比如连接配置的序列化，作为《数据库原理》课程设计的延伸。",
+   "source": "Hacker News",
+   "date": "2026-11-03",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**想学 Rust 又怕没项目，读一个真实数据库客户端的源码比刷教程有效**",
+   "courses": "《数据库原理》——课程设计可参考其查询与结果展示设计",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 42,
+   "brief": [
+    "Rust 桌面应用完整案例，可读连接管理与异步查询实现",
+    "工业场景常需轻量数据库客户端，可定制性比大而全更重要",
+    "先跑通再读源码，从连接配置模块入手"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Show HN: Rustable is an open source database client built in Rust",
+   "link": "https://rustable.app",
+   "cover": "img/a868.webp"
+  },
   {
    "id": "a857",
    "title": "ApiGo 发布 Go 版开源接口平台：写 SQL 就能生成 REST 接口，支持 MCP 接入",
@@ -26,7 +221,7 @@
     "AI工具",
     "Java全栈"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "Go 版开源，在线可视化写 SQL 直接发布接口",
@@ -3866,208 +4061,6 @@
    "origTitle": "When Agents Should Ask a Human",
    "link": "https://dev.to/tridaai/when-agents-should-ask-a-human-9mh",
    "cover": "img/a750.webp"
-  },
-  {
-   "id": "a751",
-   "title": "UJCMS 13.2.0 发布：Java CMS 重做验证码体系，支持滑块与静默校验",
-   "summary": "国产 Java 内容管理系统 UJCMS 更新，验证码支持滑块、字符与静默校验，并可接入第三方。",
-   "content": "想找一个能读源码的 Java Web 完整项目练手，CMS 是性价比很高的选择：权限、模板、内容管理、验证码这些模块都齐全。UJCMS 13.2.0 这次重做验证码体系，支持滑块、字符、静默校验，控制台与站点主题共用统一验证组件，注册改为弹窗验证，还改进了模板错误提示（带错误编号的内联详情）。对软件工程学生，可以拿它对照《Java Web 开发》里的过滤器、拦截器、会话管理是怎么落地的；对信安方向，验证码的强度与绕过风险是现成的分析素材。建议只读关键模块源码，别整包啃。",
-   "source": "开源中国",
-   "date": "2026-10-27",
-   "cat": "stack",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**读一个真实 Java Web 项目的验证码与权限模块，比抄十篇教程管用。**",
-   "courses": "《Java Web 开发》过滤器/会话、《Web 安全》验证码分析",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "国产 Java CMS，适合作为 Java Web 完整项目阅读样本",
-    "验证码支持滑块/字符/静默校验，可接第三方",
-    "模板错误提示带编号，便于调试与二次开发",
-    "信安方向可分析验证码强度与绕过面"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503246"
-  },
-  {
-   "id": "a752",
-   "title": "GPT-6.1 Terra 降价发布，主打 Agent 场景的「打工模型」",
-   "summary": "OpenAI 发布 GPT-6.1 Terra，以更低价格面向 Agent 类任务。",
-   "content": "模型降价对学生的直接意义是：做 Agent 课设的调用成本下来了。文章把它定位为「Agent 时代的打工模型」，即频繁调用工具、跑多轮流程的场景。实操建议：在毕设里把模型调用封装成一层接口（便于换模型、控成本），对重复性任务做结果缓存，对长流程做超时与重试；同时别把业务逻辑写死在 prompt 里。软件工程同学可借此练「外部服务依赖管理」，信安同学则要关注 API Key 管理、调用日志与数据外发边界。",
-   "source": "爱范儿",
-   "date": "2026-10-27",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**模型越便宜，越考验你把「调用」封装成工程能力而不是散落各处的 prompt。**",
-   "courses": "《软件工程》外部依赖设计、《信息安全》密钥与数据边界",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 46,
-   "brief": [
-    "面向 Agent 高频调用场景，价格下探",
-    "课设中把模型调用封装成可替换的一层",
-    "做缓存、超时、重试，控制成本与稳定性",
-    "注意 API Key 管理与数据外发边界"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1686080?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a752.webp"
-  },
-  {
-   "id": "a741",
-   "title": "React Compiler 1.0 之后，状态管理库正在被重新定义",
-   "summary": "React Compiler 自动完成 memo 化，Redux/Zustand 等状态库的定位从「性能优化」转向「跨组件数据建模」，选型逻辑要重写。",
-   "content": "React Compiler 在编译期自动插入 useMemo/useCallback，过去靠状态库解决的「重渲染」问题被大幅削弱。文章梳理了变化后的真实分工：编译器管渲染性能，状态库只管数据归属与跨组件共享。对写前端课设和实习项目的同学，直接结论是：新项目不必再为性能引入 Redux，优先 Zustand/Jotai 这类轻量方案；老项目迁移前先确认编译器对现有 hooks 写法的兼容性。建议拿自己一个 React 项目开 compiler 跑一遍，对比 bundle 与渲染次数，这比看十篇选型文有用。",
-   "source": "掘金",
-   "date": "2026-10-27",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**帮你重新理解 React 状态选型，避免在课设里堆砌过时的性能优化套路。**",
-   "courses": "《Web 前端开发》组件状态管理章节，可作课程设计选型参考。",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Compiler 接管 memo 化，状态库不再承担性能职责",
-    "新项目优先轻量状态方案，Redux 只在复杂数据流场景保留",
-    "迁移前先验证现有 hooks 写法兼容性",
-    "动手对比编译前后渲染次数最有说服力"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7700817447419871275"
-  },
-  {
-   "id": "a742",
-   "title": "Kubernetes 1.37 发布：Metrics API 转稳定版，Rootless Kubelet 进 Beta",
-   "summary": "稳定版 Metrics API 让 HPA 与监控接入更可靠，Rootless Kubelet 提升容器运行时安全边界。",
-   "content": "K8s 1.37 的两个变化对课程和面试都有用：Metrics API 稳定意味着自定义指标伸缩（HPA）不再依赖第三方适配器的实验特性，做「云原生部署」课设时可以直接用官方指标链路；Rootless Kubelet 进 Beta，kubelet 以非 root 运行，缩小容器逃逸后的提权面，是信息安全方向理解「最小权限」的现成案例。建议在 minikube/kind 上装 1.37，跑一次 HPA 扩容实验，并记录开启 rootless 前后的权限差异，写进实验报告。",
-   "source": "InfoQ中文",
-   "date": "2026-10-27",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Kubernetes"
-   ],
-   "value": "**云原生部署与容器安全两条线的一次同步升级，课设和面试都用得上。**",
-   "courses": "《云计算与容器技术》《系统安全》实验环境搭建与权限加固。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Metrics API 稳定，HPA 自定义指标链路可官方直连",
-    "Rootless Kubelet Beta，kubelet 非 root 运行降低提权风险",
-    "本地用 kind/minikube 即可复现实验",
-    "适合作为云原生与最小权限原则的实证材料"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/TrI8l3CYeAJER9tgR5Jt?utm_source=rss&utm_medium=article",
-   "cover": "img/a742.webp"
-  },
-  {
-   "id": "a743",
-   "title": "DjangoAdmin v2.7.3：FastAPI+Vue3+TS 的企业级后台脚手架",
-   "summary": "基于 FastAPI、Vue3、TypeScript、NaiveUI 的前后端分离中台方案，内置到按钮级的 RBAC 权限体系。",
-   "content": "这个脚手架的价值不在「又一个后台模板」，而在它把权限做成了可读的工程实现：RBAC 细化到按钮和方法级别，配套用户、角色、菜单、部门、岗位、日志、字典、参数等模块。对软件工程同学，可以直接拿它当毕业设计或课程设计的底座，重点读它的权限拦截链路——后端依赖注入如何校验、前端路由与按钮如何联动，这是面试常问的「权限系统怎么设计」。注意它是脚手架不是框架，先跑通再删模块，别整包照抄。",
-   "source": "开源中国",
-   "date": "2026-10-27",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "FastAPI",
-    "Vue3"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一个能直接读权限实现的后台底座，比从零写登录鉴权省两周。**",
-   "courses": "《软件工程》《Web 应用开发》课程设计，权限模块可作为设计文档素材。",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "权限控制细化到按钮与方法级，可直接读实现",
-    "技术栈 FastAPI+Vue3+TS+NaiveUI，前后端分离标准组合",
-    "适合作为课设/毕设底座，先跑通再裁剪",
-    "重点学习后端鉴权依赖与前端路由守卫的联动"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503223"
-  },
-  {
-   "id": "a744",
-   "title": "Zentrola 1.3.0：在 Codex、Claude Code 里查额度、管团队 Key",
-   "summary": "把订阅额度查询、成员权限与 Key 分配搬进 AI 编码客户端，减少在后台和 IDE 之间来回切换。",
-   "content": "团队用多个 Codex/Claude Code 账号时，常见痛点是：新同学要分配 Key、模型调用失败要定位是哪个账号、任务中途想知道额度还剩多少。Zentrola 通过授权把这些操作放进编码客户端内完成。对学生团队做小组项目有现实意义：如果你们共用 AI 编码工具，可以借鉴它的思路——用统一入口管理密钥与额度，而不是把 Key 写进代码或群里传。顺带提醒：任何第三方接管 Key 都有泄露风险，务必看清授权范围，这也是信息安全课上的典型供应链风险案例。",
-   "source": "开源中国",
-   "date": "2026-10-26",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/求职准备",
-   "value": "**小组共用 AI 编码工具时的密钥与额度管理思路，同时是一堂供应链安全课。**",
-   "courses": "《信息安全导论》密钥管理与第三方服务风险章节。",
-   "tags": [
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "额度查询、成员与 Key 管理内嵌到 AI 编码客户端",
-    "适合多人共用 AI 编码工具的小组项目参考",
-    "第三方托管 Key 存在授权与泄露风险，需审查",
-    "可当作供应链安全的现实案例讨论"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503222"
   }
  ],
  "jobs": [
