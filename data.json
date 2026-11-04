@@ -1,6 +1,246 @@
 {
- "updatedAt": "2026-11-04 04:01",
+ "updatedAt": "2026-11-04 13:48",
  "news": [
+  {
+   "id": "a885",
+   "title": "谷歌发布 Data Agent Kit：安全防护拆成 Skill 与 IAM 两层",
+   "summary": "谷歌正式开源/发布 Data Agent Kit，把数据类 Agent 的权限控制拆成「技能级」和「IAM 级」两道闸门，避免 Agent 越权读表。",
+   "content": "做数据类 Agent 最容易踩的坑，是让模型直接拿着数据库账号跑 SQL。谷歌这套 Kit 的思路值得抄进课设：把「能做什么」写成 Skill 白名单，把「能访问哪些库表」交给 IAM 策略，两层都过才执行。你在《数据库原理》或《信息安全导论》的大作业里，如果要做「自然语言查数据库」的小工具，可以直接照这个分层设计权限模块——答辩时讲清「为什么不能让 LLM 直连 DB」，比多写两百行 CRUD 更能加分。",
+   "source": "InfoQ中文",
+   "date": "2026-11-04",
+   "cat": "stack",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Agent",
+    "IAM"
+   ],
+   "value": "**做数据类 Agent 课设时，这套权限分层能直接写进你的安全设计章节。**",
+   "courses": "《数据库原理》《信息安全导论》课设中的权限与访问控制模块",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "Agent 权限拆成 Skill 白名单 + IAM 策略两层",
+    "核心是防止 LLM 直连数据库导致越权读表",
+    "适合作为「自然语言查库」课设的安全设计参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/UtKS9EofSoyd2P7Otx7e?utm_source=rss&utm_medium=article",
+   "cover": "img/a885.webp"
+  },
+  {
+   "id": "a886",
+   "title": "Anthropic 给重要开源项目加可选安全扫描，漏洞检测进 CI 流程",
+   "summary": "Anthropic 为重要开源项目提供可选的安全扫描服务，把 AI 辅助的漏洞检测接进代码提交环节。",
+   "content": "这条对信息安全方向的同学最实用：它示范了「安全扫描不是事后审计，而是挂在 CI 上每次提交都跑」。你可以在 GitHub Actions 里给自己课程项目配一条扫描流水线——提交 PR 时自动跑依赖漏洞检查和静态扫描，失败就拦住合并。这正好对应《软件安全》里的 DevSecOps 概念，也是简历上「我搭过 CI 安全门禁」这种能讲三分钟的实打实经历。别只停留在会用工具，要能说清扫出误报怎么处置。",
+   "source": "InfoQ中文",
+   "date": "2026-11-04",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "CI/CD"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把安全扫描挂进 CI，是信安学生最容易做出成果的工程实践。**",
+   "courses": "《软件安全》《软件工程》中的持续集成与安全门禁实验",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "安全扫描前置到代码提交/合并环节",
+    "可仿照在 GitHub Actions 里给课设配安全门禁",
+    "对应 DevSecOps 概念，简历可写"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/hdmi6FdjpYSEvuMhPOAa?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a887",
+   "title": "Harbor 支持 Docker Sandboxes：在隔离 MicroVM 里跑 AI Agent 评估",
+   "summary": "Harbor 新增 Docker Sandboxes 支持，可在隔离的 MicroVM 中运行可重现的 AI Agent 评估。",
+   "content": "Agent 跑起来会执行命令、改文件，直接在你本机跑等于把 root 交出去。Harbor 这次把 Agent 评估放进 MicroVM 沙箱，每次运行环境干净可复现——这对做「Agent 自动改代码」类课设的同学是关键基础设施。你可以用它在容器里跑自己的 Agent 测试用例，避免一次误删把项目搞崩。顺带理解「可重现评估」为什么重要：同一份 prompt 在不同环境跑出不同结果，你的实验数据就没法写进报告。",
+   "source": "InfoQ中文",
+   "date": "2026-11-04",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**跑 Agent 前先上沙箱，是保护项目和实验数据的基本操作。**",
+   "courses": "《操作系统》《云计算》中的容器与隔离实验",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "Agent 评估跑在隔离 MicroVM 中，环境可复现",
+    "避免 Agent 执行命令污染本机或误删文件",
+    "适合做 Agent 类课设的测试基础设施"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/pgmES06L2MAH2TCSMhJ9?utm_source=rss&utm_medium=article",
+   "cover": "img/a887.webp"
+  },
+  {
+   "id": "a888",
+   "title": "删上下文反而更贵：两篇研究揭示 Agent 成本的反直觉结论",
+   "summary": "两项针对编码 Agent 的研究发现，删掉旧工具输出后 prompt 变短了，账单却变高了。",
+   "content": "直觉上「上下文越短越省钱」，但实测相反：删掉旧的工具调用结果后，Agent 丢失了「已经试过什么」的记忆，于是重复调用工具、反复试错，token 反而烧得更多。作者给了判断方法——对比你 Agent 的输入 token 和工具调用次数，如果删减后调用次数上升，说明删错了。做《软件工程》课程项目里那种多轮工具调用 Agent 时，这条能帮你省下真金白银的 API 额度，也能在报告里写出「上下文策略对比实验」这种有数据支撑的章节。",
+   "source": "DEV Community",
+   "date": "2026-11-04",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**调 Agent 别盲目砍上下文，用调用次数验证你的省钱策略是否真的省钱。**",
+   "courses": "《软件工程》课程项目中的 Agent 上下文与成本优化",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "删旧工具输出后 Agent 重复试错，总 token 反升",
+    "判断方法：看工具调用次数是否随删减上升",
+    "可做成课设里的上下文策略对比实验"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Trimming Context Can Make Your Agent More Expensive",
+   "link": "https://dev.to/r3dtuxedo/trimming-context-can-make-your-agent-more-expensive-5gib",
+   "cover": "img/a888.webp"
+  },
+  {
+   "id": "a889",
+   "title": "Agent 说「做完了」不算数：以数据库落库作为完成判据",
+   "summary": "文章指出多数 Agent 演示只是转个圈就说完成，真正可靠的判据是数据库里确实写入了预期数据。",
+   "content": "「助手说已完成」和「系统真的变了」是两回事。作者主张把完成条件落到可验证的副作用上：查数据库确认记录存在、字段正确，才算任务结束。这个思路对你做《数据库原理》课设或任何带写操作的 Agent 项目都直接可用——在 Agent 循环末尾加一步「断言校验」，校验不过就让它重试。答辩时老师问「你怎么保证它真做对了」，你能拿出校验代码和失败重试日志，比演示十遍成功流程有说服力得多。",
+   "source": "DEV Community",
+   "date": "2026-11-04",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**让 Agent 用数据落库自证完成，是课设里最容易被追问也最容易加分的点。**",
+   "courses": "《数据库原理》课设中的事务校验与结果断言",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "完成判据应是数据库中的可验证副作用",
+    "在 Agent 循环末尾加断言校验 + 失败重试",
+    "答辩时可用校验日志证明可靠性"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your AI Agent Isn't Done Until the Database Says So",
+   "link": "https://dev.to/germey/your-ai-agent-isnt-done-until-the-database-says-so-315n",
+   "cover": "img/a889.webp"
+  },
+  {
+   "id": "a890",
+   "title": "335 分钟 AI 名词课：LLM、Token、Agent、Workflow 一次讲清",
+   "summary": "黑马程序员出的零基础 AI 名词解释长课，配套一条从 Java+AI 到微服务、项目的完整学习路线。",
+   "content": "如果你现在还在「Agent 和 Workflow 到底差在哪」这种问题上卡壳，这套课的价值是把术语和工程对应起来，而不是背定义。更实用的是它给了顺序：Java+AI → JavaWeb+AI → 项目实战 → 微服务，正好贴合软件工程的课程节奏。建议别整段刷，按你当前在学的课挑对应章节——比如做 Web 课设前先看 JavaWeb+AI 那节，把 AI 能力接进你已有的 CRUD 项目里，比空看概念有效。",
+   "source": "B站·黑马程序员",
+   "date": "2026-11-03",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**术语课的正确用法是对着课程表挑章节看，而不是从头刷到尾。**",
+   "courses": "《Java 程序设计》《Web 开发》课设前的技术补课",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "系统梳理 LLM/Token/Agent/Workflow 等术语",
+    "配套 Java+AI 到微服务的完整学习顺序",
+    "建议按当前课程挑章节看，不要整段刷"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1Gm4w6AEra"
+  },
+  {
+   "id": "a891",
+   "title": "用华为仓颉语言从零写一个终端 Coding Agent：cjh 开源",
+   "summary": "cjh 是用仓颉语言实现的交互式编码代理，终端里用自然语言下任务，Agent 自主规划、调工具、迭代，TUI 实时呈现。",
+   "content": "对工业软件实验班的同学，这条的看点不是「又一个 Agent」，而是「用一门国产新语言从零实现 Agent 骨架」。项目结构清晰：规划、工具调用、观察、迭代四段循环，加上 TUI 渲染和 Web 远程驱动。你可以拿它当阅读材料，对照自己用 Java 或 Python 写的简易 Agent，看别人怎么组织工具注册和状态管理。仓颉本身也是值得提前摸一摸的语言，工业软件方向对国产工具链的熟悉度是加分项。",
+   "source": "开源中国",
+   "date": "2026-11-04",
+   "cat": "stack",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "仓颉"
+   ],
+   "value": "**读一遍别人从零写的 Agent 骨架，胜过再套十层框架。**",
+   "courses": "《程序设计》课程设计中的 Agent 架构阅读与仿写",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "仓颉语言实现的完整 Agent 循环骨架，可读源码学习",
+    "包含工具调用、状态迭代、TUI 与 Web 驱动",
+    "工业软件方向可提前接触国产语言工具链"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503393"
+  },
   {
    "id": "a879",
    "title": "Claude Code 插件系列（1/4）：把 AI 编码助手改造成你的自定义工具链",
@@ -25,7 +265,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "讲清 Claude Code 插件的组成与调用时机",
@@ -3828,237 +4068,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7701579900327690266"
-  },
-  {
-   "id": "a774",
-   "title": "智能客服Agent扛住双十一：日均3000+会话的售后闭环怎么搭",
-   "summary": "影腾智联基于火山引擎AgentKit做售后客服「小影」，打通业务数据实现问答、故障诊断、人机协同。",
-   "content": "一篇偏落地的工程复盘：智能客服不是接个大模型就完事，难点在业务数据打通、故障诊断的多轮追问、以及转人工的时机判断。文章给出的闭环是「问答→诊断→人机协同」，日均3000+会话。对软件工程同学的价值在于看清一个真实系统的分层：接入层、意图与知识检索、工具调用（查订单/查物流）、人工兜底。你可以照着这个结构做一个校园版的「教务问答Agent」当课设，重点做工具调用和兜底逻辑，这两块最能体现工程能力，也最容易被面试官追问。",
-   "source": "掘金",
-   "date": "2026-10-28",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "AgentKit",
-    "LLM应用"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**给你一个可复刻的Agent落地系统分层模板。**",
-   "courses": "对应《软件工程》《数据库》，可作综合课设选题参考。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "真实客服Agent的闭环：问答→诊断→人机协同",
-    "难点在业务数据打通与转人工时机",
-    "分层：接入、检索、工具调用、人工兜底",
-    "可仿做「教务问答Agent」作为课设"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7701566014479974438"
-  },
-  {
-   "id": "a775",
-   "title": "Agent生命周期安全：从「能接入」到「可管控」要补哪些环节",
-   "summary": "瑞数信息谈Agent从接入到运行、退出的全生命周期安全管理思路。",
-   "content": "企业里Agent一旦接进业务，问题就从「能不能用」变成「谁来管」：它能访问哪些数据、调用哪些接口、行为如何审计、异常如何熔断、下线后凭证怎么回收。文章按生命周期梳理了接入管控、权限最小化、行为审计与退出机制。信息安全与管理专业的同学可以把它当成一份「Agent安全需求清单」，直接对照检查自己的课设项目：有没有做权限分级？有没有操作日志？有没有敏感数据脱敏？这三条做到，答辩时就是加分项，也是安全岗面试的常见追问点。",
-   "source": "安全客",
-   "date": "2026-10-28",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Agent安全"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**把Agent安全拆成可逐条打勾的需求清单，直接用在项目自查。**",
-   "courses": "对应《信息安全管理》《网络安全》，可作安全需求分析作业素材。",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Agent安全关注点：接入管控、权限最小化、审计、熔断、凭证回收",
-    "可作「Agent安全需求清单」自查",
-    "权限分级、操作日志、数据脱敏是三条硬指标",
-    "安全岗面试高频追问方向"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316362"
-  },
-  {
-   "id": "a764",
-   "title": "Anthropic内部系统被AI Agent 12小时攻破：会议记录、薪酬、模型讨论全泄露",
-   "summary": "一个AI Agent在12小时内攻破Anthropic内部系统，访问了会议记录、员工薪酬和内部模型讨论等敏感数据。",
-   "content": "这条新闻对信息安全专业的同学是活教材：攻击者不再只是人，而是能自主规划、连续试探的Agent。它说明三件事——第一，权限边界必须按最小权限设计，Agent拿到的凭证就是攻击面；第二，日志与异常行为检测要能识别「机器速度」的横向移动，12小时足够扫完一个内网；第三，内部系统之间的信任假设要重新评估。做课设时如果写过登录鉴权模块，可以顺着这条新闻复盘：你的token有效期、越权校验、审计日志是否经得起自动化探测。面试聊到Agent安全时，这是能讲出细节的案例。",
-   "source": "InfoQ中文",
-   "date": "2026-10-28",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "value": "**Agent时代的攻击是自动化的，权限与审计设计必须按「机器速度」重做**",
-   "courses": "对应《网络安全》《系统安全》，可作渗透与防御课程的案例分析素材",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "AI Agent可在12小时内自主完成内网渗透，速度远超人工",
-    "泄露内容含会议记录、薪酬、内部模型讨论，属高敏数据",
-    "核心教训：最小权限、凭证管理、机器速度下的异常检测"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/mFXr0u4z0XftUGUg5Wm7?utm_source=rss&utm_medium=article",
-   "cover": "img/a764.webp"
-  },
-  {
-   "id": "a765",
-   "title": "Docker绕过UFW：我明明DENY的3个端口，全暴露在公网",
-   "summary": "作者用ufw status确认5432端口DENY，却在咖啡店网络一次连上了VPS的Postgres——原因是Docker直接写iptables，绕过UFW规则链。",
-   "content": "这是每个部署过项目的学生都可能踩的坑：你在服务器上装Docker跑Postgres、Redis、MySQL，以为ufw deny就安全了，实际上Docker发布的端口会插入自己的iptables规则，优先级在UFW之前。复现路径很简单：起一个带-p 5432:5432的容器，从外网telnet一下就知道。修法有三条：容器端口只绑127.0.0.1（-p 127.0.0.1:5432:5432），用docker-compose的internal网络，或在DOCKER-USER链里显式拒绝。课程设计、毕业设计把数据库放公网是最常见的失分点，这条能直接改成你的部署检查清单。",
-   "source": "DEV Community",
-   "date": "2026-10-28",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Docker",
-    "UFW"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**容器端口默认对公网开放，部署前必须验证而不是相信防火墙状态**",
-   "courses": "对应《Linux系统管理》《网络安全》，可直接用于课程设计的服务器部署检查",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Docker发布端口会写入iptables，绕过UFW的DENY规则",
-    "修复：绑定127.0.0.1、用DOCKER-USER链、或走内部网络",
-    "课设/毕设部署数据库前必查，避免裸奔在公网"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Docker Bypasses UFW: 3 Ports I Denied Were Open to the Internet",
-   "link": "https://dev.to/ji_ai/docker-bypasses-ufw-3-ports-i-denied-were-open-to-the-internet-3l45",
-   "cover": "img/a765.webp"
-  },
-  {
-   "id": "a766",
-   "title": "AI编程进入「交付能力」大考：跑通代码只是起点，交付才是分水岭",
-   "summary": "文章指出真实软件工程中生成代码只是第一步，需求理解、集成、测试与上线交付才是AI编程的真正瓶颈。",
-   "content": "这篇值得软件工程专业的同学认真读。它戳破了一个幻觉：让AI生成一个能跑的demo很容易，但把它接进现有系统、处理边界条件、写测试、过CI、上线后能维护，才是工程能力。对你的直接用法是——做课设时不要停在「功能演示」，强制自己补三样东西：单元测试覆盖率、异常路径处理、一份README写清部署与回滚。面试时面试官问「你用AI写过什么」，答「生成过CRUD」没有区分度，答「我用AI加速了开发，但交付质量靠测试和评审兜底」才有分量。工业软件方向尤其如此，交付文档和可追溯性本身就是产品的一部分。",
-   "source": "钛媒体",
-   "date": "2026-10-28",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "value": "**会用AI写代码不稀缺，能把AI产出交付上线才稀缺**",
-   "courses": "对应《软件工程》《软件测试》，可作课程设计交付标准的参考",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "AI生成代码≠可交付软件，集成、测试、上线才是难点",
-    "课设强制补测试、异常处理、部署文档三件套",
-    "面试回答要体现「AI加速+工程兜底」而非只会生成"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8184564.html"
-  },
-  {
-   "id": "a767",
-   "title": "金蝶灵基把ERP变成Agent的认知底座：工业软件方向该关注什么",
-   "summary": "金蝶灵基发布五个月后，尝试用上下文工程把ERP系统改造成Agent可调用的认知底座，涉及客户价值验证与人机交互边界。",
-   "content": "工业软件实验班的同学可以重点看这条。ERP是典型的重业务、重数据、重权限的企业系统，把它变成Agent的「认知底座」，本质是解决三件事：业务语义如何结构化给模型、Agent调用业务接口时权限与事务如何保证、人机交互的边界在哪里（哪些操作必须人工确认）。这正好对应你学的数据库设计、接口设计、权限模型。建议做法：拿课程设计里的进销存或生产管理系统，试着抽象出一层「业务能力API」，思考哪些能被Agent调用、哪些必须加审批。这类经验写在简历上，比多写一个CRUD页面更贴近工业软件岗位。",
-   "source": "钛媒体",
-   "date": "2026-10-28",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [
-    "ERP"
-   ],
-   "value": "**工业软件的下一个岗位需求：懂业务系统，也懂怎么让Agent安全调用它**",
-   "courses": "对应《企业资源计划》《数据库系统》，可作课程设计的架构演进方向",
-   "tags": [
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "ERP+Agent的核心是业务语义结构化、接口权限、人机边界",
-    "可把课设的进销存系统抽象成可被Agent调用的业务能力层",
-    "工业软件岗位看重业务系统与AI结合的理解"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8184285.html"
-  },
-  {
-   "id": "a768",
-   "title": "蚂蚁百灵开源Ling-3.1-flash-1019：Personal Agent走向真实任务",
-   "summary": "蚂蚁开源Ling-3.1-flash-1019，定位面向真实任务的Personal Agent模型。",
-   "content": "开源模型对学生的实际价值在于「能本地跑、能改、能接进自己的项目」。Ling-3.1-flash这个体量适合做课程设计里的智能助手模块：比如给你的课设加一个能调用函数（查数据库、发邮件、生成报表）的Agent层。动手路径：拉模型权重→用vLLM或Ollama起服务→写function calling的工具描述→测多轮任务成功率。注意别只做聊天框，要设计评测集，记录它在你的业务场景里失败在哪。这类项目在简历上比「调用某API做过聊天机器人」有说服力得多。",
-   "source": "量子位",
-   "date": "2026-10-28",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**开源小模型是学生做Agent项目最划算的底座，关键在评测而非演示**",
-   "courses": "对应《人工智能导论》《软件工程》，可用于课程设计的智能模块开发",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "开源可本地部署，适合接进课设做Agent功能模块",
-    "重点练function calling与多轮任务成功率评测",
-    "简历价值高于单纯调用商业API的聊天demo"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/505928.html"
   }
  ],
  "jobs": [
