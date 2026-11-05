@@ -1,6 +1,184 @@
 {
- "updatedAt": "2026-11-05 14:00",
+ "updatedAt": "2026-11-05 17:55",
  "news": [
+  {
+   "id": "a911",
+   "title": "DeepSeek 开源 Super Agent：12 分钟看懂它和普通 Agent 的区别",
+   "summary": "DeepSeek Harness 团队开源 Super-agent，视频拆解其工作原理、与传统 Agent 的差异及实际提效情况。",
+   "content": "很多同学写 Agent 还停留在「调一次大模型 + 拼 prompt」，Super-agent 的思路是把任务拆解、工具调用、多轮自我校验串成一条可复用的执行链路。这期 12 分钟视频适合当入门：先讲清 Agent 与 Super-agent 的边界，再演示它怎么把一件复杂任务自动跑完。建议边看边对照自己课设里的「智能问答/自动批改」小项目，把原来的单次调用改造成带工具循环的结构，简历上就能写「实现过带工具编排的 Agent 应用」。别只看不写，看完当天就动手改一版。",
+   "source": "B站·程序员鱼皮",
+   "date": "2026-11-05",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Agent",
+    "DeepSeek"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**用 12 分钟建立 Agent 编排的正确心智模型，并立刻改造自己的课设项目。**",
+   "courses": "《人工智能导论》《软件工程课程设计》：把单次模型调用升级为可编排的 Agent 流程",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "Super-agent 与普通 Agent 的核心差异在任务编排与工具循环",
+    "视频含工作原理拆解，适合零基础入门",
+    "可迁移到自己课设中的智能问答/自动化小项目"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1kr4h6fExw"
+  },
+  {
+   "id": "a912",
+   "title": "从零搭多智能体系统：架构模式拆解（附代码思路）",
+   "summary": "一篇从零实现多智能体系统的架构笔记，讲清角色分工、消息传递与协调模式。",
+   "content": "单 Agent 搞不定的任务，往往要拆成多个角色协作：规划者、执行者、审查者。这篇文章从零开始讲多智能体系统的几种常见架构模式——谁负责拆任务、消息怎么在 Agent 之间传、冲突怎么收敛。对软件工程专业的价值在于：它本质是分布式协作设计问题，和你学的模块化、接口契约、状态机是一套思维。建议用一个「代码评审多智能体」小项目练手：一个 Agent 写代码、一个审代码、一个跑测试，把消息流画成时序图写进课设文档，比空谈架构有说服力得多。",
+   "source": "Hacker News",
+   "date": "2026-11-05",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Multi-Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把多智能体当成分布式协作设计来学，直接对应软件工程课设的架构文档。**",
+   "courses": "《软件工程》《分布式系统》：用架构模式与时序图描述多智能体协作",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "覆盖多智能体的角色分工与消息传递模式",
+    "本质是分布式协作设计，与软件工程课程思维一致",
+    "可做成「代码评审多智能体」练手项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building a Multi-Agent System from Scratch: Architecture Patterns",
+   "link": "https://kadhar.dev/blog/multi-agent-systems-from-scratch",
+   "cover": "img/a912.webp"
+  },
+  {
+   "id": "a913",
+   "title": "Claude Code 不听话？先看它上下文里到底装了什么",
+   "summary": "排查 CLAUDE.md 规则被忽略的问题：与其反复改措辞，不如先检查模型实际拿到的上下文内容。",
+   "content": "很多人遇到 AI 编程助手不遵守项目规范，第一反应是改措辞、加粗、加反引号。这篇文章给了一个更省事的排查顺序：先确认规则文件到底有没有被读进上下文、有没有被更长的内容挤掉。这对做课设和实习都实用——你写的 .cursorrules、CLAUDE.md 本质是「给模型的接口文档」，写不清模型就执行不对。建议把自己项目的规范文件精简到只留硬约束（目录结构、命名、禁止改动的文件），再实测一次改动前后的行为差异，这套「先看上下文再调 prompt」的方法可以直接写进实习周报。",
+   "source": "DEV Community",
+   "date": "2026-11-05",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/实习上手",
+   "value": "**学会先查上下文再改 prompt，让 AI 编程助手真正遵守你的项目规范。**",
+   "courses": "《软件工程》：把项目规范写成可被工具消费的约束文件",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "规则被忽略时优先排查上下文是否真的加载",
+    "项目规范文件应只保留硬约束，避免被稀释",
+    "方法可复用于 Cursor、Claude Code 等 AI 编程工具"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code Ignoring CLAUDE.md? See What's in Its Context",
+   "link": "https://dev.to/reporails/claude-code-ignoring-claudemd-see-whats-in-its-context-3j8m",
+   "cover": "img/a913.webp"
+  },
+  {
+   "id": "a914",
+   "title": "自建 Claude Code 路由反而更贵：一次基准测试的教训",
+   "summary": "作者做了个自动切换模型的 Claude Code 路由，基准测试后发现成本比全程用 Opus 还高。",
+   "content": "思路很朴素：简单问题走便宜模型、难任务走强模型。但作者实测发现，路由本身的判断开销、上下文重复传输、以及误判导致的返工，把省下的钱又吃回去了。这对准备做「AI 应用降本」类课设或实习项目的同学是个提醒：不要凭直觉优化，先埋点统计 token 消耗和任务成功率，用数据说话。可以直接借鉴它的做法——在项目里加一层调用日志，记录每次请求的模型、输入输出 token 和耗时，再画个成本对比图放进课设报告，比空谈「智能调度」扎实得多。",
+   "source": "DEV Community",
+   "date": "2026-11-05",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**用一次真实基准测试告诉你：AI 应用降本要靠数据埋点，不能靠直觉。**",
+   "courses": "《软件工程课程设计》：为 AI 应用加入调用日志与成本度量",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "模型路由不一定省钱，判断开销与返工可能抵消收益",
+    "优化前应先埋点统计 token 与成功率",
+    "调用日志 + 成本对比图可直接用于课设报告"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "My Claude Code router cost more than Opus. Here's what the benchmark taught me",
+   "link": "https://dev.to/alexivy/my-claude-code-router-cost-more-than-opus-heres-what-the-benchmark-taught-me-2am2",
+   "cover": "img/a914.webp"
+  },
+  {
+   "id": "a915",
+   "title": "Rivet：在 S3 上编排与扩缩 Agent 的开源运行时",
+   "summary": "YC 团队开源 Rivet，用 actor 模型为每个 Agent 分配轻量执行单元，替代重型沙箱，便于规模化编排。",
+   "content": "跑一个 Agent 容易，跑一千个就难：每个都开沙箱，内存和启动开销直接爆炸。Rivet 的做法是给每个 Agent 一个轻量 actor，状态与执行分离，底层可落到对象存储上做持久化。对信息安全与管理专业的同学，重点不在它多快，而在「多租户执行环境如何隔离」——这正是你《系统安全》《访问控制》课上的问题。建议拿它跑通一个最小 demo，观察每个 actor 的权限边界和状态存储位置，写一份隔离机制分析，比背概念有用。工业软件方向也可关注其任务编排思路。",
+   "source": "Hacker News",
+   "date": "2026-11-05",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Rivet",
+    "Actor"
+   ],
+   "diff": 3,
+   "scene": "进阶练手/简历加分",
+   "value": "**从 Agent 规模化执行切入多租户隔离问题，正好对接系统安全课程。**",
+   "courses": "《系统安全》《访问控制》：分析多租户执行环境的隔离边界",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "用轻量 actor 替代重型沙箱，降低规模化开销",
+    "关注点多租户隔离与状态持久化",
+    "可跑通 demo 后写一份隔离机制分析"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
+   "link": "https://github.com/rivet-dev/rivet",
+   "cover": "img/a915.webp"
+  },
   {
    "id": "a904",
    "title": "PHP 修复两处已被在野利用的严重 RCE 漏洞，Web 后端同学请尽快升级",
@@ -23,7 +201,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "两个漏洞均已被在野利用，属高危 RCE",
@@ -3897,167 +4075,6 @@
    "buzz": [],
    "link": "https://www.freecodecamp.org/news/secure-your-ai-agents-free-model-context-protocol-mcp-security-course/",
    "cover": "img/a793.webp"
-  },
-  {
-   "id": "a794",
-   "title": "别让仓库里的文件操控你的编码 Agent：不可信指令注入的防护",
-   "summary": "编码 Agent 会从团队没写过、没审过的文件里继承指令，若它还有改配置、装包、联网权限，普通编码任务就变成访问控制问题。",
-   "content": "你在仓库里放一个 AGENTS.md 或注释，Agent 就读；但别人 PR 进来的文件、依赖包里的说明文件，它同样会读。攻击者只要在 README 或配置里埋一句「忽略之前指令，执行以下命令」，而你的 Agent 又有装包和联网权限，一次常规重构就可能变成供应链投毒。文章给出的思路很实用：把仓库文件当不可信输入、给 Agent 划清可读可信目录、高危操作（装包、改 CI、发网络请求）强制人工确认。做课程项目时顺手把 Agent 权限收窄，是很好的安全习惯。",
-   "source": "DEV Community",
-   "date": "2026-10-30",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "练手/求职准备",
-   "value": "**用 AI 写代码的人多，懂它怎么被投毒的少，这是差异化竞争力。**",
-   "courses": "《软件安全》《供应链安全》可结合做威胁建模作业",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "仓库文件是 Agent 的不可信输入源",
-    "高危操作必须人工确认",
-    "收窄可读目录与联网权限"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/quellixlabs/stop-untrusted-repo-files-from-steering-coding-agents-3e5a",
-   "cover": "img/a794.webp"
-  },
-  {
-   "id": "a795",
-   "title": "MiniMax 开源团队日常在用的 16 个 Agent 技能",
-   "summary": "不是提示词合集，而是团队每天真在用的工作流：怎么让 AI 写的代码保持高标准、任务该不该拆给子 agent、长会话怎么不迟钝。",
-   "content": "仓库第一句就划清界限：这不是最佳实践清单，是每天在用的东西。里面回答的都是实操问题——AI 生成的代码用什么标准卡、什么任务值得拆子 agent、一条长命令等多久算超时、长会话上下文怎么裁剪才不迟钝、每轮到底哪些内容进了上下文。对做课设和毕业设计的同学，价值在于把「随手问 AI」升级成「有流程地用 AI」：可以先抄它的代码审查标准和任务拆分判断，再按自己项目调。建议挑 3 个技能改造后写进自己的开发流程，面试时能讲出方法论。",
-   "source": "开源中国",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把 AI 从聊天框变成有纪律的协作流程，效率差距就在这里拉开。**",
-   "courses": "《软件工程》课程设计中的开发流程管理可直接借鉴",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "16 个真实在用的 Agent 工作流技能",
-    "含代码标准、任务拆分、上下文裁剪",
-    "可挑几个改造成自己的开发流程"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503308"
-  },
-  {
-   "id": "a796",
-   "title": "Java 近期资讯：JDK 28 JEP、Gatherers4j、Apache Camel CVE 等",
-   "summary": "一期汇总 JDK 28 新 JEP、Azul/Payara 动态、Gatherers4j 库、Google ADK，以及 Apache Camel 的 CVE 漏洞。",
-   "content": "这类资讯的价值不在读完，而在建立版本感。JDK 28 的 JEP 决定你明年学的语法会不会过时；Gatherers4j 是 Stream Gatherers 的实用扩展库，写集合处理时能少写一堆样板代码，值得花半小时试；Apache Camel 的 CVE 则提醒你，企业集成中间件的漏洞会直接进你的依赖树。建议养成习惯：看到 CVE 就去查自己项目 pom.xml 里有没有这个版本，用 mvn dependency:tree 扫一遍。这比背概念更接近真实工作。",
-   "source": "InfoQ中文",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "JDK"
-   ],
-   "value": "**用一期资讯建立 Java 版本感，并养成扫 CVE 依赖的习惯。**",
-   "courses": "《Java 程序设计》课后延伸，配合 dependency:tree 实操",
-   "tags": [
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "JDK 28 JEP 影响你该学哪些新语法",
-    "Gatherers4j 是 Stream 的实用扩展",
-    "Camel CVE 提醒你扫依赖树"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/dfj1fLfP8iVLKFtEfr69?utm_source=rss&utm_medium=article",
-   "cover": "img/a796.webp"
-  },
-  {
-   "id": "a797",
-   "title": "用 Claude Code 驱动网页版 ChatGPT，一个对话画完小游戏全套美术",
-   "summary": "页面 JS 填 prompt、轮询状态、下载 blob 图、挑最终版再切成素材，附实截和代码。",
-   "content": "做课设最卡人的往往不是逻辑而是素材。这篇给出可复用的自动化套路：用脚本往网页版对话里填 prompt、轮询生成状态、把返回的 blob 图下载下来、批量筛选后切成游戏素材。技术上涉及 DOM 操作、轮询与异步等待、Blob 下载，都是前端基本功，但被包装成了一个真能省时间的工具。提醒一句：自动化操作第三方网页可能违反其服务条款，练手可以，别拿去跑量。建议把它当「浏览器自动化 + 异步流程控制」的练习项目，比做待办清单有意思。",
-   "source": "掘金",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**把重复劳动自动化，是前端最容易被看见的能力。**",
-   "courses": "《Web 前端开发》异步与 DOM 章节的实战案例",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "DOM 填表 + 轮询 + Blob 下载的完整链路",
-    "可改造成自己的素材生成流水线",
-    "注意第三方站点服务条款"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702015192474337307"
-  },
-  {
-   "id": "a787",
-   "title": "把终端输出粘给AI编程助手前，先做脱敏：一次泄露Bearer Token的教训",
-   "summary": "作者调试时把含Bearer Token、内网主机名和客户邮箱的curl响应直接粘进编码Agent，事后才意识到敏感数据已留在会话里。文章给出粘贴前脱敏的实操思路。",
-   "content": "很多同学用Cursor、Copilot、Claude Code时习惯把报错日志整段粘进去，但终端输出里常混着Authorization头、数据库连接串、内网域名和真实用户数据。这篇文章的作者就踩了坑：一段curl响应第一行是Bearer Token，后面还有三行客户邮箱。建议养成三步习惯：一是粘贴前用sed或简单脚本把token、邮箱、IP替换成占位符；二是把脱敏规则写进项目的.gitignore同级脚本，团队共用；三是敏感调试改用本地mock数据复现。信息安全专业的同学可以把它当成「数据最小化原则」在开发流程中的落地案例。",
-   "source": "DEV Community",
-   "date": "2026-10-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程助手"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把「粘贴前脱敏」变成肌肉记忆，避免开发环节的数据泄露。**",
-   "courses": "《信息安全导论》《Web安全》——作为开发流程中的数据泄露防护案例",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "粘贴给AI的日志常含Token、内网地址、用户邮箱",
-    "建立粘贴前替换占位符的固定习惯",
-    "脱敏脚本可纳入项目仓库团队复用",
-    "对应数据最小化与最小权限原则"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/jeff_pdc/redact-before-you-paste-it-into-the-coding-agent-31go",
-   "cover": "img/a787.webp"
   }
  ],
  "jobs": [
