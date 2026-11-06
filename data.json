@@ -1,6 +1,180 @@
 {
- "updatedAt": "2026-11-06 13:45",
+ "updatedAt": "2026-11-06 17:15",
  "news": [
+  {
+   "id": "a927",
+   "title": "Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一",
+   "summary": "Vue 核心仓库一个讨论中的 PR 重写了编译器 source map 生成方式，性能提升三四成，并修掉十几个报错行号错位问题。",
+   "content": "这个 PR 值得你花十分钟读：它没有改 API，只是把 source map 的生成算法换了一套，CPU 降约 30%、内存降约 1/3，还顺手修了十几个「报错指错行」的老问题。对学生的意义在于两点：一是理解 source map 是编译产物与源码的映射表，不是黑盒；二是学会用 Chrome DevTools 的 Performance 面板量 CPU、用 Memory 面板量堆，再对比 PR 前后的数据。做课设时如果 SFC 编译慢、热更新卡，这类优化思路可以直接借鉴；面试被问「构建性能怎么优化」也有真实案例可讲。",
+   "source": "掘金",
+   "date": "2026-11-06",
+   "cat": "stack",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue",
+    "构建工具"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会用 DevTools 量化构建性能，比背优化八股更有说服力。**",
+   "courses": "《Web前端开发》编译与调试章节，可作为构建性能分析的课堂案例。",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "source map 生成算法替换，CPU 降约 30%、内存降约 1/3",
+    "修复十几个报错行号错位的调试痛点",
+    "可用 Performance/Memory 面板复现前后对比",
+    "不改 API，属于纯内部优化，适合当性能分析练手素材"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7704923158558867510"
+  },
+  {
+   "id": "a928",
+   "title": "开源项目 Mika：安卓后台虚拟屏上的 AI 代理，替你点 App 和网页",
+   "summary": "Mika 是 Android 端开源 AI 助手，在隐藏的后台虚拟屏上读屏、点击、输入，跨 App 与网页完成任务，不占主屏。",
+   "content": "Mika 的技术路线值得软件工程和信息安全两个专业一起看。工程侧：它靠 Android 无障碍服务（AccessibilityService）读屏与模拟操作，用虚拟显示（VirtualDisplay）把任务放到后台跑，本质是一个「感知—决策—执行」的 Agent 循环，读源码能看清 Agent 落地的工程细节，比自己从零写 demo 快得多。安全侧：这类应用天然拥有读屏和代操作权限，等于把账号操作权交出去，可以顺势分析权限最小化、敏感信息脱敏、恶意指令注入等风险点。建议先在自己备用机上跑，别登主账号。",
+   "source": "掘金",
+   "date": "2026-11-06",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Android",
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**想搞懂 Agent 怎么真正操作界面，读这个开源实现比看概念文快。**",
+   "courses": "《移动应用开发》与《信息安全管理》交叉案例，可做权限风险分析作业。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "基于无障碍服务 + 虚拟显示实现后台自动化",
+    "是理解 Agent「感知-决策-执行」循环的现成代码",
+    "安全视角可分析读屏权限滥用与指令注入风险",
+    "建议在备用机、非主账号环境试跑"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7704935347230408755"
+  },
+  {
+   "id": "a929",
+   "title": "给 AI Agent 发可撤销的 OAuth 授权：Zalando 开源 Agentic Identity Broker",
+   "summary": "Zalando 孵化器开源 MIT 协议的 OAuth2 代理，让用户给 AI Agent 授予范围受限、可随时撤销的 MCP 服务访问权。",
+   "content": "Agent 要替你调工具，就得拿你的凭证——这是今年最现实的安全工程问题。AIB 的做法是把授权收拢到一个 broker：用户授权的是「某个 Agent 在某个范围内访问某个 MCP 服务」，令牌可撤销、可审计，而不是把长期 token 直接塞进 Agent 配置里。对信息安全专业，这是 OAuth2 授权码模式、scope 最小权限、令牌生命周期管理的完整落地样例，可以对照课程里的身份认证章节逐条读；对软件工程，它示范了「第三方接入」该怎么设计边界。建议本地起服务跑一遍授权与撤销流程，把时序图画出来。",
+   "source": "Hacker News",
+   "date": "2026-11-06",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "OAuth2",
+    "MCP"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**Agent 时代的身份授权是安全岗新考点，这个项目给了可跑的参考实现。**",
+   "courses": "《信息安全技术》身份认证与访问控制章节的实操案例。",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "MIT 协议开源，OAuth2 broker 形态，可直接读源码",
+    "核心是 scope 受限 + 可撤销 + 可审计的 Agent 授权",
+    "对照 OAuth2 授权码模式与最小权限原则学习",
+    "可本地跑通授权/撤销全流程并画时序图"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Show HN: Agentic Identity Broker, OAuth Delegation for AI Agents",
+   "link": "https://github.com/zalando-incubator/agentic-identity-broker",
+   "cover": "img/a929.webp"
+  },
+  {
+   "id": "a930",
+   "title": "观点：锁死你 Agent 的是工具 Schema，不是模型",
+   "summary": "换模型已经很便宜，换工具契约却很贵——作者认为 Agent 的真正锁定点在 tool schema 而非模型本身。",
+   "content": "这篇短文讲了一个工程上很实在的判断：模型可以一周一换，但你的工具定义、参数结构、错误返回格式一旦被上层代码和提示词绑死，迁移成本极高。对做课设和实习项目的同学，结论是可操作的：把工具定义抽成独立的一层（schema 单独文件、版本化），业务逻辑只依赖抽象接口，换模型或换工具实现时只改适配层。写简历时这也是个能讲清楚的设计决策，比「我调用了某大模型 API」有含量。读的时候顺手对照自己项目里 tool 定义散落在各处的现状，改一版。",
+   "source": "DEV Community",
+   "date": "2026-11-06",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把工具契约和模型解耦，是现在做 Agent 项目最划算的一次重构。**",
+   "courses": "《软件工程》接口设计与模块解耦章节的现成案例。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "模型替换成本低，工具契约替换成本高",
+    "建议把 tool schema 抽成独立、可版本化的一层",
+    "业务逻辑依赖抽象接口，模型/工具走适配层",
+    "可作为项目设计亮点写进简历"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Opinion: Your Agent's Lock-In Is the Tool Schema, Not the Model",
+   "link": "https://dev.to/airs_6907/opinion-your-agents-lock-in-is-the-tool-schema-not-the-model-gk4",
+   "cover": "img/a930.webp"
+  },
+  {
+   "id": "a931",
+   "title": "GPT-6 Cyber 发布，复现 1724 项漏洞",
+   "summary": "爱范儿早报提到 GPT-6 Cyber 发布并复现 1724 项漏洞，另有 DRAM 涨价、鸿蒙政企机型等动态。",
+   "content": "这条只挑一个点看：模型批量复现 1724 项漏洞，意味着漏洞挖掘的「发现环节」正在被自动化压缩，人工价值往「验证、定级、修复方案」后移。对信息安全与管理专业，直接启示是别只练扫描器点按钮，要练从 PoC 到补丁的完整闭环：能判断误报、能写清 CVSS 定级理由、能给出修复与回归验证方案。可以拿学校靶场或 DVWA 做对照练习，把「AI 报了一堆洞，你怎么筛」当成新课题。其余手机出货、DRAM 涨价、鸿蒙政企机与两个专业就业关联弱，不展开。",
+   "source": "爱范儿",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**漏洞挖掘在贬值，漏洞验证与修复闭环在升值，练法要跟着变。**",
+   "courses": "《网络安全攻防》实验课，可加一节 AI 辅助漏洞验证与定级。",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "AI 批量复现漏洞，发现环节被自动化",
+    "人的价值后移到验证、定级、修复闭环",
+    "建议在靶场练「筛误报 + 写修复方案」",
+    "同批早报其余消费电子内容与本专业无关，略过"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1688032?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a931.webp"
+  },
   {
    "id": "a921",
    "title": "OpenSSH 曝「sshole」漏洞：超 256 字符任意密码可登 root，musl libc 潜伏 14 年",
@@ -24,7 +198,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "漏洞位于 musl libc，2012 年埋下、2026 年才被发现",
@@ -3930,164 +4104,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7702434799856074786"
-  },
-  {
-   "id": "a809",
-   "title": "官方市场自动更新的 Claude Code 扩展被植入 SSH 后门近 11 小时",
-   "summary": "带 SSH 后门的恶意 Claude Code 扩展（2.1.312/2.1.313）通过 Anthropic 官方渠道分发约 11 小时，攻击者如何拿到发布账号仍未知。",
-   "content": "这是一次典型的供应链投毒：攻击者拿到官方发布账号，把带 SSH 后门的扩展版本推到「官方市场」，用户开着自动更新就会中招，窗口期近 11 小时。对信息安全与管理专业的同学，这件事的价值在于它把课本上的几个概念一次串起来了——软件供应链安全、代码签名与发布账号的权限边界、自动更新的信任模型。建议做两件事：一是复盘自己电脑上 IDE 插件、npm/pip 依赖的自动更新策略，关掉不必要的自动升级；二是把它当案例写进课程报告，分析「签名可信 ≠ 内容可信」这一环。",
-   "source": "掘金",
-   "date": "2026-10-31",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**用真实供应链投毒事件理解「签名可信≠内容可信」**",
-   "courses": "对应《信息安全导论》《软件供应链安全》，可作案例分析作业素材",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "官方渠道分发也会被投毒，自动更新是主要传播路径",
-    "核心问题：发布账号权限与签名信任模型的边界",
-    "可操作：审查本机插件/依赖的自动更新设置"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702402013565157414"
-  },
-  {
-   "id": "a810",
-   "title": "Anthropic 的 VS Code 扩展在 Cursor 上被植入后门近 12 小时",
-   "summary": "Ars Technica 报道同一批供应链攻击的英文侧细节：攻击者如何取得 Anthropic 已验证的 Cursor 发布账号仍不清楚。",
-   "content": "英文原文补充了中文报道里缺的技术细节：受影响的是 Anthropic 在 Cursor 市场上的已验证发布账号，攻击窗口接近 12 小时，官方下架后仍未查清账号失陷路径。对信息安全专业来说，值得关注的是「已验证发布者」这个标识在扩展市场里到底提供了多少保证——它只证明账号归属，不证明这次发布的内容。读的时候重点看两点：一是事件响应时间线（发现、下架、通告各花了多久），二是官方给出的用户自查建议。顺手检查一下自己 VS Code / Cursor 里装过哪些 AI 编程插件，版本号对不对得上。",
-   "source": "Ars Technica AI",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**读懂一次完整的安全事件披露，学会看时间线和响应动作**",
-   "courses": "对应《信息安全导论》，可作英文技术阅读+安全案例分析双用",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "英文原文补足时间线与受影响范围",
-    "「已验证发布者」只保证账号归属，不保证内容安全",
-    "重点看事件响应时间线与官方自查建议"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
-   "link": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
-   "cover": "img/a810.webp"
-  },
-  {
-   "id": "a811",
-   "title": "用 AI 编程加速鸿蒙电子书 App：原生多媒体组件的用法",
-   "summary": "以鸿蒙电子书 App 为例，讲清 Image 等原生组件加载图片、音频、视频的方式，以及 AI 编程在其中省下的重复劳动。",
-   "content": "鸿蒙的多媒体格式大多由系统底层原生支持，开发者用 Image 等组件就能加载，难点不在解码而在工程组织：列表渲染、资源缓存、页面切换状态管理。这篇用电子书 App 做例子，把「AI 生成骨架代码 + 人工调组件 API」的协作方式讲得比较具体。如果你在做移动端课设，可以借鉴它的思路：先让 AI 生成页面结构和数据模型，自己专注核对组件参数和生命周期回调——这部分 AI 最容易写错。注意别把 AI 生成的组件用法直接信了，对着官方文档核一遍 API 签名。",
-   "source": "掘金",
-   "date": "2026-10-31",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "HarmonyOS"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**学会「AI 出骨架、人核 API」的移动端开发协作方式**",
-   "courses": "对应《移动应用开发》，可直接用于课程设计选题",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "多媒体靠系统原生组件，难点在工程组织不在解码",
-    "AI 适合生成骨架，组件 API 与生命周期需人工核对",
-    "可迁移到任意移动端课设的页面结构搭建"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702434964869038115"
-  },
-  {
-   "id": "a812",
-   "title": "GitHub Actions Runner Controller 0.15.0：大规模场景下的可靠性改进",
-   "summary": "ARC 0.15.0 针对大规模自托管 Runner 的稳定性问题做了改进，适合需要自建 CI 执行环境的团队。",
-   "content": "GitHub Actions Runner Controller 让你在 Kubernetes 上自托管 Actions Runner，按需扩缩容。0.15.0 主要修的是规模上去之后的可靠性问题——Runner 调度、Pod 生命周期管理这类在小型项目里根本碰不到的坑。对本科生来说，直接上 ARC 有点重，但值得知道这条路径存在：学校机房或实验室如果要给一个团队提供统一 CI 环境，自托管 Runner 比买并发额度更可控。建议的练手方式是先在 minikube 上跑通一个最小 ARC 部署，理解 Runner 如何以 Pod 形式被调度，这比背 CI 概念有用得多。",
-   "source": "InfoQ中文",
-   "date": "2026-10-31",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Kubernetes",
-    "GitHub Actions"
-   ],
-   "diff": 3,
-   "scene": "简历加分",
-   "value": "**理解 CI Runner 如何在 K8s 上被调度，为团队搭建可控构建环境**",
-   "courses": "对应《软件工程》《云计算》，可用于团队项目持续集成实践",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "自托管 Runner 解决并发额度与内网构建需求",
-    "0.15.0 重点在规模化后的调度与生命周期可靠性",
-    "练手路径：minikube 上跑通最小 ARC 部署"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/tNLFh02J0koQswlY5Oqe?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a803",
-   "title": "PHP2Shell 漏洞开放自查：企业级 PHP 应用怎么排查",
-   "summary": "安全客开放 PHP2Shell 漏洞自查通道，企业可自行检测 PHP 应用是否受影响。",
-   "content": "PHP 仍是大量企业后台、CMS 和课设项目的默认后端，PHP2Shell 这类可导致远程命令执行的漏洞一旦被利用，服务器基本等于“送人”。这次开放自查意味着你可以拿真实环境练手：先用官方检测脚本或 PoC 确认版本与配置是否命中，再对照补丁 diff 理解漏洞成因（多半是参数拼接进系统调用或反序列化链）。建议在虚拟机里搭一套 DVWA 或自己课设的 PHP 接口做复现，写一份“检测—复现—修复—回归”的完整报告，比背十道八股题更能打动安全岗面试官。",
-   "source": "安全客",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**用一个真实高危漏洞把 Web 安全课的注入原理落到可复现的实操上。**",
-   "courses": "《Web 安全》《网络安全技术》——把课堂注入原理做成真实漏洞复现报告",
-   "tags": [
-    "信息安全",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "用官方自查工具检测自有 PHP 环境是否命中",
-    "在隔离虚拟机复现，理解命令注入/反序列化成因",
-    "输出检测+修复+回归的漏洞报告作为作品集"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316392"
   }
  ],
  "jobs": [
