@@ -1,6 +1,182 @@
 {
- "updatedAt": "2026-11-05 17:55",
+ "updatedAt": "2026-11-06 04:20",
  "news": [
+  {
+   "id": "a916",
+   "title": "开源本地 AI 编程工具 OwnCoder 0.2.0：密钥自动脱敏、代码索引全本地，token 消耗低于同类",
+   "summary": "OwnCoder 0.2.0 发布，主打安全与隐私：API Key 等敏感信息在发给大模型前自动脱敏，代码索引与向量检索均在本地完成，token 消耗优于同类工具。",
+   "content": "如果你在课程项目里接过大模型 API，应该踩过两个坑：一是把 Key 写进代码后不小心推到 GitHub，二是长上下文把 token 烧光。OwnCoder 的思路是把这两件事一起解决——发送前对密钥类字符串做脱敏，索引和向量检索留在本地，不把整个代码库上传云端。对信息安全方向的同学，这是一个可以拆开看的样本：脱敏规则怎么设计、本地向量库怎么选、上下文如何裁剪才省 token。建议做法是拿它跑一遍你的课设仓库，对比 Cursor/Claude Code 的 token 账单，把差异写成实验报告。",
+   "source": "开源中国",
+   "date": "2026-11-05",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI编程工具"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**用真实项目对比 token 账单与脱敏效果，是信息安全课最省力的实践素材**",
+   "courses": "《信息安全技术》/《软件工程》课程项目：作为开发工具链安全配置的案例",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "敏感信息（API Key、密钥）发送前自动脱敏，降低泄露风险",
+    "代码索引与向量检索本地完成，代码不出本机",
+    "官方称 token 消耗显著低于同类 AI 编程工具",
+    "桌面端工具，可直接对现有项目试用"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503432"
+  },
+  {
+   "id": "a917",
+   "title": "Claude Code 被曝把用户邮箱地址发送给访问的网站，GitHub issue 已获 687 点",
+   "summary": "有用户发现 Claude Code 在访问网页时会把用户邮箱地址一并发送出去，相关 issue 在 Hacker News 引发 241 条讨论。",
+   "content": "这不是让你别用 AI 编程工具，而是提醒你：Agent 类工具会替你发 HTTP 请求，而请求头里可能带着你的身份信息。对信息安全专业的同学，这是一道现成的分析题——抓一次 Claude Code 的流量，看 User-Agent、Referer、自定义头里到底有什么；再对照《网络安全法》和《个人信息保护法》里关于最小必要原则的条款，判断这算不算超范围收集。软件工程方向则更实际：你自己写爬虫或调第三方 API 时，默认请求头会不会顺手带上账号信息？建议在课设里加一步「出站请求审计」，用 mitmproxy 或 Charles 抓包核对。",
+   "source": "Hacker News",
+   "date": "2026-11-05",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI编程工具"
+   ],
+   "value": "**一次抓包就能把「AI 工具隐私风险」从概念变成可验证的实验**",
+   "courses": "《网络安全》抓包分析实验 /《软件工程》第三方依赖风险评估",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Agent 访问网页时可能携带用户邮箱等身份信息",
+    "issue 在 HN 获 687 点、241 条评论，社区关注度高",
+    "可用抓包工具复现并审计出站请求头",
+    "对应个人信息最小必要原则的合规判断"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code sends your email address to websites",
+   "link": "https://github.com/anthropics/claude-code/issues/107757",
+   "cover": "img/a917.webp"
+  },
+  {
+   "id": "a918",
+   "title": "shadcn/ui 接入 React Native 完整手册：从 colors.ts 混乱到统一设计系统",
+   "summary": "freeCodeCamp 发布长文手册，讲如何在 React Native 应用中使用 shadcn/ui，解决样式散落、组件重复的问题。",
+   "content": "很多同学做移动端课设的路径是：先建 colors.ts，再手写一个 Button，然后页面越加越多，每个页面都在复制样式，改一次主色要翻十几个文件。这篇手册给的是另一条路——把 shadcn/ui 那套「组件代码归你所有、样式由 token 驱动」的模式搬到 React Native 上。重点不在抄代码，而在理解它的组织方式：设计 token 集中定义、组件按原子层级拆分、变体用类型约束。前端方向的同学可以拿它重构自己已有的课设，把散落的 StyleSheet 收拢成一套主题；面试时「我做过设计系统落地」比「我会写页面」值钱得多。",
+   "source": "freeCodeCamp",
+   "date": "2026-11-05",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React Native",
+    "shadcn/ui"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把课设从「堆页面」升级成「有设计系统的项目」，是前端简历的加分项**",
+   "courses": "《移动应用开发》/《Web 前端开发》课程设计：组件库与主题方案落地",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "面向 React Native 的 shadcn/ui 完整使用手册",
+    "解决样式散落、组件重复复制的问题",
+    "核心是设计 token 集中管理 + 组件分层",
+    "适合用来重构已有课设项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Use shadcn/ui in React Native Applications [Full Handbook]",
+   "link": "https://www.freecodecamp.org/news/how-to-use-shadcn-ui-in-react-native-applications-full-handbook/",
+   "cover": "img/a918.webp"
+  },
+  {
+   "id": "a919",
+   "title": "LoopForge 开源：把 Coding Agent 接进研发流程的自进化平台",
+   "summary": "InfoQ 介绍团队自建并开源的研发平台 LoopForge，讲 Coding Agent 如何嵌入需求、编码、评审等环节并持续自我改进。",
+   "content": "多数人用 Coding Agent 的方式是「打开对话框，贴一段代码」。LoopForge 想解决的是工程化问题：Agent 在哪个环节触发、产出如何被校验、失败经验怎么沉淀回流程。对软件工程专业的同学，这篇的价值不在工具本身，而在它描述的流水线结构——这正好对应你课设里最容易被忽略的部分：CI 配置、代码评审规则、测试覆盖率门槛。建议读完后做一件小事：给自己的课设仓库加一个 GitHub Actions 工作流，跑 lint + 单测，再让 AI 只负责「根据失败日志提修改建议」。这一步做完，你对「Agent 是流程的一环而非替代品」会有实感。",
+   "source": "InfoQ中文",
+   "date": "2026-11-06",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Coding Agent",
+    "CI/CD"
+   ],
+   "value": "**看懂 Agent 如何嵌进研发流水线，比会写 prompt 更能体现工程能力**",
+   "courses": "《软件工程》课程设计：CI 流水线与代码评审机制设计",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "开源研发平台，把 Coding Agent 嵌入完整研发链路",
+    "涉及触发时机、产出校验、经验沉淀等工程问题",
+    "可对照自己课设的 CI/评审/测试环节查漏",
+    "适合作为软件工程课程设计的流程参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/QGaIWSgd9uwx2WGw0yFv?utm_source=rss&utm_medium=article",
+   "cover": "img/a919.webp"
+  },
+  {
+   "id": "a920",
+   "title": "AI Native 研发工具链的架构重构与持续演进：AICon 北京议题",
+   "summary": "AICon 北京站议题，讨论企业在 AI 原生阶段如何重构研发工具链架构，并让它持续演进而不是一次性改造。",
+   "content": "「工具链重构」听起来离学生很远，但拆开看就是几个你正在做的事：代码托管、CI、制品管理、环境配置。AI 原生带来的变化是，这些环节开始有 Agent 参与，接口和权限模型都要重设。对工业软件实验班的同学尤其值得看——工业场景的工具链往往更封闭、更强调可追溯，重构时的约束条件比互联网公司多得多。听不了现场也没关系，重点抓它的架构分层思路：哪些能力下沉为平台、哪些留给团队自建。可以拿来对照自己课设的技术选型，写进课程报告的设计章节。",
+   "source": "InfoQ中文",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "研发工具链"
+   ],
+   "value": "**把「工具链重构」翻译成课设里的技术选型论证，报告深度立刻不一样**",
+   "courses": "《软件工程》/《工业软件工程》课程报告：技术架构与选型论证",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "聚焦 AI 原生阶段研发工具链的架构重构",
+    "涉及平台能力下沉与团队自建的边界划分",
+    "工业软件场景对可追溯性要求更高",
+    "可作为课程设计技术选型章节的参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/4IUSd2wP28ua4Jd5fHG2?utm_source=rss&utm_medium=article",
+   "cover": "img/a920.webp"
+  },
   {
    "id": "a911",
    "title": "DeepSeek 开源 Super Agent：12 分钟看懂它和普通 Agent 的区别",
@@ -26,7 +202,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 86,
    "brief": [
     "Super-agent 与普通 Agent 的核心差异在任务编排与工具循环",
@@ -3904,177 +4080,6 @@
    ],
    "buzz": [],
    "link": "https://cyberplace.social/@GossiTheDog/117528831681803563"
-  },
-  {
-   "id": "a800",
-   "title": "Herdr：把 IDE 界面做成纯文本文件，让 Agent 自己改",
-   "summary": "Herdr 是一个面向 coding agent 的原生宿主，界面全部由纯文本文件描述，Claude Code、Codex 等终端 agent 可直接驻留并修改界面。",
-   "content": "思路很反直觉但值得学：不让你去适应新 IDE，而是把整个界面拆成纯文本配置文件，让 agent 按需改。技术上它本质是「配置即界面」+ 终端 agent 宿主，对软件工程学生有两个可借鉴点。第一，配置驱动 UI 的思路你完全可以在课设里用：把布局、菜单写成 JSON/YAML，前端读配置渲染，改需求不用改代码。第二，理解 agent 宿主如何管理会话、文件上下文和命令执行，是现在做 AI 工具类项目的核心能力。上手成本不高，建议 clone 下来跑一遍，重点读它怎么定义界面 schema。",
-   "source": "开源中国",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**「配置即界面」的活样本，顺手理解 agent 宿主怎么管上下文。**",
-   "courses": "对应《人机交互》《Web 前端开发》：配置驱动 UI 与工具链设计参考",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "界面全部由纯文本文件描述，agent 可自行修改布局",
-    "支持 Claude Code、Codex 等任意终端 agent 驻留",
-    "可借鉴「配置驱动 UI」思路用于自己的课设",
-    "重点读它的界面 schema 设计与 agent 会话管理"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503317/herdr-dev-agent-ide-runtime"
-  },
-  {
-   "id": "a801",
-   "title": "CloudCanal v6.6.0 发布：Kudu 同步升级，支持 60+ 数据源互通",
-   "summary": "开源数据迁移同步工具 CloudCanal 社区版更新，强化 Kudu 同步能力，支持关系库、实时数仓、消息中间件、缓存与搜索引擎之间互迁。",
-   "content": "做毕设或课程项目时，「数据怎么从 MySQL 搬到数仓」往往是卡住的一步。CloudCanal 社区版免费，覆盖结构迁移、全量/增量同步、数据校验与订正，支持 OceanBase、TiDB、StarRocks、Doris 等国产库。对软件工程（含工业软件实验班）的同学，它的价值在于：一是给你一个不用手写 CDC 代码的现成方案，做「订单库→分析库」的实时同步 demo 半天能跑通；二是国产数据库适配全，正好对上信创相关项目需求；三是增量同步 + 数据校验的设计思路，可以直接写进你的系统设计文档。建议先用 Docker 起 MySQL 到 Doris 的最小链路。",
-   "source": "开源中国",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "MySQL",
-    "Doris"
-   ],
-   "diff": 2,
-   "scene": "课设/毕设",
-   "value": "**毕设要做数据同步，这是能省掉手写 CDC 的现成轮子。**",
-   "courses": "对应《数据库原理》《大数据技术》：用于数据迁移与实时同步实验",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "社区版免费，支持 60+ 数据源之间结构迁移与实时同步",
-    "本次升级重点在 Kudu 同步能力",
-    "国产库适配全：OceanBase、TiDB、StarRocks、Doris 等",
-    "建议先跑 MySQL→Doris 最小链路，理解增量同步与校验"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503315"
-  },
-  {
-   "id": "a802",
-   "title": ".NET 11 第二个候选版发布：开放生产部署许可，更新库、F#、MAUI 与 WinForms",
-   "summary": ".NET 11 RC2 带来生产环境部署许可，并对基础库、F#、MAUI 和 WinForms 做了更新。",
-   "content": "如果你在做 C# 课设或工业上位机方向，这条值得关注：RC2 已允许生产环境部署，意味着可以拿来试真实项目而不只是玩具 demo。对工业软件实验班的同学，WinForms 与 MAUI 的更新直接关系到桌面端/跨端界面开发；F# 的改进则适合做数据处理脚本。建议做法：装 SDK 后拿你现有的课设项目做一次升级验证，重点看基础库的破坏性变更清单，记录哪些 API 需要改——这份「升级踩坑记录」本身就是简历上能讲的东西。别急着上生产，先在分支上跑通测试。",
-   "source": "InfoQ中文",
-   "date": "2026-10-30",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    ".NET",
-    "C#"
-   ],
-   "value": "**做 C# 桌面/上位机的同学，这是升级验证的合适时间点。**",
-   "courses": "对应《面向对象程序设计》《桌面应用开发》：框架升级与兼容性验证",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "RC2 已开放生产环境部署许可",
-    "更新覆盖基础库、F#、MAUI、WinForms",
-    "适合工业软件方向的桌面端与跨端界面开发",
-    "建议用现有课设做升级验证并记录破坏性变更"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/A8YgLsG4VOhoJkUVq9Jq?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a792",
-   "title": "Spring Boot 3.x + ShardingSphere 5.x + MyBatis-Plus 订单分库分表实战（含两个踩坑）",
-   "summary": "从单表千万级变慢讲起，用 Spring Boot 3.x + ShardingSphere 5.x + MyBatis-Plus 3.x 落地订单分库分表，并记录配置坑与分页坑。",
-   "content": "订单表是增长最快的表，单表过千万后 B+ 树层级加深、缓存命中率下降、大事务锁表时间变长，加索引也救不回来。这篇实战给出完整链路：分片键怎么选、ShardingSphere 的 spring-boot-starter 配置怎么写、MyBatis-Plus 分页插件与分片路由如何共存。两个坑值得先看：一是配置项位置写错导致分片规则静默不生效，二是分页 count 语句被路由到所有分片后结果错乱。建议你照着在本地起两个库跑一遍，把 SQL 日志打开对比路由结果，比看十篇原理文有用。",
-   "source": "掘金",
-   "date": "2026-10-29",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "ShardingSphere"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**分库分表是 Java 后端面试与真实业务的硬门槛，跟着跑一遍胜过背八股。**",
-   "courses": "《数据库原理》《Java Web 开发》课程设计可直接套用做订单模块",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "分片键选择与配置落地全流程",
-    "配置不生效、分页 count 错乱两个真实坑",
-    "本地双库复现，开 SQL 日志看路由"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7701894834219434024"
-  },
-  {
-   "id": "a793",
-   "title": "MCP 安全免费课程：给 AI Agent 接工具时，攻击面在哪",
-   "summary": "freeCodeCamp 推出 MCP 安全课程，讲清把 LLM 连到外部工具、数据库、API 后新增的攻击面与防护。",
-   "content": "MCP 让模型能调工具、读数据库、发请求，等于给 AI 装上了手脚，也等于给攻击者开了一扇门：工具描述被注入、越权调用、凭据泄露、返回内容被污染都可能发生。这门课从协议层讲起，覆盖工具授权边界、输入输出校验、最小权限设计。对信息安全与管理专业的同学，这是把「访问控制」「注入防御」这些课本概念落到 AI 场景的最好切口；软件工程方向则能学会在写 Agent 工具时默认加校验。建议边看边用官方 SDK 写一个带权限校验的 MCP server 当练手。",
-   "source": "freeCodeCamp",
-   "date": "2026-10-29",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**AI Agent 安全是信安专业最新的就业增量方向，现在入场正当时。**",
-   "courses": "《网络安全》《访问控制技术》可作课程延伸案例",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "覆盖 MCP 协议层攻击面与防护",
-    "最小权限、输入校验、凭据管理",
-    "可动手写一个带权限校验的 MCP server"
-   ],
-   "buzz": [],
-   "link": "https://www.freecodecamp.org/news/secure-your-ai-agents-free-model-context-protocol-mcp-security-course/",
-   "cover": "img/a793.webp"
   }
  ],
  "jobs": [
