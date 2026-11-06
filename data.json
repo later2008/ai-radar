@@ -1,6 +1,214 @@
 {
- "updatedAt": "2026-11-06 04:20",
+ "updatedAt": "2026-11-06 13:45",
  "news": [
+  {
+   "id": "a921",
+   "title": "OpenSSH 曝「sshole」漏洞：超 256 字符任意密码可登 root，musl libc 潜伏 14 年",
+   "summary": "musl libc 中一个潜伏 14 年的缺陷导致 OpenSSH 认证可被绕过，任意超长密码即可登录 root 账号。",
+   "content": "发现者 Özgün Kültekin 将漏洞命名为 sshowhole 并建站梳理其从 1980 年至今的成因链。核心问题在 musl libc 的密码比较逻辑：输入超过 256 字符时比较被截断/异常，导致认证直接通过。对信息安全与管理专业的同学，这是一份现成的「输入边界 + 认证逻辑」反面教材：做课设写登录模块时，务必对密码长度做上限校验、使用恒定时间比较函数，并核查基础镜像用的是 glibc 还是 musl。实验课可复现该场景，写进渗透测试报告就是很好的加分项。",
+   "source": "开源中国",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "OpenSSH",
+    "musl libc"
+   ],
+   "diff": 2,
+   "scene": "课设/安全实验",
+   "value": "**一个输入长度校验缺失就能让 root 失守，登录模块的边界检查必须写进你的代码习惯。**",
+   "courses": "《网络安全技术》《操作系统》——用于认证绕过案例分析与实验复现",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "漏洞位于 musl libc，2012 年埋下、2026 年才被发现",
+    "任意超过 256 字符的密码即可绕过认证登录 root",
+    "修复思路：密码长度上限校验 + 恒定时间比较",
+    "排查容器基础镜像是否使用 musl（如 Alpine）"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503439/openssh-sshhole"
+  },
+  {
+   "id": "a922",
+   "title": "腾讯开源云端自进化研发平台 LoopForge：给 Coding Agent 配 7×24 云端工作区",
+   "summary": "腾讯轻量云开源 LoopForge，解决单机 Coding Agent 断流、多人上下文割裂、Vibe Coding 质量失控等团队级问题。",
+   "content": "单机 Agent 写代码很快，但一进团队就卡在「单兵提效、全局内耗」：合盖断流、多人上下文割裂、自由 Vibe Coding 质量不可控、盯单耗时、同类问题反复踩坑。LoopForge 的思路是把 Agent 放进云端常驻工作区，多角色协作并沉淀经验自进化。对软件工程学生，值得关注的是它的工程化视角——不是「怎么让 AI 写代码」，而是「怎么让 AI 写的代码可管、可审、可复用」。做团队课设时可以借鉴其工作区隔离与任务编排设计，写进架构文档。",
+   "source": "开源中国",
+   "date": "2026-11-06",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Coding Agent"
+   ],
+   "diff": 3,
+   "scene": "课设/团队协作",
+   "value": "**学会把 AI 编码从「个人玩具」变成「团队可管流程」，是进研发团队前的重要一课。**",
+   "courses": "《软件工程》——用于团队协作流程与 CI/Agent 集成方案设计",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "腾讯轻量云团队开源，定位云端自进化 AI 研发平台",
+    "提供 7×24 小时云端工作区与多角色协作",
+    "针对合盖断流、上下文割裂、Vibe Coding 质量失控",
+    "适合作为团队课设的 Agent 工程化参考架构"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503437"
+  },
+  {
+   "id": "a923",
+   "title": "Cloudflare 与 VoidZero 推出 tsrs：AI 生成的 TypeScript 编译器 Rust 移植版",
+   "summary": "两家联合发布由 AI 生成的 tsrs，把 TypeScript 编译器移植到 Rust，前端工具链性能路线再进一步。",
+   "content": "VoidZero（Vite 团队）与 Cloudflare 联手，用 AI 生成方式完成 TypeScript 编译器的 Rust 移植，命名 tsrs。这件事对前端方向的学生有两点价值：一是理解「编译器/工具链用 Rust 重写」这一正在发生的趋势，Vite、Turbopack、Biome 都在同一条路上；二是观察 AI 参与大型代码迁移的真实工程形态——不是一键生成，而是大量测试对齐与回归验证。建议在课程设计里试着用 Rust 工具链替换一次构建流程，体会冷启动与增量编译的差异。",
+   "source": "InfoQ中文",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "TypeScript",
+    "Rust"
+   ],
+   "value": "**前端工具链正在集体 Rust 化，早一步理解编译与构建原理，简历上就多一个硬标签。**",
+   "courses": "《编译原理》《Web 前端开发》——用于构建工具链与编译流程对比实验",
+   "tags": [
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Cloudflare × VoidZero 联合项目，TypeScript 编译器的 Rust 移植",
+    "由 AI 生成代码，但依赖大量测试对齐保证语义一致",
+    "反映前端工具链「Rust 化」的持续趋势",
+    "可作为构建性能对比实验的素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/lGoA1ZSw6ojeh68GVlBl?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a924",
+   "title": "pr-agent：1.5 万星的开源 PR 自动审查工具，Python 实现",
+   "summary": "GitHub 上 1.5 万星的开源 PR 审查 Agent，近 7 日仍在更新，可直接接入仓库做自动代码评审。",
+   "content": "pr-agent 是较早的开源 PR 自动评审项目（注意区分其与 Qodo 免费版），Python 编写，支持对 Pull Request 自动生成变更摘要、逐行评论与改进建议。对软件工程学生最实用的用法：在自己的课程设计仓库里配一次 CI，让它在 PR 上自动跑评审，既能练 Git 协作流程，又能在答辩时展示「我们团队有自动化代码审查」。接入成本不高，主要工作是配置模型 API Key 与仓库权限。",
+   "source": "GitHub",
+   "date": "2026-11-06",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "GitHub Actions"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**给课设仓库挂上自动 PR 审查，Git 协作能力和工程规范一次展示到位。**",
+   "courses": "《软件工程》《程序设计》——用于代码评审流程与 CI 集成实践",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Python 实现，GitHub 1.5 万星，近期持续更新",
+    "自动生成 PR 摘要、逐行评论与修改建议",
+    "可接入个人或课设仓库的 CI 流程",
+    "注意与 Qodo 商业版区分，本项目为开源原版"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "The-PR-Agent/pr-agent（15213★）",
+   "link": "https://github.com/The-PR-Agent/pr-agent",
+   "cover": "img/a924.webp"
+  },
+  {
+   "id": "a925",
+   "title": "Vue 3 里用 TanStack Query 管服务端状态：和 Pinia 分工的正确姿势",
+   "summary": "一篇实操文讲清 Client State 与 Server State 的边界，用 TanStack Query 替代 Pinia 管接口数据。",
+   "content": "文章把前端状态拆成两类：Client State（弹窗开关、主题、表单本地值）和 Server State（后端 API 数据）。Pinia/Vuex 擅长前者，但用它缓存接口数据就要自己写 loading、error、重试、失效逻辑。TanStack Query 把这些内置化，提供缓存、后台刷新、请求去重与失效重取。做 Vue 课设时典型场景：列表页返回详情页再返回，用 Query 缓存可避免重复请求。建议在现有项目里挑一个列表页改造，对比改造前后的请求次数。",
+   "source": "DEV Community",
+   "date": "2026-11-06",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue",
+    "TanStack Query"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把接口缓存交给 TanStack Query，Pinia 只留 UI 状态，前端代码立刻清爽一半。**",
+   "courses": "《Web 前端开发》——用于 Vue 项目状态管理与请求层设计",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "区分 Client State 与 Server State，避免用 Pinia 硬扛接口缓存",
+    "TanStack Query 内置缓存、重试、后台刷新与请求去重",
+    "适合列表/详情来回切换的课设场景",
+    "可做改造前后网络请求次数对比"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Vue.js com TanStack Query",
+   "link": "https://dev.to/heltonbrito/tanstack-query-com-vuejs-56gl",
+   "cover": "img/a925.webp"
+  },
+  {
+   "id": "a926",
+   "title": "9 个可复用的 GitHub Agentic Workflow：把日常仓库杂活交给 Agent",
+   "summary": "作者把 GitHub Agentic Workflows  gallery 改写成单仓库可用的小型工作流，共 9 个，直接复用。",
+   "content": "Agentic Blueprints 项目把官方示例拆成更小、单仓库即可落地的版本，覆盖 issue 分类、PR 摘要、文档同步等日常杂活。对学生的价值在于「模板化」：不用从零设计 Agent 流程，挑一个改改 prompt 和触发条件就能跑。建议先在自己的课设仓库启用一个低风险工作流（如自动给新 issue 打标签），观察 Agent 的行为边界，再决定是否扩展到 PR 环节。注意仓库权限要给最小集。",
+   "source": "DEV Community",
+   "date": "2026-11-06",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "GitHub Actions"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**不用自己设计 Agent 流程，拿现成模板跑通一次，就懂了自动化工作流怎么落地。**",
+   "courses": "《软件工程》——用于仓库自动化与协作流程实践",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "9 个单仓库可用的 Agentic 工作流模板",
+    "覆盖 issue 分类、PR 摘要、文档同步等日常任务",
+    "改 prompt 与触发条件即可复用",
+    "建议从低风险任务起步，权限最小化"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Reusable GitHub Agentic Workflows for everyday repo tasks",
+   "link": "https://dev.to/luanerasmus/reusable-github-agentic-workflows-for-everyday-repo-tasks-2712",
+   "cover": "img/a926.webp"
+  },
   {
    "id": "a916",
    "title": "开源本地 AI 编程工具 OwnCoder 0.2.0：密钥自动脱敏、代码索引全本地，token 消耗低于同类",
@@ -25,7 +233,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "敏感信息（API Key、密钥）发送前自动脱敏，降低泄露风险",
@@ -3880,206 +4088,6 @@
    ],
    "buzz": [],
    "link": "https://www.anquanke.com/post/id/316392"
-  },
-  {
-   "id": "a804",
-   "title": "生产级 MCP Server 与工具调用 Agent：沙箱、Schema 与审批闸门",
-   "summary": "DEV 长文讲如何把“模型调工具”的 demo 做成生产系统，重点是沙箱隔离、参数 Schema 校验和人工审批。",
-   "content": "大多数 Agent 演示止步于“模型选工具、工具返回 JSON”，但一旦工具是 run_sql、refund_order 这种真操作，风险就来了。文章给出的工程骨架值得直接抄进课设：①每个工具定义严格 JSON Schema，模型输出先校验再执行，杜绝幻觉参数；②工具在沙箱/受限权限下运行，SQL 只给只读账号；③高危操作加审批闸门，人工确认后才落地。你可以用 Python + 任意 LLM API 搭一个“查课表/查成绩”的 Agent，把这三层都实现一遍，这就是简历上能讲十分钟的项目。",
-   "source": "DEV Community",
-   "date": "2026-10-30",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Python",
-    "LLM"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**把 Agent 从玩具 demo 升级成有权限边界和审批的生产级系统，是当前后端岗的加分项。**",
-   "courses": "《软件工程》《人工智能导论》——课程设计里做一个带权限控制的工具调用 Agent",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "工具参数用 JSON Schema 强校验，拒绝模型幻觉参数",
-    "工具执行放沙箱、最小权限，SQL 用只读账号",
-    "高危操作加人工审批闸门再执行"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building Production MCP Servers & Tool-Calling AI Agents: Sandboxing, Schemas & Approval Gates",
-   "link": "https://dev.to/muhammadalimughal/building-production-mcp-servers-tool-calling-ai-agents-sandboxing-schemas-approval-gates-7nb",
-   "cover": "img/a804.webp"
-  },
-  {
-   "id": "a805",
-   "title": "27 岁程序员用无限 Token 两个月重写思科 98% 遗留代码",
-   "summary": "InfoQ 报道一名程序员借助 AI 在两个月内重写思科大量遗留代码，引发对 AI 辅助重构边界的讨论。",
-   "content": "遗留系统重构是工业软件和企业开发里最苦最值钱的活。这个案例的关键不是“AI 写代码”，而是流程：先补测试覆盖作为安全网，再让模型按模块小步重写，每步跑回归，人只做架构决策和代码评审。对软件工程和工业软件实验班的同学，启示很直接——别只练“让 AI 生成函数”，要练“给老代码补测试 + 分批迁移 + 验证等价性”。可以拿一个开源老项目（比如某个 Java 老框架的示例）做实验：先写测试，再让 AI 重构一个类，记录失败案例，这份复盘就是很好的工程能力证明。",
-   "source": "InfoQ中文",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "简历加分",
-   "value": "**学会“测试先行 + AI 分批重构”的方法论，比会写 prompt 更能应对遗留系统岗位。**",
-   "courses": "《软件工程》《软件测试》——把重构与回归测试流程做成实验报告",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "重构前先补测试，作为 AI 改代码的安全网",
-    "按模块小步重写，每步跑回归验证等价性",
-    "人的价值在架构决策与代码评审，不在敲代码"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/C9FJGQ0ptRp8F8kHRRdZ?utm_source=rss&utm_medium=article",
-   "cover": "img/a805.webp"
-  },
-  {
-   "id": "a806",
-   "title": "EmbeddingGemma 2：Google 把五种模态塞进同一向量空间",
-   "summary": "Google 发布 EmbeddingGemma 2，支持文本、图像等五种模态统一嵌入，可用于跨模态检索。",
-   "content": "做检索、推荐、RAG 的同学注意：多模态统一嵌入意味着你可以用一段文字去搜图片、用图片搜文档，而不用为每种模态各搭一套索引。落地方式很朴素：用该模型把课程资料、截图、PDF 都转成向量存进向量库（FAISS/pgvector），再写一个检索接口。适合做“课程资料跨模态搜索”这类课设，工作量可控又能体现工程能力。注意评估时看召回率而不是只看 demo 效果，同时留意模型体积和推理成本，别在笔记本上跑崩。",
-   "source": "InfoQ中文",
-   "date": "2026-10-30",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "向量检索"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**多模态统一嵌入让跨模态检索课设的门槛降到一个人一周能做完。**",
-   "courses": "《人工智能导论》《数据挖掘》——做课程资料跨模态检索大作业",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "五种模态映射到同一向量空间，支持跨模态检索",
-    "用 FAISS/pgvector 搭一个课程资料多模态搜索课设",
-    "评估看召回率，注意模型体积与推理成本"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/O6mtiB7FVd0VSDHJe348?utm_source=rss&utm_medium=article",
-   "cover": "img/a806.webp"
-  },
-  {
-   "id": "a807",
-   "title": "汽车工厂的下一条流水线由 AI 排产：工业软件在制造现场的落点",
-   "summary": "爱范儿报道 AI 开始介入汽车制造的排产与产线调度，工业软件正从记录系统变成决策系统。",
-   "content": "工业软件实验班最该关心的不是模型多强，而是 AI 排产怎么和 MES/APS 这类系统对接：数据从设备采集（OPC UA/PLC），进时序库，再由排产算法输出工单，最后回写执行系统。这条链路里，软件工程学生能做的是接口层和数据模型——比如用 Java/Spring Boot 写一个简化的工单调度服务，输入设备状态和订单，输出排产结果并可视化。理解“数据采集—调度算法—执行反馈”的闭环，比只会调库更贴近工业软件岗位的真实需求。",
-   "source": "爱范儿",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "简历加分",
-   "value": "**看懂制造现场“采集—排产—执行”闭环，才知道工业软件岗位到底要写什么代码。**",
-   "courses": "《工业软件导论》《数据库系统》——把排产数据模型做成课程设计",
-   "tags": [
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "AI 排产落在 MES/APS 系统，核心是数据链路打通",
-    "软件侧重点是接口层、数据模型与工单调度服务",
-    "可做一个简化排产服务作为工业软件方向作品"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1686953?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a807.webp"
-  },
-  {
-   "id": "a798",
-   "title": "PHP2Shell 漏洞已被实战武器化：攻击链入侵 25 台政府服务器",
-   "summary": "PHP 基金会拖延两年才修的两个 RCE 漏洞（CVE-2026-109618/109619）已被组合成 PHP2Shell 利用链，配合内核提权实际攻破 PAN-OS 防火墙等 25 台服务器。",
-   "content": "这次不是「理论漏洞」而是真实入侵：攻击者把两个 PHP RCE 串成利用链，再叠加 Fragnesia 内核提权，直接拿下 Palo Alto 防火墙这类边界设备。对信息安全与管理专业的同学，这是极好的「漏洞生命周期」案例：补丁延迟两年 → 公开 PoC → 武器化 → 边界设备沦陷。建议做三件事：一是去 NVD 读这两条 CVE 的 CVSS 向量，理解 RCE 为何是最高危；二是在本地 Docker 起一个旧版 PHP 复现（隔离网络），体会「一个参数没过滤」的后果；三是把「补丁管理 + 边界设备加固」写进你的渗透测试报告模板。",
-   "source": "开源中国",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "value": "**把「漏洞披露→武器化」的完整链路讲清楚，是安全课最缺的真实素材。**",
-   "courses": "对应《网络安全》《漏洞分析与渗透测试》：用作漏洞复现与补丁管理案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "两个 PHP RCE 漏洞被串联成完整利用链，并叠加内核提权",
-    "目标包括 PAN-OS 防火墙等边界设备，共 25 台服务器被控",
-    "核心教训：补丁延迟两年 = 给攻击者留足武器化时间",
-    "可作漏洞复现与补丁管理课程的实战案例"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503319/chained-php2shell-exploit-roots-25-servers"
-  },
-  {
-   "id": "a799",
-   "title": "官方 Claude Code 扩展被曝植入后门：AI 编码工具供应链风险",
-   "summary": "安全研究者发现官方 Claude Code 扩展中存在后门，Hacker News 讨论热度高，暴露 AI 编码工具链的供应链攻击面。",
-   "content": "你现在大概率在用 AI 编码助手写课设和项目。这条新闻提醒的是：你信任的「官方扩展」本身可能就是攻击面。扩展能读你的代码、环境变量、甚至执行命令，一旦被投毒，等于把整个开发机交出去。实操建议：一，检查你装的 AI 编码插件来源与权限，能最小权限就最小权限；二，把 API Key 放环境变量而非硬编码进代码（这条在《软件工程》课设里就该养成）；三，在隔离容器或虚拟机里跑不熟悉的 agent 工具。对信息安全方向的同学，这还是一个现成的「供应链安全」分析题：画出扩展的信任边界。",
-   "source": "Hacker News",
-   "date": "2026-10-30",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "value": "**提醒你：天天用的 AI 编码插件，本身就是一条供应链攻击路径。**",
-   "courses": "对应《信息安全导论》《软件工程》：用于供应链安全与密钥管理讨论",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "官方 Claude Code 扩展被指存在后门，HN 讨论热度 96 分",
-    "AI 编码扩展拥有读代码、读环境变量、执行命令的高权限",
-    "实操：最小权限安装、密钥走环境变量、陌生 agent 放容器跑",
-    "可作为供应链安全与信任边界分析的课程素材"
-   ],
-   "buzz": [],
-   "link": "https://cyberplace.social/@GossiTheDog/117528831681803563"
   }
  ],
  "jobs": [
