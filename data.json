@@ -1,6 +1,175 @@
 {
- "updatedAt": "2026-11-06 17:15",
+ "updatedAt": "2026-11-07 03:51",
  "news": [
+  {
+   "id": "a932",
+   "title": "Claude Code 隐私模块实测：4 条命令只拦住 2 条，账号邮箱仍可能外发",
+   "summary": "作者在 Windows 版 Claude Code 2.1.318 上用 4 条不联网命令测试官方宣称的隐私模块，结果 curl 携带邮箱被拦、echo 写入 User-Agent 未被拦，说明数据外发防护存在缺口。",
+   "content": "官方说 2.1.317 起内置隐私模块能拦住账号邮箱外发，作者就在 Windows 的 2.1.318 上跑了 4 条不联网命令做验证：两条 curl 带邮箱的被插件拦下，但用 echo 写 User-Agent 的那条没被拦。对我们学信息安全的同学，这是一份现成的「安全功能验证」范本：先明确威胁模型（哪些字段算敏感、哪些出口算外发），再设计最小可复现用例，最后按结果判断防护边界。你完全可以照这个思路，给课程设计里的日志脱敏、密钥外泄检测模块写一套类似的对抗测试用例，而不是只看官方文档就相信它。",
+   "source": "掘金",
+   "date": "2026-11-06",
+   "cat": "tut",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/安全测试练手",
+   "value": "**教你用最小对抗用例验证一个安全功能到底拦不拦得住，而不是照单全收官方说法。**",
+   "courses": "《信息安全技术》《软件安全测试》：作为安全功能验证与对抗测试的课堂案例",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "官方宣称能拦邮箱外发，实测 4 条命令只拦下 2 条",
+    "用 echo 写 User-Agent 的路径未被拦截，说明防护靠特征匹配",
+    "方法是先定威胁模型再设计最小用例，可复用到任何安全功能验收",
+    "结论：安全特性必须自己写对抗测试，不能只信发布说明"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7704941935269642282"
+  },
+  {
+   "id": "a933",
+   "title": "Cloudflare 让开发者直接看生产环境火焰图，线上 Worker 变慢不再靠猜",
+   "summary": "针对「线上变慢、本地复现不了」的老问题，Cloudflare 把生产环境的性能火焰图直接开放给开发者，可定位真实流量下的热点函数。",
+   "content": "线上 Worker 一慢，本地却怎么都复现不出来——这是后端同学最熟悉的困境。Cloudflare 的做法是把生产环境的火焰图直接开放给开发者看，不用再靠日志猜、靠压测凑。对软件工程专业来说，这条的价值在方法论：性能问题要区分「本地环境差异」和「真实负载差异」，火焰图是定位热点函数最直接的工具，而能看生产火焰图意味着采样开销和权限控制都做过了工程权衡。你在课设里做 Java 或 Node 服务时，可以先用 async-profiler、pprof 在压测环境采火焰图练手，理解「采样—聚合—定位」这条链路，面试聊性能优化时这就是硬通货。",
+   "source": "InfoQ中文",
+   "date": "2026-11-07",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Cloudflare Workers"
+   ],
+   "value": "**性能排查要从「猜日志」升级到「看火焰图」，并且要能看懂生产环境的真实负载。**",
+   "courses": "《软件性能测试》《分布式系统》：作为性能剖析与线上问题定位的案例",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "解决线上慢、本地复现不了的环境差异问题",
+    "生产火焰图直接暴露真实流量下的热点函数",
+    "背后是采样开销与权限控制的工程权衡",
+    "练手路径：本地用 async-profiler / pprof 采火焰图，理解采样—聚合—定位"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/pMNGPheLLJ8hkfikmjUU?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a934",
+   "title": "用 JavaScript 做一个 PDF 分镜生成器：长文档一页页翻的痛点有解了",
+   "summary": "freeCodeCamp 教程手把手用 JavaScript 把长 PDF 转成分镜式缩略预览，适合练前端文件处理与 Canvas 渲染。",
+   "content": "PDF 常用来传方案、脚本、报告，但一页页翻着审阅很费时间。这篇教程用 JavaScript 做一个 PDF 分镜生成器：读取 PDF、抽取每页渲染成缩略图、按网格排布成一张总览图，长文档一眼扫完。技术点很实在——PDF 解析库选型、Canvas 渲染、缩略图尺寸与内存的权衡、大文件分页加载避免卡死。对前端方向的同学，这是能直接写进简历的小项目：把「文件上传—解析—渲染—导出」整条链路走通，比再抄一个 TodoList 有说服力。信息安全的同学也可以反向想：客户端解析 PDF 本身就是攻击面，解析库版本和沙箱策略值得顺手研究。",
+   "source": "freeCodeCamp",
+   "date": "2026-11-06",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript",
+    "Canvas"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个能完整跑通文件处理链路的前端小项目，比重复的 CRUD 更能证明动手能力。**",
+   "courses": "《Web 前端开发》《人机交互》：作为课程设计选题或前端综合练习",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "把长 PDF 每页渲染成缩略图，拼成一张分镜总览图",
+    "涉及 PDF 解析、Canvas 渲染、大文件分页加载与内存权衡",
+    "完整走通上传—解析—渲染—导出链路，适合写进简历",
+    "安全视角可延伸：客户端 PDF 解析是典型攻击面"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Build a PDF Storyboard Generator Using JavaScript",
+   "link": "https://www.freecodecamp.org/news/build-pdf-storyboard-generator-javascript/",
+   "cover": "img/a934.webp"
+  },
+  {
+   "id": "a935",
+   "title": "Ray 教程附录：runtime_env 依赖打包分发，以及 Java/C++ 支持到什么程度",
+   "summary": "Ray 分布式计算教程的附录章节，讲清 runtime_env 用法、依赖打包与分发、Ray Client 与 Jobs API 的取舍，并给出 Java/C++ 支持水平评估。",
+   "content": "想用 Python 写分布式任务又不想自己搭调度，Ray 是常见选择，但真正卡人的往往不是写任务，而是「依赖怎么跟着任务走」。这篇附录讲 runtime_env 的用法：把 pip 包、环境变量、工作目录打包随任务分发，避免每个节点手工装环境；还对比了 ray:// 的现状与替代方案、Ray Client 与 Jobs API 该选哪个。对 Java 方向的同学也有信息量——文中明确评估了 Java 与 C++ 的支持水平，能帮你判断工业软件场景里要不要把 Ray 当调度层。建议在课设里先用 runtime_env 跑一个多节点小任务，体会依赖隔离和版本漂移的坑。",
+   "source": "掘金",
+   "date": "2026-11-07",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Ray",
+    "Python"
+   ],
+   "diff": 3,
+   "scene": "课设/进阶练手",
+   "value": "**分布式任务真正的坑在依赖分发，runtime_env 是绕不开的一课。**",
+   "courses": "《分布式系统》《大数据处理》：作为分布式任务调度与依赖管理的补充实验",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "runtime_env 解决依赖随任务分发、避免节点手工装环境",
+    "对比 Ray Client 与 Jobs API 的适用场景与取舍",
+    "给出 Java/C++ 支持水平的明确评估，便于技术选型",
+    "建议动手跑一个多节点小任务，体会依赖隔离的坑"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7704972916509343763"
+  },
+  {
+   "id": "a936",
+   "title": "大模型进 OT 侧：工业控制场景怎么跨过「幻觉」与「失控」两道坎",
+   "summary": "AICon 议题聚焦大模型在 OT（工业控制）侧落地时的可靠性问题，讨论如何约束模型输出、避免误操作导致产线失控。",
+   "content": "IT 侧大模型答错一句顶多重生成，OT 侧（工业控制、产线设备）一次误动作可能就是停机甚至安全事故。这个议题讨论的正是工业软件方向的核心矛盾：模型有幻觉、有不确定性，而控制指令要求确定、可回滚、可审计。可关注的技术路线包括把模型限制在「建议层」而非「执行层」、输出经规则引擎校验后再下发、全链路留痕以便追溯。对工业软件实验班的同学，这是理解「AI 不能直接接 PLC」这类工程约束的好切口；做课设时若涉及设备控制，务必设计人工确认与回滚机制，这比模型效果更能体现工程素养。",
+   "source": "InfoQ中文",
+   "date": "2026-11-07",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**工业场景里 AI 的第一原则不是聪明，而是可控、可回滚、可审计。**",
+   "courses": "《工业控制与系统》《工业软件工程》：作为 AI 落地工业场景的边界与约束讨论",
+   "tags": [
+    "工业软件",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "OT 侧误动作代价远高于 IT 侧，模型不能直接下发控制指令",
+    "常见做法：模型只做建议层，输出经规则引擎校验后执行",
+    "全链路留痕与可回滚是工业场景的硬要求",
+    "课设涉及设备控制时，人工确认与回滚机制比模型效果更重要"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr?utm_source=rss&utm_medium=article",
+   "cover": "img/a936.webp"
+  },
   {
    "id": "a927",
    "title": "Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一",
@@ -24,7 +193,7 @@
     "前端开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "source map 生成算法替换，CPU 降约 30%、内存降约 1/3",
@@ -3938,172 +4107,6 @@
    "origTitle": "ClawRunr/JavaClaw",
    "link": "https://github.com/ClawRunr/JavaClaw",
    "cover": "img/a813.webp"
-  },
-  {
-   "id": "a814",
-   "title": "Claude Code / Codex 压缩会话时到底丢了什么：一次「进程重启」的工程视角",
-   "summary": "把编码 Agent 的上下文压缩类比为带交接说明的进程重启：写进磁盘的能回来，只在内存里的静默丢失且不报错。",
-   "content": "这篇文章的价值在于给你一个可操作的调试心智模型：Agent 的记忆就是对话本身，压缩 = 进程重启 + 一张交接便签。实践建议：一，在长任务里把关键约束（接口约定、目录结构、命名规范）写进仓库里的文件（如 CLAUDE.md、README、任务清单），而不是只口头告诉它；二，让 Agent 每完成一步就把结论落到文件或提交信息里，形成可恢复的检查点；三，发现它「忘了」前面的约定时，先查是不是被压缩掉了，而不是反复重述。做课设或大作业用 AI 辅助编码时，这套习惯能显著减少返工。",
-   "source": "DEV Community",
-   "date": "2026-10-31",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**掌握 AI 编码助手的上下文边界，避免大作业中途「失忆」返工**",
-   "courses": "《软件工程》课程设计中用于规范 AI 辅助开发流程与文档沉淀",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "压缩=进程重启，只有落盘内容能恢复，内存内容静默丢失",
-    "把接口约定、目录规范写进仓库文件而非只写在对话里",
-    "每步产出落成文件或提交，形成可恢复检查点"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Tell What Claude Code and Codex Forget When They Compact a Session",
-   "link": "https://dev.to/theaicommit/how-to-tell-what-claude-code-and-codex-forget-when-they-compact-a-session-532a",
-   "cover": "img/a814.webp"
-  },
-  {
-   "id": "a815",
-   "title": "Helidon 双轨发布：一边上 JDK 27，一边保 JDK 21",
-   "summary": "Helidon 采用同时支持 JDK 27 与 JDK 21 的双轨发布策略，反映企业 Java 在「追新」与「稳 LTS」之间的现实取舍。",
-   "content": "这条对学 Java 的同学意义在「版本意识」。企业项目普遍停在 LTS（JDK 21），而框架开始适配更新的 JDK 27，于是出现双轨维护。你能直接用的：一，课设和简历项目统一用 JDK 21 LTS，别用非 LTS 版本，避免面试官质疑选型；二，了解 JDK 21 的虚拟线程、record、模式匹配等特性，这是当前 Java 岗位高频考点；三，读框架的双轨策略能理解「向后兼容」在工程上的成本，写技术方案时知道为什么要锁定依赖版本。顺带认识 Helidon 这类云原生微服务框架，和 Spring Boot 做对比。",
-   "source": "InfoQ中文",
-   "date": "2026-10-31",
-   "cat": "industry",
-   "tracks": [
-    "Java"
-   ],
-   "stack": [
-    "Helidon"
-   ],
-   "value": "**帮你建立 Java 版本选型判断力，面试和项目都不踩坑**",
-   "courses": "《Java 程序设计》《企业级应用开发》中结合 JDK 新特性章节理解",
-   "tags": [
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "企业主流仍是 JDK 21 LTS，项目选型优先 LTS",
-    "JDK 21 虚拟线程/record/模式匹配是面试高频点",
-    "理解框架双轨维护背后的兼容成本，写方案会锁版本"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/qRZCxTQbL1CwAUy28Zm8?utm_source=rss&utm_medium=article",
-   "cover": "img/a815.webp"
-  },
-  {
-   "id": "a816",
-   "title": "Sanstun：Rust 写的 sans-IO、易并行的 WireGuard 实现",
-   "summary": "Firezone 开源 Sanstun，把 WireGuard 协议逻辑与 IO 解耦，便于并行化与测试，是读网络协议实现的好样本。",
-   "content": "信息安全与管理专业的同学常觉得 VPN 协议抽象。sans-IO 的意思是：协议状态机只处理字节流进出，不碰 socket，于是可以脱离网络做单元测试、也能塞进任意运行时并行调度。建议路径：一，先补 WireGuard 的握手与密钥轮换流程（Noise 协议框架）；二，读 Sanstun 如何把「收包→状态机→发包」拆开，对照自己《计算机网络》里学的分层；三，用它的测试用例理解如何对协议实现做模糊测试与边界验证。Rust 不熟也没关系，重点是协议工程化的组织方式，写安全类课设（如简易隧道、抓包分析）时可直接借鉴。",
-   "source": "Hacker News",
-   "date": "2026-10-30",
-   "cat": "stack",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Rust",
-    "WireGuard"
-   ],
-   "value": "**用真实开源实现打通「协议理论→可测试工程」的断层**",
-   "courses": "《计算机网络》《密码学与网络安全》中 VPN 与协议实现章节的延伸阅读",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "sans-IO 把协议状态机与网络 IO 解耦，便于测试与并行",
-    "对照 WireGuard 握手/密钥轮换理解 Noise 框架",
-    "协议实现的测试与模糊测试思路可用于安全课设"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Sanstun: A sans-IO, parallel-friendly WireGuard implementation in Rust",
-   "link": "https://www.firezone.dev/blog/introducing-sanstun",
-   "cover": "img/a816.webp"
-  },
-  {
-   "id": "a817",
-   "title": "MCP 与 Claude Code 的安全审计开始有人接单了：AI 工具链也有攻击面",
-   "summary": "有开发者开始提供 Claude Code / MCP 相关的付费安全审计与定制工具服务，说明 AI 工具链的权限与数据流风险已成真实需求。",
-   "content": "MCP 让模型能调用外部工具、读文件、访问数据库，本质是把「权限」交给了一个不确定的执行者。对信息安全方向的同学，这是一块正在成形的新攻防面：工具描述可被注入、返回值可被投毒、凭证可能被越权读取。可落地的练习：一，自己写一个最小 MCP server，梳理它能触达的资源清单，做一次威胁建模；二，在课设里给 AI 调用层加输入校验与最小权限设计；三，把「AI 工具链安全」写进简历项目描述，比泛泛的「了解渗透测试」更有辨识度。注意这类付费服务本身良莠不齐，重点是学方法论而非买服务。",
-   "source": "DEV Community",
-   "date": "2026-10-31",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "value": "**提前占位 AI 工具链安全这一新兴方向，简历更有辨识度**",
-   "courses": "《信息安全管理》《系统安全》课程中结合访问控制与威胁建模练习",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "MCP 把工具权限交给模型，形成提示注入、返回值投毒等新攻击面",
-    "练习：写最小 MCP server 并做威胁建模与最小权限设计",
-    "AI 工具链安全可作为简历差异化方向"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "I'm now taking on paid audits and custom tooling, starting with Claude Code / MCP security",
-   "link": "https://dev.to/stackscribe/im-now-taking-on-paid-audits-and-custom-tooling-starting-with-claude-code-mcp-security-2geh",
-   "cover": "img/a817.webp"
-  },
-  {
-   "id": "a808",
-   "title": "Spring Boot 3 + ShardingSphere-JDBC 实战：一次跑通读写分离与分库分表",
-   "summary": "用 ShardingSphere-JDBC 在 Spring Boot 3 里同时落地读写分离和分库分表，把路由逻辑从业务代码里抽出来。",
-   "content": "单表数据量上来、查询压力顶不住时，手工在业务代码里判断走哪个库、写哪张表，后期维护成本极高。这篇实战用 ShardingSphere-JDBC 作为客户端中间件，配置主从数据源做读写分离，再按分片键配置分表规则，业务代码基本无感知。建议你跟着敲一遍：先本地起 MySQL 主从（或用 Docker 起两个实例模拟），配好 application.yml 里的 sharding 规则，写个订单表按 user_id 取模分片的 demo，再用日志确认 SQL 实际落到哪个库哪张表。做完这个 demo，简历上「分库分表」就不再是空话。",
-   "source": "掘金",
-   "date": "2026-10-30",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "ShardingSphere"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**把「分库分表」从面试背诵变成能跑起来的项目经验**",
-   "courses": "对应《数据库原理》《Java Web 开发》，可作为课程设计的数据层方案",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "读写分离+分库分表一次配通，路由逻辑与业务解耦",
-    "本地用 Docker 起多实例即可复现，无需真实集群",
-    "重点看分片键选择与 SQL 路由日志验证"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702434799856074786"
   }
  ],
  "jobs": [
