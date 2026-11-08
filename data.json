@@ -1,6 +1,167 @@
 {
- "updatedAt": "2026-11-08 20:47",
+ "updatedAt": "2026-11-08 16:34",
  "news": [
+  {
+   "id": "a958",
+   "title": "Agent越用越多，企业为何仍不够AI Native？",
+   "summary": "InfoQ 剖析企业部署大量 Agent 后仍难达 AI Native 的根因：数据、流程与工程化能力缺位，而非模型不够强。",
+   "content": "很多团队以为接几个 Agent 就是 AI Native，实际卡在工程侧：Agent 的上下文管理、工具调用权限、失败重试与可观测性都没做，出问题只能靠人肉兜底。文章从企业落地视角拆解这些断点。对软件工程和信息安全同学来说，这正是练习点——写一个带日志、限流、权限校验的 Agent 调用服务，比调通 API 有价值得多。做课设时把「可观测 + 可回滚」写进设计文档，面试聊 Agent 项目时就是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-09",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**看懂 Agent 落地的工程缺口，就是你的项目选题和面试谈资。**",
+   "courses": "《软件工程》需求与架构设计章节，可把 Agent 服务治理作为课程设计题目。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "企业 AI Native 的瓶颈在工程化，不在模型能力",
+    "Agent 需要可观测性、权限控制、失败重试等基础设施",
+    "适合作为课设/项目练手方向"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YZx670AAiudsqZjx3UNo?utm_source=rss&utm_medium=article",
+   "cover": "img/a958.webp"
+  },
+  {
+   "id": "a959",
+   "title": "DigitalOcean 推出智能体学习与数据服务，让 Agent 能自我迭代",
+   "summary": "云厂商推出面向 Agent 的学习与数据服务，支持智能体基于运行数据自我改进，是 Agent 工程化的基础设施信号。",
+   "content": "Agent 从「一次性调用」走向「持续迭代」，需要把运行轨迹、反馈数据存下来并回流训练或调优，这类服务正是在补这块基础设施。对本科生而言，不必追具体产品，但要理解这个模式：日志与数据管道是 Agent 系统的核心组件。做课程项目时，可以给聊天/问答类 Agent 加一层「对话记录落库 + 效果标注」的简单闭环，用 SQLite 或 MySQL 就够，展示你懂数据回流，比单纯堆功能更能体现工程思维。",
+   "source": "InfoQ中文",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**理解 Agent 的数据回流闭环，课设里加一层日志与标注就领先同学。**",
+   "courses": "《数据库原理》与《软件工程》，用数据表设计承载 Agent 运行记录。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Agent 自我迭代依赖运行数据回流",
+    "数据管道与日志是 Agent 系统核心组件",
+    "可用轻量数据库在课设中实现反馈闭环"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/upfROwtEl8R75H24D13J?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a960",
+   "title": "AI 生成视频为何总要「抽卡」：返工与成本难题拆解",
+   "summary": "InfoQ 分析 AI 视频生成的高返工率与成本结构，指出可控性和一致性是当前工程难点。",
+   "content": "生成视频「抽卡」的本质是模型输出不可控，一次不满意就要重来，算力和时间成本翻倍。文章从工程角度讨论如何降低返工。这对软件工程学生有直接启发：任何调用生成式模型的功能，都要设计「结果校验 + 重试 + 缓存」链路，而不是直接把模型输出丢给用户。做毕设或课设里的图像/视频生成模块时，加一个结果质量打分和失败重试策略，既省成本又能写进论文的工程实现章节。",
+   "source": "InfoQ中文",
+   "date": "2026-11-08",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI生成"
+   ],
+   "value": "**把「校验+重试+缓存」写进你的生成式功能设计，成本和分数都省下来。**",
+   "courses": "《软件工程》质量保证与《人工智能导论》，用于讨论生成式系统的工程约束。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "生成式模型输出不可控导致高返工成本",
+    "工程上需要结果校验、重试与缓存机制",
+    "可作为毕设工程实现部分的亮点"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/xd9o6TyQ8GLON3dmiWpG?utm_source=rss&utm_medium=article",
+   "cover": "img/a960.webp"
+  },
+  {
+   "id": "a961",
+   "title": "混元研发体系重构与 MaaS 推理优化：模型能力如何进真实业务",
+   "summary": "InfoQ 分享大模型研发体系重构与 MaaS 推理优化的工程实践，聚焦模型落地业务的性能与成本。",
+   "content": "模型能力再强，进业务也要过推理延迟、吞吐和成本这三关。文章讲的是研发体系与 MaaS 推理优化，属于典型的后端工程问题：批处理、缓存、量化、弹性扩缩容。对 Java/通用开发方向的同学，这类内容对应的是「高并发服务设计」能力。课设里如果做模型调用服务，试着加请求合并与结果缓存，用压测工具对比优化前后的 QPS，写进报告就是实打实的性能优化案例，求职时比背八股更有说服力。",
+   "source": "InfoQ中文",
+   "date": "2026-11-06",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "MaaS"
+   ],
+   "value": "**推理优化就是后端性能题，压测前后对比写进课设报告最实在。**",
+   "courses": "《计算机网络》与《软件工程》性能测试章节，结合压测工具做优化实验。",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "模型落地业务的关键是推理性能与成本",
+    "涉及批处理、缓存、量化、弹性扩缩容",
+    "可用压测对比做性能优化课设"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/azhgYaRTIjsSSVfA8AaU?utm_source=rss&utm_medium=article",
+   "cover": "img/a961.webp"
+  },
+  {
+   "id": "a962",
+   "title": "Claude Code 团队工程师离职后首次受访：顶尖 AI 实验室的人才虹吸",
+   "summary": "一位 Claude Code 团队工程师离职后首次受访，谈顶尖 AI 实验室的人才集中现象与开发者工具团队的真实工作。",
+   "content": "这条的价值不在八卦，而在于它透露了 AI 编程工具团队怎么做事：工具链、评测、与模型团队的协作方式。对软件工程学生，值得关注的是「AI 编程工具正在重塑开发流程」这一趋势——你未来写代码大概率是人和 Agent 协作。建议现在就把 AI 编程助手用进日常作业，练习写清晰的提示与验收标准，而不是让它替你思考。求职时能讲清楚「我如何用 AI 工具提效并保证代码质量」，是当下很吃香的能力。",
+   "source": "InfoQ中文",
+   "date": "2026-11-08",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI编程"
+   ],
+   "value": "**提前练好「人+AI 协作写代码」，是现在最划算的求职准备。**",
+   "courses": "《程序设计基础》课程作业中实践 AI 辅助编码与代码审查。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "AI 编程工具团队的工作方式值得了解",
+    "人机协作写代码正在成为常态",
+    "练习用 AI 助手提效并保证代码质量"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Qs0pJ5M43c56hdozHiR0?utm_source=rss&utm_medium=article",
+   "cover": "img/a962.webp"
+  },
   {
    "id": "a953",
    "title": "Agent 重复扣钱事故复盘：LangGraph checkpoint 救不了你，三句 SQL 补上步骤日志",
@@ -25,7 +186,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "checkpoint 保存的是图状态，不保证外部副作用只执行一次",
@@ -3954,210 +4115,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/9OhgYkwYlPYgTbAvWlGz?utm_source=rss&utm_medium=article",
    "cover": "img/a843.webp"
-  },
-  {
-   "id": "a844",
-   "title": "Agent 时代算力账本变了：CPU 重新回到 AI 服务器主桌",
-   "summary": "AI 算力采购从只堆加速卡，转向加速卡加均衡 CPU 的整机柜配置。",
-   "content": "这条对工业软件和系统方向的同学有实际意义：Agent 类负载的特点是大量调度、工具调用、状态管理，这些跑在 CPU 上，GPU 只负责重计算。结果就是服务器配置逻辑从「买卡」变成「配机柜」，CPU 与内存配比重新被重视。你不必会买服务器，但要理解这个结构——做本地部署实验、写资源调度模拟、或者面试被问「为什么 Agent 场景 CPU 不能省」时，能讲清「调度密集 vs 计算密集」的区别就够了。",
-   "source": "钛媒体",
-   "date": "2026-11-01",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "value": "**理解「调度密集 vs 计算密集」，是判断算力配置和做性能优化的底层常识。**",
-   "courses": "《计算机组成原理》与《操作系统》资源调度部分可对照理解",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "Agent 负载调度密集，CPU 不再是配角",
-    "采购逻辑从单卡转向整机柜均衡配置",
-    "面试常问：什么负载该给 CPU、什么该给 GPU"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8189082.html"
-  },
-  {
-   "id": "a845",
-   "title": "Claude 暗改 Harness 禁止逆向游戏，紧急叫停",
-   "summary": "Claude 被发现会在回答后执行用户不可见的附加指令，用于限制逆向等行为，随后紧急调整。",
-   "content": "这事对信息安全方向是很好的讨论素材：模型侧在客户端之外偷偷加了一层「你看不到的指令」，本质是策略执行点放在了用户不可控的位置。做安全分析时可以顺着问三个问题——这层指令存在哪、能不能被观测、出问题谁负责。延伸到你自己写 Agent 应用：任何隐式行为都应该有日志和可审计记录，否则调试和合规都是黑洞。课堂上讲访问控制与审计日志时，这就是个新鲜的现实案例。",
-   "source": "量子位",
-   "date": "2026-11-01",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**任何用户看不见的自动行为，都必须有日志可审计，这是安全设计的底线。**",
-   "courses": "《信息安全导论》访问控制与审计章节的现实案例",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "模型侧存在用户不可见的附加指令层",
-    "安全视角：策略执行点、可观测性、责任归属",
-    "自建 Agent 要给隐式行为留审计日志"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/507038.html"
-  },
-  {
-   "id": "a836",
-   "title": "开源 Rust 差分工具 OmniDiff：25 种语言代码+图片/PDF 秒级对比",
-   "summary": "OmniDiff 用 Rust 实现的内容感知 Git difftool，支持 25 种编程语言及配置、图片、PDF、压缩包等格式，速度可处理数万行 C++ 文件。",
-   "content": "日常 git diff 碰到二进制文件、图片或大文件就抓瞎，OmniDiff 把这些场景统一了：代码按语法结构做内容感知对比，图片、PDF、字体、压缩包也能给出可读差异，底层用 Rust 保证速度。对软件工程同学最直接的用法是把它配成 git difftool，课设里改前端样式图、对比实验数据文件、review 工业软件生成的配置文件都能用上。建议先 clone 下来跑一遍 README 的示例，再写进自己的 .gitconfig，顺手读一下它的 diff 算法实现，比只看教程更能理解「内容感知」到底省了什么。",
-   "source": "Hacker News",
-   "date": "2026-11-01",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust",
-    "Git"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**把 git diff 从只能看文本升级到能看图片和二进制，课设协作时少踩坑**",
-   "courses": "《软件工程》版本控制实践、《程序设计》课程设计中的代码评审环节",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Rust 编写，支持 25 种语言代码 + 图片/PDF/压缩包等二进制格式",
-    "可配置为 git difftool，替代默认 diff 查看器",
-    "大文件性能好，适合对比生成的配置文件与资源文件"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Show HN: OmniDiff – Opensource, super fast, content aware Git difftool, in Rust",
-   "link": "https://github.com/ivankovic/omnidiff"
-  },
-  {
-   "id": "a837",
-   "title": "SQL 查询从近 2 小时压到 30 秒：一篇可复用的性能优化实践",
-   "summary": "InfoQ 技术实践复盘了一次 SQL 查询优化全过程，把耗时近两小时的查询降到 30 秒，涉及执行计划分析与索引/改写策略。",
-   "content": "这类文章的价值不在结论而在排查路径：先看执行计划找出全表扫描和错误的连接顺序，再判断是加索引、改写子查询还是调整分页逻辑。对信息安全与软件工程的同学都实用——课设里做的管理系统一旦数据量上去就会卡，面试也常被问「慢查询怎么定位」。建议边读边在自己 MySQL 里用 EXPLAIN 复现：造一张十万行的表，写一条带子查询的统计 SQL，按文中思路逐步优化并记录每步耗时。这套「先测量再改」的习惯，比背索引八股有用得多。",
-   "source": "InfoQ中文",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "SQL",
-    "MySQL"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**学会用执行计划定位慢查询，课设不卡、面试能讲清楚优化过程**",
-   "courses": "《数据库原理与应用》中的查询优化与索引章节，可直接作为课设性能调优参考",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "核心方法是先读执行计划定位瓶颈，再针对性加索引或改写 SQL",
-    "适合有基本 SQL 基础、做过课程设计管理系统的同学",
-    "可本地造数据复现，形成自己的慢查询排查清单"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/adFNTX7Qiy7yYIGEmTlk?utm_source=rss&utm_medium=article",
-   "cover": "img/a837.webp"
-  },
-  {
-   "id": "a838",
-   "title": "AI 能读懂二进制了，逆向与软件供应链安全怎么变",
-   "summary": "InfoQ 讨论 AI 直接分析二进制文件的能力进展，以及它对闭源软件保护和逆向工程的影响。",
-   "content": "对信息安全与管理专业来说，这是个明确的技能信号：二进制分析的门槛在下降，过去要靠 IDA 手工啃的活，现在可以用 AI 辅助做函数识别、字符串与调用关系梳理。这不代表逆向不用学，而是「会用工具提效 + 能判断 AI 输出对不对」变成新的分水岭。建议结合《逆向工程》或 CTF 中的 crackme 题目练手：先用传统工具跑一遍，再让 AI 辅助分析同一段二进制，对比两者结论差异，记录 AI 在哪些地方会编造。这种验证习惯在安全岗位面试里是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-11-01",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "求职准备",
-   "value": "**提前建立「AI 辅助逆向 + 人工验证」的工作方式，安全岗面试有话说**",
-   "courses": "《逆向工程》《网络攻防》课程中的二进制分析实验，可作为方法补充",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "AI 辅助二进制分析降低逆向入门门槛，但结论需人工验证",
-    "关系到闭源软件保护与软件供应链安全评估",
-    "可用 CTF crackme 题目做传统工具与 AI 的对比实验"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/8mCjWWFLdjDA2vb51QZs?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "wk-20261102",
-   "title": "【AI风向标周报】第1期（11.02-11.08）",
-   "summary": "本周精选：Vue 编译器换掉 source m、JeecgBoot V3.9.6 发等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一\n   学会用 DevTools 量化构建性能，比背优化八股更有说服力。\n   原文：https://juejin.cn/post/7704923158558867510\n2. JeecgBoot V3.9.6 发布：一次修67个安全漏洞，越权、SQL注入、RCE全在列\n   把一次开源版本更新变成Web安全漏洞的活教材，越权与注入类问题一次看全。\n   原文：https://www.oschina.net/news/503401\n3. Claude Code「不再询问」配置泄露口令：1122 个公开 GitHub 文件中招\n   把「AI 智能体」纳入威胁建模，是信安方向最贴近当下的一课\n   原文：https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again\n4. Anthropic 零 Rust 经验团队用 Claude 重构核心 API：CPU 省 40%、延迟降 20%\n   学会用「测试基线+小步验证」驾驭 AI 重构，比会写 Rust 更值钱\n   原文：https://www.infoq.cn/article/IMWM7ZXDi99sMiUVZBIF\n5. Linux内核被OpenAI挖出948个漏洞，120万美元的AI审计值不值？\n   看懂AI漏洞挖掘的真实工程链路，把「系统安全」课的知识变成可写进简历的实战经验。\n   原文：https://www.qbitai.com/2026/11/507697.html\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. Lightpanda：Zig 写的 AI 专用无头浏览器，内存省 16 倍、速度快 9 倍\n   低配机器也能批量跑自动化采集，是爬虫与巡检脚本的省资源替代品\n   获取：https://juejin.cn/post/7703778159313584162\n2. SpringBoot 多环境配置踩坑实录：生产库连成测试库的凌晨事故\n   照着真实事故自查一遍配置，比背八股更能防线上翻车\n   获取：https://juejin.cn/post/7703776235935416320\n3. Agent 重复扣钱事故复盘：LangGraph checkpoint 救不了你，三句 SQL 补上步骤日志\n   学会给 Agent 加幂等步骤日志，避免重跑造成重复扣款这类生产事故。\n   获取：https://juejin.cn/post/7705396726358114346\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-11-08",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一",
-    "精选岗位 Top0：—",
-    "实用工具 Top3：Lightpanda：Zig 写的 AI 专用无头浏览器，内存省 16 倍、速度快 9 倍"
-   ],
-   "link": "",
-   "cover": "img/a869.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-11-02",
-    "end": "2026-11-08",
-    "news": [
-     "a927",
-     "a898",
-     "a948",
-     "a869",
-     "a897"
-    ],
-    "jobs": [],
-    "tools": [
-     "a871",
-     "a870",
-     "a953"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
