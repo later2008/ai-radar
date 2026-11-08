@@ -1,6 +1,186 @@
 {
- "updatedAt": "2026-11-08 03:31",
+ "updatedAt": "2026-11-08 20:47",
  "news": [
+  {
+   "id": "a953",
+   "title": "Agent 重复扣钱事故复盘：LangGraph checkpoint 救不了你，三句 SQL 补上步骤日志",
+   "summary": "一次真实事故：Agent 崩在第 4 步，重跑后给用户发了两次退款。作者分析 LangGraph checkpoint 的盲区，并用三句 SQL 实现幂等步骤日志。",
+   "content": "这篇复盘值得每个写过 Agent 调用的同学读一遍。问题不在模型，而在「执行副作用」：checkpoint 记录的是图状态，不是外部动作是否已发生，所以重跑就会重复退款、重复发消息、重复下单。作者的解法很朴素——在业务库里建一张步骤日志表，以 (任务ID, 步骤名) 做唯一键，执行前先 INSERT 抢占，冲突就跳过。三句 SQL 解决幂等，比引入复杂框架更靠谱。你在课设里写「调用支付/发邮件/写数据库」这类不可回滚操作时，先想清楚：重试一次会发生什么？",
+   "source": "掘金",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LangGraph",
+    "SQL"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会给 Agent 加幂等步骤日志，避免重跑造成重复扣款这类生产事故。**",
+   "courses": "《数据库原理》唯一约束与事务 + 《软件工程》可靠性设计，可直接用于毕业设计",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "checkpoint 保存的是图状态，不保证外部副作用只执行一次",
+    "用唯一键步骤日志表实现幂等，执行前先抢占",
+    "凡是支付、通知、写库等不可回滚操作都要考虑重跑",
+    "三句 SQL 的轻量方案，比堆框架更适合课设规模"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7705396726358114346"
+  },
+  {
+   "id": "a954",
+   "title": "租户隔离做了四层还不够：工程师提醒要能「看见」边界是否真的生效",
+   "summary": "多租户系统做了四层隔离仍可能失效，关键在于可观测性——你得能验证边界确实在起作用，而不是假设它在。",
+   "content": "多租户隔离是 SaaS 和云平台的经典安全题，也是信息安全专业面试高频考点。文章的核心观点很实用：隔离层数不等于隔离有效，缺少验证手段时，一条配置写错、一个缓存 key 没带租户 ID，数据就串了。工程做法是把「租户 ID 是否贯穿请求链路」变成可观测指标：日志、trace、缓存 key 规范、越权访问告警。做课设时如果你的系统有多个用户角色，别只写个 where 条件就完事，试着加一条越权访问的自动化测试用例，答辩时是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "多租户",
+    "可观测性"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把「隔离是否生效」变成可观测、可测试的指标，而不是靠假设。**",
+   "courses": "《信息安全技术》访问控制 + 《数据库原理》，可用于安全课程设计",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "隔离层数多 ≠ 隔离有效，缺验证手段等于没做",
+    "租户 ID 要贯穿请求、缓存 key、日志与 trace",
+    "把越权访问做成可告警的指标和自动化测试",
+    "多角色课设加一条越权测试用例，答辩加分"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/zTFVgklcTFZvgE2fkV7A?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a955",
+   "title": "Agent 怎么知道一个后台任务「跑完了」？读代码是读不出来的",
+   "summary": "Agent 能读到「成功分支」的代码，却无法回答昨天的批处理到底跑没跑完——状态必须来自运行时，而不是源码。",
+   "content": "很典型的一个认知陷阱：Agent 读你的数据质量作业代码，看到写成功结果的那个分支，就以为任务成功了。但代码描述的是「应该发生什么」，不是「实际发生了什么」。正确做法是把任务状态外化：任务表记录 started/finished/failed 与时间戳、心跳，Agent 通过查询状态接口而不是读源码来判断。这对做工业软件方向的同学尤其相关——产线批处理、数据同步、报表生成都是长任务，状态机 + 心跳 + 超时判定是标配。写课设时给定时任务加一张 job_run 表，成本很低，收益很大。",
+   "source": "DEV Community",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "任务调度"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**让 Agent 判断任务完成，靠运行时状态表而不是读源码。**",
+   "courses": "《操作系统》进程状态 + 《软件工程》系统设计，可用于工业软件实验班课设",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "源码描述「应该发生什么」，不描述「实际发生了什么」",
+    "用任务状态表 + 心跳 + 超时判定回答「跑完没有」",
+    "长任务场景（数据同步、批处理）必备状态机设计",
+    "课设里加一张 job_run 表，成本低收益高"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "A Job Started. How Would an Agent Know It Finished?",
+   "link": "https://dev.to/lorry_zhang_6c8c50ea513c3/a-job-started-how-would-an-agent-know-it-finished-52lb",
+   "cover": "img/a955.webp"
+  },
+  {
+   "id": "a956",
+   "title": "Agent 记忆格式该有 OpenTelemetry 时刻了：别让记忆锁死在某家框架里",
+   "summary": "作者主张为 Agent 记忆定义开放格式，像 OpenTelemetry 统一可观测性那样，让记忆数据可迁移、可审计。",
+   "content": "现在各家 Agent 框架的记忆实现五花八门，换框架等于记忆清零，排查问题时也说不清模型「记得什么、为什么记得」。文章类比 OpenTelemetry：先有开放的 schema（记忆条目、来源、时间、置信度、作用域），才有跨工具的可迁移与可审计。对学生的实际意义：设计自己的 Agent 小项目时，别把记忆直接塞进某个框架的私有结构，用一个简单的 JSON/SQLite schema 存「内容+来源+时间+是否有效」，将来换模型、换框架都不用重写。这也是简历上能讲清楚的设计取舍。",
+   "source": "Hacker News",
+   "date": "2026-11-08",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "OpenTelemetry",
+    "SQLite"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**用开放 schema 存 Agent 记忆，避免被单一框架绑死。**",
+   "courses": "《数据库原理》数据建模，可用于 AI 应用类课程设计",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "记忆锁死在框架私有结构里，换框架就清零",
+    "参考 OpenTelemetry：先定开放 schema 再谈工具",
+    "记忆条目至少带内容、来源、时间、有效性",
+    "小项目用 SQLite/JSON 自管记忆，迁移成本低"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Agent memory needs its OpenTelemetry moment",
+   "link": "https://www.lorekit.io/blog/open-agent-memory-format"
+  },
+  {
+   "id": "a957",
+   "title": "用 Python 重写 MCP 长轮询：Claude Code 与 Codex 之间怎么传消息",
+   "summary": "作者用 Python 复刻 osFoundry 的 wait_for_messages 长轮询端点，讲清 MCP 公共端点如何让两个编码 Agent 互相通信。",
+   "content": "想搞懂 MCP 到底怎么工作，看协议文档不如看一个能跑的接收端实现。这篇用 Python 重写长轮询 wait_for_messages：客户端挂起请求，服务端有消息就返回、超时就空返回再重连，避免高频轮询打爆接口。涉及 MCP 的 tools/list 声明、HTTP 长连接超时设置、消息队列的简单实现。适合已经会写 Flask/FastAPI 的同学动手复刻一遍，理解「Agent 之间怎么对话」这件事的底层其实很朴素。做完可以写进简历的 AI 工具链项目里。",
+   "source": "DEV Community",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**动手复刻一遍 MCP 长轮询，真正搞懂 Agent 间通信机制。**",
+   "courses": "《计算机网络》HTTP 与长连接 + 《Python 程序设计》，可用于课程设计",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "长轮询 = 挂起请求 + 超时空返回 + 重连，替代高频轮询",
+    "涉及 MCP tools/list 声明与 HTTP 超时配置",
+    "用 Python 复刻接收端，比读协议文档更直观",
+    "适合作为 AI 工具链方向的简历项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python",
+   "link": "https://dev.to/bbt-id/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-dan-codex-4amg",
+   "cover": "img/a957.webp"
+  },
   {
    "id": "a948",
    "title": "Claude Code「不再询问」配置泄露口令：1122 个公开 GitHub 文件中招",
@@ -26,7 +206,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "AI 编程智能体的「不再询问」授权会扩大文件读取范围",
@@ -3937,168 +4117,47 @@
    "link": "https://www.infoq.cn/article/8mCjWWFLdjDA2vb51QZs?utm_source=rss&utm_medium=article"
   },
   {
-   "id": "a839",
-   "title": "Agent 删掉一行「过期」注释，却删掉了隐含的不变量",
-   "summary": "一篇开发复盘：AI Agent 在清理代码时判定某行注释冗余并删除，测试全绿，但该注释实际记录着代码必须满足的不变量。",
-   "content": "这个故事对写代码和用 AI 改代码的人都是提醒：注释分两类，一类描述「做了什么」（代码自解释后确实冗余），一类记录「为什么必须这样」（不变量、踩过的坑、业务约束），后者删了测试也发现不了。软件工程课设里如果你让 AI 帮忙重构，务必先自己标注哪些注释是约束性的。实操建议：在团队规范里约定约束性注释统一加 `INVARIANT:` 或 `WHY:` 前缀，review 时重点看这类注释有没有被动过。这比空谈「AI 不可靠」具体得多，也能直接写进课设的代码规范文档。",
-   "source": "DEV Community",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**学会保护记录不变量的注释，用 AI 重构代码时不埋暗雷**",
-   "courses": "《软件工程》代码规范与代码评审环节，可作为团队约定直接落地",
+   "id": "wk-20261102",
+   "title": "【AI风向标周报】第1期（11.02-11.08）",
+   "summary": "本周精选：Vue 编译器换掉 source m、JeecgBoot V3.9.6 发等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一\n   学会用 DevTools 量化构建性能，比背优化八股更有说服力。\n   原文：https://juejin.cn/post/7704923158558867510\n2. JeecgBoot V3.9.6 发布：一次修67个安全漏洞，越权、SQL注入、RCE全在列\n   把一次开源版本更新变成Web安全漏洞的活教材，越权与注入类问题一次看全。\n   原文：https://www.oschina.net/news/503401\n3. Claude Code「不再询问」配置泄露口令：1122 个公开 GitHub 文件中招\n   把「AI 智能体」纳入威胁建模，是信安方向最贴近当下的一课\n   原文：https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again\n4. Anthropic 零 Rust 经验团队用 Claude 重构核心 API：CPU 省 40%、延迟降 20%\n   学会用「测试基线+小步验证」驾驭 AI 重构，比会写 Rust 更值钱\n   原文：https://www.infoq.cn/article/IMWM7ZXDi99sMiUVZBIF\n5. Linux内核被OpenAI挖出948个漏洞，120万美元的AI审计值不值？\n   看懂AI漏洞挖掘的真实工程链路，把「系统安全」课的知识变成可写进简历的实战经验。\n   原文：https://www.qbitai.com/2026/11/507697.html\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. Lightpanda：Zig 写的 AI 专用无头浏览器，内存省 16 倍、速度快 9 倍\n   低配机器也能批量跑自动化采集，是爬虫与巡检脚本的省资源替代品\n   获取：https://juejin.cn/post/7703778159313584162\n2. SpringBoot 多环境配置踩坑实录：生产库连成测试库的凌晨事故\n   照着真实事故自查一遍配置，比背八股更能防线上翻车\n   获取：https://juejin.cn/post/7703776235935416320\n3. Agent 重复扣钱事故复盘：LangGraph checkpoint 救不了你，三句 SQL 补上步骤日志\n   学会给 Agent 加幂等步骤日志，避免重跑造成重复扣款这类生产事故。\n   获取：https://juejin.cn/post/7705396726358114346\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
+   "source": "AI风向标·编辑部",
+   "date": "2026-11-08",
+   "cat": "weekly",
    "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "区分描述性注释与约束性注释，后者删除后测试无法发现",
-    "给约束性注释加统一前缀，便于 review 时保护",
-    "用 AI 重构前先人工标注不可删的注释"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "The Comment the Agent Called Stale Was Holding an Invariant",
-   "link": "https://dev.to/jeff_pdc/the-comment-the-agent-called-stale-was-holding-an-invariant-3pcj",
-   "cover": "img/a839.webp"
-  },
-  {
-   "id": "a840",
-   "title": "移动身份系统的密码学底座：ISO/IEC 18013-5 架构解读",
-   "summary": "InfoQ 解析 ISO/IEC 18013-5 移动驾驶证标准背后的密码学机制与企业架构设计。",
-   "content": "手机里的电子身份证、数字驾照背后就是这类标准：基于公钥基础设施做持有者绑定、用会话密钥保证出示过程不可重放。信息安全专业的同学如果只学过对称/非对称加密的概念，这篇能把它们串成一条真实工程链路。建议对照《密码学》或《应用密码学》课程，把文中涉及的签名、密钥协商、证书链画成一张时序图，再想想「如果中间人截获出示请求会怎样」。做课设时若涉及登录鉴权，也可以借鉴它的「最小信息披露」思路，而不是一股脑把用户信息全传过去。",
-   "source": "InfoQ中文",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**把课本密码学串成真实身份系统链路，鉴权课设有据可依**",
-   "courses": "《密码学》《信息安全技术》中的公钥基础设施与身份认证章节",
-   "tags": [
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "讲清移动身份凭证的持有者绑定、密钥协商与证书链",
-    "适合学过密码学基础、想了解工业级落地的同学",
-    "可画时序图并分析中间人攻击面，作为课设鉴权设计参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/9aUBUMmhC4s5mEJgXHDL?utm_source=rss&utm_medium=article",
-   "cover": "img/a840.webp"
-  },
-  {
-   "id": "a830",
-   "title": "DeepSeek 公开 Super Agent 架构：跨会话保留上下文、多任务不再受人的注意力限制",
-   "summary": "DeepSeek Harness 团队发布《Super-agent 设计探索》，提出打破 Agent 与单次手动会话绑定，让 Agent 跨会话保持上下文并支持团队级多任务协作。",
-   "content": "做课设时你可能用过「一问一答」式 Agent：关掉窗口，上下文全丢，多任务全靠人脑记。DeepSeek 这篇架构文章的核心就是解绑：Agent 不再绑定单次会话，而是持久保存上下文、可被并行调度，从而把「多任务上限取决于人的注意力」变成「取决于系统调度」。对软件工程学生，这直接对应你写过的会话管理、状态持久化、任务队列——只是把对象从 Web 用户换成 Agent。建议读原文后，用 Spring Boot 或 Node 写一个最小「跨会话记忆 + 任务队列」demo，比空谈 Agent 有用得多。",
-   "source": "极客公园",
-   "date": "2026-11-01",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**读懂主流 Agent 架构的工程取舍，把「记忆+调度」落到自己的课设里**",
-   "courses": "《软件工程》《分布式系统》——课程设计里做多轮会话与任务调度模块",
-   "tags": [
+    "周报汇总",
+    "求职就业",
     "AI工具",
-    "通用开发",
     "行业动态"
    ],
    "featured": false,
-   "heat": 82,
+   "heat": 99,
    "brief": [
-    "Agent 与单次会话解绑，上下文跨会话持久化",
-    "多任务由系统调度而非人的注意力兜底",
-    "可用现有会话管理/任务队列知识复刻最小 demo"
+    "精选资讯 Top5：Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一",
+    "精选岗位 Top0：—",
+    "实用工具 Top3：Lightpanda：Zig 写的 AI 专用无头浏览器，内存省 16 倍、速度快 9 倍"
    ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/373243",
-   "cover": "img/a830.webp"
-  },
-  {
-   "id": "a831",
-   "title": "MiniToolDesk v1.0：纯前端离线开发者工具箱，敏感数据不出本机",
-   "summary": "一个全站纯客户端计算的开发者工具集合，断网可用，已上架 Chrome 与 Edge 扩展商店，主打无广告、不上传数据。",
-   "content": "在线 JSON 格式化、Base64 解码、时间戳转换这类小工具，很多人随手搜一个网页就用——但粘贴进去的可能是生产配置、密钥、日志。MiniToolDesk 的思路是全部在浏览器本地算，断网也能跑。对信息安全与管理专业，这是一个现成的「数据不出端」案例：你可以打开 DevTools 的 Network 面板验证它是否真的零请求，作为《Web 安全》或《数据安全》课的实证素材。对前端方向，它也是练手范本：纯前端、无后端、可打包成浏览器扩展，课设做「内部工具站」时可以直接借鉴架构。",
-   "source": "开源中国",
-   "date": "2026-10-31",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "Chrome Extension"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**既是可用的离线工具箱，也是「敏感数据不出端」的现成安全教学样本**",
-   "courses": "《Web 安全》《Web 前端开发》——验证客户端零外发、练习扩展开发",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "纯客户端计算，断网可用，无后端上传",
-    "可用 Network 面板验证零外发请求",
-    "适合作为浏览器扩展/内部工具站的前端练手项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503324"
-  },
-  {
-   "id": "a832",
-   "title": "一个 436 词的静态页加载 263KB JS，四分之一是从没打开过的实时客户端",
-   "summary": "作者拆解自家站点：预渲染的静态问答页仍打包了大量用不到的 JS，其中约四分之一是永不启用的实时通信客户端。",
-   "content": "这篇是典型的「性能审计复盘」，方法比结论更值钱：打开 DevTools 的 Coverage 面板，看哪些 JS 下载了却从未执行；再用打包分析看依赖树，找出被顺手 import 进来的重库。文中那个实时客户端很可能只是某处顶层 import 了 SDK，导致整包进主 chunk——解法是动态 import 或路由级代码分割。前端方向的同学，把这条流程套到自己课设的首页上跑一遍，通常能砍掉一半体积；面试聊「首屏优化」时，有真实数字比背概念强得多。",
-   "source": "DEV Community",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一套可复用的前端体积审计流程，直接产出可写进简历的优化数据**",
-   "courses": "《Web 前端开发》——课程项目首屏性能优化实践",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "用 Coverage 面板找「下载了但没执行」的 JS",
-    "重库改动态 import 或路由级分割",
-    "拿自己课设首页做一次真实瘦身，量化前后体积"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "A 436-word static page on our site downloads 263 KB of JavaScript, and a quarter of it is a realtime client we never open",
-   "link": "https://dev.to/daniel_pertu/a-436-word-static-page-on-our-site-downloads-263-kb-of-javascript-and-a-quarter-of-it-is-a-3him",
-   "cover": "img/a832.webp"
+   "link": "",
+   "cover": "img/a869.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-11-02",
+    "end": "2026-11-08",
+    "news": [
+     "a927",
+     "a898",
+     "a948",
+     "a869",
+     "a897"
+    ],
+    "jobs": [],
+    "tools": [
+     "a871",
+     "a870",
+     "a953"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [
