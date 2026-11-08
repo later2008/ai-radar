@@ -1,6 +1,188 @@
 {
- "updatedAt": "2026-11-07 16:10",
+ "updatedAt": "2026-11-08 03:31",
  "news": [
+  {
+   "id": "a948",
+   "title": "Claude Code「不再询问」配置泄露口令：1122 个公开 GitHub 文件中招",
+   "summary": "安全厂商 Apiiro 统计发现，Claude Code 的「Don't Ask Again」授权选项让密钥、口令被写进 1122 个公开 GitHub 文件，AI 编程智能体的权限边界成为新的泄露面。",
+   "content": "用 AI 编程助手时，为了少点几次确认，很多人会勾选「不再询问」，让它直接读文件、跑命令。问题在于：智能体读过的 .env、配置文件、连接串，可能随调试日志或生成的脚本一起被提交到公开仓库。Apiiro 的统计是 1122 个公开文件。对信息安全专业的同学，这是一份现成的威胁建模素材：把「AI 智能体」当成一个拥有文件系统权限的新主体，重新做一遍最小权限、敏感信息识别和提交前扫描。动手建议：在本地仓库装 gitleaks 或 trufflehog 做 pre-commit 钩子，再给智能体单独配置只读工作目录，观察它到底会碰哪些文件。",
+   "source": "Hacker News",
+   "date": "2026-11-07",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code",
+    "gitleaks"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI 智能体」纳入威胁建模，是信安方向最贴近当下的一课**",
+   "courses": "《信息安全技术》/《安全开发》课程设计：做一次 AI 工具链的密钥泄露复现与防护方案",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "AI 编程智能体的「不再询问」授权会扩大文件读取范围",
+    "泄露路径：调试日志、生成脚本、误提交的 .env 与配置",
+    "可用 gitleaks/trufflehog 做 pre-commit 密钥扫描",
+    "给智能体配置独立只读工作目录，落实最小权限"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+   "link": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
+  },
+  {
+   "id": "a949",
+   "title": "Cordonix 0.4.1：用 C11 写的本地 MCP 执行与文件工作区工具",
+   "summary": "开源工具 Cordonix（cdx）发布 0.4.1，用 C11 实现、跨 Windows/Linux，通过 MCP 向 AI 编程智能体提供本地程序执行、文件读写、编码转换与内存编辑能力。",
+   "content": "MCP（Model Context Protocol）正在成为「AI 客户端 ↔ 本地能力」的事实接口。Cordonix 值得看的地方不在功能多，而在于它是一个小而完整的 C11 实现：协议解析、进程调用、文件工作区、错误提示都在一个仓库里。想搞懂 MCP 到底怎么把一次工具调用变成一次本地进程执行，读它的源码比读文档快。0.4.1 主要修了安装后的版本更新体验、补全全部 MCP 工具的参数说明、让文件创建失败提示更准确——这三点恰好是「工具描述写不好，模型就不会用」的典型例子。练手路径：本地编译跑通，接一个 MCP 客户端，自己加一个工具并写清参数 schema。",
+   "source": "开源中国",
+   "date": "2026-11-07",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "C11",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**想搞懂 MCP 协议怎么落地，读一个 C11 小实现比看十篇文档快**",
+   "courses": "《C 语言程序设计》/《系统编程》课程设计：编译并扩展一个 MCP 工具",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "C11 实现、支持 Windows/Linux，源码可读性强",
+    "通过 MCP 暴露本地执行、文件读写、编码转换、内存编辑",
+    "0.4.1 重点补全 MCP 工具参数说明，直接影响模型调用成功率",
+    "适合作为理解 MCP 协议与工具描述设计的入门样本"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503467"
+  },
+  {
+   "id": "a950",
+   "title": "自动路由省钱吗？InfoQ：便宜模型出错，人工返工一小时更贵",
+   "summary": "InfoQ 文章讨论 LLM 自动路由的成本账：把简单请求分给便宜模型看似降本，但一旦出错，人工排查与返工的时间成本往往超过省下的调用费。",
+   "content": "做 AI 应用时，「按难度选模型」是很自然的优化思路：简单问题走小模型，复杂问题走大模型。这篇文章提醒的是账要算全：token 费用只是分子，分母是返工。一个便宜模型给出的错误代码、错误 SQL、错误结论，人要去定位、验证、重写，一小时的人力成本远超那点差价。对软件工程的同学，这直接对应系统设计里的一个决策点：路由策略要配可观测性——记录每次路由的模型、置信度、下游是否被人工修正，用数据决定阈值，而不是拍脑袋。课程项目里如果做了 LLM 调用，建议顺手加一层「低置信度自动升级到强模型」的兜底。",
+   "source": "InfoQ中文",
+   "date": "2026-11-08",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做 AI 功能时，路由策略要配可观测性，否则省的钱会被返工吃掉**",
+   "courses": "《软件工程》/《系统分析与设计》：在课程项目的 LLM 调用层设计降级与兜底策略",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "自动路由的隐性成本是人工排查与返工时间",
+    "需要记录路由决策、置信度、人工修正率才能调阈值",
+    "工程做法：低置信度请求自动升级到强模型兜底",
+    "成本评估要算总账，不能只看 token 单价"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/gOcDmZM2MPAQhWtNb6IJ?utm_source=rss&utm_medium=article",
+   "cover": "img/a950.webp"
+  },
+  {
+   "id": "a951",
+   "title": "AI 购物 Agent 读不懂你的商品页？结构化数据才是入口",
+   "summary": "DEV 文章用一个「找防水黑色越野跑鞋、100 美元内、有货可退」的例子说明：商品页对人友好、对 AI 智能体不友好，缺少结构化字段时 Agent 无法可靠筛选。",
+   "content": "用户让 AI 助手找鞋，条件有尺码、防水、价格上限、库存、可退货——这些在页面上是图片、文案和零散标签，Agent 抓不到就只能瞎猜。文章的核心结论很实用：让页面被智能体「读懂」，靠的是结构化数据（schema.org 的 Product/Offer、明确的库存与退货字段、可解析的价格与尺码），而不是再写一段更华丽的描述。对前端方向的同学，这是一个新的验收维度：页面除了人看得爽，还要机器读得准。动手做：给一个商品页补 JSON-LD，用结构化数据测试工具校验，再让 LLM 按给定条件筛选，对比补数据前后的准确率。",
+   "source": "DEV Community",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "JSON-LD",
+    "schema.org"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**给页面补结构化数据，是让 AI Agent 真正用上你网站的最低成本手段**",
+   "courses": "《Web 前端开发》：在课程作业的商品页中加入 JSON-LD 并用校验工具验证",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Agent 抓不到图片与散落文案里的尺码、库存、退货条件",
+    "解法是结构化数据：schema.org Product/Offer + JSON-LD",
+    "前端新增验收维度：页面要同时对人友好和对机器可解析",
+    "可用补 JSON-LD 前后对比，量化筛选准确率提升"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Can an AI Shopping Agent Actually Understand Your Product Page?",
+   "link": "https://dev.to/thesqb/can-an-ai-shopping-agent-actually-understand-your-product-page-640",
+   "cover": "img/a951.webp"
+  },
+  {
+   "id": "a952",
+   "title": "Ontology 与 AI 自迭代：约束怎么变成可执行的规则",
+   "summary": "InfoQ/AICon 北京议题分享把本体（Ontology）用在 AI 自迭代流程中：先用领域本体把约束显式化，再让模型在约束内迭代，而不是靠提示词反复叮嘱。",
+   "content": "「让 AI 自己改自己」听起来玄，工程上落点其实很朴素：把业务约束从自然语言提示词里抽出来，写成机器可校验的结构——实体、关系、允许的操作、必须满足的规则，这就是本体。有了它，模型每次产出都能被自动检查，不满足就回退重试，迭代才有收敛的可能。对工业软件方向尤其对口：设备、工序、物料之间的关系本来就是本体式的，把它显式建模后，既能给 AI 用，也能给传统规则引擎用。课程项目可试：选一个你熟悉的小领域（如实验室设备借用），写一版本体 + 校验函数，再让 LLM 在约束内生成操作方案。",
+   "source": "InfoQ中文",
+   "date": "2026-11-08",
+   "cat": "tut",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Ontology"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**把约束写成可校验的本体，是让 AI 输出可控的前提**",
+   "courses": "《数据库原理》/《软件建模》：用本体建模替代部分 ER 设计并加自动校验",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "本体把业务约束从提示词变成可机器校验的结构",
+    "自迭代需要自动校验 + 回退重试才能收敛",
+    "工业软件场景天然适合本体建模：设备、工序、物料关系",
+    "小项目可先写本体与校验函数，再让模型在约束内生成方案"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/sy9XMK3zJ3jPwHBN5fQV?utm_source=rss&utm_medium=article",
+   "cover": "img/a952.webp"
+  },
   {
    "id": "a944",
    "title": "企业级Agent从「办公提效」走向「对经营结果负责」：Service Agent 成新赛道",
@@ -23,7 +205,7 @@
     "求职就业",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "企业级 Agent 分化为办公提效与经营结果两条赛道",
@@ -3917,183 +4099,6 @@
    "origTitle": "A 436-word static page on our site downloads 263 KB of JavaScript, and a quarter of it is a realtime client we never open",
    "link": "https://dev.to/daniel_pertu/a-436-word-static-page-on-our-site-downloads-263-kb-of-javascript-and-a-quarter-of-it-is-a-3him",
    "cover": "img/a832.webp"
-  },
-  {
-   "id": "a833",
-   "title": "把 Step Functions 工作流包装成 AI Agent 可调用的工具：AgentCore Gateway 实践",
-   "summary": "AWS 官方系列文章，演示如何通过 AgentCore Gateway 将既有 Step Functions 编排暴露为 Agent 工具，让存量业务逻辑被大模型调用。",
-   "content": "企业里大量业务逻辑已经写成工作流编排，重写不现实。这篇的思路是加一层 Gateway，把工作流注册成 Agent 能调用的「工具」，由模型决定何时触发。对软件工程（含工业软件实验班）的同学，这对应一个很实际的场景：产线排程、质检流程已经用工作流引擎跑着，想让 AI 助手去查状态、发起任务，而不是推倒重来。建议重点看它的工具描述 schema 和鉴权设计——这是把内部系统暴露给模型时最容易出安全问题的地方，也正好接上信息安全方向的知识。",
-   "source": "DEV Community",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "AWS"
-   ],
-   "diff": 3,
-   "scene": "求职准备",
-   "value": "**学会用网关把存量业务系统安全地接进 Agent，是企业落地的关键一环**",
-   "courses": "《软件体系结构》《工业软件系统集成》——系统集成与接口设计",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "存量工作流无需重写，经 Gateway 注册为 Agent 工具",
-    "关注工具描述 schema 与鉴权边界",
-    "可映射到工业场景的排程/质检流程接入"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Turning a Step Functions workflow into AI agent tools through AgentCore Gateway",
-   "link": "https://dev.to/aws-builders/turning-a-step-functions-workflow-into-ai-agent-tools-through-agentcore-gateway-4ld7",
-   "cover": "img/a833.webp"
-  },
-  {
-   "id": "a834",
-   "title": "不同 JS 框架的「AI 成本」对比：框架选择如何影响 AI 编码效果",
-   "summary": "Nolan Lawson 撰文讨论 JS 框架对 AI 辅助编码成本与效果的影响，HN 上引发 60 多条讨论。",
-   "content": "同一个需求，用不同前端框架让 AI 生成，返工率、token 消耗、调试时间差别不小——原因通常是框架的约定是否清晰、训练语料是否充足、报错信息是否可读。这篇文章值得前端方向同学在选课设技术栈时读一遍：如果你打算全程用 AI 辅助写代码，选一个「AI 熟悉、约定明确」的框架，能省下大量来回改的时间。读的时候别只看结论，注意作者的对比方法，自己也可以拿两个框架各跑一个相同页面做小实验，这本身就是个不错的简历项目。",
-   "source": "Hacker News",
-   "date": "2026-11-01",
-   "cat": "industry",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript"
-   ],
-   "value": "**把「AI 辅助友好度」变成技术选型的一个显式维度**",
-   "courses": "《Web 前端开发》——课设技术选型论证",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "框架约定清晰度与语料丰富度影响 AI 生成质量",
-    "选型时把「AI 辅助友好度」纳入考量",
-    "可自建小实验：同需求两框架对比返工率"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "The AI cost of JavaScript frameworks",
-   "link": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
-   "cover": "img/a834.webp"
-  },
-  {
-   "id": "a835",
-   "title": "动态表增量刷新：复用已有计算结果，做性能与成本双优化",
-   "summary": "InfoQ 技术实践，讲动态表增量刷新如何通过复用历史计算结果，减少全量重算带来的算力与存储开销。",
-   "content": "增量刷新是数据链路里的经典问题：源表只变了几行，却要全量重算，成本全浪费在重复劳动上。文章的核心是「复用已有计算结果」——识别变更范围、只重算受影响分区、维护中间结果。对工业软件实验班的同学，这和产线数据看板、设备状态汇总表的刷新逻辑是同一类问题；对通用开发方向，也是理解「缓存失效策略」的好案例。建议读完后用一张小表手动推演一次增量与全量的差异，比只看结论扎实。",
-   "source": "InfoQ中文",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "数据工程"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**掌握增量计算思路，数据类与工业数据场景都用得上**",
-   "courses": "《数据库系统》《大数据处理》——增量计算与缓存失效",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "只重算受影响分区，避免全量重算",
-    "核心是变更识别 + 中间结果复用",
-    "可映射到产线看板、设备汇总表的刷新场景"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/xCFDK8KZvvDY5V1R0fqM?utm_source=rss&utm_medium=article",
-   "cover": "img/a835.webp"
-  },
-  {
-   "id": "a824",
-   "title": "DeepSeek开源Super-Agent底座架构：Agent能跨会话保持上下文、自己找Bug提PR",
-   "summary": "DeepSeek Harness团队开源Super-Agent设计，打破Agent与单次手动会话的绑定，支持多任务并行与团队协作，官方演示中AI已能自主定位Bug并提交PR。",
-   "content": "现有Agent大多绑死在一次会话里，多任务上限取决于人的注意力。DeepSeek这次给出的思路是让Agent跨会话保持上下文、可被并行调度。对软件工程学生来说，这是理解「Agent工程化」的好样本：重点不在调API，而在会话状态管理、任务队列、工具调用编排这些你课上学过的系统设计问题。建议对照开源代码看它的上下文存储与调度层，再拿自己的课设做个小改造——比如让一个Agent同时跑「查日志」和「跑单测」两条任务线。工业软件实验班可关注它如何把长流程任务拆解成可回滚步骤。",
-   "source": "量子位",
-   "date": "2026-10-31",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent",
-    "DeepSeek"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**读懂Agent工程化的调度与状态管理，比会调API更值钱**",
-   "courses": "《软件体系结构》课程设计可参考其会话状态与任务调度分层",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "Agent从单次会话升级为常驻服务，需解决上下文持久化",
-    "多任务调度是核心工程难点，不是模型能力问题",
-    "官方演示AI自主定位Bug并提PR，可作代码审查助手参考",
-    "适合作为《软件体系结构》《AI应用开发》课程案例"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/10/506904.html",
-   "cover": "img/a824.webp"
-  },
-  {
-   "id": "a825",
-   "title": "用SKILL.md给团队写一个「前端Review」Agent Skill，模板可直接拷进仓库",
-   "summary": "Agent Skills已捐给AAIF，文章演示如何用一份SKILL.md把前端Review固化为改动范围、类型检查、Lint、危险禁区四类规则。",
-   "content": "与其写万字Prompt，不如把Review规则沉淀成可复用的Skill文件。这篇给出的是工程化做法：SKILL.md里声明检查项——改动范围是否越界、tsc类型检查、ESLint规则、以及禁止触碰的危险代码区。对前端方向的同学，这正好对应《Web前端开发》里的工程化环节：你可以在自己毕设仓库里加一个skills/目录，让AI按固定清单Review PR，避免它泛泛而谈。信息安全专业可借鉴同一思路写「依赖漏洞扫描」Skill。注意Skill本质是结构化配置，规则写不清AI照样漏检，考验的是你对规范的掌握。",
-   "source": "掘金",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent Skills",
-    "ESLint"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把前端规范写成可执行的Skill，是简历上少见的工程化亮点**",
-   "courses": "《Web前端开发》课程项目可直接落地为PR自动检查",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "SKILL.md把Review规则结构化，替代长Prompt",
-    "四类检查：改动范围、类型检查、Lint、危险禁区",
-    "模板可直接复制进个人或团队仓库",
-    "规则质量取决于你对前端规范的掌握程度"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702637146160201770"
   }
  ],
  "jobs": [
