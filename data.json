@@ -1,6 +1,287 @@
 {
- "updatedAt": "2026-11-08 18:20",
+ "updatedAt": "2026-11-09 03:48",
  "news": [
+  {
+   "id": "a968",
+   "title": "Linux 被 AI 挖出 400+ root 提权：2.5 小时一个零日，逆向几周才看懂一个",
+   "summary": "AI 漏洞挖掘工具在 Linux 内核上高频产出零日漏洞，400 多个 root 提权问题，人类逆向分析速度远远跟不上。",
+   "content": "这条对信息安全与管理专业的同学是「行业级案例课」。核心信息不是「AI 很猛」，而是攻防节奏被彻底改写：漏洞发现从「人月」压缩到「小时」，但验证、复现、写补丁、评估影响仍然靠人，逆向一个漏洞要几周。对你要做的三件事：一是把《操作系统》《Linux 内核》学扎实，否则连漏洞描述都读不懂；二是练 fuzzing 与漏洞复现流程（syzkaller、QEMU 起内核、gdb 跟栈），这是当前安全岗最缺的实操能力；三是理解「AI 产出必须人工验证」这条工程铁律，写进你的漏洞报告模板里。",
+   "source": "InfoQ中文",
+   "date": "2026-11-09",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "Linux",
+    "Fuzzing"
+   ],
+   "value": "**看懂 AI 时代的攻防节奏，把内核漏洞复现能力变成你的求职硬通货。**",
+   "courses": "《操作系统》《网络攻防》——把内核漏洞复现当作课程实验的延伸项目",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "AI 漏洞挖掘把发现速度拉到 2.5 小时/零日，人工验证成为瓶颈",
+    "400+ root 提权说明内核攻击面巨大，内核安全是硬技能",
+    "安全岗真正稀缺的是「能复现、能定级、能写补丁」的人",
+    "建议练 syzkaller + QEMU 内核调试的完整复现链路"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR?utm_source=rss&utm_medium=article",
+   "cover": "img/a968.webp"
+  },
+  {
+   "id": "a969",
+   "title": "积木报表一次修 32 个安全漏洞：低代码报表组件的供应链风险长什么样",
+   "summary": "JimuReport/JimuBI 两个月内修复 32 个安全漏洞并加固 5 项，官方要求全部用户升级到 2.5.6.1。",
+   "content": "这是给信息安全专业的一份「真实漏洞公告读法」样本。要点：低代码/报表类组件常被直接嵌进企业后台，一旦有漏洞就是批量失守；这次是「已知公告全部清零」，说明此前积压严重。你该做的：第一，学会读厂商安全公告，提取影响版本、利用条件、修复版本三要素；第二，用 Maven/Gradle 依赖树（mvn dependency:tree）扫自己课设项目里有没有 JimuReport 这类组件；第三，把「第三方组件版本管理」写进你的项目 README——面试官很吃这套。软件工程同学也别跳过：你引的每个依赖都是攻击面。",
+   "source": "开源中国",
+   "date": "2026-11-08",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "Java",
+    "Maven"
+   ],
+   "value": "**学会读漏洞公告并自查依赖，把「供应链安全」变成简历上的具体动作。**",
+   "courses": "《软件工程》《信息安全技术》——课设依赖审计可直接作为课程报告章节",
+   "tags": [
+    "信息安全",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "低代码报表组件常被嵌入企业后台，漏洞影响面是批量的",
+    "读公告抓三要素：影响版本、利用条件、修复版本",
+    "用 mvn dependency:tree 自查课设项目的第三方依赖",
+    "供应链安全是软工与信安共同的基本功"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503472"
+  },
+  {
+   "id": "a970",
+   "title": "Java 近期资讯合集：JDK 28 日程、Oracle 关键补丁、Apache POI 与 WildFly 更新",
+   "summary": "一期汇总 JDK 28 发布节奏、Oracle 关键补丁更新（CPU）、Apache POI、WildFly、Azul 与 BellSoft 等生态动态。",
+   "content": "别被「资讯合集」四个字劝退，这条对 Java 方向的同学是低成本的信息同步。三个可执行点：一，JDK 28 日程意味着你该关注新版本的语言特性演进，课程设计里用 Java 17/21 是安全选择，但要知道升级路径；二，Oracle 关键补丁更新（CPU）是季度安全窗口，企业项目排期会围绕它走，面试聊「你怎么做依赖升级」时这是加分细节；三，Apache POI 是课设里做 Excel 导入导出最常用的库，注意版本与已知问题。建议养成每季度扫一次这类合集的习惯，比刷短视频有效。",
+   "source": "InfoQ中文",
+   "date": "2026-11-09",
+   "cat": "industry",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "value": "**用十分钟完成一次 Java 生态同步，知道该升什么、什么时候升。**",
+   "courses": "《Java 程序设计》《企业级开发》——版本与依赖管理直接用于课程项目",
+   "tags": [
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "JDK 28 日程公布，了解 Java 版本演进节奏",
+    "Oracle 季度关键补丁（CPU）是企业升级窗口",
+    "Apache POI 是课设 Excel 导入导出的常用库，注意版本",
+    "把「季度依赖巡检」变成个人习惯"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/w8RTJSY44DJJy97uagQr?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a971",
+   "title": "Jync v2.0.0 升级到 Spring Boot 4.1：javax 全面迁 jakarta，Java 17+ 仍可用",
+   "summary": "开源项目 Jync 完成 Spring Boot 4.1.2 升级，涉及 Spring Framework 7、Security 7.1、Hibernate 7.4、Jackson 3，javax.* 全量迁移到 jakarta.*。",
+   "content": "这是一个可以直接抄的「大版本升级清单」。对你有什么用：Spring Boot 3 之后 javax→jakarta 的迁移是每个 Java 项目迟早要踩的坑，这份升级说明把连带影响列全了——Spring Framework 7、Security 7.1、Hibernate 7.4、Tomcat 11、Jackson 3、Lettuce 7，还强调配置文件与 JDBC 驱动不用改。做法建议：拿你自己的课设项目做一次「假升级」演练，用 OpenRewrite 或 IDE 全局替换跑一遍 javax 包，记录编译报错清单，写成一篇博客。这个动作在面试里比「熟悉 Spring Boot」有说服力得多。",
+   "source": "开源中国",
+   "date": "2026-11-08",
+   "cat": "stack",
+   "tracks": [
+    "Java"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Jakarta EE"
+   ],
+   "value": "**把一次真实的大版本迁移演练，变成你 Java 简历上的具体项目经验。**",
+   "courses": "《Java Web 开发》《企业级应用开发》——课设项目可直接做迁移实验",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "Spring Boot 4.x 升级的连带依赖清单可直接参考",
+    "javax.* → jakarta.* 是必踩的迁移坑，早练早省事",
+    "用课设项目做一次升级演练并记录报错清单",
+    "升级经验写成博客，是 Java 岗面试的差异化素材"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503470"
+  },
+  {
+   "id": "a972",
+   "title": "KetchUp：用 Rust + WebGPU 写的开源 SketchUp 替代品",
+   "summary": "一个浏览器里跑的开源三维建模工具，技术栈是 Rust 编译到 WASM 加 WebGPU 渲染。",
+   "content": "这条对工业软件实验班的同学价值最直接：它演示了「CAD/建模类桌面软件搬到浏览器」的完整技术路线——Rust → WebAssembly 负责几何与性能敏感逻辑，WebGPU 负责渲染管线。你可以做三件事：一，打开在线 demo 体验交互，对照 SketchUp 想清楚哪些功能是刚需；二，读它的仓库结构，看几何内核、渲染层、UI 层怎么分层，这是工业软件架构的入门样本；三，如果做课设，可以基于 WebGPU 写一个最小可用的网格渲染器（画一个可旋转的立方体起步）。前端方向的同学也能借它理解 WebGPU 与 Canvas 的差别。",
+   "source": "Hacker News",
+   "date": "2026-11-08",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "前端"
+   ],
+   "stack": [
+    "Rust",
+    "WebGPU"
+   ],
+   "diff": 3,
+   "scene": "课设/练手/简历加分",
+   "value": "**用开源三维建模工具，把「工业软件 + WebGPU」从概念变成能上手的技术路线。**",
+   "courses": "《计算机图形学》《工业软件概论》——渲染管线与软件架构的实感案例",
+   "tags": [
+    "工业软件",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Rust + WASM + WebGPU 是浏览器端三维软件的主流技术组合",
+    "适合作为工业软件架构分层的阅读样本",
+    "课设可从最小 WebGPU 网格渲染器起步",
+    "前端同学可借此理解 WebGPU 渲染管线"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+   "link": "https://ketchup3d.github.io/app/",
+   "cover": "img/a972.webp"
+  },
+  {
+   "id": "a973",
+   "title": "腾讯轻量云 LoopForge：多 Agent 编排怎么从「能写代码」走到「能交付」",
+   "summary": "分享多 Agent 编排在真实交付场景中的工程实践，重点在任务拆解、执行约束与结果验收。",
+   "content": "别把它当纯架构演讲看，抓三个对你有用的点：一，「能写代码」和「能交付」的差距在于验收——Agent 产出必须有过测试、过 lint、可回滚的闭环，这正好对应你课设里该写的 CI 流程；二，多 Agent 编排本质是任务分解 + 上下文管理，和你做模块化设计是同一套思维；三，如果你在简历里写「用过 AI 编程工具」，面试官会追问「你怎么保证产出质量」，这篇给了标准答法：约束前置、结果可验证、失败可回退。建议拿自己的课设跑一遍：让 AI 生成代码，你负责写测试和验收清单。",
+   "source": "InfoQ中文",
+   "date": "2026-11-09",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "value": "**学会给 AI 产出加验收闭环，这是「会用 AI」和「能交付」的分水岭。**",
+   "courses": "《软件工程》——需求分解与验收标准可直接用于课程项目",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "「能交付」的关键是验收闭环：测试、lint、可回滚",
+    "多 Agent 编排 = 任务分解 + 上下文管理，与模块化设计同源",
+    "面试被问 AI 编程质量时，用「约束前置 + 结果可验证」作答",
+    "课设里补一份验收清单，比堆功能更能体现工程素养"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/wUArox9MHiAoyWPgRxpp?utm_source=rss&utm_medium=article",
+   "cover": "img/a973.webp"
+  },
+  {
+   "id": "a974",
+   "title": "CopilotKit/OpenBot：给每个 AI 同事一台「电脑」，动作先决策后记录（10.5k★）",
+   "summary": "开源 AI coworker 框架，每个 Agent 拥有浏览器、文件与工具，所有动作执行前决策、执行后留痕，支持接入任意 AG-UI Agent。",
+   "content": "1 万星的 TypeScript 项目，值得前端和通用开发方向的同学动手跑一遍。它的设计要点很实用：Agent 拥有独立的浏览器与文件沙箱，动作「先决策、后记录」——这其实就是可审计的 Agent 运行时，思路和信安里的操作日志一脉相承。上手路径：clone 仓库 → 按 README 起本地服务 → 接一个自己的 AG-UI Agent → 观察它的动作日志格式。做完你能讲清楚「Agent 的权限边界怎么划、日志怎么留」，这在做 AI 相关课设和面试时都是硬内容。注意它是工程框架，不是玩具 demo，读代码比跑 demo 收获大。",
+   "source": "GitHub",
+   "date": "2026-11-09",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**亲手跑一个可审计的 Agent 框架，把「AI 应用开发」落到代码层面。**",
+   "courses": "《Web 前端开发》《软件工程》——可作为课程项目的 Agent 底座",
+   "tags": [
+    "AI工具",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "Agent 拥有独立浏览器/文件沙箱，动作先决策后记录",
+    "「可审计的 Agent 运行时」与安全审计思路同源",
+    "上手路径：起服务 → 接自己的 Agent → 读动作日志",
+    "适合作为 AI 应用类课设的工程底座"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "CopilotKit/OpenBot",
+   "link": "https://github.com/CopilotKit/OpenBot",
+   "cover": "img/a974.webp"
+  },
+  {
+   "id": "a975",
+   "title": "microsoft/TypeAgent：微软开源的「个人 Agent + 应用 Agent」架构样例",
+   "summary": "微软放出的示例代码，探索用语言模型构建个人 Agent，并让它调度各类应用 Agent 协作。",
+   "content": "752 星但含金量在「架构」二字——这是微软给的参考实现，不是产品。对你有用的地方：它示范了个人 Agent 如何把请求路由到不同应用 Agent（类似工具调用 + 意图分发的组合），以及 TypeScript 下怎么组织这套结构。适合谁：做过一两个前端项目、想往 AI 应用方向靠的同学。建议做法是只读关键目录——意图解析、Agent 注册、调用分发三块，画出时序图写进笔记。别一上来就想跑通全流程，样例代码依赖多、文档偏薄，读架构比跑通更划算。",
+   "source": "GitHub",
+   "date": "2026-11-09",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "TypeScript",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**借微软的参考架构，搞懂个人 Agent 如何调度多个应用 Agent。**",
+   "courses": "《软件体系结构》《Web 前端开发》——架构阅读作业的现成素材",
+   "tags": [
+    "AI工具",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "微软官方示例，价值在架构而非开箱即用",
+    "重点读三块：意图解析、Agent 注册、调用分发",
+    "适合有前端基础、想转 AI 应用方向的同学",
+    "读架构画时序图，比强行跑通更有收获"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "microsoft/TypeAgent",
+   "link": "https://github.com/microsoft/TypeAgent",
+   "cover": "img/a975.webp"
+  },
   {
    "id": "a963",
    "title": "用 Rust 给终端阅读器加鼠标：ratatui 命中检测与事件分发实战",
@@ -24,7 +305,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "命中检测：屏幕坐标到组件的映射思路",
@@ -3850,265 +4131,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503343"
-  },
-  {
-   "id": "a853",
-   "title": "Java 项目用 Go 重构成 ApiGoo：SQL2API 平台的迁移账本",
-   "summary": "开源 SQL2API 平台 ApiGo 用 Go（Gin + database/sql）重写为 ApiGoo，作者公开对比了重构前后的性能与工程差异。",
-   "content": "ApiGo 是一个「在线写 SQL 就能发布 REST 接口」的开源平台，Java 版基于 Spring Boot 4 + MyBatis，把十几种数据库的 JDBC 驱动全打进一个 fat jar。Go 版 ApiGoo 换成 Gin + database/sql，走插件化数据源。这篇文章的价值不在结论，而在过程：它把「为什么换语言、哪些地方变简单、哪些地方变麻烦」摊开讲。软件工程专业的同学可以拿它当架构对比的阅读材料——同一份需求，Spring Boot 的分层与依赖注入 vs Go 的显式组合，各自代价是什么。工业软件实验班做数据采集/接口层时，这类「SQL 直出接口」的思路也很实用。建议对照两个仓库的目录结构读，别只看性能数字。",
-   "source": "开源中国",
-   "date": "2026-11-02",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Go"
-   ],
-   "value": "**借一次真实重构，理解 Java 分层架构与 Go 显式组合的取舍**",
-   "courses": "《Java Web 开发》《软件体系结构》：作为架构对比与重构案例写进课程报告",
-   "tags": [
-    "Java全栈",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "同一产品的 Java 版与 Go 版源码可对照阅读",
-    "涉及多数据源插件化、JDBC 驱动打包等工程细节",
-    "适合作为架构选型/重构类课程报告的案例"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503342"
-  },
-  {
-   "id": "a854",
-   "title": "C++ Web 框架 Paozhu 1.17.4 加入 OAuth2.1 与 JWT 模块",
-   "summary": "国产 C++ Web 框架 Paozhu 发布 1.17.4，新增 OAuth2.1 服务端/客户端、JWT 模块和 GitHub 授权客户端，并修复 ORM。",
-   "content": "Paozhu 是一个一体化的 C++ Web 开发框架，支持多域名虚拟主机、WebSocket、MQTT 等。这次更新补上了 OAuth2.1 server/client 和 JWT——也就是「第三方登录 + 令牌鉴权」这套现代 Web 必备能力，还顺手给了 GitHub 授权客户端。对工业软件实验班的同学，C++ 写服务端不是主流但很常见于设备侧/边缘侧；如果你在做课程设计里需要「设备上报数据 + Web 端查看」，Paozhu 的 MQTT + WebSocket 组合能省掉自己拼协议。信息安全方向可以重点看它的 JWT 实现，对照 RFC 检查签名算法、过期校验有没有踩坑，这本身就是一次代码审计练习。",
-   "source": "开源中国",
-   "date": "2026-11-02",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "C++"
-   ],
-   "diff": 3,
-   "scene": "课设/练手",
-   "value": "**用 C++ 框架补齐 OAuth2.1/JWT 实践，顺带做一次鉴权代码审计**",
-   "courses": "《C++ 程序设计》《Web 安全》：课程设计中实现设备数据上报接口并审查 JWT 校验逻辑",
-   "tags": [
-    "工业软件",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "C++ 一体化 Web 框架，含 ORM、WebSocket、MQTT",
-    "新增 OAuth2.1 与 JWT，可练鉴权流程与令牌安全",
-    "适合设备侧/边缘侧的数据上报与展示场景"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503335"
-  },
-  {
-   "id": "a855",
-   "title": "Astro 入门：默认少发 JavaScript 的静态站点框架",
-   "summary": "面向初学者的 Astro 教程，讲清它「默认输出静态 HTML、按需水合组件」的思路与上手路径。",
-   "content": "大多数前端框架即使渲染一篇纯文字页面，也会往浏览器塞一大包 JS。Astro 反过来：先把页面渲染成静态 HTML，只有真正需要交互的组件才单独「水合」加载 JS。这篇入门文从项目初始化讲到组件写法，门槛不高。对软件工程专业的前端方向同学，它的实际用途很明确：个人简历站、课程项目文档站、实验室主页这类「内容为主、交互很少」的页面，用 Astro 比上 React 全家桶省事得多，构建产物小、部署到静态托管即可。建议拿它重做一次你的个人主页，把构建前后的产物体积对比截图放进简历，比空写「熟悉前端框架」有说服力。",
-   "source": "DEV Community",
-   "date": "2026-11-02",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Astro"
-   ],
-   "diff": 1,
-   "scene": "练手/简历加分",
-   "value": "**用 Astro 重做个人主页，用产物体积对比证明你的前端工程意识**",
-   "courses": "《Web 前端开发》：课程作业页面可用 Astro 实现并对比构建产物",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "默认零 JS 输出，交互组件按需水合",
-    "适合简历站、文档站等以内容为主的页面",
-    "可与 React/Vue 组件混用，学习成本低"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Astro for Beginners: Build Fast Websites With Less JavaScript",
-   "link": "https://dev.to/arhan_khan/astro-for-beginners-build-fast-websites-with-less-javascript-57bj",
-   "cover": "img/a855.webp"
-  },
-  {
-   "id": "a856",
-   "title": "别再迷信 Agent 的自主性：企业落地 AI 的真实约束",
-   "summary": "InfoQ 文章讨论企业 AI 落地中「Agent 自主性」被高估的问题，指出工具之外还有权限、流程与责任边界。",
-   "content": "这篇文章的核心观点值得软件工程和信息安全两个专业一起读：Agent 能调用工具，不等于可以放手让它自己决定做什么。企业真正卡住的地方往往不是模型能力，而是权限边界、操作审计、出错谁负责。对信息安全与管理专业，这直接对应「最小权限原则」和「操作留痕」——你以后做系统设计，给 AI 的账号该开多大权限、哪些动作必须人工确认，是要写进方案的。对开发方向，它提醒你别把业务逻辑藏进 Prompt 里，该用代码约束的用代码约束。读的时候带着一个问题：如果这个 Agent 是我写的，出事了日志能不能还原它每一步做了什么？",
-   "source": "InfoQ中文",
-   "date": "2026-11-02",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**把「AI 权限与审计」提前装进你的系统设计思维里**",
-   "courses": "《信息安全导论》《软件工程》：系统设计作业中补充 AI 调用方的权限与日志方案",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "讨论 Agent 在企业中的权限、审计与责任边界",
-    "对应最小权限原则与操作留痕设计",
-    "可作为系统设计类课程论文的论点来源"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/UMvAAwoFByxvWLLVVJYY?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a846",
-   "title": "Spring Boot 3 + Spring AI 1.x：一个 starter 接入 9 家大模型",
-   "summary": "用统一的 starter 封装 9 家主流大模型接入，避免为每家厂商重复写一套调用代码。",
-   "content": "做课设或毕设时，如果产品要求「先接 A 家、下周换 B 家」，直接在业务代码里写死 SDK 调用，后面每换一家都要改一遍。这篇把大模型接入抽成独立的一层：Spring Boot 3.x + Spring AI 1.x，一个 starter 统一配置 baseUrl、apiKey、模型名，业务侧只依赖 ChatClient 接口。对软件工程专业的同学来说，这是典型的「面向接口编程 + 配置外置」练习，比堆业务逻辑更能体现工程能力。建议动手时先跑通一家，再把另外几家作为配置项加进去，顺便体会自动装配（AutoConfiguration）是怎么生效的。",
-   "source": "掘金",
-   "date": "2026-11-01",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Spring AI"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「换模型不改业务代码」的工程习惯练到手，比会调某一家 API 值钱得多。**",
-   "courses": "《Java Web 开发》《软件体系结构》：作为分层设计与配置外置的实战案例。",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "一个 starter 统一 9 家大模型的接入配置",
-    "业务代码只依赖 ChatClient 接口，换厂商不改业务",
-    "可顺带学习 Spring Boot 自动装配原理",
-    "适合作为毕设/课设的 AI 能力底座"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7702736770073133091"
-  },
-  {
-   "id": "a847",
-   "title": "TornadoVM 7 发布：Java 代码直接跑 GPU 原生负载",
-   "summary": "TornadoVM 7 支持 Java 应用把计算密集任务卸载到 GPU，无需改写为 CUDA。",
-   "content": "TornadoVM 是跑在 OpenJDK 上的并行编程框架，通过注解把 Java 方法标记为可加速任务，运行时自动编译到 GPU/FPGA 后端。第 7 版强化了原生 GPU 工作负载支持。对工业软件实验班的同学，这直接对应「用 Java 写数值计算、又不想被 C++/CUDA 绑死」的场景——比如仿真、图像处理、矩阵运算类课设。上手建议：先拿一个双层 for 循环的矩阵乘法做对比，测 CPU 与 GPU 后端的耗时差，理解数据传输开销为什么常常吃掉加速比。注意它要求特定 JDK 版本和显卡驱动，环境配置本身就要花时间。",
-   "source": "InfoQ中文",
-   "date": "2026-11-02",
-   "cat": "tool",
-   "tracks": [
-    "Java",
-    "工业软件"
-   ],
-   "stack": [
-    "TornadoVM",
-    "OpenJDK"
-   ],
-   "diff": 3,
-   "scene": "课设/练手",
-   "value": "**给 Java 补上高性能计算这块短板，工业软件方向的差异化技能。**",
-   "courses": "《高性能计算》《Java 程序设计》：用于并行计算与异构加速的对比实验。",
-   "tags": [
-    "Java全栈",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "Java 方法加注解即可卸载到 GPU 执行",
-    "适合矩阵运算、仿真、图像处理等计算密集场景",
-    "务必实测数据传输开销对加速比的影响",
-    "环境依赖特定 JDK 与 GPU 驱动，配置成本不低"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/X8cwbyO4O3tS1jTTdtBq?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a848",
-   "title": "思科让 27 岁工程师用无限 tokens 重写 98% 遗留代码",
-   "summary": "思科给一名年轻工程师开放无限 AI tokens，目标 24 个月内重构 98% 遗留代码。",
-   "content": "这条不是八卦，是给所有要进企业写代码的人看的信号：遗留系统重构正在变成 AI 辅助下的主力工作，而不是「新人别碰」的禁区。思科的做法是给一个人加一个小组、无限 tokens、四周做概念验证，再谈 24 个月的大目标。对信息安全与管理、软件工程的同学，启示有两点：一是读老代码、写测试、做等价替换的能力比从零写新功能更稀缺；二是 AI 生成的重构代码必须有人做正确性把关，测试用例和回归验证就是你的护城河。建议在课设里刻意练一次「给无测试的老模块补测试再改」。",
-   "source": "Solidot",
-   "date": "2026-10-31",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**重构老系统是未来几年最实在的岗位需求，测试能力是你的入场券。**",
-   "courses": "《软件工程》《软件测试》：作为遗留系统重构与回归测试的现实案例。",
-   "tags": [
-    "行业动态",
-    "求职就业",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "企业正把遗留代码重构交给 AI 辅助的小团队",
-    "读老代码 + 补测试 + 等价替换是稀缺能力",
-    "AI 生成的重构结果必须靠回归测试兜底",
-    "课设里可刻意练习「先补测试再重构」"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85764"
-  },
-  {
-   "id": "a849",
-   "title": "币安 20 分钟被盗 63 亿美元：一半资产因智能合约冻结才追回",
-   "summary": "黑客清空币安在 10 条链上的钱包，稳定币因发行方可冻结而保住一半。",
-   "content": "这起案件的技术看点不在金额，而在「可冻结」与「不可冻结」的资产分野：稳定币靠智能合约的冻结权限追回约一半，比特币、以太币、XRP 则基本无解。对信息安全与管理专业的同学，这是密钥管理与权限设计的反面教材——攻击者提前 36 小时以上做准备工作，说明入侵路径早已打通，只是等待时机。可以拿来做一个分析练习：画出资产托管方的密钥层级、单点失效环节、以及「谁能冻结、冻结依据是什么」。写进课程报告里，比空谈「加强安全意识」有说服力得多。",
-   "source": "Solidot",
-   "date": "2026-10-31",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**用真实案例练密钥管理与权限设计分析，比背安全原则有用。**",
-   "courses": "《信息安全技术》《密码学》：用于密钥托管与资产权限设计的案例分析。",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "10 条链上的钱包被同时清空，攻击准备超 36 小时",
-    "稳定币可被发行方冻结，非冻结类资产难以追回",
-    "核心教训是密钥层级与单点失效分析",
-    "适合作为安全课程的真实案例分析素材"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85761"
   }
  ],
  "jobs": [
