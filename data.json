@@ -1,6 +1,217 @@
 {
- "updatedAt": "2026-11-10 05:21",
+ "updatedAt": "2026-11-10 14:21",
  "news": [
+  {
+   "id": "a997",
+   "title": "DeepSeek Harness 日活154万，官方给插件作者发Token：Agent插件开发成新入口",
+   "summary": "DeepSeek Harness 日活达154万，官方开始向插件作者发放Token激励，Agent生态转向开发者共建。",
+   "content": "Agent 平台的竞争已经从模型能力转向插件生态。DeepSeek Harness 日活154万，官方用Token补贴插件作者，本质是在买开发者的时间。对软件工程学生来说，这是少见的低门槛实战机会：写一个 Harness 插件，涉及接口调用、鉴权、错误处理、日志，和《软件工程》《Web后端开发》课上的模块设计几乎一一对应。建议做法是选一个自己天天用的工具（如课表查询、代码片段管理）做成插件，README 写清输入输出与异常分支，放进简历比刷十个算法题更能说明工程能力。注意先读官方插件规范，别一上来就堆功能。",
+   "source": "InfoQ中文",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Agent插件",
+    "API"
+   ],
+   "diff": 2,
+   "scene": "简历加分/练手",
+   "value": "**用一个真实插件把「会调API」升级成「能交付可被别人使用的模块」**",
+   "courses": "《软件工程》课程设计的模块化与接口设计，可直接把插件当作课设选题",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "日活154万说明平台已有真实用户，插件有被使用的可能",
+    "官方发Token=有明确激励，适合做作品集项目",
+    "插件开发覆盖接口、鉴权、异常处理等工程基本功",
+    "先读规范再动手，控制功能范围"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Y7lTO7Q1M8oN5JhxhirK?utm_source=rss&utm_medium=article",
+   "cover": "img/a997.webp"
+  },
+  {
+   "id": "a998",
+   "title": "中大本科生反AI逆向项目：让黑客Token账单暴涨300倍，思路可复现",
+   "summary": "中山大学本科生用投毒→耗尽预算→诱导误判的思路做反AI逆向，让攻击者Token成本暴涨300倍。",
+   "content": "这个项目的技术内核不复杂，但思路值得信息安全专业学生逐层拆解：向爬取方投喂污染数据，诱导其反复调用高成本推理，从而把对方的Token账单放大300倍。它串起了《网络安全》《逆向工程》里的几个老问题——数据投毒的边界、资源耗尽型攻击（类似ReDoS的思路）、以及攻击者成本模型。想复现的话，先在本地搭一个模拟的Agent调用链，统计正常请求与诱导请求的Token消耗差，再写清楚防御侧该怎么限流和校验。注意：只在自有环境实验，别对线上服务做任何测试，这本身就是课程里讲的合规红线。",
+   "source": "量子位",
+   "date": "2026-11-09",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "LLM安全"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI安全」从概念变成能讲清攻击链和防御点的课设级项目**",
+   "courses": "《网络安全》中的拒绝服务与输入验证，可作课程大作业选题",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "核心是资源耗尽+数据投毒的组合思路，不是高深算法",
+    "可对应《网络安全》中的DoS与输入校验章节",
+    "复现要在本地沙箱，禁止对线上服务测试",
+    "防御侧收获更大：限流、预算上限、输入可信度校验"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/508787.html"
+  },
+  {
+   "id": "a999",
+   "title": "中国Android厂商启动开发者身份验证，侧载应用规则变了",
+   "summary": "OPPO、vivo、小米、荣耀跟进Google，推出Android侧载应用的开发者身份验证。",
+   "content": "Google 从9月起要求验证所有Android开发者身份，未验证者的应用将无法侧载安装；现在OPPO、vivo、小米、荣耀也启动了同类机制。对信息安全与管理专业，这是活生生的移动端信任链案例：签名、证书、开发者身份三者如何绑定，验证失败时系统如何降级处理。对软件工程学生，如果你做过Android课设或想上架小工具，现在就得规划签名密钥管理和开发者资质，别等到打包发布才发现装不上。建议在《移动应用开发》实验里加一步：用未验证身份打包，观察安装被拦截的日志，比看文档印象深得多。",
+   "source": "Solidot",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Android"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**移动端「谁能发布应用」的规则正在收紧，签名与身份管理成了必修技能**",
+   "courses": "《移动应用开发》《信息安全技术》中的签名与信任链章节",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "侧载不再是「随便装」，开发者身份成为安装前置条件",
+    "涉及签名、证书、信任链，是移动安全的典型场景",
+    "做Android课设的要提前管好签名密钥",
+    "可设计实验：对比验证与未验证包的安装行为"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85848"
+  },
+  {
+   "id": "a1000",
+   "title": "千问办公2.0转向Team Agent：多智能体协作开始进办公流水线",
+   "summary": "千问办公2.0把重心放到Team Agent，多个Agent分工完成编辑部日常任务，办公AI结束单机模式。",
+   "content": "单Agent做问答已经不够看，Team Agent 的核心是任务拆解、角色分工和结果汇总——这恰好是软件工程里「编排」的问题。对学生最实用的切入点是：别只看演示，去研究它的任务编排接口，用两三个Agent搭一条小流水线，比如「抓取课程通知→提取截止时间→写入日历」。这中间你会踩到状态传递、失败重试、输出格式校验的坑，和《软件工程》里的流程建模、《Java程序设计》里的多线程协作是同一类思维。工业软件实验班的同学可以想想：产线上的工序编排和Agent编排，抽象结构其实很像。",
+   "source": "量子位",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent编排"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**学会编排多个Agent，比会写提示词更接近真实工程能力**",
+   "courses": "《软件工程》流程建模与模块协作，可作课程设计参考架构",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Team Agent 本质是任务拆解+角色分工+结果汇总",
+    "可用两三个Agent搭课程通知处理流水线练手",
+    "难点在状态传递、失败重试、输出校验",
+    "与工业软件中的工序编排在抽象层同构"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/508798.html",
+   "cover": "img/a1000.webp"
+  },
+  {
+   "id": "a1001",
+   "title": "openJiuwen开源TTSE经验学习框架：让Agent把每次任务变成下次的起点",
+   "summary": "openJiuwen首发TTSE经验学习框架，让Agent从任务执行中积累经验，宣称进入自演进「双轨时代」。",
+   "content": "TTSE 想解决的是Agent「做完就忘」的问题：把任务执行过程沉淀成可复用的经验，下次遇到相似任务直接调用。对本科生来说，不必追框架细节，值得学的是它的设计模式——经验如何表示、如何检索、如何避免错误经验污染。这和你做课设时「把踩过的坑写进文档」是同一件事，只是工程化了。动手建议：用开源代码跑一个重复性任务（如批量整理实验数据），对比开启与关闭经验学习时的成功率和耗时，把数据写进实验报告。工业软件实验班可关注它在固定工序场景下的稳定性。",
+   "source": "量子位",
+   "date": "2026-11-10",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent框架"
+   ],
+   "diff": 3,
+   "scene": "课设/练手",
+   "value": "**理解「经验复用」的工程实现，比追框架版本更有长期价值**",
+   "courses": "《人工智能导论》《软件工程》实验课，可做对比实验",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "核心是经验沉淀与复用，解决Agent「做完就忘」",
+    "可对比开/关经验学习的成功率与耗时做实验",
+    "注意错误经验污染问题，需要校验机制",
+    "适合作为课程实验的对照组设计"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/508998.html",
+   "cover": "img/a1001.webp"
+  },
+  {
+   "id": "a1002",
+   "title": "Epic Games启动器将支持尽可能多的Linux发行版，打包格式是重点",
+   "summary": "Epic Games新启动器处于预览阶段，计划支持Fedora、SteamOS、CachyOS等，本月恢复AppImage支持。",
+   "content": "这条对软件工程学生有具体的技术含量：跨发行版分发要处理AppImage、Flatpak等不同打包格式，还要应对依赖库版本差异。如果你在《操作系统》课上只背过包管理概念，这里能看到真实取舍——Flatpak上Flathub能覆盖SteamOS用户，AppImage则更通用但更新麻烦。动手建议：在虚拟机里装一个非Ubuntu发行版，把你自己写的小工具分别打成AppImage和Flatpak，记录依赖冲突和启动耗时。这套经验在工业软件交付里同样用得上，因为客户现场的操作系统往往不由你选。",
+   "source": "Solidot",
+   "date": "2026-11-10",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Linux",
+    "Flatpak"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**亲手打一次跨发行版安装包，比背包管理概念有用十倍**",
+   "courses": "《操作系统》中的软件包管理与依赖，可作实验延伸",
+   "tags": [
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "跨发行版分发的核心痛点是打包格式与依赖版本",
+    "AppImage通用、Flatpak易更新，各有取舍",
+    "可在虚拟机里实测两种打包方式的差异",
+    "工业软件交付同样面临客户环境不可控问题"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85846"
+  },
   {
    "id": "a990",
    "title": "vmr 0.8.1：一条命令切换 JDK/Node/Python 多版本，不污染系统目录",
@@ -25,7 +236,7 @@
     "通用开发",
     "Java全栈"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "一条命令完成 SDK 安装/切换/卸载，不污染系统目录",
@@ -3907,220 +4118,6 @@
    "origTitle": "What 586 Real Traces Taught Us About LLM Agent Determinism",
    "link": "https://dev.to/vishwajitsinh_mahida_2547/what-586-real-traces-taught-us-about-llm-agent-determinism-30cj",
    "cover": "img/a880.webp"
-  },
-  {
-   "id": "a881",
-   "title": "用 Shell 脚本自动化构建 Postgres Docker 镜像",
-   "summary": "freeCodeCamp 教程：把重复的镜像构建步骤抽成脚本，一条命令完成 Postgres 镜像定制。",
-   "content": "「同样的项目文件配置写了一遍又一遍」——这正是函数要解决的问题，Docker 构建也一样。这篇教程带你用 shell 脚本封装 Postgres 镜像的构建流程：初始化脚本注入、环境变量模板、版本参数化，最后一条命令出镜像。对软件工程专业的价值在于，它是理解「基础设施即代码」的最小切口，也是课程设计里做后端服务时最实用的技能。建议你跟着做一遍，然后把脚本提交进 Git，面试聊到部署时这就是现成素材。",
-   "source": "freeCodeCamp",
-   "date": "2026-11-03",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Docker",
-    "Shell"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**掌握容器化部署的最小可用技能，课设后端一键起环境**",
-   "courses": "《数据库原理》课程设计里部署 Postgres 环境",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "用 shell 脚本消除重复的镜像构建步骤",
-    "覆盖初始化脚本注入与参数化版本",
-    "产出可直接放进仓库的构建脚本"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Automate Docker Image Creation for Postgres Using Shell Commands",
-   "link": "https://www.freecodecamp.org/news/how-to-automate-docker-image-creation-for-postgres-using-shell/",
-   "cover": "img/a881.webp"
-  },
-  {
-   "id": "a882",
-   "title": "PageSift 1.0：Rust 写的网页内容引擎，把 URL/PDF/Office 转成干净 Markdown",
-   "summary": "15 天 25 个版本迭代到 1.0，专为 AI 场景设计的内容抽取引擎。",
-   "content": "做 RAG 或 AI 应用，最脏最累的活永远是「把各种格式的文档洗成干净文本」。PageSift 用 Rust 实现，输入 URL、PDF、Office 文件，输出结构化 Markdown，正好卡在这个痛点上。对信息安全方向的同学，它也是一个值得读源码的样本——解析不可信文件格式是攻击面最集中的地方，看看别人怎么处理边界。建议先拿它跑一遍你手头的课程资料 PDF，对比自己写的解析脚本效果。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**省掉 RAG 项目里最脏的文档清洗环节，把时间留给核心逻辑**",
-   "courses": "《信息安全导论》中文件解析攻击面分析的案例素材",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "统一处理 URL、PDF、Office 三类输入",
-    "输出干净 Markdown 与结构化数据",
-    "Rust 实现，可作为安全视角的源码阅读样本"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "PageSift 1.0: the Rust web content engine is feature-complete",
-   "link": "https://dev.to/yolow92/pagesift-10-the-rust-web-content-engine-is-feature-complete-51m7",
-   "cover": "img/a882.webp"
-  },
-  {
-   "id": "a883",
-   "title": "openJiuwen Agent-Memory：给 Agent 加上「视听双流记忆」，长视频问答时延降 97%",
-   "summary": "让 Agent 记住长视频里的关键事件，问答时延最高降低 97%。",
-   "content": "Agent 的记忆机制正在从「存文本」走向「存多模态流」。openJiuwen 的 Agent-Memory 把视觉与听觉作为两条并行记忆流处理，解决的是长视频里关键事件检索不准、响应慢的问题。对你的用处不在于追这个具体项目，而在于理解一个通用设计模式：记忆要分层、要按模态分流、要能在检索时快速裁剪。如果你在做带视频或音频输入的课设，这套思路可以直接借鉴；即便不做多模态，分层记忆的设计也能迁移到对话系统里。",
-   "source": "量子位",
-   "date": "2026-11-04",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**理解 Agent 记忆的分层与多模态分流设计，可迁移到自己的对话系统**",
-   "courses": "《人工智能导论》中 Agent 记忆机制章节的扩展案例",
-   "tags": [
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "视听双流并行记忆的架构思路",
-    "长视频关键事件检索精度提升",
-    "问答时延最高降 97% 的工程收益"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/507533.html"
-  },
-  {
-   "id": "a884",
-   "title": "通过 MCP 五分钟拉取 A 股热度数据：给 Agent 接结构化数据源的范式",
-   "summary": "用 MCP 协议把结构化行情数据接进 LLM Agent，替代脆弱的爬虫方案。",
-   "content": "爬论坛、扒新闻页做数据源，慢且脆——这是很多人写 Agent 时的通病。这篇用 MCP（Model Context Protocol）示范了正确姿势：把数据获取封装成标准化的工具接口，Agent 按需调用，拿到的是结构化结果而不是一堆待清洗的 HTML。虽然案例是 A 股热度，但方法论完全通用：你课程设计里要接的任何外部数据源，都可以照这个模式包一层。重点看它怎么定义工具描述、怎么处理返回格式，这两点决定了 Agent 调得准不准。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会用 MCP 给 Agent 接干净数据源，告别一次性爬虫脚本**",
-   "courses": "《软件工程》课程设计中外部数据接口的规范化设计",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "用 MCP 替代脆弱的网页爬取",
-    "工具描述与返回格式决定调用准确率",
-    "方法论可迁移到任意外部数据源接入"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How AI Agents Pull A-Share Heat Data via MCP in About Five Minutes",
-   "link": "https://dev.to/dustinliang/how-ai-agents-pull-a-share-heat-data-via-mcp-in-about-five-minutes-5dkm",
-   "cover": "img/a884.webp"
-  },
-  {
-   "id": "a874",
-   "title": "KittyCAD/modeling-app：用 TypeScript 写 CAD 建模内核的开源桌面应用",
-   "summary": "The Zoo 出品的 Design Studio 桌面建模应用开源，TypeScript 实现，近 7 日仍在活跃更新，是少见的「前端技术栈做工业软件」样本。",
-   "content": "工业软件实验班同学注意：这个仓库把几何建模、参数化设计、渲染管线做成了 Electron + TypeScript 桌面应用，源码可直接跑起来。建议先读它的命令系统与几何内核接口层，看一个 CAD 操作如何从 UI 事件变成内核指令；再对照你课程设计里的「零件参数化建模」需求，试着加一个自定义特征命令。它的 API 客户端设计也值得学——工业软件上云后，前后端契约怎么定，这里有一手答案。",
-   "source": "GitHub",
-   "date": "2026-11-03",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "前端"
-   ],
-   "stack": [
-    "TypeScript",
-    "CAD"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**想进工业软件方向，这是少有的能读能改的 CAD 全栈源码，比看论文有用。**",
-   "courses": "对应《计算机图形学》《软件工程课程设计》：把建模命令链路作为课设参考实现。",
-   "tags": [
-    "工业软件",
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "TypeScript 技术栈的完整 CAD 桌面应用源码",
-    "重点看命令系统→几何内核的调用链",
-    "可基于它做参数化建模课设或二次开发",
-    "近 7 日有提交，文档与示例较新"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "KittyCAD/modeling-app",
-   "link": "https://github.com/KittyCAD/modeling-app",
-   "cover": "img/a874.webp"
-  },
-  {
-   "id": "a875",
-   "title": "Agent 安全规则会随上下文变长而失效：如何量化并修复「合规衰减」",
-   "summary": "实测发现注入的硬性安全规则在对话变长后被逐步忽略，文章给出量化方法与缓解手段。",
-   "content": "如果你在课设或实习里写过带 system prompt 约束的 Agent，这篇必读。作者指出：安全规则不是写进去就生效，随着上下文窗口被填满，模型对早期规则的遵守度会明显下降——这是可测量的衰减曲线，不是玄学。文中给出量化方式（构造长对话、按轮次检测违规率）和修复思路（规则重注入、关键约束前置、外置校验层）。信息安全方向的同学可直接把这套方法改造成「LLM 应用安全测试」实验，作为毕业设计或竞赛选题都很扎实。",
-   "source": "DEV Community",
-   "date": "2026-11-03",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "LLM",
-    "Prompt"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**做 AI 应用安全方向，这是能直接变成实验方案的一手方法论。**",
-   "courses": "对应《信息安全导论》《软件安全》：作为 LLM 应用安全测试的实验设计参考。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "安全规则遵守度随上下文增长而衰减，可量化",
-    "给出长对话违规率测试的构造方法",
-    "缓解思路：规则重注入、外置校验、约束前置",
-    "适合改造成 LLM 应用安全测试实验"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Safety Rules Don't Survive the Context Window: Quantifying and Fixing Agent Compliance Decay",
-   "link": "https://dev.to/priyeshdave6/safety-rules-dont-survive-the-context-window-quantifying-and-fixing-agent-compliance-decay-5co9",
-   "cover": "img/a875.webp"
   }
  ],
  "jobs": [
