@@ -1,6 +1,177 @@
 {
- "updatedAt": "2026-11-10 14:21",
+ "updatedAt": "2026-11-10 17:34",
  "news": [
+  {
+   "id": "a1003",
+   "title": "手机远程接管 Claude Code / Codex：Agent 卡在权限确认时不用回工位",
+   "summary": "介绍如何通过手机端应答本地运行的 Claude Code、Codex 等编码 Agent 的权限询问，避免 Agent 因等待确认而空转。",
+   "content": "在家里的电脑上启动编码 Agent 后出门，一小时后手机提示它停下来等你批准某条命令——这是很多人用 Claude Code / Codex 时的真实痛点。文章给出各家 Agent 的远程应答方案：核心是把「等待人工确认」这一环节从终端搬到手机端（通过官方远程通道或自建消息转发），让 Agent 的长时间任务不因一次权限弹窗而中断。对软件工程学生来说，这直接对应你写课设、跑自动化脚本时的场景：把 Agent 当作异步任务来管理，学会设计「人在回路」的确认点，而不是全程盯着终端。注意远程授权意味着把执行权限暴露到手机端，务必只在自己可控的仓库和沙箱环境里使用。",
+   "source": "DEV Community",
+   "date": "2026-11-10",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**学会把编码 Agent 当异步任务远程托管，长任务不再被一次权限弹窗卡死。**",
+   "courses": "《软件工程》课程项目里用 Agent 跑重复性编码任务，配合 Git 分支管理",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "解决编码 Agent 因权限确认而长时间挂起的问题",
+    "给出 Claude Code / Codex 等工具的远程应答思路",
+    "本质是把 Agent 当异步任务管理，设计人在回路确认点",
+    "远程授权有安全风险，只在个人沙箱仓库使用"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to answer Claude Code or Codex from your phone",
+   "link": "https://dev.to/heylittlepan/how-to-answer-claude-code-or-codex-from-your-phone-10a7",
+   "cover": "img/a1003.webp"
+  },
+  {
+   "id": "a1004",
+   "title": "Discord 弃用 Electron 省 70% 内存：桌面端技术选型的真实案例",
+   "summary": "Discord 放弃 Electron 重构 Windows 客户端，内存下降约 70% 并实现秒开，文章讨论其技术路径与对其他桌面应用的启示。",
+   "content": "Electron 用一套 Web 技术栈换跨平台，代价是内存和启动速度。Discord 这次把 Windows 客户端从 Electron 迁走，内存省约 70%、启动接近秒开，是「技术选型要按场景算账」的典型样本。对软件工程和信息安全专业都值得读：一是理解 Web 容器与原生渲染在资源占用上的差异，做课设选桌面端方案时不再无脑上 Electron；二是迁移过程涉及进程模型、渲染层与 IPC 边界的变化，这些边界正是攻击面分析的对象。建议对照自己做过的小工具，估算一下换成 Tauri 或原生方案后的内存与启动收益，写进简历里的技术选型说明。",
+   "source": "InfoQ中文",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Electron"
+   ],
+   "value": "**用真实迁移案例理解桌面端技术选型的成本账，别再默认上 Electron。**",
+   "courses": "《人机交互》《Web 前端开发》课设选型时对比 Electron 与 Tauri",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "Electron 跨平台便利 vs 内存与启动开销的权衡实例",
+    "内存降约 70%、启动秒开的具体收益",
+    "进程模型与 IPC 边界变化，与安全攻击面分析相关",
+    "可对照 Tauri/原生方案评估自己项目的选型"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/MQTTu6dgGxHBZm1wOLPI?utm_source=rss&utm_medium=article",
+   "cover": "img/a1004.webp"
+  },
+  {
+   "id": "a1005",
+   "title": "Chrome 想替你自动填邮箱验证码：便利背后的隐私与安全边界",
+   "summary": "Chrome 计划终结「去邮箱复制验证码」的流程，文章讨论该能力对隐私与账号安全的影响。",
+   "content": "验证码从邮箱搬到浏览器自动填充，体验确实顺，但问题在于：浏览器要读你的邮件内容，才能识别验证码。这直接落在信息安全与管理专业的核心议题上——最小权限、数据边界、可信计算基。读这篇文章时带着三个问题：验证码识别在本地做还是上传云端？浏览器扩展/内置能力如何被恶意页面诱导调用？一旦浏览器成为验证码的中转，账号找回链路的风险点在哪？做 Web 课设时，如果你自己实现过登录与验证码，可以顺手写一段威胁建模，说明引入自动填充后新增的攻击面，这比空谈「隐私很重要」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "前端"
+   ],
+   "stack": [],
+   "value": "**借浏览器验证码自动填充，练一次真实的最小权限与威胁建模分析。**",
+   "courses": "《信息安全导论》《Web 安全》中登录与验证码模块的案例分析",
+   "tags": [
+    "信息安全",
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "浏览器读取邮件内容识别验证码，涉及最小权限原则",
+    "关注本地识别 vs 云端上传的隐私差异",
+    "可对恶意页面诱导调用的攻击面做分析",
+    "适合作为登录模块课设的威胁建模素材"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/UltsRzyiYdLd4r1S3mkm?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1006",
+   "title": "Cloudflare KV Instant 定价曝光：读 p99 1.62ms，写一次 0.1 美元",
+   "summary": "Cloudflare 新 KV 服务给出极低读取延迟，但写入单价高达 0.1 美元，凸显读多写少场景的成本设计取舍。",
+   "content": "读 p99 1.62 毫秒、写一次 0.1 美元——这组数字本身就是一堂架构课：任何存储方案都要按读写比例算账。对软件工程学生，它对应《数据库原理》和系统设计里最常被忽略的一环——成本模型。做课设时你通常只关心「能不能跑通」，但真实系统里，一次写 0.1 美元意味着缓存预热、批量合并写、幂等去重都是必须设计的。建议拿这个小服务做一次练习：估算你的项目每天写多少次、读多少次，算出月成本，再对比 Redis 或本地 SQLite 方案。面试被问「为什么选这个存储」时，能报出读写比和成本数字，比说「因为它快」强得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-10",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "Cloudflare KV"
+   ],
+   "value": "**用一组真实价格数字，逼自己给项目算一次存储成本账。**",
+   "courses": "《数据库原理》《软件体系结构》中的存储选型与成本分析",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "读延迟极低但写入昂贵，典型读多写少场景",
+    "练习为项目建立读写比与成本模型",
+    "涉及缓存预热、批量写、幂等去重等设计",
+    "面试讲技术选型时用数字而非感觉"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YrPwJgFYyBSAmJE4hJAB?utm_source=rss&utm_medium=article",
+   "cover": "img/a1006.webp"
+  },
+  {
+   "id": "a1007",
+   "title": "火山引擎 IGA Pages：接大模型不用自己配 Key、搭代理",
+   "summary": "面向开发者的托管式大模型接入方案，省去 API Key 管理与代理搭建，文章介绍其使用方式。",
+   "content": "自己接大模型，最烦的往往不是调 SDK，而是 Key 管理、代理转发、跨域和环境隔离这些杂活。IGA Pages 这类托管方案把接入层收走，让你专注在提示词和业务逻辑上。对做课设和练手项目很实用：以前要在后端写一层转发接口防止 Key 泄露到前端，现在可以直接用平台能力，前端同学也能独立跑通一个 AI 功能 Demo。但注意两点：一是 Key 与调用额度仍属于敏感资产，别把带凭据的页面直接公开部署；二是托管层会限制你的可控性，做安全方向的项目时反而要自己搭代理来研究鉴权与限流。先用它快速验证想法，再决定是否自建。",
+   "source": "InfoQ中文",
+   "date": "2026-11-10",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "火山引擎"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**把大模型接入的脏活外包出去，把时间留给业务逻辑和提示词设计。**",
+   "courses": "《Web 应用开发》课设中快速集成 AI 功能模块",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "省去 API Key 管理与代理转发等接入杂活",
+    "适合快速验证 AI 功能 Demo，前端也能独立跑通",
+    "凭据与额度仍是敏感资产，勿公开部署带 Key 页面",
+    "安全方向项目反而建议自建代理研究鉴权限流"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/juu2R26yD8B6ABUEQuWB?utm_source=rss&utm_medium=article",
+   "cover": "img/a1007.webp"
+  },
   {
    "id": "a997",
    "title": "DeepSeek Harness 日活154万，官方给插件作者发Token：Agent插件开发成新入口",
@@ -26,7 +197,7 @@
     "AI工具",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "日活154万说明平台已有真实用户，插件有被使用的可能",
@@ -3944,180 +4115,6 @@
    "origTitle": "Trimming Context Can Make Your Agent More Expensive",
    "link": "https://dev.to/r3dtuxedo/trimming-context-can-make-your-agent-more-expensive-5gib",
    "cover": "img/a888.webp"
-  },
-  {
-   "id": "a889",
-   "title": "Agent 说「做完了」不算数：以数据库落库作为完成判据",
-   "summary": "文章指出多数 Agent 演示只是转个圈就说完成，真正可靠的判据是数据库里确实写入了预期数据。",
-   "content": "「助手说已完成」和「系统真的变了」是两回事。作者主张把完成条件落到可验证的副作用上：查数据库确认记录存在、字段正确，才算任务结束。这个思路对你做《数据库原理》课设或任何带写操作的 Agent 项目都直接可用——在 Agent 循环末尾加一步「断言校验」，校验不过就让它重试。答辩时老师问「你怎么保证它真做对了」，你能拿出校验代码和失败重试日志，比演示十遍成功流程有说服力得多。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**让 Agent 用数据落库自证完成，是课设里最容易被追问也最容易加分的点。**",
-   "courses": "《数据库原理》课设中的事务校验与结果断言",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "完成判据应是数据库中的可验证副作用",
-    "在 Agent 循环末尾加断言校验 + 失败重试",
-    "答辩时可用校验日志证明可靠性"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Your AI Agent Isn't Done Until the Database Says So",
-   "link": "https://dev.to/germey/your-ai-agent-isnt-done-until-the-database-says-so-315n",
-   "cover": "img/a889.webp"
-  },
-  {
-   "id": "a890",
-   "title": "335 分钟 AI 名词课：LLM、Token、Agent、Workflow 一次讲清",
-   "summary": "黑马程序员出的零基础 AI 名词解释长课，配套一条从 Java+AI 到微服务、项目的完整学习路线。",
-   "content": "如果你现在还在「Agent 和 Workflow 到底差在哪」这种问题上卡壳，这套课的价值是把术语和工程对应起来，而不是背定义。更实用的是它给了顺序：Java+AI → JavaWeb+AI → 项目实战 → 微服务，正好贴合软件工程的课程节奏。建议别整段刷，按你当前在学的课挑对应章节——比如做 Web 课设前先看 JavaWeb+AI 那节，把 AI 能力接进你已有的 CRUD 项目里，比空看概念有效。",
-   "source": "B站·黑马程序员",
-   "date": "2026-11-03",
-   "cat": "tut",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 1,
-   "scene": "课设/求职准备",
-   "value": "**术语课的正确用法是对着课程表挑章节看，而不是从头刷到尾。**",
-   "courses": "《Java 程序设计》《Web 开发》课设前的技术补课",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "系统梳理 LLM/Token/Agent/Workflow 等术语",
-    "配套 Java+AI 到微服务的完整学习顺序",
-    "建议按当前课程挑章节看，不要整段刷"
-   ],
-   "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1Gm4w6AEra"
-  },
-  {
-   "id": "a891",
-   "title": "用华为仓颉语言从零写一个终端 Coding Agent：cjh 开源",
-   "summary": "cjh 是用仓颉语言实现的交互式编码代理，终端里用自然语言下任务，Agent 自主规划、调工具、迭代，TUI 实时呈现。",
-   "content": "对工业软件实验班的同学，这条的看点不是「又一个 Agent」，而是「用一门国产新语言从零实现 Agent 骨架」。项目结构清晰：规划、工具调用、观察、迭代四段循环，加上 TUI 渲染和 Web 远程驱动。你可以拿它当阅读材料，对照自己用 Java 或 Python 写的简易 Agent，看别人怎么组织工具注册和状态管理。仓颉本身也是值得提前摸一摸的语言，工业软件方向对国产工具链的熟悉度是加分项。",
-   "source": "开源中国",
-   "date": "2026-11-04",
-   "cat": "stack",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "仓颉"
-   ],
-   "value": "**读一遍别人从零写的 Agent 骨架，胜过再套十层框架。**",
-   "courses": "《程序设计》课程设计中的 Agent 架构阅读与仿写",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "仓颉语言实现的完整 Agent 循环骨架，可读源码学习",
-    "包含工具调用、状态迭代、TUI 与 Web 驱动",
-    "工业软件方向可提前接触国产语言工具链"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503393"
-  },
-  {
-   "id": "a879",
-   "title": "Claude Code 插件系列（1/4）：把 AI 编码助手改造成你的自定义工具链",
-   "summary": "DEV 系列首篇，讲 Claude Code 插件的核心概念与工作原理，后续将覆盖动手开发与企业应用。",
-   "content": "很多人把 Claude Code 当补全工具用，其实它的插件机制能让你把团队规范、构建脚本、代码审查规则打包成可复用能力。这篇是系列第一篇，重点讲清插件由什么组成、在什么时机被调用、和 MCP、slash command 的边界在哪。建议你边读边对照自己课设里的重复劳动——比如每次都要手写 DAO 层、每次都要跑同一套 lint——想想能不能抽成一个插件。读完再跟后面三篇的实操，能省下大量重复敲键盘的时间。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**把 AI 编码助手从「会补全」升级成「懂你项目规范」的私人工具链**",
-   "courses": "《软件工程》课程设计里用它固化团队编码规范与构建流程",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "讲清 Claude Code 插件的组成与调用时机",
-    "区分插件、MCP、自定义命令的适用边界",
-    "为后续动手开发篇打基础"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "More Than a Code Assistant: Building Your Custom Toolchain with Claude Code Plugins (1/4)",
-   "link": "https://dev.to/robinmin/more-than-a-code-assistant-building-your-custom-toolchain-with-claude-code-plugins-14-3gi0",
-   "cover": "img/a879.webp"
-  },
-  {
-   "id": "a880",
-   "title": "586 条真实轨迹实测：temperature 如何悄悄让 Agent 推理失稳",
-   "summary": "基于 LangGraph 跑 586 条 trace，观察温度参数对 Agent 决策确定性的选择性破坏，以及它对可观测性的影响。",
-   "content": "做 Agent 项目最怕「昨天能跑今天不行」。这篇文章用 586 条真实轨迹量化了一件事：temperature 不是均匀地让输出变随机，而是对多步推理链中的某些环节破坏特别大，导致同一输入走出完全不同的工具调用路径。对你的直接用处是——如果你在课设或实习里写 Agent，别只靠肉眼调试，要记录每一步的输入输出做轨迹回放；同时把关键决策步骤的温度压低，创意生成步骤再放开。这是能直接抄进项目的工程经验。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangGraph"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**让你的 Agent 从「玄学调参」变成可复现、可回放的工程系统**",
-   "courses": "《人工智能导论》或毕业设计中 Agent 模块的稳定性调试",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "586 条 trace 的实证数据，不是空谈",
-    "temperature 对推理链是选择性破坏",
-    "给出轨迹记录与分层设温的工程做法"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "What 586 Real Traces Taught Us About LLM Agent Determinism",
-   "link": "https://dev.to/vishwajitsinh_mahida_2547/what-586-real-traces-taught-us-about-llm-agent-determinism-30cj",
-   "cover": "img/a880.webp"
   }
  ],
  "jobs": [
