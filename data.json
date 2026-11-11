@@ -1,6 +1,215 @@
 {
- "updatedAt": "2026-11-10 17:34",
+ "updatedAt": "2026-11-11 03:53",
  "news": [
+  {
+   "id": "a1008",
+   "title": "微软10月安全更新修复1400+漏洞，1个已被在野利用",
+   "summary": "微软月度补丁规模再创新高，其中一枚漏洞已遭实际攻击利用，属于必须优先处置的高危事件。",
+   "content": "1400 余个漏洞里，真正要命的是那 1 个「已遭利用」。对信息安全与管理专业的同学，这是一次现成的漏洞管理演练：去 MSRC 安全更新指南按「Exploited: Yes」筛出该 CVE，读它的 CVSS 向量和受影响组件，再对照自己电脑/实验室服务器的补丁状态。做课设时可以把它写成一份「漏洞通告+处置建议」文档，练习 CVSS 评分、补丁优先级排序（在野利用 > 远程未授权 > 本地提权）和灰度发布窗口。别只记「打补丁」三个字，要能说清为什么这个先打、那个可以等。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "CVE",
+    "CVSS"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把「打补丁」变成一套可写进简历的漏洞优先级判断方法**",
+   "courses": "对应《网络安全管理》《信息安全导论》，可作漏洞管理章节的案例作业",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "1400+ 漏洞中仅 1 个已遭在野利用，优先级最高",
+    "练习用 CVSS 向量判断补丁紧急程度",
+    "产出物：一份漏洞通告与处置建议文档"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/mfy0RUYOqEAW8imUrGTY?utm_source=rss&utm_medium=article",
+   "cover": "img/a1008.webp"
+  },
+  {
+   "id": "a1009",
+   "title": "Claude Code 设置文件泄露凭据：AI 编程工具的配置安全坑",
+   "summary": "早报提到 Claude Code 的设置文件会泄露凭据，这是所有用 AI 编程助手的同学都该立刻自查的问题。",
+   "content": "AI 编程工具为了方便，会把 API Key、代理地址、MCP 服务配置写进项目里的设置文件（如 .claude/settings.json、.env、AGENTS.md 之类）。一旦这些文件被 git add 提交，密钥就进了仓库历史，删文件也没用。动手做三件事：一、在项目根目录跑 git log -p -- 设置文件名 查历史里有没有密钥；二、把相关文件加进 .gitignore，并改用环境变量注入；三、用 gitleaks 或 GitHub Secret Scanning 扫一遍自己的课设仓库。这是信息安全专业最便宜也最实用的实战练习。",
+   "source": "少数派",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Git",
+    "gitleaks"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**十分钟自查，避免把 API Key 连同课设代码一起交上去**",
+   "courses": "对应《信息安全导论》《软件工程》的配置管理与密钥管理实践",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "AI 编程工具的配置文件常含 API Key，易被误提交",
+    "用 git log -p 与 gitleaks 自查仓库历史",
+    "正确做法：.gitignore + 环境变量注入"
+   ],
+   "buzz": [],
+   "link": "https://sspai.com/post/118905",
+   "cover": "img/a1009.webp"
+  },
+  {
+   "id": "a1010",
+   "title": "七个神经元就能给 AI Agent 开后门：Agent 安全入门读这篇",
+   "summary": "一篇论文演示只需极少参数即可在 AI Agent 中植入后门，作者据此反思 Agent 的工具、权限与可观测性设计。",
+   "content": "文章的核心观点值得记住：Agent 的难点不在模型，而在工具、权限和可观测性。对信息安全与管理专业，这直接对应三个可落地的检查项——工具调用是否有白名单、Agent 拿到的凭据是否最小权限、每次工具调用是否留审计日志。做课设时可以给一个简单的 LLM Agent 加一层「工具调用网关」：记录入参出参、限制可调用工具集、对敏感操作二次确认。这比空谈「AI 安全」更能写进简历，也贴合工业软件里对自动化流程的可控性要求。",
+   "source": "DEV Community",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「AI 安全」拆成工具白名单、最小权限、审计日志三件能动手做的事**",
+   "courses": "对应《信息安全导论》《系统安全》，可作课程设计选题",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "后门可藏在极少量参数中，模型本身不是唯一风险面",
+    "三个抓手：工具白名单、最小权限凭据、调用审计日志",
+    "课设可做「Agent 工具调用网关」小项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Seven Neurons Is All It Takes to Backdoor Your AI Agent",
+   "link": "https://dev.to/aibughunter/seven-neurons-is-all-it-takes-to-backdoor-your-ai-agent-4463",
+   "cover": "img/a1010.webp"
+  },
+  {
+   "id": "a1011",
+   "title": "DjangoAdmin v2.8.2 大版本重构：RBAC 权限到按钮级的开源中台",
+   "summary": "基于 Django + Vue3 + TypeScript 的企业级数据中台框架发布大版本重构，内置按钮/方法级 RBAC 权限体系。",
+   "content": "想找毕设或课设的后台脚手架，这个项目值得拆。技术栈是 Django + Vue3 + TypeScript + ElementPlus + Vite，前后端分离，自带用户、角色、权限菜单、部门、岗位、日志、数据字典等模块。重点看它的 RBAC 实现：权限如何从菜单下钻到按钮和方法级、后端如何做接口鉴权、前端如何按权限渲染。建议不要直接拿来交作业，而是 clone 下来读权限表设计和中间件代码，再自己写一个精简版。对 Java 方向的同学，这套权限模型思路可以平移到 Spring Security。",
+   "source": "开源中国",
+   "date": "2026-11-11",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Django",
+    "Vue3"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**一个可直接拆解的权限系统范本，RBAC 设计思路跨语言通用**",
+   "courses": "对应《数据库原理》《Web 应用开发》的权限模块设计",
+   "tags": [
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "技术栈：Django + Vue3 + TS + ElementPlus + Vite",
+    "重点读按钮/方法级 RBAC 的表设计与鉴权中间件",
+    "建议读源码后自写精简版，而非直接交作业"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503520"
+  },
+  {
+   "id": "a1012",
+   "title": "freeCodeCamp 教程：用 Codex 学 Agentic Coding",
+   "summary": "系统讲解 AI 编程 Agent 如何读代码库、跨文件修改、跑命令和测试，以及 AGENTS.md 的持久化指令写法。",
+   "content": "Agentic Coding 和你平时「问一句答一句」的用法差别很大：Agent 会自己读仓库、改多个文件、执行命令和测试，再根据结果继续。教程里最实用的是 AGENTS.md——把项目约定（目录结构、构建命令、代码风格、禁止改动的文件）写进去，Agent 的行为会稳定很多。建议拿自己的课设仓库做实验：先写一份 AGENTS.md，再让 Agent 完成一个「加一个带校验的表单接口」的小任务，观察它跑测试、改错的过程。重点不是让它写完，而是学会审它的 diff。",
+   "source": "freeCodeCamp",
+   "date": "2026-11-10",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Codex",
+    "AGENTS.md"
+   ],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**学会写 AGENTS.md 并审查 Agent 的 diff，比会敲提示词更值钱**",
+   "courses": "对应《软件工程》的编码规范与代码评审环节",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "Agent 会跨文件修改并自行运行测试，需重点审查 diff",
+    "AGENTS.md 写清构建命令、代码风格与禁改文件",
+    "练手任务：让 Agent 加一个带校验的表单接口"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Learn Agentic Coding with Codex & AI Coding Agents",
+   "link": "https://www.freecodecamp.org/news/learn-agentic-coding-with-codex-ai-coding-agents/",
+   "cover": "img/a1012.webp"
+  },
+  {
+   "id": "a1013",
+   "title": "OwnCoder 0.2.0：面向开发者的桌面端 AI 编程工具",
+   "summary": "一款国产桌面端 AI 编程工具发布小版本更新，修复 bug 并优化生成效果。",
+   "content": "同类工具已经很多，这条的价值在于「多一个可对比的样本」。建议把它和 Claude Code、Codex、通义灵码放在一起做横向测试：同一个课设任务（比如给现有 Vue 页面加一个分页组件），看谁能正确读懂项目结构、谁的改动最小、谁引入的 bug 最少。评测过程本身就是很好的课程作业素材，也能让你在面试时讲清楚「我为什么选这个工具」。注意桌面端工具通常需要配置模型 API Key，务必按上一条的凭据管理方法处理，别把 key 写进仓库。",
+   "source": "开源中国",
+   "date": "2026-11-10",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI 编程工具"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**用同一道课设题横向评测 AI 编程工具，产出可写进简历的对比结论**",
+   "courses": "对应《软件工程》工具链实践，可作课程报告",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "与 Claude Code、Codex、通义灵码做同任务横向对比",
+    "评测维度：读懂项目结构、改动范围、引入 bug 数",
+    "配置 API Key 时注意不要提交进仓库"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503518"
+  },
   {
    "id": "a1003",
    "title": "手机远程接管 Claude Code / Codex：Agent 卡在权限确认时不用回工位",
@@ -25,7 +234,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "解决编码 Agent 因权限确认而长时间挂起的问题",
@@ -3909,212 +4118,6 @@
    "buzz": [],
    "link": "https://dev.to/lokesh_a/how-destructuring-is-used-in-react-2d4b",
    "cover": "img/a894.webp"
-  },
-  {
-   "id": "a895",
-   "title": "企业 Agent 落地卡在哪：Token 暴涨 5000 倍后的真实工程问题",
-   "summary": "Token 消耗量级暴涨之后，企业部署 Agent 的瓶颈从模型能力转向成本、可观测性与权限治理。",
-   "content": "文章讨论企业级 Agent 从 Demo 走向生产的真实阻力：调用量放大后成本失控、链路长导致问题难定位、多工具编排下的权限与审计缺失。对软件工程和信安同学的意义在于，这些正是工程化能力而非调参能力——日志埋点、调用链追踪、限流降级、密钥与权限管理，都是课上学的软件工程与系统设计内容。做课设时如果涉及调用大模型 API，建议一开始就加上 token 统计和调用日志，这比功能本身更能体现工程素养。",
-   "source": "InfoQ中文",
-   "date": "2026-11-04",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**看清企业要的是工程能力不是调参能力，课设里加上日志和限流就是差异化。**",
-   "courses": "《软件工程》《系统设计与分析》——作为非功能性需求的真实案例",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "瓶颈从模型能力转向成本、可观测性、权限治理",
-    "调用链追踪与日志埋点是刚需",
-    "限流降级、密钥管理属于传统工程能力",
-    "课设接大模型 API 时应自带 token 统计"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/VUmIUJ0ST9xIlPoViXmz?utm_source=rss&utm_medium=article",
-   "cover": "img/a895.webp"
-  },
-  {
-   "id": "a896",
-   "title": "Agent 成为数据库新用户：腾讯云如何应对「未知」查询",
-   "summary": "当 Agent 直接生成并执行数据库查询，传统按已知模式优化的数据库面临不可预测的访问形态。",
-   "content": "过去数据库的负载来自确定的应用逻辑，SQL 模式可预期、可索引优化。Agent 接入后，查询由模型即时生成，形态不可预知，可能带来全表扫描、突发并发、越权访问等问题。文章介绍腾讯云的应对思路，核心是资源隔离、查询限流与权限收敛。对工业软件实验班和信息安全同学，这是「数据库+AI」的交叉点：数据库原理课上的索引、执行计划、权限模型，在这里全部变成实际约束条件，值得作为课程设计背景阅读。",
-   "source": "InfoQ中文",
-   "date": "2026-11-04",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [
-    "数据库"
-   ],
-   "value": "**把数据库原理课上的索引、执行计划、权限模型，放进 AI 时代的真实约束里理解。**",
-   "courses": "《数据库原理》《数据库安全》——AI 负载下的数据库设计讨论素材",
-   "tags": [
-    "行业动态",
-    "信息安全",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "Agent 生成的查询形态不可预测，冲击传统优化假设",
-    "应对手段：资源隔离、查询限流、权限收敛",
-    "数据库原理中的索引与执行计划成为实际约束",
-    "数据库安全与越权访问是信安关注点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/TeOb9MgqfeLOoNdxtMH2?utm_source=rss&utm_medium=article",
-   "cover": "img/a896.webp"
-  },
-  {
-   "id": "a885",
-   "title": "谷歌发布 Data Agent Kit：安全防护拆成 Skill 与 IAM 两层",
-   "summary": "谷歌正式开源/发布 Data Agent Kit，把数据类 Agent 的权限控制拆成「技能级」和「IAM 级」两道闸门，避免 Agent 越权读表。",
-   "content": "做数据类 Agent 最容易踩的坑，是让模型直接拿着数据库账号跑 SQL。谷歌这套 Kit 的思路值得抄进课设：把「能做什么」写成 Skill 白名单，把「能访问哪些库表」交给 IAM 策略，两层都过才执行。你在《数据库原理》或《信息安全导论》的大作业里，如果要做「自然语言查数据库」的小工具，可以直接照这个分层设计权限模块——答辩时讲清「为什么不能让 LLM 直连 DB」，比多写两百行 CRUD 更能加分。",
-   "source": "InfoQ中文",
-   "date": "2026-11-04",
-   "cat": "stack",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "IAM"
-   ],
-   "value": "**做数据类 Agent 课设时，这套权限分层能直接写进你的安全设计章节。**",
-   "courses": "《数据库原理》《信息安全导论》课设中的权限与访问控制模块",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Agent 权限拆成 Skill 白名单 + IAM 策略两层",
-    "核心是防止 LLM 直连数据库导致越权读表",
-    "适合作为「自然语言查库」课设的安全设计参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/UtKS9EofSoyd2P7Otx7e?utm_source=rss&utm_medium=article",
-   "cover": "img/a885.webp"
-  },
-  {
-   "id": "a886",
-   "title": "Anthropic 给重要开源项目加可选安全扫描，漏洞检测进 CI 流程",
-   "summary": "Anthropic 为重要开源项目提供可选的安全扫描服务，把 AI 辅助的漏洞检测接进代码提交环节。",
-   "content": "这条对信息安全方向的同学最实用：它示范了「安全扫描不是事后审计，而是挂在 CI 上每次提交都跑」。你可以在 GitHub Actions 里给自己课程项目配一条扫描流水线——提交 PR 时自动跑依赖漏洞检查和静态扫描，失败就拦住合并。这正好对应《软件安全》里的 DevSecOps 概念，也是简历上「我搭过 CI 安全门禁」这种能讲三分钟的实打实经历。别只停留在会用工具，要能说清扫出误报怎么处置。",
-   "source": "InfoQ中文",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "CI/CD"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把安全扫描挂进 CI，是信安学生最容易做出成果的工程实践。**",
-   "courses": "《软件安全》《软件工程》中的持续集成与安全门禁实验",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "安全扫描前置到代码提交/合并环节",
-    "可仿照在 GitHub Actions 里给课设配安全门禁",
-    "对应 DevSecOps 概念，简历可写"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/hdmi6FdjpYSEvuMhPOAa?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a887",
-   "title": "Harbor 支持 Docker Sandboxes：在隔离 MicroVM 里跑 AI Agent 评估",
-   "summary": "Harbor 新增 Docker Sandboxes 支持，可在隔离的 MicroVM 中运行可重现的 AI Agent 评估。",
-   "content": "Agent 跑起来会执行命令、改文件，直接在你本机跑等于把 root 交出去。Harbor 这次把 Agent 评估放进 MicroVM 沙箱，每次运行环境干净可复现——这对做「Agent 自动改代码」类课设的同学是关键基础设施。你可以用它在容器里跑自己的 Agent 测试用例，避免一次误删把项目搞崩。顺带理解「可重现评估」为什么重要：同一份 prompt 在不同环境跑出不同结果，你的实验数据就没法写进报告。",
-   "source": "InfoQ中文",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**跑 Agent 前先上沙箱，是保护项目和实验数据的基本操作。**",
-   "courses": "《操作系统》《云计算》中的容器与隔离实验",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "Agent 评估跑在隔离 MicroVM 中，环境可复现",
-    "避免 Agent 执行命令污染本机或误删文件",
-    "适合做 Agent 类课设的测试基础设施"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/pgmES06L2MAH2TCSMhJ9?utm_source=rss&utm_medium=article",
-   "cover": "img/a887.webp"
-  },
-  {
-   "id": "a888",
-   "title": "删上下文反而更贵：两篇研究揭示 Agent 成本的反直觉结论",
-   "summary": "两项针对编码 Agent 的研究发现，删掉旧工具输出后 prompt 变短了，账单却变高了。",
-   "content": "直觉上「上下文越短越省钱」，但实测相反：删掉旧的工具调用结果后，Agent 丢失了「已经试过什么」的记忆，于是重复调用工具、反复试错，token 反而烧得更多。作者给了判断方法——对比你 Agent 的输入 token 和工具调用次数，如果删减后调用次数上升，说明删错了。做《软件工程》课程项目里那种多轮工具调用 Agent 时，这条能帮你省下真金白银的 API 额度，也能在报告里写出「上下文策略对比实验」这种有数据支撑的章节。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**调 Agent 别盲目砍上下文，用调用次数验证你的省钱策略是否真的省钱。**",
-   "courses": "《软件工程》课程项目中的 Agent 上下文与成本优化",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "删旧工具输出后 Agent 重复试错，总 token 反升",
-    "判断方法：看工具调用次数是否随删减上升",
-    "可做成课设里的上下文策略对比实验"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Trimming Context Can Make Your Agent More Expensive",
-   "link": "https://dev.to/r3dtuxedo/trimming-context-can-make-your-agent-more-expensive-5gib",
-   "cover": "img/a888.webp"
   }
  ],
  "jobs": [
