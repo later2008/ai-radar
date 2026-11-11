@@ -1,6 +1,180 @@
 {
- "updatedAt": "2026-11-11 03:53",
+ "updatedAt": "2026-11-11 13:34",
  "news": [
+  {
+   "id": "a1014",
+   "title": "工程师招聘腰斩，Manus取消传统编程面试：产品经理开始直接写代码",
+   "summary": "Manus 取消传统编程面试，招聘量跌至巅峰一半，产品经理直接写代码交付。",
+   "content": "这条对软件工程和信息安全专业的学生是直接的就业信号：企业不再只考算法题，而是看你能不能把需求变成可运行的东西。Manus 的做法是把面试换成真实任务，产品经理用 AI 编码工具直接产出代码。对应到你的课：软件工程课的「需求分析—设计—实现」流程要真正走通，别只写文档；Java/前端课设尽量做完整可交付的小系统。建议现在就用 AI 编码工具做一次「需求→原型→代码」全流程练手，把过程录成作品集，面试时比刷题更能说明问题。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "AI Coding"
+   ],
+   "value": "**就业门槛从「会写代码」转向「能交付可用系统」，课设要当作品集做。**",
+   "courses": "软件工程（需求分析与项目实践）、Java 程序设计（课设完整交付）",
+   "tags": [
+    "求职就业",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "招聘量下降意味着竞争加剧，作品集比刷题更有效",
+    "面试趋势转向真实任务交付，而非纯算法",
+    "产品经理写代码说明「能落地」比「会背八股」值钱",
+    "建议用 AI 编码工具跑通一次完整需求到代码的流程"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/HKFSZ6a0DM97BV7FXP2t?utm_source=rss&utm_medium=article",
+   "cover": "img/a1014.webp"
+  },
+  {
+   "id": "a1015",
+   "title": "Agent 正在终结 Pull Request？GitHub 重新审视传统开发流程",
+   "summary": "Agent 直接改代码、提改动，GitHub 开始重审 PR 这一协作机制。",
+   "content": "PR 是团队协作的核心环节，也是你课程项目里最容易糊弄的部分。这条新闻说的是：当 Agent 能自动生成并提交改动，人工逐行 review 的模式会被重构，但「代码评审、变更可追溯」的需求不会消失，反而更需要人判断改动的正确性和安全性。对应课程：软件工程里的配置管理与代码评审、信息安全里的代码审计。实操建议：在 Git 课设里给每次提交写清楚变更说明，练习用 diff 审阅 AI 生成的代码，找出逻辑漏洞和越权风险——这正是信息安全方向能加分的点。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Git"
+   ],
+   "value": "**会用 Git 只是基础，能审出 AI 代码里的问题才是竞争力。**",
+   "courses": "软件工程（配置管理与代码评审）、信息安全（代码审计）",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "PR 流程可能被 Agent 改变，但代码评审能力更稀缺",
+    "练习审阅 AI 生成代码的 diff，找逻辑与安全漏洞",
+    "Git 提交规范与变更说明要写扎实",
+    "信息安全方向可结合代码审计切入"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/x0B056QFxzYEewT1Et34?utm_source=rss&utm_medium=article",
+   "cover": "img/a1015.webp"
+  },
+  {
+   "id": "a1016",
+   "title": "Agent 上下文也是成本：效率优化的新思路",
+   "summary": "把上下文当成本来管理，是 Agent 应用降本增效的关键工程手段。",
+   "content": "做 AI 应用课设时，很多人把整段文档、整张表塞进 prompt，结果又慢又贵还答不准。这条讲的是把「上下文」当资源来调度：按需检索、裁剪、分层缓存。对应课程：数据结构与算法（检索与缓存思想）、软件工程（非功能需求：性能与成本）。实操建议：在你的 RAG 小项目里加一层上下文预算控制——限制每次注入的 token 数、做分块检索、记录命中率，用数据说明优化前后成本差异。这比「调通一个 demo」更能写进简历。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "RAG",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把上下文当成本管理，是 AI 应用从 demo 走向可用的必修课。**",
+   "courses": "数据结构（检索与缓存）、软件工程（性能与成本非功能需求）",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "上下文长度直接决定调用成本和响应速度",
+    "练习分块检索、上下文裁剪与缓存",
+    "用命中率、token 消耗量化优化效果",
+    "适合做进 RAG 类课设的加分项"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/iaCUbU8Fwz6G6bDlQ9BV?utm_source=rss&utm_medium=article",
+   "cover": "img/a1016.webp"
+  },
+  {
+   "id": "a1017",
+   "title": "RXThinkCMF v2.6.0 发布：Laravel13 + Vue3 + TS 的企业级中台脚手架",
+   "summary": "基于 Laravel13、Vue3、TypeScript、NaiveUI 的前后端分离中台方案，内置按钮级 RBAC 权限。",
+   "content": "想快速做出一个「像企业系统」的课设，这类脚手架很省事：用户、角色、权限菜单、部门、日志、数据字典都现成，权限细到按钮和方法级。对应课程：Web 开发（前后端分离）、数据库（权限表设计）、信息安全（访问控制模型 RBAC）。用法建议：拿它当毕设或课程设计的底座，重点研究它的权限表结构和接口鉴权逻辑，再自己加一个业务模块。注意 Laravel 是 PHP 栈，和你学的 Java/前端不同，但 RBAC 设计思想可直接迁移到 Spring Boot 项目。",
+   "source": "开源中国",
+   "date": "2026-11-11",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Vue3",
+    "TypeScript"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**借成熟脚手架的权限设计，快速搭出「像企业系统」的课设。**",
+   "courses": "Web 开发（前后端分离）、数据库（权限表设计）",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "开箱即用的用户/角色/权限/日志模块",
+    "权限控制细到按钮和方法级，值得研究表结构",
+    "PHP 技术栈，但 RBAC 设计可迁移到 Java 项目",
+    "适合当课设底座，自己加业务模块"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503519"
+  },
+  {
+   "id": "a1018",
+   "title": "Hermes Agent vs OpenClaw：哪个 Agent 真能帮你干活",
+   "summary": "面向实际搭建工作流的人，对比两款 Agent 在真实任务中的可用性。",
+   "content": "市面上的 Agent 对比大多写给第一次用的人，这条针对的是「真要拿它干活」的场景：搭工作流、自动化调研、一个人做项目。对应课程：软件工程（工具链与自动化）、人机交互（工具可用性评估）。实操建议：别只看评测，自己设三个任务——读一个开源仓库并总结结构、按需求生成一段可运行代码、自动整理一份调研资料，记录成功率和返工次数。这种自测方法本身就是很好的实验报告素材，也能帮你判断该把哪个工具放进日常开发流程。",
+   "source": "DEV Community",
+   "date": "2026-11-11",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**用自设任务实测 Agent，比看评测更能选对工具。**",
+   "courses": "软件工程（工具链与自动化）、人机交互（可用性评估）",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "对比维度是真实任务完成度，不是功能列表",
+    "自设任务做 A/B 测试，记录成功率与返工",
+    "结果可写成实验报告或工具选型文档",
+    "适合个人项目与自动化调研场景"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Hermes Agent vs OpenClaw: Which Agent Actually Helps You Build?",
+   "link": "https://dev.to/guang_diyuzhi_74b0fec2c09/hermes-agent-vs-openclaw-which-agent-actually-helps-you-build-283e",
+   "cover": "img/a1018.webp"
+  },
   {
    "id": "a1008",
    "title": "微软10月安全更新修复1400+漏洞，1个已被在野利用",
@@ -24,7 +198,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "1400+ 漏洞中仅 1 个已遭在野利用，优先级最高",
@@ -3938,186 +4112,6 @@
    ],
    "buzz": [],
    "link": "https://www.infoq.cn/article/u4fAoAH5vZPCV4TVqAcO?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a902",
-   "title": "腾讯Hy4实测：用它复刻《王者荣耀》，WorkBuddy能接多大的活？",
-   "summary": "实测腾讯开源模型Hy4配合WorkBuddy完成游戏复刻类开发任务，检验国产开源模型在Agentic Coding上的实际能力。",
-   "content": "对软件工程学生来说，这条的看点是「Agentic Coding」到底能干多大的活。文章用复刻《王者荣耀》这类复杂需求做压力测试，暴露的是当前AI编程工具的真实边界：能快速搭出原型和基础逻辑，但复杂状态管理、性能优化仍需人来兜底。建议你这样用：拿它做课设的前端页面和CRUD接口，省下的时间投入到架构设计和测试上；同时记录它在哪些环节翻车，这些「翻车点」就是你面试时讲AI工具理解的最好素材。前端方向的同学可以重点看它生成组件和交互逻辑的质量。",
-   "source": "爱范儿",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Hy4",
-    "WorkBuddy"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**摸清AI编程工具的真实能力边界，把省下的时间投到架构与测试上。**",
-   "courses": "《Web前端开发》《软件工程》：用AI生成原型，自己负责架构与测试",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "用复杂需求压力测试国产开源模型的编程能力",
-    "原型与CRUD可交给AI，架构与性能仍需人工",
-    "记录AI翻车点，是面试讲工具理解的好素材",
-    "前端同学可重点评估组件与交互生成质量"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1687613?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a902.webp"
-  },
-  {
-   "id": "a903",
-   "title": "Ripple-65B预览：美国开放权重模型在Agentic Coding上达到SOTA",
-   "summary": "Ripple-65B预览版发布，主打智能体编程能力，号称在美国开放权重模型中达到SOTA水平。",
-   "content": "开放权重模型对学生的直接意义是：可以本地部署、免费调、随便改。Ripple-65B主打Agentic Coding，意味着它更适合接工具、跑多步任务，而不是单纯补全代码。实操建议：用Ollama或vLLM在实验室机器上拉起模型，接一个简单的工具调用框架（读写文件、执行命令），对比它和闭源模型在「多步任务完成率」上的差距。这对做工业软件方向的同学有价值——产线环境往往不允许调用外部API，本地可部署的编程模型是刚需。注意65B参数量对显存要求不低，先确认硬件再动手。",
-   "source": "Hacker News",
-   "date": "2026-11-04",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Ripple-65B",
-    "vLLM"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**掌握开放权重模型的本地部署与工具调用，这是内网与工业场景的实用技能。**",
-   "courses": "《人工智能导论》《软件工程》：实践本地模型部署与Agent工具调用",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "开放权重可本地部署，适合内网与离线场景",
-    "主打Agentic Coding，强于多步工具调用",
-    "可用Ollama/vLLM部署后对比闭源模型",
-    "工业软件内网环境对本地模型有刚需"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
-   "link": "https://www.ricursive.com/ripple",
-   "cover": "img/a903.webp"
-  },
-  {
-   "id": "a892",
-   "title": "Agent 工具清单≠权限模型：给智能体做细粒度授权",
-   "summary": "多数 Agent 只在启动前决定「能用哪些工具」，但工具本身不等于权限，真正的授权要落到每次调用的参数与数据范围上。",
-   "content": "文章指出一个常见误区：给 Agent 配一份工具清单（邮件、日历、CRM、Shell、浏览器）就以为完成了权限设计。问题在于，同一个工具在不同参数下风险完全不同——读邮件和群发邮件是两回事。正确做法是把权限下沉到调用层：按操作类型、数据范围、是否可逆分级授权，并对高风险动作加人工确认。对信息安全专业的同学，这是把访问控制（RBAC/ABAC、最小权限原则）落到 AI 系统上的实战案例，可以直接作为毕业设计或课程报告的选题方向。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Agent",
-    "访问控制"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把课本上的最小权限原则真正落到 AI Agent 系统里，是信安方向少见的加分选题。**",
-   "courses": "《信息安全导论》《访问控制技术》——作为 AI 场景下的权限设计案例写进课程报告",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "工具清单只是能力声明，不是权限边界",
-    "权限应下沉到单次调用：操作类型+数据范围+可逆性",
-    "高风险动作需人工确认或二次审批",
-    "对应访问控制模型：最小权限、RBAC/ABAC"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/akarshan/your-agents-tool-list-is-not-a-permission-model-5a1k",
-   "cover": "img/a892.webp"
-  },
-  {
-   "id": "a893",
-   "title": "React useContext 实战：用 Context 干掉层层传参",
-   "summary": "以暗黑模式开关为例，讲清 Context 解决 props drilling 的完整写法。",
-   "content": "多个组件都要知道「当前是不是暗黑模式」，靠 props 一层层往下传既啰嗦又难维护。文章用这个场景演示 useContext：先 createContext 建上下文，在顶层用 Provider 包住子树并传值，任意后代组件用 useContext 直接取值。要点是 Provider 的 value 变化会触发所有消费者重渲染，所以别把频繁变化的大对象塞进去，必要时拆分多个 Context。前端课设里做主题切换、登录态共享、全局语言包，都可以直接套这个模式，比 Redux 轻得多。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**半小时学会，下次课设的主题切换和登录态共享不用再层层传 props。**",
-   "courses": "《Web 前端开发》——React 状态管理章节的配套练习",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "createContext + Provider + useContext 三步走",
-    "解决 props drilling，适合主题/登录态/多语言",
-    "value 变化会触发全部消费者重渲染，注意拆分",
-    "比引入状态管理库更轻，适合中小型课设"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/lokesh_a/usecontext-in-react-5098",
-   "cover": "img/a893.webp"
-  },
-  {
-   "id": "a894",
-   "title": "React 里的解构写法：useState 那对方括号到底什么意思",
-   "summary": "从数组/对象解构讲起，解释 React 中 const [x, setX] = useState() 等常见写法的由来。",
-   "content": "很多同学照着写 const [count, setCount] = useState(0) 却说不清原理。文章先讲解构本身：从数组按位置取值、从对象按属性名取值，可设默认值、可嵌套。再对应到 React：useState 返回的是一个二元数组，所以用数组解构；props 是对象，所以函数组件里常写 function Card({ title, desc })。搞懂这层对应关系，读别人代码时就不会被各种花式解构绕晕，自己写组件参数也更简洁。属于基础但必须补的一课。",
-   "source": "DEV Community",
-   "date": "2026-11-04",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React",
-    "JavaScript"
-   ],
-   "diff": 1,
-   "scene": "练手",
-   "value": "**补上 ES6 解构这一课，React 代码从此不再是「照着抄」。**",
-   "courses": "《Web 前端开发》——JavaScript ES6 语法与 React 组件基础",
-   "tags": [
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "数组解构按位置，对象解构按属性名",
-    "useState 返回数组，所以用 [] 解构",
-    "props 是对象，组件参数可直接 { title, desc }",
-    "支持默认值与嵌套解构"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/lokesh_a/how-destructuring-is-used-in-react-2d4b",
-   "cover": "img/a894.webp"
   }
  ],
  "jobs": [
