@@ -1,6 +1,178 @@
 {
- "updatedAt": "2026-11-11 13:34",
+ "updatedAt": "2026-11-11 17:46",
  "news": [
+  {
+   "id": "a1019",
+   "title": "ORA-01000 游标超限：别急着调大上限，先找连接泄漏",
+   "summary": "应用跑几天后突然报 ORA-01000，多数人第一反应是调大 open_cursors，本文主张先定位未关闭的游标泄漏点。",
+   "content": "ORA-01000 是典型的「慢性病」：应用连续运行数天正常，然后同一台应用服务器上的请求开始成批失败。根因通常不是上限太小，而是某条 JDBC 路径上 ResultSet/Statement 没在 finally 或 try-with-resources 里关闭，连接池复用后游标越积越多。排查思路：先查 v$open_cursor 按 SQL 文本聚合，找出增长最快的语句；再对照代码里对应的 DAO 方法，检查是否漏了 close。调大 open_cursors 只是把爆炸时间往后推。",
+   "source": "DEV Community",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Oracle",
+    "JDBC"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**数据库连接与游标泄漏是 Java 后端面试和实习中的高频踩坑点，学会用视图定位比背参数有用**",
+   "courses": "《数据库原理》《Java Web 开发》——课程设计的 JDBC 层可直接套用这套排查流程",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 62,
+   "brief": [
+    "先按 SQL 文本聚合 v$open_cursor，定位增长最快的语句",
+    "重点检查 DAO 层 ResultSet/Statement 是否用 try-with-resources 关闭",
+    "调大 open_cursors 只是延后故障，不是修复"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "ORA-01000 Maximum Open Cursors Exceeded: Don't Raise the Limit, Find the Leak",
+   "link": "https://dev.to/uptimearchitect/ora-01000-maximum-open-cursors-exceeded-dont-raise-the-limit-find-the-leak-2m0f",
+   "cover": "img/a1019.webp"
+  },
+  {
+   "id": "a1020",
+   "title": "别信 AI 说「已修复」：给编码 Agent 加一道必须跑通的验证关卡",
+   "summary": "作者被 Claude Code 两句最短回复坑得最惨——「已修复」和「这地方没人用」，实际代码根本没运行过。",
+   "content": "问题不在模型能力，而在工作流：Agent 改完代码后直接宣告完成，你也就顺势进入下一件事，直到几小时后才发现上次编辑后什么都没跑。可落地的做法是给 Agent 定一条硬规则——任何「已修复」的结论必须附带实际执行的命令与输出，测试没跑通就不许说完成；删除或改动「没人用」的代码前，要求它给出 grep/引用搜索的证据。这对用 Cursor、Claude Code 做课设的同学尤其重要：把验证步骤写进提示词或项目规则文件，比事后返工省时间。",
+   "source": "DEV Community",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**把「必须跑通才算完成」写进 AI 编码规则，能省下大量返工时间**",
+   "courses": "《软件工程》——可作为团队协作与代码评审规范的补充案例",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "要求 Agent 的「已修复」必须附命令与真实输出",
+    "改「没人用」的代码前先要引用搜索证据",
+    "把验证规则写进项目规则文件，形成固定工作流"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I Got Tired of Claude Code Saying \"It's Fixed\" When Nothing Had Run",
+   "link": "https://dev.to/gapmine/i-got-tired-of-claude-code-saying-its-fixed-when-nothing-had-run-1lkj",
+   "cover": "img/a1020.webp"
+  },
+  {
+   "id": "a1021",
+   "title": "用 Django + Claude 从一句话需求做出分类信息网站：完整协作流程复盘",
+   "summary": "作者把「用 Python 和 Django 做一个能发帖、浏览的分类广告应用」一句话丢给 Agent，记录了从零到可运行的全过程。",
+   "content": "这是一份少见的完整协作记录：需求只给一句话，Agent 负责搭 Django 项目骨架、设计 Ad 模型、写视图与模板，人负责验收和纠偏。对正在学 Web 开发的同学，价值在于看清「哪些环节可以交给 Agent、哪些必须自己把关」——模型字段设计、路由与权限、表单校验这些决定项目骨架的部分，最好自己先想清楚再让 Agent 落地，否则改起来比手写还慢。适合当作课程设计的起步模板，照着跑一遍再替换成自己的业务。",
+   "source": "DEV Community",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Django",
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**照着跑一遍完整协作流程，比看十篇 Agent 原理文章更能提升实战效率**",
+   "courses": "《Web 应用开发》《软件工程》——课程设计可直接复用该协作模式",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "一句话需求 → Django 项目骨架、模型、视图、模板全流程",
+    "模型设计与权限校验建议自己把关，别全交给 Agent",
+    "可直接作为 Web 课程设计的起步模板"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Me and My Coding Partner, Agent Claude: Our Journey to Building a Classifieds Web App",
+   "link": "https://dev.to/sunil_makwana_0ddf8129ea6/me-and-my-coding-partner-agent-claude-our-journey-to-building-a-classifieds-web-app-8n0",
+   "cover": "img/a1021.webp"
+  },
+  {
+   "id": "a1022",
+   "title": "多云 FinOps 工程框架：把跨云成本优化做成可落地的工程能力",
+   "summary": "InfoQ 介绍一套用于跨云成本优化的工程框架，把账单数据采集、成本分摊与优化建议工程化。",
+   "content": "FinOps 的核心不是省钱口号，而是把「谁在花、花在哪、为什么涨」变成可查询的数据。文章给出的框架思路是：统一采集各云厂商账单与用量数据，按业务标签做成本分摊，再对闲置资源、规格选型、存储分层给出优化动作。对软件工程和信息安全专业的同学，这里有两个可迁移的技能点——标签体系设计（本质是数据建模）和成本异常检测（本质是监控告警）。即便学校项目只用一台云服务器，也可以先练「资源打标签 + 月度成本报表」这套最小闭环。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "云平台"
+   ],
+   "value": "**成本可观测性是云上工程能力的标配，标签体系与异常检测值得提前练手**",
+   "courses": "《云计算技术》——可作为云资源管理与成本治理章节的延伸阅读",
+   "tags": [
+    "行业动态",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "统一采集多云账单与用量，按业务标签分摊成本",
+    "优化动作集中在闲置资源、规格选型、存储分层",
+    "标签体系设计与成本异常检测是可迁移的通用能力"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0qQcqvV13GtRKGgmsPqW?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1023",
+   "title": "Agent 从 Demo 到生产还差几步：4 周实战课拆解落地环节",
+   "summary": "InfoQ 推出 4 周 Agent 实战课程，聚焦从演示原型走到生产可用之间缺失的工程环节。",
+   "content": "Demo 能跑和生产能用之间，隔着的是可观测性、失败重试、权限边界、成本控制这几件事。这门课的价值不在于教某个框架，而在于把「上线前必须补齐什么」列成清单：Agent 调用链如何打日志、工具调用失败如何降级、敏感操作如何加人工确认、单次任务成本如何核算。对做毕业设计或想往 AI 应用开发方向求职的同学，这份清单可以直接当作项目自查表——对照检查自己的 Demo 缺哪几块，比盲目堆功能更能体现工程素养。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "简历加分/求职准备",
+   "value": "**用「上线前清单」自查项目，比堆功能更能体现工程能力**",
+   "courses": "《软件工程》《人工智能导论》——毕设项目的工程化自查参考",
+   "tags": [
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "Demo 与生产之间隔着可观测性、重试、权限、成本四道关",
+    "可把课程清单当作毕设项目的上线前自查表",
+    "工具调用失败降级与人工确认是重点环节"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/gzNdPqAMp1Wh1JQ9d2JA?utm_source=rss&utm_medium=article",
+   "cover": "img/a1023.webp"
+  },
   {
    "id": "a1014",
    "title": "工程师招聘腰斩，Manus取消传统编程面试：产品经理开始直接写代码",
@@ -23,7 +195,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "招聘量下降意味着竞争加剧，作品集比刷题更有效",
@@ -3947,171 +4119,6 @@
    "buzz": [],
    "link": "https://www.ifanr.com/1687702?utm_source=rss&utm_medium=rss&utm_campaign=",
    "cover": "img/a910.webp"
-  },
-  {
-   "id": "a897",
-   "title": "Linux内核被OpenAI挖出948个漏洞，120万美元的AI审计值不值？",
-   "summary": "OpenAI投入120万美元用AI对Linux内核做安全审计，挖出948个漏洞，覆盖内核多个子系统。",
-   "content": "这条新闻对信息安全与管理专业的同学价值很直接：它说明「AI辅助漏洞挖掘」已经从论文走进真实工程。你可以关注三点：一是漏洞类型分布（内存越界、竞态、空指针等），这些正是《操作系统》《系统安全》课上的经典考点；二是AI审计的工作方式——静态分析+大模型推理，和你课设里用CodeQL、Semgrep做扫描是同一思路的升级版；三是120万美元的成本账，说明企业愿意为安全付钱，这就是你的就业方向。建议拿一个开源小项目练手：先用传统SAST工具扫一遍，再让大模型复核误报，写进简历比空谈「了解安全」有用得多。",
-   "source": "量子位",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Linux"
-   ],
-   "value": "**看懂AI漏洞挖掘的真实工程链路，把「系统安全」课的知识变成可写进简历的实战经验。**",
-   "courses": "《操作系统》《系统安全》：用内核漏洞案例理解内存越界、竞态等经典缺陷",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "AI审计Linux内核挖出948个漏洞，成本120万美元",
-    "漏洞类型对应操作系统与系统安全课程考点",
-    "可复刻：SAST工具+大模型复核误报的审计流程",
-    "安全岗位付费意愿强，是明确就业方向"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/507697.html"
-  },
-  {
-   "id": "a898",
-   "title": "JeecgBoot V3.9.6 发布：一次修67个安全漏洞，越权、SQL注入、RCE全在列",
-   "summary": "开源低代码平台JeecgBoot发布安全主线版本，集中修复67项漏洞，覆盖越权访问、租户隔离、SQL注入、SSRF、XSS、RCE等。",
-   "content": "这是一份现成的「Web安全漏洞清单」，比教材案例更贴近真实项目。JeecgBoot是Java技术栈的低代码平台，很多同学做课设、毕业设计会直接拿来改。这次修复的67项里，越权访问和租户隔离属于业务逻辑漏洞，SQL注入、XSS、SSRF、RCE属于OWASP经典项，还有登录爆破和短信轰炸这类接口滥用。建议做法：拉下V3.9.5和V3.9.6的diff，逐个看修复点，对照《Web应用安全》课上的防御手段，理解「按钮权限补齐」为什么能挡住越权。做Java全栈方向的同学，还能顺便学它的权限模型设计。",
-   "source": "开源中国",
-   "date": "2026-11-05",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "信息安全"
-   ],
-   "stack": [
-    "JeecgBoot",
-    "Spring Boot"
-   ],
-   "value": "**把一次开源版本更新变成Web安全漏洞的活教材，越权与注入类问题一次看全。**",
-   "courses": "《Web应用安全》《Java Web开发》：对照修复点理解越权、注入、SSRF的防御实现",
-   "tags": [
-    "Java全栈",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "67项漏洞覆盖越权、SQL注入、SSRF、XSS、RCE",
-    "Java低代码平台，课设/毕设常用底座",
-    "对比版本diff可当Web安全实战教材",
-    "顺带学习权限模型与租户隔离设计"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503401"
-  },
-  {
-   "id": "a899",
-   "title": "12小时攻破AI巨头：Anthropic的Slack被AI Agent扒光，Agent安全成新战场",
-   "summary": "一次针对Anthropic的攻防演练中，AI Agent在12小时内突破防线并获取Slack内部信息，暴露Agent权限过大问题。",
-   "content": "这个案例值得信息安全方向的同学逐段拆解，因为它不是传统漏洞，而是「Agent被赋予了过多权限」。攻击链大致是：Agent可访问的工具与凭据过多→通过提示注入或工具滥用横向移动→拿到Slack等协作平台数据。对应到你的课程，《网络安全》《访问控制》里讲的最小权限原则在这里被完整违反了一遍。实操建议：自己搭一个带工具调用的Agent demo（比如接文件读取和HTTP请求），然后尝试用恶意文档做提示注入，看它会不会越权执行。这类「AI Agent安全」是当前安全岗面试的高频话题，做过实验和没做过，回答深度差很远。",
-   "source": "安全客",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "value": "**理解AI Agent的新型攻击面，把「最小权限」从课本概念变成能动手验证的安全实验。**",
-   "courses": "《网络安全》《访问控制》：用真实案例理解最小权限原则与横向移动",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "攻击核心是Agent权限过大+提示注入，而非传统漏洞",
-    "对应最小权限原则、访问控制等课程知识",
-    "可自建带工具调用的Agent做提示注入实验",
-    "AI Agent安全是安全岗面试高频考点"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316429"
-  },
-  {
-   "id": "a900",
-   "title": "潜伏16年的UEFI漏洞：开机那几秒，所有防线都还没上线",
-   "summary": "一个在UEFI固件中潜伏16年的漏洞被披露，攻击发生在操作系统安全机制加载之前，传统杀软与防护完全失效。",
-   "content": "这条对信息安全专业是「底层安全」的补课提醒。UEFI漏洞的可怕之处在于时机：它运行在OS之前，你装的杀毒软件、EDR、内核防护那一刻都还没启动，所以叫「所有防线都还没上线」。对应课程是《操作系统》的启动流程和《计算机组成原理》的固件层。学生能做什么？一是在虚拟机里用OVMF跑UEFI，观察启动各阶段；二是了解Secure Boot的信任链原理，理解为什么固件签名是关键一环。工业软件方向的同学也值得看——工控设备、嵌入式终端的固件更新往往更滞后，这类漏洞在工业场景里影响更大。",
-   "source": "安全客",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [
-    "UEFI"
-   ],
-   "value": "**补齐固件层安全认知，理解Secure Boot信任链为何是底层防护的关键一环。**",
-   "courses": "《操作系统》《计算机组成原理》：结合启动流程理解固件层攻击时机",
-   "tags": [
-    "信息安全",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "漏洞位于UEFI固件层，早于操作系统安全机制生效",
-    "对应操作系统启动流程与Secure Boot信任链",
-    "可用OVMF在虚拟机中观察UEFI启动阶段",
-    "工控与嵌入式设备固件更新滞后，风险更高"
-   ],
-   "buzz": [],
-   "link": "https://www.anquanke.com/post/id/316426"
-  },
-  {
-   "id": "a901",
-   "title": "谷歌用Gemini 4 Argon一夜优化ADK代码库20万行，AI重构进入工程化",
-   "summary": "谷歌使用Gemini 4 Argon对ADK代码库的20万行代码进行批量优化，展示了AI辅助大规模代码重构的可行路径。",
-   "content": "别只看「20万行」这个数字，重点看它的工程方法：先建立可验证的测试与规范，再让模型批量改，最后靠CI回归兜底。这套流程你在课设里就能小规模复刻——选一个自己写的几百行项目，写足单元测试，让AI做重构（提取函数、消除重复、补类型注解），跑测试看是否通过。软件工程实验班的同学尤其值得练，因为工业软件代码库动辄几十万行，人工重构成本极高，而「AI改+测试守门」正是当前企业探索的方向。对应《软件工程》《代码质量与测试》课程，做一次就能写进简历。",
-   "source": "InfoQ中文",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Gemini",
-    "CI"
-   ],
-   "value": "**掌握「测试守门+AI重构」的工程方法，这是大代码库维护的现实解法。**",
-   "courses": "《软件工程》《软件测试》：用单元测试保障AI重构的正确性",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "核心是「测试兜底+AI批量改」的工程化流程",
-    "可在自己的课设项目上小规模复刻",
-    "工业软件代码库庞大，AI重构价值更高",
-    "对应软件工程与测试类课程，可写进简历"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/u4fAoAH5vZPCV4TVqAcO?utm_source=rss&utm_medium=article"
   }
  ],
  "jobs": [
