@@ -1,6 +1,137 @@
 {
- "updatedAt": "2026-11-11 17:46",
+ "updatedAt": "2026-11-12 05:00",
  "news": [
+  {
+   "id": "a1024",
+   "title": "cc4g v0.2.0：Go 单文件 Web 版 AI 编程引擎集成平台，新增 Codex CLI",
+   "summary": "用 Go 编译出的单文件程序，把 AI 编程引擎装进浏览器，多人共用一套环境、手机也能接着写代码，v0.2.0 增加 Codex CLI 集成。",
+   "content": "cc4g 是一个用 Go 写的 Web 版 AI 编程引擎集成平台：编译成单文件二进制，跑在自己的电脑或服务器上，浏览器打开就能用，支持在线安装 Node.js 等依赖。它解决两个很实际的问题——多人共用一套环境（宿舍/实验室一台机器开服务，几个人浏览器同时用），以及换设备后继续干活（手机也能接着用）。v0.2.0 新增 Codex CLI 集成，意味着你可以在同一界面里切换不同 AI 编程引擎。对软件工程学生来说，这是理解「CLI 工具如何被 Web 化封装」的现成样本：读它的 Go 后端如何拉起子进程、如何做会话隔离，比空谈 Agent 架构有用得多。",
+   "source": "开源中国",
+   "date": "2026-11-12",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Go"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**一台机器开服务、多人浏览器共用 AI 编程环境，还能顺手读 Go 源码学工具封装**",
+   "courses": "《软件工程》《Web 开发》课设中可作团队协作编码环境，或作为源码阅读案例",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 62,
+   "brief": [
+    "Go 单文件部署，浏览器即用，无需每人装一套环境",
+    "支持在线安装 Node.js 等依赖，降低新机配置成本",
+    "v0.2.0 新增 Codex CLI 集成，可多引擎切换",
+    "适合读源码学「CLI 工具 Web 化封装」与会话隔离"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503538"
+  },
+  {
+   "id": "a1025",
+   "title": "豆包工作接入 Kimi、DeepSeek：一个工作台里切换多家国产大模型",
+   "summary": "豆包工作官宣接入 Kimi、DeepSeek，用户可在同一办公工作台内切换不同国产大模型完成任务。",
+   "content": "这条的价值不在「谁家模型更强」，而在多模型接入带来的工程问题：同一份提示词在不同模型上输出格式、上下文长度、函数调用能力都不一样，怎么抽象一层统一接口、怎么做失败重试与降级、怎么按任务类型路由到合适模型。如果你在做课设里的 AI 功能模块，最省事的做法就是别把 SDK 写死在某一家——定义一层薄薄的 provider 接口（chat/stream/tool_call 三个方法），把豆包、Kimi、DeepSeek 都实现一遍，配置里切换。这样既能在免费额度之间腾挪，答辩时也能讲清楚「模型可替换」的设计取舍。",
+   "source": "爱范儿",
+   "date": "2026-11-12",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**多模型并存意味着「可替换的模型接入层」成为必备设计，课设里就该这么写**",
+   "courses": "《软件工程》《人工智能导论》课程项目中的 AI 功能模块设计",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "同一工作台可切换豆包、Kimi、DeepSeek 等模型",
+    "工程重点：统一 provider 接口、失败重试与模型路由",
+    "课设里别把某家 SDK 写死，用配置切换",
+    "注意各家上下文长度与函数调用能力差异"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1689176?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a1025.webp"
+  },
+  {
+   "id": "a1026",
+   "title": "差旅 Agent 的上下文工程实践：从「搜到知识」到「理解约束」",
+   "summary": "AICon 北京分享差旅 Agent 落地经验：业务语义建模、用户偏好图谱与上下文工程，核心是从检索知识转向理解业务约束。",
+   "content": "做 Agent 最容易踩的坑是把它当搜索框：用户说「下周去北京出差三天」，检索式做法只会返回酒店列表，而真实业务里有一堆硬约束——差旅标准、报销额度、航班时间窗、同行人偏好。这场分享讲的正是把这些约束显式建模：业务语义层定义什么是「合规的行程」，偏好图谱记录个人习惯，上下文工程决定每一轮把哪些信息塞进模型窗口。对做课设的同学，可迁移的做法是：先把业务规则写成结构化约束（JSON Schema 或规则表），让模型只负责在约束内做选择，而不是让它自由发挥再事后校验。这比堆提示词靠谱。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**学会把业务规则写成结构化约束再交给模型，是 Agent 类课设从玩具到可用的分水岭**",
+   "courses": "《软件工程》《数据库原理》中业务规则建模部分，可用于智能助手类课程设计",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "Agent 落地关键是把业务约束显式建模，而非检索拼提示词",
+    "偏好图谱 + 上下文工程决定每轮喂给模型什么",
+    "可迁移做法：规则写成结构化约束，模型只在约束内选择",
+    "适合做「带业务规则的智能助手」类课设参考"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/V5Fwpg9gOBefx6xADcdd?utm_source=rss&utm_medium=article",
+   "cover": "img/a1026.webp"
+  },
+  {
+   "id": "a1027",
+   "title": "用 Intl.NumberFormat 做本地化金额格式化：孟加拉数字与南亚 lakh 分组",
+   "summary": "JavaScript 原生 Intl.NumberFormat 即可处理孟加拉数字、南亚 lakh/crore 分组规则，无需第三方库。",
+   "content": "一个看似小众但很典型的前端国际化练习：孟加拉用户既看拉丁数字 1,250.50，也看孟加拉数字 ১,২৫০.৫০，且大数按南亚 lakh（十万）分组而非千分位。JS 原生 Intl.NumberFormat 支持指定 numberingSystem 与 locale，全部搞定，不用装库。对前端同学的实际意义是：国际化不是「翻译文案」，数字、货币、日期、复数形式都有 locale 规则，硬编码 toFixed 加逗号迟早出事。建议动手写一个小 demo：同一笔金额分别用 en-US、bn-BD、hi-IN 输出，对比分组差异，十分钟就能把 Intl 的 API 摸熟，写进简历的国际化经验也算有据可依。",
+   "source": "DEV Community",
+   "date": "2026-11-12",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**十分钟摸熟 Intl.NumberFormat，把「国际化」从翻译文案升级为真正的 locale 规则处理**",
+   "courses": "《Web 前端开发》国际化与格式化章节，可作课堂小练习",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 40,
+   "brief": [
+    "Intl.NumberFormat 原生支持 numberingSystem 与 locale 定制",
+    "南亚 lakh/crore 分组与千分位规则不同，硬编码必错",
+    "十分钟 demo：同一金额用 en-US / bn-BD / hi-IN 对比输出",
+    "国际化不只是翻译，数字/货币/日期都有 locale 规则"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Formatting Taka Amounts for Bangladeshi Users in JavaScript (Intl.NumberFormat, Bangla Digits Included)",
+   "link": "https://dev.to/seo_nttechinnovation_/formatting-taka-amounts-for-bangladeshi-users-in-javascript-intlnumberformat-bangla-digits-2917",
+   "cover": "img/a1027.webp"
+  },
   {
    "id": "a1019",
    "title": "ORA-01000 游标超限：别急着调大上限，先找连接泄漏",
@@ -25,7 +156,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "先按 SQL 文本聚合 v$open_cursor，定位增长最快的语句",
@@ -3988,137 +4119,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/XieGrL5pws7jG1zxKPle?utm_source=rss&utm_medium=article",
    "cover": "img/a906.webp"
-  },
-  {
-   "id": "a907",
-   "title": "谷歌开源 ML Drift：让端侧 AI 推理跑上各类 GPU",
-   "summary": "谷歌发布 ML Drift，面向端侧 AI 推理做 GPU 加速，覆盖多种 GPU 后端。",
-   "content": "端侧推理是工业软件方向很现实的问题：产线工控机、检测设备上不一定有独立显卡，但又要跑视觉模型。ML Drift 的价值在于把「同一份模型跑在不同 GPU 后端」这件事抽象掉，减少你为每类硬件重写推理代码的工作量。建议做法：拿一个 YOLO 或轻量分类模型，分别在 CPU 和可用 GPU 上跑，记录延迟与吞吐，做成一张对比表放进课设报告——这比只写「调用了模型」有说服力得多。对应《人工智能导论》《嵌入式系统》，工业软件实验班可结合缺陷检测场景做端侧部署实验。",
-   "source": "InfoQ中文",
-   "date": "2026-11-05",
-   "cat": "tool",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "ML Drift"
-   ],
-   "diff": 3,
-   "scene": "课设/练手",
-   "value": "**端侧推理的硬件适配是工业软件落地的真实痛点，会做性能对比实验就是差异化能力。**",
-   "courses": "《人工智能导论》《嵌入式系统》：端侧模型部署与性能评测实验。",
-   "tags": [
-    "工业软件",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "解决多 GPU 后端适配问题，减少重复推理代码",
-    "实验方法：同模型 CPU/GPU 延迟吞吐对比表",
-    "适配工业视觉检测等端侧部署场景"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/hHzARIJTeqoqYpjNKEuq?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a908",
-   "title": "百度开源文心 5.5 Flash Base，同尺寸模型多项基准刷新 SOTA",
-   "summary": "百度开源最新基座模型文心 5.5 Flash Base，官方称在多基准测试中刷新同尺寸模型最好成绩。",
-   "content": "对本科生来说，开源基座模型的实际用途不是「自己训一个」，而是三件事：一是本地/低成本部署做课设 demo，二是拿来做微调实验理解 LoRA、数据配比这些概念，三是作为对照基线评估你写的 RAG 或 Agent 效果。建议路径：先用 Ollama 或 vLLM 把模型跑起来，测一下首 token 延迟和显存占用，再套一个最简单的 RAG（文档切分 + 向量检索）看回答质量，把「基线 vs 加检索」的对比写进实验报告。对应《机器学习》《自然语言处理》，注意别把「跑通模型」当成成果，要有评测数据。",
-   "source": "量子位",
-   "date": "2026-11-05",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "文心5.5",
-    "vLLM"
-   ],
-   "value": "**开源基座是低成本做 AI 课设与微调实验的底座，关键是把「跑通」升级成「有评测对比」。**",
-   "courses": "《机器学习》《自然语言处理》：模型部署与 RAG 效果对照实验。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "开源基座更适合做本地部署、微调与基线对照",
-    "实验路径：部署测延迟显存 → 加 RAG 做对比",
-    "报告要有评测数据，而非只截图跑通"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/507787.html",
-   "cover": "img/a908.webp"
-  },
-  {
-   "id": "a909",
-   "title": "GPT-Image-2.6 全量上线：直出 GIF 与 SVG，最快 6 秒出图",
-   "summary": "新版图像模型支持直接生成 GIF 动图与 SVG 矢量图，出图速度最快约 6 秒。",
-   "content": "SVG 直出这件事对前端同学比 GIF 更有价值：图标、简单插画、流程图可以直接拿到可编辑的矢量代码，粘进项目里改颜色改尺寸，不用再找设计要源文件。实操建议：让模型生成一组统一风格的 SVG 图标，检查 viewBox、fill 是否规范，再手动清理冗余路径，做成项目的 icon 组件库；GIF 则适合做课设演示里的操作动图。注意两点：生成结果仍需人工校验可访问性（aria-label）和体积，别把几十 KB 的冗余路径直接塞进首屏。对应《Web 前端开发》《人机交互》，可作为 UI 素材生产效率工具。",
-   "source": "量子位",
-   "date": "2026-11-05",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "SVG"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**SVG 直出能把「找图标」变成「生成+清理」，前端课设的 UI 效率工具，但必须人工校验规范。**",
-   "courses": "《Web 前端开发》：UI 素材生成与组件化整理实践。",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "SVG 直出可编辑矢量代码，适合做图标组件库",
-    "生成后需清理冗余路径、补 aria-label",
-    "GIF 适合课设演示动图，注意体积"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/507707.html",
-   "cover": "img/a909.webp"
-  },
-  {
-   "id": "a910",
-   "title": "Anthropic 加强 API 签名校验，第三方 AI 中转站面临洗牌",
-   "summary": "Anthropic 引入类似数字签名的机制校验请求来源，非官方中转服务的可用性与合规风险上升。",
-   "content": "很多同学图便宜用「中转站」调 Claude，本质是把 API Key 交给第三方代理，存在密钥泄露、请求被记录、随时断供三重风险。这次官方加强来源校验，意味着依赖中转的项目可能一夜失效。给你的实用建议：一是在项目里把模型调用封装成统一接口层（Provider 抽象），换供应商只改配置；二是密钥一律走环境变量，绝不写进前端代码或提交到 Git；三是做成本对比时把「稳定性风险」算进去。对应《信息安全导论》《软件工程》，也是面试里「你怎么设计可替换的外部依赖」的好答案。",
-   "source": "爱范儿",
-   "date": "2026-11-04",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**别把项目命脉押在第三方中转上，接口抽象层 + 密钥管理是低成本的自保方案。**",
-   "courses": "《信息安全导论》《软件工程》：外部依赖风险与密钥管理案例。",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "中转站风险：密钥泄露、请求被记录、随时断供",
-    "设计 Provider 抽象层，换供应商只改配置",
-    "密钥走环境变量，禁止进前端与 Git"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1687702?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a910.webp"
   }
  ],
  "jobs": [
