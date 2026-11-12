@@ -1,6 +1,234 @@
 {
- "updatedAt": "2026-11-12 05:00",
+ "updatedAt": "2026-11-12 14:38",
  "news": [
+  {
+   "id": "a1028",
+   "title": "LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪",
+   "summary": "LinkedIn 分享如何基于 OpenTelemetry 把用户前端点击与后端微服务调用串成一条 Trace，定位跨端性能与故障问题。",
+   "content": "前端点一个按钮，后端可能串了七八个服务，出问题只能靠猜——这是课设做前后端分离项目时最常见的痛点。LinkedIn 的做法是统一用 OpenTelemetry 的 TraceID 贯穿浏览器端与 Java 服务端：前端埋点生成 span，通过 HTTP Header 透传到网关，再由各微服务继续传递。对你的直接用处：软件工程课设做 Spring Boot + Vue 项目时，可以引入 OTel Java Agent 零代码埋点，前端用 @opentelemetry/sdk-trace-web，答辩演示时能直接展示一次请求的完整调用链，比截图日志有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "stack",
+   "tracks": [
+    "前端",
+    "Java"
+   ],
+   "stack": [
+    "OpenTelemetry",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**可观测性是后端岗高频考点，课设里加一条调用链就能拉开差距**",
+   "courses": "《软件工程》《Web 应用开发》——在前后端分离项目中实践分布式追踪",
+   "tags": [
+    "Java全栈",
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "用统一 TraceID 串联浏览器端与后端微服务",
+    "Java 侧可用 OpenTelemetry Agent 零代码接入",
+    "前端用 sdk-trace-web 生成并透传 span",
+    "课设演示调用链比日志截图更有说服力"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/3u1PmO0HqQXBFNibKZoe?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1029",
+   "title": "PyTorch 原生支持 TPU：不改代码就能换硬件跑训练",
+   "summary": "Google 让 PyTorch 可以直接在 TPU 上原生运行，减少对 XLA 手写适配的依赖，开发者迁移成本大幅下降。",
+   "content": "以前想用 TPU 得写一堆 XLA 适配代码，现在 PyTorch 原生跑通，意味着同一份训练脚本可以在 GPU 和 TPU 之间切换。对本科生来说，最现实的用处是：学校实验室 GPU 排队紧张时，可以尝试 Colab/Kaggle 提供的免费 TPU 资源跑深度学习作业。建议在《机器学习》《深度学习》课程的大作业里，用 torch.compile + device 切换做一次小规模对比实验，把「同模型不同硬件」的耗时和显存占用写进报告，这是简历上很实在的一行。注意：小模型上 TPU 未必更快，别为了炫技牺牲调试效率。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "PyTorch"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**多一种算力选择，实验室 GPU 排队时能救急**",
+   "courses": "《机器学习》《深度学习》——大作业中做跨硬件训练对比实验",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "PyTorch 训练脚本可在 GPU/TPU 间切换",
+    "适合用免费 TPU 资源跑课程大作业",
+    "可做同模型跨硬件性能对比实验",
+    "小模型上 TPU 未必更快，注意权衡"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/Fikt82HLToqb6ZANB2xj?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1030",
+   "title": "智能体 AI 架构：记忆、知识与上下文的系统化设计",
+   "summary": "InfoQ 梳理 Agent 系统中记忆存储、知识检索与上下文管理的分层方案，给出可落地的架构取舍。",
+   "content": "很多人做 Agent 就是「拼 prompt」，结果上下文一长就崩。这篇文章把 Agent 拆成三层：短期上下文（对话窗口管理）、长期记忆（向量库/结构化存储）、外部知识（RAG 检索）。对你的用处很具体：做《数据库原理》或软件工程课设时，如果要加一个「智能问答」模块，别再一股脑把文档塞进 prompt，而是用向量库做检索、用会话表存历史，架构图画出来就是加分项。信息安全方向的同学还可以顺带思考：记忆层里存了用户数据，权限与脱敏怎么做——这是企业落地时最容易被问的问题。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "RAG",
+    "向量数据库"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做 AI 应用课设时，分层架构比堆 prompt 更能打动面试官**",
+   "courses": "《数据库原理》《软件工程》——设计带检索与记忆的智能问答模块",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Agent 拆为上下文、记忆、知识三层",
+    "用向量库做检索而非全量塞 prompt",
+    "课设架构图可直接套用分层思路",
+    "记忆层涉及用户数据需考虑权限与脱敏"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/COuPKpA6rTf05C6JM10y?utm_source=rss&utm_medium=article",
+   "cover": "img/a1030.webp"
+  },
+  {
+   "id": "a1031",
+   "title": "Anthropic「玻璃翼计划」翻车：4 万个漏洞只修了 217 条",
+   "summary": "Anthropic 的漏洞挖掘计划被质疑「只管挖不管埋」，近 4 万个候补漏洞中仅修复 217 条。",
+   "content": "这件事对信息安全专业的同学是个很好的案例素材：AI 能大规模扫出漏洞，但修复要靠人、靠流程、靠优先级排序。4 万比 217 的比例说明，漏洞管理的瓶颈从来不是「发现」，而是「定级—排期—验证—回归」这条链路。建议在《信息安全导论》《渗透测试》课程的案例分析作业里用它：讨论 CVSS 评分怎么用、误报怎么过滤、修复资源怎么分配。面试安全岗时被问「你怎么看 AI 挖洞」，能答出「发现不等于解决，闭环才是核心」，比背工具名有用得多。",
+   "source": "量子位",
+   "date": "2026-11-12",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**理解漏洞管理闭环，比会用一个扫描工具更值钱**",
+   "courses": "《信息安全导论》《渗透测试》——漏洞管理与风险评估案例分析",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 挖洞规模大但修复率极低（217/40000）",
+    "漏洞管理瓶颈在定级、排期与验证闭环",
+    "可作为安全课程案例分析素材",
+    "面试可谈「发现≠解决」的闭环思维"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/509291.html"
+  },
+  {
+   "id": "a1032",
+   "title": "文心新模型纯代码生成《后室》游戏，116 秒切换 20 种画风",
+   "summary": "文心新模型通过纯代码生成可运行的游戏场景，短时间内在多种视觉风格间切换，模型即将开源。",
+   "content": "「纯代码造游戏」这件事对软件工程学生的意义不在于看热闹，而在于它演示了一种新的开发范式：用自然语言描述需求，模型直接产出可运行的代码与资源。你可以马上试的练手方式：让大模型生成一个 Canvas 小游戏（比如贪吃蛇、打砖块），然后自己读代码、改参数、修 bug——这个过程比从零手写更能快速理解游戏循环、碰撞检测、渲染管线。工业软件实验班的同学可以延伸思考：如果生成的是设备控制逻辑或仿真界面代码，怎么验证正确性？这才是工业场景真正卡脖子的地方。",
+   "source": "量子位",
+   "date": "2026-11-11",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**把 AI 生成代码当「可读的教材」，而不是「交作业的捷径」**",
+   "courses": "《程序设计基础》《人机交互》——用生成代码做阅读与改造练习",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "工业软件"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "自然语言直接产出可运行游戏代码",
+    "练手建议：让模型生成 Canvas 小游戏再自己改",
+    "重点训练读代码、改参数、修 bug 的能力",
+    "工业场景需额外关注生成代码的正确性验证"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/509224.html",
+   "cover": "img/a1032.webp"
+  },
+  {
+   "id": "a1033",
+   "title": "千问办公押注 Team Agent：企业 AI 从「演示」走向「流水线」",
+   "summary": "文章复盘企业级 Agent 市场「演示很成功、落地很失败」的普遍问题，讨论 Team Agent 如何嵌入真实业务流程。",
+   "content": "这篇文章的价值在于它戳破了一个幻觉：Demo 能跑通不等于业务能用。企业 Agent 真正的难点是权限、数据边界、异常兜底和多人协作流程。对软件工程学生来说，这是做课设时最容易忽略的一层——你写的「智能助手」有没有考虑过：用户越权访问怎么办？模型输出错了谁兜底？多角色协作时状态怎么同步？建议在做毕业设计或团队项目时，把「异常处理与权限设计」单独写一节，这恰恰是面试官判断你有没有工程思维的分水岭。",
+   "source": "极客公园",
+   "date": "2026-11-10",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**学会问「出错怎么办」，是从写代码到做工程的关键一步**",
+   "courses": "《软件工程》——需求分析与异常场景设计",
+   "tags": [
+    "行业动态",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "企业 Agent 落地难点在权限、边界与兜底",
+    "Demo 成功≠业务可用",
+    "课设应单列异常处理与权限设计章节",
+    "工程思维是面试区分度所在"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/373760",
+   "cover": "img/a1033.webp"
+  },
+  {
+   "id": "a1034",
+   "title": "InfoQ 2026 趋势报告：AI、ML 与数据工程",
+   "summary": "InfoQ 年度趋势报告梳理 AI、机器学习与数据工程领域的技术走向与工程实践变化。",
+   "content": "趋势报告适合用来做一件事：校准你的学习路线图。不用逐字读，重点看三块——数据工程（管道、治理、质量）、ML 工程化（训练到部署的链路）、以及 AI 应用层（Agent、RAG）。对软件工程和信息安全专业的学生，建议对照报告给自己列一张「已会/待学」清单：比如数据管道你只会写 SQL，那 ETL 调度、数据质量校验就是缺口。求职前拿它当检查表，比盲目刷教程高效。注意：报告是方向参考，不是技术教程，别指望读完就会写代码。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**用趋势报告当学习检查表，而不是当技术教程读**",
+   "courses": "《数据科学导论》《软件工程》——对照行业趋势规划技能树",
+   "tags": [
+    "行业动态",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "趋势报告适合做学习路线校准",
+    "重点关注数据工程、ML 工程化、AI 应用层",
+    "可整理成「已会/待学」清单",
+    "报告是方向参考，不能替代动手实践"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/7Pecd1CshYIMvCTeBhrm?utm_source=rss&utm_medium=article"
+  },
   {
    "id": "a1024",
    "title": "cc4g v0.2.0：Go 单文件 Web 版 AI 编程引擎集成平台，新增 Codex CLI",
@@ -23,7 +251,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "Go 单文件部署，浏览器即用，无需每人装一套环境",
@@ -3874,254 +4102,45 @@
    ],
    "buzz": [],
    "link": "https://www.bilibili.com/video/BV1kr4h6fExw"
-  },
-  {
-   "id": "a912",
-   "title": "从零搭多智能体系统：架构模式拆解（附代码思路）",
-   "summary": "一篇从零实现多智能体系统的架构笔记，讲清角色分工、消息传递与协调模式。",
-   "content": "单 Agent 搞不定的任务，往往要拆成多个角色协作：规划者、执行者、审查者。这篇文章从零开始讲多智能体系统的几种常见架构模式——谁负责拆任务、消息怎么在 Agent 之间传、冲突怎么收敛。对软件工程专业的价值在于：它本质是分布式协作设计问题，和你学的模块化、接口契约、状态机是一套思维。建议用一个「代码评审多智能体」小项目练手：一个 Agent 写代码、一个审代码、一个跑测试，把消息流画成时序图写进课设文档，比空谈架构有说服力得多。",
-   "source": "Hacker News",
-   "date": "2026-11-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Multi-Agent"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**把多智能体当成分布式协作设计来学，直接对应软件工程课设的架构文档。**",
-   "courses": "《软件工程》《分布式系统》：用架构模式与时序图描述多智能体协作",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "覆盖多智能体的角色分工与消息传递模式",
-    "本质是分布式协作设计，与软件工程课程思维一致",
-    "可做成「代码评审多智能体」练手项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building a Multi-Agent System from Scratch: Architecture Patterns",
-   "link": "https://kadhar.dev/blog/multi-agent-systems-from-scratch",
-   "cover": "img/a912.webp"
-  },
-  {
-   "id": "a913",
-   "title": "Claude Code 不听话？先看它上下文里到底装了什么",
-   "summary": "排查 CLAUDE.md 规则被忽略的问题：与其反复改措辞，不如先检查模型实际拿到的上下文内容。",
-   "content": "很多人遇到 AI 编程助手不遵守项目规范，第一反应是改措辞、加粗、加反引号。这篇文章给了一个更省事的排查顺序：先确认规则文件到底有没有被读进上下文、有没有被更长的内容挤掉。这对做课设和实习都实用——你写的 .cursorrules、CLAUDE.md 本质是「给模型的接口文档」，写不清模型就执行不对。建议把自己项目的规范文件精简到只留硬约束（目录结构、命名、禁止改动的文件），再实测一次改动前后的行为差异，这套「先看上下文再调 prompt」的方法可以直接写进实习周报。",
-   "source": "DEV Community",
-   "date": "2026-11-05",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "课设/实习上手",
-   "value": "**学会先查上下文再改 prompt，让 AI 编程助手真正遵守你的项目规范。**",
-   "courses": "《软件工程》：把项目规范写成可被工具消费的约束文件",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "规则被忽略时优先排查上下文是否真的加载",
-    "项目规范文件应只保留硬约束，避免被稀释",
-    "方法可复用于 Cursor、Claude Code 等 AI 编程工具"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Claude Code Ignoring CLAUDE.md? See What's in Its Context",
-   "link": "https://dev.to/reporails/claude-code-ignoring-claudemd-see-whats-in-its-context-3j8m",
-   "cover": "img/a913.webp"
-  },
-  {
-   "id": "a914",
-   "title": "自建 Claude Code 路由反而更贵：一次基准测试的教训",
-   "summary": "作者做了个自动切换模型的 Claude Code 路由，基准测试后发现成本比全程用 Opus 还高。",
-   "content": "思路很朴素：简单问题走便宜模型、难任务走强模型。但作者实测发现，路由本身的判断开销、上下文重复传输、以及误判导致的返工，把省下的钱又吃回去了。这对准备做「AI 应用降本」类课设或实习项目的同学是个提醒：不要凭直觉优化，先埋点统计 token 消耗和任务成功率，用数据说话。可以直接借鉴它的做法——在项目里加一层调用日志，记录每次请求的模型、输入输出 token 和耗时，再画个成本对比图放进课设报告，比空谈「智能调度」扎实得多。",
-   "source": "DEV Community",
-   "date": "2026-11-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**用一次真实基准测试告诉你：AI 应用降本要靠数据埋点，不能靠直觉。**",
-   "courses": "《软件工程课程设计》：为 AI 应用加入调用日志与成本度量",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "模型路由不一定省钱，判断开销与返工可能抵消收益",
-    "优化前应先埋点统计 token 与成功率",
-    "调用日志 + 成本对比图可直接用于课设报告"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "My Claude Code router cost more than Opus. Here's what the benchmark taught me",
-   "link": "https://dev.to/alexivy/my-claude-code-router-cost-more-than-opus-heres-what-the-benchmark-taught-me-2am2",
-   "cover": "img/a914.webp"
-  },
-  {
-   "id": "a915",
-   "title": "Rivet：在 S3 上编排与扩缩 Agent 的开源运行时",
-   "summary": "YC 团队开源 Rivet，用 actor 模型为每个 Agent 分配轻量执行单元，替代重型沙箱，便于规模化编排。",
-   "content": "跑一个 Agent 容易，跑一千个就难：每个都开沙箱，内存和启动开销直接爆炸。Rivet 的做法是给每个 Agent 一个轻量 actor，状态与执行分离，底层可落到对象存储上做持久化。对信息安全与管理专业的同学，重点不在它多快，而在「多租户执行环境如何隔离」——这正是你《系统安全》《访问控制》课上的问题。建议拿它跑通一个最小 demo，观察每个 actor 的权限边界和状态存储位置，写一份隔离机制分析，比背概念有用。工业软件方向也可关注其任务编排思路。",
-   "source": "Hacker News",
-   "date": "2026-11-05",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Rivet",
-    "Actor"
-   ],
-   "diff": 3,
-   "scene": "进阶练手/简历加分",
-   "value": "**从 Agent 规模化执行切入多租户隔离问题，正好对接系统安全课程。**",
-   "courses": "《系统安全》《访问控制》：分析多租户执行环境的隔离边界",
-   "tags": [
-    "AI工具",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "用轻量 actor 替代重型沙箱，降低规模化开销",
-    "关注点多租户隔离与状态持久化",
-    "可跑通 demo 后写一份隔离机制分析"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
-   "link": "https://github.com/rivet-dev/rivet",
-   "cover": "img/a915.webp"
-  },
-  {
-   "id": "a904",
-   "title": "PHP 修复两处已被在野利用的严重 RCE 漏洞，Web 后端同学请尽快升级",
-   "summary": "PHP 官方发布安全更新，修复两个已遭真实攻击的远程代码执行漏洞，影响面覆盖大量 Web 站点与后端服务。",
-   "content": "这次不是「理论漏洞」，而是已经有人在打的 RCE——攻击者构造请求就能在服务器上执行任意代码，后果等同于服务器被接管。对信息安全与管理专业的同学，这是最典型的「输入验证 + 反序列化/参数注入」实战案例：建议在虚拟机里搭一套受影响版本 PHP + 一个简单上传/参数接口，用 Burp 复现请求路径，再对照官方补丁 diff 看修复点在哪一行。软件工程同学则要养成习惯：把 PHP、Nginx、Tomcat、依赖库版本纳入资产清单，用 Dependabot 或自建脚本定期比对 CVE。课程上直接对应《Web 安全》《网络安全技术》，课设里若用 PHP 写后台，务必先升级再演示。",
-   "source": "InfoQ中文",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "PHP"
-   ],
-   "value": "**已在被真实攻击的高危漏洞，是 Web 安全课最好的复现素材，也是你项目上线前必须自查的清单项。**",
-   "courses": "《Web 安全》《网络安全技术》：用作漏洞复现与补丁分析实验。",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "两个漏洞均已被在野利用，属高危 RCE",
-    "复现要点：请求参数注入/反序列化路径",
-    "把依赖版本管理写进课设与实习项目规范"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/qUEjcWbwOj5RO59250Lu?utm_source=rss&utm_medium=article",
-   "cover": "img/a904.webp"
-  },
-  {
-   "id": "a905",
-   "title": "MCP C# SDK 2.0 默认走 HTTP 无状态模式，新增多轮请求能力",
-   "summary": "MCP 官方 C# SDK 2.0 将 HTTP 无状态模式设为默认，并支持多轮请求，服务端部署与横向扩展更简单。",
-   "content": "MCP 是当下把大模型接进 IDE、接进业务系统的通用协议，2.0 把 HTTP 无状态设为默认，意味着服务端不用再为每个会话维持长连接状态，直接可以挂到负载均衡后面水平扩容——这对做「AI 助手接内部系统」的课设非常关键。软件工程（工业软件实验班）同学可以拿它练手：用 C# 写一个 MCP Server，暴露「查询设备台账」「读取工艺参数」两个工具，再让 Claude/Cursor 调用，体会工具描述（schema）写得好不好直接决定模型调用成功率。多轮请求能力则适合做需要追问的工单场景。对应《面向对象程序设计》《软件体系结构》，可作为课程设计的技术选型。",
-   "source": "InfoQ中文",
-   "date": "2026-11-05",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "C#",
-    "MCP"
-   ],
-   "value": "**想给大模型接内部系统的同学，MCP 已是事实标准协议，会写 Server 比会调 API 更值钱。**",
-   "courses": "《面向对象程序设计》《软件体系结构》：作为 AI 集成层技术选型案例。",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "无状态 HTTP 默认，服务端易扩容、易部署",
-    "多轮请求适合工单、追问式业务场景",
-    "练手路径：写 MCP Server 暴露内部系统工具"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/80iUxvCNB59aOgyXB7LN?utm_source=rss&utm_medium=article",
-   "cover": "img/a905.webp"
-  },
-  {
-   "id": "a906",
-   "title": "AI Coding 增量风险管控：Skill 门禁与 Harness 落地实践",
-   "summary": "AICon 议题拆解如何给 AI 生成代码加「门禁」：用 Skill 约束与 Harness 流水线控制增量风险。",
-   "content": "现在很多同学用 Cursor、Claude Code 写课设，代码能跑但没人敢 review——这正是「AI Coding 增量风险」。这个议题给出的思路很实用：一是 Skill 门禁，把团队规范（命名、异常处理、禁止硬编码密钥）写成可被 AI 读取的规则文件，让生成阶段就受限；二是 Harness，把静态检查、单测、依赖漏洞扫描串成流水线，AI 每次提交都自动过一遍。你可以立刻落地：在项目根目录写一份 CLAUDE.md/规则文件，配 GitHub Actions 跑 ESLint + 单测 + npm audit，把「AI 写的代码必须过门禁」变成习惯。对应《软件工程》《软件测试》，也是简历上「工程化能力」的加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-11-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "GitHub Actions"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**AI 写的代码能不能进主干，取决于你有没有门禁——这是面试官最想听的工程化细节。**",
-   "courses": "《软件工程》《软件测试》：作为 CI 与代码质量门禁实践作业。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Skill 门禁：把编码规范写成 AI 可读规则文件",
-    "Harness：静态检查+单测+依赖扫描串成流水线",
-    "落地动作：项目根目录加规则文件 + CI 门禁"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/XieGrL5pws7jG1zxKPle?utm_source=rss&utm_medium=article",
-   "cover": "img/a906.webp"
   }
  ],
  "jobs": [
+  {
+   "id": "j41",
+   "company": "京东",
+   "title": "京东技术行 实习生（AI/大模型、云计算、搜索推荐、安全）",
+   "type": "实习",
+   "loc": "北京",
+   "deadline": "搜索官方公众号投递",
+   "salary": "",
+   "positions": [
+    "AI/大模型类",
+    "云计算/大数据类",
+    "搜索推荐广告类",
+    "安全类"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-11-11",
+   "summary": "京东技术行面向不限年级的在校生招募技术实习，方向包括AI/大模型、云计算大数据、搜索推荐广告与安全。适合软件与安全方向学生进入大厂技术体系实习。",
+   "cls": "软件工程类",
+   "plain": "覆盖安全类岗位，对信息安全与软件工程学生都是可直接对口的实习机会。",
+   "courses": "计算机网络、数据库、操作系统、信息安全基础",
+   "hardReq": [
+    "在校生身份",
+    "具备对应方向技术基础"
+   ],
+   "plusReq": [
+    "有相关项目或实习经历",
+    "熟悉主流开发/安全工具"
+   ],
+   "selfLearn": [
+    "按方向准备一个可讲透的项目",
+    "复习计算机网络与系统基础"
+   ],
+   "fitWho": "想进大厂做技术实习的软件或安全方向本科生",
+   "tips": "安全类岗位竞争相对小，可优先关注并尽早投递。"
+  },
   {
    "id": "j40",
    "company": "阿里巴巴",
@@ -4898,39 +4917,6 @@
    ],
    "fitWho": "大三下/大四课少、能长期到岗的同学",
    "tips": "RAG/SFT 是 AI 应用岗面试高频项目经历，比水课设有含金量。"
-  },
-  {
-   "id": "j9",
-   "company": "中移九天人工智能科技",
-   "title": "中国移动九天 AI 公司 2027 届秋季校招",
-   "type": "校招",
-   "loc": "北京",
-   "deadline": "以官网公告为准，建议尽早",
-   "positions": [
-    "AI开发岗",
-    "算法开发岗",
-    "软件开发岗",
-    "平台开发岗",
-    "产品管理岗"
-   ],
-   "link": "https://career.uibe.edu.cn/front/zpxx.jspa?tid=2098304077313130497",
-   "source": "对外经济贸易大学就业网",
-   "date": "2026-09-10",
-   "summary": "央企 AI 专业化机构（九天大模型入选央企十大国之重器），面向硕士及以上应届生；市场化对标薪酬+五险二金，可参与国家级科研项目，适合求稳的硕博同学。",
-   "cls": "软件工程类",
-   "plain": "央企 AI 机构的开发岗：负责九天大模型相关业务系统开发，市场化对标薪酬 + 央企稳定性。",
-   "courses": "Java 后端、数据库、软件工程",
-   "hardReq": [
-    "硕士及以上应届生"
-   ],
-   "plusReq": [
-    "党员/学生干部经历在央企体系加分"
-   ],
-   "selfLearn": [
-    "了解央企校招节奏（比互联网早）"
-   ],
-   "fitWho": "硕士同学重点看；本科同学作为方向参考",
-   "tips": "想走国企路线的硕士同学别错过；本科同学可对照差距规划考研或先攒实习。"
   }
  ],
  "stats": [
