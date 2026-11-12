@@ -1,6 +1,216 @@
 {
- "updatedAt": "2026-11-12 14:38",
+ "updatedAt": "2026-11-12 17:59",
  "news": [
+  {
+   "id": "a1035",
+   "title": "谷歌用DPoP加固OAuth 2.0：防令牌窃取与重放，接入要点解析",
+   "summary": "谷歌在OAuth 2.0中引入DPoP（Demonstrating Proof of Possession），把Bearer令牌升级为绑定客户端密钥的持有证明，抵御令牌被窃后重放。",
+   "content": "传统OAuth的Bearer令牌谁拿到谁就能用，一旦日志泄露或被中间人截获，攻击者可直接重放。DPoP要求客户端为每次请求生成一次性JWT，并用私钥签名，服务端校验令牌与密钥绑定关系，重放即失效。对信息安全与管理专业：这是活教材，可对照《网络安全技术》《身份认证与访问控制》课程，在课设里用Spring Security OAuth2 + DPoP示例跑通授权码流程，观察抓包重放被拒。对软件工程：以后做第三方登录、开放平台对接，别再无脑存access_token明文，理解密钥管理与签名链路。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "stack",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "OAuth 2.0",
+    "DPoP"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**身份认证是安全岗面试高频考点，动手复现DPoP比背概念值钱**",
+   "courses": "《网络安全技术》《身份认证与访问控制》：作为令牌安全与重放攻击防护的案例实验",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "Bearer令牌被窃即可重放，DPoP用私钥签名绑定请求",
+    "客户端每次请求生成一次性JWT，服务端校验持有证明",
+    "可在课设中用Spring Security OAuth2复现授权码+DPoP流程",
+    "抓包重放实验能直观看到防护效果"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/FQHBH7cfSYPFUUdbmyui?utm_source=rss&utm_medium=article",
+   "cover": "img/a1035.webp"
+  },
+  {
+   "id": "a1036",
+   "title": "HarmonyOS 7 FAST Kit：让系统接管底层算法，性能接入实践",
+   "summary": "InfoQ详解HarmonyOS 7 FAST Kit如何把底层算法交给系统调度，开发者只需声明意图即可获得性能优化，附接入实践。",
+   "content": "移动端性能优化长期靠开发者手写算法、调线程、猜调度，FAST Kit的思路是把底层计算与调度下沉到系统，应用层通过Kit接口声明任务特征，由系统统一分配算力。文章给出接入步骤与性能对比数据。对软件工程学生：这是「平台化思维」的样本——以后做工业软件上位机或移动端采集App，性能瓶颈未必都要自己啃，先看平台提供了什么能力。可在《移动应用开发》课程大作业里，用FAST Kit替换手写图像/数据处理循环，对比帧率与功耗。注意：这是鸿蒙生态，非安卓通用，投入前先确认课程与实习方向是否涉及。",
+   "source": "InfoQ中文",
+   "date": "2026-11-12",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "HarmonyOS",
+    "ArkTS"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会「先问平台能做什么」的性能优化思路，比死磕手写算法更省力**",
+   "courses": "《移动应用开发》：作为性能优化与系统能力调用的实践案例",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "底层算法与调度下沉系统，应用层声明任务特征即可",
+    "文章含接入步骤与性能对比数据",
+    "适合替换手写数据处理循环做性能对比实验",
+    "仅对鸿蒙方向有价值，先确认实习方向再投入"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/kIw9Wp2uSgCwrsgicIZ0?utm_source=rss&utm_medium=article",
+   "cover": "img/a1036.webp"
+  },
+  {
+   "id": "a1037",
+   "title": "豆包工作接入Kimi K3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash，多模型可切换",
+   "summary": "豆包工作宣布接入Kimi K3.1 Pro、GLM 5.3、DeepSeek V4.1 Flash等第三方模型，并推限时特惠。",
+   "content": "单一模型包打天下的阶段过去了，办公助手开始做「模型路由」：不同任务调不同模型，长文用强推理、批量生成用便宜快的。对软件工程学生，这提示一个实用技能——写代码时别把模型名硬编码，用统一接口层封装，按任务类型路由，换模型只改配置。可在《软件工程》课设的AI功能模块里实践：定义一个LLMProvider接口，实现豆包/DeepSeek两个适配器，加超时与降级。对求职：面试聊「你怎么选模型」时，能说出成本、延迟、上下文长度三维权衡，比只会调一个API强。",
+   "source": "钛媒体",
+   "date": "2026-11-12",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM API"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**把模型调用抽象成可替换接口，是AI应用开发最实用的工程习惯**",
+   "courses": "《软件工程》《Web应用开发》：作为AI功能模块的接口设计与适配器模式练习",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "办公助手进入多模型路由阶段，按任务选模型",
+    "代码里用接口层封装模型调用，避免硬编码",
+    "课设可实践LLMProvider接口+适配器+降级策略",
+    "面试可讲成本/延迟/上下文三维选型权衡"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8202629.html"
+  },
+  {
+   "id": "a1038",
+   "title": "MiniMax开源SOTA生图模型：原生4K，一张两毛，支持CAD拆解",
+   "summary": "MiniMax开源多模态生图模型，支持原生4K输出，单张成本约0.2元，并演示CAD图纸拆解能力。",
+   "content": "开源+低成本+4K，意味着本地或私有部署做图像生成的门槛进一步降低。对工业软件实验班值得关注的是「CAD拆解」演示：把工程图转成结构化理解，这类能力可接到图纸识别、BOM提取等场景。学生怎么用：在《计算机图形学》或工业软件课设里，用开源权重跑一个「上传零件图→生成标注说明」的小工具，重点不在模型本身，而在前后端串联与提示词工程。注意：开源模型部署吃显存，先查实验室机器配置；商用前看清许可证条款。",
+   "source": "量子位",
+   "date": "2026-11-12",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "多模态生成"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**低成本开源生图让「图纸理解」类工业软件原型第一次能在学生机器上跑起来**",
+   "courses": "《计算机图形学》《工业软件概论》：作为图纸识别与生成式AI结合的课程设计选题",
+   "tags": [
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "开源权重+原生4K+约0.2元/张，私有部署门槛降低",
+    "CAD拆解演示可对接图纸识别、BOM提取场景",
+    "课设可做「零件图→标注说明」小工具练全链路",
+    "部署吃显存，先确认机器；商用查许可证"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/509440.html",
+   "cover": "img/a1038.webp"
+  },
+  {
+   "id": "a1039",
+   "title": "实测文心5.5 Flash Preview：编程能力重点提升，附可用场景",
+   "summary": "百度发布文心5.5 Flash Preview，编程、3D建模、知识工作表现突出，实测显示代码生成能力明显加强。",
+   "content": "国内模型在编程任务上的追赶值得关注，因为这意味着你日常写课设、刷算法题时多了一个可选工具。实用建议：别只看榜单，拿自己手头的真实任务测——比如让它生成一个Spring Boot分页查询接口、或解释一段看不懂的报错栈，对比它和现有工具的准确率与幻觉率。对信息安全方向，可测试它写正则、分析日志片段的能力，但涉及漏洞利用代码要谨慎。记住：AI生成的代码必须自己跑通、自己讲得清，课设答辩老师一问就露馅。",
+   "source": "钛媒体",
+   "date": "2026-11-12",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**多一个编程助手可选，但选型要靠自己真实任务实测而非榜单**",
+   "courses": "《Java程序设计》《Web应用开发》：作为编码辅助工具在课设中试用并评估",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "编程能力是本次重点提升方向",
+    "用真实课设任务测，别只看榜单分数",
+    "可测Spring Boot接口生成、报错栈解释",
+    "AI代码必须自己跑通并能讲清逻辑"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8202831.html"
+  },
+  {
+   "id": "a1040",
+   "title": "Gemini 4 Carbon全面开放：重写OpenCode桌面应用，价格仅Fable 5.2的四分之一",
+   "summary": "谷歌Gemini 4 Carbon全面开放，官方演示一夜重写OpenCode桌面应用，定价约为竞品四分之一。",
+   "content": "这条的价值不在「谁更强」，而在两个可观察点：一是模型能整包重写一个桌面应用，说明长上下文+代码理解已能支撑中等规模重构；二是价格打到四分之一，意味着AI编码工具会更快普及到学生免费额度里。怎么用：拿它做「读懂陌生开源项目」的练习——把一个小型开源项目核心模块丢进去，让它画出模块依赖、解释调用链，再用自己的话复述。这练的是代码阅读能力，正是实习面试最常考的基本功。别指望它替你写完整课设，架构决策还得自己来。",
+   "source": "InfoQ中文",
+   "date": "2026-11-11",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**把大模型当「代码讲解员」而非「代写员」，练的是面试真正考的代码阅读力**",
+   "courses": "《软件工程》《程序设计基础》：用于开源项目代码阅读与依赖分析练习",
+   "tags": [
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "官方演示整包重写桌面应用，长上下文重构能力可观察",
+    "价格约为竞品1/4，学生免费额度可能更宽松",
+    "用它练「读懂陌生开源项目」的代码阅读能力",
+    "架构决策仍需自己承担，别全托管"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YiANe38yfSYitvZOtab0?utm_source=rss&utm_medium=article",
+   "cover": "img/a1040.webp"
+  },
   {
    "id": "a1028",
    "title": "LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪",
@@ -26,7 +236,7 @@
     "前端开发",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "用统一 TraceID 串联浏览器端与后端微服务",
@@ -3891,217 +4101,6 @@
    "origTitle": "Reusable GitHub Agentic Workflows for everyday repo tasks",
    "link": "https://dev.to/luanerasmus/reusable-github-agentic-workflows-for-everyday-repo-tasks-2712",
    "cover": "img/a926.webp"
-  },
-  {
-   "id": "a916",
-   "title": "开源本地 AI 编程工具 OwnCoder 0.2.0：密钥自动脱敏、代码索引全本地，token 消耗低于同类",
-   "summary": "OwnCoder 0.2.0 发布，主打安全与隐私：API Key 等敏感信息在发给大模型前自动脱敏，代码索引与向量检索均在本地完成，token 消耗优于同类工具。",
-   "content": "如果你在课程项目里接过大模型 API，应该踩过两个坑：一是把 Key 写进代码后不小心推到 GitHub，二是长上下文把 token 烧光。OwnCoder 的思路是把这两件事一起解决——发送前对密钥类字符串做脱敏，索引和向量检索留在本地，不把整个代码库上传云端。对信息安全方向的同学，这是一个可以拆开看的样本：脱敏规则怎么设计、本地向量库怎么选、上下文如何裁剪才省 token。建议做法是拿它跑一遍你的课设仓库，对比 Cursor/Claude Code 的 token 账单，把差异写成实验报告。",
-   "source": "开源中国",
-   "date": "2026-11-05",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程工具"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**用真实项目对比 token 账单与脱敏效果，是信息安全课最省力的实践素材**",
-   "courses": "《信息安全技术》/《软件工程》课程项目：作为开发工具链安全配置的案例",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "敏感信息（API Key、密钥）发送前自动脱敏，降低泄露风险",
-    "代码索引与向量检索本地完成，代码不出本机",
-    "官方称 token 消耗显著低于同类 AI 编程工具",
-    "桌面端工具，可直接对现有项目试用"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503432"
-  },
-  {
-   "id": "a917",
-   "title": "Claude Code 被曝把用户邮箱地址发送给访问的网站，GitHub issue 已获 687 点",
-   "summary": "有用户发现 Claude Code 在访问网页时会把用户邮箱地址一并发送出去，相关 issue 在 Hacker News 引发 241 条讨论。",
-   "content": "这不是让你别用 AI 编程工具，而是提醒你：Agent 类工具会替你发 HTTP 请求，而请求头里可能带着你的身份信息。对信息安全专业的同学，这是一道现成的分析题——抓一次 Claude Code 的流量，看 User-Agent、Referer、自定义头里到底有什么；再对照《网络安全法》和《个人信息保护法》里关于最小必要原则的条款，判断这算不算超范围收集。软件工程方向则更实际：你自己写爬虫或调第三方 API 时，默认请求头会不会顺手带上账号信息？建议在课设里加一步「出站请求审计」，用 mitmproxy 或 Charles 抓包核对。",
-   "source": "Hacker News",
-   "date": "2026-11-05",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程工具"
-   ],
-   "value": "**一次抓包就能把「AI 工具隐私风险」从概念变成可验证的实验**",
-   "courses": "《网络安全》抓包分析实验 /《软件工程》第三方依赖风险评估",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Agent 访问网页时可能携带用户邮箱等身份信息",
-    "issue 在 HN 获 687 点、241 条评论，社区关注度高",
-    "可用抓包工具复现并审计出站请求头",
-    "对应个人信息最小必要原则的合规判断"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Claude Code sends your email address to websites",
-   "link": "https://github.com/anthropics/claude-code/issues/107757",
-   "cover": "img/a917.webp"
-  },
-  {
-   "id": "a918",
-   "title": "shadcn/ui 接入 React Native 完整手册：从 colors.ts 混乱到统一设计系统",
-   "summary": "freeCodeCamp 发布长文手册，讲如何在 React Native 应用中使用 shadcn/ui，解决样式散落、组件重复的问题。",
-   "content": "很多同学做移动端课设的路径是：先建 colors.ts，再手写一个 Button，然后页面越加越多，每个页面都在复制样式，改一次主色要翻十几个文件。这篇手册给的是另一条路——把 shadcn/ui 那套「组件代码归你所有、样式由 token 驱动」的模式搬到 React Native 上。重点不在抄代码，而在理解它的组织方式：设计 token 集中定义、组件按原子层级拆分、变体用类型约束。前端方向的同学可以拿它重构自己已有的课设，把散落的 StyleSheet 收拢成一套主题；面试时「我做过设计系统落地」比「我会写页面」值钱得多。",
-   "source": "freeCodeCamp",
-   "date": "2026-11-05",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React Native",
-    "shadcn/ui"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把课设从「堆页面」升级成「有设计系统的项目」，是前端简历的加分项**",
-   "courses": "《移动应用开发》/《Web 前端开发》课程设计：组件库与主题方案落地",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "面向 React Native 的 shadcn/ui 完整使用手册",
-    "解决样式散落、组件重复复制的问题",
-    "核心是设计 token 集中管理 + 组件分层",
-    "适合用来重构已有课设项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Use shadcn/ui in React Native Applications [Full Handbook]",
-   "link": "https://www.freecodecamp.org/news/how-to-use-shadcn-ui-in-react-native-applications-full-handbook/",
-   "cover": "img/a918.webp"
-  },
-  {
-   "id": "a919",
-   "title": "LoopForge 开源：把 Coding Agent 接进研发流程的自进化平台",
-   "summary": "InfoQ 介绍团队自建并开源的研发平台 LoopForge，讲 Coding Agent 如何嵌入需求、编码、评审等环节并持续自我改进。",
-   "content": "多数人用 Coding Agent 的方式是「打开对话框，贴一段代码」。LoopForge 想解决的是工程化问题：Agent 在哪个环节触发、产出如何被校验、失败经验怎么沉淀回流程。对软件工程专业的同学，这篇的价值不在工具本身，而在它描述的流水线结构——这正好对应你课设里最容易被忽略的部分：CI 配置、代码评审规则、测试覆盖率门槛。建议读完后做一件小事：给自己的课设仓库加一个 GitHub Actions 工作流，跑 lint + 单测，再让 AI 只负责「根据失败日志提修改建议」。这一步做完，你对「Agent 是流程的一环而非替代品」会有实感。",
-   "source": "InfoQ中文",
-   "date": "2026-11-06",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Coding Agent",
-    "CI/CD"
-   ],
-   "value": "**看懂 Agent 如何嵌进研发流水线，比会写 prompt 更能体现工程能力**",
-   "courses": "《软件工程》课程设计：CI 流水线与代码评审机制设计",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "开源研发平台，把 Coding Agent 嵌入完整研发链路",
-    "涉及触发时机、产出校验、经验沉淀等工程问题",
-    "可对照自己课设的 CI/评审/测试环节查漏",
-    "适合作为软件工程课程设计的流程参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/QGaIWSgd9uwx2WGw0yFv?utm_source=rss&utm_medium=article",
-   "cover": "img/a919.webp"
-  },
-  {
-   "id": "a920",
-   "title": "AI Native 研发工具链的架构重构与持续演进：AICon 北京议题",
-   "summary": "AICon 北京站议题，讨论企业在 AI 原生阶段如何重构研发工具链架构，并让它持续演进而不是一次性改造。",
-   "content": "「工具链重构」听起来离学生很远，但拆开看就是几个你正在做的事：代码托管、CI、制品管理、环境配置。AI 原生带来的变化是，这些环节开始有 Agent 参与，接口和权限模型都要重设。对工业软件实验班的同学尤其值得看——工业场景的工具链往往更封闭、更强调可追溯，重构时的约束条件比互联网公司多得多。听不了现场也没关系，重点抓它的架构分层思路：哪些能力下沉为平台、哪些留给团队自建。可以拿来对照自己课设的技术选型，写进课程报告的设计章节。",
-   "source": "InfoQ中文",
-   "date": "2026-11-06",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "研发工具链"
-   ],
-   "value": "**把「工具链重构」翻译成课设里的技术选型论证，报告深度立刻不一样**",
-   "courses": "《软件工程》/《工业软件工程》课程报告：技术架构与选型论证",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "聚焦 AI 原生阶段研发工具链的架构重构",
-    "涉及平台能力下沉与团队自建的边界划分",
-    "工业软件场景对可追溯性要求更高",
-    "可作为课程设计技术选型章节的参考"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/4IUSd2wP28ua4Jd5fHG2?utm_source=rss&utm_medium=article",
-   "cover": "img/a920.webp"
-  },
-  {
-   "id": "a911",
-   "title": "DeepSeek 开源 Super Agent：12 分钟看懂它和普通 Agent 的区别",
-   "summary": "DeepSeek Harness 团队开源 Super-agent，视频拆解其工作原理、与传统 Agent 的差异及实际提效情况。",
-   "content": "很多同学写 Agent 还停留在「调一次大模型 + 拼 prompt」，Super-agent 的思路是把任务拆解、工具调用、多轮自我校验串成一条可复用的执行链路。这期 12 分钟视频适合当入门：先讲清 Agent 与 Super-agent 的边界，再演示它怎么把一件复杂任务自动跑完。建议边看边对照自己课设里的「智能问答/自动批改」小项目，把原来的单次调用改造成带工具循环的结构，简历上就能写「实现过带工具编排的 Agent 应用」。别只看不写，看完当天就动手改一版。",
-   "source": "B站·程序员鱼皮",
-   "date": "2026-11-05",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent",
-    "DeepSeek"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**用 12 分钟建立 Agent 编排的正确心智模型，并立刻改造自己的课设项目。**",
-   "courses": "《人工智能导论》《软件工程课程设计》：把单次模型调用升级为可编排的 Agent 流程",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 86,
-   "brief": [
-    "Super-agent 与普通 Agent 的核心差异在任务编排与工具循环",
-    "视频含工作原理拆解，适合零基础入门",
-    "可迁移到自己课设中的智能问答/自动化小项目"
-   ],
-   "buzz": [],
-   "link": "https://www.bilibili.com/video/BV1kr4h6fExw"
   }
  ],
  "jobs": [
