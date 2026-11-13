@@ -1,6 +1,186 @@
 {
- "updatedAt": "2026-11-13 04:14",
+ "updatedAt": "2026-11-13 13:56",
  "news": [
+  {
+   "id": "a1047",
+   "title": "用 TypeScript 小钩子改造 Claude Code：给编码 Agent 加自定义行为",
+   "summary": "Anthropic 为 Claude Code 推出 mods 机制，用小型 TypeScript 函数即可拦截并改写 Agent 的读写、命令执行等行为。",
+   "content": "Claude Code 的 mods 本质是几个 TypeScript 钩子函数：在 Agent 读文件、写文件、跑命令前后被调用，你可以据此加日志、做敏感路径拦截、强制格式化。对软件工程学生来说，这是理解「Agent 工程化」最便宜的入口——不用训练模型，只写几十行 TS 就能让 AI 编码助手按你的规则干活。建议做法：装好 Claude Code 后写一个钩子，禁止它修改 .env 与 node_modules，再写一个在保存前跑 ESLint 的钩子。做完你就同时练了 TypeScript、Node 工具链和「AI 生成代码如何管控」这个面试常问的话题。",
+   "source": "DEV Community",
+   "date": "2026-11-13",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "TypeScript",
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**用几十行 TypeScript 就能把 AI 编码助手改造成符合团队规范的受控工具，是低成本高含金量的练手项目。**",
+   "courses": "《Web 前端开发》《软件工程》课程设计里给 AI 辅助开发加质量门禁",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "mods 是 TypeScript 钩子，可在 Agent 读写文件、执行命令前后插入逻辑",
+    "适合做敏感文件拦截、自动格式化、操作审计日志",
+    "只需几十行 TS，不涉及模型训练",
+    "能作为简历里「AI 编码工具链治理」的小项目"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code Mods: How to Rewire Your Coding Agent With Tiny TypeScript Hooks",
+   "link": "https://dev.to/zhuanxyz/claude-code-mods-how-to-rewire-your-coding-agent-with-tiny-typescript-hooks-17l6",
+   "cover": "img/a1047.webp"
+  },
+  {
+   "id": "a1048",
+   "title": "纯 JavaScript 做一个「分镜图转 PDF」网页工具，练透前端文件处理",
+   "summary": "freeCodeCamp 教程：用浏览器端 JavaScript 完成图片上传、排序、加注释并导出 PDF 分镜脚本。",
+   "content": "这个教程带你从零做一个完整前端小工具：拖拽上传多张图片、调整顺序、给每张图加说明文字，最后在浏览器里直接生成 PDF 下载。技术点覆盖 File API、Canvas 图片处理、拖拽排序和 PDF 生成库，全是前端面试和课设的高频内容。对软件工程学生最实用的地方是：它不依赖后端，一个静态页面就能跑，可以直接部署到 GitHub Pages 当作品集。建议照着做完后自己加两个功能——批量重命名和本地存储草稿，这样项目就有了「你的东西」，答辩和简历都好讲。",
+   "source": "freeCodeCamp",
+   "date": "2026-11-13",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript",
+    "Canvas"
+   ],
+   "diff": 1,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个周末能做完的完整前端项目，把文件处理、图片渲染和 PDF 导出这些实用技能一次练全。**",
+   "courses": "《Web 前端开发》课程设计、《人机交互》原型作业",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "覆盖 File API、Canvas、拖拽排序、PDF 生成四类前端核心技能",
+    "纯浏览器端实现，无需后端，可一键部署成作品集",
+    "建议自行扩展批量重命名、本地草稿等差异化功能",
+    "成品可直接用于课程设计或简历项目展示"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to Build a Browser-Based Image Storyboard to PDF Tool Using JavaScript",
+   "link": "https://www.freecodecamp.org/news/build-image-storyboard-to-pdf-tool-javascript/",
+   "cover": "img/a1048.webp"
+  },
+  {
+   "id": "a1049",
+   "title": "容器隔离不够用：Edera 在虚拟机监控器层限制 AI 智能体",
+   "summary": "针对 AI Agent 执行任意代码带来的越权风险，Edera 提出在 hypervisor 层做隔离，比容器边界更硬。",
+   "content": "AI Agent 会自己写代码、自己执行，容器共享内核，一旦 Agent 被诱导跑恶意命令，逃逸风险真实存在。Edera 的思路是把隔离下沉到虚拟机监控器层，让每个 Agent 运行环境拥有独立内核边界。对信息安全与管理专业的学生，这条新闻的价值在于它把课堂上的「隔离级别」讲活了：进程隔离、容器隔离、虚拟机隔离、hypervisor 隔离，安全强度逐级上升，代价是启动开销和运维复杂度。建议结合《操作系统》的虚拟化章节，画一张隔离层级对比表，并思考：如果让你给学校的 AI 实验平台设计沙箱，你会选哪一层、为什么。",
+   "source": "InfoQ中文",
+   "date": "2026-11-13",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "容器",
+    "虚拟化"
+   ],
+   "diff": 3,
+   "scene": "求职准备/技术视野",
+   "value": "**理解容器与虚拟机隔离的真实差距，是回答「AI Agent 沙箱怎么做」这类安全面试题的关键。**",
+   "courses": "《操作系统》虚拟化章节、《信息安全技术》隔离与访问控制部分",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Agent 自主执行代码，容器共享内核导致逃逸风险上升",
+    "Edera 把隔离下沉到 hypervisor 层，换取更强边界",
+    "可作为「隔离级别与安全强度权衡」的典型案例",
+    "适合延伸思考 AI 实验平台沙箱方案设计"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/MU0txcPXXuGdGKBNa6a2?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1050",
+   "title": "数据库如何支撑 Agent 应用：从快速部署到记忆共享",
+   "summary": "InfoQ 视频讨论 Agent 应用落地时数据库承担的角色，包括会话记忆持久化与多 Agent 间状态共享。",
+   "content": "Agent 应用看着是模型的事，落地时卡住的往往是数据：对话历史存哪、多个 Agent 怎么共享上下文、检索增强的向量数据放哪。这个分享把「Agent 记忆」拆成可工程化的存储问题，对软件工程学生很对口——你在课设里做的聊天机器人，如果只把历史塞进内存，重启就全丢；换成数据库持久化，再加一层按会话 ID 的检索，就是一个能写进简历的完整后端设计。建议动手时用 MySQL 存结构化会话、用向量库存语义记忆，对比两种检索的召回效果，这个对比实验在答辩时非常加分。",
+   "source": "InfoQ中文",
+   "date": "2026-11-13",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "MySQL",
+    "向量数据库"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把「Agent 记忆」当成数据库设计题来做，课设立刻从玩具升级成有架构讲法的项目。**",
+   "courses": "《数据库原理》综合设计、《软件工程》课程项目后端部分",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Agent 落地的瓶颈常在数据层：会话历史、上下文共享、向量检索",
+    "可用 MySQL 存结构化会话 + 向量库存语义记忆做分层设计",
+    "把课设聊天机器人从内存存储升级为数据库持久化即可复用",
+    "两种检索方式的召回对比可作为答辩亮点"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/video/FwbOyyfoAmkQPMTItMDN?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1051",
+   "title": "openJiuwen 发布 RSI 原生 AgentOS：让 Agent 自己开发新功能并持续迭代",
+   "summary": "该平台主打 Agent 按需自我扩展能力，用户提出功能需求后由 Agent 自行开发并迭代。",
+   "content": "「想要什么功能，让 Agent 自己开发」听起来像宣传语，但背后是 Agent 运行时、工具注册和代码生成回路的组合。对软件工程和工业软件方向的学生，值得关注的不是产品本身，而是它暴露的工程问题：Agent 生成的代码怎么测试、怎么回滚、怎么防止它改坏自己的运行环境。这些正是你写课设时该养成的习惯——给自动生成的代码加单元测试和版本快照。建议把它当作一个观察样本，重点看它如何描述工具注册与权限边界，而不是急着上手部署。",
+   "source": "量子位",
+   "date": "2026-11-13",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 3,
+   "scene": "技术视野",
+   "value": "**看清 Agent 自我迭代背后的测试与回滚难题，比追新工具更能提升你的工程判断力。**",
+   "courses": "《软件工程》需求变更与版本管理、《程序设计》代码质量部分",
+   "tags": [
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "核心是 Agent 运行时 + 工具注册 + 代码生成回路的组合",
+    "真正难点在生成代码的测试、回滚与权限边界",
+    "可作为「AI 生成代码如何管控」的观察样本",
+    "不建议盲目部署，重点看其工程约束设计"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/509653.html",
+   "cover": "img/a1051.webp"
+  },
   {
    "id": "a1041",
    "title": "Docker 官方谈智能体安全：用容器隔离+权限治理兜住 AI 越权",
@@ -25,7 +205,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "Agent 应视为不可信进程，容器隔离是底线",
@@ -3928,180 +4108,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr?utm_source=rss&utm_medium=article",
    "cover": "img/a936.webp"
-  },
-  {
-   "id": "a927",
-   "title": "Vue 编译器换掉 source map 实现：CPU 省三成、内存省三分之一",
-   "summary": "Vue 核心仓库一个讨论中的 PR 重写了编译器 source map 生成方式，性能提升三四成，并修掉十几个报错行号错位问题。",
-   "content": "这个 PR 值得你花十分钟读：它没有改 API，只是把 source map 的生成算法换了一套，CPU 降约 30%、内存降约 1/3，还顺手修了十几个「报错指错行」的老问题。对学生的意义在于两点：一是理解 source map 是编译产物与源码的映射表，不是黑盒；二是学会用 Chrome DevTools 的 Performance 面板量 CPU、用 Memory 面板量堆，再对比 PR 前后的数据。做课设时如果 SFC 编译慢、热更新卡，这类优化思路可以直接借鉴；面试被问「构建性能怎么优化」也有真实案例可讲。",
-   "source": "掘金",
-   "date": "2026-11-06",
-   "cat": "stack",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vue",
-    "构建工具"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会用 DevTools 量化构建性能，比背优化八股更有说服力。**",
-   "courses": "《Web前端开发》编译与调试章节，可作为构建性能分析的课堂案例。",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "source map 生成算法替换，CPU 降约 30%、内存降约 1/3",
-    "修复十几个报错行号错位的调试痛点",
-    "可用 Performance/Memory 面板复现前后对比",
-    "不改 API，属于纯内部优化，适合当性能分析练手素材"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7704923158558867510"
-  },
-  {
-   "id": "a928",
-   "title": "开源项目 Mika：安卓后台虚拟屏上的 AI 代理，替你点 App 和网页",
-   "summary": "Mika 是 Android 端开源 AI 助手，在隐藏的后台虚拟屏上读屏、点击、输入，跨 App 与网页完成任务，不占主屏。",
-   "content": "Mika 的技术路线值得软件工程和信息安全两个专业一起看。工程侧：它靠 Android 无障碍服务（AccessibilityService）读屏与模拟操作，用虚拟显示（VirtualDisplay）把任务放到后台跑，本质是一个「感知—决策—执行」的 Agent 循环，读源码能看清 Agent 落地的工程细节，比自己从零写 demo 快得多。安全侧：这类应用天然拥有读屏和代操作权限，等于把账号操作权交出去，可以顺势分析权限最小化、敏感信息脱敏、恶意指令注入等风险点。建议先在自己备用机上跑，别登主账号。",
-   "source": "掘金",
-   "date": "2026-11-06",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Android",
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**想搞懂 Agent 怎么真正操作界面，读这个开源实现比看概念文快。**",
-   "courses": "《移动应用开发》与《信息安全管理》交叉案例，可做权限风险分析作业。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "基于无障碍服务 + 虚拟显示实现后台自动化",
-    "是理解 Agent「感知-决策-执行」循环的现成代码",
-    "安全视角可分析读屏权限滥用与指令注入风险",
-    "建议在备用机、非主账号环境试跑"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7704935347230408755"
-  },
-  {
-   "id": "a929",
-   "title": "给 AI Agent 发可撤销的 OAuth 授权：Zalando 开源 Agentic Identity Broker",
-   "summary": "Zalando 孵化器开源 MIT 协议的 OAuth2 代理，让用户给 AI Agent 授予范围受限、可随时撤销的 MCP 服务访问权。",
-   "content": "Agent 要替你调工具，就得拿你的凭证——这是今年最现实的安全工程问题。AIB 的做法是把授权收拢到一个 broker：用户授权的是「某个 Agent 在某个范围内访问某个 MCP 服务」，令牌可撤销、可审计，而不是把长期 token 直接塞进 Agent 配置里。对信息安全专业，这是 OAuth2 授权码模式、scope 最小权限、令牌生命周期管理的完整落地样例，可以对照课程里的身份认证章节逐条读；对软件工程，它示范了「第三方接入」该怎么设计边界。建议本地起服务跑一遍授权与撤销流程，把时序图画出来。",
-   "source": "Hacker News",
-   "date": "2026-11-06",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "OAuth2",
-    "MCP"
-   ],
-   "diff": 3,
-   "scene": "课设/求职准备",
-   "value": "**Agent 时代的身份授权是安全岗新考点，这个项目给了可跑的参考实现。**",
-   "courses": "《信息安全技术》身份认证与访问控制章节的实操案例。",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "MIT 协议开源，OAuth2 broker 形态，可直接读源码",
-    "核心是 scope 受限 + 可撤销 + 可审计的 Agent 授权",
-    "对照 OAuth2 授权码模式与最小权限原则学习",
-    "可本地跑通授权/撤销全流程并画时序图"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Show HN: Agentic Identity Broker, OAuth Delegation for AI Agents",
-   "link": "https://github.com/zalando-incubator/agentic-identity-broker",
-   "cover": "img/a929.webp"
-  },
-  {
-   "id": "a930",
-   "title": "观点：锁死你 Agent 的是工具 Schema，不是模型",
-   "summary": "换模型已经很便宜，换工具契约却很贵——作者认为 Agent 的真正锁定点在 tool schema 而非模型本身。",
-   "content": "这篇短文讲了一个工程上很实在的判断：模型可以一周一换，但你的工具定义、参数结构、错误返回格式一旦被上层代码和提示词绑死，迁移成本极高。对做课设和实习项目的同学，结论是可操作的：把工具定义抽成独立的一层（schema 单独文件、版本化），业务逻辑只依赖抽象接口，换模型或换工具实现时只改适配层。写简历时这也是个能讲清楚的设计决策，比「我调用了某大模型 API」有含量。读的时候顺手对照自己项目里 tool 定义散落在各处的现状，改一版。",
-   "source": "DEV Community",
-   "date": "2026-11-06",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把工具契约和模型解耦，是现在做 Agent 项目最划算的一次重构。**",
-   "courses": "《软件工程》接口设计与模块解耦章节的现成案例。",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "模型替换成本低，工具契约替换成本高",
-    "建议把 tool schema 抽成独立、可版本化的一层",
-    "业务逻辑依赖抽象接口，模型/工具走适配层",
-    "可作为项目设计亮点写进简历"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Opinion: Your Agent's Lock-In Is the Tool Schema, Not the Model",
-   "link": "https://dev.to/airs_6907/opinion-your-agents-lock-in-is-the-tool-schema-not-the-model-gk4",
-   "cover": "img/a930.webp"
-  },
-  {
-   "id": "a931",
-   "title": "GPT-6 Cyber 发布，复现 1724 项漏洞",
-   "summary": "爱范儿早报提到 GPT-6 Cyber 发布并复现 1724 项漏洞，另有 DRAM 涨价、鸿蒙政企机型等动态。",
-   "content": "这条只挑一个点看：模型批量复现 1724 项漏洞，意味着漏洞挖掘的「发现环节」正在被自动化压缩，人工价值往「验证、定级、修复方案」后移。对信息安全与管理专业，直接启示是别只练扫描器点按钮，要练从 PoC 到补丁的完整闭环：能判断误报、能写清 CVSS 定级理由、能给出修复与回归验证方案。可以拿学校靶场或 DVWA 做对照练习，把「AI 报了一堆洞，你怎么筛」当成新课题。其余手机出货、DRAM 涨价、鸿蒙政企机与两个专业就业关联弱，不展开。",
-   "source": "爱范儿",
-   "date": "2026-11-06",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**漏洞挖掘在贬值，漏洞验证与修复闭环在升值，练法要跟着变。**",
-   "courses": "《网络安全攻防》实验课，可加一节 AI 辅助漏洞验证与定级。",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "AI 批量复现漏洞，发现环节被自动化",
-    "人的价值后移到验证、定级、修复闭环",
-    "建议在靶场练「筛误报 + 写修复方案」",
-    "同批早报其余消费电子内容与本专业无关，略过"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1688032?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a931.webp"
   }
  ],
  "jobs": [
