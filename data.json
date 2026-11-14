@@ -1,6 +1,197 @@
 {
- "updatedAt": "2026-11-13 17:34",
+ "updatedAt": "2026-11-14 04:11",
  "news": [
+  {
+   "id": "a1056",
+   "title": "Claude Code 支持并行 AI Worker：多任务自动跑，CI 不再串行",
+   "summary": "Anthropic 把 Claude Code 的 Projects 升级为可同时调度多个 AI 工作进程、无需人工盯守，适合把重复性编码任务并行化。",
+   "content": "以前用 AI 写代码是一个对话一个任务，改完 A 再改 B。现在 Claude Code 的 Projects 支持并行 AI Worker，可以同时派几个任务出去跑，比如一个补单元测试、一个改接口文档、一个修 lint 告警，你去做别的事。对软件工程学生来说，这正好对应《软件工程》里的任务拆分与并行开发：先把需求拆成互不冲突的模块，再交给多个 Agent 执行，最后自己合并审查。注意并行意味着冲突风险更高，分支管理和 Code Review 的基本功不能丢，别把 AI 产出直接合进主分支。",
+   "source": "Hacker News",
+   "date": "2026-11-14",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把 AI 从单线程助手变成可编排的并行开发流水线，练的是任务拆分与合并审查能力。**",
+   "courses": "《软件工程》《软件测试》：用于任务拆分、并行开发与代码审查流程演练。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Projects 支持多 AI Worker 并行执行任务",
+    "适合批量补测试、改文档、修告警等重复劳动",
+    "并行=冲突风险上升，分支与审查流程要先行"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free",
+   "link": "https://alphasignal.ai/news/anthropic-upgrades-claude-code-projects-to-run-parallel-ai-workers-hands-free",
+   "cover": "img/a1056.webp"
+  },
+  {
+   "id": "a1057",
+   "title": "AI 自动写 PR 的工程坑：Webhook 重复、CI 失败、合并冲突怎么治",
+   "summary": "Inkitt 复盘 AI 自动生成 PR 的落地经验：模型本身最简单，难的是 Webhook 幂等、CI 失败重试和合并冲突处理。",
+   "content": "想让 AI 自动提 PR，很多人以为难点在提示词，其实真正的工程量在流水线：Webhook 会重复投递，必须做幂等去重；CI 挂了要能自动重试并回传失败日志给模型；多人同时改同一文件就会合并冲突，需要排队或加锁。这篇复盘把「AI 编码 Agent」还原成一个分布式系统问题，正好对应《计算机网络》《软件工程》里的消息幂等、重试机制与版本控制。做课设时若想加「AI 自动提交」功能，先想清楚这三点，否则演示现场必翻车。",
+   "source": "InfoQ中文",
+   "date": "2026-11-14",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Git",
+    "CI/CD"
+   ],
+   "value": "**把 AI 编码 Agent 当分布式系统来设计，是简历上比「会调 API」更值钱的工程能力。**",
+   "courses": "《软件工程》《计算机网络》：用于幂等、重试与版本控制协作的案例分析。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "难点不在模型，在 Webhook 幂等与重试",
+    "CI 失败日志要回灌给模型形成闭环",
+    "合并冲突需排队/加锁，避免并行写同一文件"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YRXscVHsTh0g6CVCJJ0D?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1058",
+   "title": "GFlow：多 Agent 协作做游戏设计，还要能自动验证",
+   "summary": "AICon 分享 GFlow 实践：多个 Agent 分工完成游戏设计任务，并引入验证环节保证产出可用。",
+   "content": "单 Agent 写代码容易跑偏，多 Agent 协作的关键是「分工 + 验证」。GFlow 的做法是把游戏设计拆给不同角色的 Agent，再让验证 Agent 检查产出是否满足约束。这套思路对工业软件实验班的同学尤其有用：复杂设计任务（如产线配置、参数方案）本质也是多约束求解，与其让一个大模型一次生成，不如拆成生成—校验—修正的循环。课程上可对应《软件工程》的需求分析与验证环节，做课设时给 AI 产出加一道自动校验，比盲目相信生成结果靠谱得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-13",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Multi-Agent"
+   ],
+   "value": "**学会给 AI 产出加「验证层」，是把 AI 用进严肃工程场景的前提。**",
+   "courses": "《软件工程》《人工智能导论》：用于需求分解与产出验证的案例讨论。",
+   "tags": [
+    "AI工具",
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "多 Agent 按角色分工，避免单模型跑偏",
+    "引入验证环节，形成生成—校验—修正闭环",
+    "思路可迁移到工业软件的多约束设计任务"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/dkQAAL0SSdhIq1h61eKx?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1059",
+   "title": "移动应用基础设施不止是 App：大规模后端要准备什么",
+   "summary": "InfoQ 梳理大规模移动应用背后的基础设施：网关、缓存、监控、发布体系，App 只是冰山一角。",
+   "content": "很多同学做课设只关心前端页面能不能跑，但真实产品里 App 只是最上面一层，下面还有 API 网关、鉴权、缓存、限流、日志监控、灰度发布。这篇文章把这些层次串起来讲，适合当作《计算机网络》《软件工程》的补充阅读：做毕业设计时，哪怕只实现简化版，也建议画一张架构图，标出网关、数据库、缓存的位置，面试时能讲清楚「请求从手机到数据库经过了什么」，比只会写 CRUD 强很多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-13",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "API网关",
+    "缓存"
+   ],
+   "value": "**能讲清一次请求的完整链路，是校招后端/全栈面试的硬通货。**",
+   "courses": "《计算机网络》《软件工程》：用于系统架构分层与请求链路分析。",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "App 之下有网关、鉴权、缓存、限流、监控",
+    "课设/毕设建议画分层架构图",
+    "面试常问「一次请求的完整链路」"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/oKGTGPNZuleM61QqQOVf?utm_source=rss&utm_medium=article"
+  },
+  {
+   "id": "a1060",
+   "title": "英伟达换帅后，国产 AI 芯片是窗口期还是空窗期",
+   "summary": "黄仁勋辞任引发行业震荡，钛媒体讨论平头哥、昆仑芯等国产芯片能否借机上位。",
+   "content": "这条不是八卦，而是判断就业风向的参考：AI 芯片格局变化会直接影响国内算力供给和推理成本，进而影响你未来做 AI 应用时的部署选择。对信息安全与软件工程学生来说，值得关注的是「国产算力 + 本地部署」这条线——越来越多企业要求数据不出域，模型要能在国产卡上跑。如果你在做课设时尝试过本地部署开源模型，这就是简历上的差异化点。别只盯着谁当 CEO，盯住「算力在哪、数据能不能出域」这两个工程约束。",
+   "source": "钛媒体",
+   "date": "2026-11-14",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "工业软件"
+   ],
+   "stack": [],
+   "value": "**关注算力与合规约束，比关注人事变动更能指导你的技术选型。**",
+   "courses": "《信息安全导论》：用于数据合规与本地化部署的行业背景讨论。",
+   "tags": [
+    "行业动态",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "芯片格局变化影响推理成本与部署方案",
+    "「数据不出域 + 本地部署」需求持续上升",
+    "本地部署开源模型经历可写进简历"
+   ],
+   "buzz": [],
+   "link": "https://www.tmtpost.com/8204784.html"
+  },
+  {
+   "id": "a1061",
+   "title": "小团队靠 AI 扩能：从提效到能做原本做不了的事",
+   "summary": "AICon 分享 AI 驱动下小团队的能力边界如何被拓宽，以及随之而来的组织调整。",
+   "content": "「提效」是把原来 3 天的活 1 天干完，「扩能」是原来根本接不了的活现在能接了。对准备实习和求职的同学，这个区别很实际：面试时讲「我用 AI 把开发速度提高了一倍」价值有限，讲「我用 AI 独立完成了一个原本需要前端+后端+测试三人配合的小系统」才体现能力边界。建议在课设里刻意做一次全栈闭环，从需求、编码、测试到部署都自己走一遍，把 AI 当协作者而非代写工具，这样项目经历才经得起追问。",
+   "source": "InfoQ中文",
+   "date": "2026-11-14",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**用 AI 拓宽能力边界并留下可追问的项目细节，才是求职时的真实加分项。**",
+   "courses": "《软件工程》：用于个人项目全流程实践与能力边界评估。",
+   "tags": [
+    "AI工具",
+    "求职就业",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "区分「提效」与「扩能」，后者更能体现能力",
+    "课设做一次全栈闭环：需求→编码→测试→部署",
+    "AI 当协作者，项目细节要经得起面试追问"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/eTz8pt2LoALMvzvxj4aa?utm_source=rss&utm_medium=article",
+   "cover": "img/a1061.webp"
+  },
   {
    "id": "a1052",
    "title": "用 nginx 给 Spring Boot 服务做反向代理：Java 后端部署必会的一课",
@@ -26,7 +217,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "upstream 多实例 + location 转发，是 Spring Boot 上线的标准姿势",
@@ -3904,213 +4095,6 @@
    ],
    "buzz": [],
    "link": "https://www.infoq.cn/article/B7tsA5tjD08k2gd0OtXd?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a939",
-   "title": "Anthropic 拆解 Agent 记忆的组成部件",
-   "summary": "Anthropic 研究文章系统讲 Agent Memory 由哪些部件构成，HN 讨论热度 66 分。",
-   "content": "做带长期记忆的应用，最容易犯的错是把所有对话一股脑塞进向量库，结果检索噪声大、成本高、效果差。这篇把记忆拆成工作记忆、情景记忆、语义记忆等部件，分别对应不同的存储与检索策略。对软件工程同学，这是一份很好的「需求拆解」范本：先定义记忆的读写时机，再选存储（关系库/向量库/文件），最后设计淘汰与压缩策略。建议在毕业设计或大创项目里，按这套分层给自己的问答机器人加一层「用户偏好记忆」，并做有无记忆的 A/B 对比。",
-   "source": "Hacker News",
-   "date": "2026-11-07",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM Agent",
-    "RAG"
-   ],
-   "diff": 2,
-   "scene": "课设/毕设",
-   "value": "**给你的 RAG 项目一套可落地的记忆分层设计，避免「全塞向量库」的坑。**",
-   "courses": "《数据库原理》《人工智能导论》——对应存储选型与检索策略设计",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "记忆不是单一向量库，而是多种部件分工",
-    "涉及写入时机、检索策略、压缩淘汰等工程决策",
-    "适合作为 RAG/对话系统项目的设计参考"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "The Components of Agent Memory",
-   "link": "https://www.anthropic.com/research/components-of-agent-memory",
-   "cover": "img/a939.webp"
-  },
-  {
-   "id": "a940",
-   "title": "PPIO 沙箱：把「云电脑」做成开箱即用的 API",
-   "summary": "面向 Personal Agent 的云端沙箱方案，用 API 提供隔离执行环境，解决代理跑代码的安全与资源问题。",
-   "content": "让 Agent 执行生成的代码，直接在你本机跑等于把 root 交出去。沙箱方案的核心是：隔离、可回滚、按需启停。这篇文章介绍的是把云电脑封装成 API 的思路。对信息安全专业，重点看隔离边界在哪（容器还是虚拟机）、网络出站怎么控、快照怎么回滚；对开发同学，重点是接入成本——几行代码起一个执行环境。建议在课设里做一个「代码执行服务」：接收代码片段、在隔离环境运行、超时与资源上限、返回 stdout，这套东西写进简历比 CRUD 亮眼。",
-   "source": "量子位",
-   "date": "2026-11-06",
-   "cat": "tool",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Sandbox"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**教你安全地让 AI 跑代码，同时产出一个可写进简历的沙箱项目。**",
-   "courses": "《操作系统》《系统安全》——对应进程隔离与资源限制实验",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Agent 执行代码必须隔离，别在本机裸跑",
-    "关注隔离级别、网络出站控制、快照回滚",
-    "可自建最小代码执行沙箱作为项目亮点"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/508174.html",
-   "cover": "img/a940.webp"
-  },
-  {
-   "id": "a941",
-   "title": "GitHub 不堪重负：AI 写代码太快，代码托管基础设施跟不上",
-   "summary": "AI 生成代码量激增冲击 GitHub 等平台，OpenAI 收购替代品、Anthropic 自研，反映研发基础设施的新压力。",
-   "content": "这条对求职者的真正信号是：代码产出速度不再是瓶颈，评审、CI、依赖治理成了瓶颈。企业接下来缺的是能把「海量 AI 生成代码」管住的人——静态检查、单测覆盖、依赖漏洞扫描、CI 流水线优化。软件工程和信息安全两个专业都能吃到这波需求。建议现在就把 GitHub Actions 用熟：给自己的仓库配 lint + 单测 + 依赖扫描三件套，理解每个环节拦什么。面试聊「你怎么保证 AI 生成代码的质量」，这就是现成答案。",
-   "source": "量子位",
-   "date": "2026-11-07",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "CI/CD"
-   ],
-   "diff": 1,
-   "scene": "求职准备",
-   "value": "**指明下一波工程岗位需求在「代码质量治理」，现在练 CI 正好对口。**",
-   "courses": "《软件工程》《软件测试》——对应持续集成与质量保障实践",
-   "tags": [
-    "行业动态",
-    "求职就业",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "瓶颈从「写代码」转向「评审与流水线」",
-    "企业需要能治理 AI 生成代码质量的工程能力",
-    "可动手：GitHub Actions 配 lint/单测/依赖扫描"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/508449.html",
-   "cover": "img/a941.webp"
-  },
-  {
-   "id": "a942",
-   "title": "NgRx 22 发布：Resource Extensions 与动态 DeepSignal 强化 Angular 状态管理",
-   "summary": "Angular 生态状态管理库 NgRx 22 引入 Resource Extensions 和动态 DeepSignal，改善异步资源与细粒度响应式。",
-   "content": "前端同学如果只学过 Vue/React，Angular 在企业级后台（尤其工业软件的管理端）里占比不低，NgRx 又是它的标配状态管理。这次更新两个点值得看：Resource Extensions 把「加载中/成功/失败」的异步资源状态标准化，少写一堆 loading 布尔量；DeepSignal 让深层对象也能细粒度追踪，减少无谓重渲染。建议拿它重写课设里的一个列表页：接口请求 + 分页 + 错误重试，对比手写 loading 状态的代码量差异，体会「状态管理库到底省了什么」。",
-   "source": "InfoQ中文",
-   "date": "2026-11-06",
-   "cat": "stack",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Angular",
-    "NgRx"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**补齐企业级前端状态管理认知，Angular 技术栈面试有话说。**",
-   "courses": "《Web 前端开发》——作为状态管理与响应式编程的进阶案例",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "Resource Extensions 标准化异步资源状态，减少样板代码",
-    "DeepSignal 支持深层响应式追踪，优化渲染性能",
-    "适合有 Angular 基础的同学做状态管理对比实验"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zJmwNj2Erc0Ol10eSIIY?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a943",
-   "title": "不复制海量数据，直接查询 S3：CSIRO 重构基因组分析架构",
-   "summary": "CSIRO 重构基因组分析架构，改为直接查询对象存储而非复制海量数据，降低存储与传输成本。",
-   "content": "这条对工业软件实验班的启发在「数据密集型系统的架构取舍」：数据量到 PB 级时，先复制再计算的老路走不通，得让计算靠近存储、按需读取列式格式（如 Parquet）。思路和工业场景里的时序数据、仿真结果管理高度相似。建议在数据库或大数据课设里做个小实验：同一份 CSV 分别用「导入数据库再查」和「对象存储 + 列式格式直接查」两条路，测查询耗时与存储占用，用数据说话。这类「架构对比 + 实测」的课设，答辩时最容易被记住。",
-   "source": "InfoQ中文",
-   "date": "2026-11-07",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [
-    "对象存储"
-   ],
-   "diff": 2,
-   "scene": "课设/毕设",
-   "value": "**给你一个可实测的数据架构对比实验，工业数据场景直接复用。**",
-   "courses": "《数据库原理》《大数据技术》——对应存储选型与查询性能实验",
-   "tags": [
-    "工业软件",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "海量数据场景下「计算靠近存储」优于「先复制再算」",
-    "列式格式 + 对象存储是常见组合",
-    "可做导入 vs 直查的对比实验作为课设"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/mF9A6U1M6SQFWfEKOJGW?utm_source=rss&utm_medium=article",
-   "cover": "img/a943.webp"
-  },
-  {
-   "id": "a932",
-   "title": "Claude Code 隐私模块实测：4 条命令只拦住 2 条，账号邮箱仍可能外发",
-   "summary": "作者在 Windows 版 Claude Code 2.1.318 上用 4 条不联网命令测试官方宣称的隐私模块，结果 curl 携带邮箱被拦、echo 写入 User-Agent 未被拦，说明数据外发防护存在缺口。",
-   "content": "官方说 2.1.317 起内置隐私模块能拦住账号邮箱外发，作者就在 Windows 的 2.1.318 上跑了 4 条不联网命令做验证：两条 curl 带邮箱的被插件拦下，但用 echo 写 User-Agent 的那条没被拦。对我们学信息安全的同学，这是一份现成的「安全功能验证」范本：先明确威胁模型（哪些字段算敏感、哪些出口算外发），再设计最小可复现用例，最后按结果判断防护边界。你完全可以照这个思路，给课程设计里的日志脱敏、密钥外泄检测模块写一套类似的对抗测试用例，而不是只看官方文档就相信它。",
-   "source": "掘金",
-   "date": "2026-11-06",
-   "cat": "tut",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "课设/安全测试练手",
-   "value": "**教你用最小对抗用例验证一个安全功能到底拦不拦得住，而不是照单全收官方说法。**",
-   "courses": "《信息安全技术》《软件安全测试》：作为安全功能验证与对抗测试的课堂案例",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "官方宣称能拦邮箱外发，实测 4 条命令只拦下 2 条",
-    "用 echo 写 User-Agent 的路径未被拦截，说明防护靠特征匹配",
-    "方法是先定威胁模型再设计最小用例，可复用到任何安全功能验收",
-    "结论：安全特性必须自己写对抗测试，不能只信发布说明"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7704941935269642282"
   }
  ],
  "jobs": [
