@@ -1,6 +1,179 @@
 {
- "updatedAt": "2026-11-15 21:28",
+ "updatedAt": "2026-11-15 16:52",
  "news": [
+  {
+   "id": "a1079",
+   "title": "接了上百个工具反而更难干活？AI Agent 工具设计的关键取舍",
+   "summary": "MCP 只解决工具接入，真正决定 Agent 表现的是每轮让它「看见」多少工具。文章用实测说明：小样本下按需查找并未提升准确率。",
+   "content": "很多同学做课设时喜欢给 Agent 挂一堆工具，结果模型反而乱选。这篇讲清了一个工程要点：工具数量不是能力，上下文里放多少才是。实践建议：先给模型一份精简的工具目录（名称+一句话描述），命中后再展开完整 schema；同时给工具描述加上「什么时候不该用」的约束。作者提到小样本下按需查找没提升准确率，说明别盲目照搬大厂方案，要在自己的场景里做 A/B。做软件工程课设或毕业设计里带 LLM 调用的模块，这套思路可以直接复用。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "MCP",
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会给 Agent 做工具裁剪，比堆工具更能提升任务成功率。**",
+   "courses": "《软件工程》课程设计中的 LLM 模块设计，或毕业设计的 Agent 子系统",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "工具多≠好用，控制每轮暴露给模型的工具数量",
+    "先给目录、命中再展开 schema 的两段式设计",
+    "小样本下按需查找未必提升准确率，需自测",
+    "工具描述要写清「何时不该用」"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708258923018584102"
+  },
+  {
+   "id": "a1080",
+   "title": "DeepSeek Harness 架构解析：Agent 如何从「会聊」走到「能交付」",
+   "summary": "DSH 是 DeepSeek 的 Agent 运行环境，提供工具、沙箱、记忆与可组装插件，让模型在受约束环境里把任务做完。",
+   "content": "从「聊天」到「交付」的差距，本质是执行环境。DSH 的组成值得拆开看：工具层（模型能调什么）、沙箱（在哪跑、怎么隔离）、记忆（跨轮次保留什么）、插件系统（怎么扩展）。文章用「整理周报」这个具体任务串起全流程，能看到一个 Agent 运行时是怎么被设计出来的。对工业软件实验班的同学尤其有用——把「Agent 运行时」当成一个小型系统来读，工具注册、权限边界、状态管理这些设计，和你写后端服务是同一套工程思维。建议边读边画一张自己的架构图。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "DeepSeek",
+    "Agent Runtime"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**读懂一个 Agent 运行时的分层设计，能直接迁移到你的系统设计作业。**",
+   "courses": "《软件工程》《系统分析与设计》中的架构分层与模块划分练习",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "DSH = 工具 + 沙箱 + 记忆 + 插件系统",
+    "以「整理周报」为例走通完整任务链路",
+    "沙箱与权限边界是 Agent 落地的关键约束",
+    "可对照自己写的服务理解运行时设计"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708058421904392242"
+  },
+  {
+   "id": "a1081",
+   "title": "Uptime Kuma：9 万 Star 的自托管监控，一条 docker 命令替代 Uptime Robot",
+   "summary": "开源自托管监控工具，一条 docker 命令拉起，支持 HTTP/TCP/Ping 等多种探针和告警通知。",
+   "content": "个人项目、实验室服务器、小团队内部系统，最常见的需求就是「它挂了我要第一时间知道」。Uptime Kuma 用一条 docker 命令就能跑起来，配置 HTTP 状态码、TCP 端口、Ping 等探针，挂了通过邮件、Webhook、企业微信等渠道告警。对信息安全与管理专业的同学，这是理解「可用性监控」最省力的入口：部署一遍，再故意把服务停掉，观察告警链路怎么走。软件工程的同学可以把它挂在自己的课设后端上，答辩时展示监控面板，比空口说「系统稳定」有说服力得多。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "监控"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用一次真实部署+故障演练，把「可用性监控」从概念变成你手上的技能。**",
+   "courses": "《计算机网络》服务可用性实验、《信息安全》运维监控环节",
+   "tags": [
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "docker 一条命令部署，零成本替代商业监控",
+    "支持 HTTP/TCP/Ping 探针与多渠道告警",
+    "可故意停服验证告警链路，理解可用性监控",
+    "挂在课设后端上，答辩有实据"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708343970518302739"
+  },
+  {
+   "id": "a1082",
+   "title": "会 JavaScript 就能写浏览器扩展：manifest 到发布的最短路径",
+   "summary": "浏览器扩展是前端同学最容易快速交付的作品，核心只是一个 manifest.json 加几段 JS。",
+   "content": "扩展的结构比想象中简单：manifest.json 声明权限和入口，content script 注入页面，background 处理事件，popup 提供界面。对前端方向的同学，这是性价比极高的练手项目——代码量小、能真实解决自己的痛点（比如给教务系统加个课表提醒、给文档站加个划词翻译），还能写进简历当作品。注意两点：权限声明要最小化，别一上来就要 all_urls，这是安全习惯；发布到商店前先本地加载未打包扩展调试。做完一个，你对浏览器运行机制的理解会明显上一个台阶。",
+   "source": "DEV Community",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript",
+    "浏览器扩展"
+   ],
+   "diff": 1,
+   "scene": "练手/简历加分",
+   "value": "**用几百行 JS 交付一个真实可用的作品，是前端方向最快的简历加分项。**",
+   "courses": "《Web 前端开发》课程设计，可作为综合实践选题",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "manifest.json + content script + background + popup 四件套",
+    "权限最小化声明，是安全习惯也是过审前提",
+    "选题从自己真实痛点出发，容易做出可用作品",
+    "可本地加载未打包扩展快速调试"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Want to build a browser extension? If you know JavaScript, you’re already most of the way there.",
+   "link": "https://dev.to/hridoy_dev/want-to-build-a-browser-extension-if-you-know-javascript-youre-already-most-of-the-way-there-1lml",
+   "cover": "img/a1082.webp"
+  },
+  {
+   "id": "a1083",
+   "title": "多 Agent 同改一个项目怎么不打架：Claude Code 的并发协作机制",
+   "summary": "多个 AI 同时修改同一代码库时的冲突控制问题，从玩家自折腾变成了工具内置能力。",
+   "content": "五个 Agent 同时改一个仓库，冲突从哪来？文件级写冲突、上下文不一致、重复改动。文章讨论的正是这类并发协作的工程解法。哪怕你现在只用单个 AI 辅助写代码，也值得读：它本质上是「多写者并发控制」问题，和你数据库课学的锁、版本控制里的分支合并是同一类思考。实际可用的做法是给每个 Agent 划定文件边界、用分支隔离、合并前强制 review。团队协作课设里如果有人同时用 AI 改代码，这套约定能省掉大量回滚。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code",
+    "Git"
+   ],
+   "value": "**把多 Agent 协作当成并发控制问题来理解，比追工具本身更有长期价值。**",
+   "courses": "《操作系统》并发与互斥概念的工程映射、《软件工程》团队协作规范",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "多 Agent 并发改代码的核心矛盾是写冲突与上下文不一致",
+    "解法思路：文件边界划分 + 分支隔离 + 合并前 review",
+    "本质是并发控制问题，与锁和版本管理同源",
+    "团队课设中可先约定 AI 改码的分工规则"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708023020069601295"
+  },
   {
    "id": "a1075",
    "title": "AI Agent 读百页 PDF 的正确姿势：清单先行 + offset/limit 分段读取",
@@ -24,7 +197,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "先给文档清单再读全文，避免 Agent 只读前几页就作答",
@@ -3928,209 +4101,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7705724434518917161"
-  },
-  {
-   "id": "a967",
-   "title": "AI 基建瓶颈从 GPU 转到「电工」：人力供给决定算力上限",
-   "summary": "钛媒体分析：AI 数据中心扩张的约束已从芯片、电力转向施工与运维技工，培养周期无法压缩。",
-   "content": "文章指出 AI 基建瓶颈几经转移：GPU 排期 → 电力 → 电气设备 → 如今落到电工等施工人力。资本可以买断设备排期，却买不来技工数年的培养周期。这条对工业软件方向的同学有直接启发：数据中心、产线、能源设施的建设和运维，越来越依赖「懂现场 + 懂软件」的人。工业软件实验班做的设备监控、SCADA、数字孪生、运维调度系统，本质就是在缓解这类人力约束——把老师傅的经验固化成可复用的软件。别只盯着模型层，工程侧的软件需求同样在涨。",
-   "source": "钛媒体",
-   "date": "2026-11-08",
-   "cat": "industry",
-   "tracks": [
-    "工业软件"
-   ],
-   "stack": [],
-   "value": "**看懂瓶颈在哪，才知道工业软件的价值锚点在哪**",
-   "courses": "对应《工业软件导论》《智能制造系统》，可作行业认知素材",
-   "tags": [
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "瓶颈迁移路径：芯片→电力→设备→人力",
-    "技工培养周期无法用资本压缩",
-    "工业软件可把现场经验固化为系统",
-    "工业软件方向的机会在工程侧而非模型侧"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8194549.html"
-  },
-  {
-   "id": "a958",
-   "title": "Agent越用越多，企业为何仍不够AI Native？",
-   "summary": "InfoQ 剖析企业部署大量 Agent 后仍难达 AI Native 的根因：数据、流程与工程化能力缺位，而非模型不够强。",
-   "content": "很多团队以为接几个 Agent 就是 AI Native，实际卡在工程侧：Agent 的上下文管理、工具调用权限、失败重试与可观测性都没做，出问题只能靠人肉兜底。文章从企业落地视角拆解这些断点。对软件工程和信息安全同学来说，这正是练习点——写一个带日志、限流、权限校验的 Agent 调用服务，比调通 API 有价值得多。做课设时把「可观测 + 可回滚」写进设计文档，面试聊 Agent 项目时就是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**看懂 Agent 落地的工程缺口，就是你的项目选题和面试谈资。**",
-   "courses": "《软件工程》需求与架构设计章节，可把 Agent 服务治理作为课程设计题目。",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "企业 AI Native 的瓶颈在工程化，不在模型能力",
-    "Agent 需要可观测性、权限控制、失败重试等基础设施",
-    "适合作为课设/项目练手方向"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YZx670AAiudsqZjx3UNo?utm_source=rss&utm_medium=article",
-   "cover": "img/a958.webp"
-  },
-  {
-   "id": "a959",
-   "title": "DigitalOcean 推出智能体学习与数据服务，让 Agent 能自我迭代",
-   "summary": "云厂商推出面向 Agent 的学习与数据服务，支持智能体基于运行数据自我改进，是 Agent 工程化的基础设施信号。",
-   "content": "Agent 从「一次性调用」走向「持续迭代」，需要把运行轨迹、反馈数据存下来并回流训练或调优，这类服务正是在补这块基础设施。对本科生而言，不必追具体产品，但要理解这个模式：日志与数据管道是 Agent 系统的核心组件。做课程项目时，可以给聊天/问答类 Agent 加一层「对话记录落库 + 效果标注」的简单闭环，用 SQLite 或 MySQL 就够，展示你懂数据回流，比单纯堆功能更能体现工程思维。",
-   "source": "InfoQ中文",
-   "date": "2026-11-06",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**理解 Agent 的数据回流闭环，课设里加一层日志与标注就领先同学。**",
-   "courses": "《数据库原理》与《软件工程》，用数据表设计承载 Agent 运行记录。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Agent 自我迭代依赖运行数据回流",
-    "数据管道与日志是 Agent 系统核心组件",
-    "可用轻量数据库在课设中实现反馈闭环"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/upfROwtEl8R75H24D13J?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a960",
-   "title": "AI 生成视频为何总要「抽卡」：返工与成本难题拆解",
-   "summary": "InfoQ 分析 AI 视频生成的高返工率与成本结构，指出可控性和一致性是当前工程难点。",
-   "content": "生成视频「抽卡」的本质是模型输出不可控，一次不满意就要重来，算力和时间成本翻倍。文章从工程角度讨论如何降低返工。这对软件工程学生有直接启发：任何调用生成式模型的功能，都要设计「结果校验 + 重试 + 缓存」链路，而不是直接把模型输出丢给用户。做毕设或课设里的图像/视频生成模块时，加一个结果质量打分和失败重试策略，既省成本又能写进论文的工程实现章节。",
-   "source": "InfoQ中文",
-   "date": "2026-11-08",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI生成"
-   ],
-   "value": "**把「校验+重试+缓存」写进你的生成式功能设计，成本和分数都省下来。**",
-   "courses": "《软件工程》质量保证与《人工智能导论》，用于讨论生成式系统的工程约束。",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "生成式模型输出不可控导致高返工成本",
-    "工程上需要结果校验、重试与缓存机制",
-    "可作为毕设工程实现部分的亮点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/xd9o6TyQ8GLON3dmiWpG?utm_source=rss&utm_medium=article",
-   "cover": "img/a960.webp"
-  },
-  {
-   "id": "a961",
-   "title": "混元研发体系重构与 MaaS 推理优化：模型能力如何进真实业务",
-   "summary": "InfoQ 分享大模型研发体系重构与 MaaS 推理优化的工程实践，聚焦模型落地业务的性能与成本。",
-   "content": "模型能力再强，进业务也要过推理延迟、吞吐和成本这三关。文章讲的是研发体系与 MaaS 推理优化，属于典型的后端工程问题：批处理、缓存、量化、弹性扩缩容。对 Java/通用开发方向的同学，这类内容对应的是「高并发服务设计」能力。课设里如果做模型调用服务，试着加请求合并与结果缓存，用压测工具对比优化前后的 QPS，写进报告就是实打实的性能优化案例，求职时比背八股更有说服力。",
-   "source": "InfoQ中文",
-   "date": "2026-11-06",
-   "cat": "industry",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "MaaS"
-   ],
-   "value": "**推理优化就是后端性能题，压测前后对比写进课设报告最实在。**",
-   "courses": "《计算机网络》与《软件工程》性能测试章节，结合压测工具做优化实验。",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "模型落地业务的关键是推理性能与成本",
-    "涉及批处理、缓存、量化、弹性扩缩容",
-    "可用压测对比做性能优化课设"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/azhgYaRTIjsSSVfA8AaU?utm_source=rss&utm_medium=article",
-   "cover": "img/a961.webp"
-  },
-  {
-   "id": "wk-20261109",
-   "title": "【AI风向标周报】第1期（11.09-11.15）",
-   "summary": "本周精选：LinkedIn 用 OpenTel、Java 近期资讯合集：JDK 28等 5 条资讯；京东等 1 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、1 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪\n   可观测性是后端岗高频考点，课设里加一条调用链就能拉开差距\n   原文：https://www.infoq.cn/article/3u1PmO0HqQXBFNibKZoe?utm_source=rss&utm_medium=article\n2. Java 近期资讯合集：JDK 28 日程、Oracle 关键补丁、Apache POI 与 WildFly 更新\n   用十分钟完成一次 Java 生态同步，知道该升什么、什么时候升。\n   原文：https://www.infoq.cn/article/w8RTJSY44DJJy97uagQr?utm_source=rss&utm_medium=article\n3. Claude Code 配置文件误传 GitHub，数千条密钥泄露：AI 编程工具的密钥管理红线\n   把「密钥不进仓库」从口号变成可执行的工程习惯，是信息安全与开发岗的共同底线。\n   原文：https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/\n4. 零信任架构遇上 AI Agent：IEEE 文章拆解 Agent 身份与权限的新难题\n   理解 Agent 时代的信任边界，是把安全课知识接到真实系统设计上的关键一步。\n   原文：https://spectrum.ieee.org/zero-trust-agentic-ai-architecture\n5. Linux 被 AI 挖出 400+ root 提权：2.5 小时一个零日，逆向几周才看懂一个\n   看懂 AI 时代的攻防节奏，把内核漏洞复现能力变成你的求职硬通货。\n   原文：https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR?utm_source=rss&utm_medium=article\n\n【本周精选岗位】\n1. 京东 · 京东技术行 实习生（AI/大模型、云计算、搜索推荐、安全）\n   实习 ｜ 北京\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 纯前端实现 PDF 与图片互转：不上传服务器，浏览器里搞定\n   一个能演示、有真实需求的前端作品，比十个 TodoList 更能打动面试官。\n   获取：https://juejin.cn/post/7708219159427121215\n2. Java 实现微信扫码登录：OAuth 2.0 全流程拆解\n   扫码登录是 Java 后端面试高频题，动手做一遍胜过背八股\n   获取：https://juejin.cn/post/7705995320547770408\n3. AI Agent 读百页 PDF 的正确姿势：清单先行 + offset/limit 分段读取\n   学会给 AI 工具设计「读全」机制，你的 RAG 项目答案质量能上一个台阶。\n   获取：https://juejin.cn/post/7708010764015517723\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-11-15",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪",
-    "精选岗位 Top1：京东 · 京东技术行 实习生（AI/大模型、云计算、搜索推荐、安全）",
-    "实用工具 Top3：纯前端实现 PDF 与图片互转：不上传服务器，浏览器里搞定"
-   ],
-   "link": "",
-   "cover": "img/a985.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-11-09",
-    "end": "2026-11-15",
-    "news": [
-     "a1028",
-     "a970",
-     "a985",
-     "a986",
-     "a968"
-    ],
-    "jobs": [
-     "j41"
-    ],
-    "tools": [
-     "a1071",
-     "a978",
-     "a1075"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
