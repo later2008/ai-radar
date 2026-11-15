@@ -1,6 +1,148 @@
 {
- "updatedAt": "2026-11-15 03:56",
+ "updatedAt": "2026-11-15 21:28",
  "news": [
+  {
+   "id": "a1075",
+   "title": "AI Agent 读百页 PDF 的正确姿势：清单先行 + offset/limit 分段读取",
+   "summary": "掘金文章拆解 AI Agent 的「感知工具」设计：如何避免只读前几页就下结论，用清单+分段读取+缺口标注让 Agent 真正读懂长文档。",
+   "content": "做课设或毕设时把 PDF 丢给大模型，经常发现它只看了前几页就自信作答。这篇文章给出一套可落地的工具设计思路：先让 Agent 拿到文档目录/清单，再按 offset/limit 分段读取正文，并显式记录「哪些段落还没读」，最后汇总时标注信息缺口；遇到图片则按场景选择 OCR、多模态直读或跳过。对软件工程同学来说，这是典型的「工具调用 + 上下文管理」工程问题，比调 prompt 更考验设计能力。你可以直接把这套思路搬进自己的 RAG 小项目：给检索工具加分段参数和覆盖度检查，答案质量会明显稳定。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "RAG",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会给 AI 工具设计「读全」机制，你的 RAG 项目答案质量能上一个台阶。**",
+   "courses": "《人工智能导论》《软件工程课程设计》——把分段读取与覆盖度检查做进课设的检索模块",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "先给文档清单再读全文，避免 Agent 只读前几页就作答",
+    "用 offset/limit 分段读取，并显式标注未覆盖的缺口",
+    "图片处理按场景选 OCR / 多模态直读 / 跳过",
+    "可直接迁移到自己的 RAG 课设项目"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708010764015517723"
+  },
+  {
+   "id": "a1076",
+   "title": "3 条命令把整套微服务装进 Docker：QuickBlue 部署实践",
+   "summary": "开源中国介绍 QuickBlue-MicroAI 的部署理念，用 3 条命令完成整套微服务容器化，适合被「部署复杂」劝退的同学上手练。",
+   "content": "很多同学做微服务课设，卡在环境搭建和联调上，代码写完却跑不起来。这篇给出一个务实路径：把注册中心、网关、若干业务服务打包成 Docker Compose 编排，用 3 条命令拉起整套环境，本地就能验证服务间调用。重点不是工具本身，而是理解「容器编排 = 把部署复杂度收敛到配置文件」这一思路：镜像分层、端口映射、服务依赖顺序、环境变量注入，都是面试常问的点。建议你拿它对照自己的课设：把每个服务的启动参数写进 compose 文件，再补一份 README 说明一键启动流程，简历上「可一键部署的微服务项目」比「本地能跑」有说服力得多。",
+   "source": "开源中国",
+   "date": "2026-11-15",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Docker",
+    "微服务"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「本地能跑」升级成「一键可部署」，是微服务课设最划算的加分项。**",
+   "courses": "《Java Web 开发》《软件工程课程设计》——用 Docker Compose 编排课设的微服务后端",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "3 条命令拉起注册中心、网关与业务服务的完整微服务环境",
+    "核心是理解容器编排如何收敛部署复杂度",
+    "涉及镜像分层、端口映射、依赖顺序、环境变量注入等面试点",
+    "建议给自己的课设补一份一键启动的 compose + README"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503579"
+  },
+  {
+   "id": "a1077",
+   "title": "从 RAG 到 LangGraph Agent、微调与分布式推理：AI 应用全栈路线图",
+   "summary": "DEV 长文梳理 AI 工程全链路：检索、LangChain/LangGraph 智能体、模型微调与分布式推理，讲清「接个 API」之外还要懂什么。",
+   "content": "很多人以为 AI 应用就是调个 LLM 接口，实际要可靠上线，得懂检索质量、模型行为边界、智能体的状态流转。这篇文章按栈分层讲：RAG 解决知识时效与私有数据，LangGraph 用图结构管理多步 Agent 的状态与分支，微调改变模型行为，分布式推理解决吞吐与成本。对软件工程和信息安全同学都有用——前者可以照着搭一个「文档问答 + 多步工具调用」的完整项目；后者要意识到 RAG 的检索层和提示层都是新的攻击面（投毒、越权检索）。建议先做最小闭环：一个 RAG 问答跑通，再加一个 LangGraph 节点做工具调用，逐步扩展。",
+   "source": "DEV Community",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LangChain",
+    "RAG"
+   ],
+   "diff": 3,
+   "scene": "课设/求职准备",
+   "value": "**给你一张 AI 应用全栈地图，知道下一步该学什么、项目该加什么。**",
+   "courses": "《人工智能导论》《信息安全技术》——课设做 RAG 问答，安全课分析检索投毒风险",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "按 RAG → Agent → 微调 → 分布式推理分层讲清 AI 工程全链路",
+    "LangGraph 用图结构管理多步 Agent 的状态与分支",
+    "RAG 检索层与提示层是新的安全攻击面",
+    "建议从最小闭环起步：先 RAG 问答，再加工具调用节点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building Across the AI Stack: RAG, LangChain, LangGraph Agents, LLM Fine-Tuning and Distributed Inference",
+   "link": "https://dev.to/sudhanshu_shukla_b32404a1/building-across-the-ai-stack-rag-langchain-langgraph-agents-llm-fine-tuning-and-distributed-3ef4",
+   "cover": "img/a1077.webp"
+  },
+  {
+   "id": "a1078",
+   "title": "Yelp AI 助手如何融合原生 UI 与服务端驱动 UI",
+   "summary": "InfoQ 报道 Yelp 在 AI 助手中同时使用原生界面与服务端驱动 UI，解决「AI 返回内容如何渲染成可控界面」的工程问题。",
+   "content": "AI 助手返回的不只是文字，还可能是卡片、列表、表单，前端怎么渲染？Yelp 的做法是混合：稳定的交互用原生组件保证体验和性能，易变的业务区块由服务端下发 UI 描述（schema）驱动渲染。这背后是前端工程的老问题在新场景下的重演——动态表单/低代码渲染。对前端方向的同学，这是很好的设计题素材：定义一个 JSON schema 描述卡片结构，写一个渲染器把 schema 映射成组件，再处理未知类型的降级。做进课设或作品集，比再做一遍待办清单更能体现工程判断。",
+   "source": "InfoQ中文",
+   "date": "2026-11-15",
+   "cat": "industry",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "简历加分",
+   "value": "**看懂 AI 产品的界面渲染架构，顺手做出一个能讲清楚的前端作品。**",
+   "courses": "《Web 前端开发》——用 schema 驱动渲染做课设的动态表单模块",
+   "tags": [
+    "前端开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 助手输出结构化内容，需要可控的渲染方案",
+    "混合策略：稳定交互用原生组件，易变区块由服务端下发 UI 描述",
+    "本质是动态表单/低代码渲染在前端的老问题",
+    "可动手做一个 JSON schema → 组件的渲染器作为作品集"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/1N801doFOEl2Swqey5Jy?utm_source=rss&utm_medium=article",
+   "cover": "img/a1078.webp"
+  },
   {
    "id": "a1069",
    "title": "上下文工程实战：让 AI Agent 不再「失忆」翻车（附可运行 Python 代码）",
@@ -25,7 +167,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "讲清上下文窗口里该放什么、该压什么、该丢什么",
@@ -3946,143 +4088,49 @@
    "cover": "img/a961.webp"
   },
   {
-   "id": "a962",
-   "title": "Claude Code 团队工程师离职后首次受访：顶尖 AI 实验室的人才虹吸",
-   "summary": "一位 Claude Code 团队工程师离职后首次受访，谈顶尖 AI 实验室的人才集中现象与开发者工具团队的真实工作。",
-   "content": "这条的价值不在八卦，而在于它透露了 AI 编程工具团队怎么做事：工具链、评测、与模型团队的协作方式。对软件工程学生，值得关注的是「AI 编程工具正在重塑开发流程」这一趋势——你未来写代码大概率是人和 Agent 协作。建议现在就把 AI 编程助手用进日常作业，练习写清晰的提示与验收标准，而不是让它替你思考。求职时能讲清楚「我如何用 AI 工具提效并保证代码质量」，是当下很吃香的能力。",
-   "source": "InfoQ中文",
-   "date": "2026-11-08",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI编程"
-   ],
-   "value": "**提前练好「人+AI 协作写代码」，是现在最划算的求职准备。**",
-   "courses": "《程序设计基础》课程作业中实践 AI 辅助编码与代码审查。",
+   "id": "wk-20261109",
+   "title": "【AI风向标周报】第1期（11.09-11.15）",
+   "summary": "本周精选：LinkedIn 用 OpenTel、Java 近期资讯合集：JDK 28等 5 条资讯；京东等 1 个岗位；3 个实用工具，一文看完本周重点。",
+   "content": "本周共精选 5 条行业资讯、1 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪\n   可观测性是后端岗高频考点，课设里加一条调用链就能拉开差距\n   原文：https://www.infoq.cn/article/3u1PmO0HqQXBFNibKZoe?utm_source=rss&utm_medium=article\n2. Java 近期资讯合集：JDK 28 日程、Oracle 关键补丁、Apache POI 与 WildFly 更新\n   用十分钟完成一次 Java 生态同步，知道该升什么、什么时候升。\n   原文：https://www.infoq.cn/article/w8RTJSY44DJJy97uagQr?utm_source=rss&utm_medium=article\n3. Claude Code 配置文件误传 GitHub，数千条密钥泄露：AI 编程工具的密钥管理红线\n   把「密钥不进仓库」从口号变成可执行的工程习惯，是信息安全与开发岗的共同底线。\n   原文：https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/\n4. 零信任架构遇上 AI Agent：IEEE 文章拆解 Agent 身份与权限的新难题\n   理解 Agent 时代的信任边界，是把安全课知识接到真实系统设计上的关键一步。\n   原文：https://spectrum.ieee.org/zero-trust-agentic-ai-architecture\n5. Linux 被 AI 挖出 400+ root 提权：2.5 小时一个零日，逆向几周才看懂一个\n   看懂 AI 时代的攻防节奏，把内核漏洞复现能力变成你的求职硬通货。\n   原文：https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR?utm_source=rss&utm_medium=article\n\n【本周精选岗位】\n1. 京东 · 京东技术行 实习生（AI/大模型、云计算、搜索推荐、安全）\n   实习 ｜ 北京\n   投递：https://github.com/xixicc186/xixicc2027\n\n【本周实用工具】\n1. 纯前端实现 PDF 与图片互转：不上传服务器，浏览器里搞定\n   一个能演示、有真实需求的前端作品，比十个 TodoList 更能打动面试官。\n   获取：https://juejin.cn/post/7708219159427121215\n2. Java 实现微信扫码登录：OAuth 2.0 全流程拆解\n   扫码登录是 Java 后端面试高频题，动手做一遍胜过背八股\n   获取：https://juejin.cn/post/7705995320547770408\n3. AI Agent 读百页 PDF 的正确姿势：清单先行 + offset/limit 分段读取\n   学会给 AI 工具设计「读全」机制，你的 RAG 项目答案质量能上一个台阶。\n   获取：https://juejin.cn/post/7708010764015517723\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
+   "source": "AI风向标·编辑部",
+   "date": "2026-11-15",
+   "cat": "weekly",
    "tags": [
-    "通用开发",
+    "周报汇总",
+    "求职就业",
     "AI工具",
-    "求职就业"
+    "行业动态"
    ],
    "featured": false,
-   "heat": 52,
+   "heat": 99,
    "brief": [
-    "AI 编程工具团队的工作方式值得了解",
-    "人机协作写代码正在成为常态",
-    "练习用 AI 助手提效并保证代码质量"
+    "精选资讯 Top5：LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪",
+    "精选岗位 Top1：京东 · 京东技术行 实习生（AI/大模型、云计算、搜索推荐、安全）",
+    "实用工具 Top3：纯前端实现 PDF 与图片互转：不上传服务器，浏览器里搞定"
    ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Qs0pJ5M43c56hdozHiR0?utm_source=rss&utm_medium=article",
-   "cover": "img/a962.webp"
-  },
-  {
-   "id": "a953",
-   "title": "Agent 重复扣钱事故复盘：LangGraph checkpoint 救不了你，三句 SQL 补上步骤日志",
-   "summary": "一次真实事故：Agent 崩在第 4 步，重跑后给用户发了两次退款。作者分析 LangGraph checkpoint 的盲区，并用三句 SQL 实现幂等步骤日志。",
-   "content": "这篇复盘值得每个写过 Agent 调用的同学读一遍。问题不在模型，而在「执行副作用」：checkpoint 记录的是图状态，不是外部动作是否已发生，所以重跑就会重复退款、重复发消息、重复下单。作者的解法很朴素——在业务库里建一张步骤日志表，以 (任务ID, 步骤名) 做唯一键，执行前先 INSERT 抢占，冲突就跳过。三句 SQL 解决幂等，比引入复杂框架更靠谱。你在课设里写「调用支付/发邮件/写数据库」这类不可回滚操作时，先想清楚：重试一次会发生什么？",
-   "source": "掘金",
-   "date": "2026-11-08",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "LangGraph",
-    "SQL"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**学会给 Agent 加幂等步骤日志，避免重跑造成重复扣款这类生产事故。**",
-   "courses": "《数据库原理》唯一约束与事务 + 《软件工程》可靠性设计，可直接用于毕业设计",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "checkpoint 保存的是图状态，不保证外部副作用只执行一次",
-    "用唯一键步骤日志表实现幂等，执行前先抢占",
-    "凡是支付、通知、写库等不可回滚操作都要考虑重跑",
-    "三句 SQL 的轻量方案，比堆框架更适合课设规模"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7705396726358114346"
-  },
-  {
-   "id": "a954",
-   "title": "租户隔离做了四层还不够：工程师提醒要能「看见」边界是否真的生效",
-   "summary": "多租户系统做了四层隔离仍可能失效，关键在于可观测性——你得能验证边界确实在起作用，而不是假设它在。",
-   "content": "多租户隔离是 SaaS 和云平台的经典安全题，也是信息安全专业面试高频考点。文章的核心观点很实用：隔离层数不等于隔离有效，缺少验证手段时，一条配置写错、一个缓存 key 没带租户 ID，数据就串了。工程做法是把「租户 ID 是否贯穿请求链路」变成可观测指标：日志、trace、缓存 key 规范、越权访问告警。做课设时如果你的系统有多个用户角色，别只写个 where 条件就完事，试着加一条越权访问的自动化测试用例，答辩时是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-11-08",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "多租户",
-    "可观测性"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**把「隔离是否生效」变成可观测、可测试的指标，而不是靠假设。**",
-   "courses": "《信息安全技术》访问控制 + 《数据库原理》，可用于安全课程设计",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "隔离层数多 ≠ 隔离有效，缺验证手段等于没做",
-    "租户 ID 要贯穿请求、缓存 key、日志与 trace",
-    "把越权访问做成可告警的指标和自动化测试",
-    "多角色课设加一条越权测试用例，答辩加分"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zTFVgklcTFZvgE2fkV7A?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a955",
-   "title": "Agent 怎么知道一个后台任务「跑完了」？读代码是读不出来的",
-   "summary": "Agent 能读到「成功分支」的代码，却无法回答昨天的批处理到底跑没跑完——状态必须来自运行时，而不是源码。",
-   "content": "很典型的一个认知陷阱：Agent 读你的数据质量作业代码，看到写成功结果的那个分支，就以为任务成功了。但代码描述的是「应该发生什么」，不是「实际发生了什么」。正确做法是把任务状态外化：任务表记录 started/finished/failed 与时间戳、心跳，Agent 通过查询状态接口而不是读源码来判断。这对做工业软件方向的同学尤其相关——产线批处理、数据同步、报表生成都是长任务，状态机 + 心跳 + 超时判定是标配。写课设时给定时任务加一张 job_run 表，成本很低，收益很大。",
-   "source": "DEV Community",
-   "date": "2026-11-08",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "任务调度"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**让 Agent 判断任务完成，靠运行时状态表而不是读源码。**",
-   "courses": "《操作系统》进程状态 + 《软件工程》系统设计，可用于工业软件实验班课设",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "源码描述「应该发生什么」，不描述「实际发生了什么」",
-    "用任务状态表 + 心跳 + 超时判定回答「跑完没有」",
-    "长任务场景（数据同步、批处理）必备状态机设计",
-    "课设里加一张 job_run 表，成本低收益高"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "A Job Started. How Would an Agent Know It Finished?",
-   "link": "https://dev.to/lorry_zhang_6c8c50ea513c3/a-job-started-how-would-an-agent-know-it-finished-52lb",
-   "cover": "img/a955.webp"
+   "link": "",
+   "cover": "img/a985.webp",
+   "weekly": {
+    "issue": 1,
+    "start": "2026-11-09",
+    "end": "2026-11-15",
+    "news": [
+     "a1028",
+     "a970",
+     "a985",
+     "a986",
+     "a968"
+    ],
+    "jobs": [
+     "j41"
+    ],
+    "tools": [
+     "a1071",
+     "a978",
+     "a1075"
+    ]
+   },
+   "pinned": true
   }
  ],
  "jobs": [
