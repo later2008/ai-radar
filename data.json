@@ -1,6 +1,216 @@
 {
- "updatedAt": "2026-11-14 16:26",
+ "updatedAt": "2026-11-15 03:56",
  "news": [
+  {
+   "id": "a1069",
+   "title": "上下文工程实战：让 AI Agent 不再「失忆」翻车（附可运行 Python 代码）",
+   "summary": "多轮对话后 Agent 答非所问、工具返回字段被遗忘，本质是上下文管理问题；文章给出可运行的上下文工程方案与 Python 代码。",
+   "content": "如果你在课设里写过调用大模型的 Agent，大概率踩过这些坑：聊到十几轮开始胡言乱语、刚拿到工具返回的 JSON 下一轮就忘了关键字段、system prompt 里写死的规则被后面长上下文冲掉。这篇把「上下文工程」拆成可落地的几件事：哪些信息必须常驻（规则、工具 schema）、哪些该摘要压缩（历史对话）、哪些该结构化回填（工具返回值），并给出可运行的 Python 实现。建议对照《人工智能导论》或软件工程课设，把你自己 Agent 的 prompt 拼接逻辑重写一遍，重点练「工具结果结构化 + 历史滚动摘要」两个模式，这是目前 Agent 开发岗面试的高频考点。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python",
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把 Agent 从「能跑」做到「稳定可用」，是简历上最容易被追问的技术点。**",
+   "courses": "《人工智能导论》/软件工程课设：直接用于 Agent 模块的上下文管理设计。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "讲清上下文窗口里该放什么、该压什么、该丢什么",
+    "附可运行 Python 代码，可直接改造进课设",
+    "工具返回值结构化回填是防「失忆」关键",
+    "面试常问：多轮 Agent 如何做记忆管理"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7707927071725715465"
+  },
+  {
+   "id": "a1070",
+   "title": "给 Coding Agent 加「架构闸门」：先审架构再写代码，防止 diff 漂移",
+   "summary": "AI 写代码最大的问题是 diff 越滚越大、架构越改越偏；文章介绍在生成前插入架构审查环节的工程做法。",
+   "content": "用 Codex、Claude Code 这类工具写代码，痛点往往不在「写不出来」，而在最后两步：diff 巨大难以 review、改着改着架构漂移。这篇文章的思路是给 Agent 加一道「架构闸门」——在动手写代码前，先让它输出模块划分、接口契约和改动影响面，人工或规则校验通过后才允许生成实现。对我们做课程设计特别有用：多人协作的 Java/前端项目，最怕 AI 一次性吐出几百行改动。你可以先在小组项目里试一个轻量版：让 AI 先写「改动计划 + 涉及文件清单」，组内确认后再生成代码，能显著降低返工。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会给 AI 编码加约束，比会写 prompt 更能体现工程能力。**",
+   "courses": "《软件工程》课程设计：用于小组协作中的 AI 辅助开发流程规范。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 80,
+   "brief": [
+    "核心思路：生成代码前先产出架构与影响面清单",
+    "解决 diff 过大、review 困难和架构漂移",
+    "适合多人协作课设，可先做轻量版流程",
+    "体现工程规范意识，面试可讲"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7707875510299181106"
+  },
+  {
+   "id": "a1071",
+   "title": "纯前端实现 PDF 与图片互转：不上传服务器，浏览器里搞定",
+   "summary": "用前端技术完成 PDF 拆页转图片、多图合并成 PDF，文件不出本地，适合做课设小工具。",
+   "content": "提取 PDF 某一页发给同事、把多张证件照合并成一个 PDF 提交——这类需求高频但现有在线工具都要上传文件，隐私和体验都差。文章讲纯前端方案：PDF 渲染成图片、图片序列合成 PDF 都在浏览器内完成，文件不出本地。技术点集中在 Canvas 渲染和 PDF 库的 API 使用，难度不高但很能体现「把需求做成产品」的能力。建议作为《Web 前端开发》课程设计或期末大作业选题：加个拖拽上传、页码选择、图片排序，就是一个完整可演示的作品，放简历上比 TodoList 有说服力得多。",
+   "source": "掘金",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript",
+    "Canvas"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**一个能演示、有真实需求的前端作品，比十个 TodoList 更能打动面试官。**",
+   "courses": "《Web 前端开发》：作为课程设计项目，练习 Canvas 与第三方库集成。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "PDF 转图片、多图合成 PDF 全在浏览器完成",
+    "涉及 Canvas 渲染与前端 PDF 库 API",
+    "文件不上传，隐私友好，演示效果好",
+    "适合作为前端课设/大作业选题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708219159427121215"
+  },
+  {
+   "id": "a1072",
+   "title": "手搓 AI Agent 第 7 篇：错误分类 + 双账本熔断，让 Agent 报错后别原地打转",
+   "summary": "给 Agent 的失败做分类、附修复提示，再用两本账记录连续失败次数，到上限自动熔断停止。",
+   "content": "Agent 出错后最常见的坏行为是「原地打转」：同一个工具反复调、同样的错反复犯，token 烧完也没结果。这篇是手搓 Agent 系列的第 7 篇，讲两件事：一是把失败分类（参数错、工具不可用、结果不满足约束），并在错误信息里附一句「该怎么改」的提示回喂给模型；二是记两本账——单轮失败账和累计失败账，连续失败到阈值就熔断停止。这是很典型的工程健壮性设计，写进课设里能明显提升演示稳定性。建议在《软件工程》或实训项目中给 Agent 模块加上这套机制，答辩时讲「我如何防止 Agent 死循环」是个加分点。",
+   "source": "掘金",
+   "date": "2026-11-14",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Python"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**会写 Agent 不稀奇，能让它出错后体面停下才是工程能力。**",
+   "courses": "《软件工程》实训：用于 Agent 模块的异常处理与稳定性设计。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "失败要分类，并回喂「怎么改」的提示",
+    "双账本记录失败次数，超阈值自动熔断",
+    "解决 Agent 死循环烧 token 的常见问题",
+    "工程健壮性设计，答辩可讲"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708017347626549267"
+  },
+  {
+   "id": "a1073",
+   "title": "GitLab 19.5 发布：把 AI 智能体开发纳入可治理的 DevOps 平台",
+   "summary": "GitLab 新版本将智能体开发纳入 DevOps 治理体系，强调 AI 产出的可审计与可管控。",
+   "content": "GitLab 19.5 的核心变化是把智能体开发纳入平台的可治理能力：AI 参与的代码变更、流水线动作要能被审计和管控，而不是黑盒产出。对信息安全与管理专业的同学，这直接对应《信息安全管理》里的变更管理与审计追踪知识点——AI 生成代码进入 CI/CD 后，权限边界、操作留痕、审批链路怎么设计。对软件工程方向的同学，则意味着以后进企业做 DevOps，AI 产物的合规审查会是日常工作的一部分。建议了解其治理模型思路，面试聊「AI 辅助开发如何保证可追溯」时有话可说。",
+   "source": "InfoQ中文",
+   "date": "2026-11-15",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "DevOps"
+   ],
+   "value": "**AI 写代码之后，「谁审、谁负责、怎么留痕」成了新的工程与安全命题。**",
+   "courses": "《信息安全管理》：结合变更管理与审计追踪章节理解平台治理设计。",
+   "tags": [
+    "行业动态",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "AI 智能体开发被纳入 DevOps 治理与审计",
+    "对应变更管理、操作留痕、权限边界等安全议题",
+    "企业 DevOps 岗位将涉及 AI 产物合规审查",
+    "可作为面试中「AI 可追溯性」的谈资"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1?utm_source=rss&utm_medium=article",
+   "cover": "img/a1073.webp"
+  },
+  {
+   "id": "a1074",
+   "title": "用 FastAPI + React 搭一个可解释的多智能体金融分析平台",
+   "summary": "英文实战：不用单个大模型当「神谕」，而是多 Agent 分工 + 可解释输出，前后端全栈实现。",
+   "content": "把大模型当成一个「问它股票能不能买」的神谕很危险：确认偏误、财务数字幻觉都会出现。这篇英文实战用 FastAPI 做后端、React 做前端，搭一个多智能体金融分析平台，重点是「可解释」——每个 Agent 负责一块（数据、风险、结论），输出要能追溯依据。对软件工程同学，这是一个完整的前后端分离项目范例：接口设计、Agent 编排、结果可视化都能拆开学。建议不要照抄金融场景，把领域换成你熟悉的（比如课程成绩分析、图书推荐），保留多 Agent 分工 + 可解释输出的架构，就是一个有深度的课设。",
+   "source": "DEV Community",
+   "date": "2026-11-15",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "FastAPI",
+    "React"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**多 Agent + 可解释输出的架构，是当前全栈项目里最能拉开差距的设计。**",
+   "courses": "《Web 应用开发》/软件工程课设：参考其前后端分离与 Agent 编排结构。",
+   "tags": [
+    "前端开发",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "FastAPI 后端 + React 前端的完整全栈项目结构",
+    "多 Agent 分工替代单一 prompt，输出可追溯",
+    "可把金融场景替换为课设熟悉的领域",
+    "适合作为有深度的全栈课程设计参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Beyond Black-Box Prompts: Building an Explainable Multi-Agent Financial Intelligence Platform with FastAPI & React",
+   "link": "https://dev.to/khare69/beyond-black-box-prompts-building-an-explainable-multi-agent-financial-intelligence-platform-with-4o03",
+   "cover": "img/a1074.webp"
+  },
   {
    "id": "a1066",
    "title": "用 Rust+ratatui 写一个终端工厂游戏：terminactory 开源可玩",
@@ -24,7 +234,7 @@
     "通用开发",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "Rust + ratatui 的完整 TUI 项目范例，代码可读",
@@ -3873,225 +4083,6 @@
    "origTitle": "A Job Started. How Would an Agent Know It Finished?",
    "link": "https://dev.to/lorry_zhang_6c8c50ea513c3/a-job-started-how-would-an-agent-know-it-finished-52lb",
    "cover": "img/a955.webp"
-  },
-  {
-   "id": "a956",
-   "title": "Agent 记忆格式该有 OpenTelemetry 时刻了：别让记忆锁死在某家框架里",
-   "summary": "作者主张为 Agent 记忆定义开放格式，像 OpenTelemetry 统一可观测性那样，让记忆数据可迁移、可审计。",
-   "content": "现在各家 Agent 框架的记忆实现五花八门，换框架等于记忆清零，排查问题时也说不清模型「记得什么、为什么记得」。文章类比 OpenTelemetry：先有开放的 schema（记忆条目、来源、时间、置信度、作用域），才有跨工具的可迁移与可审计。对学生的实际意义：设计自己的 Agent 小项目时，别把记忆直接塞进某个框架的私有结构，用一个简单的 JSON/SQLite schema 存「内容+来源+时间+是否有效」，将来换模型、换框架都不用重写。这也是简历上能讲清楚的设计取舍。",
-   "source": "Hacker News",
-   "date": "2026-11-08",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "OpenTelemetry",
-    "SQLite"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用开放 schema 存 Agent 记忆，避免被单一框架绑死。**",
-   "courses": "《数据库原理》数据建模，可用于 AI 应用类课程设计",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "记忆锁死在框架私有结构里，换框架就清零",
-    "参考 OpenTelemetry：先定开放 schema 再谈工具",
-    "记忆条目至少带内容、来源、时间、有效性",
-    "小项目用 SQLite/JSON 自管记忆，迁移成本低"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Agent memory needs its OpenTelemetry moment",
-   "link": "https://www.lorekit.io/blog/open-agent-memory-format"
-  },
-  {
-   "id": "a957",
-   "title": "用 Python 重写 MCP 长轮询：Claude Code 与 Codex 之间怎么传消息",
-   "summary": "作者用 Python 复刻 osFoundry 的 wait_for_messages 长轮询端点，讲清 MCP 公共端点如何让两个编码 Agent 互相通信。",
-   "content": "想搞懂 MCP 到底怎么工作，看协议文档不如看一个能跑的接收端实现。这篇用 Python 重写长轮询 wait_for_messages：客户端挂起请求，服务端有消息就返回、超时就空返回再重连，避免高频轮询打爆接口。涉及 MCP 的 tools/list 声明、HTTP 长连接超时设置、消息队列的简单实现。适合已经会写 Flask/FastAPI 的同学动手复刻一遍，理解「Agent 之间怎么对话」这件事的底层其实很朴素。做完可以写进简历的 AI 工具链项目里。",
-   "source": "DEV Community",
-   "date": "2026-11-08",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**动手复刻一遍 MCP 长轮询，真正搞懂 Agent 间通信机制。**",
-   "courses": "《计算机网络》HTTP 与长连接 + 《Python 程序设计》，可用于课程设计",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "长轮询 = 挂起请求 + 超时空返回 + 重连，替代高频轮询",
-    "涉及 MCP tools/list 声明与 HTTP 超时配置",
-    "用 Python 复刻接收端，比读协议文档更直观",
-    "适合作为 AI 工具链方向的简历项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python",
-   "link": "https://dev.to/bbt-id/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-dan-codex-4amg",
-   "cover": "img/a957.webp"
-  },
-  {
-   "id": "a948",
-   "title": "Claude Code「不再询问」配置泄露口令：1122 个公开 GitHub 文件中招",
-   "summary": "安全厂商 Apiiro 统计发现，Claude Code 的「Don't Ask Again」授权选项让密钥、口令被写进 1122 个公开 GitHub 文件，AI 编程智能体的权限边界成为新的泄露面。",
-   "content": "用 AI 编程助手时，为了少点几次确认，很多人会勾选「不再询问」，让它直接读文件、跑命令。问题在于：智能体读过的 .env、配置文件、连接串，可能随调试日志或生成的脚本一起被提交到公开仓库。Apiiro 的统计是 1122 个公开文件。对信息安全专业的同学，这是一份现成的威胁建模素材：把「AI 智能体」当成一个拥有文件系统权限的新主体，重新做一遍最小权限、敏感信息识别和提交前扫描。动手建议：在本地仓库装 gitleaks 或 trufflehog 做 pre-commit 钩子，再给智能体单独配置只读工作目录，观察它到底会碰哪些文件。",
-   "source": "Hacker News",
-   "date": "2026-11-07",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code",
-    "gitleaks"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「AI 智能体」纳入威胁建模，是信安方向最贴近当下的一课**",
-   "courses": "《信息安全技术》/《安全开发》课程设计：做一次 AI 工具链的密钥泄露复现与防护方案",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "AI 编程智能体的「不再询问」授权会扩大文件读取范围",
-    "泄露路径：调试日志、生成脚本、误提交的 .env 与配置",
-    "可用 gitleaks/trufflehog 做 pre-commit 密钥扫描",
-    "给智能体配置独立只读工作目录，落实最小权限"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-   "link": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
-  },
-  {
-   "id": "a949",
-   "title": "Cordonix 0.4.1：用 C11 写的本地 MCP 执行与文件工作区工具",
-   "summary": "开源工具 Cordonix（cdx）发布 0.4.1，用 C11 实现、跨 Windows/Linux，通过 MCP 向 AI 编程智能体提供本地程序执行、文件读写、编码转换与内存编辑能力。",
-   "content": "MCP（Model Context Protocol）正在成为「AI 客户端 ↔ 本地能力」的事实接口。Cordonix 值得看的地方不在功能多，而在于它是一个小而完整的 C11 实现：协议解析、进程调用、文件工作区、错误提示都在一个仓库里。想搞懂 MCP 到底怎么把一次工具调用变成一次本地进程执行，读它的源码比读文档快。0.4.1 主要修了安装后的版本更新体验、补全全部 MCP 工具的参数说明、让文件创建失败提示更准确——这三点恰好是「工具描述写不好，模型就不会用」的典型例子。练手路径：本地编译跑通，接一个 MCP 客户端，自己加一个工具并写清参数 schema。",
-   "source": "开源中国",
-   "date": "2026-11-07",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "C11",
-    "MCP"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**想搞懂 MCP 协议怎么落地，读一个 C11 小实现比看十篇文档快**",
-   "courses": "《C 语言程序设计》/《系统编程》课程设计：编译并扩展一个 MCP 工具",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "C11 实现、支持 Windows/Linux，源码可读性强",
-    "通过 MCP 暴露本地执行、文件读写、编码转换、内存编辑",
-    "0.4.1 重点补全 MCP 工具参数说明，直接影响模型调用成功率",
-    "适合作为理解 MCP 协议与工具描述设计的入门样本"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503467"
-  },
-  {
-   "id": "a950",
-   "title": "自动路由省钱吗？InfoQ：便宜模型出错，人工返工一小时更贵",
-   "summary": "InfoQ 文章讨论 LLM 自动路由的成本账：把简单请求分给便宜模型看似降本，但一旦出错，人工排查与返工的时间成本往往超过省下的调用费。",
-   "content": "做 AI 应用时，「按难度选模型」是很自然的优化思路：简单问题走小模型，复杂问题走大模型。这篇文章提醒的是账要算全：token 费用只是分子，分母是返工。一个便宜模型给出的错误代码、错误 SQL、错误结论，人要去定位、验证、重写，一小时的人力成本远超那点差价。对软件工程的同学，这直接对应系统设计里的一个决策点：路由策略要配可观测性——记录每次路由的模型、置信度、下游是否被人工修正，用数据决定阈值，而不是拍脑袋。课程项目里如果做了 LLM 调用，建议顺手加一层「低置信度自动升级到强模型」的兜底。",
-   "source": "InfoQ中文",
-   "date": "2026-11-08",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**做 AI 功能时，路由策略要配可观测性，否则省的钱会被返工吃掉**",
-   "courses": "《软件工程》/《系统分析与设计》：在课程项目的 LLM 调用层设计降级与兜底策略",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "自动路由的隐性成本是人工排查与返工时间",
-    "需要记录路由决策、置信度、人工修正率才能调阈值",
-    "工程做法：低置信度请求自动升级到强模型兜底",
-    "成本评估要算总账，不能只看 token 单价"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/gOcDmZM2MPAQhWtNb6IJ?utm_source=rss&utm_medium=article",
-   "cover": "img/a950.webp"
-  },
-  {
-   "id": "a951",
-   "title": "AI 购物 Agent 读不懂你的商品页？结构化数据才是入口",
-   "summary": "DEV 文章用一个「找防水黑色越野跑鞋、100 美元内、有货可退」的例子说明：商品页对人友好、对 AI 智能体不友好，缺少结构化字段时 Agent 无法可靠筛选。",
-   "content": "用户让 AI 助手找鞋，条件有尺码、防水、价格上限、库存、可退货——这些在页面上是图片、文案和零散标签，Agent 抓不到就只能瞎猜。文章的核心结论很实用：让页面被智能体「读懂」，靠的是结构化数据（schema.org 的 Product/Offer、明确的库存与退货字段、可解析的价格与尺码），而不是再写一段更华丽的描述。对前端方向的同学，这是一个新的验收维度：页面除了人看得爽，还要机器读得准。动手做：给一个商品页补 JSON-LD，用结构化数据测试工具校验，再让 LLM 按给定条件筛选，对比补数据前后的准确率。",
-   "source": "DEV Community",
-   "date": "2026-11-08",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "JSON-LD",
-    "schema.org"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**给页面补结构化数据，是让 AI Agent 真正用上你网站的最低成本手段**",
-   "courses": "《Web 前端开发》：在课程作业的商品页中加入 JSON-LD 并用校验工具验证",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "Agent 抓不到图片与散落文案里的尺码、库存、退货条件",
-    "解法是结构化数据：schema.org Product/Offer + JSON-LD",
-    "前端新增验收维度：页面要同时对人友好和对机器可解析",
-    "可用补 JSON-LD 前后对比，量化筛选准确率提升"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Can an AI Shopping Agent Actually Understand Your Product Page?",
-   "link": "https://dev.to/thesqb/can-an-ai-shopping-agent-actually-understand-your-product-page-640",
-   "cover": "img/a951.webp"
   }
  ],
  "jobs": [
