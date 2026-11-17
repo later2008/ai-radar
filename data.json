@@ -1,6 +1,181 @@
 {
- "updatedAt": "2026-11-16 20:04",
+ "updatedAt": "2026-11-17 05:50",
  "news": [
+  {
+   "id": "a1107",
+   "title": "Spring Boot/Framework/Security 首个候选版本齐发：现在该盯哪些升级点",
+   "summary": "Spring 生态一次性放出 Boot、Framework、Data、Security、Modulith 与 Spring AI 的首个候选版本，是明年项目选型与课程实验的重要参考。",
+   "content": "Spring 官方一次性发布多个子项目的首个候选版本（RC），意味着 API 基本冻结，接下来主要是修 bug。对软件工程学生来说，这是低成本跟进主流 Java 生态的窗口：一是打开 Spring Boot 的 Release Notes，看自动配置和依赖版本有哪些破坏性变更，避免课设升级时踩坑；二是 Spring Security 的改动直接关系到你写的登录鉴权模块；三是 Spring AI 首次进入候选版本，说明 Java 后端接大模型已有官方路径，可以在毕业设计里做「Java 服务 + 大模型」的落地。建议做法：新建一个空项目，把 Boot 升到 RC 版本跑一遍，记录报错，这就是一份可写进简历的实践笔记。",
+   "source": "InfoQ中文",
+   "date": "2026-11-17",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring Boot",
+    "Spring Security"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**提前摸清 Spring 新版变更，课设升级不踩坑，面试能聊生态演进**",
+   "courses": "《Java Web 开发》《软件框架技术》：把课程项目的 Spring 版本升级当作实验任务",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "多个 Spring 子项目同时进入首个候选版本，API 趋于稳定",
+    "重点看 Boot 的破坏性变更与 Security 的鉴权配置改动",
+    "Spring AI 进入 RC，Java 后端接大模型有了官方方案",
+    "建议用空项目试升级，把踩坑记录整理成笔记"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/uCmKjbkjjkW17olm7smj?utm_source=rss&utm_medium=article",
+   "cover": "img/a1107.webp"
+  },
+  {
+   "id": "a1108",
+   "title": "Claude Code 与 Codex 升级：沙箱不再自动放行，项目配置默认禁用",
+   "summary": "Claude Code 2.1.325 起沙箱内 Bash 默认需确认，Codex 0.169.0 不再读取未信任目录的项目配置，AI 编程工具的安全默认值收紧了。",
+   "content": "这次升级的核心是「默认更安全」：Claude Code 在沙箱里执行 Bash 命令默认要人工确认，定时任务跑带 allowed-tools 的 skill 前也会先询问；Codex 则不再读取未信任目录下的项目配置。对天天用 AI 写代码的同学，直接影响有三点：一是自动化脚本可能被卡住，需要显式配置允许的工具白名单；二是从 GitHub 克隆别人的仓库后，里面的配置文件不会被自动信任，防止恶意配置执行命令；三是团队协作时要约定好哪些命令可以免确认。建议把这两个版本的变更日志读一遍，检查自己项目里的 .claude 或 Codex 配置，顺手理解「最小权限」这个安全原则——这正是信息安全课的经典考点。",
+   "source": "掘金",
+   "date": "2026-11-17",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Claude Code",
+    "Codex"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**搞懂 AI 编程工具的安全默认值，避免自动化被卡，也理解最小权限原则**",
+   "courses": "《信息安全技术》《软件工程》：作为最小权限与供应链安全的真实案例",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Claude Code 沙箱内 Bash 默认需人工确认",
+    "Codex 不再读取未信任目录的项目配置",
+    "克隆他人仓库时恶意配置无法自动执行",
+    "需检查本地工具配置与命令白名单"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7708691921045471247"
+  },
+  {
+   "id": "a1109",
+   "title": "Windows 11 被曝采集你用了哪些 AI 编程工具和开发工具",
+   "summary": "有开发者发现 Windows 11 在收集用户使用哪些编码 Agent 与开发工具的遥测数据，引发隐私讨论。",
+   "content": "一位开发者通过抓包和日志分析发现，Windows 11 会上报用户运行了哪些编码 Agent 和开发工具。对信息安全与管理专业的学生，这是一个非常好的实操素材：第一，学会用 Process Monitor、Wireshark 观察本机进程的网络行为，验证「系统到底发了什么」；第二，理解遥测（telemetry）与用户知情同意的边界，对应《网络安全法》《个人信息保护法》里关于最小必要收集的要求；第三，动手写一份关闭或限制遥测的配置清单，作为实验报告。对软件工程同学则提醒：自己写的工具如果带上报功能，要在隐私政策里写清楚。别只停留在转发吐槽，能复现、能取证、能给出处置方案，才是专业能力。",
+   "source": "Hacker News",
+   "date": "2026-11-16",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**拿真实遥测事件练取证与合规分析，比背法条有用得多**",
+   "courses": "《信息安全技术》《网络行为分析》：作为流量取证与隐私合规实验",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Windows 11 被指采集开发工具与编码 Agent 使用情况",
+    "可用 Process Monitor/Wireshark 自行复现取证",
+    "对应个人信息保护法的最小必要原则",
+    "产出：遥测关闭配置清单 + 实验报告"
+   ],
+   "buzz": [],
+   "link": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+   "cover": "img/a1109.webp"
+  },
+  {
+   "id": "a1110",
+   "title": "亚马逊开源 File Mover Express：S3 文件传输工具怎么用",
+   "summary": "AWS 发布开源工具 File Mover Express，用于简化 S3 文件传输，适合做云存储相关的课设与实验。",
+   "content": "File Mover Express 是 AWS 开源的 S3 文件传输工具，解决的是「本地/其他存储与 S3 之间搬数据」这件重复劳动。对软件工程学生，它的价值在于给你一个可读的开源实现：可以看它如何封装 S3 SDK、如何处理分片上传、断点续传和失败重试，这些都是对象存储接入的通用套路。实践路径：用免费额度的 S3 或兼容 S3 协议的开源存储（如 MinIO）搭环境，跑通一次大文件上传，再读源码看并发与重试逻辑。注意别在公网桶里放敏感数据，顺便复习一下桶策略与访问密钥管理——这既是工程能力，也是安全常识。",
+   "source": "InfoQ中文",
+   "date": "2026-11-17",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "AWS S3"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**借开源工具吃透对象存储上传的通用套路，云存储课设直接复用**",
+   "courses": "《云计算技术》《分布式存储》：作为对象存储接入的实验案例",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "AWS 开源，专注 S3 文件传输场景",
+    "可学习分片上传、断点续传、失败重试的实现",
+    "建议用 MinIO 本地搭环境练手，零成本",
+    "顺带复习桶策略与访问密钥管理"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/i0a4s8Cf7WMxcZha74kF?utm_source=rss&utm_medium=article",
+   "cover": "img/a1110.webp"
+  },
+  {
+   "id": "a1111",
+   "title": "六年 Rust 开发者的反思：所有权和类型驱动如何改变编程思维",
+   "summary": "一位写了六年 Rust 的开发者总结：所有权、sum type、类型驱动设计会逼着你把问题想清楚，这些思维可迁移到其他语言。",
+   "content": "作者 Martijn Faassen 写了六年多 Rust，结论是「确实被改变了」，但他不认为这些收获是 Rust 独有——sum type、类型驱动、所有权，别的语言也有。Rust 的作用是把这些概念逼到你眼前，让你绕不过去。对学生的实用价值不在「要不要学 Rust」，而在借它训练工程思维：用枚举表达状态而不是一堆布尔标志，用类型让非法状态无法构造，用所有权理解资源释放时机。这些习惯写 Java、写前端同样受益。建议做法：拿你课设里的一个状态机（比如订单状态、登录状态）用 Rust 的 enum 重写一遍，对比原来的 if-else 版本，体会编译期检查带来的差异。",
+   "source": "开源中国",
+   "date": "2026-11-17",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**借 Rust 训练类型驱动思维，写出更少 bug 的状态管理代码**",
+   "courses": "《程序设计》《软件工程》：作为类型设计与状态建模的拓展阅读",
+   "tags": [
+    "通用开发",
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "核心收获是所有权、sum type、类型驱动设计三种思维",
+    "这些思维可迁移到 Java、前端等语言",
+    "练习：用 enum 重写课设里的状态机",
+    "重点体会编译期检查如何消灭非法状态"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503613/how-rust-changed-me"
+  },
   {
    "id": "a1101",
    "title": "给 AI 编码代理装上「眼睛和手」：在 Chrome 里操作网页的实战方案",
@@ -26,7 +201,7 @@
     "通用开发",
     "前端开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "用本机 Chrome 已登录会话突破代理的登录墙",
@@ -3938,172 +4113,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/1Mz0ADa02PxcDsVfpVEb?utm_source=rss&utm_medium=article",
    "cover": "img/a994.webp"
-  },
-  {
-   "id": "a995",
-   "title": "Claude Fable 5.2 登顶且降价 20%，编程助手选型要重算",
-   "summary": "Claude Fable 5.2 发布即登顶评测榜首，价格下调 20%，对日常编码辅助的成本结构有直接影响。",
-   "content": "模型排名本身对你没用，但「降价 20% + 编程能力提升」会影响你选哪个工具写代码。实操建议：拿你正在写的课设做一次 A/B——同一段需求（比如实现一个带分页的查询接口）分别让两个模型生成，比较首次可运行率、需要人工改的行数、以及解释是否讲清原理。别只看谁写得快，要看谁让你学到东西。另外提醒：把课程作业整段丢给模型生成再原样提交，一旦被查重或答辩追问就露馅，正确姿势是让它解释思路、生成测试用例、review 你的代码。",
-   "source": "爱范儿",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude"
-   ],
-   "value": "**用一次 A/B 实测决定你的编程助手，而不是跟风换工具。**",
-   "courses": "《程序设计基础》《软件工程》——代码评审与测试用例生成的辅助工具评估",
-   "tags": [
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Fable 5.2 登顶评测且价格降 20%，影响编码工具选型",
-    "建议用同一需求做 A/B，比较首次可运行率与人工修改量",
-    "优先让模型做代码 review、生成测试用例、解释原理",
-    "整段生成后原样提交在答辩和查重环节风险极高"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1688605?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a995.webp"
-  },
-  {
-   "id": "a996",
-   "title": "「AI 毁了我的计算机学位」：教授也在用 Claude 糊弄",
-   "summary": "有学生反映 AI 让计算机学位含金量下降，教学与作业环节出现师生双向依赖 AI 的情况。",
-   "content": "这篇值得你认真读，因为它描述的是你正在经历的环境：作业可以用 AI 交差，于是「完成作业」和「掌握能力」彻底脱钩。对软件工程和信息安全学生，最危险的不是 AI 会写代码，而是你失去了独立调试和读源码的耐性——面试手写和线上排障时没人给你补全。可操作的对策：给自己定规矩，课设的核心模块必须手写并写注释，AI 只用于生成测试、解释报错、review 设计；每学期留一个「不用 AI 完成」的项目作为能力锚点。这不是道德问题，是就业竞争力问题。",
-   "source": "量子位",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**在人人用 AI 交作业的环境里，保住你独立调试的能力就是竞争优势。**",
-   "courses": "《程序设计基础》《数据结构》——确立不依赖 AI 的核心编码训练方式",
-   "tags": [
-    "求职就业",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "作业可被 AI 完成，导致「交差」与「掌握」脱钩",
-    "真正流失的是独立调试与读源码的耐性",
-    "建议核心模块手写，AI 仅用于测试生成、报错解释、设计 review",
-    "每学期保留一个不用 AI 的项目作为能力锚点"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/508706.html"
-  },
-  {
-   "id": "a985",
-   "title": "Claude Code 配置文件误传 GitHub，数千条密钥泄露：AI 编程工具的密钥管理红线",
-   "summary": "Ars Technica 报道，Claude Code 的「不再询问」授权提示让开发者把含密码、API Key 的配置文件一并提交到 GitHub，造成大规模密钥外泄。",
-   "content": "事件核心不是模型出错，而是工具把「允许访问」的确认做成了一次性勾选，开发者点完就把本地 settings 文件连同密钥一起 commit 了。对信息安全与管理专业的同学，这是一份现成的反面教材：任何 AI 编程助手都会读写你的 .env、settings.json、CI 配置，必须默认把它们写进 .gitignore，并在提交前跑一遍 gitleaks / trufflehog 之类的密钥扫描。软件工程同学同样要养成习惯——把密钥放环境变量或密钥管理服务，代码里只留占位符。可以拿这个案例做「代码审计与安全配置」课的课堂分析，或者直接在自己项目里加一条 pre-commit 钩子，作为简历上的安全实践。",
-   "source": "Ars Technica AI",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Git",
-    "Claude Code"
-   ],
-   "value": "**把「密钥不进仓库」从口号变成可执行的工程习惯，是信息安全与开发岗的共同底线。**",
-   "courses": "对应《网络安全》《软件工程》，可做代码审计案例或 Git 钩子实验",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "AI 编程工具会读取本地配置文件，密钥泄露风险被放大",
-    "默认把 .env / settings.json 加入 .gitignore，提交前跑密钥扫描",
-    "用环境变量或密钥管理服务替代硬编码密钥",
-    "可作为安全课程案例或 pre-commit 钩子实践"
-   ],
-   "buzz": [],
-   "link": "https://arstechnica.com/ai/2026/11/claude-code-settings-files-expose-thousands-of-secrets-on-github/",
-   "cover": "img/a985.webp"
-  },
-  {
-   "id": "a986",
-   "title": "零信任架构遇上 AI Agent：IEEE 文章拆解 Agent 身份与权限的新难题",
-   "summary": "IEEE Spectrum 讨论当多个 Agent 由编排器统一调度时，传统零信任的「人-设备-服务」信任模型如何被打破，以及需要补哪些架构设计。",
-   "content": "文章的关键点：Agent 会自主调用工具、跨服务传递凭证，一旦编排器被攻破，攻击面比单个微服务大得多。对信息安全与管理专业，这直接对应《访问控制》《身份认证》里的信任边界问题——你需要给每个 Agent 分配最小权限的独立身份，而不是复用人的 token；对软件工程（工业软件方向）同学，如果以后做 MES/SCADA 的智能调度模块，Agent 拿到的写权限必须可审计、可回滚。建议做法：给 Agent 建独立服务账号、限制调用范围、记录完整调用链日志。可以拿这篇当课程论文的选题来源，或在自己 Agent 项目里先做一版权限矩阵。",
-   "source": "IEEE Spectrum AI",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "工业软件"
-   ],
-   "stack": [
-    "零信任",
-    "Agent"
-   ],
-   "value": "**理解 Agent 时代的信任边界，是把安全课知识接到真实系统设计上的关键一步。**",
-   "courses": "对应《访问控制》《信息安全体系》，可做课程论文选题",
-   "tags": [
-    "信息安全",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 80,
-   "brief": [
-    "Agent 自主调用工具会放大凭证泄露与越权风险",
-    "给每个 Agent 独立身份与最小权限，不复用人的 token",
-    "调用链日志与可回滚设计是审计前提",
-    "适合作为访问控制课程论文或 Agent 项目安全设计参考"
-   ],
-   "buzz": [],
-   "link": "https://spectrum.ieee.org/zero-trust-agentic-ai-architecture",
-   "cover": "img/a986.webp"
-  },
-  {
-   "id": "a987",
-   "title": "FormCreate 3.2 发布：用 JSON 生成 Vue 动态表单，OA/ERP 课设可直接用",
-   "summary": "开源表单组件 FormCreate 更新到 3.2，支持 8 个 UI 框架、20 种内置组件，通过 JSON 配置生成带校验与提交的动态表单。",
-   "content": "FormCreate 的定位很实用：你写一份 JSON schema，它帮你渲染出表单、收集数据、做校验和提交，还能生成任意 Vue 组件。对前端方向的同学，这正好对应《Web 前端开发》里「配置驱动 UI」的思路——OA、ERP、流程管理这类系统表单多、字段常变，手写模板会累死，用 JSON 驱动能显著减少重复代码。上手难度不高：装包、写一份字段配置、接上校验规则就能跑。建议在课程设计里拿它做一个「请假申请」或「设备报修」表单页，把动态字段和校验规则讲清楚，比堆静态页面更能体现工程能力。注意它是 Vue 生态，React 项目不适用。",
-   "source": "开源中国",
-   "date": "2026-11-09",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vue",
-    "JSON"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**用配置驱动替代手写表单，是前端课设里最容易做出工程感的加分项。**",
-   "courses": "对应《Web 前端开发》，用于动态表单与校验实验",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "JSON 配置生成表单，支持动态渲染、校验与提交",
-    "适合 OA/ERP/流程管理等表单密集场景",
-    "Vue 生态，React 项目不适用",
-    "课设可做请假申请、设备报修等动态表单页"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503476"
   }
  ],
  "jobs": [
