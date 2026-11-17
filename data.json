@@ -1,6 +1,216 @@
 {
- "updatedAt": "2026-11-17 15:32",
+ "updatedAt": "2026-11-17 19:00",
  "news": [
+  {
+   "id": "a1119",
+   "title": "openEuler 转向 Agentic Infra：国产操作系统上的智能体基础设施怎么搭",
+   "summary": "openEuler 主席熊伟宣布进军 Agentic Infra，强调先解决真实工程问题而非讲大故事。",
+   "content": "openEuler 是国内主流开源 Linux 发行版，这次把方向定在「Agentic Infra」——即为 AI Agent 提供运行、调度、隔离与可观测能力的底层设施。对学生来说，这不是看热闹：如果你做课设时想让 Agent 调用系统命令、读写文件、跑定时任务，就必须考虑权限隔离、进程沙箱、日志追踪，这些正是 Agentic Infra 要解决的问题。建议在虚拟机里装一台 openEuler，用 systemd 管理一个 Python Agent 服务，练习容器化部署与权限最小化配置，把「Agent 跑在系统上」这件事真正跑通一遍。",
+   "source": "InfoQ中文",
+   "date": "2026-11-17",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "信息安全"
+   ],
+   "stack": [
+    "openEuler",
+    "Linux"
+   ],
+   "value": "**国产 OS + Agent 基础设施是工业软件与信安交叉的新增长点，早接触早占位**",
+   "courses": "对应《操作系统》《Linux 系统管理》，可作课程设计环境搭建实践",
+   "tags": [
+    "工业软件",
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "openEuler 官方明确 Agentic Infra 方向，国产 OS 生态新增岗位需求",
+    "重点在权限隔离、调度、可观测性等系统工程问题",
+    "可在虚拟机装 openEuler 练 Agent 服务部署与沙箱配置"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/JhBUwv1pHR3S986Ih0iJ?utm_source=rss&utm_medium=article",
+   "cover": "img/a1119.webp"
+  },
+  {
+   "id": "a1120",
+   "title": "GitHub 开源 Agent Host Protocol：让 Agent 会话跨设备续接的协议设计",
+   "summary": "GitHub 工程博客详解其开放的 Agent Host Protocol，目标是让 Agent 会话在编辑器、App、手机和云端之间无缝延续。",
+   "content": "做 AI 应用时最烦的场景之一：在电脑上和 Agent 聊到一半，换手机就断了上下文。GitHub 的 Agent Host Protocol 试图用一套开放协议解决会话状态同步问题，涉及会话标识、状态序列化、跨端鉴权与冲突合并。对软件工程学生，这是一份很好的「协议设计 + 分布式状态」阅读材料：可以对照它的消息格式，用 Java 或 Node 写一个最小实现——本地存会话快照，服务端做版本号合并，体会幂等与冲突处理。写进简历里，比「调用过某大模型 API」有说服力得多。",
+   "source": "GitHub Blog",
+   "date": "2026-11-17",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Agent",
+    "Protocol"
+   ],
+   "diff": 3,
+   "scene": "简历加分/进阶练手",
+   "value": "**掌握会话状态同步与协议设计，是 AI 应用开发岗的差异化能力**",
+   "courses": "对应《计算机网络》《软件工程》，可作协议设计与实现的大作业",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "开放协议解决 Agent 会话跨设备续接",
+    "涉及会话状态序列化、鉴权、冲突合并",
+    "适合动手写最小实现作为项目亮点"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building the Agent Host Protocol for sessions that continue across devices",
+   "link": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
+   "cover": "img/a1120.webp"
+  },
+  {
+   "id": "a1121",
+   "title": "纯 CSS 实现对话框、菜单与标签页：关掉 JavaScript 也能用",
+   "summary": "Alloy CSS 在 Hacker News 获 121 分，展示不依赖 JavaScript 的 dialog、menu、tab 组件实现。",
+   "content": "很多同学写弹窗、下拉菜单第一反应是引框架加 JS 状态。Alloy CSS 演示了用原生 dialog 元素、:popover、:target 与 checkbox hack 等纯 CSS 手段实现交互组件。价值在于：一是理解浏览器原生能力边界，二是做无障碍与降级方案时心里有底，三是面试聊「为什么用原生 dialog 而不是自己造轮子」时有料。建议拿它对照你课设里的弹窗组件重写一版，比较代码量与可访问性差异，顺手补上键盘焦点管理。",
+   "source": "Hacker News",
+   "date": "2026-11-17",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "CSS",
+    "HTML"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**少写 JS 也能做出可用组件，前端基本功与无障碍意识的直接训练**",
+   "courses": "对应《Web 前端开发》，可作组件重写练习",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "用原生 dialog、popover、:target 等实现无 JS 交互",
+    "适合理解浏览器原生能力与渐进增强",
+    "可对照重写课设中的弹窗/菜单组件"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Show HN: Alloy CSS, dialogs, menus and tabs that work with JavaScript off",
+   "link": "https://alloyhtml.com/example.html"
+  },
+  {
+   "id": "a1122",
+   "title": "让网站同时被人类和 AI Agent 读懂：AIO 实用入门",
+   "summary": "一篇面向学生的实践文，讲如何调整页面结构与语义标记，使 AI Agent 能正确抓取和理解站点内容。",
+   "content": "AIO（AI Optimization）不是玄学，本质是把语义化 HTML、结构化数据、清晰的链接与状态码做好，让爬虫和 Agent 都能解析。作者是日本大二学生，做法很朴素：规范 heading 层级、补 JSON-LD、给动态内容留可抓取的静态入口、避免纯 JS 渲染关键信息。对信安与前端同学都有用——前端练语义化与 SEO，信安方向则能反过来理解爬虫行为与 robots 策略。建议给自己的课设站点加一份 JSON-LD 并验证抓取效果。",
+   "source": "DEV Community",
+   "date": "2026-11-17",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "HTML",
+    "JSON-LD"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**把站点做成机器可读，是前端与爬虫安全都绕不开的基础功**",
+   "courses": "对应《Web 前端开发》《网络爬虫》，可作站点优化作业",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "AIO 核心是语义化 HTML + 结构化数据 + 可抓取性",
+    "涉及 JSON-LD、heading 层级、静态入口设计",
+    "可给自己的课设站点做一次 AIO 改造"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Building Sites That Both Humans and AI Agents Can Read: A Practical Intro to AIO",
+   "link": "https://dev.to/koheip/building-sites-that-both-humans-and-ai-agents-can-read-a-practical-intro-to-aio-2kp5",
+   "cover": "img/a1122.webp"
+  },
+  {
+   "id": "a1123",
+   "title": "17GB 显存跑 27B 本地 Agent：Unsloth 动态量化实测",
+   "summary": "Unsloth Dynamic V3.1 让 Qwen3.8-27B 在 17GB 显存内运行，支持 256K 长上下文，精度较静态量化回升 5%–10%。",
+   "content": "想在实验室或自己的游戏本上跑本地 Agent，显存是硬门槛。这篇给出可复现的量化方案：动态量化按层分配精度，比一刀切的静态量化在同等显存下准确率更高，256K 上下文对读长文档、跑代码库分析很关键。实操建议：先用 Ollama 或 llama.cpp 拉起量化模型，接一个本地 Agent 框架跑「读仓库→改代码→跑测试」的小任务，记录显存占用与延迟。注意本地模型在工具调用稳定性上仍弱于云端，别指望一步到位。",
+   "source": "DEV Community",
+   "date": "2026-11-17",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Qwen",
+    "Unsloth"
+   ],
+   "diff": 2,
+   "scene": "练手/项目实验",
+   "value": "**消费级硬件跑本地 Agent 已可行，是低成本做 AI 项目实验的现实路径**",
+   "courses": "对应《人工智能导论》《机器学习》，可作模型部署实验",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "动态量化在 17GB 显存内跑 27B 模型，精度回升 5%–10%",
+    "256K 长上下文适合代码库级任务",
+    "可用 Ollama/llama.cpp 复现并记录显存与延迟"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Unsloth Dynamic V3.1: Qwen3.8-27B Local Agent Benchmarks",
+   "link": "https://dev.to/rammehta1899/unsloth-dynamic-v31-qwen38-27b-local-agent-benchmarks-c7",
+   "cover": "img/a1123.webp"
+  },
+  {
+   "id": "a1124",
+   "title": "微软全球宕机复盘：AI 是不是背锅侠，故障排查该怎么看",
+   "summary": "微软大规模宕机与航班停飞被部分归因于 AI，文章梳理事件与归因逻辑。",
+   "content": "每次大厂宕机，舆论都爱甩锅给 AI。对信息安全与管理专业的学生，这类事件是现成的故障分析素材：先分清是配置变更、依赖链故障还是容量问题，再看监控告警与回滚机制是否到位。建议用「时间线—影响面—根因—改进项」四段式写一份复盘笔记，练习从公开信息中还原技术因果，而不是跟着标题下结论。这种结构化归因能力，在运维、应急响应和安全运营岗面试里都会被问到。",
+   "source": "爱范儿",
+   "date": "2026-11-17",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**会做故障归因而非跟风甩锅，是运维与安全岗的底层素养**",
+   "courses": "对应《信息安全导论》《系统运维》，可作案例分析作业",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "大厂宕机事件适合做结构化故障复盘练习",
+    "区分配置变更、依赖故障与容量问题",
+    "用时间线—影响面—根因—改进项四段式写笔记"
+   ],
+   "buzz": [],
+   "link": "https://www.ifanr.com/1689638?utm_source=rss&utm_medium=rss&utm_campaign=",
+   "cover": "img/a1124.webp"
+  },
   {
    "id": "a1112",
    "title": "AG-UI 协议：把 AI Agent 接进前端，与 MCP、A2A 并列的第三块拼图",
@@ -26,7 +236,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "AG-UI 是 Agent 与前端交互的开放事件协议，与 MCP（工具）、A2A（Agent 互通）互补",
@@ -3907,215 +4117,6 @@
    ],
    "buzz": [],
    "link": "https://www.infoq.cn/article/UltsRzyiYdLd4r1S3mkm?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1006",
-   "title": "Cloudflare KV Instant 定价曝光：读 p99 1.62ms，写一次 0.1 美元",
-   "summary": "Cloudflare 新 KV 服务给出极低读取延迟，但写入单价高达 0.1 美元，凸显读多写少场景的成本设计取舍。",
-   "content": "读 p99 1.62 毫秒、写一次 0.1 美元——这组数字本身就是一堂架构课：任何存储方案都要按读写比例算账。对软件工程学生，它对应《数据库原理》和系统设计里最常被忽略的一环——成本模型。做课设时你通常只关心「能不能跑通」，但真实系统里，一次写 0.1 美元意味着缓存预热、批量合并写、幂等去重都是必须设计的。建议拿这个小服务做一次练习：估算你的项目每天写多少次、读多少次，算出月成本，再对比 Redis 或本地 SQLite 方案。面试被问「为什么选这个存储」时，能报出读写比和成本数字，比说「因为它快」强得多。",
-   "source": "InfoQ中文",
-   "date": "2026-11-10",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Cloudflare KV"
-   ],
-   "value": "**用一组真实价格数字，逼自己给项目算一次存储成本账。**",
-   "courses": "《数据库原理》《软件体系结构》中的存储选型与成本分析",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "读延迟极低但写入昂贵，典型读多写少场景",
-    "练习为项目建立读写比与成本模型",
-    "涉及缓存预热、批量写、幂等去重等设计",
-    "面试讲技术选型时用数字而非感觉"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YrPwJgFYyBSAmJE4hJAB?utm_source=rss&utm_medium=article",
-   "cover": "img/a1006.webp"
-  },
-  {
-   "id": "a1007",
-   "title": "火山引擎 IGA Pages：接大模型不用自己配 Key、搭代理",
-   "summary": "面向开发者的托管式大模型接入方案，省去 API Key 管理与代理搭建，文章介绍其使用方式。",
-   "content": "自己接大模型，最烦的往往不是调 SDK，而是 Key 管理、代理转发、跨域和环境隔离这些杂活。IGA Pages 这类托管方案把接入层收走，让你专注在提示词和业务逻辑上。对做课设和练手项目很实用：以前要在后端写一层转发接口防止 Key 泄露到前端，现在可以直接用平台能力，前端同学也能独立跑通一个 AI 功能 Demo。但注意两点：一是 Key 与调用额度仍属于敏感资产，别把带凭据的页面直接公开部署；二是托管层会限制你的可控性，做安全方向的项目时反而要自己搭代理来研究鉴权与限流。先用它快速验证想法，再决定是否自建。",
-   "source": "InfoQ中文",
-   "date": "2026-11-10",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "火山引擎"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把大模型接入的脏活外包出去，把时间留给业务逻辑和提示词设计。**",
-   "courses": "《Web 应用开发》课设中快速集成 AI 功能模块",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "省去 API Key 管理与代理转发等接入杂活",
-    "适合快速验证 AI 功能 Demo，前端也能独立跑通",
-    "凭据与额度仍是敏感资产，勿公开部署带 Key 页面",
-    "安全方向项目反而建议自建代理研究鉴权限流"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/juu2R26yD8B6ABUEQuWB?utm_source=rss&utm_medium=article",
-   "cover": "img/a1007.webp"
-  },
-  {
-   "id": "a997",
-   "title": "DeepSeek Harness 日活154万，官方给插件作者发Token：Agent插件开发成新入口",
-   "summary": "DeepSeek Harness 日活达154万，官方开始向插件作者发放Token激励，Agent生态转向开发者共建。",
-   "content": "Agent 平台的竞争已经从模型能力转向插件生态。DeepSeek Harness 日活154万，官方用Token补贴插件作者，本质是在买开发者的时间。对软件工程学生来说，这是少见的低门槛实战机会：写一个 Harness 插件，涉及接口调用、鉴权、错误处理、日志，和《软件工程》《Web后端开发》课上的模块设计几乎一一对应。建议做法是选一个自己天天用的工具（如课表查询、代码片段管理）做成插件，README 写清输入输出与异常分支，放进简历比刷十个算法题更能说明工程能力。注意先读官方插件规范，别一上来就堆功能。",
-   "source": "InfoQ中文",
-   "date": "2026-11-10",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "Agent插件",
-    "API"
-   ],
-   "diff": 2,
-   "scene": "简历加分/练手",
-   "value": "**用一个真实插件把「会调API」升级成「能交付可被别人使用的模块」**",
-   "courses": "《软件工程》课程设计的模块化与接口设计，可直接把插件当作课设选题",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "日活154万说明平台已有真实用户，插件有被使用的可能",
-    "官方发Token=有明确激励，适合做作品集项目",
-    "插件开发覆盖接口、鉴权、异常处理等工程基本功",
-    "先读规范再动手，控制功能范围"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Y7lTO7Q1M8oN5JhxhirK?utm_source=rss&utm_medium=article",
-   "cover": "img/a997.webp"
-  },
-  {
-   "id": "a998",
-   "title": "中大本科生反AI逆向项目：让黑客Token账单暴涨300倍，思路可复现",
-   "summary": "中山大学本科生用投毒→耗尽预算→诱导误判的思路做反AI逆向，让攻击者Token成本暴涨300倍。",
-   "content": "这个项目的技术内核不复杂，但思路值得信息安全专业学生逐层拆解：向爬取方投喂污染数据，诱导其反复调用高成本推理，从而把对方的Token账单放大300倍。它串起了《网络安全》《逆向工程》里的几个老问题——数据投毒的边界、资源耗尽型攻击（类似ReDoS的思路）、以及攻击者成本模型。想复现的话，先在本地搭一个模拟的Agent调用链，统计正常请求与诱导请求的Token消耗差，再写清楚防御侧该怎么限流和校验。注意：只在自有环境实验，别对线上服务做任何测试，这本身就是课程里讲的合规红线。",
-   "source": "量子位",
-   "date": "2026-11-09",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "LLM安全"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「AI安全」从概念变成能讲清攻击链和防御点的课设级项目**",
-   "courses": "《网络安全》中的拒绝服务与输入验证，可作课程大作业选题",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "核心是资源耗尽+数据投毒的组合思路，不是高深算法",
-    "可对应《网络安全》中的DoS与输入校验章节",
-    "复现要在本地沙箱，禁止对线上服务测试",
-    "防御侧收获更大：限流、预算上限、输入可信度校验"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/508787.html"
-  },
-  {
-   "id": "a999",
-   "title": "中国Android厂商启动开发者身份验证，侧载应用规则变了",
-   "summary": "OPPO、vivo、小米、荣耀跟进Google，推出Android侧载应用的开发者身份验证。",
-   "content": "Google 从9月起要求验证所有Android开发者身份，未验证者的应用将无法侧载安装；现在OPPO、vivo、小米、荣耀也启动了同类机制。对信息安全与管理专业，这是活生生的移动端信任链案例：签名、证书、开发者身份三者如何绑定，验证失败时系统如何降级处理。对软件工程学生，如果你做过Android课设或想上架小工具，现在就得规划签名密钥管理和开发者资质，别等到打包发布才发现装不上。建议在《移动应用开发》实验里加一步：用未验证身份打包，观察安装被拦截的日志，比看文档印象深得多。",
-   "source": "Solidot",
-   "date": "2026-11-10",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Android"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**移动端「谁能发布应用」的规则正在收紧，签名与身份管理成了必修技能**",
-   "courses": "《移动应用开发》《信息安全技术》中的签名与信任链章节",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "侧载不再是「随便装」，开发者身份成为安装前置条件",
-    "涉及签名、证书、信任链，是移动安全的典型场景",
-    "做Android课设的要提前管好签名密钥",
-    "可设计实验：对比验证与未验证包的安装行为"
-   ],
-   "buzz": [],
-   "link": "https://www.solidot.org/story?sid=85848"
-  },
-  {
-   "id": "a1000",
-   "title": "千问办公2.0转向Team Agent：多智能体协作开始进办公流水线",
-   "summary": "千问办公2.0把重心放到Team Agent，多个Agent分工完成编辑部日常任务，办公AI结束单机模式。",
-   "content": "单Agent做问答已经不够看，Team Agent 的核心是任务拆解、角色分工和结果汇总——这恰好是软件工程里「编排」的问题。对学生最实用的切入点是：别只看演示，去研究它的任务编排接口，用两三个Agent搭一条小流水线，比如「抓取课程通知→提取截止时间→写入日历」。这中间你会踩到状态传递、失败重试、输出格式校验的坑，和《软件工程》里的流程建模、《Java程序设计》里的多线程协作是同一类思维。工业软件实验班的同学可以想想：产线上的工序编排和Agent编排，抽象结构其实很像。",
-   "source": "量子位",
-   "date": "2026-11-10",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Agent编排"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**学会编排多个Agent，比会写提示词更接近真实工程能力**",
-   "courses": "《软件工程》流程建模与模块协作，可作课程设计参考架构",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Team Agent 本质是任务拆解+角色分工+结果汇总",
-    "可用两三个Agent搭课程通知处理流水线练手",
-    "难点在状态传递、失败重试、输出校验",
-    "与工业软件中的工序编排在抽象层同构"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/508798.html",
-   "cover": "img/a1000.webp"
   }
  ],
  "jobs": [
