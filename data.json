@@ -1,6 +1,297 @@
 {
- "updatedAt": "2026-11-17 19:00",
+ "updatedAt": "2026-11-18 05:15",
  "news": [
+  {
+   "id": "a1125",
+   "title": "Windows 悄悄记录你装了哪些编程 Agent 和开发工具",
+   "summary": "开发者发现 Windows 组件 MissionControlAggregator.dll 会记录 codex.exe、claude.exe、cursor.exe、python.exe、gcc.exe 等程序的使用情况，并上报诊断系统。",
+   "content": "有开发者用 AI 工具翻 Windows 未公开功能时发现，系统组件 MissionControlAggregator.dll 会扫描并记录本机运行过的编程智能体（codex、claude、copilot、cursor）和开发工具（python、dotnet、gcc、code）。数据先存本地，再进入 Windows 诊断上报，除非你主动关闭诊断。对信息安全专业的同学，这是一个现成的「终端遥测与隐私边界」案例：可以拿 Process Monitor 复现它的文件/注册表访问，写一份数据采集清单，再对照 GDPR/个人信息保护法讨论「开发工具清单」算不算敏感画像。做课设或安全评估报告时，这类真实组件比虚构靶场更有说服力。",
+   "source": "Solidot",
+   "date": "2026-11-17",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Windows"
+   ],
+   "diff": 2,
+   "scene": "课设/安全评估报告",
+   "value": "**看清操作系统如何给你的开发环境「画像」，是隐私合规分析的第一手素材。**",
+   "courses": "《操作系统安全》《信息安全管理》——用作终端数据采集与合规评估案例",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "Windows 内置组件记录本机编程 Agent 与编译器使用情况",
+    "数据进入诊断上报通道，可通过退出诊断减少外泄",
+    "可用 Process Monitor 复现其采集行为",
+    "适合做终端隐私与合规分析的安全课设素材"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=85908"
+  },
+  {
+   "id": "a1126",
+   "title": "谷歌 PageBreak：AI 安全代理已挖出 500+ XSS 漏洞",
+   "summary": "谷歌公布 AI 安全代理 PageBreak，用自动化方式发现并验证跨站脚本漏洞，累计超过 500 个。",
+   "content": "XSS 至今仍是 Web 漏洞榜常客，传统做法靠人工审计和扫描器规则，误报高、覆盖窄。PageBreak 的思路是让代理像攻击者一样理解页面上下文、构造 payload、验证是否真的执行，把「发现—验证」串成闭环。对信息安全专业，这是漏洞挖掘流程自动化的直接样本：你可以对照 OWASP Top 10 的 XSS 章节，用 DVWA 或自建靶场复刻「上下文识别→payload 生成→浏览器验证」三步，再评估 AI 代理在哪些环节仍会漏报。写进简历时，「做过 XSS 自动化验证脚本」比「了解 XSS 原理」有分量得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-18",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "前端"
+   ],
+   "stack": [
+    "XSS"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**Web 漏洞挖掘正在被代理化，掌握「发现+验证」闭环比背原理更值钱。**",
+   "courses": "《Web 安全》《网络安全技术》——作为 XSS 自动化检测实验参考",
+   "tags": [
+    "信息安全",
+    "前端开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 75,
+   "brief": [
+    "AI 代理自动完成 XSS 的发现与可利用性验证",
+    "累计发现 500+ 漏洞，说明自动化挖掘已进入实用阶段",
+    "可对照 OWASP XSS 章节在 DVWA 靶场复刻流程",
+    "重点是理解验证环节，避免只堆扫描器"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/uGTol3TSzOV72NSrcBrB?utm_source=rss&utm_medium=article",
+   "cover": "img/a1126.webp"
+  },
+  {
+   "id": "a1127",
+   "title": "Agent 只输出计划不调工具？四层防线拆解循环错位",
+   "summary": "文章分析 Agent 把「说了」当成「做了」的三处错位，给出四层防线和可复现代码。",
+   "content": "写 Agent 时最常见的坑：模型输出一段漂亮的执行计划，然后停了，工具一次没调。根因不是模型撒谎，而是循环把「文本里说了要做」误判成「已经做完」，终止信号和结果验收错位。文章拆出三处错位并给四层防线：显式工具调用校验、状态机式循环控制、结果断言、失败重试与兜底。对软件工程同学，这正好对应《软件工程》里的状态机与异常处理，也是课程设计做「智能问答/自动化脚本」时最容易翻车的地方。建议拿 LangChain4j 或自己写的 ReAct 循环，故意注入一个「只说不做」的假响应，验证你的防线能不能拦住。",
+   "source": "掘金",
+   "date": "2026-11-18",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "LangChain4j"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会给 Agent 循环加断言和状态控制，是把它从玩具变成可用系统的分水岭。**",
+   "courses": "《软件工程》《人工智能导论》——用于 Agent 循环设计与异常处理实践",
+   "tags": [
+    "通用开发",
+    "Java全栈",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "核心问题：终止条件把文本输出当成工具执行结果",
+    "四层防线：调用校验、循环状态机、结果断言、重试兜底",
+    "可用假响应注入方式测试防线有效性",
+    "Java 方向可结合 LangChain4j 落地"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7709222846371069971"
+  },
+  {
+   "id": "a1128",
+   "title": "OpenCode Browse：让编程 Agent 用你已登录的真实浏览器",
+   "summary": "OpenCode 发布 Browse，以 Chromium 扩展加 MCP server 的形式，让 Agent 在后台标签页读页面、点击、输入、截图。",
+   "content": "形态很直接：一个 Chromium 扩展 + 一个 MCP server，Agent 在折叠标签组里开页面，能读 DOM、点击、填表、截图，遇到登录、2FA、付款就把标签页交还给你。技术上值得学的是 MCP 这一层的接口设计——把浏览器能力抽象成工具暴露给模型，这正是当前 Agent 工程的主流范式。对前端同学，可以顺着扩展的 content script 与消息通道读源码，理解权限边界；对安全方向，这几乎是一份「浏览器自动化攻击面」清单：登录态复用、跨站操作、凭证泄露风险都值得写进分析。做课设时可用它自动化测试自己写的表单页面。",
+   "source": "开源中国",
+   "date": "2026-11-18",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP",
+    "Chromium"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**读懂 MCP 如何把浏览器能力交给模型，就摸到了 Agent 工程的骨架。**",
+   "courses": "《Web 前端开发》《Web 安全》——用于浏览器扩展与自动化攻击面分析",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "Chromium 扩展 + MCP server 双组件架构",
+    "Agent 复用真实登录态，敏感环节交还人工",
+    "MCP 工具抽象是当前 Agent 工程主流做法",
+    "安全视角可分析登录态复用带来的攻击面"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503625/opencode-browse"
+  },
+  {
+   "id": "a1129",
+   "title": "9.3MB 单文件编程 Agent：TUI、沙箱、TLS 全塞进去",
+   "summary": "一个静态二进制即可运行的编程 Agent，无需 node、python、容器，拷到 x86-64 Linux 就能跑。",
+   "content": "给它一句话，它自己读文件、改文件、跑命令，循环到出结论；整个东西是 9.3MB 静态二进制，不依赖 glibc、node、python 或容器。对学软件工程的人，价值不在「又一个 Agent」，而在它展示的工程取舍：静态链接如何消除运行时依赖、沙箱如何限制命令执行、TLS 如何内置。你可以把它丢进 Docker 或实验机，用 strace 观察它执行命令的边界，再对比自己写的脚本式工具在可移植性上的差距。工业软件实验班的同学尤其值得看：离线、单文件、可审计，正是产线环境的常见约束。",
+   "source": "开源中国",
+   "date": "2026-11-18",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Linux"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**从单文件 Agent 看静态链接与沙箱取舍，比会用工具更接近工程本质。**",
+   "courses": "《Linux 系统编程》《软件工程》——用于可移植部署与沙箱边界分析",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "单静态二进制，零运行时依赖，可直接拷到目标机运行",
+    "内置 TUI、沙箱与 TLS，体现可移植性设计取舍",
+    "可用 strace 观察其命令执行边界",
+    "离线单文件形态贴近工业现场部署约束"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503622"
+  },
+  {
+   "id": "a1130",
+   "title": "Docker Compose 生产模板：PostgreSQL + Redis + Nginx + 备份",
+   "summary": "一份可直接落地的 Compose 模板，含 PostgreSQL 持久化与健康检查、Redis、Nginx 反代和自动备份。",
+   "content": "很多同学的课设部署止步于「能跑」，这份模板补的是「能活」：PostgreSQL 配持久化卷、healthcheck 和定时备份，Redis 做缓存，Nginx 做反向代理。对软件工程和信息安全专业都实用——前者拿它当毕业设计/课程项目的部署底座，后者可以拿它做安全加固练习：检查容器是否以 root 运行、卷权限、备份文件是否加密、Nginx 是否暴露了不该暴露的路径。建议先在自己 VPS 或虚拟机跑通，再逐项改配置并记录差异，这份「部署+加固」记录本身就是简历素材。",
+   "source": "DEV Community",
+   "date": "2026-11-18",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Docker",
+    "PostgreSQL"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**会写代码也要会部署，这份模板让你从「能跑」走到「能活」。**",
+   "courses": "《数据库原理》《云计算与容器技术》——用于项目部署与容器安全加固实验",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "PostgreSQL 持久化、健康检查、定时备份三件套齐全",
+    "Redis 缓存 + Nginx 反代，接近真实项目结构",
+    "可延伸做容器安全加固：非 root、卷权限、备份加密",
+    "适合作为课设/毕设的部署底座"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Docker Compose Production Template: PostgreSQL + Redis + Nginx + Backup",
+   "link": "https://dev.to/riefqid/docker-compose-production-template-postgresql-redis-nginx-backup-5eo1",
+   "cover": "img/a1130.webp"
+  },
+  {
+   "id": "a1131",
+   "title": "Java 生态速览：TornadoVM 8.0、LangChain4j、Quarkus 等更新",
+   "summary": "InfoQ 汇总近期 Java 生态动态，涵盖 TornadoVM 8.0、JNoSQL、JReleaser、JBang、LangChain4j 与 Quarkus。",
+   "content": "这期资讯对 Java 方向的同学是一张「生态地图」：TornadoVM 把 JVM 计算卸载到 GPU，JNoSQL 做多模型数据库抽象，JReleaser 管发布流水线，JBang 让单文件脚本直接跑，LangChain4j 是 Java 侧接入大模型的主力库，Quarkus 走云原生路线。不必全学，但要会挑：课程设计做 AI 功能就盯 LangChain4j，做构建发布就试 JReleaser + JBang，做性能方向再看 TornadoVM。建议挑一个在本地跑通最小示例并写进笔记，比收藏十篇资讯有用。",
+   "source": "InfoQ中文",
+   "date": "2026-11-18",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "LangChain4j"
+   ],
+   "diff": 2,
+   "scene": "求职准备",
+   "value": "**用一张生态地图定位自己该学什么，比盲目追新更省时间。**",
+   "courses": "《Java 程序设计》《软件构造》——用于了解 Java 生态与选型",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "LangChain4j 是 Java 接入大模型的首选库，优先关注",
+    "JBang + JReleaser 可显著简化脚本运行与发布流程",
+    "TornadoVM 面向 JVM 上的 GPU/异构计算",
+    "建议只挑一个方向跑通最小示例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/oSiN27BaersaKQcQGdaa?utm_source=rss&utm_medium=article",
+   "cover": "img/a1131.webp"
+  },
+  {
+   "id": "a1132",
+   "title": "给 Agent 设计页面：你的定价页能被编程 Agent 读懂并注册吗",
+   "summary": "文章讨论网站如何对编程 Agent 友好：让 Agent 能读定价、完成注册并拿到价值。",
+   "content": "一个真实案例：编程 Agent 给开源项目提 PR 时，明明已接入 Cloudflare Email，却自己选了 Resend——因为后者的页面 Agent 读得懂、注册得通。这提示前端同学一个新维度：页面的「可被 Agent 消费性」。具体可做的是语义化 HTML、结构化定价数据、无阻塞的注册流程、清晰的 API 文档入口。对信息安全专业则要反过来想：Agent 自动注册意味着滥用与风控问题。课程设计里可以给自己的项目页加一份 JSON-LD 定价描述，再用 Agent 实测能否完成注册，作为前端工程化的小实验。",
+   "source": "DEV Community",
+   "date": "2026-11-18",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "信息安全"
+   ],
+   "stack": [
+    "JSON-LD"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**让页面既能被人看懂也能被 Agent 读懂，是前端的新基本功。**",
+   "courses": "《Web 前端开发》——用于语义化与结构化数据实践",
+   "tags": [
+    "前端开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 54,
+   "brief": [
+    "Agent 会依据页面可读性自行选择服务，影响真实转化",
+    "做法：语义化 HTML、结构化数据、简化注册路径",
+    "安全侧需考虑 Agent 自动注册带来的滥用与风控",
+    "可作为前端课设的「Agent 友好度」小实验"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Designing for Agents: Can a Coding Agent Read Your Pricing, Sign Up, and Get Value?",
+   "link": "https://dev.to/tm_gunderson_9cff63a7ba/designing-for-agents-can-a-coding-agent-read-your-pricing-sign-up-and-get-value-2fjf",
+   "cover": "img/a1132.webp"
+  },
   {
    "id": "a1119",
    "title": "openEuler 转向 Agentic Infra：国产操作系统上的智能体基础设施怎么搭",
@@ -24,7 +315,7 @@
     "信息安全",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "openEuler 官方明确 Agentic Infra 方向，国产 OS 生态新增岗位需求",
@@ -3839,284 +4130,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/mfy0RUYOqEAW8imUrGTY?utm_source=rss&utm_medium=article",
    "cover": "img/a1008.webp"
-  },
-  {
-   "id": "a1009",
-   "title": "Claude Code 设置文件泄露凭据：AI 编程工具的配置安全坑",
-   "summary": "早报提到 Claude Code 的设置文件会泄露凭据，这是所有用 AI 编程助手的同学都该立刻自查的问题。",
-   "content": "AI 编程工具为了方便，会把 API Key、代理地址、MCP 服务配置写进项目里的设置文件（如 .claude/settings.json、.env、AGENTS.md 之类）。一旦这些文件被 git add 提交，密钥就进了仓库历史，删文件也没用。动手做三件事：一、在项目根目录跑 git log -p -- 设置文件名 查历史里有没有密钥；二、把相关文件加进 .gitignore，并改用环境变量注入；三、用 gitleaks 或 GitHub Secret Scanning 扫一遍自己的课设仓库。这是信息安全专业最便宜也最实用的实战练习。",
-   "source": "少数派",
-   "date": "2026-11-11",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Git",
-    "gitleaks"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**十分钟自查，避免把 API Key 连同课设代码一起交上去**",
-   "courses": "对应《信息安全导论》《软件工程》的配置管理与密钥管理实践",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "AI 编程工具的配置文件常含 API Key，易被误提交",
-    "用 git log -p 与 gitleaks 自查仓库历史",
-    "正确做法：.gitignore + 环境变量注入"
-   ],
-   "buzz": [],
-   "link": "https://sspai.com/post/118905",
-   "cover": "img/a1009.webp"
-  },
-  {
-   "id": "a1010",
-   "title": "七个神经元就能给 AI Agent 开后门：Agent 安全入门读这篇",
-   "summary": "一篇论文演示只需极少参数即可在 AI Agent 中植入后门，作者据此反思 Agent 的工具、权限与可观测性设计。",
-   "content": "文章的核心观点值得记住：Agent 的难点不在模型，而在工具、权限和可观测性。对信息安全与管理专业，这直接对应三个可落地的检查项——工具调用是否有白名单、Agent 拿到的凭据是否最小权限、每次工具调用是否留审计日志。做课设时可以给一个简单的 LLM Agent 加一层「工具调用网关」：记录入参出参、限制可调用工具集、对敏感操作二次确认。这比空谈「AI 安全」更能写进简历，也贴合工业软件里对自动化流程的可控性要求。",
-   "source": "DEV Community",
-   "date": "2026-11-11",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把「AI 安全」拆成工具白名单、最小权限、审计日志三件能动手做的事**",
-   "courses": "对应《信息安全导论》《系统安全》，可作课程设计选题",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "后门可藏在极少量参数中，模型本身不是唯一风险面",
-    "三个抓手：工具白名单、最小权限凭据、调用审计日志",
-    "课设可做「Agent 工具调用网关」小项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Seven Neurons Is All It Takes to Backdoor Your AI Agent",
-   "link": "https://dev.to/aibughunter/seven-neurons-is-all-it-takes-to-backdoor-your-ai-agent-4463",
-   "cover": "img/a1010.webp"
-  },
-  {
-   "id": "a1011",
-   "title": "DjangoAdmin v2.8.2 大版本重构：RBAC 权限到按钮级的开源中台",
-   "summary": "基于 Django + Vue3 + TypeScript 的企业级数据中台框架发布大版本重构，内置按钮/方法级 RBAC 权限体系。",
-   "content": "想找毕设或课设的后台脚手架，这个项目值得拆。技术栈是 Django + Vue3 + TypeScript + ElementPlus + Vite，前后端分离，自带用户、角色、权限菜单、部门、岗位、日志、数据字典等模块。重点看它的 RBAC 实现：权限如何从菜单下钻到按钮和方法级、后端如何做接口鉴权、前端如何按权限渲染。建议不要直接拿来交作业，而是 clone 下来读权限表设计和中间件代码，再自己写一个精简版。对 Java 方向的同学，这套权限模型思路可以平移到 Spring Security。",
-   "source": "开源中国",
-   "date": "2026-11-11",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Django",
-    "Vue3"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**一个可直接拆解的权限系统范本，RBAC 设计思路跨语言通用**",
-   "courses": "对应《数据库原理》《Web 应用开发》的权限模块设计",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "技术栈：Django + Vue3 + TS + ElementPlus + Vite",
-    "重点读按钮/方法级 RBAC 的表设计与鉴权中间件",
-    "建议读源码后自写精简版，而非直接交作业"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503520"
-  },
-  {
-   "id": "a1012",
-   "title": "freeCodeCamp 教程：用 Codex 学 Agentic Coding",
-   "summary": "系统讲解 AI 编程 Agent 如何读代码库、跨文件修改、跑命令和测试，以及 AGENTS.md 的持久化指令写法。",
-   "content": "Agentic Coding 和你平时「问一句答一句」的用法差别很大：Agent 会自己读仓库、改多个文件、执行命令和测试，再根据结果继续。教程里最实用的是 AGENTS.md——把项目约定（目录结构、构建命令、代码风格、禁止改动的文件）写进去，Agent 的行为会稳定很多。建议拿自己的课设仓库做实验：先写一份 AGENTS.md，再让 Agent 完成一个「加一个带校验的表单接口」的小任务，观察它跑测试、改错的过程。重点不是让它写完，而是学会审它的 diff。",
-   "source": "freeCodeCamp",
-   "date": "2026-11-10",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Codex",
-    "AGENTS.md"
-   ],
-   "diff": 2,
-   "scene": "练手/求职准备",
-   "value": "**学会写 AGENTS.md 并审查 Agent 的 diff，比会敲提示词更值钱**",
-   "courses": "对应《软件工程》的编码规范与代码评审环节",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "Agent 会跨文件修改并自行运行测试，需重点审查 diff",
-    "AGENTS.md 写清构建命令、代码风格与禁改文件",
-    "练手任务：让 Agent 加一个带校验的表单接口"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Learn Agentic Coding with Codex & AI Coding Agents",
-   "link": "https://www.freecodecamp.org/news/learn-agentic-coding-with-codex-ai-coding-agents/",
-   "cover": "img/a1012.webp"
-  },
-  {
-   "id": "a1013",
-   "title": "OwnCoder 0.2.0：面向开发者的桌面端 AI 编程工具",
-   "summary": "一款国产桌面端 AI 编程工具发布小版本更新，修复 bug 并优化生成效果。",
-   "content": "同类工具已经很多，这条的价值在于「多一个可对比的样本」。建议把它和 Claude Code、Codex、通义灵码放在一起做横向测试：同一个课设任务（比如给现有 Vue 页面加一个分页组件），看谁能正确读懂项目结构、谁的改动最小、谁引入的 bug 最少。评测过程本身就是很好的课程作业素材，也能让你在面试时讲清楚「我为什么选这个工具」。注意桌面端工具通常需要配置模型 API Key，务必按上一条的凭据管理方法处理，别把 key 写进仓库。",
-   "source": "开源中国",
-   "date": "2026-11-10",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "AI 编程工具"
-   ],
-   "diff": 1,
-   "scene": "练手",
-   "value": "**用同一道课设题横向评测 AI 编程工具，产出可写进简历的对比结论**",
-   "courses": "对应《软件工程》工具链实践，可作课程报告",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "与 Claude Code、Codex、通义灵码做同任务横向对比",
-    "评测维度：读懂项目结构、改动范围、引入 bug 数",
-    "配置 API Key 时注意不要提交进仓库"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503518"
-  },
-  {
-   "id": "a1003",
-   "title": "手机远程接管 Claude Code / Codex：Agent 卡在权限确认时不用回工位",
-   "summary": "介绍如何通过手机端应答本地运行的 Claude Code、Codex 等编码 Agent 的权限询问，避免 Agent 因等待确认而空转。",
-   "content": "在家里的电脑上启动编码 Agent 后出门，一小时后手机提示它停下来等你批准某条命令——这是很多人用 Claude Code / Codex 时的真实痛点。文章给出各家 Agent 的远程应答方案：核心是把「等待人工确认」这一环节从终端搬到手机端（通过官方远程通道或自建消息转发），让 Agent 的长时间任务不因一次权限弹窗而中断。对软件工程学生来说，这直接对应你写课设、跑自动化脚本时的场景：把 Agent 当作异步任务来管理，学会设计「人在回路」的确认点，而不是全程盯着终端。注意远程授权意味着把执行权限暴露到手机端，务必只在自己可控的仓库和沙箱环境里使用。",
-   "source": "DEV Community",
-   "date": "2026-11-10",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**学会把编码 Agent 当异步任务远程托管，长任务不再被一次权限弹窗卡死。**",
-   "courses": "《软件工程》课程项目里用 Agent 跑重复性编码任务，配合 Git 分支管理",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "解决编码 Agent 因权限确认而长时间挂起的问题",
-    "给出 Claude Code / Codex 等工具的远程应答思路",
-    "本质是把 Agent 当异步任务管理，设计人在回路确认点",
-    "远程授权有安全风险，只在个人沙箱仓库使用"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to answer Claude Code or Codex from your phone",
-   "link": "https://dev.to/heylittlepan/how-to-answer-claude-code-or-codex-from-your-phone-10a7",
-   "cover": "img/a1003.webp"
-  },
-  {
-   "id": "a1004",
-   "title": "Discord 弃用 Electron 省 70% 内存：桌面端技术选型的真实案例",
-   "summary": "Discord 放弃 Electron 重构 Windows 客户端，内存下降约 70% 并实现秒开，文章讨论其技术路径与对其他桌面应用的启示。",
-   "content": "Electron 用一套 Web 技术栈换跨平台，代价是内存和启动速度。Discord 这次把 Windows 客户端从 Electron 迁走，内存省约 70%、启动接近秒开，是「技术选型要按场景算账」的典型样本。对软件工程和信息安全专业都值得读：一是理解 Web 容器与原生渲染在资源占用上的差异，做课设选桌面端方案时不再无脑上 Electron；二是迁移过程涉及进程模型、渲染层与 IPC 边界的变化，这些边界正是攻击面分析的对象。建议对照自己做过的小工具，估算一下换成 Tauri 或原生方案后的内存与启动收益，写进简历里的技术选型说明。",
-   "source": "InfoQ中文",
-   "date": "2026-11-10",
-   "cat": "industry",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Electron"
-   ],
-   "value": "**用真实迁移案例理解桌面端技术选型的成本账，别再默认上 Electron。**",
-   "courses": "《人机交互》《Web 前端开发》课设选型时对比 Electron 与 Tauri",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "Electron 跨平台便利 vs 内存与启动开销的权衡实例",
-    "内存降约 70%、启动秒开的具体收益",
-    "进程模型与 IPC 边界变化，与安全攻击面分析相关",
-    "可对照 Tauri/原生方案评估自己项目的选型"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/MQTTu6dgGxHBZm1wOLPI?utm_source=rss&utm_medium=article",
-   "cover": "img/a1004.webp"
-  },
-  {
-   "id": "a1005",
-   "title": "Chrome 想替你自动填邮箱验证码：便利背后的隐私与安全边界",
-   "summary": "Chrome 计划终结「去邮箱复制验证码」的流程，文章讨论该能力对隐私与账号安全的影响。",
-   "content": "验证码从邮箱搬到浏览器自动填充，体验确实顺，但问题在于：浏览器要读你的邮件内容，才能识别验证码。这直接落在信息安全与管理专业的核心议题上——最小权限、数据边界、可信计算基。读这篇文章时带着三个问题：验证码识别在本地做还是上传云端？浏览器扩展/内置能力如何被恶意页面诱导调用？一旦浏览器成为验证码的中转，账号找回链路的风险点在哪？做 Web 课设时，如果你自己实现过登录与验证码，可以顺手写一段威胁建模，说明引入自动填充后新增的攻击面，这比空谈「隐私很重要」有说服力得多。",
-   "source": "InfoQ中文",
-   "date": "2026-11-10",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "前端"
-   ],
-   "stack": [],
-   "value": "**借浏览器验证码自动填充，练一次真实的最小权限与威胁建模分析。**",
-   "courses": "《信息安全导论》《Web 安全》中登录与验证码模块的案例分析",
-   "tags": [
-    "信息安全",
-    "前端开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "浏览器读取邮件内容识别验证码，涉及最小权限原则",
-    "关注本地识别 vs 云端上传的隐私差异",
-    "可对恶意页面诱导调用的攻击面做分析",
-    "适合作为登录模块课设的威胁建模素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/UltsRzyiYdLd4r1S3mkm?utm_source=rss&utm_medium=article"
   }
  ],
  "jobs": [
