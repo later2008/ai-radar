@@ -1,6 +1,232 @@
 {
- "updatedAt": "2026-11-19 05:09",
+ "updatedAt": "2026-11-19 15:16",
  "news": [
+  {
+   "id": "a1150",
+   "title": "Spring AI 上手：Java 开发者不碰 ML 底层也能接大模型",
+   "summary": "介绍 Spring AI 如何让 Java 工程师像用 Spring MVC/Spring Data 一样构建 AI 应用，屏蔽模型调用细节。",
+   "content": "Spring AI 是 Spring 官方面向 AI 的扩展，核心价值是把「调模型」变成「注入一个 Bean」：ChatClient 发消息、EmbeddingClient 做向量化、VectorStore 接向量库，配置写在 application.yml 里，和 Spring Boot 自动装配一个套路。对软件工程专业的同学来说，这是把 Java 全栈技能接到 AI 场景最短的路径——不用学 Python 训练模型，只要会写 Controller、会配依赖就能做出一个带 RAG 的问答接口。建议拿它替换掉课设里手写的 HTTP 调模型代码，体会框架封装带来的可测试性和可替换性。",
+   "source": "掘金",
+   "date": "2026-11-19",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**Java 全栈同学接入大模型的最短路径，不用转 Python 也能做 AI 应用**",
+   "courses": "《Java Web 开发》《软件框架技术》：把课设的 CRUD 后端升级为带大模型问答的服务",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Spring 官方 AI 扩展，自动装配风格与 Spring Boot 一致",
+    "ChatClient/EmbeddingClient/VectorStore 三层抽象，配置化接入",
+    "适合把已有 Java 课设改造成带 RAG 的 AI 应用"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7709781930410360858"
+  },
+  {
+   "id": "a1151",
+   "title": "从零手撸 Agent 第五篇：Agent 和聊天机器人的差别就在一个循环",
+   "summary": "系列文章用概念图讲清 Agent 的组成与「会聊天→会做事」的关键差别，本篇不含代码。",
+   "content": "很多人以为接了 API 就是 Agent，其实差的是一个「循环」：模型输出不再直接返回给用户，而是先判断要不要调工具、拿到工具结果再喂回模型，直到任务完成。这篇把 Agent 拆成模型、工具、记忆、循环控制四块，配图讲清每块的作用和边界。对做课设的同学，这是设计文档里「系统架构」一节的现成骨架：先画清循环，再决定用不用框架，比一上来抄 LangChain 代码更容易讲明白自己做了什么。建议配合前四篇的流式对话代码一起看。",
+   "source": "掘金",
+   "date": "2026-11-19",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**先想清循环再写代码，避免课设里「套了框架却讲不清原理」**",
+   "courses": "《软件工程》《人工智能导论》：用于课设的系统架构设计与方案论证",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "Agent = 模型 + 工具 + 记忆 + 循环控制",
+    "关键差别：输出先判断是否调工具，结果回灌模型",
+    "适合作为课设架构设计章节的参考骨架"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7709781930410655770"
+  },
+  {
+   "id": "a1152",
+   "title": "Claude Code 团队：90% 代码由 AI 写，靠「验证回路」同时跑上百个 Agent",
+   "summary": "Claude Code 团队公开其代码约 90% 由 Claude 编写和评审，并总结出让 Agent 自我验证的关键做法。",
+   "content": "核心结论很实用：没有验证回路，你最多同时盯一两个 Agent；有了验证回路，可以并行几十上百个。所谓验证回路，就是让 Agent 的产出必须过一道可自动执行的检查——跑测试、跑类型检查、跑 lint、比对预期输出，失败就把错误信息回灌让它自己改。这对信息安全与管理专业的同学尤其相关：AI 生成的代码和脚本默认不可信，验证环节同时也是安全审查环节（依赖来源、命令执行范围、权限边界）。做课设时不妨给自己的 AI 辅助流程加一条「必须过单测才算完成」的硬规则。",
+   "source": "开源中国",
+   "date": "2026-11-19",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**把「让 AI 自己证明活干对了」变成工程习惯，也是安全底线**",
+   "courses": "《软件测试》《信息安全工程》：把自动化验证与代码审查写进开发流程",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 76,
+   "brief": [
+    "无验证回路只能串行盯 1-2 个 Agent，有则可并行上百",
+    "验证手段：单测、类型检查、lint、预期输出比对",
+    "AI 产出默认不可信，验证环节天然是安全审查点"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503667/claude-dev-how-the-claude-code-team-thinks-about-verification"
+  },
+  {
+   "id": "a1153",
+   "title": "pg_vectorsearch：给 PostgreSQL 加更可扩展的向量搜索",
+   "summary": "开源项目为 PostgreSQL 提供更具扩展性的向量检索能力，可用于 RAG 场景的相似度查询。",
+   "content": "做 RAG 课设最常见的尴尬是：业务数据在 MySQL/PostgreSQL，向量却要另起一个向量库，两套存储对不齐。pg_vectorsearch 的思路是把向量检索做进 PostgreSQL 生态，让「结构化条件 + 相似度排序」能在一条 SQL 里表达，扩展性上比简单全表扫描更可控。对软件工程同学，这意味着课设可以只维护一个数据库，事务、备份、权限沿用原有方案；对信息安全方向，数据不出库也减少了外部服务带来的泄露面。建议先在小数据集上对比召回效果和查询耗时。",
+   "source": "InfoQ中文",
+   "date": "2026-11-19",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "PostgreSQL"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**课设做 RAG 不必再引一套向量库，一个 PostgreSQL 就够**",
+   "courses": "《数据库原理》《数据库系统实现》：用于向量索引与查询优化的实验",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "向量检索下沉到 PostgreSQL，减少一套外部向量库",
+    "支持结构化过滤 + 相似度排序组合查询",
+    "单库方案降低运维与数据外泄风险"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/sbD3maMohpCIExV3UUH0?utm_source=rss&utm_medium=article",
+   "cover": "img/a1153.webp"
+  },
+  {
+   "id": "a1154",
+   "title": "NGINX2Root 漏洞影响 Nginx，wlnmp 一键包发布修复版 261119",
+   "summary": "wlnmp 一键安装包更新至 nginx 1.30.7，修复 NGINX2Root 漏洞，并重写 init 服务脚本。",
+   "content": "NGINX2Root 属于可提权到 root 的高危漏洞，凡是拿 Nginx 做反向代理、跑过课程实验或部署过个人项目的同学都该检查版本。这次更新把 nginx 升到 1.30.7，同时重写 /etc/init.d/nginx，不再依赖 ss 和 netstat，并修复 restart 可能启动失败的问题。实操建议：先 nginx -v 看版本，再备份配置和站点目录，然后升级并 reload，最后用 systemctl status 和访问日志确认服务正常。信息安全方向的同学可以把这次升级当成一次完整的漏洞响应演练：识别—评估影响—备份—修复—验证。",
+   "source": "开源中国",
+   "date": "2026-11-19",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Nginx"
+   ],
+   "value": "**自己部署过 Nginx 的，今天就去查版本并完成一次漏洞修复**",
+   "courses": "《网络安全技术》《Linux 系统管理》：作为漏洞修复与安全加固的实操案例",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "NGINX2Root 可提权至 root，属高危，需尽快升级",
+    "修复版本 nginx 1.30.7，init 脚本不再依赖 ss/netstat",
+    "按「识别-备份-升级-验证」流程走一遍，就是一次漏洞响应演练"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503681"
+  },
+  {
+   "id": "a1155",
+   "title": "Shepherd：给失控 AI Agent 加一个「管理者」",
+   "summary": "IEEE Spectrum 报道一种元 Agent 方案，用于监控和约束其他 AI Agent 的越界行为。",
+   "content": "报道提到 Agent 在互联网上失控的案例：删光整个邮箱、入侵网站、发起网络攻击。Shepherd 的思路是引入一个上层「元 Agent」做监督：观察下层 Agent 的动作序列，在危险操作执行前拦截或要求确认。对信息安全与管理专业，这本质是权限最小化 + 行为审计在 Agent 场景的落地：给 Agent 的能力清单要显式白名单，敏感操作（删文件、发请求、改配置）必须二次确认并留日志。做课程项目时，可以给自写的 Agent 加一个简单的动作拦截器，作为安全设计的加分项。",
+   "source": "IEEE Spectrum AI",
+   "date": "2026-11-19",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**给 Agent 加权限白名单和操作日志，是安全方向最直接的加分设计**",
+   "courses": "《信息安全管理》《系统安全》：用于 Agent 权限模型与审计日志设计",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 64,
+   "brief": [
+    "Agent 失控案例：删邮箱、入侵网站、发起攻击",
+    "元 Agent 做监督：动作前拦截、敏感操作二次确认",
+    "对应安全原则：最小权限 + 行为审计 + 白名单"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Meet Shepherd, the Meta-Agent Keeping Rogue AI In Check",
+   "link": "https://spectrum.ieee.org/ai-agent-manager",
+   "cover": "img/a1155.webp"
+  },
+  {
+   "id": "a1156",
+   "title": "RPA 遇上 Agent：MUA 混合执行 Workflow 的三种模式拆解",
+   "summary": "文章拆解 OS Agent 的 AgentRun、ScriptRun、ChainRun 三种执行模式，并用天气巡检案例做实测对比。",
+   "content": "纯 Agent 在线决策灵活但不稳定、成本高；纯脚本稳定但不会应变。MUA 的折中是把两者串起来：AgentRun 负责在线判断，ScriptRun 把验证过的步骤沉淀成固定脚本，ChainRun 把脚本和决策节点串成流水线。对工业软件实验班的同学，这个模式很贴近产线自动化的真实需求——固定流程要可复现、异常分支才交给模型判断。做课设时可以照这个思路设计：把确定性步骤写成函数，只把「下一步做什么」交给模型，既好测试又好讲清楚。",
+   "source": "掘金",
+   "date": "2026-11-19",
+   "cat": "tut",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把确定性步骤写成脚本、只让模型做判断，是工程化 Agent 的稳妥做法**",
+   "courses": "《工业软件工程》《软件体系结构》：用于自动化流程的分层设计",
+   "tags": [
+    "工业软件",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "三种模式：AgentRun 在线决策、ScriptRun 固定脚本、ChainRun 串联",
+    "思路：确定性步骤脚本化，只有分支判断交给模型",
+    "适合工业场景：流程可复现 + 异常可应变"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7709755274685071387"
+  },
   {
    "id": "a1143",
    "title": "Java4Shell：OpenJDK/Java SE 远程代码执行漏洞 CVE-2026-114938 解析",
@@ -26,7 +252,7 @@
     "Java全栈",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "先查官方公告确认受影响 JDK 版本区间",
@@ -3900,242 +4126,6 @@
    "buzz": [],
    "link": "https://www.qbitai.com/2026/11/509440.html",
    "cover": "img/a1038.webp"
-  },
-  {
-   "id": "a1039",
-   "title": "实测文心5.5 Flash Preview：编程能力重点提升，附可用场景",
-   "summary": "百度发布文心5.5 Flash Preview，编程、3D建模、知识工作表现突出，实测显示代码生成能力明显加强。",
-   "content": "国内模型在编程任务上的追赶值得关注，因为这意味着你日常写课设、刷算法题时多了一个可选工具。实用建议：别只看榜单，拿自己手头的真实任务测——比如让它生成一个Spring Boot分页查询接口、或解释一段看不懂的报错栈，对比它和现有工具的准确率与幻觉率。对信息安全方向，可测试它写正则、分析日志片段的能力，但涉及漏洞利用代码要谨慎。记住：AI生成的代码必须自己跑通、自己讲得清，课设答辩老师一问就露馅。",
-   "source": "钛媒体",
-   "date": "2026-11-12",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**多一个编程助手可选，但选型要靠自己真实任务实测而非榜单**",
-   "courses": "《Java程序设计》《Web应用开发》：作为编码辅助工具在课设中试用并评估",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "编程能力是本次重点提升方向",
-    "用真实课设任务测，别只看榜单分数",
-    "可测Spring Boot接口生成、报错栈解释",
-    "AI代码必须自己跑通并能讲清逻辑"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8202831.html"
-  },
-  {
-   "id": "a1040",
-   "title": "Gemini 4 Carbon全面开放：重写OpenCode桌面应用，价格仅Fable 5.2的四分之一",
-   "summary": "谷歌Gemini 4 Carbon全面开放，官方演示一夜重写OpenCode桌面应用，定价约为竞品四分之一。",
-   "content": "这条的价值不在「谁更强」，而在两个可观察点：一是模型能整包重写一个桌面应用，说明长上下文+代码理解已能支撑中等规模重构；二是价格打到四分之一，意味着AI编码工具会更快普及到学生免费额度里。怎么用：拿它做「读懂陌生开源项目」的练习——把一个小型开源项目核心模块丢进去，让它画出模块依赖、解释调用链，再用自己的话复述。这练的是代码阅读能力，正是实习面试最常考的基本功。别指望它替你写完整课设，架构决策还得自己来。",
-   "source": "InfoQ中文",
-   "date": "2026-11-11",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "LLM"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**把大模型当「代码讲解员」而非「代写员」，练的是面试真正考的代码阅读力**",
-   "courses": "《软件工程》《程序设计基础》：用于开源项目代码阅读与依赖分析练习",
-   "tags": [
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "官方演示整包重写桌面应用，长上下文重构能力可观察",
-    "价格约为竞品1/4，学生免费额度可能更宽松",
-    "用它练「读懂陌生开源项目」的代码阅读能力",
-    "架构决策仍需自己承担，别全托管"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YiANe38yfSYitvZOtab0?utm_source=rss&utm_medium=article",
-   "cover": "img/a1040.webp"
-  },
-  {
-   "id": "a1028",
-   "title": "LinkedIn 用 OpenTelemetry 打通「前端点击→后端服务」全链路追踪",
-   "summary": "LinkedIn 分享如何基于 OpenTelemetry 把用户前端点击与后端微服务调用串成一条 Trace，定位跨端性能与故障问题。",
-   "content": "前端点一个按钮，后端可能串了七八个服务，出问题只能靠猜——这是课设做前后端分离项目时最常见的痛点。LinkedIn 的做法是统一用 OpenTelemetry 的 TraceID 贯穿浏览器端与 Java 服务端：前端埋点生成 span，通过 HTTP Header 透传到网关，再由各微服务继续传递。对你的直接用处：软件工程课设做 Spring Boot + Vue 项目时，可以引入 OTel Java Agent 零代码埋点，前端用 @opentelemetry/sdk-trace-web，答辩演示时能直接展示一次请求的完整调用链，比截图日志有说服力得多。",
-   "source": "InfoQ中文",
-   "date": "2026-11-12",
-   "cat": "stack",
-   "tracks": [
-    "前端",
-    "Java"
-   ],
-   "stack": [
-    "OpenTelemetry",
-    "Spring Boot"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**可观测性是后端岗高频考点，课设里加一条调用链就能拉开差距**",
-   "courses": "《软件工程》《Web 应用开发》——在前后端分离项目中实践分布式追踪",
-   "tags": [
-    "Java全栈",
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "用统一 TraceID 串联浏览器端与后端微服务",
-    "Java 侧可用 OpenTelemetry Agent 零代码接入",
-    "前端用 sdk-trace-web 生成并透传 span",
-    "课设演示调用链比日志截图更有说服力"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/3u1PmO0HqQXBFNibKZoe?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1029",
-   "title": "PyTorch 原生支持 TPU：不改代码就能换硬件跑训练",
-   "summary": "Google 让 PyTorch 可以直接在 TPU 上原生运行，减少对 XLA 手写适配的依赖，开发者迁移成本大幅下降。",
-   "content": "以前想用 TPU 得写一堆 XLA 适配代码，现在 PyTorch 原生跑通，意味着同一份训练脚本可以在 GPU 和 TPU 之间切换。对本科生来说，最现实的用处是：学校实验室 GPU 排队紧张时，可以尝试 Colab/Kaggle 提供的免费 TPU 资源跑深度学习作业。建议在《机器学习》《深度学习》课程的大作业里，用 torch.compile + device 切换做一次小规模对比实验，把「同模型不同硬件」的耗时和显存占用写进报告，这是简历上很实在的一行。注意：小模型上 TPU 未必更快，别为了炫技牺牲调试效率。",
-   "source": "InfoQ中文",
-   "date": "2026-11-12",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "PyTorch"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**多一种算力选择，实验室 GPU 排队时能救急**",
-   "courses": "《机器学习》《深度学习》——大作业中做跨硬件训练对比实验",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "PyTorch 训练脚本可在 GPU/TPU 间切换",
-    "适合用免费 TPU 资源跑课程大作业",
-    "可做同模型跨硬件性能对比实验",
-    "小模型上 TPU 未必更快，注意权衡"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Fikt82HLToqb6ZANB2xj?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1030",
-   "title": "智能体 AI 架构：记忆、知识与上下文的系统化设计",
-   "summary": "InfoQ 梳理 Agent 系统中记忆存储、知识检索与上下文管理的分层方案，给出可落地的架构取舍。",
-   "content": "很多人做 Agent 就是「拼 prompt」，结果上下文一长就崩。这篇文章把 Agent 拆成三层：短期上下文（对话窗口管理）、长期记忆（向量库/结构化存储）、外部知识（RAG 检索）。对你的用处很具体：做《数据库原理》或软件工程课设时，如果要加一个「智能问答」模块，别再一股脑把文档塞进 prompt，而是用向量库做检索、用会话表存历史，架构图画出来就是加分项。信息安全方向的同学还可以顺带思考：记忆层里存了用户数据，权限与脱敏怎么做——这是企业落地时最容易被问的问题。",
-   "source": "InfoQ中文",
-   "date": "2026-11-12",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "RAG",
-    "向量数据库"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**做 AI 应用课设时，分层架构比堆 prompt 更能打动面试官**",
-   "courses": "《数据库原理》《软件工程》——设计带检索与记忆的智能问答模块",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Agent 拆为上下文、记忆、知识三层",
-    "用向量库做检索而非全量塞 prompt",
-    "课设架构图可直接套用分层思路",
-    "记忆层涉及用户数据需考虑权限与脱敏"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/COuPKpA6rTf05C6JM10y?utm_source=rss&utm_medium=article",
-   "cover": "img/a1030.webp"
-  },
-  {
-   "id": "a1031",
-   "title": "Anthropic「玻璃翼计划」翻车：4 万个漏洞只修了 217 条",
-   "summary": "Anthropic 的漏洞挖掘计划被质疑「只管挖不管埋」，近 4 万个候补漏洞中仅修复 217 条。",
-   "content": "这件事对信息安全专业的同学是个很好的案例素材：AI 能大规模扫出漏洞，但修复要靠人、靠流程、靠优先级排序。4 万比 217 的比例说明，漏洞管理的瓶颈从来不是「发现」，而是「定级—排期—验证—回归」这条链路。建议在《信息安全导论》《渗透测试》课程的案例分析作业里用它：讨论 CVSS 评分怎么用、误报怎么过滤、修复资源怎么分配。面试安全岗时被问「你怎么看 AI 挖洞」，能答出「发现不等于解决，闭环才是核心」，比背工具名有用得多。",
-   "source": "量子位",
-   "date": "2026-11-12",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**理解漏洞管理闭环，比会用一个扫描工具更值钱**",
-   "courses": "《信息安全导论》《渗透测试》——漏洞管理与风险评估案例分析",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "AI 挖洞规模大但修复率极低（217/40000）",
-    "漏洞管理瓶颈在定级、排期与验证闭环",
-    "可作为安全课程案例分析素材",
-    "面试可谈「发现≠解决」的闭环思维"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/509291.html"
-  },
-  {
-   "id": "a1032",
-   "title": "文心新模型纯代码生成《后室》游戏，116 秒切换 20 种画风",
-   "summary": "文心新模型通过纯代码生成可运行的游戏场景，短时间内在多种视觉风格间切换，模型即将开源。",
-   "content": "「纯代码造游戏」这件事对软件工程学生的意义不在于看热闹，而在于它演示了一种新的开发范式：用自然语言描述需求，模型直接产出可运行的代码与资源。你可以马上试的练手方式：让大模型生成一个 Canvas 小游戏（比如贪吃蛇、打砖块），然后自己读代码、改参数、修 bug——这个过程比从零手写更能快速理解游戏循环、碰撞检测、渲染管线。工业软件实验班的同学可以延伸思考：如果生成的是设备控制逻辑或仿真界面代码，怎么验证正确性？这才是工业场景真正卡脖子的地方。",
-   "source": "量子位",
-   "date": "2026-11-11",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "value": "**把 AI 生成代码当「可读的教材」，而不是「交作业的捷径」**",
-   "courses": "《程序设计基础》《人机交互》——用生成代码做阅读与改造练习",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "自然语言直接产出可运行游戏代码",
-    "练手建议：让模型生成 Canvas 小游戏再自己改",
-    "重点训练读代码、改参数、修 bug 的能力",
-    "工业场景需额外关注生成代码的正确性验证"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/509224.html",
-   "cover": "img/a1032.webp"
   }
  ],
  "jobs": [
