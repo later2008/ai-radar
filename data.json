@@ -1,6 +1,174 @@
 {
- "updatedAt": "2026-11-19 18:56",
+ "updatedAt": "2026-11-20 04:59",
  "news": [
+  {
+   "id": "a1160",
+   "title": "Ruby 正则与字符串爆 7 个漏洞，部分可直接 RCE，附修复版本",
+   "summary": "Ruby 官方披露正则引擎与字符串大小写转换共 7 个漏洞，其中数个已有 PoC 可触发远程代码执行，修复版本为 4.0.10 / 3.4.13 / 3.3.14。",
+   "content": "这次漏洞分两类：字符串大小写转换里有一字节堆溢出、整数溢出导致的堆溢出，以及一个能直接 RCE 的缺陷；正则引擎侧同样存在可被构造输入触发的内存破坏。对信息安全专业的同学，这是一份现成的「输入校验 + 内存安全」教学样本：为什么一个看似无害的 upcase 调用会成为攻击面？PoC 如何从可控字符串走到代码执行？建议在实验环境里复现（用 Docker 起旧版本 Ruby），再对照补丁 diff 看官方怎么修。软件工程同学则记住一条工程纪律：依赖版本扫描要进 CI，别等公告出来才手忙脚乱。",
+   "source": "开源中国",
+   "date": "2026-11-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Ruby"
+   ],
+   "value": "**把「一个字符串函数也能 RCE」讲透，是漏洞复现与依赖治理的最好素材**",
+   "courses": "《网络安全技术》《软件安全测试》——用作漏洞复现实验与补丁分析作业",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "7 个漏洞集中在正则引擎与字符串大小写转换，部分可 RCE",
+    "已有 PoC 证明可利用，非理论风险",
+    "修复版本：Ruby 4.0.10、3.4.13、3.3.14",
+    "适合做漏洞复现与补丁 diff 分析的教学案例"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503699/ruby-lang-multiple-vulnerabilities-in-regexp-and-string"
+  },
+  {
+   "id": "a1161",
+   "title": "火山引擎 Agent-Native 团队讲上下文管理：长任务不崩的工程做法",
+   "summary": "AICon 北京场分享 Agent-Native 场景下的上下文管理实践，涉及上下文压缩、分层记忆与工具调用结果的组织方式。",
+   "content": "做 AI 应用最常踩的坑不是模型不够强，而是上下文塞爆、历史越滚越乱、工具返回结果把窗口吃光。这场分享给的是工程侧答案：怎么给上下文分层（系统约束 / 任务状态 / 近期对话 / 检索片段）、什么时候做摘要压缩、工具输出怎么裁剪后再入窗。对软件工程同学，这正好对应你课设里写「带记忆的问答助手」时最头疼的部分——别一上来就堆 prompt，先把上下文当数据结构设计。建议边看边在自己的小项目里加一个 context manager 模块，简历上比「调过 API」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "LLM",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把上下文当数据结构来设计，是 AI 应用从 demo 走向可用的分水岭**",
+   "courses": "《人工智能导论》《软件项目实践》——用于对话类课设的上下文模块设计",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "聚焦 Agent 长任务的上下文组织与压缩策略",
+    "涉及分层记忆、工具结果裁剪、摘要触发时机",
+    "可直接迁移到课设里的对话/助手类项目",
+    "重点在工程结构，不是模型调参"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/YTGHxcabs0RI3btLIUxm?utm_source=rss&utm_medium=article",
+   "cover": "img/a1161.webp"
+  },
+  {
+   "id": "a1162",
+   "title": "Cloudflare 推出后量子公共证书颁发机构，HTTPS 要换算法了",
+   "summary": "Cloudflare 上线面向后量子时代的公共 CA，开始签发抗量子签名算法的 TLS 证书，为「先存后解」型攻击做准备。",
+   "content": "「先截流量、等量子计算机成熟再解密」是真实威胁模型，所以主流厂商开始把后量子算法推进到证书链这一层。对信息安全同学，这条新闻的价值在于它把课本上的 PKI 链条完整串了一遍：CA、证书签名算法、信任链、客户端兼容性——换算法不是改一行配置，而是整条链都要协商。建议动手用 openssl 生成一张后量子算法证书，看看握手过程和传统 RSA/ECC 的差异，再想想老客户端怎么办（双证书、混合模式）。这类「密码学迁移」经验在安全岗面试里是加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-20",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [
+    "TLS",
+    "PKI"
+   ],
+   "value": "**后量子不是论文话题，它已经落到你每天访问的 HTTPS 证书链上**",
+   "courses": "《密码学》《网络安全技术》——用于 PKI 与证书链实验的延伸阅读",
+   "tags": [
+    "信息安全",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "公共 CA 开始签发抗量子签名算法的 TLS 证书",
+    "涉及 CA、证书链、算法协商与客户端兼容性",
+    "可用 openssl 实操对比传统证书握手差异",
+    "密码迁移是安全岗面试的加分话题"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/WGpi7vxi1pCiJeJBKbm7?utm_source=rss&utm_medium=article",
+   "cover": "img/a1162.webp"
+  },
+  {
+   "id": "a1163",
+   "title": "Cloudflare 重构 D1 控制平面，撑起数百万数据库实例",
+   "summary": "Cloudflare 介绍 D1 控制平面的重构方案，解决单账号海量数据库实例的调度、元数据管理与故障隔离问题。",
+   "content": "「一个控制平面管几百万个数据库」听起来遥远，但拆开看都是你课上学过的东西：元数据放哪、如何分片、怎么避免单点、故障时如何快速隔离与重建。这篇文章适合当《数据库系统》或《分布式系统》的课外案例读——注意看他们怎么权衡一致性与可用性，以及为什么把控制面和数据面拆开。对做毕设要写「多租户」或「资源管理」模块的同学，可以直接借鉴它的分层思路：控制面只做编排与状态机，别把业务数据混进去。",
+   "source": "InfoQ中文",
+   "date": "2026-11-20",
+   "cat": "stack",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "分布式",
+    "数据库"
+   ],
+   "value": "**百万实例的控制面设计，本质是分层与状态机，课设里也用得上**",
+   "courses": "《数据库系统》《分布式系统》——作为多租户架构设计参考",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "控制平面与数据面分离，支撑百万级数据库实例",
+    "涉及元数据分片、故障隔离、状态机编排",
+    "可作为分布式/数据库课程的架构案例",
+    "多租户课设可直接借鉴分层设计"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/tfy0PQW5LMZCXlCugMo6?utm_source=rss&utm_medium=article",
+   "cover": "img/a1163.webp"
+  },
+  {
+   "id": "a1164",
+   "title": "Snowflake 大会重磅更新梳理：数据平台正在往哪走",
+   "summary": "InfoQ 梳理 Snowflake Expedition 大会的核心发布，涵盖数据平台能力、AI 集成与工程侧变化。",
+   "content": "单看发布会容易变成看热闹，这篇的价值是帮你把「数据平台在往哪走」串成一条线：计算与存储分离之后，厂商在补的是数据治理、半结构化数据处理和 AI 能力接入。对软件工程同学，读的时候带着一个问题——如果我的课设要存日志/埋点，什么场景该用关系库、什么场景该上列存或数据湖？对信息安全同学，则关注权限模型与数据脱敏这块怎么演进。不必追每个新名词，抓住「数据平台 = 存储 + 计算 + 治理」这三层就够了。",
+   "source": "InfoQ中文",
+   "date": "2026-11-20",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "数据平台"
+   ],
+   "value": "**看发布会要抓主线：数据平台的竞争点在治理与接入，不在名词**",
+   "courses": "《数据库系统》——用于存储选型与数据治理的延伸阅读",
+   "tags": [
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "梳理 Snowflake 大会的核心能力更新",
+    "主线是数据治理、半结构化数据与 AI 接入",
+    "可帮助判断课设中存储选型（关系库 vs 列存）",
+    "安全侧关注权限模型与脱敏"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/KBcjdx4ZlUj4hyI7zvdd?utm_source=rss&utm_medium=article",
+   "cover": "img/a1164.webp"
+  },
   {
    "id": "a1157",
    "title": "用 JavaScript 在浏览器里给 PDF 加密码：纯前端实现思路",
@@ -26,7 +194,7 @@
     "信息安全",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 62,
    "brief": [
     "纯浏览器端加密，文件不上传服务器",
@@ -3949,181 +4117,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503550"
-  },
-  {
-   "id": "a1043",
-   "title": "谷歌 LiteRT Tensor API：在手机/端侧构建与优化 ML 模型",
-   "summary": "谷歌推出 LiteRT Tensor API，面向端侧设备做模型构建、定制与性能优化，替代/补充原有 TFLite 工具链。",
-   "content": "端侧推理是这两年的实打实需求：模型不上云，延迟低、隐私好。LiteRT（原 TensorFlow Lite）这次开放的 Tensor API 让开发者能更细粒度地控制张量布局与算子，做量化、算子替换这类优化。对软件工程同学，这意味着「把模型塞进 App」不再是调个黑盒 SDK；对工业软件方向，设备端做缺陷检测、异常识别时端侧推理很常见。建议先跑官方 Demo 把一个图像分类模型量化到 int8，对比前后体积与耗时，这个数据写进简历比「了解 AI」有说服力。需要一点 Python 和 C++ 基础。",
-   "source": "InfoQ中文",
-   "date": "2026-11-13",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LiteRT",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**端侧推理是就业市场真实缺口，会量化调优就是加分项。**",
-   "courses": "《人工智能导论》《嵌入式系统》：把模型部署到端侧做实验",
-   "tags": [
-    "AI工具",
-    "工业软件",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "面向端侧设备的模型构建与优化 API",
-    "支持量化、算子定制等性能手段",
-    "工业质检、移动端推理都用得上",
-    "练手：量化一个模型并对比体积/延迟"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/joYjCTbwWFSkbACK5lje?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1044",
-   "title": "Agent 交接给人时，界面该显示什么？三条可落地的设计规则",
-   "summary": "文章讨论 AI 智能体把任务移交给人工时的信息呈现问题，核心是让人不必重复询问上下文。",
-   "content": "这是做 AI 应用前端/后端都绕不开的工程细节：Agent 转人工时，如果接手的人还得问「刚才聊到哪了」，体验就崩了。文章给出的方向是——交接必须携带结构化上下文（用户意图、已执行动作、失败原因、建议下一步），而不是丢一句「用户找你」。对前端同学，这是状态管理与信息层级设计题；对后端同学，是会话状态与事件日志的建模题。做法很具体：定义一份 handoff payload schema，把 Agent 的工具调用记录和置信度一起传过去。做毕设里带 AI 客服/助手的项目，直接抄这个思路。",
-   "source": "DEV Community",
-   "date": "2026-11-13",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**AI 应用做得好不好，交接这一秒就露馅——这是能直接写进项目的细节。**",
-   "courses": "《软件工程》《Web 应用开发》：需求分析与接口设计环节参考",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "交接必须带结构化上下文，不能只传「转人工」",
-    "payload 应含意图、已执行动作、失败原因",
-    "前后端都要为会话状态建模",
-    "适合用在 AI 客服/助手类课设"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "What the Human Should See When an Agent Hands Off",
-   "link": "https://dev.to/ringbot_ai_official/what-the-human-should-see-when-an-agent-hands-off-5hni",
-   "cover": "img/a1044.webp"
-  },
-  {
-   "id": "a1045",
-   "title": "语音 Agent 的身份校验：别让「是我啊」骗走账户信息",
-   "summary": "文章指出语音智能体最常见的安全漏洞——看不见对方是谁，却天生乐于助人，导致账户信息被套取。",
-   "content": "这是信息安全专业该重点看的案例：电话 Agent 没有视觉通道，攻击者只要说「我是陈女士，帮我查下订单」，一个设计不良的 Agent 就可能泄露账户信息。文章的核心结论是——身份校验不能靠「自述」，必须走独立验证通道（回拨、验证码、设备指纹），且敏感操作要有二次确认。对做 AI 应用的同学，这是「认证 vs 授权」在对话式界面里的翻版；对安全方向，是社工攻击面分析的现成素材。建议在课设里给 Agent 加一个「敏感意图识别 + 强制验证」的中间层，写进设计文档。",
-   "source": "DEV Community",
-   "date": "2026-11-13",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**认证与授权的老知识，在 AI 对话场景里重新考一遍，面试常问。**",
-   "courses": "《信息安全导论》《身份认证技术》：结合社工攻击章节讨论",
-   "tags": [
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "语音通道无法确认身份，「自述」不构成认证",
-    "敏感操作必须走独立验证通道",
-    "需要意图识别层拦截高危请求",
-    "可作为社工攻击面分析案例"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "'Is \"It''s Me\" Enough? Identity Checks Before an Agent Shares Anything'",
-   "link": "https://dev.to/ringbot_ai_official/is-its-me-enough-identity-checks-before-an-agent-shares-anything-34hg",
-   "cover": "img/a1045.webp"
-  },
-  {
-   "id": "a1046",
-   "title": "Gemini 4 新模型开放人人可用：更快更便宜，接入门槛降低",
-   "summary": "谷歌 Gemini 4 新模型向所有用户开放，主打速度与成本优化，个人开发者也能低成本调用。",
-   "content": "对学生的实际意义只有一条：调 API 做课设更便宜了。模型迭代本身不用追，但「便宜 + 快」意味着你可以把 LLM 塞进更多小项目——比如给课程作业加个自动批注、给实验室管理系统加个自然语言查询。建议关注三点：免费额度、上下文长度、是否支持结构化输出（JSON mode），后者决定你能不能稳定地把模型输出接进后端逻辑。别急着换模型，先用一个项目把「提示词 + 结构化输出 + 错误重试」这套工程模式跑通，换哪家模型都能迁移。",
-   "source": "爱范儿",
-   "date": "2026-11-12",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Gemini API"
-   ],
-   "value": "**模型降价对你唯一的意义是：终于能拿真 API 做课设了。**",
-   "courses": "《人工智能导论》《Web 应用开发》：作为课设的外部服务接入",
-   "tags": [
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "模型开放、成本下降，学生做 AI 课设更可行",
-    "重点看免费额度、上下文长度、JSON 输出支持",
-    "工程模式比模型选型更重要",
-    "练手：给现有项目加一个自然语言查询入口"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689267?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a1046.webp"
-  },
-  {
-   "id": "a1035",
-   "title": "谷歌用DPoP加固OAuth 2.0：防令牌窃取与重放，接入要点解析",
-   "summary": "谷歌在OAuth 2.0中引入DPoP（Demonstrating Proof of Possession），把Bearer令牌升级为绑定客户端密钥的持有证明，抵御令牌被窃后重放。",
-   "content": "传统OAuth的Bearer令牌谁拿到谁就能用，一旦日志泄露或被中间人截获，攻击者可直接重放。DPoP要求客户端为每次请求生成一次性JWT，并用私钥签名，服务端校验令牌与密钥绑定关系，重放即失效。对信息安全与管理专业：这是活教材，可对照《网络安全技术》《身份认证与访问控制》课程，在课设里用Spring Security OAuth2 + DPoP示例跑通授权码流程，观察抓包重放被拒。对软件工程：以后做第三方登录、开放平台对接，别再无脑存access_token明文，理解密钥管理与签名链路。",
-   "source": "InfoQ中文",
-   "date": "2026-11-12",
-   "cat": "stack",
-   "tracks": [
-    "信息安全",
-    "Java"
-   ],
-   "stack": [
-    "OAuth 2.0",
-    "DPoP"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**身份认证是安全岗面试高频考点，动手复现DPoP比背概念值钱**",
-   "courses": "《网络安全技术》《身份认证与访问控制》：作为令牌安全与重放攻击防护的案例实验",
-   "tags": [
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Bearer令牌被窃即可重放，DPoP用私钥签名绑定请求",
-    "客户端每次请求生成一次性JWT，服务端校验持有证明",
-    "可在课设中用Spring Security OAuth2复现授权码+DPoP流程",
-    "抓包重放实验能直观看到防护效果"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/FQHBH7cfSYPFUUdbmyui?utm_source=rss&utm_medium=article",
-   "cover": "img/a1035.webp"
   }
  ],
  "jobs": [
