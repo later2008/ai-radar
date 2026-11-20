@@ -1,6 +1,137 @@
 {
- "updatedAt": "2026-11-20 14:55",
+ "updatedAt": "2026-11-20 18:23",
  "news": [
+  {
+   "id": "a1169",
+   "title": "京东开源 DripTable：基于 React + JSON Schema 的中后台动态列表方案",
+   "summary": "京东零售开源的企业级中后台动态列表方案，用 JSON Schema 配置即可生成表格页面，减少重复 CRUD 代码。",
+   "content": "做课设或实习时，中后台列表页往往是「复制粘贴改字段」的体力活。DripTable 的思路是把列定义、筛选、分页等写成 JSON Schema，由 React 组件渲染，后端改配置前端不用重写页面。适合需要快速搭管理后台的场景，也适合拿来读源码学习「配置驱动 UI」的设计。建议先跑官方 demo，再把自己的课设表格迁移一版，体会配置化对维护成本的影响；注意它绑定 React 生态，Vue 项目只能借鉴思路。",
+   "source": "掘金",
+   "date": "2026-11-20",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "React",
+    "JSON Schema"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把中后台表格从手写代码变成写配置，是前端工程化思维的现成教材。**",
+   "courses": "对应《Web 前端开发》《软件工程》，可作课程设计的管理端技术选型。",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "JSON Schema 驱动表格列与筛选，减少重复 CRUD 代码",
+    "基于 React，适合中后台管理页面快速搭建",
+    "可读源码学习配置驱动 UI 的工程化设计"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7710126647600906290"
+  },
+  {
+   "id": "a1170",
+   "title": "单例模式全解：Java 五种写法到 Android 线程安全实战",
+   "summary": "从饿汉、DCL、静态内部类到枚举，讲清 Java/Kotlin 单例的实现与原理，并落地一个线程安全的全局 ToastManager。",
+   "content": "单例是面试高频题，也是实际项目里最容易写错的模式之一。文章把 Java 的饿汉、双重检查锁、静态内部类、枚举几种写法逐一对比，重点讲 volatile 与类加载机制为什么能保证线程安全，再用 Kotlin object 和 Android 全局 ToastManager 做实战封装。建议边看边手写一遍 DCL 并解释 volatile 作用，这是《Java 程序设计》和秋招笔试都能直接用的内容；枚举单例防反射破坏的细节也值得记。",
+   "source": "掘金",
+   "date": "2026-11-20",
+   "cat": "tut",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "Kotlin"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**一篇文章吃透单例的写法与原理，直接对应 Java 课与面试八股。**",
+   "courses": "对应《Java 程序设计》《面向对象设计模式》，可作设计模式作业参考。",
+   "tags": [
+    "Java全栈",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "对比饿汉、DCL、静态内部类、枚举五种实现的线程安全原理",
+    "讲清 volatile 与类加载机制在单例中的作用",
+    "用 Android 全局 ToastManager 做线程安全实战封装"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7710140388783161382"
+  },
+  {
+   "id": "a1171",
+   "title": "Agnes 开源 Harness：双系统决策让 Agent 效率最高提速 14 倍、成本降至 1/27",
+   "summary": "开源 Agent 框架 Agnes 用双系统决策加双层自进化，在任务执行上大幅提速降本，代码已开放。",
+   "content": "这类 Agent 框架新闻容易流于宣传，但 Agnes 开源了 Harness，就变成可以动手读的东西。它的核心是「快慢双系统」决策：简单步骤走轻量策略，复杂步骤再调重模型，配合自进化减少无效重试，从而把调用次数和 token 成本压下来。对软件工程学生来说，值得关注的是它的调度与重试逻辑设计，而不是跑分。建议拉下仓库跑一个 demo 任务，看它如何记录决策轨迹，再思考能否套到自己的课设 Agent 或毕设里。",
+   "source": "量子位",
+   "date": "2026-11-20",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 3,
+   "scene": "练手/简历加分",
+   "value": "**开源可读的 Agent 调度框架，适合拿来研究工程化决策逻辑。**",
+   "courses": "对应《人工智能导论》《软件工程》，可作毕设或创新项目的 Agent 底座。",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "开源 Harness，可本地跑 demo 观察决策轨迹",
+    "双系统决策：简单步骤轻量、复杂步骤重模型",
+    "重点看调度与重试设计，而非宣传跑分"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/511582.html"
+  },
+  {
+   "id": "a1172",
+   "title": "Gemini 4 Neon 接入 Antigravity 后编程解题率升至三倍多",
+   "summary": "新模型 Neon 主打复杂任务与更低单次成本，接入编程工具后解题成功率显著提升。",
+   "content": "模型迭代本身和课程关系不大，但对写代码的人有直接影响：编程辅助工具的解题率提升，意味着日常调试、读陌生代码库、补测试用例的效率会变。文章提到接入 Antigravity 后解题率升至三倍多，值得关注的是它擅长哪类题——通常是多文件、需要上下文的工程题，而不是算法竞赛题。建议拿自己课设里一个真实 bug 去试，对比它给的修改建议质量，同时保留人工 review 习惯，别把安全相关代码直接交给模型改。",
+   "source": "InfoQ中文",
+   "date": "2026-11-20",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**了解编程辅助工具的能力边界，决定哪些活可以交给它、哪些必须自己把关。**",
+   "courses": "对应《软件工程》《程序设计》实践课，可用于课设调试与代码阅读。",
+   "tags": [
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "编程辅助解题率提升，重点在多文件工程类任务",
+    "适合用来读陌生代码库、补测试、定位 bug",
+    "安全相关代码仍需人工审查，不可直接采纳"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/tDxNggErsJNeb53ZkYeF?utm_source=rss&utm_medium=article",
+   "cover": "img/a1172.webp"
+  },
   {
    "id": "a1165",
    "title": "蚂蚁 OceanBase 开源 PowerContext：给 Agent 做跨会话记忆服务",
@@ -26,7 +157,7 @@
     "工业软件",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "开源项目，定位是给 AI Agent 用的上下文服务",
@@ -3981,149 +4112,6 @@
    "origTitle": "Lonewolf 0.3 – A standalone XMPP server written in Rust",
    "link": "https://github.com/lonewolf-im/lonewolf/releases/tag/v0.3.0",
    "cover": "img/a1054.webp"
-  },
-  {
-   "id": "a1055",
-   "title": "银行业 Kubernetes 平台的云原生文化：容器化落地难在哪",
-   "summary": "InfoQ 文章讨论银行在建设 Kubernetes 平台时，组织与文化层面的落地经验。",
-   "content": "技术选型只是第一步，真正卡住容器化的是流程与责任边界：谁负责镜像？发布权限给谁？出故障怎么定责？文章讲的是银行这种强合规环境下的云原生推进，对信息安全方向尤其有参考价值——你会看到「安全左移」「权限最小化」「审计留痕」这些词在真实组织里怎么落地成制度。建议读的时候做一件事：把文中提到的角色和流程画成一张图，对照你小组课设里「谁合并代码、谁部署、谁背锅」的现状，你会发现很多项目失败不是技术问题而是分工问题。工业软件方向同学也可借鉴其平台化治理思路。",
-   "source": "InfoQ中文",
-   "date": "2026-11-13",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Kubernetes"
-   ],
-   "value": "**提前理解「技术之外的组织约束」，是进企业后少踩坑的隐性能力。**",
-   "courses": "《信息安全工程》《软件项目管理》：作为安全治理与团队协作的讨论案例",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 44,
-   "brief": [
-    "容器化落地的主要阻力是流程与责任划分，不是工具",
-    "关注安全左移、最小权限、审计留痕的制度化做法",
-    "把角色与流程画成图，对照自己小组的分工问题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/AVoPIHgU8BvWY12j1sQ5?utm_source=rss&utm_medium=article",
-   "cover": "img/a1055.webp"
-  },
-  {
-   "id": "a1047",
-   "title": "用 TypeScript 小钩子改造 Claude Code：给编码 Agent 加自定义行为",
-   "summary": "Anthropic 为 Claude Code 推出 mods 机制，用小型 TypeScript 函数即可拦截并改写 Agent 的读写、命令执行等行为。",
-   "content": "Claude Code 的 mods 本质是几个 TypeScript 钩子函数：在 Agent 读文件、写文件、跑命令前后被调用，你可以据此加日志、做敏感路径拦截、强制格式化。对软件工程学生来说，这是理解「Agent 工程化」最便宜的入口——不用训练模型，只写几十行 TS 就能让 AI 编码助手按你的规则干活。建议做法：装好 Claude Code 后写一个钩子，禁止它修改 .env 与 node_modules，再写一个在保存前跑 ESLint 的钩子。做完你就同时练了 TypeScript、Node 工具链和「AI 生成代码如何管控」这个面试常问的话题。",
-   "source": "DEV Community",
-   "date": "2026-11-13",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "TypeScript",
-    "Claude Code"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**用几十行 TypeScript 就能把 AI 编码助手改造成符合团队规范的受控工具，是低成本高含金量的练手项目。**",
-   "courses": "《Web 前端开发》《软件工程》课程设计里给 AI 辅助开发加质量门禁",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "mods 是 TypeScript 钩子，可在 Agent 读写文件、执行命令前后插入逻辑",
-    "适合做敏感文件拦截、自动格式化、操作审计日志",
-    "只需几十行 TS，不涉及模型训练",
-    "能作为简历里「AI 编码工具链治理」的小项目"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Claude Code Mods: How to Rewire Your Coding Agent With Tiny TypeScript Hooks",
-   "link": "https://dev.to/zhuanxyz/claude-code-mods-how-to-rewire-your-coding-agent-with-tiny-typescript-hooks-17l6",
-   "cover": "img/a1047.webp"
-  },
-  {
-   "id": "a1048",
-   "title": "纯 JavaScript 做一个「分镜图转 PDF」网页工具，练透前端文件处理",
-   "summary": "freeCodeCamp 教程：用浏览器端 JavaScript 完成图片上传、排序、加注释并导出 PDF 分镜脚本。",
-   "content": "这个教程带你从零做一个完整前端小工具：拖拽上传多张图片、调整顺序、给每张图加说明文字，最后在浏览器里直接生成 PDF 下载。技术点覆盖 File API、Canvas 图片处理、拖拽排序和 PDF 生成库，全是前端面试和课设的高频内容。对软件工程学生最实用的地方是：它不依赖后端，一个静态页面就能跑，可以直接部署到 GitHub Pages 当作品集。建议照着做完后自己加两个功能——批量重命名和本地存储草稿，这样项目就有了「你的东西」，答辩和简历都好讲。",
-   "source": "freeCodeCamp",
-   "date": "2026-11-13",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript",
-    "Canvas"
-   ],
-   "diff": 1,
-   "scene": "课设/练手/简历加分",
-   "value": "**一个周末能做完的完整前端项目，把文件处理、图片渲染和 PDF 导出这些实用技能一次练全。**",
-   "courses": "《Web 前端开发》课程设计、《人机交互》原型作业",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "覆盖 File API、Canvas、拖拽排序、PDF 生成四类前端核心技能",
-    "纯浏览器端实现，无需后端，可一键部署成作品集",
-    "建议自行扩展批量重命名、本地草稿等差异化功能",
-    "成品可直接用于课程设计或简历项目展示"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Build a Browser-Based Image Storyboard to PDF Tool Using JavaScript",
-   "link": "https://www.freecodecamp.org/news/build-image-storyboard-to-pdf-tool-javascript/",
-   "cover": "img/a1048.webp"
-  },
-  {
-   "id": "a1049",
-   "title": "容器隔离不够用：Edera 在虚拟机监控器层限制 AI 智能体",
-   "summary": "针对 AI Agent 执行任意代码带来的越权风险，Edera 提出在 hypervisor 层做隔离，比容器边界更硬。",
-   "content": "AI Agent 会自己写代码、自己执行，容器共享内核，一旦 Agent 被诱导跑恶意命令，逃逸风险真实存在。Edera 的思路是把隔离下沉到虚拟机监控器层，让每个 Agent 运行环境拥有独立内核边界。对信息安全与管理专业的学生，这条新闻的价值在于它把课堂上的「隔离级别」讲活了：进程隔离、容器隔离、虚拟机隔离、hypervisor 隔离，安全强度逐级上升，代价是启动开销和运维复杂度。建议结合《操作系统》的虚拟化章节，画一张隔离层级对比表，并思考：如果让你给学校的 AI 实验平台设计沙箱，你会选哪一层、为什么。",
-   "source": "InfoQ中文",
-   "date": "2026-11-13",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "容器",
-    "虚拟化"
-   ],
-   "diff": 3,
-   "scene": "求职准备/技术视野",
-   "value": "**理解容器与虚拟机隔离的真实差距，是回答「AI Agent 沙箱怎么做」这类安全面试题的关键。**",
-   "courses": "《操作系统》虚拟化章节、《信息安全技术》隔离与访问控制部分",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Agent 自主执行代码，容器共享内核导致逃逸风险上升",
-    "Edera 把隔离下沉到 hypervisor 层，换取更强边界",
-    "可作为「隔离级别与安全强度权衡」的典型案例",
-    "适合延伸思考 AI 实验平台沙箱方案设计"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/MU0txcPXXuGdGKBNa6a2?utm_source=rss&utm_medium=article"
   }
  ],
  "jobs": [
