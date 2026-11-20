@@ -1,6 +1,153 @@
 {
- "updatedAt": "2026-11-20 04:59",
+ "updatedAt": "2026-11-20 14:55",
  "news": [
+  {
+   "id": "a1165",
+   "title": "蚂蚁 OceanBase 开源 PowerContext：给 Agent 做跨会话记忆服务",
+   "summary": "OceanBase 团队开源上下文服务 PowerContext，把决策、约束、证据、进度从单次对话中抽离持久化，让下一个会话或下一个 Agent 接着干。",
+   "content": "做课设时你可能遇到过：AI 助手聊到一半关掉，上下文全丢，下次得重新解释一遍需求。PowerContext 的思路是把「耐久信息」——已定的技术方案、接口约束、测试证据、当前进度——存成外部服务，而不是塞在聊天记录里。对软件工程学生来说，这是理解「状态管理 + 服务化设计」的好样本：它本质是一个带持久化的上下文 API，可以对照你课设里的会话表、任务表设计来读源码。工业软件实验班同学尤其值得看，多 Agent 协作、跨班次交接的产线场景，正是这类记忆服务的目标场景。建议先跑通 demo，再想清楚「哪些信息该持久化、哪些该丢弃」这个设计取舍。",
+   "source": "开源中国",
+   "date": "2026-11-20",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "Agent",
+    "OceanBase"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**学会把「对话状态」抽成可持久化的服务，是写好多 Agent 系统的第一课**",
+   "courses": "《数据库原理》《软件工程》——把上下文服务当作状态持久化与接口设计的案例",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "开源项目，定位是给 AI Agent 用的上下文服务",
+    "核心是把决策/约束/进度持久化，跨会话、跨 Agent 复用",
+    "可对照课设中的会话表、任务状态设计来读源码",
+    "多 Agent 协作与产线交接场景可直接借鉴"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503704/oceanbase-powercontex"
+  },
+  {
+   "id": "a1166",
+   "title": "React 深度系列第 3 章：useEffect 到底该用在哪儿",
+   "summary": "一篇讲清 useEffect 适用场景与误用场景的教程，指出绝大多数副作用其实不该放进 effect。",
+   "content": "前端同学写 React 最常见的坑就是把什么都往 useEffect 里塞：派生状态、事件响应、数据转换，全写成 effect，结果渲染两遍、依赖数组打架、闭包拿到旧值。这篇是 12 章系列的第 3 章，专门划清边界：effect 只用于「和外部系统同步」这一小类场景，其余大多应该用事件处理函数或渲染期计算解决。建议对照自己课设里的列表页、表单页逐个检查，把能删的 effect 删掉，代码会短一截、bug 也少一截。面试被问「useEffect 和 useLayoutEffect 区别」「为什么依赖数组会漏」时，这类底层理解比背结论管用。",
+   "source": "DEV Community",
+   "date": "2026-11-20",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**删掉一半 useEffect，你的 React 代码会立刻变干净**",
+   "courses": "《Web 前端开发》——组件生命周期与副作用管理的正课补充",
+   "tags": [
+    "前端开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "明确 useEffect 只该用于与外部系统同步",
+    "派生状态、事件响应不该写成 effect",
+    "拿课设页面逐个排查多余的 effect",
+    "面试常考依赖数组与闭包陷阱"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "React, deeply · 3. Effects, honestly",
+   "link": "https://dev.to/techamit95ch/react-deeply-3-effects-honestly-26cc",
+   "cover": "img/a1166.webp"
+  },
+  {
+   "id": "a1167",
+   "title": "同一台机器跑两个 AI Agent，会撞出什么事故",
+   "summary": "作者复盘多 Agent 共享同一代码库时的冲突：一个在重构，另一个跑去修测试，结果互相把对方的改动判成失败。",
+   "content": "你让 Agent A 重构，嫌慢又开了 Agent B 去修同一个仓库里的失败测试。B 跑测试看到一堆新报错——那是 A 没改完的重构造成的——于是开始「修」这些根本不存在的 bug。这篇复盘讲的正是多 Agent 并发操作同一工作区时的状态污染问题，给出的方向是隔离工作区、加锁、明确任务边界。对做课设和小组项目的同学很实用：多人（或多 Agent）改同一分支时，git worktree、分支隔离、CI 前置检查就是最低成本的解法。信息安全方向的同学还可以顺着想：Agent 有写权限时，如何做操作审计和最小权限。",
+   "source": "DEV Community",
+   "date": "2026-11-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent",
+    "Git"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**并发不是免费的：先隔离工作区，再谈多 Agent 提效**",
+   "courses": "《软件工程》《信息安全导论》——版本隔离与最小权限原则的实战案例",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "多 Agent 共享工作区会互相污染状态",
+    "测试结果被半成品改动误导，导致「修不存在的 bug」",
+    "解法：工作区隔离、任务加锁、明确边界",
+    "对应到小组协作就是 worktree + 分支隔离 + CI 检查"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Two Agents, One Machine: When Multiple AI Agents Collide",
+   "link": "https://dev.to/mutageniclabs/two-agents-one-machine-when-multiple-ai-agents-collide-3afb",
+   "cover": "img/a1167.webp"
+  },
+  {
+   "id": "a1168",
+   "title": "三个骗过单元测试的 Rust CLI 解析 bug：静默截断、别名冲突、stderr 被吞",
+   "summary": "作者在开源 CLI 项目里挖到的三个隐蔽 bug，共同点是单测全过、生产环境静默出错。",
+   "content": "静默 zip 截断、kebab-case 别名互相覆盖、错误信息被悄悄吞掉——这三个 bug 有个共同特征：不抛异常、不报错，只是结果不对，所以单元测试全绿。作者是在给 Rust CLI 项目找 bounty 时逐个定位的。对软件工程同学的价值不在 Rust 语法，而在排查方法：边界输入要断言输出长度、别名表要检查唯一性、错误路径要验证 stderr 真的写出来了。你写课设的命令行工具或接口层时，同样容易犯「吞异常」的毛病——catch 住什么都不做，上线后查无可查。建议把「错误必须可见」当成代码 review 的固定检查项。",
+   "source": "DEV Community",
+   "date": "2026-11-20",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**最危险的 bug 不报错，只给你一个错的结果**",
+   "courses": "《程序设计》《软件测试》——异常处理与边界测试的反面教材",
+   "tags": [
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "三个 bug 都是静默失败，单测无法发现",
+    "排查思路：断言输出长度、检查别名唯一性、验证 stderr",
+    "「catch 住不处理」是同类问题的常见来源",
+    "把错误可见性列为 code review 固定项"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "3 Subtle Rust CLI & Parser Bugs I Hunted Today (Silent Zip Truncation, Kebab-Case Alias Collisions & Quiet stderr Suppression)",
+   "link": "https://dev.to/sinescribe/3-subtle-rust-cli-parser-bugs-i-hunted-today-silent-zip-truncation-kebab-case-alias-collisions-bpo",
+   "cover": "img/a1168.webp"
+  },
   {
    "id": "a1160",
    "title": "Ruby 正则与字符串爆 7 个漏洞，部分可直接 RCE，附修复版本",
@@ -23,7 +170,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "7 个漏洞集中在正则引擎与字符串大小写转换，部分可 RCE",
@@ -3977,146 +4124,6 @@
    ],
    "buzz": [],
    "link": "https://www.infoq.cn/article/MU0txcPXXuGdGKBNa6a2?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1050",
-   "title": "数据库如何支撑 Agent 应用：从快速部署到记忆共享",
-   "summary": "InfoQ 视频讨论 Agent 应用落地时数据库承担的角色，包括会话记忆持久化与多 Agent 间状态共享。",
-   "content": "Agent 应用看着是模型的事，落地时卡住的往往是数据：对话历史存哪、多个 Agent 怎么共享上下文、检索增强的向量数据放哪。这个分享把「Agent 记忆」拆成可工程化的存储问题，对软件工程学生很对口——你在课设里做的聊天机器人，如果只把历史塞进内存，重启就全丢；换成数据库持久化，再加一层按会话 ID 的检索，就是一个能写进简历的完整后端设计。建议动手时用 MySQL 存结构化会话、用向量库存语义记忆，对比两种检索的召回效果，这个对比实验在答辩时非常加分。",
-   "source": "InfoQ中文",
-   "date": "2026-11-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "Java"
-   ],
-   "stack": [
-    "MySQL",
-    "向量数据库"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**把「Agent 记忆」当成数据库设计题来做，课设立刻从玩具升级成有架构讲法的项目。**",
-   "courses": "《数据库原理》综合设计、《软件工程》课程项目后端部分",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Agent 落地的瓶颈常在数据层：会话历史、上下文共享、向量检索",
-    "可用 MySQL 存结构化会话 + 向量库存语义记忆做分层设计",
-    "把课设聊天机器人从内存存储升级为数据库持久化即可复用",
-    "两种检索方式的召回对比可作为答辩亮点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/video/FwbOyyfoAmkQPMTItMDN?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1051",
-   "title": "openJiuwen 发布 RSI 原生 AgentOS：让 Agent 自己开发新功能并持续迭代",
-   "summary": "该平台主打 Agent 按需自我扩展能力，用户提出功能需求后由 Agent 自行开发并迭代。",
-   "content": "「想要什么功能，让 Agent 自己开发」听起来像宣传语，但背后是 Agent 运行时、工具注册和代码生成回路的组合。对软件工程和工业软件方向的学生，值得关注的不是产品本身，而是它暴露的工程问题：Agent 生成的代码怎么测试、怎么回滚、怎么防止它改坏自己的运行环境。这些正是你写课设时该养成的习惯——给自动生成的代码加单元测试和版本快照。建议把它当作一个观察样本，重点看它如何描述工具注册与权限边界，而不是急着上手部署。",
-   "source": "量子位",
-   "date": "2026-11-13",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "diff": 3,
-   "scene": "技术视野",
-   "value": "**看清 Agent 自我迭代背后的测试与回滚难题，比追新工具更能提升你的工程判断力。**",
-   "courses": "《软件工程》需求变更与版本管理、《程序设计》代码质量部分",
-   "tags": [
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "核心是 Agent 运行时 + 工具注册 + 代码生成回路的组合",
-    "真正难点在生成代码的测试、回滚与权限边界",
-    "可作为「AI 生成代码如何管控」的观察样本",
-    "不建议盲目部署，重点看其工程约束设计"
-   ],
-   "buzz": [],
-   "link": "https://www.qbitai.com/2026/11/509653.html",
-   "cover": "img/a1051.webp"
-  },
-  {
-   "id": "a1041",
-   "title": "Docker 官方谈智能体安全：用容器隔离+权限治理兜住 AI 越权",
-   "summary": "Docker 提出智能体（Agent）跑在容器里、用最小权限与审计治理约束其行为，避免 AI 直接操作宿主机与敏感数据。",
-   "content": "智能体最大的风险不是「答错」，而是「做错」——它能调 shell、读文件、发请求。Docker 的思路很朴素：把 Agent 当成不可信进程，用容器做资源与网络隔离，再用策略层限制它能调哪些工具、访问哪些目录，并全程留审计日志。对信息安全专业的同学，这就是「最小权限原则 + 沙箱」在 AI 时代的直接复刻；对软件工程同学，自己写个调用 LLM 的小工具时，别把 API Key 和数据库密码塞进同一个进程环境里。动手建议：用 Docker Compose 起一个只挂载 /workspace 的容器跑你的 Agent Demo，再配一条网络白名单，体会「能力越大越要关笼子」。",
-   "source": "InfoQ中文",
-   "date": "2026-11-13",
-   "cat": "tut",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Docker"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会给 AI 应用套沙箱，是安全岗和开发岗都认的硬技能。**",
-   "courses": "《操作系统》《网络安全技术》：把容器隔离与访问控制落到实验里",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Agent 应视为不可信进程，容器隔离是底线",
-    "最小权限：只挂载必要目录、只放行必要网络",
-    "治理层记录工具调用日志，便于追责与回滚",
-    "练手：用 Docker Compose 给 Agent Demo 加沙箱"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/1pCuIRtm5HYwTyR4fIhA?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1042",
-   "title": "Argus v0.5.0：纯 Rust 直调 Win32 的现代任务管理器，1.4k Star",
-   "summary": "开源项目 Argus 用 Rust + windows-rs 直接调用 NT/Win32 接口，绕开 Web 技术栈做原生 Windows 系统工具，已获 1.4k Star。",
-   "content": "一个值得拆源码的桌面项目：Argus 不套 Electron，而是用 Rust 通过 windows-rs 直接调 Windows 原生接口，配合 GPUI 做 GPU 原生绘制，实现进程/性能监控这类「系统级」功能。对工业软件实验班的同学，这类项目是理解「上层 UI 如何与操作系统内核接口对话」的活教材；对软件工程同学，它是学 Rust 所有权模型和 FFI 调用的真实案例。建议路径：先跑起来看效果，再读它枚举进程、取 CPU/内存数据的模块，最后自己写个小工具调一次 Win32 API。C/C++ 底子好的同学上手更快。",
-   "source": "开源中国",
-   "date": "2026-11-12",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust",
-    "Windows API"
-   ],
-   "diff": 3,
-   "scene": "练手/简历加分",
-   "value": "**想碰系统底层和桌面开发，这是比 CRUD 更能拉开差距的项目。**",
-   "courses": "《操作系统》《程序设计基础》：对照进程管理章节读源码",
-   "tags": [
-    "通用开发",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "纯 Rust + windows-rs 直调 Win32/NT 接口，无浏览器内核",
-    "GPU 原生绘制，性能优于 Web 技术栈方案",
-    "适合学习 FFI、系统调用与桌面架构",
-    "练手：仿写一个进程列表小工具"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503550"
   }
  ],
  "jobs": [
