@@ -1,6 +1,148 @@
 {
- "updatedAt": "2026-11-22 22:04",
+ "updatedAt": "2026-11-22 17:41",
  "news": [
+  {
+   "id": "a1198",
+   "title": "浏览器 Agent 开源实战：Karpo 新作如何做到速度与效果双赢",
+   "summary": "Karpo 团队在反超 Gemini 后开源了一款浏览器 Agent，主打执行速度与任务成功率的平衡。",
+   "content": "浏览器 Agent 是当前最能落地的 AI 应用形态之一：它要解析 DOM、规划步骤、调用工具、处理失败重试。Karpo 这次开源的实现值得你直接拉下来跑一遍，重点看三件事——它怎么把页面结构压缩成模型能吃的上下文、怎么做动作校验避免点错按钮、失败后怎么回滚重试。这些正是你在《Web 前端开发》里学的 DOM 操作和事件机制，只不过调用方从人变成了模型。建议用 Playwright 起个本地环境，把它的 prompt 和工具定义抄进自己的小项目，改一个「自动填课设表单」的 demo，比空看论文有用得多。",
+   "source": "量子位",
+   "date": "2026-11-21",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Playwright",
+    "Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**把浏览器 Agent 从概念变成你能改的代码，前端能力直接变现**",
+   "courses": "《Web 前端开发》：DOM 解析与事件机制的真实应用场景",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "开源浏览器 Agent，可本地跑通",
+    "重点看 DOM 压缩、动作校验、失败重试三处设计",
+    "用 Playwright 搭环境改造成自己的小工具"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/511791.html"
+  },
+  {
+   "id": "a1199",
+   "title": "别被 Agent 概念忽悠：一线开发者总结的 Agentic AI 真实边界",
+   "summary": "一篇 DEV 热文复盘了 Agentic AI 在实际工程中的能力边界与常见踩坑。",
+   "content": "这篇不是营销稿，是开发者踩坑后的复盘。核心结论对你有直接价值：Agent 擅长的是「有明确工具、可验证结果」的任务，一旦需要长链条推理或模糊判断，失败率陡增。文中提到的工程实践——工具描述要写清楚输入输出、给 Agent 加显式状态机而不是让它自由发挥、用确定性代码兜底关键步骤——这些思路你在做《软件工程》课程设计时就能用上。建议读完后对照自己的项目问一句：这个环节真的需要模型决策吗？很多地方一个 if-else 比 Agent 靠谱。",
+   "source": "DEV Community",
+   "date": "2026-11-22",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Agent"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**帮你判断什么该用 Agent、什么该写死代码，少走弯路**",
+   "courses": "《软件工程》：需求分析与架构设计中的人机分工判断",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "Agent 适合工具明确、结果可验证的任务",
+    "用状态机约束流程，关键步骤用确定性代码兜底",
+    "工具描述质量直接决定成功率"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "What I Learnt About Agentic AI, Beyond the Hype",
+   "link": "https://dev.to/alexdesi/what-i-learnt-about-agentic-ai-beyond-the-hype-2o54",
+   "cover": "img/a1199.webp"
+  },
+  {
+   "id": "a1200",
+   "title": "React Native 接入客服聊天：2026 完整实现指南",
+   "summary": "手把手教你为 React Native 应用集成第三方客服聊天 SDK，含选型与接入步骤。",
+   "content": "移动端项目里「加个在线客服」是典型的小需求大坑：WebSocket 断线重连、消息已读状态、图片上传、多端同步，自己写要两周，接 SDK 半天。这篇指南的价值在于它先讲选型维度——是否封装原生、是否支持离线消息、鉴权怎么做——再给接入代码。对软件工程专业的你来说，这是《移动应用开发》课程设计里能直接复用的模块，也是简历上「独立完成 IM 功能」的素材。注意重点看鉴权部分：token 怎么下发、会话怎么隔离，这块做不好就是安全事故。",
+   "source": "DEV Community",
+   "date": "2026-11-22",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "React Native"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**半天接完客服聊天模块，课设直接多一个完整功能点**",
+   "courses": "《移动应用开发》：第三方 SDK 集成与鉴权设计",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "先讲 SDK 选型维度再给接入代码",
+    "覆盖 WebSocket 重连、消息状态、鉴权",
+    "可直接用于课设的 IM 模块"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "How to add customer support chat to a React Native app (2026 guide)",
+   "link": "https://dev.to/vidur_saini/how-to-add-customer-support-chat-to-a-react-native-app-2026-guide-3lj6",
+   "cover": "img/a1200.webp"
+  },
+  {
+   "id": "a1201",
+   "title": "月提交 3000 个 PR 的工程方法：AI 辅助代码审查的流水线拆解",
+   "summary": "Grok 团队工程师分享如何用 AI 把代码提交与审查流程做到极高吞吐。",
+   "content": "3000 个 PR 听着夸张，但拆开看是工程化问题：小步提交、自动化检查前置、AI 做首轮 review 过滤低级问题、人只看设计决策。这套流水线对你有两个用处：一是现在就用——GitHub Actions 配 lint + 单测 + AI 初审，你的课设仓库也能跑起来，团队协作时冲突少一半；二是面试能讲——「我搭过 CI 流水线并接入自动化审查」比「我会 Git」有分量得多。重点学它的分支策略和 review 分级，别只盯着数字。",
+   "source": "量子位",
+   "date": "2026-11-21",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Git",
+    "CI"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把 AI 代码审查接进自己的仓库，团队协作和面试都用得上**",
+   "courses": "《软件工程》：版本控制、代码审查与持续集成实践",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "小步提交 + 自动化检查前置是吞吐关键",
+    "AI 做首轮 review，人只看设计决策",
+    "课设仓库即可实践 CI + 自动审查"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/511830.html",
+   "cover": "img/a1201.webp"
+  },
   {
    "id": "a1192",
    "title": "Fast-Anything：别用 Rust 重写整个项目，只重写慢的那 5%",
@@ -23,7 +165,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "先 profiling 定位热点，只重写最慢的 5%",
@@ -3972,187 +4114,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7708058421904392242"
-  },
-  {
-   "id": "a1081",
-   "title": "Uptime Kuma：9 万 Star 的自托管监控，一条 docker 命令替代 Uptime Robot",
-   "summary": "开源自托管监控工具，一条 docker 命令拉起，支持 HTTP/TCP/Ping 等多种探针和告警通知。",
-   "content": "个人项目、实验室服务器、小团队内部系统，最常见的需求就是「它挂了我要第一时间知道」。Uptime Kuma 用一条 docker 命令就能跑起来，配置 HTTP 状态码、TCP 端口、Ping 等探针，挂了通过邮件、Webhook、企业微信等渠道告警。对信息安全与管理专业的同学，这是理解「可用性监控」最省力的入口：部署一遍，再故意把服务停掉，观察告警链路怎么走。软件工程的同学可以把它挂在自己的课设后端上，答辩时展示监控面板，比空口说「系统稳定」有说服力得多。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "监控"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**用一次真实部署+故障演练，把「可用性监控」从概念变成你手上的技能。**",
-   "courses": "《计算机网络》服务可用性实验、《信息安全》运维监控环节",
-   "tags": [
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "docker 一条命令部署，零成本替代商业监控",
-    "支持 HTTP/TCP/Ping 探针与多渠道告警",
-    "可故意停服验证告警链路，理解可用性监控",
-    "挂在课设后端上，答辩有实据"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708343970518302739"
-  },
-  {
-   "id": "a1082",
-   "title": "会 JavaScript 就能写浏览器扩展：manifest 到发布的最短路径",
-   "summary": "浏览器扩展是前端同学最容易快速交付的作品，核心只是一个 manifest.json 加几段 JS。",
-   "content": "扩展的结构比想象中简单：manifest.json 声明权限和入口，content script 注入页面，background 处理事件，popup 提供界面。对前端方向的同学，这是性价比极高的练手项目——代码量小、能真实解决自己的痛点（比如给教务系统加个课表提醒、给文档站加个划词翻译），还能写进简历当作品。注意两点：权限声明要最小化，别一上来就要 all_urls，这是安全习惯；发布到商店前先本地加载未打包扩展调试。做完一个，你对浏览器运行机制的理解会明显上一个台阶。",
-   "source": "DEV Community",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "JavaScript",
-    "浏览器扩展"
-   ],
-   "diff": 1,
-   "scene": "练手/简历加分",
-   "value": "**用几百行 JS 交付一个真实可用的作品，是前端方向最快的简历加分项。**",
-   "courses": "《Web 前端开发》课程设计，可作为综合实践选题",
-   "tags": [
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "manifest.json + content script + background + popup 四件套",
-    "权限最小化声明，是安全习惯也是过审前提",
-    "选题从自己真实痛点出发，容易做出可用作品",
-    "可本地加载未打包扩展快速调试"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Want to build a browser extension? If you know JavaScript, you’re already most of the way there.",
-   "link": "https://dev.to/hridoy_dev/want-to-build-a-browser-extension-if-you-know-javascript-youre-already-most-of-the-way-there-1lml",
-   "cover": "img/a1082.webp"
-  },
-  {
-   "id": "a1083",
-   "title": "多 Agent 同改一个项目怎么不打架：Claude Code 的并发协作机制",
-   "summary": "多个 AI 同时修改同一代码库时的冲突控制问题，从玩家自折腾变成了工具内置能力。",
-   "content": "五个 Agent 同时改一个仓库，冲突从哪来？文件级写冲突、上下文不一致、重复改动。文章讨论的正是这类并发协作的工程解法。哪怕你现在只用单个 AI 辅助写代码，也值得读：它本质上是「多写者并发控制」问题，和你数据库课学的锁、版本控制里的分支合并是同一类思考。实际可用的做法是给每个 Agent 划定文件边界、用分支隔离、合并前强制 review。团队协作课设里如果有人同时用 AI 改代码，这套约定能省掉大量回滚。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code",
-    "Git"
-   ],
-   "value": "**把多 Agent 协作当成并发控制问题来理解，比追工具本身更有长期价值。**",
-   "courses": "《操作系统》并发与互斥概念的工程映射、《软件工程》团队协作规范",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "多 Agent 并发改代码的核心矛盾是写冲突与上下文不一致",
-    "解法思路：文件边界划分 + 分支隔离 + 合并前 review",
-    "本质是并发控制问题，与锁和版本管理同源",
-    "团队课设中可先约定 AI 改码的分工规则"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708023020069601295"
-  },
-  {
-   "id": "a1075",
-   "title": "AI Agent 读百页 PDF 的正确姿势：清单先行 + offset/limit 分段读取",
-   "summary": "掘金文章拆解 AI Agent 的「感知工具」设计：如何避免只读前几页就下结论，用清单+分段读取+缺口标注让 Agent 真正读懂长文档。",
-   "content": "做课设或毕设时把 PDF 丢给大模型，经常发现它只看了前几页就自信作答。这篇文章给出一套可落地的工具设计思路：先让 Agent 拿到文档目录/清单，再按 offset/limit 分段读取正文，并显式记录「哪些段落还没读」，最后汇总时标注信息缺口；遇到图片则按场景选择 OCR、多模态直读或跳过。对软件工程同学来说，这是典型的「工具调用 + 上下文管理」工程问题，比调 prompt 更考验设计能力。你可以直接把这套思路搬进自己的 RAG 小项目：给检索工具加分段参数和覆盖度检查，答案质量会明显稳定。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "RAG",
-    "LLM"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**学会给 AI 工具设计「读全」机制，你的 RAG 项目答案质量能上一个台阶。**",
-   "courses": "《人工智能导论》《软件工程课程设计》——把分段读取与覆盖度检查做进课设的检索模块",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "先给文档清单再读全文，避免 Agent 只读前几页就作答",
-    "用 offset/limit 分段读取，并显式标注未覆盖的缺口",
-    "图片处理按场景选 OCR / 多模态直读 / 跳过",
-    "可直接迁移到自己的 RAG 课设项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708010764015517723"
-  },
-  {
-   "id": "wk-20261116",
-   "title": "【AI风向标周报】第1期（11.16-11.22）",
-   "summary": "本周精选：谷歌 PageBreak：AI 安全、Java 曝出内存损坏漏洞 Java等 5 条资讯；等 0 个岗位；3 个实用工具，一文看完本周重点。",
-   "content": "本周共精选 5 条行业资讯、0 个岗位、3 个实用工具。\n\n【本周精选资讯】\n1. 谷歌 PageBreak：AI 安全代理已挖出 500+ XSS 漏洞\n   Web 漏洞挖掘正在被代理化，掌握「发现+验证」闭环比背原理更值钱。\n   原文：https://www.infoq.cn/article/uGTol3TSzOV72NSrcBrB?utm_source=rss&utm_medium=article\n2. Java 曝出内存损坏漏洞 Java4Shell（CVE-2026-114938），藏在 Base64 解码器里\n   用一个真实 CVE 讲清“语言安全不等于运行时安全”，是信安课设与简历的现成素材。\n   原文：https://www.oschina.net/news/503646/java4shell-write-once-rce-everywhere\n3. Spring Boot/Framework/Security 首个候选版本齐发：现在该盯哪些升级点\n   提前摸清 Spring 新版变更，课设升级不踩坑，面试能聊生态演进\n   原文：https://www.infoq.cn/article/uCmKjbkjjkW17olm7smj?utm_source=rss&utm_medium=article\n4. Entire Git Forge：为编码智能体重构 Git 协作方式，传统 PR 流程要变\n   AI 写代码的时代，Git 协作模型正在被重写，先弄懂变更集管理的人在做课设和实习时都占先手。\n   原文：https://www.infoq.cn/article/6swrOq5xUXwVqrREwJwc?utm_source=rss&utm_medium=article\n5. Cursor 插件市场被投毒：泄露密钥导致恶意 Claude Code 扩展下发，隐私模式开还是关？\n   AI 编程工具已是真实攻击面，密钥管理与依赖源校验必须进你的日常开发习惯。\n   原文：https://dev.to/aitecharchive/cursor-data-breach-claude-code-extension-privacy-mode-vs-off-4clk\n\n【本周精选岗位】\n\n\n【本周实用工具】\n1. AG-UI 协议：把 AI Agent 接进前端，与 MCP、A2A 并列的第三块拼图\n   让你做的 AI 页面从「调个接口」升级为符合行业协议的 Agent 前端\n   获取：https://juejin.cn/post/7709049532554870793\n2. Agent 只输出计划不调工具？四层防线拆解循环错位\n   学会给 Agent 循环加断言和状态控制，是把它从玩具变成可用系统的分水岭。\n   获取：https://juejin.cn/post/7709222846371069971\n3. Fast-Anything：别用 Rust 重写整个项目，只重写慢的那 5%\n   教你用最小改动拿到最大性能收益，而不是盲目重写\n   获取：https://github.com/EL4CTEO/fast-anything\n\n完整内容可在站内按标签筛选查看；周报自动归档于「周报汇总」分类。",
-   "source": "AI风向标·编辑部",
-   "date": "2026-11-22",
-   "cat": "weekly",
-   "tags": [
-    "周报汇总",
-    "求职就业",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 99,
-   "brief": [
-    "精选资讯 Top5：谷歌 PageBreak：AI 安全代理已挖出 500+ XSS 漏洞",
-    "精选岗位 Top0：—",
-    "实用工具 Top3：AG-UI 协议：把 AI Agent 接进前端，与 MCP、A2A 并列的第三块拼图"
-   ],
-   "link": "",
-   "cover": "img/a1126.webp",
-   "weekly": {
-    "issue": 1,
-    "start": "2026-11-16",
-    "end": "2026-11-22",
-    "news": [
-     "a1126",
-     "a1133",
-     "a1107",
-     "a1174",
-     "a1173"
-    ],
-    "jobs": [],
-    "tools": [
-     "a1112",
-     "a1127",
-     "a1192"
-    ]
-   },
-   "pinned": true
   }
  ],
  "jobs": [
