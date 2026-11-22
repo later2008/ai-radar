@@ -1,6 +1,178 @@
 {
- "updatedAt": "2026-11-21 17:10",
+ "updatedAt": "2026-11-22 04:11",
  "news": [
+  {
+   "id": "a1187",
+   "title": "Pinterest 联合英特尔把性能分析开源工具推到互联网级规模",
+   "summary": "Pinterest 与英特尔合作，将开源性能分析方案扩展到超大规模生产环境，覆盖海量服务实例的持续采样与归因。",
+   "content": "性能分析不只是本地跑个 profiler。Pinterest 这套方案的核心是把采样、聚合、可视化做成可横向扩展的流水线：海量实例上低开销采集，集中存储后按服务/接口维度下钻，定位慢查询和热点函数。对软件工程同学来说，这是「可观测性」的完整工程案例——你会看到采样率、开销预算、数据倾斜这些真实取舍。建议对照课程里的性能测试章节，用 Pyroscope 或 async-profiler 在自己课设的 Java 服务上做一次持续 profiling，把火焰图接进 Grafana，简历上就是一条实打实的性能优化经历。",
+   "source": "InfoQ中文",
+   "date": "2026-11-22",
+   "cat": "stack",
+   "tracks": [
+    "通用开发",
+    "Java"
+   ],
+   "stack": [
+    "async-profiler",
+    "Grafana"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**把「性能优化」从口头说说变成可展示的工程能力**",
+   "courses": "《软件性能测试》《软件工程》课程设计里做服务端性能剖析与优化报告",
+   "tags": [
+    "通用开发",
+    "求职就业",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "大规模持续 profiling 的工程化落地路径",
+    "低开销采样 + 集中聚合 + 火焰图下钻",
+    "可直接复刻到课设项目的性能优化链路"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/fs4IuBTjwIwR1xUgdjqt?utm_source=rss&utm_medium=article",
+   "cover": "img/a1187.webp"
+  },
+  {
+   "id": "a1188",
+   "title": "AWS 推出 TorchNeuron：PyTorch 模型零改动跑上 Trainium",
+   "summary": "亚马逊云科技发布 TorchNeuron，让标准 PyTorch 代码无需修改即可在自研 Trainium 芯片上训练推理。",
+   "content": "这件事的技术含义是「后端可插拔」：框架层把算子映射、编译和内存管理下沉，上层 PyTorch 代码保持原样。对软件工程和工业软件方向的同学，这是理解抽象层设计的好样本——同一份模型代码，换后端就能换硬件，靠的是中间表示和算子覆盖度。实操建议：在课程实验里用 torch.compile 对比 CPU/GPU 的图优化差异，理解「编译期优化 vs 运行时调度」。如果你以后做工业仿真或边缘推理，这种硬件无关的部署思路会反复出现。",
+   "source": "InfoQ中文",
+   "date": "2026-11-22",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "PyTorch"
+   ],
+   "value": "**看懂「框架—编译器—硬件」三层解耦，部署选型不再被绑死**",
+   "courses": "《机器学习》《编译原理》里对照图优化与后端代码生成",
+   "tags": [
+    "通用开发",
+    "工业软件",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "PyTorch 代码零改动切换自研加速芯片",
+    "核心是算子映射与编译后端抽象",
+    "可类比理解 torch.compile 的图优化机制"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/XhtWUmaolJECUhPX2jzY?utm_source=rss&utm_medium=article",
+   "cover": "img/a1188.webp"
+  },
+  {
+   "id": "a1189",
+   "title": "智能体身份国际标准化的体系布局与研制实践",
+   "summary": "AICon 北京议题，讲 AI Agent 身份标识的国际标准制定思路与工程落地实践。",
+   "content": "Agent 要调用系统、访问数据、代表用户执行操作，就必须回答「你是谁、你能干什么、谁授权」。这正是信息安全与管理专业的核心命题：身份认证、最小权限、审计追溯。标准化的方向通常包括可验证身份凭证、能力声明、委托授权链。建议把它和课程里的 OAuth 2.0 / OIDC 对照学习——先在自己写的 Agent 小工具里实现「令牌 + 作用域 + 调用日志」三件套，再去看标准草案，理解为什么需要跨域信任。这类议题在安全岗面试里属于加分项。",
+   "source": "InfoQ中文",
+   "date": "2026-11-22",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "OAuth 2.0"
+   ],
+   "value": "**把 AI Agent 安全从概念落到认证授权的具体实现**",
+   "courses": "《信息安全技术》《身份认证与访问控制》课程案例",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "Agent 身份认证、能力声明与委托授权链",
+    "与 OAuth/OIDC 的最小权限模型一脉相承",
+    "可落地为个人项目的令牌+作用域+审计日志"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/721YPdyIZ1D8xz20D22C?utm_source=rss&utm_medium=article",
+   "cover": "img/a1189.webp"
+  },
+  {
+   "id": "a1190",
+   "title": "Pandex：用 MCP 把欧盟法规做成 AI Agent 可调用的接口",
+   "summary": "Pandex 将欧盟法律条文通过 MCP 协议暴露给 AI Agent，让智能体可检索并引用合规条款。",
+   "content": "MCP（Model Context Protocol）正在成为 Agent 接外部数据的通用接口，这个项目把它用在法规检索上：把结构化法条封装成工具，Agent 按需调用并给出出处。对信息安全和工业软件同学都有用——前者关心 GDPR 类合规要求怎么被机器读取，后者关心标准/规范文档如何接入工程流程。动手建议：用官方 MCP SDK 写一个最简单的 server，把学校课程大纲或某份国标文档做成可查询工具，接进 Claude 或本地模型，两天能跑通，是很好的简历小项目。",
+   "source": "Hacker News",
+   "date": "2026-11-21",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**掌握 MCP 就等于拿到给 Agent 接数据的手艺**",
+   "courses": "《软件工程》综合实践里做工具化数据接入模块",
+   "tags": [
+    "AI工具",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "MCP 协议作为 Agent 接外部数据的标准接口",
+    "法规/标准文档结构化后变成可调用工具",
+    "用 MCP SDK 两天可做出可演示的小项目"
+   ],
+   "buzz": [],
+   "link": "https://www.pandex.io",
+   "cover": "img/a1190.webp"
+  },
+  {
+   "id": "a1191",
+   "title": "Rust GUI 的下一个百个：Linebender 给出的架构建议",
+   "summary": "Linebender 团队总结 Rust GUI 生态的经验教训，讨论渲染架构、状态管理与跨平台抽象的设计取舍。",
+   "content": "Rust GUI 长期碎片化，这篇文章的价值在于把「为什么难」讲清楚了：保留式 vs 立即式、布局与绘制的分层、无障碍与输入法的跨平台差异。对前端方向的同学，读它能反向理解浏览器渲染管线和 React 的调和过程为什么那样设计；对工业软件方向，桌面端上位机界面选型时这些权衡直接决定后期维护成本。建议只读架构章节，然后拿 egui 写一个带表格和实时曲线的监控面板，体会立即式 UI 在数据刷新场景下的简洁。",
+   "source": "Hacker News",
+   "date": "2026-11-21",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "工业软件"
+   ],
+   "stack": [
+    "Rust",
+    "egui"
+   ],
+   "diff": 3,
+   "scene": "进阶学习/工业上位机",
+   "value": "**搞懂 GUI 架构分层，桌面端界面选型不再拍脑袋**",
+   "courses": "《人机交互》《程序设计》课程设计中的界面架构部分",
+   "tags": [
+    "前端开发",
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "Rust GUI 生态的架构分层与设计取舍",
+    "对照理解前端渲染管线与状态管理",
+    "用 egui 做实时数据面板是低成本练手"
+   ],
+   "buzz": [],
+   "link": "https://linebender.org/blog/next-100-guis/"
+  },
   {
    "id": "a1182",
    "title": "华为云开源昇腾原生具身世界模型CloudRobo-WM1.2，两项评测第一",
@@ -26,7 +198,7 @@
     "AI工具",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "开源含训练框架与部署工具链，不只是权重",
@@ -3944,180 +4116,6 @@
    ],
    "buzz": [],
    "link": "https://juejin.cn/post/7708219159427121215"
-  },
-  {
-   "id": "a1072",
-   "title": "手搓 AI Agent 第 7 篇：错误分类 + 双账本熔断，让 Agent 报错后别原地打转",
-   "summary": "给 Agent 的失败做分类、附修复提示，再用两本账记录连续失败次数，到上限自动熔断停止。",
-   "content": "Agent 出错后最常见的坏行为是「原地打转」：同一个工具反复调、同样的错反复犯，token 烧完也没结果。这篇是手搓 Agent 系列的第 7 篇，讲两件事：一是把失败分类（参数错、工具不可用、结果不满足约束），并在错误信息里附一句「该怎么改」的提示回喂给模型；二是记两本账——单轮失败账和累计失败账，连续失败到阈值就熔断停止。这是很典型的工程健壮性设计，写进课设里能明显提升演示稳定性。建议在《软件工程》或实训项目中给 Agent 模块加上这套机制，答辩时讲「我如何防止 Agent 死循环」是个加分点。",
-   "source": "掘金",
-   "date": "2026-11-14",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**会写 Agent 不稀奇，能让它出错后体面停下才是工程能力。**",
-   "courses": "《软件工程》实训：用于 Agent 模块的异常处理与稳定性设计。",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "失败要分类，并回喂「怎么改」的提示",
-    "双账本记录失败次数，超阈值自动熔断",
-    "解决 Agent 死循环烧 token 的常见问题",
-    "工程健壮性设计，答辩可讲"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708017347626549267"
-  },
-  {
-   "id": "a1073",
-   "title": "GitLab 19.5 发布：把 AI 智能体开发纳入可治理的 DevOps 平台",
-   "summary": "GitLab 新版本将智能体开发纳入 DevOps 治理体系，强调 AI 产出的可审计与可管控。",
-   "content": "GitLab 19.5 的核心变化是把智能体开发纳入平台的可治理能力：AI 参与的代码变更、流水线动作要能被审计和管控，而不是黑盒产出。对信息安全与管理专业的同学，这直接对应《信息安全管理》里的变更管理与审计追踪知识点——AI 生成代码进入 CI/CD 后，权限边界、操作留痕、审批链路怎么设计。对软件工程方向的同学，则意味着以后进企业做 DevOps，AI 产物的合规审查会是日常工作的一部分。建议了解其治理模型思路，面试聊「AI 辅助开发如何保证可追溯」时有话可说。",
-   "source": "InfoQ中文",
-   "date": "2026-11-15",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "DevOps"
-   ],
-   "value": "**AI 写代码之后，「谁审、谁负责、怎么留痕」成了新的工程与安全命题。**",
-   "courses": "《信息安全管理》：结合变更管理与审计追踪章节理解平台治理设计。",
-   "tags": [
-    "行业动态",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "AI 智能体开发被纳入 DevOps 治理与审计",
-    "对应变更管理、操作留痕、权限边界等安全议题",
-    "企业 DevOps 岗位将涉及 AI 产物合规审查",
-    "可作为面试中「AI 可追溯性」的谈资"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1?utm_source=rss&utm_medium=article",
-   "cover": "img/a1073.webp"
-  },
-  {
-   "id": "a1074",
-   "title": "用 FastAPI + React 搭一个可解释的多智能体金融分析平台",
-   "summary": "英文实战：不用单个大模型当「神谕」，而是多 Agent 分工 + 可解释输出，前后端全栈实现。",
-   "content": "把大模型当成一个「问它股票能不能买」的神谕很危险：确认偏误、财务数字幻觉都会出现。这篇英文实战用 FastAPI 做后端、React 做前端，搭一个多智能体金融分析平台，重点是「可解释」——每个 Agent 负责一块（数据、风险、结论），输出要能追溯依据。对软件工程同学，这是一个完整的前后端分离项目范例：接口设计、Agent 编排、结果可视化都能拆开学。建议不要照抄金融场景，把领域换成你熟悉的（比如课程成绩分析、图书推荐），保留多 Agent 分工 + 可解释输出的架构，就是一个有深度的课设。",
-   "source": "DEV Community",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "FastAPI",
-    "React"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**多 Agent + 可解释输出的架构，是当前全栈项目里最能拉开差距的设计。**",
-   "courses": "《Web 应用开发》/软件工程课设：参考其前后端分离与 Agent 编排结构。",
-   "tags": [
-    "前端开发",
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "FastAPI 后端 + React 前端的完整全栈项目结构",
-    "多 Agent 分工替代单一 prompt，输出可追溯",
-    "可把金融场景替换为课设熟悉的领域",
-    "适合作为有深度的全栈课程设计参考"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Beyond Black-Box Prompts: Building an Explainable Multi-Agent Financial Intelligence Platform with FastAPI & React",
-   "link": "https://dev.to/khare69/beyond-black-box-prompts-building-an-explainable-multi-agent-financial-intelligence-platform-with-4o03",
-   "cover": "img/a1074.webp"
-  },
-  {
-   "id": "a1066",
-   "title": "用 Rust+ratatui 写一个终端工厂游戏：terminactory 开源可玩",
-   "summary": "一个用 Rust 和 ratatui 写的终端原生放置类工厂游戏，作者开源在 GitLab，适合拿来读源码学 TUI 架构。",
-   "content": "terminactory 是一个纯终端运行的工厂放置游戏，技术栈是 Rust + ratatui（TUI 渲染库），代码量不大、结构清晰。对软件工程同学的价值不在「玩」，而在「读」：它演示了如何用状态机管理游戏循环、如何把渲染层和逻辑层解耦、如何用事件驱动处理键盘输入——这些正是课设里做命令行工具时最容易写成一坨的地方。建议做法：clone 下来跑通，然后尝试加一个「生产线」或「存档到 JSON」的功能，作为 Rust/系统编程课的加分项。",
-   "source": "Hacker News",
-   "date": "2026-11-14",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust",
-    "ratatui"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**读一个真实 TUI 项目的分层写法，比看十篇教程管用**",
-   "courses": "《程序设计》《软件工程》课设中做命令行工具时参考其架构",
-   "tags": [
-    "通用开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "Rust + ratatui 的完整 TUI 项目范例，代码可读",
-    "重点看事件循环与渲染/逻辑分层设计",
-    "练手任务：加存档功能或新产线",
-    "可作为系统编程/软件设计课设参考"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Show HN: A terminal-native idle factory game, written in Rust with ratatui",
-   "link": "https://gitlab.com/snipedbywifi/terminactory"
-  },
-  {
-   "id": "a1067",
-   "title": "LangChain 完成 3 亿美元 C 轮、估值 30 亿美元：LLM 应用层还在扩张",
-   "summary": "LangChain 融资至 30 亿美元估值，说明「把大模型接进业务系统」的工程岗位需求仍在增长。",
-   "content": "LangChain 是当前最主流的 LLM 应用编排框架，Python 和 JS 双端都有。这条融资消息对学生的实际意义是判断方向：企业愿意为「模型接入、RAG、Agent 编排」这类工程能力付费，意味着招聘 JD 里会出现 LangChain/LangGraph、向量库、Prompt 工程等关键词。建议把它当成一个可写进简历的技能点：用 Python 版 LangChain 做一个带检索的问答小系统（比如把课程资料灌进向量库），跑通「文档切分→embedding→检索→生成」全链路，比只看文档强得多。",
-   "source": "爱范儿",
-   "date": "2026-11-14",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LangChain"
-   ],
-   "value": "**LLM 应用工程是当前最容易变现的技能方向，值得投入一个项目周期**",
-   "courses": "《人工智能导论》《软件工程》课程设计可做 RAG 问答系统",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "LangChain 估值 30 亿美元，LLM 应用工程岗需求持续",
-    "核心技能：RAG 链路、Agent 编排、向量库",
-    "练手项目：课程资料问答系统",
-    "简历上写「跑通过完整 RAG 链路」比写「了解大模型」有用"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689450?utm_source=rss&utm_medium=rss&utm_campaign="
   }
  ],
  "jobs": [
