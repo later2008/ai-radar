@@ -1,6 +1,268 @@
 {
- "updatedAt": "2026-11-23 04:52",
+ "updatedAt": "2026-11-23 17:23",
  "news": [
+  {
+   "id": "a1210",
+   "title": "Spring AI 2.0 只支持 Boot 4：JDK 21 + Boot 4.1 + Spring AI 2.0.1 是当前唯一正式组合",
+   "summary": "Spring AI 2.0 与 Spring Boot 4 强绑定，目前能同时拿到正式版的只有 JDK 21、Boot 4.1、Spring AI 2.0.1 这一套组合。",
+   "content": "如果你在课程项目里用 Spring Boot 接大模型，这条直接决定你的依赖版本。文章梳理了版本矩阵：Spring AI 2.0 要求 Boot 4.x，Boot 4.2 刚发布不久，稳定可用的正式组合是 JDK 21 + Boot 4.1 + Spring AI 2.0.1。这意味着你不能沿用 Boot 3.x 的教程直接抄，pom 里的 parent 版本、spring-ai 的 BOM 都要同步升级，否则启动就报兼容错误。建议做法：新建一个最小 demo 工程，只接一个 ChatClient 打通调用链，确认版本无误后再往课设项目里搬。",
+   "source": "掘金",
+   "date": "2026-11-23",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI",
+    "Spring Boot"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**帮你避开 Spring AI 版本踩坑，一次配对环境**",
+   "courses": "《Java Web 开发》《企业级应用开发》——课设接大模型时按此版本矩阵配环境",
+   "tags": [
+    "Java全栈",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "Spring AI 2.0 与 Spring Boot 4 强绑定，Boot 3.x 教程不能直接套用",
+    "当前稳定组合：JDK 21 + Boot 4.1 + Spring AI 2.0.1",
+    "先建最小 demo 验证版本，再迁移到课程项目"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711225699184689206"
+  },
+  {
+   "id": "a1211",
+   "title": "SJF4J 1.5.2 发布：Java 对象直接支持 JSONPath、JSON Schema 与 JSON Patch",
+   "summary": "开源库 SJF4J 让普通 POJO、Map、List 无需序列化即可使用统一的 JSON 处理 API。",
+   "content": "日常写 Java 后端，处理 JSON 基本是「序列化成树 → 遍历 → 再转回对象」，代码又长又容易空指针。SJF4J 的思路是把 JSONPath 查询、JSON Schema 校验、JSON Patch 增量修改直接挂到 Java 对象模型上，不用先转成中间 JSON 树。对课设里的配置解析、接口报文校验、局部字段更新这几类场景很实用：比如用 JSON Schema 校验前端传来的表单 JSON，用 JSON Patch 做部分字段更新，代码量能明显压下来。建议在《Java 程序设计》或课设的小模块里先试一个 JSONPath 取值场景，评估是否值得引入。",
+   "source": "开源中国",
+   "date": "2026-11-23",
+   "cat": "tool",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "SJF4J"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**用更少代码完成 Java 里的 JSON 查询与校验**",
+   "courses": "《Java 程序设计》《Java Web 开发》——课设中做报文校验与字段提取可直接用",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "POJO/Map/List 可直接用 JSONPath 查询，无需先序列化",
+    "内置 JSON Schema 校验与 JSON Patch 增量修改",
+    "适合配置解析、报文校验、局部字段更新场景"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503741"
+  },
+  {
+   "id": "a1212",
+   "title": "Java 生态近期动态：TornadoVM、A2A Java、Open Liberty、Gradle、EclipseStore",
+   "summary": "一期汇总 Java 生态多个项目的版本与能力更新，覆盖 GPU 加速、Agent 互操作、应用服务器与构建工具。",
+   "content": "这类汇总适合当「技术雷达」扫一遍，不必逐条深读。对软件工程学生有价值的点：TornadoVM 让 Java 代码跑在 GPU 上，做高性能计算方向可以留意；A2A Java 是 Agent 间通信协议的 Java 实现，和现在企业里 Agent 规模化落地的方向对得上；Open Liberty、Gradle、EclipseStore 属于工程基建，Gradle 的更新尤其值得看，因为课设和实习项目基本都绕不开构建工具。建议花十分钟只挑和你当前项目相关的两三条，记进自己的技术笔记，别一次性全啃。",
+   "source": "InfoQ中文",
+   "date": "2026-11-23",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Gradle"
+   ],
+   "value": "**十分钟扫完 Java 生态动向，挑出与你项目相关的一两条**",
+   "courses": "《Java 程序设计》《软件工程》——了解生态演进，为选型和实习面试积累谈资",
+   "tags": [
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "TornadoVM：Java 代码 GPU 加速，偏高性能计算方向",
+    "A2A Java：Agent 间通信协议的 Java 实现，贴合企业 Agent 落地趋势",
+    "Gradle 更新与日常构建、实习项目直接相关"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/7912LtESaQAFaci2lFor?utm_source=rss&utm_medium=article",
+   "cover": "img/a1212.webp"
+  },
+  {
+   "id": "a1213",
+   "title": "百度智能云企业级 Agent 安全落地实践：Agent 想用但不敢用，卡在哪",
+   "summary": "从企业落地视角拆解 Agent 的安全风险与防护设计，回答「敢不敢让 Agent 碰真实系统」这个问题。",
+   "content": "信息安全与管理专业的同学注意：Agent 接进企业系统后，风险面比传统应用大得多——它能自主调工具、读数据、执行操作，权限一旦给宽就是事故。这篇讲的是企业级落地时的安全设计：权限边界怎么划、工具调用怎么审计、敏感操作怎么加人工确认。这些和你学的访问控制、最小权限原则、审计日志是一套东西，只是对象从「人」换成了「Agent」。建议把它当作《信息安全导论》或访问控制相关课程的案例素材，写课程报告时用「Agent 权限模型设计」做切入点，比泛泛谈 AI 安全更有分量。",
+   "source": "InfoQ中文",
+   "date": "2026-11-23",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**把 Agent 安全落到你学过的访问控制与审计知识上**",
+   "courses": "《信息安全导论》《访问控制技术》——作为 Agent 权限模型设计的案例分析",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "Agent 自主调工具、读数据，权限过宽即高风险",
+    "核心手段：权限边界划分、调用审计、敏感操作人工确认",
+    "可作访问控制/最小权限原则的课程案例"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/dzgleaOZ3ILx5cztUtXw?utm_source=rss&utm_medium=article",
+   "cover": "img/a1213.webp"
+  },
+  {
+   "id": "a1214",
+   "title": "DeepAgents 记忆模块踩坑记：长期记忆和对话摘要不是一回事",
+   "summary": "作者用两个 Demo 对比「文件存事实与偏好」和「超长对话自动摘要归档」，说明两者解决的是不同问题。",
+   "content": "做 AI 应用时最容易混淆的一点：把对话摘要当成长期记忆。这篇的结论很清楚——摘要是压缩上下文、防止超 token，属于短期手段；长期记忆要存的是稳定事实和用户偏好，得落到外部存储并按需检索。作者用 DeepAgents 写了两个 Demo 验证：一个用文件保存项目事实与用户偏好，一个在对话过长时生成摘要并归档旧消息。如果你在做带记忆的课设或毕设，建议照这个思路分层：摘要层管上下文长度，记忆层管跨会话一致性，别用一套机制硬扛两件事。",
+   "source": "掘金",
+   "date": "2026-11-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "DeepAgents",
+    "LangChain"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**搞清记忆分层，避免 AI 应用设计上的常见误区**",
+   "courses": "《人工智能导论》《软件工程》——毕设做智能助手类项目时的架构参考",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "摘要解决上下文超长，长期记忆解决跨会话事实一致性",
+    "两个 Demo：文件存事实偏好 vs 对话超长自动摘要归档",
+    "做带记忆的 AI 应用时应分层设计，不要混用"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711199035106000946"
+  },
+  {
+   "id": "a1215",
+   "title": "用 Deep Agents 复现深度调研助手：主 Agent、子 Agent 与 Skill 的分工",
+   "summary": "面向已了解 LangChain、LangGraph 的读者，从零搭一个能制定计划、调用搜索的调研助手。",
+   "content": "这是一篇动手型教程，适合已经跑通过 LangGraph 基础 demo、想往「多 Agent 协作」走一步的同学。结构是：主 Agent 负责拆解问题、制定调研计划，子 Agent 承担具体检索与整理，Skill 封装可复用能力。这类分层设计在工业软件场景里也有对应——比如把工艺参数查询、规范检索拆成独立子能力，由主流程编排。建议做法：不要一上来就复现完整版，先把「主 Agent 调一个子 Agent 完成一次搜索」跑通，再逐步加 Skill 和计划模块，否则调试链路会失控。",
+   "source": "掘金",
+   "date": "2026-11-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Deep Agents",
+    "LangGraph"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**多 Agent 协作的完整练手路径，可迁移到工业软件场景**",
+   "courses": "《人工智能导论》《软件工程》——毕设或创新项目中的多 Agent 架构参考",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "主 Agent 制定计划、子 Agent 执行检索、Skill 封装复用能力",
+    "前置要求：已掌握 LangChain 与 LangGraph 基础",
+    "建议先跑通单子 Agent 调用，再扩展计划与 Skill"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711195754650517531"
+  },
+  {
+   "id": "a1216",
+   "title": "一条命令在 Mac 本地跑编程 Agent：localcode 上手",
+   "summary": "uv pip install localcode 后进入项目目录即可启动，模型全部跑在本地，可读文件、改文件、跑测试。",
+   "content": "想在本地体验 agentic coding 又不想付 API 费用，这个工具门槛很低：uv pip install localcode，cd 进项目目录执行 localcode 就行，模型全在本地跑。它的能力范围是读文件、改文件、跑测试、执行命令，属于典型的编码 Agent 闭环。注意它的取舍在权限范围——Agent 会真实修改你的项目文件，务必在 git 仓库里用，先 commit 再让它动手，出问题能回滚。适合拿来对比「本地小模型 Agent」和「云端大模型 Agent」的实际差距，也是理解 Agent 工具调用机制的低成本入口。",
+   "source": "开源中国",
+   "date": "2026-11-23",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "localcode"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**零成本在本地体验编码 Agent，理解工具调用闭环**",
+   "courses": "《软件工程》《程序设计实践》——本地验证 Agent 改代码的可行性与风险",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "安装即用：uv pip install localcode，目录内直接启动",
+    "能力覆盖读文件、改文件、跑测试、执行命令",
+    "务必在 git 仓库中使用，先提交再让 Agent 动手"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503746"
+  },
+  {
+   "id": "a1217",
+   "title": "Claude Code 好用但会「失忆」：跨会话上下文丢失的真实痛点",
+   "summary": "作者指出编码 Agent 每次新开会话都像面对一个陌生实习生，已解释过的架构和否决过的方案全部丢失。",
+   "content": "这篇讲的是一个具体工程问题：编码 Agent 的会话是无状态的，关掉再开，之前讲过的项目架构、上周否决的修复方案全没了，你得重新交代一遍。对经常用 AI 辅助写代码的同学，这解释了为什么「同一个问题它反复给错答案」——不是模型变笨，是上下文没接上。实用对策：在项目根目录维护一份简短的 AGENTS.md 或项目说明，写清架构约定和禁止事项，每次开新会话先让它读；重要决策写进提交信息或文档，别只留在对话里。这是低成本但效果明显的工作习惯。",
+   "source": "DEV Community",
+   "date": "2026-11-23",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**一个文件解决 AI 编码助手反复失忆的问题**",
+   "courses": "《软件工程》——项目文档规范与 AI 辅助开发流程结合",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "编码 Agent 会话无状态，跨会话上下文不保留",
+    "对策：维护项目说明文件，新会话先让 Agent 读取",
+    "关键决策落到文档或提交信息，不要只存在对话中"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Claude Code Is Great. It Also Forgets Everything.",
+   "link": "https://dev.to/icegaming/claude-code-is-great-it-also-forgets-everything-3hd8",
+   "cover": "img/a1217.webp"
+  },
   {
    "id": "a1205",
    "title": "JDK 24 之后虚拟线程进生产：Java 并发写法该改了",
@@ -25,7 +287,7 @@
     "Java全栈",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "虚拟线程适合 IO 密集场景，CPU 密集仍用平台线程",
@@ -3847,275 +4109,6 @@
    ],
    "buzz": [],
    "link": "https://www.qbitai.com/2026/11/510486.html"
-  },
-  {
-   "id": "a1098",
-   "title": "ifreeSFTP发布Rust重构版：单文件零运行时，大目录打包传输",
-   "summary": "开源SFTP客户端用Rust+egui重写，上万文件目录以tar流一次往返传输。",
-   "content": "这个项目有两个值得抄的点。一是传输优化：逐文件往返在万级文件目录下延迟爆炸，它改成服务端先打tar流、到达即解包，一次往返搞定——这是典型的批量I/O优化思路，做文件同步课设可以直接借鉴。二是工程形态：Rust+egui编译成单文件、零随包运行时，分发成本极低。信息安全方向的同学还能顺手看它的密钥管理与主机指纹校验实现，对照《密码学》里的SSH认证流程。想练手的话，读源码后自己加一个断点续传或传输日志审计功能，就是不错的简历项目。",
-   "source": "开源中国",
-   "date": "2026-11-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 2,
-   "scene": "练手/简历加分",
-   "value": "**批量传输优化与单文件分发的现成范本，可读可改可加功能**",
-   "courses": "《计算机网络》文件传输实验、《程序设计》Rust练手",
-   "tags": [
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "万级文件目录改为tar流一次往返，避免逐文件延迟",
-    "Rust+egui单文件分发，零运行时依赖",
-    "可扩展断点续传或传输审计作为简历项目"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503591"
-  },
-  {
-   "id": "a1099",
-   "title": "三十年系统老将：Rust也拦不住AI制造复杂性",
-   "summary": "资深系统工程师讨论内存管理与AI生成代码带来的复杂度问题，提醒工具不能替代设计。",
-   "content": "核心观点值得记住：语言的安全保证只能约束语法层面，管不住架构层面的混乱。AI生成代码速度越快，重复抽象、隐式依赖、无主模块堆积得越快，最后没人说得清系统怎么跑起来的。对软件工程学生，这意味着评审与设计能力比敲代码更值钱：接手AI写的模块，先画依赖图、找循环引用、标出无测试覆盖的热点，再决定重写还是保留。工业软件方向尤其要注意，设备控制逻辑里的隐式状态一旦扩散，排查成本是几何级增长。",
-   "source": "InfoQ中文",
-   "date": "2026-11-16",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "value": "**AI写得越快，越需要有人能看懂系统结构**",
-   "courses": "《软件工程》代码评审与架构设计",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "语言安全保证管不住架构级复杂度",
-    "AI加速生成会放大重复抽象与隐式依赖",
-    "接手AI代码先画依赖图、找无测试热点"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/FWqT2oGIEl9zlyJ7HXZF?utm_source=rss&utm_medium=article",
-   "cover": "img/a1099.webp"
-  },
-  {
-   "id": "a1100",
-   "title": "DigitalOcean推出Managed Agents托管服务",
-   "summary": "云厂商开始提供Agent托管运行时，把调度、隔离与扩缩容交给平台。",
-   "content": "托管Agent服务的出现说明一件事：Agent正在从「本地脚本」变成「需要运维的服务」。对学生的用法是——课设里如果要跑多个自动化任务（爬数据、生成报告、定时巡检），不必自己写调度和隔离，用托管运行时能省下大量时间，把精力放在业务逻辑上。但要清楚代价：数据出本地、按调用计费、调试链路变长。信息安全方向可顺带思考供应链风险——你把内部工具的执行权交给了第三方平台，审计日志和权限回收怎么做。",
-   "source": "InfoQ中文",
-   "date": "2026-11-16",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**Agent开始需要运维，早一步理解托管模式的取舍**",
-   "courses": "《云计算》服务托管与权限审计讨论",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "Agent从本地脚本演变为需运维的托管服务",
-    "适合课设中多任务调度，省去自建隔离",
-    "注意数据出域、计费与审计日志问题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/LjVeWVAsBWwaiifdMRiu?utm_source=rss&utm_medium=article",
-   "cover": "img/a1100.webp"
-  },
-  {
-   "id": "a1087",
-   "title": "一句“你好”烧掉5671 Token：用Langfuse+LiteLLM给Agent做成本观测",
-   "summary": "作者在Workrun中追查Agent隐性Token成本，接入Langfuse与LiteLLM做链路观测，靠数据反推架构优化。",
-   "content": "很多人写Agent只关心“跑通”，上线才发现一句问候就吃掉5671 Token——系统提示、工具描述、历史上下文层层叠加。作者的排查路径很值得抄：先用LiteLLM做统一网关，把所有模型调用收口；再用Langfuse记录每次请求的prompt/completion token、耗时与调用链，定位是哪一层在膨胀。结论通常是：工具schema太长、历史未裁剪、重复注入系统提示。对做课设或实验班项目的同学，这套“先观测再优化”的方法比盲目换模型有用得多，成本意识也是企业招Agent开发时明确考察的点。",
-   "source": "掘金",
-   "date": "2026-11-16",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Langfuse",
-    "LiteLLM"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**学会给LLM应用做成本可观测，是Agent开发从“能跑”到“能上线”的关键一步。**",
-   "courses": "《软件工程》项目实践或《人工智能导论》课程设计，可作为Agent模块的性能与成本优化章节",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "用LiteLLM统一模型调用入口，便于统计与切换",
-    "Langfuse记录每次调用的token、耗时、调用链",
-    "常见膨胀源：工具schema过长、历史未裁剪、系统提示重复注入",
-    "先量化再优化，别靠感觉调prompt"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708505343479611418"
-  },
-  {
-   "id": "a1088",
-   "title": "Windows上给Claude Code配MCP踩的3个坑，附排查思路",
-   "summary": "照着教程配Claude Code+MCP却始终连不上，作者总结出Windows环境下三个高频坑点。",
-   "content": "MCP（Model Context Protocol）正在成为AI工具接外部能力的标准协议，但Windows上的坑特别多：一是路径与转义问题，JSON配置里的反斜杠和空格路径经常被吞；二是启动方式差异，npx/uvx在PowerShell与cmd下解析行为不同，建议显式写全命令并用绝对路径；三是进程与编码，服务端stderr输出被截断或GBK乱码，导致“看起来启动了其实没连上”。排查顺序建议：先手动在终端跑一遍server命令看原始报错，再用MCP inspector类工具单独验证，最后才回到客户端配置。这类“环境配置+协议调试”的活，正是实习第一天最常被派的任务。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "MCP",
-    "Claude Code"
-   ],
-   "diff": 1,
-   "scene": "练手/课设",
-   "value": "**MCP是当下AI工具链的热门接口标准，会配会调就是可写进简历的实操能力。**",
-   "courses": "《操作系统》或《软件工程》实验环境搭建环节，练习进程、环境变量与配置排错",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "配置里路径用绝对路径，注意反斜杠转义",
-    "npx/uvx在PowerShell与cmd下行为不同，显式写全命令",
-    "先手动运行server看原始报错，再查客户端配置",
-    "编码/输出截断会造成“假连接”"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708343970518499347"
-  },
-  {
-   "id": "a1089",
-   "title": "LangGraph工具调用代理实战：从Router Agent到Tool Calling Agent",
-   "summary": "系列第六章讲LangGraph中Tool Calling Agent的原理与实现，对比路由代理说明何时该用工具调用。",
-   "content": "Router Agent是“先分类再走分支”，工具数量和参数一多就爆炸；Tool Calling Agent则把工具以schema形式交给模型，由模型自己决定调哪个、传什么参，LangGraph负责状态流转与循环控制。文章给出可跑的骨架：定义工具函数并生成schema → 绑定到模型 → 在图中加条件边判断是否有tool_calls → 执行工具回填消息 → 循环直到无工具调用。建议动手时先做两个工具（如查数据库+算汇率），重点体会“消息历史如何累积”和“最大循环次数如何兜底”，这两点直接决定Agent会不会死循环烧钱。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LangGraph",
-    "Python"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**掌握LangGraph的Agent编排，是当前AI应用开发岗最直接的加分项。**",
-   "courses": "《人工智能导论》或《软件工程》课程设计，可作为智能问答/流程自动化项目的技术方案",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "工具以schema交给模型，由模型决定调用与参数",
-    "图结构：条件边判断tool_calls，执行后回填消息再循环",
-    "务必设置最大循环次数，防止死循环烧token",
-    "先做2个工具跑通，再扩展"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708058421904179250"
-  },
-  {
-   "id": "a1090",
-   "title": "Agent评测集别凑数：从100题砍到70题，holdout抓出判分器bug",
-   "summary": "作者放弃凑满100道评测题，讲清扩题的时间成本、holdout纪律，以及第一次holdout如何暴露判分器缺陷。",
-   "content": "做Agent项目最容易犯的错，是把评测集当成KPI凑数量。作者的经验是：题目少但每条可解释，比多而注水更有价值。关键纪律是holdout——调prompt时绝不能看的那部分题，一旦提前看过，评测就失去意义。他的第一次holdout直接抓出判分器bug：判分逻辑对某些表述过度宽松，导致自测分数虚高。对做毕设或竞赛的同学，这套方法可以直接搬：先定20-30条覆盖核心场景的题，留30%做holdout，写清每条题的预期与判分规则，再开始调优。答辩时“我怎么验证的”往往比“我做了什么”更能拿分。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**会做可解释的评测，比会调prompt更能证明你的工程素养。**",
-   "courses": "《软件测试》或《软件工程》课程设计，可作为项目验收与质量评估方法",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "评测集重质不重量，每条题要可解释",
-    "严格holdout：调优期间绝不查看",
-    "holdout能暴露判分器本身的宽松/严格偏差",
-    "先定判分规则再调prompt"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7707979038879973427"
-  },
-  {
-   "id": "a1091",
-   "title": "微软全球服务故障持续超30小时：一次宕机给运维与安全专业的复盘素材",
-   "summary": "微软服务中断超30小时并宣布恢复，是研究高可用、故障演练与应急响应的真实案例。",
-   "content": "超30小时的大规模服务中断，对信息安全与管理专业的同学是难得的复盘样本。可以从三个角度拆：一是单点依赖风险，企业把身份认证、邮件、协作全押在一家云上，故障时无降级路径；二是应急响应流程，官方通报的时间线与实际恢复时间差，反映监控告警与根因定位的效率；三是业务连续性，本地缓存、离线模式、多供应商备份该怎么做。建议把它写成一份故障分析报告：时间线、影响面、根因假设、改进措施，这类文档在面试运维/安全岗时是硬通货。",
-   "source": "爱范儿",
-   "date": "2026-11-15",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**真实故障是最好的教材，会写复盘报告比背概念更能打动面试官。**",
-   "courses": "《信息安全导论》或《计算机网络》课程，可作为高可用与应急响应案例讨论",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "超30小时中断，暴露单云依赖与降级缺失",
-    "复盘维度：时间线、影响面、根因、改进措施",
-    "业务连续性：离线模式、多供应商、本地缓存",
-    "写成故障分析报告可作面试作品"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689521?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a1091.webp"
   }
  ],
  "jobs": [
