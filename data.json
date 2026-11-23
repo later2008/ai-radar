@@ -1,6 +1,171 @@
 {
- "updatedAt": "2026-11-22 20:17",
+ "updatedAt": "2026-11-23 04:52",
  "news": [
+  {
+   "id": "a1205",
+   "title": "JDK 24 之后虚拟线程进生产：Java 并发写法该改了",
+   "summary": "InfoQ 复盘 JDK 24 后虚拟线程在生产环境的真实表现：吞吐、内存占用、与线程池/同步阻塞代码的兼容坑。",
+   "content": "虚拟线程不是「换个 API」那么简单。文章讲的是上线后踩到的实际问题：synchronized 块导致的 pinning、连接池和线程池配置要重算、监控指标口径变化。对你的直接意义是——课程里的多线程/并发编程作业如果还在用 new Thread 或固定线程池跑 IO 密集任务，可以改成 Executors.newVirtualThreadPerTaskExecutor() 对比压测，把 QPS 和内存数据写进实验报告。面试被问「虚拟线程和平台线程区别」时，能讲出 pinning 和池化失效这两个点，比背定义强得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-23",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Java",
+    "虚拟线程"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**把虚拟线程写进你的并发实验和面试答案，是 Java 方向最低成本的加分项**",
+   "courses": "《Java 程序设计》《操作系统》并发章节——用作线程模型对比实验",
+   "tags": [
+    "Java全栈",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "虚拟线程适合 IO 密集场景，CPU 密集仍用平台线程",
+    "注意 synchronized 引起的 pinning 问题",
+    "线程池/连接池参数需重新评估",
+    "可作为并发编程课设的性能对比实验"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/JSf8dl9laEVQLb7dCROQ?utm_source=rss&utm_medium=article",
+   "cover": "img/a1205.webp"
+  },
+  {
+   "id": "a1206",
+   "title": "开源终端 uniTerm 1.12.4：34 种协议合一，Wails+Go+Vue3 写的",
+   "summary": "一个不到 20MB 的跨平台终端工具，集成 SSH、文件传输、远程桌面、数据库、K8s 管理和 AI Agent。",
+   "content": "对软工学生来说，这项目的价值有两层。第一层是当工具用：一台机器上 SSH、SFTP、数据库、K8s 面板全在一个窗口，做课设部署、连实验室服务器、管 Docker 容器都省事，比装五六个客户端清爽。第二层更值钱——它本身是 Wails v3 + Go + Vue 3 的桌面端工程，前端用 Vue、后端用 Go，正好对上你学的 Web 前端和一门后端语言。想找「桌面端 + 前端技术栈」的简历项目，可以扒它的源码看进程通信和协议适配层怎么组织。",
+   "source": "开源中国",
+   "date": "2026-11-22",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Go",
+    "Vue"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**既是省事的运维工具，也是「Vue+Go 桌面端」的现成学习样本**",
+   "courses": "《Web 前端开发》《软件工程》课程设计——桌面端项目参考与服务器管理",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "34 种网络协议、五大平台，单包不到 20MB",
+    "技术栈 Wails v3 + Go + Vue 3，前端技能可直接复用",
+    "适合管理实验室服务器、Docker、K8s",
+    "源码可作桌面端跨栈项目参考"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503723"
+  },
+  {
+   "id": "a1207",
+   "title": "AI 编程 Agent 跑分很高，真实办公任务完成率不到 8%",
+   "summary": "一篇拆解指出：AI 编码 Agent 在基准测试上表现优异，但在模拟真实工作流时完成率极低，差距在工程上下文和任务拆解。",
+   "content": "这条对你不是「AI 不行」的结论，而是使用方法的提醒。跑分高是因为题目边界清晰；真实任务要读既有代码、改配置、跑测试、处理依赖冲突，Agent 常常卡在中途。实操建议：用 Copilot/Claude 写代码时，把任务切成「单文件、单函数、有明确输入输出」的小块，先让它写测试再写实现，改完必须自己跑一遍。另外这也说明一件事——能被 Agent 替代的是「写样板代码」，不能被替代的是定位问题和验证结果的能力，这恰好是你做课设时该练的。",
+   "source": "DEV Community",
+   "date": "2026-11-23",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**决定你竞争力的不是会不会用 AI 写代码，而是会不会把任务拆到 AI 能接住**",
+   "courses": "《软件工程》需求拆解与测试环节——用作 AI 辅助开发的规范讨论",
+   "tags": [
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "基准测试与真实工程任务之间存在巨大落差",
+    "把任务拆小、给足上下文，Agent 才靠谱",
+    "先写测试再让 AI 写实现，便于验证",
+    "重点练定位问题与结果验证能力"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "AI Coding Agents Ace Benchmarks but Finish Under 8% of Simulated Workplace Tasks — Here's the Gap Nobody Talks About",
+   "link": "https://dev.to/shakeelahmed/ai-coding-agents-ace-benchmarks-but-finish-under-8-of-simulated-workplace-tasks-heres-the-gap-l2f",
+   "cover": "img/a1207.webp"
+  },
+  {
+   "id": "a1208",
+   "title": "Agent 上生产，七成的账不在模型上",
+   "summary": "安全视角分析：Agent 落地生产环境，大部分成本和风险来自权限、数据边界、审计与运维，而非模型本身。",
+   "content": "信息安全方向的同学重点看这条。Agent 要调工具、读数据、发请求，等于给系统开了一堆新的权限入口：提示注入让 Agent 越权读文件、工具调用链被劫持、日志里泄露密钥，这些都不是模型能力问题，是工程与安全问题。对应到你的课：做 Web 安全实验时，可以把「LLM Agent 的提示注入」当成一个新增的攻击面来练——构造恶意文档让 Agent 执行非预期工具调用，再设计输入过滤和最小权限的工具白名单。这类题在安全岗面试里已经出现。",
+   "source": "安全客",
+   "date": "2026-11-23",
+   "cat": "industry",
+   "tracks": [
+    "信息安全"
+   ],
+   "stack": [],
+   "value": "**把「Agent 安全」当成一个新攻击面来练，是信安方向现在最稀缺的实操经验**",
+   "courses": "《Web 安全》《网络攻防》——提示注入与权限控制实验",
+   "tags": [
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Agent 生产化的主要成本在权限、审计、运维",
+    "提示注入是新的攻击面，可做实验复现",
+    "防御思路：最小权限工具白名单 + 输入过滤",
+    "适合作为 Web 安全课设的拓展题目"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316523"
+  },
+  {
+   "id": "a1209",
+   "title": "智慧党支部 v1.3：Flask+SQLite 16 个模块，Docker 一条命令起服务",
+   "summary": "一个 MIT 协议的开源管理系统，16 个业务模块、五档权限、自动预警，单容器部署，数据全本地。",
+   "content": "这是个非常适合当「完整业务系统」参考模板的项目。技术栈是 Flask + SQLite，轻量、能一条 docker 命令跑起来，你可以在本机起一份，直接读它的权限模型怎么设计（五档权限）、预警规则怎么配、报表怎么生成。对软件工程课设来说，它示范了一个真实系统该有的东西：模块划分、权限、日志、部署脚本，而不是只有增删改查。想练手可以试着给它加一个模块或把 SQLite 换成 MySQL，都是能写进简历的改动。",
+   "source": "开源中国",
+   "date": "2026-11-22",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Flask",
+    "Docker"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**想做出「像个真系统」的课设，先读一遍它的权限和部署设计**",
+   "courses": "《数据库原理》《软件工程》课程设计——权限模型与部署实践",
+   "tags": [
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "Flask + SQLite 单容器，本地一条命令启动",
+    "16 个业务模块 + 五档权限，可读权限设计",
+    "适合作为软件工程课设的完整系统参考",
+    "练手方向：加模块、换数据库、补测试"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503721"
+  },
   {
    "id": "a1202",
    "title": "纳斯达克单日暴跌5%：自动交易Agent在流动性枯竭时如何失控",
@@ -25,7 +190,7 @@
     "通用开发",
     "行业动态"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "多Agent同质化决策会放大市场波动，本质是缺乏熔断与限流",
@@ -3951,175 +4116,6 @@
    "buzz": [],
    "link": "https://www.ifanr.com/1689521?utm_source=rss&utm_medium=rss&utm_campaign=",
    "cover": "img/a1091.webp"
-  },
-  {
-   "id": "a1092",
-   "title": "Token出海的钱追不上存储成本：按词元收费、按GB花钱的结构性矛盾",
-   "summary": "AI服务收入按Token计价，成本却随存储与带宽按GB增长，商业模型存在结构性错配。",
-   "content": "这条对做后端和成本敏感型开发的同学有直接启发：AI应用的计费单位（Token）和资源消耗单位（存储GB、带宽、GPU时长）并不一致，规模一大，毛利就被存储和上下文缓存吃掉。落到工程上就是几个具体决策：对话历史保留多久、是否做摘要压缩、向量库索引怎么分层、冷热数据怎么分离。你在课设里写的“把聊天记录全存下来”，在生产环境就是成本黑洞。理解这种“计费口径与成本口径错配”，是后端工程师做容量规划的基本功。",
-   "source": "钛媒体",
-   "date": "2026-11-16",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [],
-   "value": "**看懂计费与成本的口径差，才能写出可上线的后端设计。**",
-   "courses": "《数据库原理》或《软件工程》课程，可作为存储设计与容量规划讨论案例",
-   "tags": [
-    "行业动态",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "收入按Token、成本按GB，规模越大错配越明显",
-    "工程对策：历史摘要压缩、冷热分层、向量索引优化",
-    "课设里“全量存历史”在生产是成本黑洞",
-    "容量规划要同时看计费口径与资源口径"
-   ],
-   "buzz": [],
-   "link": "https://www.tmtpost.com/8204368.html"
-  },
-  {
-   "id": "a1093",
-   "title": "LLM当裁判不可靠？用logprobs把评分变成可比较的测量值",
-   "summary": "文章指出模型给的整数评分缺乏可比性，提出用logprobs构造更稳定的评分方法。",
-   "content": "用大模型给Agent输出打分时，直接要一个1-10的整数，问题在于：不同prompt、不同批次下分数漂移，无法横向比较。作者的思路是把评分从“整数”变成“测量”：利用API返回的logprobs，计算模型对“好/坏”等标签token的概率分布，得到一个连续、可复现的分数。三步走：设计二选一或少数标签的判定prompt → 取对应token的logprob → 归一化后作为分数。这对做毕设评测模块的同学很实用，尤其是需要批量对比多个版本效果时，比人工打分省事且可追溯。",
-   "source": "DEV Community",
-   "date": "2026-11-16",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "LLM API"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**把主观评分工程化，是AI应用质量保障里少有人讲但很值钱的技能。**",
-   "courses": "《概率论与数理统计》或《人工智能导论》，可作为模型输出评估的实践案例",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "整数评分跨批次不可比，需转成连续测量值",
-    "用logprobs取标签token概率，归一化得分数",
-    "判定prompt用少量标签（好/坏）更稳定",
-    "适合批量对比多版本Agent效果"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Is Your Agent's LLM Judge Unreliable? Use Logprobs to Make Scores Comparable",
-   "link": "https://dev.to/lili_at_32369546c2947bd24/is-your-agents-llm-judge-unreliable-use-logprobs-to-make-scores-comparable-1j6m",
-   "cover": "img/a1093.webp"
-  },
-  {
-   "id": "a1094",
-   "title": "Agentic BI落地：用智能体重构语义建模，效率提升80%",
-   "summary": "某互联网平台用AI智能体重构BI语义建模与指标体系，解决口径混乱、难追溯问题。",
-   "content": "BI的老大难是指标口径散落在各处SQL和文档里，改一次要全链路对齐。这篇讲的是把语义层（指标定义、维度、口径）结构化沉淀，再让Agent基于语义层生成查询与建模，人只做审核。对工业软件方向的同学，这个思路可迁移：工业场景里的设备指标、工艺参数同样需要统一的“语义层”，否则AI问数就是胡编。可关注三点：指标定义如何版本化、Agent生成结果如何校验、口径变更如何追溯。做课设时若涉及数据看板，先设计指标字典再写查询，是能体现工程思维的细节。",
-   "source": "掘金",
-   "date": "2026-11-15",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**“语义层+Agent”是数据类项目的主流架构，工业软件方向尤其值得迁移借鉴。**",
-   "courses": "《数据库原理》或工业软件实验班的数据管理课程，可作为指标建模案例",
-   "tags": [
-    "工业软件",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "核心是把指标口径沉淀为可复用的语义层",
-    "Agent基于语义层生成查询，人负责审核",
-    "工业场景同样需要统一的指标/参数语义层",
-    "关注指标版本化与结果校验机制"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708343970518253587"
-  },
-  {
-   "id": "a1084",
-   "title": "Coding Agent Index v2.1 发布：分数集体下降 5 分，4 套配置并列 58，单任务成本相差 30 倍",
-   "summary": "Artificial Analysis 更新编程 Agent 榜单，把 harness+模型+配置作为一个整体打分，揭示「同一模型换套壳，效果与成本天差地别」。",
-   "content": "这个榜单最值得软件工程学生看的一点：它评的不是模型，而是「harness（工具调用框架）+ 模型 + 配置」这一整套工程组合。结果 4 套配置同分 58，单任务成本却相差 30 倍——说明选型时不能只看模型名，提示词、工具定义、重试策略这些工程细节直接决定产出与账单。做课设或毕设接入 LLM 写代码时，建议先固定一个模型，再对比两套 harness（如官方 CLI 与开源 agent 框架），记录成功率与 token 花费，形成自己的小型评测表。这正是「软件工程+AI 工具」最实用的能力。",
-   "source": "DEV Community",
-   "date": "2026-11-15",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/求职准备",
-   "value": "**学会用「整套配置」而非「模型名」评估 AI 编程工具，是当下最值钱的工程判断力。**",
-   "courses": "《软件工程》《人工智能导论》：可作为技术选型与实验对比的案例素材。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "评分单位是 harness+模型+配置，不是单个模型",
-    "同分配置成本差 30 倍，选型要看性价比",
-    "可自建小评测表：成功率 vs token 花费",
-    "适合写进课设/毕设的技术选型章节"
-   ],
-   "buzz": [],
-   "link": "https://dev.to/piekwerk/coding-agent-index-v21-scores-fell-5-points-4-configs-tie-at-58-and-cost-per-task-spans-30x-1c1c",
-   "cover": "img/a1084.webp"
-  },
-  {
-   "id": "a1085",
-   "title": "AICon 北京：闭环 AI 自我进化——从 Skill、Harness 到模型训练与评估",
-   "summary": "InfoQ 议题拆解如何把 Agent 的技能、执行框架与训练评估串成闭环，属于工程化落地的系统方法。",
-   "content": "议题核心是把「Skill（可复用能力）→ Harness（执行框架）→ 训练与评估」连成闭环，让 Agent 在真实任务反馈中持续改进，而不是一次性调 prompt。对软件工程和信息安全学生，这套思路可直接迁移：课设里把重复功能封装成 skill，用统一 harness 调度，再写评估脚本量化成功率；安全方向则可把「越权调用、提示注入」做成评估用例集。听会不必到场，重点是把「评估先行、闭环迭代」的方法论搬进自己的项目文档。",
-   "source": "InfoQ中文",
-   "date": "2026-11-15",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "LLM Agent"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**掌握「评估驱动」的 Agent 工程闭环，比会调 API 高一个层次。**",
-   "courses": "《软件工程》《信息安全导论》：用于系统设计与安全测试用例设计。",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Skill→Harness→训练评估形成闭环",
-    "评估脚本比调 prompt 更重要",
-    "安全方向可把提示注入做成评估用例",
-    "方法论可直接写进项目设计文档"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/fZSEkDatL9xajG8PVi7G?utm_source=rss&utm_medium=article",
-   "cover": "img/a1085.webp"
   }
  ],
  "jobs": [
