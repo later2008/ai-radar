@@ -1,6 +1,215 @@
 {
- "updatedAt": "2026-11-24 07:43",
+ "updatedAt": "2026-11-24 17:00",
  "news": [
+  {
+   "id": "a1228",
+   "title": "用 AI 从零搭一套 AIOps 运维平台：工具接入、Agent 编排与任务审计",
+   "summary": "掘金长文复盘如何用 AI 辅助开发通用 AIOps 平台，覆盖工具接入、Agent 编排、监控问答、交付血缘与任务审计全链路。",
+   "content": "这篇文章的价值不在「AI 写代码」，而在它给了一个完整的工程闭环示范：怎么把外部工具注册进平台、怎么编排 Agent 的执行顺序、怎么记录每次任务的输入输出以便审计。对软件工程和信息安全专业都直接对口——运维平台天然涉及权限、日志和可追溯性。建议你带着问题读：Agent 调用工具时的鉴权怎么做？任务审计表怎么设计？然后拿课设的「简易监控系统」当靶子，把它的编排思路抄一遍，比空看十篇 AI 科普有用。",
+   "source": "掘金",
+   "date": "2026-11-24",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Agent",
+    "AIOps"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**给你一套可直接照搬的「Agent 编排 + 任务审计」工程范式，课设和面试都能讲。**",
+   "courses": "《软件工程》《系统运维》课程设计：把编排与审计模块作为架构文档的一部分。",
+   "tags": [
+    "通用开发",
+    "信息安全",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 82,
+   "brief": [
+    "完整 AIOps 平台开发链路：工具接入→Agent 编排→监控问答→任务审计",
+    "可迁移到课设：把编排与审计设计套进自己的监控/管理系统",
+    "涉及权限与日志，信息安全方向可延伸做审计与越权分析"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711658839486726163"
+  },
+  {
+   "id": "a1229",
+   "title": "Docker 瘦身、手写 MCP Server、异步并发：12 个高频问题一次答完",
+   "summary": "针对 Docker 镜像瘦身、从零手写 MCP Server、Python 异步并发三类问题集中答疑，都是实操中真会卡住的点。",
+   "content": "MCP 是现在 Agent 接工具的事实标准，能手写一个 Server 意味着你知道协议层怎么握手、工具描述怎么暴露——这在简历上比「会用某某 AI 插件」值钱得多。Docker 瘦身部分对应多阶段构建、基础镜像选择、层缓存，是部署课设和实习面试的常考点。异步并发那节适合补 asyncio 的坑。建议按「先跑通最小 MCP Server，再做镜像瘦身」的顺序动手，两小时能出成果。",
+   "source": "掘金",
+   "date": "2026-11-24",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Docker",
+    "MCP"
+   ],
+   "diff": 2,
+   "scene": "练手/求职准备",
+   "value": "**手写 MCP Server + Docker 瘦身，是当前实习面试最能加分的两项动手能力。**",
+   "courses": "《云计算与容器技术》《Python 程序设计》：把 MCP Server 作为课程大作业。",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "手写 MCP Server：理解 Agent 工具调用的协议层",
+    "Docker 多阶段构建与镜像瘦身，部署必备",
+    "Python 异步并发的常见错误与写法"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711645731828498472"
+  },
+  {
+   "id": "a1230",
+   "title": "AI 编码 Agent 正在替母公司干活：审计并沙箱化 Agent 的网络出口",
+   "summary": "一篇登上 Hacker News 热榜的分析指出，跑在本地的编码 Agent 会向外发起你不知情的网络请求，文章给出审计与沙箱隔离的做法。",
+   "content": "这条对信息安全专业是硬需求：你在本地跑的编码 Agent 拥有你的代码、环境变量甚至 SSH 凭据，而它的出网流量默认不受控。文章的核心方法是抓取 Agent 进程的出网连接、建立白名单，再用容器或网络命名空间做出口沙箱。对应《网络安全》《系统安全》里的最小权限与流量分析。动手建议：用 tcpdump 或 eBPF 观察一次 Agent 会话的出网目标，写一份自己的出口白名单策略，这就是一份能写进简历的安全实践报告。",
+   "source": "DEV Community",
+   "date": "2026-11-24",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "eBPF",
+    "Docker"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**教你给 AI 编码 Agent 做网络出口审计与沙箱，是信息安全方向少见的实操选题。**",
+   "courses": "《网络安全技术》《系统安全》：作为流量分析与最小权限的实践案例。",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "编码 Agent 默认拥有你的代码与凭据，出网行为需审计",
+    "方法：抓取出网连接→建白名单→容器/网络命名空间隔离",
+    "可直接做成安全课程实践报告"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Your AI Coding Agent Isn't Working for You: Auditing and Sandboxing Agent Network Egress",
+   "link": "https://dev.to/eme_gug_0821b41b948be6516/your-ai-coding-agent-isnt-working-for-you-auditing-and-sandboxing-agent-network-egress-54o5",
+   "cover": "img/a1230.webp"
+  },
+  {
+   "id": "a1231",
+   "title": "写了十几年代码的人，现在在用哪些 Agent IDE",
+   "summary": "一位资深开发者对比自己实际在用的 Agent IDE，并解释为什么仍坚持「必须看得见代码」。",
+   "content": "这篇不是工具榜单，而是一个有经验的人怎么在「AI 代写」和「自己掌控代码」之间划界。对刚入门的你，最该吸收的是他的使用姿势：让 Agent 做样板代码、测试用例、重构建议，核心逻辑自己写并逐行 review。文章也顺带对比了几类 Agent IDE 的交互差异。建议你读完挑一个装上手，用同一道算法题分别在「纯手写」和「Agent 辅助」下各做一遍，体会差异，这比纠结用哪个工具重要。",
+   "source": "掘金",
+   "date": "2026-11-24",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "Agent IDE"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**帮你建立「哪些代码交给 AI、哪些必须自己写」的判断标准。**",
+   "courses": "《程序设计基础》：用 Agent 辅助做课后题时练习代码审查。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 70,
+   "brief": [
+    "资深开发者的 Agent IDE 实际使用姿势与取舍",
+    "核心逻辑自己写、样板与测试交给 Agent",
+    "建议做一次「手写 vs Agent 辅助」的对照实验"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711654439551860762",
+   "cover": "img/a1231.webp"
+  },
+  {
+   "id": "a1232",
+   "title": "Claude Code 工程最佳实践与主数据平台 1.8.0 发布：编码规则、单号生成、单点登录",
+   "summary": "开源主数据平台 1.8.0 发布，新增编码规则组件（9 类规则明细、批量生成）与单点登录，同期刊出 Claude Code 工程实践。",
+   "content": "主数据平台是典型的工业软件/企业信息化场景，这次更新的「编码规则」模块很值得看：常量、日期、变量、流水号、随机码、校验位、GUID/雪花 ID、组织编码、父单号截取共 9 类规则明细，还支持拖拽排序和试生成。工业软件实验班的同学可以直接对照《数据库原理》想：规则怎么存表、并发下流水号怎么保证不重。SSO 部分则对应认证授权。建议把它的表结构和生成算法拆出来，做成自己的课设组件。",
+   "source": "开源中国",
+   "date": "2026-11-24",
+   "cat": "stack",
+   "tracks": [
+    "工业软件",
+    "Java"
+   ],
+   "stack": [
+    "Java",
+    "SSO"
+   ],
+   "value": "**工业软件方向少见的真实业务组件拆解，编码规则与单号生成可直接进课设。**",
+   "courses": "《数据库原理》《企业级应用开发》：把编码规则组件作为课程设计模块。",
+   "tags": [
+    "工业软件",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "9 类编码规则明细 + 批量生成，是工业软件常见需求",
+    "思考点：并发下流水号不重、规则表如何设计",
+    "SSO 部分对应认证授权知识点"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503775"
+  },
+  {
+   "id": "a1233",
+   "title": "文心 5.5 Flash Preview 以 Apache 2.0 开源",
+   "summary": "文心 5.5 Flash Preview 正式开源，采用 Apache 2.0 协议，可商用、可本地部署。",
+   "content": "Apache 2.0 意味着可以自由修改、商用、私有化部署，这对做课设和实验很关键——你不需要申请 API Key 就能在本地跑推理，做 RAG、Agent 工具调用、模型微调实验都方便。软件工程方向可以拿它做「本地知识库问答」课设；信息安全方向可以做提示注入、越狱的对抗测试，本地模型不怕封号。建议先确认显存需求再决定是本地跑还是走 API，别一上来就硬啃部署。",
+   "source": "量子位",
+   "date": "2026-11-24",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "value": "**一个可自由私有化部署的开源模型，是课设和对抗实验的低成本底座。**",
+   "courses": "《人工智能导论》《机器学习》：作为本地推理实验的模型选型。",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "Apache 2.0：可商用、可私有化部署",
+    "适合本地做 RAG、Agent 工具调用实验",
+    "安全方向可做提示注入对抗测试"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/512354.html",
+   "cover": "img/a1233.webp"
+  },
   {
    "id": "a1223",
    "title": "Spring Boot 4.2 正式发布：老项目升级前先看这些破坏性变更",
@@ -25,7 +234,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "4.2.0 于 2026-11-19 发布，属 4.x 主线",
@@ -3894,213 +4103,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/3Aj3oiC9o6osKEW5X2sR?utm_source=rss&utm_medium=article",
    "cover": "img/a1116.webp"
-  },
-  {
-   "id": "a1117",
-   "title": "Mac 收紧 AI 权限：系统级防护开始限制 AI 工具访问范围",
-   "summary": "苹果在 macOS 上收紧权限模型，限制 AI 类应用对文件、屏幕与自动化接口的访问。",
-   "content": "这条对信息安全与管理专业的同学有直接参考价值。苹果收紧权限的本质是「最小权限原则」在端侧 AI 场景的落地：AI 工具想读你的文件、看你的屏幕、调自动化接口，都得逐项授权并可审计。这正好是你们《操作系统安全》《访问控制》课上的经典模型，只是换了个场景。建议做两件事：一是研究 macOS 的 TCC 权限数据库机制，理解应用如何声明和请求能力；二是在自己的课设里模仿这套设计——给不同角色分配最小权限，记录敏感操作日志。面试安全岗时，「我设计过基于最小权限的访问控制模块」是很能打的一句话。",
-   "source": "爱范儿",
-   "date": "2026-11-17",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**把「最小权限 + 可审计」从课本概念变成你能讲清楚的工程案例**",
-   "courses": "《操作系统安全》《访问控制技术》：权限模型的实际落地案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "端侧 AI 权限收紧体现最小权限与可审计原则",
-    "可研究 macOS TCC 权限机制作为课程延伸",
-    "课设中实践角色最小权限 + 敏感操作日志",
-    "安全岗面试可讲访问控制模块设计经验"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689832?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a1117.webp"
-  },
-  {
-   "id": "a1118",
-   "title": "Varlock 发布 Bumpy：基于文件、可替代 Changesets 的版本管理方案",
-   "summary": "Bumpy 用文件驱动的方式管理多包版本与变更日志，作为 Changesets 的替代方案出现。",
-   "content": "如果你做过 monorepo 或者发布过 npm 包，就知道版本号管理有多烦：改哪个包、升 major 还是 patch、changelog 谁来写。Changesets 是目前主流方案，Bumpy 提出用更简单的文件驱动方式来替代。对本科生来说，重点不是选哪个工具，而是理解「语义化版本 + 变更记录」这套工程规范——这是团队协作的基本功。建议你在课设的多人项目里引入 Changesets 或 Bumpy，每次合并 PR 附一条变更说明，最后自动生成 CHANGELOG。这件事花不了两小时，但写进简历「参与 monorepo 版本发布流程」就很有分量。",
-   "source": "InfoQ中文",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "Changesets",
-    "npm"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**两小时学会语义化版本与变更管理，补齐团队协作里最容易被忽略的一环**",
-   "courses": "《软件工程》：团队项目的配置与发布管理",
-   "tags": [
-    "通用开发",
-    "前端开发"
-   ],
-   "featured": false,
-   "heat": 46,
-   "brief": [
-    "理解语义化版本与变更日志在团队协作中的作用",
-    "Changesets 是主流方案，Bumpy 提供更轻的文件驱动替代",
-    "课设多人项目里实践 PR + 变更说明 + 自动 CHANGELOG",
-    "简历可写「参与版本发布与变更管理流程」"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/SR3rNIg8NsPC3tWq48EM?utm_source=rss&utm_medium=article",
-   "cover": "img/a1118.webp"
-  },
-  {
-   "id": "a1107",
-   "title": "Spring Boot/Framework/Security 首个候选版本齐发：现在该盯哪些升级点",
-   "summary": "Spring 生态一次性放出 Boot、Framework、Data、Security、Modulith 与 Spring AI 的首个候选版本，是明年项目选型与课程实验的重要参考。",
-   "content": "Spring 官方一次性发布多个子项目的首个候选版本（RC），意味着 API 基本冻结，接下来主要是修 bug。对软件工程学生来说，这是低成本跟进主流 Java 生态的窗口：一是打开 Spring Boot 的 Release Notes，看自动配置和依赖版本有哪些破坏性变更，避免课设升级时踩坑；二是 Spring Security 的改动直接关系到你写的登录鉴权模块；三是 Spring AI 首次进入候选版本，说明 Java 后端接大模型已有官方路径，可以在毕业设计里做「Java 服务 + 大模型」的落地。建议做法：新建一个空项目，把 Boot 升到 RC 版本跑一遍，记录报错，这就是一份可写进简历的实践笔记。",
-   "source": "InfoQ中文",
-   "date": "2026-11-17",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring Boot",
-    "Spring Security"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**提前摸清 Spring 新版变更，课设升级不踩坑，面试能聊生态演进**",
-   "courses": "《Java Web 开发》《软件框架技术》：把课程项目的 Spring 版本升级当作实验任务",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "多个 Spring 子项目同时进入首个候选版本，API 趋于稳定",
-    "重点看 Boot 的破坏性变更与 Security 的鉴权配置改动",
-    "Spring AI 进入 RC，Java 后端接大模型有了官方方案",
-    "建议用空项目试升级，把踩坑记录整理成笔记"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/uCmKjbkjjkW17olm7smj?utm_source=rss&utm_medium=article",
-   "cover": "img/a1107.webp"
-  },
-  {
-   "id": "a1108",
-   "title": "Claude Code 与 Codex 升级：沙箱不再自动放行，项目配置默认禁用",
-   "summary": "Claude Code 2.1.325 起沙箱内 Bash 默认需确认，Codex 0.169.0 不再读取未信任目录的项目配置，AI 编程工具的安全默认值收紧了。",
-   "content": "这次升级的核心是「默认更安全」：Claude Code 在沙箱里执行 Bash 命令默认要人工确认，定时任务跑带 allowed-tools 的 skill 前也会先询问；Codex 则不再读取未信任目录下的项目配置。对天天用 AI 写代码的同学，直接影响有三点：一是自动化脚本可能被卡住，需要显式配置允许的工具白名单；二是从 GitHub 克隆别人的仓库后，里面的配置文件不会被自动信任，防止恶意配置执行命令；三是团队协作时要约定好哪些命令可以免确认。建议把这两个版本的变更日志读一遍，检查自己项目里的 .claude 或 Codex 配置，顺手理解「最小权限」这个安全原则——这正是信息安全课的经典考点。",
-   "source": "掘金",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Claude Code",
-    "Codex"
-   ],
-   "diff": 1,
-   "scene": "练手/求职准备",
-   "value": "**搞懂 AI 编程工具的安全默认值，避免自动化被卡，也理解最小权限原则**",
-   "courses": "《信息安全技术》《软件工程》：作为最小权限与供应链安全的真实案例",
-   "tags": [
-    "AI工具",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Claude Code 沙箱内 Bash 默认需人工确认",
-    "Codex 不再读取未信任目录的项目配置",
-    "克隆他人仓库时恶意配置无法自动执行",
-    "需检查本地工具配置与命令白名单"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7708691921045471247"
-  },
-  {
-   "id": "a1109",
-   "title": "Windows 11 被曝采集你用了哪些 AI 编程工具和开发工具",
-   "summary": "有开发者发现 Windows 11 在收集用户使用哪些编码 Agent 与开发工具的遥测数据，引发隐私讨论。",
-   "content": "一位开发者通过抓包和日志分析发现，Windows 11 会上报用户运行了哪些编码 Agent 和开发工具。对信息安全与管理专业的学生，这是一个非常好的实操素材：第一，学会用 Process Monitor、Wireshark 观察本机进程的网络行为，验证「系统到底发了什么」；第二，理解遥测（telemetry）与用户知情同意的边界，对应《网络安全法》《个人信息保护法》里关于最小必要收集的要求；第三，动手写一份关闭或限制遥测的配置清单，作为实验报告。对软件工程同学则提醒：自己写的工具如果带上报功能，要在隐私政策里写清楚。别只停留在转发吐槽，能复现、能取证、能给出处置方案，才是专业能力。",
-   "source": "Hacker News",
-   "date": "2026-11-16",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**拿真实遥测事件练取证与合规分析，比背法条有用得多**",
-   "courses": "《信息安全技术》《网络行为分析》：作为流量取证与隐私合规实验",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "Windows 11 被指采集开发工具与编码 Agent 使用情况",
-    "可用 Process Monitor/Wireshark 自行复现取证",
-    "对应个人信息保护法的最小必要原则",
-    "产出：遥测关闭配置清单 + 实验报告"
-   ],
-   "buzz": [],
-   "link": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
-   "cover": "img/a1109.webp"
-  },
-  {
-   "id": "a1110",
-   "title": "亚马逊开源 File Mover Express：S3 文件传输工具怎么用",
-   "summary": "AWS 发布开源工具 File Mover Express，用于简化 S3 文件传输，适合做云存储相关的课设与实验。",
-   "content": "File Mover Express 是 AWS 开源的 S3 文件传输工具，解决的是「本地/其他存储与 S3 之间搬数据」这件重复劳动。对软件工程学生，它的价值在于给你一个可读的开源实现：可以看它如何封装 S3 SDK、如何处理分片上传、断点续传和失败重试，这些都是对象存储接入的通用套路。实践路径：用免费额度的 S3 或兼容 S3 协议的开源存储（如 MinIO）搭环境，跑通一次大文件上传，再读源码看并发与重试逻辑。注意别在公网桶里放敏感数据，顺便复习一下桶策略与访问密钥管理——这既是工程能力，也是安全常识。",
-   "source": "InfoQ中文",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "AWS S3"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**借开源工具吃透对象存储上传的通用套路，云存储课设直接复用**",
-   "courses": "《云计算技术》《分布式存储》：作为对象存储接入的实验案例",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "AWS 开源，专注 S3 文件传输场景",
-    "可学习分片上传、断点续传、失败重试的实现",
-    "建议用 MinIO 本地搭环境练手，零成本",
-    "顺带复习桶策略与访问密钥管理"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/i0a4s8Cf7WMxcZha74kF?utm_source=rss&utm_medium=article",
-   "cover": "img/a1110.webp"
   }
  ],
  "jobs": [
