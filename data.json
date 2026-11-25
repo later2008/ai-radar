@@ -1,6 +1,199 @@
 {
- "updatedAt": "2026-11-25 06:12",
+ "updatedAt": "2026-11-25 16:49",
  "news": [
+  {
+   "id": "a1243",
+   "title": "Agent 接工具前先修权限：最小权限 + 人工确认实战（S03）",
+   "summary": "一篇面向 LLM Agent 的安全实践文，讲清在给 Agent 接上 RAG、工具调用之前，如何用最小权限和人工确认把权限闸门建好。",
+   "content": "文章从 S01 威胁模型的 LLM08/09（权限失控、过度代理）讲起：demo 阶段风险标「低」是因为还没接工具，一旦接上工具调用，风险立刻放大。作者给出可落地的做法——给 Agent 分配独立的最小权限账号、把高危操作（写文件、发请求、改数据库）拆成需要人工确认的步骤、对工具调用做白名单与审计日志。对信息安全与管理专业的同学，这是一份能直接抄进课设的 Agent 安全设计清单；软件工程同学做 AI 应用时也该先过一遍，避免把 API Key 和 shell 权限一股脑塞给模型。",
+   "source": "掘金",
+   "date": "2026-11-25",
+   "cat": "tut",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "LLM Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**做 AI 应用前先把权限闸门修好，是安全专业最值钱的一课**",
+   "courses": "《信息安全技术》/《系统安全》课设中作为 Agent 权限设计案例",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "LLM08/09 权限与过度代理风险，接工具后风险陡增",
+    "最小权限账号 + 高危操作人工确认 + 工具白名单",
+    "附审计日志思路，可直接用于课设安全设计章节"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712008429044564002"
+  },
+  {
+   "id": "a1244",
+   "title": "Spring AI Alibaba 到底停更没有？逐条翻提交记录给结论",
+   "summary": "作者拉遍 GitHub 提交与 release 线：正式版停在 3 月 10 日，main 分支实质提交停在 8 月 25 日，最后一次 push 只是 README 标点修复。",
+   "content": "热榜传 Spring AI Alibaba 停更，作者用证据说话：正式 release 停在 3 月 10 日，main 分支实质功能提交停在 8 月 25 日，之后只有文档标点修复。结论不是「死了」，而是「进入低维护状态」。对 Java 方向的同学，这篇的价值是教你一套判断开源项目健康度的方法：看 release 节奏、看 main 分支提交密度、看 issue 响应、看是否有企业背书。选型课设或毕设依赖时，别只看 star 数。如果要用 Spring AI 生态做 RAG 或 Agent，建议同时评估官方 Spring AI 与社区分支，把抽象层留好，方便换实现。",
+   "source": "掘金",
+   "date": "2026-11-25",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Spring AI"
+   ],
+   "value": "**学会判断开源项目是否「半死」，比会用一个框架更重要**",
+   "courses": "《Java 程序设计》/《软件工程》课程设计的技术选型评估",
+   "tags": [
+    "Java全栈",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 74,
+   "brief": [
+    "正式版停在 3/10，main 实质提交停在 8/25",
+    "教你看 release 节奏、提交密度、issue 响应判断项目健康度",
+    "Java 选型建议留好抽象层，方便替换实现"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711957412785340456"
+  },
+  {
+   "id": "a1245",
+   "title": "Rust 写的终端 AI 编程 Agent phimint：单文件跑，1核1G 也带得动",
+   "summary": "phimint 是 Rust 实现的轻量终端 AI 编码 agent，单文件安装即用，不依赖 Node.js 和 Python 环境，1 核 1G 服务器可跑完整编程会话。",
+   "content": "phimint 获开放原子基金会旗下旋武社区「Rust 开源项目推荐」刊文推荐。它把 AI 编码 agent 做成单个 Rust 二进制：不用装 Node、不用配 Python 虚拟环境，下载即跑，1 核 1G 的轻量服务器就能撑起完整编程会话。对学生的实际意义有两点：一是可以在自己的云服务器或实验室旧机器上低成本跑一个编码助手，练手 CLI 工具链；二是它是读 Rust 工程代码的好样本——看一个真实项目如何组织异步 IO、配置解析和 LLM 调用。软件工程（工业软件实验班）同学若关注工具链自研，值得拆一拆它的架构。",
+   "source": "开源中国",
+   "date": "2026-11-25",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Rust"
+   ],
+   "diff": 2,
+   "scene": "练手/简历加分",
+   "value": "**用一台低配服务器就能跑起自己的 AI 编码助手，还能顺带读 Rust 源码**",
+   "courses": "《程序设计基础》/《软件工程》课外工具链实践",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "Rust 单二进制，免 Node/Python 环境",
+    "1 核 1G 服务器可跑完整编程会话",
+    "适合读源码学 Rust 工程组织与 LLM 调用封装"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503801"
+  },
+  {
+   "id": "a1246",
+   "title": "开源 AI 编程工具 T3 Code 风波：商标、魔改版与「偷数据」指控",
+   "summary": "从商标纠纷到魔改版被误当官方版吐槽，再到「偷数据」指控，这场风波是一次完整的开源合规与供应链安全案例。",
+   "content": "事件脉络值得每个用开源工具的同学复盘：开发者基于 MIT 协议的 T3 Code 魔改出「T3 星尘版」，仓库名、软件名、图标仍挂 T3；随后有博主把魔改版当官方版发推吐槽，引发「偷数据」传言。这里同时踩了三个坑——商标使用边界、MIT 协议下署名与免责、以及用户无法分辨官方版与魔改版的供应链风险。信息安全与管理专业的同学可以把它当案例：如何核验一个开源二进制的来源、如何看 LICENSE、为什么企业内要锁定可信源。软件工程同学则记住：二次分发时改掉名字和图标，是法律问题不是审美问题。",
+   "source": "开源中国",
+   "date": "2026-11-25",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**一次真实的开源合规与供应链安全案例，比教材例子好用**",
+   "courses": "《信息安全法规》/《软件工程》开源合规讨论素材",
+   "tags": [
+    "信息安全",
+    "行业动态",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "MIT 协议允许魔改，但商标与署名不能乱用",
+    "魔改版冒充官方版，暴露开源供应链辨识风险",
+    "学会核验来源、读 LICENSE、锁定可信源"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503805"
+  },
+  {
+   "id": "a1247",
+   "title": "给 Claude Code / Codex 写两个开源 Agent Skill：金融看板与另一实用技能",
+   "summary": "作者开源了两个可直接复用的 Agent Skill，其中「金融看板」能生成移动优先的银行类 App 界面，含余额卡、交易流水、转账 PIN 等模块。",
+   "content": "Agent Skill 正在成为 AI 编程工具的能力扩展标准，Claude Code、Codex、Copilot 都支持。作者开源的两个 skill 里，「Fintech dashboard」最具体：一句话生成移动优先的银行 App 界面，包含余额卡、交易列表与回执、带 PIN 的转账、绑卡、只买不卖的股票、分级实名认证等模块。对前端方向的同学，这是练「用 AI 生成可运行 UI 再人工改造」流程的好素材；对软件工程同学，可以照着它的结构写自己的 skill——把团队常用的脚手架、代码规范、接口模板封装成 skill，是简历上很实在的一笔。",
+   "source": "DEV Community",
+   "date": "2026-11-25",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Claude Code"
+   ],
+   "diff": 1,
+   "scene": "课设/简历加分",
+   "value": "**学会写 Agent Skill，等于把自己的开发经验产品化**",
+   "courses": "《Web 前端开发》课设中用于快速生成界面原型",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Agent Skill 是 Claude Code/Codex/Copilot 的通用扩展方式",
+    "金融看板 skill 覆盖余额、流水、转账 PIN、绑卡等模块",
+    "可仿照结构把团队脚手架封装成自己的 skill"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "I built two open agent skills for Claude Code",
+   "link": "https://dev.to/jeffdrizzy/i-built-two-open-agent-skills-for-claude-code-2mp5",
+   "cover": "img/a1247.webp"
+  },
+  {
+   "id": "a1248",
+   "title": "小豆邀请码拆解 24 个场景：24 篇免费教程，先看清它能干什么",
+   "summary": "字节豆包推出个人智能体「小豆」邀请制公测，作者拆了 24 个真实使用场景写成免费教程，并直言「不会给你带客户」。",
+   "content": "11 月 24 日字节放出豆包旗下首款个人智能体「小豆」，邀请制公测，朋友圈立刻出现「普通人靠它月入十万」的标题。作者的态度值得学：先泼冷水——它不会凭空给你带客户；再拆 24 个具体场景写成教程，覆盖信息整理、日程、写作、检索等日常任务。对信息工程学院的同学，这篇的用法不是追热点，而是观察一个 Personal Agent 产品的任务拆解方式：它怎么定义工具、怎么处理确认步骤、失败时怎么兜底。做课设里的智能助手模块时，这 24 个场景可以直接当需求清单来对照。",
+   "source": "掘金",
+   "date": "2026-11-25",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**别信「月入十万」，把 24 个场景当需求清单看才有用**",
+   "courses": "《软件工程》需求分析课设的场景参考",
+   "tags": [
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "小豆为豆包旗下个人智能体，邀请制公测",
+    "作者拆 24 个真实场景写成免费教程",
+    "可当智能助手类课设的需求清单参考"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7711950881197277218"
+  },
   {
    "id": "a1238",
    "title": "用 MCP 让 Claude Code 直接读你的本地笔记：给 AI 编码助手接上私有上下文",
@@ -26,7 +219,7 @@
     "通用开发",
     "求职就业"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 78,
    "brief": [
     "MCP 是标准化的模型-工具协议，写一个 server 即可扩展 Claude Code 能力",
@@ -3883,230 +4076,40 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503625/opencode-browse"
-  },
-  {
-   "id": "a1129",
-   "title": "9.3MB 单文件编程 Agent：TUI、沙箱、TLS 全塞进去",
-   "summary": "一个静态二进制即可运行的编程 Agent，无需 node、python、容器，拷到 x86-64 Linux 就能跑。",
-   "content": "给它一句话，它自己读文件、改文件、跑命令，循环到出结论；整个东西是 9.3MB 静态二进制，不依赖 glibc、node、python 或容器。对学软件工程的人，价值不在「又一个 Agent」，而在它展示的工程取舍：静态链接如何消除运行时依赖、沙箱如何限制命令执行、TLS 如何内置。你可以把它丢进 Docker 或实验机，用 strace 观察它执行命令的边界，再对比自己写的脚本式工具在可移植性上的差距。工业软件实验班的同学尤其值得看：离线、单文件、可审计，正是产线环境的常见约束。",
-   "source": "开源中国",
-   "date": "2026-11-18",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Linux"
-   ],
-   "diff": 2,
-   "scene": "练手/课设",
-   "value": "**从单文件 Agent 看静态链接与沙箱取舍，比会用工具更接近工程本质。**",
-   "courses": "《Linux 系统编程》《软件工程》——用于可移植部署与沙箱边界分析",
-   "tags": [
-    "通用开发",
-    "工业软件",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "单静态二进制，零运行时依赖，可直接拷到目标机运行",
-    "内置 TUI、沙箱与 TLS，体现可移植性设计取舍",
-    "可用 strace 观察其命令执行边界",
-    "离线单文件形态贴近工业现场部署约束"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503622"
-  },
-  {
-   "id": "a1130",
-   "title": "Docker Compose 生产模板：PostgreSQL + Redis + Nginx + 备份",
-   "summary": "一份可直接落地的 Compose 模板，含 PostgreSQL 持久化与健康检查、Redis、Nginx 反代和自动备份。",
-   "content": "很多同学的课设部署止步于「能跑」，这份模板补的是「能活」：PostgreSQL 配持久化卷、healthcheck 和定时备份，Redis 做缓存，Nginx 做反向代理。对软件工程和信息安全专业都实用——前者拿它当毕业设计/课程项目的部署底座，后者可以拿它做安全加固练习：检查容器是否以 root 运行、卷权限、备份文件是否加密、Nginx 是否暴露了不该暴露的路径。建议先在自己 VPS 或虚拟机跑通，再逐项改配置并记录差异，这份「部署+加固」记录本身就是简历素材。",
-   "source": "DEV Community",
-   "date": "2026-11-18",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Docker",
-    "PostgreSQL"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**会写代码也要会部署，这份模板让你从「能跑」走到「能活」。**",
-   "courses": "《数据库原理》《云计算与容器技术》——用于项目部署与容器安全加固实验",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "PostgreSQL 持久化、健康检查、定时备份三件套齐全",
-    "Redis 缓存 + Nginx 反代，接近真实项目结构",
-    "可延伸做容器安全加固：非 root、卷权限、备份加密",
-    "适合作为课设/毕设的部署底座"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Docker Compose Production Template: PostgreSQL + Redis + Nginx + Backup",
-   "link": "https://dev.to/riefqid/docker-compose-production-template-postgresql-redis-nginx-backup-5eo1",
-   "cover": "img/a1130.webp"
-  },
-  {
-   "id": "a1131",
-   "title": "Java 生态速览：TornadoVM 8.0、LangChain4j、Quarkus 等更新",
-   "summary": "InfoQ 汇总近期 Java 生态动态，涵盖 TornadoVM 8.0、JNoSQL、JReleaser、JBang、LangChain4j 与 Quarkus。",
-   "content": "这期资讯对 Java 方向的同学是一张「生态地图」：TornadoVM 把 JVM 计算卸载到 GPU，JNoSQL 做多模型数据库抽象，JReleaser 管发布流水线，JBang 让单文件脚本直接跑，LangChain4j 是 Java 侧接入大模型的主力库，Quarkus 走云原生路线。不必全学，但要会挑：课程设计做 AI 功能就盯 LangChain4j，做构建发布就试 JReleaser + JBang，做性能方向再看 TornadoVM。建议挑一个在本地跑通最小示例并写进笔记，比收藏十篇资讯有用。",
-   "source": "InfoQ中文",
-   "date": "2026-11-18",
-   "cat": "industry",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Java",
-    "LangChain4j"
-   ],
-   "diff": 2,
-   "scene": "求职准备",
-   "value": "**用一张生态地图定位自己该学什么，比盲目追新更省时间。**",
-   "courses": "《Java 程序设计》《软件构造》——用于了解 Java 生态与选型",
-   "tags": [
-    "Java全栈",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "LangChain4j 是 Java 接入大模型的首选库，优先关注",
-    "JBang + JReleaser 可显著简化脚本运行与发布流程",
-    "TornadoVM 面向 JVM 上的 GPU/异构计算",
-    "建议只挑一个方向跑通最小示例"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/oSiN27BaersaKQcQGdaa?utm_source=rss&utm_medium=article",
-   "cover": "img/a1131.webp"
-  },
-  {
-   "id": "a1132",
-   "title": "给 Agent 设计页面：你的定价页能被编程 Agent 读懂并注册吗",
-   "summary": "文章讨论网站如何对编程 Agent 友好：让 Agent 能读定价、完成注册并拿到价值。",
-   "content": "一个真实案例：编程 Agent 给开源项目提 PR 时，明明已接入 Cloudflare Email，却自己选了 Resend——因为后者的页面 Agent 读得懂、注册得通。这提示前端同学一个新维度：页面的「可被 Agent 消费性」。具体可做的是语义化 HTML、结构化定价数据、无阻塞的注册流程、清晰的 API 文档入口。对信息安全专业则要反过来想：Agent 自动注册意味着滥用与风控问题。课程设计里可以给自己的项目页加一份 JSON-LD 定价描述，再用 Agent 实测能否完成注册，作为前端工程化的小实验。",
-   "source": "DEV Community",
-   "date": "2026-11-18",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "JSON-LD"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**让页面既能被人看懂也能被 Agent 读懂，是前端的新基本功。**",
-   "courses": "《Web 前端开发》——用于语义化与结构化数据实践",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 54,
-   "brief": [
-    "Agent 会依据页面可读性自行选择服务，影响真实转化",
-    "做法：语义化 HTML、结构化数据、简化注册路径",
-    "安全侧需考虑 Agent 自动注册带来的滥用与风控",
-    "可作为前端课设的「Agent 友好度」小实验"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Designing for Agents: Can a Coding Agent Read Your Pricing, Sign Up, and Get Value?",
-   "link": "https://dev.to/tm_gunderson_9cff63a7ba/designing-for-agents-can-a-coding-agent-read-your-pricing-sign-up-and-get-value-2fjf",
-   "cover": "img/a1132.webp"
-  },
-  {
-   "id": "a1119",
-   "title": "openEuler 转向 Agentic Infra：国产操作系统上的智能体基础设施怎么搭",
-   "summary": "openEuler 主席熊伟宣布进军 Agentic Infra，强调先解决真实工程问题而非讲大故事。",
-   "content": "openEuler 是国内主流开源 Linux 发行版，这次把方向定在「Agentic Infra」——即为 AI Agent 提供运行、调度、隔离与可观测能力的底层设施。对学生来说，这不是看热闹：如果你做课设时想让 Agent 调用系统命令、读写文件、跑定时任务，就必须考虑权限隔离、进程沙箱、日志追踪，这些正是 Agentic Infra 要解决的问题。建议在虚拟机里装一台 openEuler，用 systemd 管理一个 Python Agent 服务，练习容器化部署与权限最小化配置，把「Agent 跑在系统上」这件事真正跑通一遍。",
-   "source": "InfoQ中文",
-   "date": "2026-11-17",
-   "cat": "industry",
-   "tracks": [
-    "工业软件",
-    "信息安全"
-   ],
-   "stack": [
-    "openEuler",
-    "Linux"
-   ],
-   "value": "**国产 OS + Agent 基础设施是工业软件与信安交叉的新增长点，早接触早占位**",
-   "courses": "对应《操作系统》《Linux 系统管理》，可作课程设计环境搭建实践",
-   "tags": [
-    "工业软件",
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "openEuler 官方明确 Agentic Infra 方向，国产 OS 生态新增岗位需求",
-    "重点在权限隔离、调度、可观测性等系统工程问题",
-    "可在虚拟机装 openEuler 练 Agent 服务部署与沙箱配置"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/JhBUwv1pHR3S986Ih0iJ?utm_source=rss&utm_medium=article",
-   "cover": "img/a1119.webp"
-  },
-  {
-   "id": "a1120",
-   "title": "GitHub 开源 Agent Host Protocol：让 Agent 会话跨设备续接的协议设计",
-   "summary": "GitHub 工程博客详解其开放的 Agent Host Protocol，目标是让 Agent 会话在编辑器、App、手机和云端之间无缝延续。",
-   "content": "做 AI 应用时最烦的场景之一：在电脑上和 Agent 聊到一半，换手机就断了上下文。GitHub 的 Agent Host Protocol 试图用一套开放协议解决会话状态同步问题，涉及会话标识、状态序列化、跨端鉴权与冲突合并。对软件工程学生，这是一份很好的「协议设计 + 分布式状态」阅读材料：可以对照它的消息格式，用 Java 或 Node 写一个最小实现——本地存会话快照，服务端做版本号合并，体会幂等与冲突处理。写进简历里，比「调用过某大模型 API」有说服力得多。",
-   "source": "GitHub Blog",
-   "date": "2026-11-17",
-   "cat": "stack",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent",
-    "Protocol"
-   ],
-   "diff": 3,
-   "scene": "简历加分/进阶练手",
-   "value": "**掌握会话状态同步与协议设计，是 AI 应用开发岗的差异化能力**",
-   "courses": "对应《计算机网络》《软件工程》，可作协议设计与实现的大作业",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "开放协议解决 Agent 会话跨设备续接",
-    "涉及会话状态序列化、鉴权、冲突合并",
-    "适合动手写最小实现作为项目亮点"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building the Agent Host Protocol for sessions that continue across devices",
-   "link": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
-   "cover": "img/a1120.webp"
   }
  ],
  "jobs": [
+  {
+   "id": "j42",
+   "company": "佰聆数据",
+   "title": "润才计划实习（广州）",
+   "type": "实习",
+   "loc": "广州",
+   "deadline": "搜索官方公众号投递",
+   "salary": "",
+   "positions": [
+    "见公告"
+   ],
+   "link": "https://github.com/xixicc186/xixicc2027",
+   "source": "GitHub·xixicc2027",
+   "date": "2026-11-25",
+   "summary": "佰聆数据润才计划招募实习生，工作地点广州，届次不限，具体岗位以官方公告为准。适合数据方向在校生积累实践经验。",
+   "cls": "软件工程类",
+   "plain": "数据类实习为软件工程学生提供数据分析与工程实践机会。",
+   "courses": "数据库原理、Python程序设计",
+   "hardReq": [
+    "在校生身份"
+   ],
+   "plusReq": [
+    "有数据分析项目经历"
+   ],
+   "selfLearn": [
+    "掌握SQL与Python数据处理",
+    "做一个小型数据分析项目"
+   ],
+   "fitWho": "在广州且对数据方向感兴趣的在校生",
+   "tips": "通过官方公众号确认岗位细节与投递方式"
+  },
   {
    "id": "j41",
    "company": "京东",
@@ -4886,39 +4889,6 @@
    ],
    "fitWho": "大三/大四；FDE 适合表达好、肯出差的同启",
    "tips": "岗位需求同比 +35%，Agent 方向坑位多；投前把 Agent 项目讲成故事。"
-  },
-  {
-   "id": "j11",
-   "company": "北京脑科学与类脑研究中心",
-   "title": "大模型算法实习生（计算与数据科学中心）",
-   "type": "实习",
-   "loc": "北京",
-   "deadline": "详见公告，建议尽快投递",
-   "positions": [
-    "RAG系统",
-    "大模型微调SFT",
-    "文献检索增强",
-    "AI训练平台"
-   ],
-   "link": "https://www.gaoxiaojob.com/job/detail/2331232.html",
-   "source": "高校人才网",
-   "date": "2026-09-11",
-   "summary": "用脑科学大模型辅助科研：搭建 RAG 问答、参与 SFT 微调实验；要求实习 6 个月以上、每周 5 天，熟练 Python/PyTorch；五险一金+员工宿舍+免费班车，薪酬一人一议。",
-   "cls": "软件工程类",
-   "plain": "用大模型辅助科研：搭 RAG 问答系统、跑 SFT 微调实验，工程量实在、出活快。",
-   "courses": "Python、数据库、机器学习导论",
-   "hardReq": [
-    "实习 6 个月以上、每周 5 天"
-   ],
-   "plusReq": [
-    "自己搭过 RAG demo"
-   ],
-   "selfLearn": [
-    "RAG 链路（检索+重排+生成）",
-    "LoRA 微调基础"
-   ],
-   "fitWho": "大三下/大四课少、能长期到岗的同学",
-   "tips": "RAG/SFT 是 AI 应用岗面试高频项目经历，比水课设有含金量。"
   }
  ],
  "stats": [
