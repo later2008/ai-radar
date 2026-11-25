@@ -1,6 +1,180 @@
 {
- "updatedAt": "2026-11-24 20:33",
+ "updatedAt": "2026-11-25 06:12",
  "news": [
+  {
+   "id": "a1238",
+   "title": "用 MCP 让 Claude Code 直接读你的本地笔记：给 AI 编码助手接上私有上下文",
+   "summary": "作者用 MCP（Model Context Protocol）把日常零散笔记接入 Claude Code，省去手动粘贴日志、文档片段的麻烦。",
+   "content": "平时写代码遇到报错、翻文档、review PR 时的灵感，散在笔记里就是最好的上下文，但每次手动粘贴太慢。这篇教程用 MCP 给 Claude Code 挂一个本地笔记服务：定义工具（如 search_notes、read_note），让模型按需检索而不是全量塞进 prompt。对软件工程学生来说，这是理解「AI 编码助手如何被扩展」的最短路径——MCP 本质是标准化的工具调用协议，你写一个 server 就等于给自己的 AI 加了一个能力。课设里做代码助手、毕设做 RAG 都能直接复用这套思路。",
+   "source": "DEV Community",
+   "date": "2026-11-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "前端"
+   ],
+   "stack": [
+    "MCP",
+    "Claude Code"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**花两小时跑通 MCP，你就掌握了给任何 AI 助手加工具的标准姿势。**",
+   "courses": "《软件工程》《人工智能导论》——可作为课程项目中的 AI 工具链模块",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "MCP 是标准化的模型-工具协议，写一个 server 即可扩展 Claude Code 能力",
+    "用按需检索代替全量注入，控制 token 成本",
+    "可迁移到自己的 RAG/代码助手项目"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/mohakbajaj/let-claude-code-read-your-notes-with-mcp-333f",
+   "cover": "img/a1238.webp"
+  },
+  {
+   "id": "a1239",
+   "title": "一个 Claude Agent 跑一次要多少钱？完整算账示例",
+   "summary": "文章把假设的客服 Agent 拆成 4 次调用、约 2.1 万输入 token 与 820 输出 token，逐项算出单次运行成本。",
+   "content": "很多人只会背「每百万 token 多少钱」，却算不出一个真实 Agent 跑一次要花多少。这篇用客服工单 Agent 做样例：4 次模型调用、约 21000 输入 + 820 输出 token，把系统提示、工具返回、历史上下文分别计入，最后给出单次成本与日调用量下的月账单。对学生最实用的点在于：它教你把 Agent 当成一个可估算成本的工程系统，而不是黑盒。做课设或毕设时，先算清 token 预算再决定上下文长度、是否做缓存、要不要用小模型分流，能避免 demo 跑通、上线就烧钱。",
+   "source": "DEV Community",
+   "date": "2026-11-25",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Claude API"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**会算 Agent 的 token 账，是 AI 应用岗面试里最容易被问倒的一题。**",
+   "courses": "《软件工程》《云计算》——成本估算可写进项目设计文档",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "Agent 成本 = 调用次数 ×（输入 token + 输出 token）单价",
+    "系统提示与工具返回往往占输入大头",
+    "先做 token 预算，再决定上下文策略与模型选型"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/unmeshed/how-much-does-a-claude-ai-agent-cost-to-run-a-worked-example-hk8",
+   "cover": "img/a1239.webp"
+  },
+  {
+   "id": "a1240",
+   "title": "酷瓜云课堂 v2.0.2 发布：修 nginx/php 漏洞，顺手看一个 PHP 项目的安全维护流程",
+   "summary": "开源网校系统更新镜像至 nginx 1.31.9、php-fpm 8.4.28，修补近期漏洞并优化权限检查与配置读取。",
+   "content": "这个更新日志本身就是一份「Web 项目安全维护」的活教材：升级基础镜像修 nginx/php 漏洞、限制设备同时在线（会话与并发控制）、退款确认页补权限检查（越权漏洞的典型修复点）、优化 Setting 与 Error 配置读取（减少每次请求的重复开销）。信息安全与管理专业的同学可以顺着 changelog 反推攻击面：镜像版本对应 CVE、权限检查对应水平/垂直越权、设备在线限制对应会话劫持防护。软件工程同学则能学到一个成熟项目的发布节奏——漏洞修补、依赖升级、性能优化打包进一个小版本。",
+   "source": "开源中国",
+   "date": "2026-11-25",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "nginx",
+    "PHP"
+   ],
+   "diff": 2,
+   "scene": "课设/求职准备",
+   "value": "**读一份真实项目的 changelog，比背十条安全原则更能建立攻击面思维。**",
+   "courses": "《Web 安全》《计算机网络》——对照分析镜像升级与越权修复",
+   "tags": [
+    "信息安全",
+    "通用开发",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "镜像版本升级 = 修补已知 CVE，运维必做",
+    "退款页权限检查是越权漏洞的典型修复",
+    "设备在线限制属于会话安全策略"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503787"
+  },
+  {
+   "id": "a1241",
+   "title": "Netflix 用运维数据搭知识图谱做 AI 可观测性",
+   "summary": "Netflix 把分散的运维指标、日志与告警组织成知识图谱，让 AI 能基于实体关系做故障定位与可观测性分析。",
+   "content": "可观测性数据（metrics、logs、traces）本身是割裂的，AI 直接读一堆时序数据很难推理。Netflix 的做法是先建知识图谱：把服务、实例、依赖、告警建成实体与关系，再让模型在图上做检索与推理。对信息工程学院学生，这给出一个清晰的技术路线：图数据库 + 实体建模 + LLM 检索，而不是「把日志全丢给大模型」。信息安全方向也能借用——资产关系图是攻击路径分析的基础。做毕设想碰 AIOps 或安全运营的同学，这个架构值得抄。",
+   "source": "InfoQ中文",
+   "date": "2026-11-25",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "知识图谱",
+    "LLM"
+   ],
+   "diff": 3,
+   "scene": "简历加分",
+   "value": "**「图 + LLM」是 AIOps 与安全分析共同的落地范式，值得进你的毕设选题库。**",
+   "courses": "《数据库原理》《信息安全导论》——图数据建模与资产关系分析",
+   "tags": [
+    "行业动态",
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "先建实体关系图，再让 LLM 在图上检索推理",
+    "可观测性数据需要结构化才能被 AI 有效利用",
+    "同一套图模型可迁移到安全资产与攻击路径分析"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/lVQK4fTxIJYZL2sZee2O?utm_source=rss&utm_medium=article",
+   "cover": "img/a1241.webp"
+  },
+  {
+   "id": "a1242",
+   "title": "Sashay：受 WebOS Enyo 启发的 React 滑动面板 UI 库",
+   "summary": "一个开源的 React 组件库，用滑动面板（sliding panes）组织多屏导航，适合移动端与多任务界面。",
+   "content": "移动端多屏导航一直是前端里比较烦的部分：路由、手势、返回栈、动画状态要自己拼。Sashay 把 WebOS Enyo 那套「卡片堆叠 + 滑动切换」的交互抽象成 React 组件，你只需要声明面板层级，滑动与返回栈由库处理。对前端方向的同学，这是练手组件设计与手势交互的好素材：读它的源码能学到如何用 React 状态管理维护导航栈、如何处理触摸事件与动画冲突。课设做移动端 H5 或小程序替代方案时可以直接用，也适合作为简历里的开源贡献对象。",
+   "source": "Hacker News",
+   "date": "2026-11-25",
+   "cat": "tool",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 2,
+   "scene": "课设/练手",
+   "value": "**想练手势交互与组件抽象，读一个导航库的源码比写十个 Todo 有用。**",
+   "courses": "《Web 前端开发》——作为移动端导航组件的实践案例",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "声明式面板层级，库负责滑动与返回栈",
+    "适合移动端多屏导航与手势交互",
+    "源码可学习 React 导航状态管理"
+   ],
+   "buzz": [],
+   "link": "https://vcarl.com/sashay/",
+   "cover": "img/a1242.webp"
+  },
   {
    "id": "a1234",
    "title": "AI Agent 11分钟自主挖出0-day：Cairn开源渗透框架实战复盘",
@@ -23,7 +197,7 @@
     "信息安全",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "Cairn是开源AI渗透Agent，可本地部署研究",
@@ -69,7 +243,8 @@
    "buzz": [],
    "lang": "en",
    "origTitle": "LibreCAD/LibreCAD",
-   "link": "https://github.com/LibreCAD/LibreCAD"
+   "link": "https://github.com/LibreCAD/LibreCAD",
+   "cover": "img/a1235.webp"
   },
   {
    "id": "a1236",
@@ -3929,180 +4104,6 @@
    "origTitle": "Building the Agent Host Protocol for sessions that continue across devices",
    "link": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
    "cover": "img/a1120.webp"
-  },
-  {
-   "id": "a1121",
-   "title": "纯 CSS 实现对话框、菜单与标签页：关掉 JavaScript 也能用",
-   "summary": "Alloy CSS 在 Hacker News 获 121 分，展示不依赖 JavaScript 的 dialog、menu、tab 组件实现。",
-   "content": "很多同学写弹窗、下拉菜单第一反应是引框架加 JS 状态。Alloy CSS 演示了用原生 dialog 元素、:popover、:target 与 checkbox hack 等纯 CSS 手段实现交互组件。价值在于：一是理解浏览器原生能力边界，二是做无障碍与降级方案时心里有底，三是面试聊「为什么用原生 dialog 而不是自己造轮子」时有料。建议拿它对照你课设里的弹窗组件重写一版，比较代码量与可访问性差异，顺手补上键盘焦点管理。",
-   "source": "Hacker News",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "CSS",
-    "HTML"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**少写 JS 也能做出可用组件，前端基本功与无障碍意识的直接训练**",
-   "courses": "对应《Web 前端开发》，可作组件重写练习",
-   "tags": [
-    "前端开发",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 55,
-   "brief": [
-    "用原生 dialog、popover、:target 等实现无 JS 交互",
-    "适合理解浏览器原生能力与渐进增强",
-    "可对照重写课设中的弹窗/菜单组件"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Show HN: Alloy CSS, dialogs, menus and tabs that work with JavaScript off",
-   "link": "https://alloyhtml.com/example.html"
-  },
-  {
-   "id": "a1122",
-   "title": "让网站同时被人类和 AI Agent 读懂：AIO 实用入门",
-   "summary": "一篇面向学生的实践文，讲如何调整页面结构与语义标记，使 AI Agent 能正确抓取和理解站点内容。",
-   "content": "AIO（AI Optimization）不是玄学，本质是把语义化 HTML、结构化数据、清晰的链接与状态码做好，让爬虫和 Agent 都能解析。作者是日本大二学生，做法很朴素：规范 heading 层级、补 JSON-LD、给动态内容留可抓取的静态入口、避免纯 JS 渲染关键信息。对信安与前端同学都有用——前端练语义化与 SEO，信安方向则能反过来理解爬虫行为与 robots 策略。建议给自己的课设站点加一份 JSON-LD 并验证抓取效果。",
-   "source": "DEV Community",
-   "date": "2026-11-17",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "HTML",
-    "JSON-LD"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**把站点做成机器可读，是前端与爬虫安全都绕不开的基础功**",
-   "courses": "对应《Web 前端开发》《网络爬虫》，可作站点优化作业",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 50,
-   "brief": [
-    "AIO 核心是语义化 HTML + 结构化数据 + 可抓取性",
-    "涉及 JSON-LD、heading 层级、静态入口设计",
-    "可给自己的课设站点做一次 AIO 改造"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Building Sites That Both Humans and AI Agents Can Read: A Practical Intro to AIO",
-   "link": "https://dev.to/koheip/building-sites-that-both-humans-and-ai-agents-can-read-a-practical-intro-to-aio-2kp5",
-   "cover": "img/a1122.webp"
-  },
-  {
-   "id": "a1123",
-   "title": "17GB 显存跑 27B 本地 Agent：Unsloth 动态量化实测",
-   "summary": "Unsloth Dynamic V3.1 让 Qwen3.8-27B 在 17GB 显存内运行，支持 256K 长上下文，精度较静态量化回升 5%–10%。",
-   "content": "想在实验室或自己的游戏本上跑本地 Agent，显存是硬门槛。这篇给出可复现的量化方案：动态量化按层分配精度，比一刀切的静态量化在同等显存下准确率更高，256K 上下文对读长文档、跑代码库分析很关键。实操建议：先用 Ollama 或 llama.cpp 拉起量化模型，接一个本地 Agent 框架跑「读仓库→改代码→跑测试」的小任务，记录显存占用与延迟。注意本地模型在工具调用稳定性上仍弱于云端，别指望一步到位。",
-   "source": "DEV Community",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Qwen",
-    "Unsloth"
-   ],
-   "diff": 2,
-   "scene": "练手/项目实验",
-   "value": "**消费级硬件跑本地 Agent 已可行，是低成本做 AI 项目实验的现实路径**",
-   "courses": "对应《人工智能导论》《机器学习》，可作模型部署实验",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 48,
-   "brief": [
-    "动态量化在 17GB 显存内跑 27B 模型，精度回升 5%–10%",
-    "256K 长上下文适合代码库级任务",
-    "可用 Ollama/llama.cpp 复现并记录显存与延迟"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Unsloth Dynamic V3.1: Qwen3.8-27B Local Agent Benchmarks",
-   "link": "https://dev.to/rammehta1899/unsloth-dynamic-v31-qwen38-27b-local-agent-benchmarks-c7",
-   "cover": "img/a1123.webp"
-  },
-  {
-   "id": "a1124",
-   "title": "微软全球宕机复盘：AI 是不是背锅侠，故障排查该怎么看",
-   "summary": "微软大规模宕机与航班停飞被部分归因于 AI，文章梳理事件与归因逻辑。",
-   "content": "每次大厂宕机，舆论都爱甩锅给 AI。对信息安全与管理专业的学生，这类事件是现成的故障分析素材：先分清是配置变更、依赖链故障还是容量问题，再看监控告警与回滚机制是否到位。建议用「时间线—影响面—根因—改进项」四段式写一份复盘笔记，练习从公开信息中还原技术因果，而不是跟着标题下结论。这种结构化归因能力，在运维、应急响应和安全运营岗面试里都会被问到。",
-   "source": "爱范儿",
-   "date": "2026-11-17",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**会做故障归因而非跟风甩锅，是运维与安全岗的底层素养**",
-   "courses": "对应《信息安全导论》《系统运维》，可作案例分析作业",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 45,
-   "brief": [
-    "大厂宕机事件适合做结构化故障复盘练习",
-    "区分配置变更、依赖故障与容量问题",
-    "用时间线—影响面—根因—改进项四段式写笔记"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689638?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a1124.webp"
-  },
-  {
-   "id": "a1112",
-   "title": "AG-UI 协议：把 AI Agent 接进前端，与 MCP、A2A 并列的第三块拼图",
-   "summary": "CopilotKit 发起的开放事件协议 AG-UI，规定 Agent 如何与用户界面双向对接，是前端接入 AI 能力的标准化入口。",
-   "content": "现在做 AI 应用，后端有 MCP 管工具、A2A 管 Agent 间通信，但「Agent 怎么把流式状态、工具调用进度、中断确认推给页面」一直靠各家自己造轮子。AG-UI 用一套基于事件的轻量协议把这件事标准化：前端订阅事件流，Agent 侧按约定发消息，换模型或换 Agent 框架时前端几乎不用改。对你的实际意义：做课设里的「AI 助手」页面时，别再手写一堆 WebSocket 消息类型，直接按 AG-UI 的事件模型设计，简历上也能写「熟悉 Agent-前端交互协议」。建议先读协议规范里的 event 类型表，再用官方 SDK 跑一个最小对话 demo。",
-   "source": "掘金",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "AG-UI",
-    "TypeScript"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**让你做的 AI 页面从「调个接口」升级为符合行业协议的 Agent 前端**",
-   "courses": "《Web 前端开发》《软件工程课程设计》：把课设中的 AI 对话模块按 AG-UI 事件模型重构",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "AG-UI 是 Agent 与前端交互的开放事件协议，与 MCP（工具）、A2A（Agent 互通）互补",
-    "解决流式输出、工具调用状态、人工确认等前端对接痛点",
-    "有官方 SDK，可先跑最小对话 demo 再改造成课设项目",
-    "面试可讲「Agent 前端接入方案」，区别于只会调 API 的同学"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709049532554870793"
   }
  ],
  "jobs": [
