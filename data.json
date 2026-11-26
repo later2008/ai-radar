@@ -1,6 +1,212 @@
 {
- "updatedAt": "2026-11-26 06:04",
+ "updatedAt": "2026-11-26 16:24",
  "news": [
+  {
+   "id": "a1257",
+   "title": "50分钟速通Codex：国内直连DeepSeek，不订阅ChatGPT也能用AI写代码",
+   "summary": "B站保姆级视频教程，演示如何用Codex接入DeepSeek模型，无需ChatGPT订阅即可获得AI编程助手。",
+   "content": "很多同学想用AI辅助写代码，却被订阅费和网络卡住。这个57分钟的视频从安装到跑通完整演示：配置Codex客户端、填入DeepSeek的API Key、在编辑器里让它生成和修改代码。对软件工程学生来说，这是最低成本的AI编程入门路径——你可以在课程设计里让它生成样板代码、解释报错、补单元测试，但一定要自己读懂每一行再提交。建议边看边动手，把API Key管理、上下文长度限制这些坑先踩一遍，后面做项目会省很多时间。",
+   "source": "B站·林粒粒呀",
+   "date": "2026-11-24",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Codex",
+    "DeepSeek"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**零成本把AI编程助手接进自己的开发环境，课设和刷题效率立刻提升。**",
+   "courses": "《程序设计基础》《软件工程》课程设计中用于生成样板代码与调试辅助",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 86,
+   "brief": [
+    "无需ChatGPT订阅，用DeepSeek API即可驱动Codex",
+    "覆盖安装、配置、实际生成代码全流程",
+    "适合作为AI辅助编程的第一课上手",
+    "注意API Key不要硬编码进代码仓库"
+   ],
+   "buzz": [],
+   "link": "https://www.bilibili.com/video/BV1YS1czoEJ4"
+  },
+  {
+   "id": "a1258",
+   "title": "Uber开源AI智能体全生命周期治理框架：Agent上线前该查什么",
+   "summary": "Uber发布安全AI框架，对AI智能体从开发、部署到运行全过程做权限与风险治理。",
+   "content": "当AI Agent开始能调工具、读数据、发请求，它就成了一个需要被审计的\"内部员工\"。Uber这套框架把Agent的生命周期拆成开发、审批、运行、下线几个阶段，每个阶段定义权限边界、行为日志和熔断条件。信息安全与管理专业的同学可以把它当作\"AI系统安全评估\"的现成案例：对照框架看自己写的Agent有没有越权调用、有没有记录每次工具调用、出错能否回滚。做课设时给Agent加一层权限校验和日志，就是简历上很实在的一笔。",
+   "source": "InfoQ中文",
+   "date": "2026-11-26",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "value": "**把\"AI Agent安全治理\"从概念变成可对照检查的工程清单，信安方向面试有话说。**",
+   "courses": "《信息安全管理》《系统安全》中作为AI系统风险评估案例",
+   "tags": [
+    "信息安全",
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 78,
+   "brief": [
+    "覆盖Agent开发、部署、运行、下线的治理流程",
+    "核心是权限边界、行为审计与熔断机制",
+    "可作为AI系统安全评估的参考模板",
+    "课设中给Agent加权限校验+日志即可落地"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/xA3g2i0VtTZIOVePMedY",
+   "cover": "img/a1258.webp"
+  },
+  {
+   "id": "a1259",
+   "title": "多Agent协作别传整段对话：该给交接设一道\"记忆边界\"",
+   "summary": "文章指出Agent间交接应明确\"下一个Agent能看哪些记录\"，而非简单传递完整transcript。",
+   "content": "做多Agent项目时，常见做法是把上一个Agent的全部对话记录丢给下一个，任务一小还能跑，任务一大就上下文爆炸、还泄露不该看的信息。文章主张用\"记忆边界\"：显式定义每个Agent可访问的数据范围、哪些结论可以传递、哪些原始记录必须隔离。这对软件工程学生很实用——你在做毕设或课设里的Agent流程时，可以设计一个共享状态结构，按角色划分读写权限，而不是无脑拼接字符串。这是能直接写进项目文档的架构思路。",
+   "source": "DEV Community",
+   "date": "2026-11-26",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI Agent"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**让你的多Agent项目从\"能跑\"升级到\"结构清晰、可讲清楚\"，答辩加分。**",
+   "courses": "《软件工程》需求与架构设计、《人工智能导论》多智能体部分",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "问题：整段transcript传递导致上下文膨胀与信息越权",
+    "方案：显式定义每个Agent可读记录与可传结论",
+    "可落地为按角色划分读写权限的共享状态结构",
+    "适合多Agent课设/毕设的架构设计参考"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/taylor7150/your-agent-handoff-needs-a-memory-boundary-not-a-bigger-transcript-207n",
+   "cover": "img/a1259.webp"
+  },
+  {
+   "id": "a1260",
+   "title": "Snowflake CoCo进化：数据开发进入Agent自主执行阶段",
+   "summary": "Snowflake的数据开发助手CoCo升级，可让Agent自主完成数据管道搭建与执行任务。",
+   "content": "数据开发正在从\"人写SQL、人调度\"变成\"人描述目标、Agent执行\"。Snowflake CoCo的这次进化，核心是让Agent理解数据任务意图后自主编排执行步骤。对软件工程（工业软件实验班）的同学，这提示一个方向：未来企业级数据平台的开发接口会越来越\"面向意图\"，你需要懂的不只是SQL，还有如何把业务需求拆成Agent可执行的步骤、如何校验它产出的结果。建议在数据库课设里试着用AI生成ETL脚本，再人工审查正确性，体会这种协作模式。",
+   "source": "InfoQ中文",
+   "date": "2026-11-26",
+   "cat": "industry",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Snowflake"
+   ],
+   "value": "**看清企业数据开发的下一形态，提前练\"描述意图+校验结果\"的能力。**",
+   "courses": "《数据库原理》ETL与数据管道实验",
+   "tags": [
+    "工业软件",
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "数据开发从手写SQL转向意图驱动+Agent执行",
+    "企业数据平台接口正在\"面向意图\"演化",
+    "学生应练习：AI生成ETL脚本+人工校验",
+    "工业软件方向可关注数据管道自动化趋势"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/vfmBDlfQRRfHq4Jyi5b6",
+   "cover": "img/a1260.webp"
+  },
+  {
+   "id": "a1261",
+   "title": "Agora：开源Android LLM聊天客户端，自己接API用大模型",
+   "summary": "开源Android应用，让你用自己的API Key接入任意大模型，获得类商业AI客户端的体验。",
+   "content": "如果你已经在用API调模型，但只能在命令行或网页里凑合，Agora提供了一个开源Android客户端：填入自己的API Key，就能像用商业AI App一样对话。对软件工程学生，它的价值不只是\"好用\"，更是一个可读源码的Android+网络请求+密钥管理的实战样本——你可以看它怎么处理流式响应、怎么在本地安全存Key。想练移动端开发或做课程项目参考，这是个不错的起点；注意自己保管Key，别提交到公开仓库。",
+   "source": "少数派",
+   "date": "2026-11-26",
+   "cat": "tool",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "Android"
+   ],
+   "diff": 1,
+   "scene": "练手/课设",
+   "value": "**既是顺手的AI客户端，也是可读源码的Android网络编程样本。**",
+   "courses": "《移动应用开发》中参考其网络请求与状态管理实现",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "开源Android客户端，支持自填API Key接入大模型",
+    "可参考其流式响应与本地密钥存储实现",
+    "适合作为Android课设的源码学习样本",
+    "切勿把API Key提交到公开仓库"
+   ],
+   "buzz": [],
+   "link": "https://sspai.com/post/116773",
+   "cover": "img/a1261.webp"
+  },
+  {
+   "id": "a1262",
+   "title": "用Docker本地跑音频分轨：人声、鼓、贝斯一键分离",
+   "summary": "开源项目Stem Separator配合Docker，在本地完成音频分轨，无需上传第三方API。",
+   "content": "想把一首歌里的人声和伴奏拆开，不必把音频传给外部服务。Stem Separator是开源自托管Web应用，用Docker一条命令拉起，本地跑分离流水线。对软件工程学生，这是一次很具体的\"容器化部署+开源项目跑通\"练习：拉镜像、配卷、开端口、看日志排错，全是以后部署自己项目要用的技能。做毕设需要音频素材处理、或想给社团做点小工具，都能直接用。注意本地跑模型吃CPU/内存，先小文件试。",
+   "source": "DEV Community",
+   "date": "2026-11-26",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "Docker"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**用一个小而完整的开源项目，把Docker部署这项必备技能练熟。**",
+   "courses": "《云计算与容器技术》部署实验、《操作系统》进程与资源观察",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "Docker一键部署，音频不上传第三方",
+    "练习容器化部署与日志排错的真实场景",
+    "可用于毕设音频素材处理或小工具开发",
+    "本地推理较吃资源，先用短音频试跑"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/paladini/run-local-audio-stem-separation-with-stem-separator-and-docker-2ckb",
+   "cover": "img/a1262.webp"
+  },
   {
    "id": "a1252",
    "title": "Spring AI 还是 LangChain4j？Java 接大模型的选型账",
@@ -26,7 +232,7 @@
     "AI工具",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "Spring AI 胜在与 Spring Boot 生态无缝，LangChain4j 胜在链式编排与 RAG 组件丰富",
@@ -3866,207 +4072,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/eO0w7sdaGClvppFqwt5j?utm_source=rss&utm_medium=article",
    "cover": "img/a1149.webp"
-  },
-  {
-   "id": "a1138",
-   "title": "微软称 Copilot 成「工作新操作系统」，Office 三件套整体搬进对话界面",
-   "summary": "Ignite 主题演讲宣布 Word/Excel/PowerPoint 以组件形式运行在 Copilot 内，下一步是常驻后台的 always-on Agent。",
-   "content": "这条对软件工程学生的直接含义是：桌面软件的形态正在从「窗口+菜单」变成「对话+可编排组件」。以后你写课设的文档导出、表格批处理，可能不再调 Office COM 接口，而是给 Copilot 写一段工具描述让 Agent 去执行。建议在《软件工程》课设里做个小实验：把你们项目的「生成周报 Excel」功能封装成一个带 JSON Schema 描述的工具，再让大模型按自然语言调用它，体会工具契约设计比写业务代码更费脑。信息安全方向的同学则要关注：Office 数据进入对话上下文后，权限边界和日志审计怎么做，这是新的攻击面。",
-   "source": "Ars Technica AI",
-   "date": "2026-11-18",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Copilot"
-   ],
-   "value": "**提前理解「软件被 Agent 调用」这一形态变化，比多学一个框架更保值**",
-   "courses": "《软件工程》课设中把功能封装为可被 LLM 调用的工具，练习接口契约设计",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Office 组件化嵌入 Copilot，交互从菜单转向对话",
-    "Agent 调用工具依赖清晰的接口契约与描述",
-    "企业数据进入对话上下文带来新的权限与审计问题"
-   ],
-   "buzz": [],
-   "link": "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/"
-  },
-  {
-   "id": "a1139",
-   "title": "纳德拉：Claude Code 半年动摇微软二十年 IDE 优势，首次向工程师发「离场费」",
-   "summary": "微软 CEO 公开承认 AI 编码工具冲击了 Visual Studio 的长期护城河，并因此调整工程团队。",
-   "content": "这条不是八卦，是就业信号。IDE 的竞争焦点从「编辑器功能」转向「模型+上下文工程」，意味着招聘要求里「熟悉 VS Code 插件开发」的含金量在下降，而「会写 prompt、会搭 RAG 上下文、能评估模型输出质量」在上升。给你的具体动作：一是在《人机交互》或课设里，用 Claude Code / Copilot 完整跑一遍你们项目的重构，记录它错在哪、你怎么纠正，这份记录就是简历上的实证；二是别放弃基本功，AI 改不动的恰恰是并发、内存、协议这类硬知识。",
-   "source": "InfoQ中文",
-   "date": "2026-11-18",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "value": "**看清 AI 编码工具正在改写「IDE 技能」的定义，据此调整学习重心**",
-   "courses": "《程序设计基础》课程项目里用 AI 助手重构代码，对比人工与 AI 的差异",
-   "tags": [
-    "行业动态",
-    "AI工具",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 74,
-   "brief": [
-    "IDE 竞争从编辑器功能转向模型与上下文工程",
-    "招聘重心向 prompt 工程、上下文构建、输出评估迁移",
-    "用 AI 工具做一次完整重构并记录纠错过程，可作简历素材"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/zUC0vHq9xm3BFHSqQlw3?utm_source=rss&utm_medium=article",
-   "cover": "img/a1139.webp"
-  },
-  {
-   "id": "a1140",
-   "title": "腾讯轻量云 LoopForge：把「能写代码」推进到「能交付」的云端 Agent 闭环",
-   "summary": "介绍用云端 Loop 机制让编码 Agent 完成从生成到验证、交付的完整闭环实践。",
-   "content": "「能写代码」和「能交付」的差距，就是编译、跑测试、看日志、改错、再提交这一整圈。LoopForge 讲的是把这个循环放到云端跑，Agent 自己迭代。对你们最实用的用法：在《软件工程》课程设计里，把 CI 流水线（构建+单测+静态检查）配好，然后让 Agent 在流水线反馈上迭代，你会发现瓶颈不在模型写代码，而在你的测试写得够不够细——测试烂，Agent 就瞎改。工业软件实验班的同学尤其值得练：把一段数值计算模块配上单元测试，让 Agent 优化性能并自动验证结果不漂移。",
-   "source": "InfoQ中文",
-   "date": "2026-11-18",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "CI"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**学会用 CI 反馈驱动 Agent 迭代，把「会写」变成「能交付」**",
-   "courses": "《软件工程》课程设计：配置构建与单测流水线，作为 Agent 迭代的判据",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "工业软件"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "Agent 交付闭环 = 生成 + 构建 + 测试 + 反馈迭代",
-    "测试质量决定 Agent 迭代效果，测试烂则改错方向",
-    "适合在课程设计中搭建 CI 后接入 Agent 自动迭代"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/Ae5uw6m9wC2gj5QUCC36?utm_source=rss&utm_medium=article",
-   "cover": "img/a1140.webp"
-  },
-  {
-   "id": "a1141",
-   "title": "OpenAI 与 Meta 同日推 Agent 协议与钱包：解决「进门」和「付钱」",
-   "summary": "Sierra 联合 Meta 发布个人代理协议 Poppy v1.0，OpenAI 推出 ChatGPT Wallet，补齐 Agent 的身份与支付环节。",
-   "content": "Agent 要真正干活，缺的从来不是模型能力，而是「以什么身份访问系统」和「怎么完成支付」。Poppy 这类代理协议本质是给 Agent 定义一套授权与凭证规范，做后端的同学应该敏感：这就是新的鉴权模型。建议在《网络安全》或《Web 开发》课设里做个小练习——设计一个「第三方 Agent 代表用户调用你的 API」的授权流程，用 OAuth2 的 scope 机制限制它能干什么、干多久、留什么审计日志。这类设计题在面试里很吃香，也直接对应信息安全专业的访问控制知识点。",
-   "source": "极客公园",
-   "date": "2026-11-17",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "OAuth2"
-   ],
-   "value": "**把 Agent 授权当成新的访问控制问题来学，直接对接安全专业课**",
-   "courses": "《网络安全》/《Web 开发》：设计第三方 Agent 调用的授权与审计流程",
-   "tags": [
-    "信息安全",
-    "行业动态",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "代理协议解决 Agent 的身份授权与凭证问题",
-    "钱包方案解决 Agent 代付的结算环节",
-    "可类比 OAuth2 scope 设计 Agent 的最小权限与审计"
-   ],
-   "buzz": [],
-   "link": "http://www.geekpark.net/news/374075",
-   "cover": "img/a1141.webp"
-  },
-  {
-   "id": "a1142",
-   "title": "DeepSeek 不限额用法整理：API 接入与历史记录导入指南",
-   "summary": "一篇实操向指南，讲怎么通过接 API 获得更宽松的调用额度并迁移历史对话。",
-   "content": "对预算有限的学生，最实际的价值是：自己写十几行 Python 调 API，比在网页端反复点更可控，还能把调用封装进课设。做法很朴素——申请 key，用 requests 或 openai 兼容 SDK 发请求，把 system prompt 和上下文自己管理，再写个简单的重试与超时。这正好练到《Web 开发》里的 HTTP 请求与错误处理，以及《程序设计基础》里的函数封装。注意两点：不要把 key 硬编码进提交的代码里（用环境变量），以及别把学校项目的敏感数据贴进第三方接口。",
-   "source": "爱范儿",
-   "date": "2026-11-17",
-   "cat": "tool",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Python",
-    "REST API"
-   ],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**用几十行代码把大模型接进自己的项目，比只会用网页版强一档**",
-   "courses": "《Web 开发》练习 HTTP 调用与异常处理；《程序设计基础》练习函数封装",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "自建 API 调用比网页端更可控，便于集成进课设",
-    "练习 HTTP 请求、超时重试、密钥用环境变量管理",
-    "切勿把密钥硬编码或上传敏感数据到第三方接口"
-   ],
-   "buzz": [],
-   "link": "https://www.ifanr.com/1689869?utm_source=rss&utm_medium=rss&utm_campaign=",
-   "cover": "img/a1142.webp"
-  },
-  {
-   "id": "a1133",
-   "title": "Java 曝出内存损坏漏洞 Java4Shell（CVE-2026-114938），藏在 Base64 解码器里",
-   "summary": "Java 的 Base64 解码器底层由 C/C++ 实现，被曝存在内存损坏并可导致远程代码执行，代号 Java4Shell。",
-   "content": "Java 常被当作“内存安全”的代表，但 JDK 里大量底层代码是 C/C++ 甚至汇编写的，这次出问题的就是 Base64 解码器。对信息安全专业的同学，这是一个极好的真实案例：它说明“语言安全”不等于“运行时安全”，攻击面往往在 JNI、本地库、序列化这些边界上。建议做三件事：一是去 NVD 查 CVE-2026-114938 的受影响版本，写一份受影响范围与缓解措施清单；二是用你课上学过的漏洞分析流程复现其触发条件（在隔离环境）；三是把它整理进简历里的“漏洞跟踪”小项目。软件工程同学则要记住：引入第三方本地库前先查 CVE，升级 JDK 补丁不要拖。",
-   "source": "开源中国",
-   "date": "2026-11-18",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "Java"
-   ],
-   "stack": [
-    "Java"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**用一个真实 CVE 讲清“语言安全不等于运行时安全”，是信安课设与简历的现成素材。**",
-   "courses": "对应《网络安全》《Java 程序设计》：把漏洞分析流程落到真实 CVE 上。",
-   "tags": [
-    "信息安全",
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "漏洞位于 Base64 解码器的本地实现，可致 RCE",
-    "语言内存安全≠运行时安全，攻击面在 JNI/本地库边界",
-    "去 NVD 查受影响版本并写缓解清单，可做课设素材",
-    "养成依赖库 CVE 排查与及时打补丁的习惯"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503646/java4shell-write-once-rce-everywhere"
   }
  ],
  "jobs": [
