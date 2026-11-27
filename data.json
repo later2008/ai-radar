@@ -1,6 +1,215 @@
 {
- "updatedAt": "2026-11-26 19:28",
+ "updatedAt": "2026-11-27 05:57",
  "news": [
+  {
+   "id": "a1267",
+   "title": "Quarkus 4.0 发布：Java 21 起步、Vert.x 5 网络层、新增 HTTP/3",
+   "summary": "Quarkus 4.0 大版本发布，最低要求 Java 21（推荐 Java 25），底层升级到 Vert.x 5，并新增 HTTP/3 与 Quarkus Data。",
+   "content": "Quarkus 是 Red Hat 主推的云原生 Java 框架，主打快速启动和低内存，适合容器与 Serverless。4.0 这次是两年一次的大版本：不再支持 Java 17，最低 Java 21，官方推荐 Java 25；网络层整体换到 Vert.x 5，新增 HTTP/3 支持，还引入了 Quarkus Data 做数据访问抽象。对软件工程的同学来说，这是理解「现代 Java 后端长什么样」的好样本：GraalVM 原生镜像、响应式编程、云原生部署都是面试高频词。建议在《Java Web 开发》或毕业设计里，用 Quarkus 写一个 REST 服务并打成容器镜像，和 Spring Boot 版本做启动时间、内存占用的对比，写进简历比空谈「熟悉 Java」有说服力。",
+   "source": "开源中国",
+   "date": "2026-11-27",
+   "cat": "stack",
+   "tracks": [
+    "Java",
+    "通用开发"
+   ],
+   "stack": [
+    "Quarkus",
+    "Java 21"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**用 Quarkus 4.0 做一次与 Spring Boot 的启动性能对比，是 Java 后端简历上少见的差异化亮点。**",
+   "courses": "《Java Web 开发》《软件体系结构》：作为云原生框架案例做对比实验",
+   "tags": [
+    "Java全栈",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "最低 Java 21，推荐 Java 25，Java 17 项目需先升级",
+    "网络层升级 Vert.x 5，新增 HTTP/3 与 Quarkus Data",
+    "适合做 Spring Boot 的对照实验，量化启动速度与内存"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503844/quarkus-4-0-released"
+  },
+  {
+   "id": "a1268",
+   "title": "20 个 AI Agent 组队，4 天跑 350 次实验，刷新 ClickBench 最佳成绩",
+   "summary": "多 Agent 协作自动做数据库查询性能优化，Quickwit 查询总耗时降 31%、最高降 87%，超过 ClickBench 公开最佳成绩。",
+   "content": "这条的价值不在「AI 很强」，而在它演示了一种可复用的工程方法：把性能优化拆成「读代码—提假设—改配置—跑基准—看结果」的循环，交给多个 Agent 并行执行，人只做目标设定和结果审核。ClickBench 是业界公认的查询引擎基准测试，涉及索引、压缩、执行计划等知识。软件工程的同学可以照着做一个小实验：拿自己课设里的数据库查询，用脚本自动跑 EXPLAIN 和耗时统计，再让 AI 帮你提优化建议并验证。这比单纯「让 AI 写代码」更能体现工程能力，也直接对应《数据库系统》里的查询优化章节。",
+   "source": "量子位",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "工业软件"
+   ],
+   "stack": [
+    "AI Agent",
+    "ClickBench"
+   ],
+   "value": "**学会把「性能优化」拆成可自动验证的循环，是 AI 时代比会写代码更值钱的工程能力。**",
+   "courses": "《数据库系统》：结合查询优化章节做基准测试实验",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "多 Agent 分工跑基准测试，4 天完成 350 次实验",
+    "Quickwit 查询总耗时降 31%，最高降 87%",
+    "可复刻到课设：自动跑 EXPLAIN + 耗时统计 + 验证优化"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/513163.html"
+  },
+  {
+   "id": "a1269",
+   "title": "给 AI Agent 加链路追踪：OpenTelemetry + LangSmith 接入 FastAPI/LangGraph",
+   "summary": "一篇实操教程，讲为什么 AI Agent 必须做 tracing，以及如何用 OpenTelemetry 和 LangSmith 给 FastAPI + LangGraph 服务加可观测性。",
+   "content": "Agent 应用最头疼的是「它为什么这么答」——一次请求可能经过多轮工具调用、多次模型调用，出错时日志根本串不起来。可观测性（tracing、metrics、logging）是后端工程的基本功，现在被搬到了 AI 应用上。这篇教程用 OpenTelemetry 做标准埋点、LangSmith 做 LLM 调用可视化，技术栈是 Python 的 FastAPI + LangGraph。信息安全的同学尤其值得看：Agent 调用链是审计和越权排查的关键证据链。建议在《软件工程》课程项目或大创里，给自己的 AI 应用加一层 trace，答辩时演示「一次失败请求的完整调用链」，比只展示界面效果好得多。",
+   "source": "DEV Community",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "OpenTelemetry",
+    "FastAPI"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**会给 AI 应用加 tracing，是从「会调 API」跨到「能做工程」的分水岭。**",
+   "courses": "《软件工程》：课程项目里加可观测性模块并演示调用链",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "解决 Agent 多轮调用日志串不起来的问题",
+    "OpenTelemetry 做标准埋点，LangSmith 可视化 LLM 调用",
+    "调用链同时是安全审计与越权排查的证据"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Why Every AI Agent Needs Tracing: OpenTelemetry and LangSmith for FastAPI & LangGraph",
+   "link": "https://dev.to/gaurav_2207/why-every-ai-agent-needs-tracing-opentelemetry-and-langsmith-for-fastapi-langgraph-2mg5",
+   "cover": "img/a1269.webp"
+  },
+  {
+   "id": "a1270",
+   "title": "如意玲珑 Linyaps Agents V3：自调试、自修复的 Linux 打包流水线",
+   "summary": "一组把 deb/AppImage/tar 迁移到玲珑包格式的 Agent，覆盖脚本生成、Debian 规则翻译、构建执行与自修复三段流水线。",
+   "content": "Linux 软件打包是典型的「脏活」：依赖、构建规则、路径适配，一个环节错就全盘失败。Linyaps Agents 把这条链路拆成三个 Agent：把 deb/AppImage/tar 转成玲珑构建工程、把 Debian 的 rules 翻译成玲珑规则、执行构建并在失败时自调试自修复。对工业软件实验班的同学，这是「构建系统 + 自动化」的真实案例：理解包管理、构建脚本、依赖解析，比只会点 IDE 的编译按钮扎实得多。可以在 Linux 课程或开源之夏类活动里，挑一个小工具试着打成玲珑包，走一遍完整流水线，顺便熟悉 CI 的思路。",
+   "source": "开源中国",
+   "date": "2026-11-27",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "Linux",
+    "Linyaps"
+   ],
+   "diff": 2,
+   "scene": "练手/开源贡献",
+   "value": "**亲手把一个软件打成 Linux 包，比背十遍「构建流程」更能让你理解工业软件的交付链路。**",
+   "courses": "《Linux 操作系统》：作为软件包管理与构建自动化的实践作业",
+   "tags": [
+    "工业软件",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 52,
+   "brief": [
+    "三段流水线：脚本生成、规则翻译、构建执行与自修复",
+    "输入支持 deb、AppImage、tar 等常见格式",
+    "适合作为构建系统与自动化流水线的学习样本"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503841"
+  },
+  {
+   "id": "a1271",
+   "title": "Rvoip：用 Rust 实现的 VoIP 协议栈开源项目",
+   "summary": "一个 Rust 编写的 VoIP 协议栈，Hacker News 上获得百余点讨论，适合研究实时通信协议与内存安全实现。",
+   "content": "VoIP 涉及 SIP 信令、RTP 媒体传输、NAT 穿透等一整套协议，传统实现多用 C/C++，内存安全问题突出。这个项目用 Rust 重写协议栈，正好把「系统级编程 + 网络安全」两个方向接起来。信息安全专业的同学可以关注其中的报文解析部分：协议解析器历来是漏洞高发区，Rust 的所有权模型能规避大量缓冲区溢出问题，这是写课程报告的好角度。软件工程的同学若做即时通信类课设，也可以参考它的分层设计。门槛偏高，建议先补 TCP/UDP 与协议分层的底子再读源码。",
+   "source": "Hacker News",
+   "date": "2026-11-26",
+   "cat": "tool",
+   "tracks": [
+    "信息安全",
+    "通用开发"
+   ],
+   "stack": [
+    "Rust",
+    "VoIP"
+   ],
+   "diff": 3,
+   "scene": "练手/课程报告",
+   "value": "**想同时练系统编程和安全功底，读一个 Rust 写的协议栈源码是最省力的切入点。**",
+   "courses": "《计算机网络》：结合协议分层与报文解析章节读源码",
+   "tags": [
+    "信息安全",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "Rust 实现的 VoIP 协议栈，含信令与媒体传输",
+    "协议解析器是漏洞高发区，Rust 内存安全是天然卖点",
+    "适合做即时通信课设的架构参考"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Rvoip: VoIP stack in Rust",
+   "link": "https://github.com/eisenzopf/rvoip",
+   "cover": "img/a1271.webp"
+  },
+  {
+   "id": "a1272",
+   "title": "用 JavaScript 做金价换算：美元/盎司 → 沙特里亚尔/克（按 K 数）",
+   "summary": "一篇前端小教程，讲如何把国际金价的美元/盎司换算成按克拉区分的本币/克，适合练手金融计算类组件。",
+   "content": "看着像小众需求，其实是典型的前端数值处理练习：单位换算（金衡盎司 vs 克）、汇率、按纯度（24K/22K/21K/18K）折算、浮点数精度与四舍五入展示。这类逻辑在电商价格组件、汇率看板、个人记账工具里都会遇到。前端方向的同学可以拿它当练手题：写一个纯函数做换算，配单元测试覆盖边界值（0、负数、极端汇率），再用一个简单页面展示。重点不是金价，而是「金额计算不能直接用浮点数」这个坑——用整数分或定点数处理，是面试常问的细节。",
+   "source": "DEV Community",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "JavaScript"
+   ],
+   "diff": 1,
+   "scene": "练手",
+   "value": "**把金额换算写成带单元测试的纯函数，是前端新人最容易拿出手的代码质量证明。**",
+   "courses": "《Web 前端开发》：作为 JavaScript 数值处理与测试的练习",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 38,
+   "brief": [
+    "涉及单位换算、汇率、纯度折算三类计算",
+    "核心坑是浮点精度，金额应用整数或定点数处理",
+    "适合当纯函数 + 单元测试的前端练手题"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Converting Spot Gold (USD/oz) to Saudi Riyals per Gram by Karat in JavaScript",
+   "link": "https://dev.to/techguidehq/converting-spot-gold-usdoz-to-saudi-riyals-per-gram-by-karat-in-javascript-1nhe",
+   "cover": "img/a1272.webp"
+  },
   {
    "id": "a1263",
    "title": "Java 21→25、Spring Boot 3→4 迁移踩坑实录：Flyway 静默不跑、Jackson 3 契约变更",
@@ -25,7 +234,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 82,
    "brief": [
     "升级拆两次提交：先 JDK 后框架，便于定位问题",
@@ -3870,205 +4079,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/sbD3maMohpCIExV3UUH0?utm_source=rss&utm_medium=article",
    "cover": "img/a1153.webp"
-  },
-  {
-   "id": "a1154",
-   "title": "NGINX2Root 漏洞影响 Nginx，wlnmp 一键包发布修复版 261119",
-   "summary": "wlnmp 一键安装包更新至 nginx 1.30.7，修复 NGINX2Root 漏洞，并重写 init 服务脚本。",
-   "content": "NGINX2Root 属于可提权到 root 的高危漏洞，凡是拿 Nginx 做反向代理、跑过课程实验或部署过个人项目的同学都该检查版本。这次更新把 nginx 升到 1.30.7，同时重写 /etc/init.d/nginx，不再依赖 ss 和 netstat，并修复 restart 可能启动失败的问题。实操建议：先 nginx -v 看版本，再备份配置和站点目录，然后升级并 reload，最后用 systemctl status 和访问日志确认服务正常。信息安全方向的同学可以把这次升级当成一次完整的漏洞响应演练：识别—评估影响—备份—修复—验证。",
-   "source": "开源中国",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Nginx"
-   ],
-   "value": "**自己部署过 Nginx 的，今天就去查版本并完成一次漏洞修复**",
-   "courses": "《网络安全技术》《Linux 系统管理》：作为漏洞修复与安全加固的实操案例",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 68,
-   "brief": [
-    "NGINX2Root 可提权至 root，属高危，需尽快升级",
-    "修复版本 nginx 1.30.7，init 脚本不再依赖 ss/netstat",
-    "按「识别-备份-升级-验证」流程走一遍，就是一次漏洞响应演练"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503681"
-  },
-  {
-   "id": "a1155",
-   "title": "Shepherd：给失控 AI Agent 加一个「管理者」",
-   "summary": "IEEE Spectrum 报道一种元 Agent 方案，用于监控和约束其他 AI Agent 的越界行为。",
-   "content": "报道提到 Agent 在互联网上失控的案例：删光整个邮箱、入侵网站、发起网络攻击。Shepherd 的思路是引入一个上层「元 Agent」做监督：观察下层 Agent 的动作序列，在危险操作执行前拦截或要求确认。对信息安全与管理专业，这本质是权限最小化 + 行为审计在 Agent 场景的落地：给 Agent 的能力清单要显式白名单，敏感操作（删文件、发请求、改配置）必须二次确认并留日志。做课程项目时，可以给自写的 Agent 加一个简单的动作拦截器，作为安全设计的加分项。",
-   "source": "IEEE Spectrum AI",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [],
-   "value": "**给 Agent 加权限白名单和操作日志，是安全方向最直接的加分设计**",
-   "courses": "《信息安全管理》《系统安全》：用于 Agent 权限模型与审计日志设计",
-   "tags": [
-    "信息安全",
-    "AI工具",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 64,
-   "brief": [
-    "Agent 失控案例：删邮箱、入侵网站、发起攻击",
-    "元 Agent 做监督：动作前拦截、敏感操作二次确认",
-    "对应安全原则：最小权限 + 行为审计 + 白名单"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Meet Shepherd, the Meta-Agent Keeping Rogue AI In Check",
-   "link": "https://spectrum.ieee.org/ai-agent-manager",
-   "cover": "img/a1155.webp"
-  },
-  {
-   "id": "a1156",
-   "title": "RPA 遇上 Agent：MUA 混合执行 Workflow 的三种模式拆解",
-   "summary": "文章拆解 OS Agent 的 AgentRun、ScriptRun、ChainRun 三种执行模式，并用天气巡检案例做实测对比。",
-   "content": "纯 Agent 在线决策灵活但不稳定、成本高；纯脚本稳定但不会应变。MUA 的折中是把两者串起来：AgentRun 负责在线判断，ScriptRun 把验证过的步骤沉淀成固定脚本，ChainRun 把脚本和决策节点串成流水线。对工业软件实验班的同学，这个模式很贴近产线自动化的真实需求——固定流程要可复现、异常分支才交给模型判断。做课设时可以照这个思路设计：把确定性步骤写成函数，只把「下一步做什么」交给模型，既好测试又好讲清楚。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "tut",
-   "tracks": [
-    "工业软件",
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把确定性步骤写成脚本、只让模型做判断，是工程化 Agent 的稳妥做法**",
-   "courses": "《工业软件工程》《软件体系结构》：用于自动化流程的分层设计",
-   "tags": [
-    "工业软件",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 60,
-   "brief": [
-    "三种模式：AgentRun 在线决策、ScriptRun 固定脚本、ChainRun 串联",
-    "思路：确定性步骤脚本化，只有分支判断交给模型",
-    "适合工业场景：流程可复现 + 异常可应变"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709755274685071387"
-  },
-  {
-   "id": "a1143",
-   "title": "Java4Shell：OpenJDK/Java SE 远程代码执行漏洞 CVE-2026-114938 解析",
-   "summary": "Elastic 安全团队披露影响 OpenJDK 与 Oracle Java SE 的 RCE 漏洞，属典型的反序列化/表达式注入类高危问题。",
-   "content": "这是本周最该信息安全与管理专业同学精读的一条。漏洞影响面覆盖大量在跑的 Java 服务端，攻击者可在未授权情况下远程执行代码。建议你按三步走：第一，去 NVD 或 OpenJDK 官方公告核对受影响版本区间，别只看二手转述；第二，用你课上学过的漏洞复现流程，在本地 Docker 起一个受影响 JDK 版本，配合 ysoserial 类工具验证利用链；第三，写一份修复建议——升级到哪个补丁版本、临时缓解措施（如 WAF 规则、JNDI 远程加载禁用）。这份复现报告直接可以放进简历的安全项目栏。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "Java"
-   ],
-   "stack": [
-    "Java",
-    "OpenJDK"
-   ],
-   "diff": 3,
-   "scene": "课设/简历加分",
-   "value": "**一个能直接写进简历的 Java 高危漏洞复现与修复实战**",
-   "courses": "对应《网络安全技术》《Java 程序设计》，把课堂讲的注入原理落到真实 CVE 上",
-   "tags": [
-    "信息安全",
-    "Java全栈",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 88,
-   "brief": [
-    "先查官方公告确认受影响 JDK 版本区间",
-    "本地 Docker 搭靶场复现，理解利用链原理",
-    "输出升级方案 + 临时缓解措施清单"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709537202950848538"
-  },
-  {
-   "id": "a1144",
-   "title": "Vercel AI SDK 6 教程（二）：generateObject + Zod 结构化输出与多步工具调用",
-   "summary": "手把手讲如何用 system/messages 控制模型、用 generateObject 配合 Zod 拿结构化 JSON、用 tools 完成多步调用。",
-   "content": "前端和通用开发方向的同学，这条是能当天跑起来的实操。结构化输出是现在做 AI 功能的基本功：模型返回的不再是自由文本，而是被 Zod schema 约束的 JSON，前端可以直接渲染、后端可以直接入库，省掉一堆正则解析。教程第二部分重点在 tools 多步调用——你定义函数签名，模型决定何时调用、传什么参数，这其实就是 Agent 的最小骨架。建议你拿它改造自己的课设：比如做一个「输入自然语言→生成结构化表单数据」的小工具，代码量不大但演示效果强。注意 AI SDK 是 TS 生态，Vue/React 都能接。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "通用开发"
-   ],
-   "stack": [
-    "TypeScript",
-    "Vercel AI SDK"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**结构化输出 + 工具调用是 AI 应用开发的最小可用骨架，学完就能改课设**",
-   "courses": "对应《Web 前端开发》《软件工程实践》，把 AI 能力接进课程项目",
-   "tags": [
-    "前端开发",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "generateObject + Zod 让模型输出可校验的 JSON",
-    "tools 定义函数签名，模型自主决定调用时机",
-    "适合改造课设，做成自然语言转结构化数据的小工具"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709516157925769243"
-  },
-  {
-   "id": "a1145",
-   "title": "用 Vue 复刻 DeepSeek 开源网页 App：代码更少、功能更多",
-   "summary": "DeepSeek 开源 chat-demo 后，作者用 Vue 重写并做了功能增强，涉及流式输出、会话管理等真实工程细节。",
-   "content": "这不是玩具 Demo。官方 chat-demo 里包含流式响应渲染、Markdown 增量解析、多轮会话状态管理、中断生成等真实产品级细节，而这些恰恰是课上不会教的。作者用 Vue 重写，你可以直接对照两份代码看同一功能的不同实现思路。建议学习路径：先跑通官方 demo，再 diff 作者的 Vue 版本，重点看流式数据如何驱动视图更新、如何避免重复渲染。想加分的同学可以在此基础上接自己的后端或本地模型，做成一个完整的前端项目放进作品集。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "Vue",
-    "流式渲染"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**从开源 chat-demo 学到流式渲染与会话管理这些真实产品细节**",
-   "courses": "对应《Web 前端开发》《人机交互》，课程设计可直接复用",
-   "tags": [
-    "前端开发",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "重点看流式响应如何驱动视图增量更新",
-    "对照官方 demo 与 Vue 版，理解同一功能的不同实现",
-    "可接自建后端或本地模型，做成作品集项目"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709605428527038504"
   }
  ],
  "jobs": [
