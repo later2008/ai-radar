@@ -1,6 +1,175 @@
 {
- "updatedAt": "2026-11-27 16:09",
+ "updatedAt": "2026-11-27 19:24",
  "news": [
+  {
+   "id": "a1278",
+   "title": "Vue 3 懒加载指令封装：IntersectionObserver + 滚动降级",
+   "summary": "用 IntersectionObserver 监听可视区域，降级为 getBoundingClientRect 加节流 scroll，封装成 Vue 3 的 v-lazy 指令。",
+   "content": "文章把图片/组件懒加载拆成三层：优先用 IntersectionObserver 监听元素进入视口，浏览器不支持时降级到 getBoundingClientRect + 节流 scroll 监听；再把这套逻辑包成 Vue 3 自定义指令 v-lazy，业务代码里只写 v-lazy=\"src\" 即可。对软件工程同学来说，这是「前端性能优化」最典型的落地场景：既能练指令生命周期（mounted/unmounted 里注册与销毁监听），又能理解为什么要节流、为什么要在组件卸载时 disconnect 观察者避免内存泄漏。建议拿自己的课设列表页改造一遍，用 Chrome Performance 面板对比改造前后的首屏加载与长任务耗时，把数据写进简历项目描述里。",
+   "source": "掘金",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "Vue 3",
+    "IntersectionObserver"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**把「懒加载」从背概念变成能写进简历的性能优化实操**",
+   "courses": "《Web 前端开发》课程设计中的列表页/图片墙可直接套用",
+   "tags": [
+    "前端开发",
+    "通用开发"
+   ],
+   "featured": true,
+   "heat": 72,
+   "brief": [
+    "优先 IntersectionObserver，不支持时降级 scroll + 节流",
+    "封装为 Vue 3 自定义指令，业务侧零侵入",
+    "注意 unmounted 中 disconnect，避免内存泄漏",
+    "用 Performance 面板量化优化前后差异"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712766568035418122"
+  },
+  {
+   "id": "a1279",
+   "title": "Agent 上下文记忆怎么做：OM 摘要压缩机制拆解",
+   "summary": "作者复盘数月 Agent 实践，重点讲 mastra 的 OM 机制——消息超阈值后由小模型摘要替换，压缩块再超阈值时二次摘要。",
+   "content": "这篇是少见的「讲机制而非讲概念」的 Agent 实践总结。核心是 OM（Observation Memory）式上下文管理：未压缩消息累积到阈值，交给小模型做摘要并替换原文；被压缩的块再次膨胀到阈值，就做二级摘要，形成分层记忆。对软件工程学生，这本质是一个缓存淘汰 + 分层存储的工程问题：阈值怎么定、摘要 prompt 怎么写、如何保证摘要不丢关键信息，都是可以自己动手复现的。建议在毕设或课设里做一个最小 demo：接入任意 LLM API，实现「原始消息队列 + 摘要块队列」两级结构，记录 token 消耗对比。信息安全方向同学可顺带思考摘要过程中敏感信息残留的风险。",
+   "source": "掘金",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM",
+    "mastra"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**理解 Agent 上下文管理的工程本质，做出可演示的记忆压缩 demo**",
+   "courses": "《人工智能导论》《软件工程》课程项目中的智能问答模块",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "OM 机制：超阈值消息由小模型摘要替换",
+    "压缩块再超阈值则二次摘要，形成分层记忆",
+    "可复现最小 demo：两级队列 + token 消耗对比",
+    "注意摘要环节的敏感信息残留问题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712884341617016886"
+  },
+  {
+   "id": "a1280",
+   "title": "T3 Code 评测：多 Agent 控制台到底值不值得装",
+   "summary": "T3 Code 只在「多 Agent 控制台」细分领域领先，它本身不训练模型、不自带 Agent，需先装好 Claude Code、Codex、Cursor 等工具。",
+   "content": "这篇的价值在于帮你省时间：它明确说清 T3 Code 的定位边界——不是模型、不是 Agent，而是一个把 Claude Code、Codex、Cursor 等多个编码 Agent 统一调度和展示的控制台。对正在用 AI 辅助写代码的同学，这解释了「为什么装了它还要装别的」这个常见困惑，也提示了选型逻辑：先确定你主力用哪个 Agent，再决定要不要控制台。建议做法是先用单一 Agent 跑通一个完整课设模块，遇到多任务并行、需要对比不同 Agent 输出时再引入控制台，否则只是增加配置成本。文中还对比了同类产品的用量与口碑，可作为团队协作场景的参考。",
+   "source": "掘金",
+   "date": "2026-11-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "AI 编程工具"
+   ],
+   "diff": 1,
+   "scene": "练手/求职准备",
+   "value": "**搞清 AI 编码工具链的分层，避免盲目堆工具**",
+   "courses": "《软件工程》实训中 AI 辅助编码环节的工具选型",
+   "tags": [
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 60,
+   "brief": [
+    "T3 Code 是控制台，不是模型也不是 Agent",
+    "需自行安装 Claude Code / Codex / Cursor 等",
+    "单 Agent 够用时不必上控制台",
+    "多任务并行、对比输出时价值才显现"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712807993284640803"
+  },
+  {
+   "id": "a1281",
+   "title": "DeepSeek App 双端上线聊天账单，收费信号还是用量透明？",
+   "summary": "DeepSeek 网页与 App 突然亮出聊天账单，网友猜测是否要开始收费。",
+   "content": "这条对学生的实际意义是「成本意识」：一旦主流大模型开始展示用量账单，说明按量计费或分层订阅是大概率方向，现在写代码时把 token 消耗当资源来管，将来不会被动。具体做法：调用任何 LLM API 时在封装层记录每次请求的输入/输出 token 与费用，做成简单日志；prompt 设计上避免无脑塞长上下文，能摘要就摘要。信息安全与管理专业同学还可关注账单数据本身的隐私边界——用量数据属于用户行为数据，采集与展示需符合最小必要原则。别只当八卦看，这是提醒你给项目加一层「成本可观测」的时机。",
+   "source": "量子位",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "LLM API"
+   ],
+   "diff": 1,
+   "scene": "课设/求职准备",
+   "value": "**提前建立大模型调用成本可观测的习惯，项目与面试都用得上**",
+   "courses": "《人工智能导论》实验中的 API 调用与成本核算",
+   "tags": [
+    "AI工具",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 55,
+   "brief": [
+    "主流大模型用量透明化，按量计费趋势明显",
+    "在 API 封装层记录 token 与费用日志",
+    "prompt 侧控制上下文长度即控制成本",
+    "用量数据采集需遵循最小必要原则"
+   ],
+   "buzz": [],
+   "link": "https://www.qbitai.com/2026/11/513305.html"
+  },
+  {
+   "id": "a1282",
+   "title": "Kimi for Science 开放申请：科研用途最高 2 万美元 API 额度",
+   "summary": "月之暗面推出 Kimi for Science 项目，面向自然科学、工程学及交叉学科研究人员提供最高 2 万美元 API 免费额度。",
+   "content": "这是少数对学生有直接可用性的资源类消息：工程学与交叉学科明确在覆盖范围内，意味着做毕业设计、大创项目或课程研究时，可以申请免费 API 额度跑实验，不必自掏腰包。实操建议：申请前先把研究问题写清楚——要解决什么、需要多少次调用、预期产出是什么，这类项目通常看重方案的严谨性而非调用量；获批后务必在代码里做好调用日志与额度监控，避免中途耗尽。信息安全方向可关注 API 密钥管理：不要把密钥硬编码进前端或提交到 Git，用环境变量 + .gitignore，这是最基础也最常被扣分的一环。",
+   "source": "Solidot",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Kimi API"
+   ],
+   "diff": 1,
+   "scene": "课设/简历加分",
+   "value": "**毕设与大创可白嫖的模型额度，附密钥管理避坑提醒**",
+   "courses": "《毕业设计》《大学生创新创业训练》中的模型调用资源",
+   "tags": [
+    "AI工具",
+    "求职就业"
+   ],
+   "featured": false,
+   "heat": 50,
+   "brief": [
+    "工程学与交叉学科在覆盖范围内，学生项目可申请",
+    "申请材料重点写清研究问题与调用量预估",
+    "代码中做调用日志与额度监控",
+    "API 密钥走环境变量，禁止硬编码与提交仓库"
+   ],
+   "buzz": [],
+   "link": "https://www.solidot.org/story?sid=86015"
+  },
   {
    "id": "a1273",
    "title": "3小时、200美元：AI挖出Java致命0day，你的Spring项目可能中招",
@@ -23,7 +192,7 @@
     "Java全栈",
     "AI工具"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 88,
    "brief": [
     "AI代理3小时/200美元挖出Java 0day，漏洞挖掘成本骤降",
@@ -3919,175 +4088,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/YTGHxcabs0RI3btLIUxm?utm_source=rss&utm_medium=article",
    "cover": "img/a1161.webp"
-  },
-  {
-   "id": "a1162",
-   "title": "Cloudflare 推出后量子公共证书颁发机构，HTTPS 要换算法了",
-   "summary": "Cloudflare 上线面向后量子时代的公共 CA，开始签发抗量子签名算法的 TLS 证书，为「先存后解」型攻击做准备。",
-   "content": "「先截流量、等量子计算机成熟再解密」是真实威胁模型，所以主流厂商开始把后量子算法推进到证书链这一层。对信息安全同学，这条新闻的价值在于它把课本上的 PKI 链条完整串了一遍：CA、证书签名算法、信任链、客户端兼容性——换算法不是改一行配置，而是整条链都要协商。建议动手用 openssl 生成一张后量子算法证书，看看握手过程和传统 RSA/ECC 的差异，再想想老客户端怎么办（双证书、混合模式）。这类「密码学迁移」经验在安全岗面试里是加分项。",
-   "source": "InfoQ中文",
-   "date": "2026-11-20",
-   "cat": "industry",
-   "tracks": [
-    "信息安全"
-   ],
-   "stack": [
-    "TLS",
-    "PKI"
-   ],
-   "value": "**后量子不是论文话题，它已经落到你每天访问的 HTTPS 证书链上**",
-   "courses": "《密码学》《网络安全技术》——用于 PKI 与证书链实验的延伸阅读",
-   "tags": [
-    "信息安全",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "公共 CA 开始签发抗量子签名算法的 TLS 证书",
-    "涉及 CA、证书链、算法协商与客户端兼容性",
-    "可用 openssl 实操对比传统证书握手差异",
-    "密码迁移是安全岗面试的加分话题"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/WGpi7vxi1pCiJeJBKbm7?utm_source=rss&utm_medium=article",
-   "cover": "img/a1162.webp"
-  },
-  {
-   "id": "a1163",
-   "title": "Cloudflare 重构 D1 控制平面，撑起数百万数据库实例",
-   "summary": "Cloudflare 介绍 D1 控制平面的重构方案，解决单账号海量数据库实例的调度、元数据管理与故障隔离问题。",
-   "content": "「一个控制平面管几百万个数据库」听起来遥远，但拆开看都是你课上学过的东西：元数据放哪、如何分片、怎么避免单点、故障时如何快速隔离与重建。这篇文章适合当《数据库系统》或《分布式系统》的课外案例读——注意看他们怎么权衡一致性与可用性，以及为什么把控制面和数据面拆开。对做毕设要写「多租户」或「资源管理」模块的同学，可以直接借鉴它的分层思路：控制面只做编排与状态机，别把业务数据混进去。",
-   "source": "InfoQ中文",
-   "date": "2026-11-20",
-   "cat": "stack",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "分布式",
-    "数据库"
-   ],
-   "value": "**百万实例的控制面设计，本质是分层与状态机，课设里也用得上**",
-   "courses": "《数据库系统》《分布式系统》——作为多租户架构设计参考",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "控制平面与数据面分离，支撑百万级数据库实例",
-    "涉及元数据分片、故障隔离、状态机编排",
-    "可作为分布式/数据库课程的架构案例",
-    "多租户课设可直接借鉴分层设计"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/tfy0PQW5LMZCXlCugMo6?utm_source=rss&utm_medium=article",
-   "cover": "img/a1163.webp"
-  },
-  {
-   "id": "a1164",
-   "title": "Snowflake 大会重磅更新梳理：数据平台正在往哪走",
-   "summary": "InfoQ 梳理 Snowflake Expedition 大会的核心发布，涵盖数据平台能力、AI 集成与工程侧变化。",
-   "content": "单看发布会容易变成看热闹，这篇的价值是帮你把「数据平台在往哪走」串成一条线：计算与存储分离之后，厂商在补的是数据治理、半结构化数据处理和 AI 能力接入。对软件工程同学，读的时候带着一个问题——如果我的课设要存日志/埋点，什么场景该用关系库、什么场景该上列存或数据湖？对信息安全同学，则关注权限模型与数据脱敏这块怎么演进。不必追每个新名词，抓住「数据平台 = 存储 + 计算 + 治理」这三层就够了。",
-   "source": "InfoQ中文",
-   "date": "2026-11-20",
-   "cat": "industry",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "数据平台"
-   ],
-   "value": "**看发布会要抓主线：数据平台的竞争点在治理与接入，不在名词**",
-   "courses": "《数据库系统》——用于存储选型与数据治理的延伸阅读",
-   "tags": [
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "梳理 Snowflake 大会的核心能力更新",
-    "主线是数据治理、半结构化数据与 AI 接入",
-    "可帮助判断课设中存储选型（关系库 vs 列存）",
-    "安全侧关注权限模型与脱敏"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/KBcjdx4ZlUj4hyI7zvdd?utm_source=rss&utm_medium=article",
-   "cover": "img/a1164.webp"
-  },
-  {
-   "id": "a1157",
-   "title": "用 JavaScript 在浏览器里给 PDF 加密码：纯前端实现思路",
-   "summary": "freeCodeCamp 教程：不依赖后端，用 JS 在浏览器内为合同、发票、证件扫描件等 PDF 设置打开密码，避免文件发错人就被随意查看。",
-   "content": "很多课设和实习项目都要导出 PDF（成绩单、报表、合同），但导出的文件谁拿到都能打开。这篇教程演示在浏览器端用 JavaScript 完成 PDF 加密：读取用户上传的 PDF，在内存中完成加密后直接触发下载，文件不经过服务器，天然规避上传泄露风险。对软件工程和信息安全专业都有用：前端同学可以把它做成一个可演示的小工具放进作品集；信安同学可以借它理解「数据不出端」的隐私设计思路，以及 PDF 标准加密与口令强度的关系。建议动手时重点看文件流处理和加密参数部分，再自己加一个密码强度校验。",
-   "source": "freeCodeCamp",
-   "date": "2026-11-19",
-   "cat": "tut",
-   "tracks": [
-    "前端",
-    "信息安全"
-   ],
-   "stack": [
-    "JavaScript",
-    "PDF"
-   ],
-   "diff": 2,
-   "scene": "课设/练手/简历加分",
-   "value": "**一个下午能做完的前端小工具，既能练文件处理又能讲隐私设计**",
-   "courses": "《Web前端开发》课程设计可直接改造；《信息安全导论》可作端侧数据保护案例",
-   "tags": [
-    "前端开发",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 62,
-   "brief": [
-    "纯浏览器端加密，文件不上传服务器",
-    "适合做成课设小工具或简历作品",
-    "信安方向可延伸讨论口令强度与端侧隐私"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "How to Build a Browser-Based PDF Password Protector Using JavaScript",
-   "link": "https://www.freecodecamp.org/news/build-pdf-password-protector-javascript/",
-   "cover": "img/a1157.webp"
-  },
-  {
-   "id": "a1158",
-   "title": "Claude Code 到底要不要「心理模型」：一线开发者实测反馈",
-   "summary": "Anthropic 称使用 Claude Code 不需要建立心理模型，从业者正在用实际项目验证这一说法，讨论集中在如何正确给 AI 编码代理下指令。",
-   "content": "这条值得看的地方不是厂商表态，而是一线开发者怎么把 AI 编码代理真正用进日常开发：给多大上下文、任务拆到多细、什么时候该自己接手 review。对软件工程学生来说，这直接关系到你未来实习时的产出效率——同样用 AI 写代码，有人只能生成片段，有人能让它跑通一个模块。建议带着问题读：哪些任务适合交给代理（样板代码、测试用例、重构改名），哪些必须自己把关（并发、边界条件、安全校验）。工业软件实验班的同学尤其注意，涉及设备控制和数值计算的代码，AI 生成的版本必须逐行验证。",
-   "source": "InfoQ中文",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "工业软件"
-   ],
-   "stack": [
-    "Claude Code"
-   ],
-   "value": "**决定你实习效率的不是会不会用 AI，而是会不会给它派活和验收**",
-   "courses": "《软件工程》需求拆分与代码评审环节可结合讨论；实习前准备",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "核心争议：用 AI 编码代理要不要理解它的「脾气」",
-    "可提炼出任务拆分与 review 的实操经验",
-    "工业软件场景下 AI 生成代码必须逐行验证"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/R9BxSitBpwGcDwfS22ac?utm_source=rss&utm_medium=article",
-   "cover": "img/a1158.webp"
   }
  ],
  "jobs": [
