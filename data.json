@@ -1,6 +1,177 @@
 {
- "updatedAt": "2026-11-27 05:57",
+ "updatedAt": "2026-11-27 16:09",
  "news": [
+  {
+   "id": "a1273",
+   "title": "3小时、200美元：AI挖出Java致命0day，你的Spring项目可能中招",
+   "summary": "安全团队用AI代理在3小时内、花费约200美元挖出一个Java生态致命0day，传统人工审计需要数周。",
+   "content": "这条新闻的重点不是「AI很神」，而是漏洞挖掘的成本结构被改写了。过去一个Java反序列化/表达式注入类0day，需要资深安全研究员读大量字节码、构造gadget链，动辄数周；现在用LLM代理做代码审计+自动生成PoC，3小时、200美元就能出结果。对信息安全与管理专业的同学，这意味着两件事：一是「会用AI做代码审计」正在成为安全岗的硬技能，二是你写的Java Web代码被攻击者扫到的概率大幅上升。建议拿一个开源Java项目（如某个老版本组件）跑一遍AI审计流程，理解它如何定位污点传播路径，再对照CWE-502反序列化、CWE-917表达式注入去复现。",
+   "source": "安全客",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "信息安全",
+    "Java"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "value": "**AI代码审计已从「加分项」变成安全岗的准入门槛，现在不练，面试时讲不出一个完整漏洞链。**",
+   "courses": "对应《网络安全技术》《Java程序设计》：用课程学的Java Web知识做靶场复现，把漏洞原理讲清楚。",
+   "tags": [
+    "信息安全",
+    "Java全栈",
+    "AI工具"
+   ],
+   "featured": true,
+   "heat": 88,
+   "brief": [
+    "AI代理3小时/200美元挖出Java 0day，漏洞挖掘成本骤降",
+    "攻击方效率提升，意味着防守方必须同样用AI做代码审计",
+    "重点复习反序列化、表达式注入、gadget链构造",
+    "可拿开源Java项目练手：让AI定位污点传播路径并复现PoC"
+   ],
+   "buzz": [],
+   "link": "https://www.anquanke.com/post/id/316568"
+  },
+  {
+   "id": "a1274",
+   "title": "Oracle 11月补丁更新：640个CVE与「Java4Shell」，Java后端必须自查",
+   "summary": "Oracle月度关键补丁更新一次性修复640个CVE，其中出现被命名为Java4Shell的高危漏洞。",
+   "content": "Oracle从2026年才开始月度关键补丁节奏，11月这次直接放出640个CVE，量级接近季度大版本。对软件工程和信息安全两个专业的同学，这条的价值在于「知道该查什么」。实操建议：第一，登录Oracle CPU公告页，按你项目用到的组件（WebLogic、JDK、MySQL、Coherence）筛出对应CVE；第二，用`mvn dependency:tree`或OWASP Dependency-Check扫一遍自己课设/实习项目的依赖，看有没有命中；第三，理解「Java4Shell」这类命名的含义——通常指可通过JNDI/反序列化触发的远程代码执行，和Log4Shell同源思路。别只记名字，要能说清触发条件和缓解措施（升级JDK、关闭JNDI远程加载、WAF规则）。",
+   "source": "DEV Community",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "Java",
+    "信息安全"
+   ],
+   "stack": [
+    "Java"
+   ],
+   "value": "**640个CVE里只要有一个命中你的项目依赖，你的课设就是别人练手的靶机。**",
+   "courses": "对应《网络安全技术》《软件工程》：把依赖漏洞扫描纳入课程项目的交付检查项。",
+   "tags": [
+    "信息安全",
+    "Java全栈",
+    "行业动态"
+   ],
+   "featured": false,
+   "heat": 82,
+   "brief": [
+    "Oracle单月修复640个CVE，含被命名为Java4Shell的高危漏洞",
+    "用dependency-check扫自己项目依赖，比背CVE编号有用",
+    "重点理解JNDI注入/反序列化RCE的触发链与缓解手段",
+    "面试常问：Log4Shell原理与修复，这次可以顺势扩展"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "Oracle November 2026 Critical Security Patch Update: 640 CVEs and Java4Shell",
+   "link": "https://dev.to/mango7777/oracle-november-2026-critical-security-patch-update-640-cves-and-java4shell-1na2"
+  },
+  {
+   "id": "a1275",
+   "title": "CloudCanal新版：自定义消息解析+Binlog同步优化，做数据迁移课设正好用",
+   "summary": "国产数据迁移同步工具CloudCanal社区版更新，支持自定义消息解析并优化Binlog同步性能，兼容60+数据库。",
+   "content": "工业软件实验班和软件工程的同学，迟早会遇到「异构数据源之间搬数据」的场景：老系统MySQL迁到国产库OceanBase/TiDB，或者把业务库变更实时同步到数仓。CloudCanal社区版免费、可视化，支持结构迁移、全量迁移、增量同步、数据校验和订正，这次更新重点是自定义消息解析（可以自己写解析逻辑处理非标准binlog/消息格式）和Binlog同步性能优化。上手路径：本地起一个MySQL + 一个目标库（Docker即可），用CloudCanal建一条增量同步任务，观察它如何解析binlog、如何处理DDL变更、断点续传怎么做的。这套经验直接对应工业软件里「系统集成/数据中台」的岗位需求。",
+   "source": "开源中国",
+   "date": "2026-11-27",
+   "cat": "tool",
+   "tracks": [
+    "工业软件",
+    "通用开发"
+   ],
+   "stack": [
+    "MySQL"
+   ],
+   "diff": 2,
+   "scene": "课设/练手/简历加分",
+   "value": "**「会做异构数据迁移」是工业软件集成岗的硬需求，用一个免费工具跑通全流程就能写进简历。**",
+   "courses": "对应《数据库原理》《软件工程》：把课程设计的数据层做成可迁移、可校验的形态。",
+   "tags": [
+    "工业软件",
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 66,
+   "brief": [
+    "社区版免费，支持60+数据库间结构迁移、全量+增量同步、校验订正",
+    "新版支持自定义消息解析，可处理非标准binlog格式",
+    "用Docker起MySQL+目标库，跑一条增量同步任务理解binlog解析",
+    "对应工业软件中系统集成、数据中台类岗位的实际技能"
+   ],
+   "buzz": [],
+   "link": "https://www.oschina.net/news/503862"
+  },
+  {
+   "id": "a1276",
+   "title": "React #307：React Router修7个安全漏洞，前端项目该升级了",
+   "summary": "本周React生态要点：React Router修复7个安全漏洞，Next.js、TanStack Query、RTK等同步更新。",
+   "content": "前端同学注意，这期不是新特性速递，是安全通告。React Router一次修了7个漏洞，涉及路由匹配、重定向等常见路径——如果你做过带权限路由的课设或实习项目，很可能踩在受影响版本上。实操：先`npm ls react-router-dom`确认版本，再对照官方安全公告判断是否受影响，升级后重点回归测试动态路由参数、重定向逻辑和鉴权守卫。顺带关注Next.js和TanStack Query的更新，前者涉及服务端渲染的安全边界，后者影响缓存失效逻辑。前端安全常被忽视，但「路由层越权」是真实业务里最常见的漏洞类型之一，面试聊项目时能讲清楚你怎么修的，比背八股有用。",
+   "source": "DEV Community",
+   "date": "2026-11-27",
+   "cat": "stack",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "value": "**前端安全不是玄学，路由越权就藏在你天天写的守卫里，升级+回归测试一次就懂。**",
+   "courses": "对应《Web前端开发》：在课程项目的路由守卫部分加入越权测试用例。",
+   "tags": [
+    "前端开发",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 62,
+   "brief": [
+    "React Router修复7个安全漏洞，涉及路由匹配与重定向",
+    "先npm ls确认版本，升级后回归测试动态路由、重定向、鉴权守卫",
+    "路由层越权是业务中最常见的前端安全问题之一",
+    "顺带关注Next.js服务端渲染安全边界与TanStack Query缓存失效"
+   ],
+   "buzz": [],
+   "lang": "en",
+   "origTitle": "This Week In React #307 : Security, React Router, Next.js, TanStack Query, RTL, RTK | Reanimated, Worklets, Expo, Skia | TC39, Node.js, Parcel",
+   "link": "https://dev.to/sebastienlorber/this-week-in-react-307-security-react-router-nextjs-tanstack-query-rtl-rtk-reanimated-523e",
+   "cover": "img/a1276.webp"
+  },
+  {
+   "id": "a1277",
+   "title": "让Agent「记得住、查得准、改得对」：Agent记忆系统的工程拆解",
+   "summary": "InfoQ技术文章拆解Agent记忆系统的三个核心问题：记忆存储、检索准确性与记忆修正。",
+   "content": "现在做AI应用，光会调API不够，真正的难点在「上下文工程」。这篇文章把Agent记忆拆成三件事：记得住（持久化存储，向量库/结构化库怎么选）、查得准（检索策略，纯向量检索为什么经常召回错、混合检索怎么配）、改得对（记忆冲突时如何更新而非堆积）。对软件工程同学，这是可以直接落到项目里的架构问题：你可以用一个课程项目做实验——给一个问答Agent加记忆层，对比「无记忆/纯向量/向量+关键词混合」三种方案的召回准确率，记录失败案例。这类工程对比实验写进简历，比「我调用过GPT接口」有说服力得多。",
+   "source": "InfoQ中文",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [
+    "LLM"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**会调API的人满地都是，能把记忆检索做对的人才是团队要的。**",
+   "courses": "对应《软件工程》《人工智能导论》：作为课程项目的架构设计加分项。",
+   "tags": [
+    "通用开发",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 58,
+   "brief": [
+    "Agent记忆三要素：持久化存储、检索准确性、记忆修正",
+    "纯向量检索召回常出错，混合检索是常见解法",
+    "可做对比实验：无记忆/纯向量/混合检索的召回准确率",
+    "上下文工程是当前AI应用开发岗的核心考察点"
+   ],
+   "buzz": [],
+   "link": "https://www.infoq.cn/article/DUG6LEgK9Vi4sGy6QYTW?utm_source=rss&utm_medium=article",
+   "cover": "img/a1277.webp"
+  },
   {
    "id": "a1267",
    "title": "Quarkus 4.0 发布：Java 21 起步、Vert.x 5 网络层、新增 HTTP/3",
@@ -25,7 +196,7 @@
     "Java全栈",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "最低 Java 21，推荐 Java 25，Java 17 项目需先升级",
@@ -3917,168 +4088,6 @@
    "buzz": [],
    "link": "https://www.infoq.cn/article/R9BxSitBpwGcDwfS22ac?utm_source=rss&utm_medium=article",
    "cover": "img/a1158.webp"
-  },
-  {
-   "id": "a1159",
-   "title": "Agent 从「人人可用」走向全栈工程：小编探班实录",
-   "summary": "InfoQ 视频探班，展示 Agent 类工具如何从演示玩具变成覆盖前后端、部署运维的全栈工程实践。",
-   "content": "现在讲 Agent 的内容很多，但大多停在「能跑个 demo」。这条的价值在于它关注工程化那一面：一个能用的 Agent 应用，背后要有接口层、状态管理、失败重试、日志与成本控制——这些恰好是课堂作业和真实项目的差距。前端同学可以关注工具调用结果如何渲染与流式展示；Java 同学可以关注服务端如何编排多步任务、做超时与幂等。看完建议动手把课程项目里的某个功能改造成「可被 Agent 调用」的接口，体会一下接口设计对自动化的重要性。",
-   "source": "InfoQ中文",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "Agent"
-   ],
-   "value": "**把「会调 API」升级成「会做能上线的 Agent 应用」，是简历上的分水岭**",
-   "courses": "《软件工程》《Web应用开发》课程项目可对照改造",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 52,
-   "brief": [
-    "重点在工程化：接口、状态、重试、日志、成本",
-    "前端看流式渲染，后端看任务编排",
-    "可把课设功能改造成可被调用的接口练手"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/video/Cfrl4QYhD3dHMuhGt6hw?utm_source=rss&utm_medium=article"
-  },
-  {
-   "id": "a1150",
-   "title": "Spring AI 上手：Java 开发者不碰 ML 底层也能接大模型",
-   "summary": "介绍 Spring AI 如何让 Java 工程师像用 Spring MVC/Spring Data 一样构建 AI 应用，屏蔽模型调用细节。",
-   "content": "Spring AI 是 Spring 官方面向 AI 的扩展，核心价值是把「调模型」变成「注入一个 Bean」：ChatClient 发消息、EmbeddingClient 做向量化、VectorStore 接向量库，配置写在 application.yml 里，和 Spring Boot 自动装配一个套路。对软件工程专业的同学来说，这是把 Java 全栈技能接到 AI 场景最短的路径——不用学 Python 训练模型，只要会写 Controller、会配依赖就能做出一个带 RAG 的问答接口。建议拿它替换掉课设里手写的 HTTP 调模型代码，体会框架封装带来的可测试性和可替换性。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "stack",
-   "tracks": [
-    "Java",
-    "通用开发"
-   ],
-   "stack": [
-    "Spring AI",
-    "Spring Boot"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**Java 全栈同学接入大模型的最短路径，不用转 Python 也能做 AI 应用**",
-   "courses": "《Java Web 开发》《软件框架技术》：把课设的 CRUD 后端升级为带大模型问答的服务",
-   "tags": [
-    "Java全栈",
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 82,
-   "brief": [
-    "Spring 官方 AI 扩展，自动装配风格与 Spring Boot 一致",
-    "ChatClient/EmbeddingClient/VectorStore 三层抽象，配置化接入",
-    "适合把已有 Java 课设改造成带 RAG 的 AI 应用"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709781930410360858"
-  },
-  {
-   "id": "a1151",
-   "title": "从零手撸 Agent 第五篇：Agent 和聊天机器人的差别就在一个循环",
-   "summary": "系列文章用概念图讲清 Agent 的组成与「会聊天→会做事」的关键差别，本篇不含代码。",
-   "content": "很多人以为接了 API 就是 Agent，其实差的是一个「循环」：模型输出不再直接返回给用户，而是先判断要不要调工具、拿到工具结果再喂回模型，直到任务完成。这篇把 Agent 拆成模型、工具、记忆、循环控制四块，配图讲清每块的作用和边界。对做课设的同学，这是设计文档里「系统架构」一节的现成骨架：先画清循环，再决定用不用框架，比一上来抄 LangChain 代码更容易讲明白自己做了什么。建议配合前四篇的流式对话代码一起看。",
-   "source": "掘金",
-   "date": "2026-11-19",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [],
-   "diff": 1,
-   "scene": "课设/练手",
-   "value": "**先想清循环再写代码，避免课设里「套了框架却讲不清原理」**",
-   "courses": "《软件工程》《人工智能导论》：用于课设的系统架构设计与方案论证",
-   "tags": [
-    "AI工具",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "Agent = 模型 + 工具 + 记忆 + 循环控制",
-    "关键差别：输出先判断是否调工具，结果回灌模型",
-    "适合作为课设架构设计章节的参考骨架"
-   ],
-   "buzz": [],
-   "link": "https://juejin.cn/post/7709781930410655770"
-  },
-  {
-   "id": "a1152",
-   "title": "Claude Code 团队：90% 代码由 AI 写，靠「验证回路」同时跑上百个 Agent",
-   "summary": "Claude Code 团队公开其代码约 90% 由 Claude 编写和评审，并总结出让 Agent 自我验证的关键做法。",
-   "content": "核心结论很实用：没有验证回路，你最多同时盯一两个 Agent；有了验证回路，可以并行几十上百个。所谓验证回路，就是让 Agent 的产出必须过一道可自动执行的检查——跑测试、跑类型检查、跑 lint、比对预期输出，失败就把错误信息回灌让它自己改。这对信息安全与管理专业的同学尤其相关：AI 生成的代码和脚本默认不可信，验证环节同时也是安全审查环节（依赖来源、命令执行范围、权限边界）。做课设时不妨给自己的 AI 辅助流程加一条「必须过单测才算完成」的硬规则。",
-   "source": "开源中国",
-   "date": "2026-11-19",
-   "cat": "industry",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [],
-   "value": "**把「让 AI 自己证明活干对了」变成工程习惯，也是安全底线**",
-   "courses": "《软件测试》《信息安全工程》：把自动化验证与代码审查写进开发流程",
-   "tags": [
-    "AI工具",
-    "信息安全",
-    "通用开发"
-   ],
-   "featured": false,
-   "heat": 76,
-   "brief": [
-    "无验证回路只能串行盯 1-2 个 Agent，有则可并行上百",
-    "验证手段：单测、类型检查、lint、预期输出比对",
-    "AI 产出默认不可信，验证环节天然是安全审查点"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503667/claude-dev-how-the-claude-code-team-thinks-about-verification"
-  },
-  {
-   "id": "a1153",
-   "title": "pg_vectorsearch：给 PostgreSQL 加更可扩展的向量搜索",
-   "summary": "开源项目为 PostgreSQL 提供更具扩展性的向量检索能力，可用于 RAG 场景的相似度查询。",
-   "content": "做 RAG 课设最常见的尴尬是：业务数据在 MySQL/PostgreSQL，向量却要另起一个向量库，两套存储对不齐。pg_vectorsearch 的思路是把向量检索做进 PostgreSQL 生态，让「结构化条件 + 相似度排序」能在一条 SQL 里表达，扩展性上比简单全表扫描更可控。对软件工程同学，这意味着课设可以只维护一个数据库，事务、备份、权限沿用原有方案；对信息安全方向，数据不出库也减少了外部服务带来的泄露面。建议先在小数据集上对比召回效果和查询耗时。",
-   "source": "InfoQ中文",
-   "date": "2026-11-19",
-   "cat": "tool",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "PostgreSQL"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**课设做 RAG 不必再引一套向量库，一个 PostgreSQL 就够**",
-   "courses": "《数据库原理》《数据库系统实现》：用于向量索引与查询优化的实验",
-   "tags": [
-    "通用开发",
-    "AI工具",
-    "信息安全"
-   ],
-   "featured": false,
-   "heat": 70,
-   "brief": [
-    "向量检索下沉到 PostgreSQL，减少一套外部向量库",
-    "支持结构化过滤 + 相似度排序组合查询",
-    "单库方案降低运维与数据外泄风险"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/sbD3maMohpCIExV3UUH0?utm_source=rss&utm_medium=article",
-   "cover": "img/a1153.webp"
   }
  ],
  "jobs": [
