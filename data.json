@@ -1,6 +1,175 @@
 {
- "updatedAt": "2026-11-27 19:24",
+ "updatedAt": "2026-11-28 05:37",
  "news": [
+  {
+   "id": "a1283",
+   "title": "用自然语言查百万笔交易：Elastic Agent Builder 的 MCP 服务器实战",
+   "summary": "掘金实战文，讲如何借助 AWS Quick 与 Elastic Agent Builder 的 MCP 服务器，让分析师用自然语言查询百万级交易数据。",
+   "content": "这篇是少见的「MCP 服务器 + 真实数据量」落地文。作者把 Elastic Agent Builder 包装成 MCP 服务器，让 LLM 通过工具调用去查百万笔交易，而不是把数据塞进上下文。对软件工程同学的价值在于：你能看到一个完整的 Agent 工具链长什么样——工具定义、参数 schema、查询下推、结果裁剪。做课设时可以直接照搬这个结构，把「数据库查询」换成你项目的 MySQL 或 MongoDB，就是一个能写进简历的 AI 应用。信息安全方向的同学则可以从「Agent 拿到数据库凭证后权限如何收敛」这个角度切入，做一份威胁建模。",
+   "source": "掘金",
+   "date": "2026-11-28",
+   "cat": "tut",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "MCP",
+    "Elastic"
+   ],
+   "diff": 3,
+   "scene": "课设/简历加分",
+   "value": "**照着它把「自然语言查数据库」做成自己的项目，是当前最容易被面试官追问的 AI 工程实践。**",
+   "courses": "《数据库原理》+《软件工程》课程设计，可作为 AI 增强层模块",
+   "tags": [
+    "AI工具",
+    "通用开发",
+    "求职就业"
+   ],
+   "featured": true,
+   "heat": 78,
+   "brief": [
+    "MCP 服务器把数据库查询能力暴露给 LLM，避免全量数据进上下文",
+    "重点看工具 schema 设计与查询下推的实现方式",
+    "可替换为 MySQL/MongoDB 复刻到自己的课设项目",
+    "安全视角：Agent 持有数据库凭证的权限收敛问题"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712765229257113651"
+  },
+  {
+   "id": "a1284",
+   "title": "Graphify 实测：13.9 万星图工具，真项目跑 34 秒",
+   "summary": "作者用真实项目实测 Graphify，结论是代码分析靠谱、文档分析依赖 API key，真正价值在于给 grep 之外的结构化视角。",
+   "content": "很多人把这类工具当成「替代 grep」，实测下来不是。作者用真项目跑了 34 秒，发现代码侧的图构建是硬的，文档侧则受限于模型 key 的质量。对软件工程和信息安全同学来说，可用的点很具体：一是接手陌生代码库时，用调用图/依赖图快速定位入口，比盲搜快得多；二是做代码审计时，把「谁调用了这个危险函数」变成图查询，比正则扫一遍可靠。建议你自己拿课程设计的老代码或开源项目跑一遍，重点看它输出的依赖关系是否准确，而不是看它生成的文档漂不漂亮。",
+   "source": "掘金",
+   "date": "2026-11-27",
+   "cat": "tool",
+   "tracks": [
+    "通用开发",
+    "信息安全"
+   ],
+   "stack": [
+    "Graphify"
+   ],
+   "diff": 2,
+   "scene": "练手/课设",
+   "value": "**花半小时跑一遍，你会多一个读陌生代码库和做代码审计的实用视角。**",
+   "courses": "《软件工程》代码阅读与维护、《信息安全》代码审计实验",
+   "tags": [
+    "通用开发",
+    "AI工具",
+    "信息安全"
+   ],
+   "featured": false,
+   "heat": 72,
+   "brief": [
+    "代码侧图构建可靠，文档侧质量取决于模型 key",
+    "适合接手陌生代码库时快速定位调用链",
+    "安全审计场景：用图查询找危险函数的调用方",
+    "别当 grep 替代品，当结构化理解工具用"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712769384163672073"
+  },
+  {
+   "id": "a1285",
+   "title": "让 AI Agent 读飞书群聊干活：一个落地页项目的真实复盘",
+   "summary": "前端交付中需求散落在飞书群聊和表格里，作者做了一个能读群聊的 Agent 来收敛需求，完整复盘了落地过程。",
+   "content": "这篇的价值不在 Agent 本身，而在它解决的是一个你迟早会遇到的工程问题：需求散落在聊天记录、截图、表格里，靠人肉整理必然漏。作者的思路是把飞书群聊作为输入源，让 Agent 抽取需求条目并结构化。对前端方向的同学，可以直接借鉴它的信息抽取与任务拆解流程；对通用开发方向，这是一个典型的「非结构化输入 → 结构化任务」管道设计练习。注意它的坑也很真实：群聊噪声大、截图需要 OCR、权限申请麻烦。做课设时可以把飞书换成微信群导出文本，规模小一点但流程一样。",
+   "source": "掘金",
+   "date": "2026-11-27",
+   "cat": "tut",
+   "tracks": [
+    "前端",
+    "通用开发"
+   ],
+   "stack": [
+    "飞书API"
+   ],
+   "diff": 2,
+   "scene": "课设/简历加分",
+   "value": "**学会把散乱需求变成结构化任务，比会写页面更值钱，这篇给了完整流程。**",
+   "courses": "《软件工程》需求分析、《Web 前端开发》项目实训",
+   "tags": [
+    "前端开发",
+    "AI工具",
+    "通用开发"
+   ],
+   "featured": false,
+   "heat": 68,
+   "brief": [
+    "核心是「非结构化聊天记录 → 结构化需求」的管道设计",
+    "涉及 OCR、信息抽取、任务拆解三个环节",
+    "坑点真实：噪声、权限、截图识别",
+    "可降级为本地文本输入复刻到课设"
+   ],
+   "buzz": [],
+   "link": "https://juejin.cn/post/7712807993284280355"
+  },
+  {
+   "id": "a1286",
+   "title": "React 邮箱表单：提交时不发生布局跳动怎么做",
+   "summary": "一篇西语前端短文，讲 React 中邮箱确认表单如何避免提交过程中的布局抖动与按钮状态混乱。",
+   "content": "题目很小，但踩的是前端面试和真实项目里都高频的细节：异步提交期间按钮禁用、加载态、错误提示插入，任何一步处理不好页面就会跳一下。文章给出的思路是把「提交中/成功/失败」三态在布局上预留空间，而不是让提示元素动态插入撑开容器。对前端方向的同学，这是 CSS 布局稳定性 + React 状态机的组合练习，代码量不到百行，适合直接抄进你的课程设计登录注册模块。顺带说一句，西语原文不影响阅读，代码才是主体。",
+   "source": "DEV Community",
+   "date": "2026-11-28",
+   "cat": "tut",
+   "tracks": [
+    "前端"
+   ],
+   "stack": [
+    "React"
+   ],
+   "diff": 1,
+   "scene": "课设/练手",
+   "value": "**一个不到百行的练习，能补上你课设里最容易被忽略的交互细节。**",
+   "courses": "《Web 前端开发》表单与交互章节",
+   "tags": [
+    "前端开发"
+   ],
+   "featured": false,
+   "heat": 48,
+   "brief": [
+    "核心：提交三态在布局上预留空间，避免动态插入撑开容器",
+    "涉及 React 状态管理与 CSS 布局稳定性",
+    "代码量小，可直接用于课设的注册/登录模块",
+    "面试常问的「加载态与禁用态」处理细节"
+   ],
+   "buzz": [],
+   "link": "https://dev.to/silviutech/react-formularios-de-email-sin-saltos-de-layout-4l44",
+   "cover": "img/a1286.webp"
+  },
+  {
+   "id": "a1287",
+   "title": "智谱辟谣 GLM-5.5 延期：上万张国产卡进展顺利",
+   "summary": "智谱高管否认 GLM-5.5 跳票传闻，称性能达 Fable 级、上万张国产 AI 卡训练进展顺利。",
+   "content": "这条本身是辟谣，但对你有间接价值：国产大模型的能力节奏，直接决定你毕业时能用什么水平的 API 和本地模型。传闻里提到的「蒸馏技术设限」如果成真，会影响国内模型迭代速度，进而影响你项目里模型选型的稳定性。实操建议是：不要把课设或毕设绑死在某个特定模型版本上，接口层做一层薄封装，换模型只改配置。这是软件工程里最朴素的依赖隔离思想，在 AI 应用里同样成立。",
+   "source": "极客公园",
+   "date": "2026-11-27",
+   "cat": "industry",
+   "tracks": [
+    "通用开发"
+   ],
+   "stack": [],
+   "value": "**提醒你在 AI 项目里做依赖隔离，别把毕设绑死在一个模型版本上。**",
+   "courses": "《软件工程》架构设计中的依赖管理",
+   "tags": [
+    "行业动态",
+    "AI工具"
+   ],
+   "featured": false,
+   "heat": 45,
+   "brief": [
+    "GLM-5.5 传闻延期被官方否认，训练进展正常",
+    "模型迭代节奏影响你项目的技术选型稳定性",
+    "建议在项目里对模型 API 做薄封装，便于替换",
+    "不要硬编码单一模型版本"
+   ],
+   "buzz": [],
+   "link": "http://www.geekpark.net/news/374546",
+   "cover": "img/a1287.webp"
+  },
   {
    "id": "a1278",
    "title": "Vue 3 懒加载指令封装：IntersectionObserver + 滚动降级",
@@ -24,7 +193,7 @@
     "前端开发",
     "通用开发"
    ],
-   "featured": true,
+   "featured": false,
    "heat": 72,
    "brief": [
     "优先 IntersectionObserver，不支持时降级 scroll + 节流",
@@ -3907,187 +4076,6 @@
    ],
    "buzz": [],
    "link": "https://www.oschina.net/news/503704/oceanbase-powercontex"
-  },
-  {
-   "id": "a1166",
-   "title": "React 深度系列第 3 章：useEffect 到底该用在哪儿",
-   "summary": "一篇讲清 useEffect 适用场景与误用场景的教程，指出绝大多数副作用其实不该放进 effect。",
-   "content": "前端同学写 React 最常见的坑就是把什么都往 useEffect 里塞：派生状态、事件响应、数据转换，全写成 effect，结果渲染两遍、依赖数组打架、闭包拿到旧值。这篇是 12 章系列的第 3 章，专门划清边界：effect 只用于「和外部系统同步」这一小类场景，其余大多应该用事件处理函数或渲染期计算解决。建议对照自己课设里的列表页、表单页逐个检查，把能删的 effect 删掉，代码会短一截、bug 也少一截。面试被问「useEffect 和 useLayoutEffect 区别」「为什么依赖数组会漏」时，这类底层理解比背结论管用。",
-   "source": "DEV Community",
-   "date": "2026-11-20",
-   "cat": "tut",
-   "tracks": [
-    "前端"
-   ],
-   "stack": [
-    "React"
-   ],
-   "diff": 2,
-   "scene": "课设/求职准备",
-   "value": "**删掉一半 useEffect，你的 React 代码会立刻变干净**",
-   "courses": "《Web 前端开发》——组件生命周期与副作用管理的正课补充",
-   "tags": [
-    "前端开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "明确 useEffect 只该用于与外部系统同步",
-    "派生状态、事件响应不该写成 effect",
-    "拿课设页面逐个排查多余的 effect",
-    "面试常考依赖数组与闭包陷阱"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "React, deeply · 3. Effects, honestly",
-   "link": "https://dev.to/techamit95ch/react-deeply-3-effects-honestly-26cc",
-   "cover": "img/a1166.webp"
-  },
-  {
-   "id": "a1167",
-   "title": "同一台机器跑两个 AI Agent，会撞出什么事故",
-   "summary": "作者复盘多 Agent 共享同一代码库时的冲突：一个在重构，另一个跑去修测试，结果互相把对方的改动判成失败。",
-   "content": "你让 Agent A 重构，嫌慢又开了 Agent B 去修同一个仓库里的失败测试。B 跑测试看到一堆新报错——那是 A 没改完的重构造成的——于是开始「修」这些根本不存在的 bug。这篇复盘讲的正是多 Agent 并发操作同一工作区时的状态污染问题，给出的方向是隔离工作区、加锁、明确任务边界。对做课设和小组项目的同学很实用：多人（或多 Agent）改同一分支时，git worktree、分支隔离、CI 前置检查就是最低成本的解法。信息安全方向的同学还可以顺着想：Agent 有写权限时，如何做操作审计和最小权限。",
-   "source": "DEV Community",
-   "date": "2026-11-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "信息安全"
-   ],
-   "stack": [
-    "Agent",
-    "Git"
-   ],
-   "diff": 2,
-   "scene": "课设/练手",
-   "value": "**并发不是免费的：先隔离工作区，再谈多 Agent 提效**",
-   "courses": "《软件工程》《信息安全导论》——版本隔离与最小权限原则的实战案例",
-   "tags": [
-    "通用开发",
-    "信息安全",
-    "AI工具"
-   ],
-   "featured": false,
-   "heat": 66,
-   "brief": [
-    "多 Agent 共享工作区会互相污染状态",
-    "测试结果被半成品改动误导，导致「修不存在的 bug」",
-    "解法：工作区隔离、任务加锁、明确边界",
-    "对应到小组协作就是 worktree + 分支隔离 + CI 检查"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "Two Agents, One Machine: When Multiple AI Agents Collide",
-   "link": "https://dev.to/mutageniclabs/two-agents-one-machine-when-multiple-ai-agents-collide-3afb",
-   "cover": "img/a1167.webp"
-  },
-  {
-   "id": "a1168",
-   "title": "三个骗过单元测试的 Rust CLI 解析 bug：静默截断、别名冲突、stderr 被吞",
-   "summary": "作者在开源 CLI 项目里挖到的三个隐蔽 bug，共同点是单测全过、生产环境静默出错。",
-   "content": "静默 zip 截断、kebab-case 别名互相覆盖、错误信息被悄悄吞掉——这三个 bug 有个共同特征：不抛异常、不报错，只是结果不对，所以单元测试全绿。作者是在给 Rust CLI 项目找 bounty 时逐个定位的。对软件工程同学的价值不在 Rust 语法，而在排查方法：边界输入要断言输出长度、别名表要检查唯一性、错误路径要验证 stderr 真的写出来了。你写课设的命令行工具或接口层时，同样容易犯「吞异常」的毛病——catch 住什么都不做，上线后查无可查。建议把「错误必须可见」当成代码 review 的固定检查项。",
-   "source": "DEV Community",
-   "date": "2026-11-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发"
-   ],
-   "stack": [
-    "Rust"
-   ],
-   "diff": 2,
-   "scene": "练手/求职准备",
-   "value": "**最危险的 bug 不报错，只给你一个错的结果**",
-   "courses": "《程序设计》《软件测试》——异常处理与边界测试的反面教材",
-   "tags": [
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 58,
-   "brief": [
-    "三个 bug 都是静默失败，单测无法发现",
-    "排查思路：断言输出长度、检查别名唯一性、验证 stderr",
-    "「catch 住不处理」是同类问题的常见来源",
-    "把错误可见性列为 code review 固定项"
-   ],
-   "buzz": [],
-   "lang": "en",
-   "origTitle": "3 Subtle Rust CLI & Parser Bugs I Hunted Today (Silent Zip Truncation, Kebab-Case Alias Collisions & Quiet stderr Suppression)",
-   "link": "https://dev.to/sinescribe/3-subtle-rust-cli-parser-bugs-i-hunted-today-silent-zip-truncation-kebab-case-alias-collisions-bpo",
-   "cover": "img/a1168.webp"
-  },
-  {
-   "id": "a1160",
-   "title": "Ruby 正则与字符串爆 7 个漏洞，部分可直接 RCE，附修复版本",
-   "summary": "Ruby 官方披露正则引擎与字符串大小写转换共 7 个漏洞，其中数个已有 PoC 可触发远程代码执行，修复版本为 4.0.10 / 3.4.13 / 3.3.14。",
-   "content": "这次漏洞分两类：字符串大小写转换里有一字节堆溢出、整数溢出导致的堆溢出，以及一个能直接 RCE 的缺陷；正则引擎侧同样存在可被构造输入触发的内存破坏。对信息安全专业的同学，这是一份现成的「输入校验 + 内存安全」教学样本：为什么一个看似无害的 upcase 调用会成为攻击面？PoC 如何从可控字符串走到代码执行？建议在实验环境里复现（用 Docker 起旧版本 Ruby），再对照补丁 diff 看官方怎么修。软件工程同学则记住一条工程纪律：依赖版本扫描要进 CI，别等公告出来才手忙脚乱。",
-   "source": "开源中国",
-   "date": "2026-11-20",
-   "cat": "industry",
-   "tracks": [
-    "信息安全",
-    "通用开发"
-   ],
-   "stack": [
-    "Ruby"
-   ],
-   "value": "**把「一个字符串函数也能 RCE」讲透，是漏洞复现与依赖治理的最好素材**",
-   "courses": "《网络安全技术》《软件安全测试》——用作漏洞复现实验与补丁分析作业",
-   "tags": [
-    "信息安全",
-    "通用开发",
-    "行业动态"
-   ],
-   "featured": false,
-   "heat": 78,
-   "brief": [
-    "7 个漏洞集中在正则引擎与字符串大小写转换，部分可 RCE",
-    "已有 PoC 证明可利用，非理论风险",
-    "修复版本：Ruby 4.0.10、3.4.13、3.3.14",
-    "适合做漏洞复现与补丁 diff 分析的教学案例"
-   ],
-   "buzz": [],
-   "link": "https://www.oschina.net/news/503699/ruby-lang-multiple-vulnerabilities-in-regexp-and-string"
-  },
-  {
-   "id": "a1161",
-   "title": "火山引擎 Agent-Native 团队讲上下文管理：长任务不崩的工程做法",
-   "summary": "AICon 北京场分享 Agent-Native 场景下的上下文管理实践，涉及上下文压缩、分层记忆与工具调用结果的组织方式。",
-   "content": "做 AI 应用最常踩的坑不是模型不够强，而是上下文塞爆、历史越滚越乱、工具返回结果把窗口吃光。这场分享给的是工程侧答案：怎么给上下文分层（系统约束 / 任务状态 / 近期对话 / 检索片段）、什么时候做摘要压缩、工具输出怎么裁剪后再入窗。对软件工程同学，这正好对应你课设里写「带记忆的问答助手」时最头疼的部分——别一上来就堆 prompt，先把上下文当数据结构设计。建议边看边在自己的小项目里加一个 context manager 模块，简历上比「调过 API」有说服力得多。",
-   "source": "InfoQ中文",
-   "date": "2026-11-20",
-   "cat": "tut",
-   "tracks": [
-    "通用开发",
-    "前端"
-   ],
-   "stack": [
-    "LLM",
-    "Agent"
-   ],
-   "diff": 2,
-   "scene": "课设/简历加分",
-   "value": "**把上下文当数据结构来设计，是 AI 应用从 demo 走向可用的分水岭**",
-   "courses": "《人工智能导论》《软件项目实践》——用于对话类课设的上下文模块设计",
-   "tags": [
-    "AI工具",
-    "通用开发",
-    "求职就业"
-   ],
-   "featured": false,
-   "heat": 72,
-   "brief": [
-    "聚焦 Agent 长任务的上下文组织与压缩策略",
-    "涉及分层记忆、工具结果裁剪、摘要触发时机",
-    "可直接迁移到课设里的对话/助手类项目",
-    "重点在工程结构，不是模型调参"
-   ],
-   "buzz": [],
-   "link": "https://www.infoq.cn/article/YTGHxcabs0RI3btLIUxm?utm_source=rss&utm_medium=article",
-   "cover": "img/a1161.webp"
   }
  ],
  "jobs": [
